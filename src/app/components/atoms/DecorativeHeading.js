@@ -1,19 +1,26 @@
+"use client";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
-import { Clamp } from "@/../../utils/functions";
+import { Clamp } from "@/utils/functions";
 import { HeadingDecoration, HeadingLineFlexibility } from "./Icons";
 
-const DecorativeHeading = ({ type="h1", children, decoration=true, components, ...props }) => {
+const DecorativeHeading = ({
+  type = "h1",
+  children,
+  decoration = true,
+  components,
+  ...props
+}) => {
   const renderParagraph = ({ children }) => {
     const renderedChildren = [];
-    children.forEach(child => {
-      if (typeof child === 'string') {
+    children.forEach((child) => {
+      if (typeof child === "string") {
         const parts = child.split(/(~>|~~~>)/);
         parts.forEach((part, partIndex) => {
-          if (part === '~>') {
+          if (part === "~>") {
             renderedChildren.push(<HeadingLineFlexibility key={partIndex} />);
-          } else if (part === '~~~>') {
+          } else if (part === "~~~>") {
             renderedChildren.push(<HeadingDecoration key={partIndex} />);
           } else {
             renderedChildren.push(part);
@@ -27,19 +34,19 @@ const DecorativeHeading = ({ type="h1", children, decoration=true, components, .
   };
 
   return (
-    <Wrapper as={type} has2spans={children?.includes('\n\n')} {...props}>
-      {decoration && (
-        <HeadingDecoration />
-      )}
+    <Wrapper as={type} {...props}>
+      {decoration && <HeadingDecoration />}
       <ReactMarkdown
         components={{
           p: renderParagraph,
-          ...components
+          ...components,
         }}
-      >{children}</ReactMarkdown>
+      >
+        {children}
+      </ReactMarkdown>
     </Wrapper>
   );
-}
+};
 
 const Wrapper = styled.h1`
   display: grid;
@@ -51,36 +58,34 @@ const Wrapper = styled.h1`
     margin-top: 0.25em;
     margin-right: 8px;
   }
-  ${({ has2spans }) => has2spans && `
-    grid-template-columns: auto auto 1fr;
-    width: 100%;
-    span:nth-of-type(1){
-      max-width: ${640/16}rem;
+  grid-template-columns: auto auto 1fr;
+  width: 100%;
+  span:nth-of-type(1) {
+    max-width: ${640 / 16}rem;
+  }
+  span:nth-of-type(2) {
+    grid-column: 3/-1;
+    align-self: flex-end;
+    text-align: right;
+    font-size: ${Clamp(20, 22, 22)};
+    margin: 0 0 0.8em 0;
+    max-width: ${400 / 16}rem;
+    justify-self: end;
+  }
+  @media (max-width: 1199px) {
+    grid-template-columns: auto 1fr;
+    span:nth-of-type(2) {
+      grid-column: 3/1;
+      text-align: left;
+      margin: 28px 0 0 0;
+      justify-self: unset;
+      max-width: unset;
     }
-    span:nth-of-type(2){
-      grid-column: 3/-1;
-      align-self: flex-end;
-      text-align: right;
-      font-size: ${Clamp(20, 22, 22)};
-      margin: 0 0 .8em 0;
-      max-width: ${400/16}rem;
-      justify-self: end;
-    }
-    @media (max-width: 1199px){
-      grid-template-columns: auto 1fr;
-      span:nth-of-type(2) {
-        grid-column: 3/1;
-        text-align: left;
-        margin: 28px 0 0 0;
-        justify-self: unset;
-        max-width: unset;
-      }
-    }
-  `}
+  }
   span > svg {
     vertical-align: middle;
     width: ${Clamp(100, 216, 216)};
   }
-`
+`;
 
 export default DecorativeHeading;

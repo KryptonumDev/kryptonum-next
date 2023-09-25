@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
-import { Clamp } from "../../../utils/functions";
+import { Clamp } from "../../../../utils/functions";
 import { Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { ArrowTopRight } from "../../atoms/Icons";

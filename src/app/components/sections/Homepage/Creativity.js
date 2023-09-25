@@ -2,7 +2,7 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
-import { Clamp } from "../../../utils/functions";
+import { Clamp } from "../../../../utils/functions";
 
 const Creativity = ({
   data: {

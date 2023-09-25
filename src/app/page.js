@@ -8,7 +8,8 @@ import Hero from "../app/components/sections/Homepage/Hero";
 // import Testimonials from "../components/sections/Homepage/Testimonials";
 // import FourGrid from "../components/sections/Homepage/FourGrid";
 // import LatestBlogEntries from "../components/sections/Homepage/LatestBlogEntries";
-import fetchData from "../../utils/fetchData";
+import '../styles/global.css';
+import fetchData from "../utils/fetchData";
 
 const IndexPage = async () => {
   const {
