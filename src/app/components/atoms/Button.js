@@ -1,8 +1,9 @@
+'use client'
 import React from "react";
 import { Link } from "next/navigation";
 import { ArrowTopRight } from "./Icons";
 import styled from "styled-components";
-import { Clamp } from "@/../../utils/functions";
+import { Clamp } from "@/utils/functions";
 
 const Button = ({theme = 'secondary', children, to, className, ...props}) => {
   const isExternal = to && to.startsWith('https://');

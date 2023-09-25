@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import styled from "styled-components";
 import Button from "../../atoms/Button";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
-import { Clamp } from '../../../utils/functions';
+import { Clamp } from '../../../../utils/functions';
 
 const FourGrid = ({ heading, claim, paragraph, secondClaim, cta }) => {
   return (
