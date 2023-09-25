@@ -4,6 +4,7 @@ import Button from "@/app/components/atoms/Button";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 
 import Wrapper from "./Wrapper";
+import Image from "next/image";
 
 const CaseStudies = async () => {
   let body  = await query();
@@ -13,7 +14,7 @@ const CaseStudies = async () => {
       <div className="wrapper">
         {body.data.caseStudies.map((caseStudy, i) => (
           <div className="caseStudy" key={i}>
-            <img
+            <Image
               key={i}
               image={caseStudy.img?.asset.gatsbyImageData}
               alt={caseStudy.img?.asset.altText || ""}
