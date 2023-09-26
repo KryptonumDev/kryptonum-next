@@ -1,61 +1,92 @@
 export const scrollLock = (boolean) => {
-  const body = (typeof document !== `undefined`) ? document.body : null;
+  const body = typeof document !== `undefined` ? document.body : null;
   switch (boolean) {
     case true:
-      body.classList.add('scrollLock');
+      body.classList.add("scrollLock");
       break;
     case false:
-      body.classList.remove('scrollLock');
+      body.classList.remove("scrollLock");
       break;
-    default: 
-      break
+    default:
+      break;
   }
-}
+};
 
-export const Clamp = (minSize, vw, maxSize, unit="rem") => {
+export const Clamp = (minSize, vw, maxSize, unit = "rem") => {
   return unit === "rem"
-  ? `clamp(${minSize / 16}rem, ${vw/7.68}vw, ${maxSize / 16}rem)`
-  : `clamp(${minSize}px, ${vw/7.68}vw, ${maxSize}px)`;
+    ? `clamp(${minSize / 16}rem, ${vw / 7.68}vw, ${maxSize / 16}rem)`
+    : `clamp(${minSize}px, ${vw / 7.68}vw, ${maxSize}px)`;
 };
 
 export const removeMarkdown = (markdown) => {
-  return markdown?.replace(/\*\*(.*?)\*\*/g, '$1');
-}
+  return markdown?.replace(/\*\*(.*?)\*\*/g, "$1");
+};
 
 export const portableTextToMarkdown = (node) => {
-  if (node._type === 'span') {
+  if (node._type === "span") {
     let text = node.text;
-    if (node.marks && node.marks.includes('strong')) {
+    if (node.marks && node.marks.includes("strong")) {
       text = `**${text}**`;
     }
     return text;
   }
   if (Array.isArray(node.children)) {
-    return node.children.map(child => portableTextToMarkdown(child)).join('');
+    return node.children.map((child) => portableTextToMarkdown(child)).join("");
   }
-  return '';
+  return "";
 };
 
 export const slugify = (text) => {
-  const a = 'àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;',
-        b = 'aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------',
-        p = new RegExp(a.split('').join('|'), 'g');
-  return text.toString().toLowerCase().replace(/\s+/g, '-').replace(p, c => b.charAt(a.indexOf(c))).replace(/&/g, '-i-').replace(/[^\w-]+/g, '').replace(/--+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
+  const a =
+      "àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;",
+    b =
+      "aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------",
+    p = new RegExp(a.split("").join("|"), "g");
+  return text
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(p, (c) => b.charAt(a.indexOf(c)))
+    .replace(/&/g, "-i-")
+    .replace(/[^\w-]+/g, "")
+    .replace(/--+/g, "-")
+    .replace(/^-+/, "")
+    .replace(/-+$/, "");
 };
 
 export const smoothScroll = (e) => {
   e.preventDefault();
-  const targetId = e.target.getAttribute('href');
+  const targetId = e.target.getAttribute("href");
   const targetElement = document.querySelector(targetId);
-  targetElement.scrollIntoView({ behavior: 'smooth' });
-  history.pushState(null, '', targetId);
-}
+  targetElement.scrollIntoView({ behavior: "smooth" });
+  history.pushState(null, "", targetId);
+};
 
-export const changeImageDimensions = (height, width,images) => {
-  return images.map((image,i) => {
-    image.asset.metadata.dimensions.width = width;
-    image.asset.metadata.dimensions.height = height;
+export const changeImagesDimensions = (
+  images,
+  height = "inherit",
+  width = "inherit"
+) => {
+  return images.map((image) => {
+    if (width != "inherit") {
+      image.asset.metadata.dimensions.width = width;
+    }
+    if (height != "inherit") {
+      image.asset.metadata.dimensions.height = height;
+    }
     return image;
+  });
+};
+export const changeImageDimensions = (
+  image,
+  height = "inherit",
+  width = "inherit"
+) => {
+  if (width != "inherit") {
+    image.asset.metadata.dimensions.width = width;
   }
-  )
-}
+  if (height != "inherit") {
+    image.asset.metadata.dimensions.height = height;
+  }
+  return image;
+};

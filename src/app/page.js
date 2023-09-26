@@ -5,6 +5,7 @@ import Services from "../app/components/sections/Homepage/Services";
 import FourGrid from "../app/components/sections/Homepage/FourGrid";
 import Creativity from "./components/sections/Homepage/Creativity";
 import Roadmap from "./components/sections/Homepage/Roadmap";
+import Team from "./components/sections/Homepage/Team";
 // import Roadmap from "../components/sections/Homepage/Roadmap";
 // import Team from "../components/sections/Homepage/Team";
 // import Testimonials from "../components/sections/Homepage/Testimonials";
@@ -37,6 +38,9 @@ const IndexPage = async () => {
       roadmap_Heading,
       roadmap_Process,
       roadmap_Cta,
+      team_Heading,
+      team_Text,
+      team_Cta,
     },
     webDevelopment,
     workshop,
@@ -87,6 +91,11 @@ const IndexPage = async () => {
         heading={roadmap_Heading}
         list={roadmap_Process}
         cta={roadmap_Cta}
+      />
+      <Team
+        heading={team_Heading}
+        paragraph={team_Text}
+        cta={team_Cta}
       />
     </>
   );
@@ -143,6 +152,14 @@ const query = async () => {
       description
     }
     roadmap_Cta {
+      theme
+      text
+      href
+    }
+    # Team
+    team_Heading
+    team_Text
+    team_Cta {
       theme
       text
       href

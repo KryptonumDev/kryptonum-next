@@ -3,7 +3,7 @@ import React from "react";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import { ArrowTopRight } from "@/app/components/atoms/Icons";
 import styled from "styled-components";
-import { Clamp, changeImageDimensions } from "@/utils/functions";
+import { Clamp, changeImagesDimensions } from "@/utils/functions";
 import Wrapper from "./Wrapper";
 import Link from "next/link";
 import Img from "@/utils/Img";
@@ -20,7 +20,7 @@ const Services = ({
   
 }) => {
   let images = [webDevelopment.hero_Img, workshop.hero_Img, agency.hero_Img, graphicsAndDesign.hero_Img];
-  images = changeImageDimensions(200, 200, images);
+  images = changeImagesDimensions(images, 200, 200);
   return (
     <Wrapper>
       <DecorativeHeading type="h2">{services_Heading}</DecorativeHeading>
