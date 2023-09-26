@@ -1,23 +1,6 @@
-import React from "react";
-import ReactMarkdown from 'react-markdown'
+"use client"
 import styled from "styled-components";
-import Button from "../../atoms/Button";
-import DecorativeHeading from "../../atoms/DecorativeHeading";
-import { Clamp } from '../../../../utils/functions';
-
-const FourGrid = ({ heading, claim, paragraph, secondClaim, cta }) => {
-  return (
-    <Wrapper>
-      <DecorativeHeading type="h2">{heading}</DecorativeHeading>
-      <ReactMarkdown>{claim}</ReactMarkdown>
-      <p>{paragraph}</p>
-      <div>
-        <ReactMarkdown>{secondClaim}</ReactMarkdown>
-        <Button theme={cta.theme} to={cta.href}>{cta.text}</Button>
-      </div>
-    </Wrapper>
-  );
-}
+import { Clamp } from "@/utils/functions";
 
 const Wrapper = styled.section`
   display: grid;
@@ -66,5 +49,4 @@ const Wrapper = styled.section`
     }
   }
 `
- 
-export default FourGrid;
+export default Wrapper;

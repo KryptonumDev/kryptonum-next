@@ -2,11 +2,12 @@ import * as React from "react";
 //import { SEO } from "../components/global/Seo";
 import Hero from "../app/components/sections/Homepage/Hero";
 import Services from "../app/components/sections/Homepage/Services";
+import FourGrid from "../app/components/sections/Homepage/FourGrid";
 // import Creativity from "../components/sections/Homepage/Creativity";
 // import Roadmap from "../components/sections/Homepage/Roadmap";
 // import Team from "../components/sections/Homepage/Team";
 // import Testimonials from "../components/sections/Homepage/Testimonials";
-// import FourGrid from "../components/sections/Homepage/FourGrid";
+
 // import LatestBlogEntries from "../components/sections/Homepage/LatestBlogEntries";
 import "../styles/global.css";
 import fetchData from "../utils/fetchData";
@@ -19,6 +20,16 @@ const IndexPage = async () => {
       hero_Cta,
       services_Heading,
       services_List,
+      conquest_Heading,
+      conquest_Claim,
+      conquest_Paragraph,
+      conquest_SecondClaim,
+      conquest_Cta,
+      challenge_Heading,
+      challenge_Claim,
+      challenge_Paragraph,
+      challenge_SecondClaim,
+      challenge_Cta,
     },
     webDevelopment,
     workshop,
@@ -44,6 +55,20 @@ const IndexPage = async () => {
           graphicsAndDesign,
         }}
       />
+      <FourGrid
+        heading={conquest_Heading}
+        claim={conquest_Claim}
+        paragraph={conquest_Paragraph}
+        secondClaim={conquest_SecondClaim}
+        cta={conquest_Cta}
+      />
+      <FourGrid
+        heading={challenge_Heading}
+        claim={challenge_Claim}
+        paragraph={challenge_Paragraph}
+        secondClaim={challenge_SecondClaim}
+        cta={challenge_Cta}
+      />
     </>
   );
 };
@@ -68,6 +93,26 @@ const query = async () => {
       description
       href
     }
+    # Conquest
+      conquest_Heading
+      conquest_Claim
+      conquest_Paragraph
+      conquest_SecondClaim
+      conquest_Cta {
+        theme
+        text
+        href
+      }
+      # Challange
+      challenge_Heading
+      challenge_Claim
+      challenge_Paragraph
+      challenge_SecondClaim
+      challenge_Cta {
+        theme
+        text
+        href
+      }
   }
   webDevelopment: WebDevelopment(id: "webDevelopment") {
     hero_Img {
