@@ -4,6 +4,7 @@ import Hero from "../app/components/sections/Homepage/Hero";
 import Services from "../app/components/sections/Homepage/Services";
 import FourGrid from "../app/components/sections/Homepage/FourGrid";
 import Creativity from "./components/sections/Homepage/Creativity";
+import Roadmap from "./components/sections/Homepage/Roadmap";
 // import Roadmap from "../components/sections/Homepage/Roadmap";
 // import Team from "../components/sections/Homepage/Team";
 // import Testimonials from "../components/sections/Homepage/Testimonials";
@@ -33,6 +34,9 @@ const IndexPage = async () => {
       creativity_Heading,
       creativity_Paragraph,
       creativity_SecondParagraph,
+      roadmap_Heading,
+      roadmap_Process,
+      roadmap_Cta,
     },
     webDevelopment,
     workshop,
@@ -78,6 +82,11 @@ const IndexPage = async () => {
           creativity_Paragraph,
           creativity_SecondParagraph,
         }}
+      />
+      <Roadmap
+        heading={roadmap_Heading}
+        list={roadmap_Process}
+        cta={roadmap_Cta}
       />
     </>
   );
@@ -127,6 +136,17 @@ const query = async () => {
     creativity_Heading
     creativity_Paragraph
     creativity_SecondParagraph
+    # Roadmap
+    roadmap_Heading
+    roadmap_Process {
+      title
+      description
+    }
+    roadmap_Cta {
+      theme
+      text
+      href
+    }
   }
   webDevelopment: WebDevelopment(id: "webDevelopment") {
     hero_Img {
