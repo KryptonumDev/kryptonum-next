@@ -23,7 +23,7 @@ const Button = ({theme = 'secondary', children, to, className, ...props}) => {
           <StyledAnchor
             as={Link}
             className={`cta ${theme}${className ? ` ${className}` : ''}`}
-            to={to}
+            href={to}
             {...props}
           >
             <span data-text={theme === "secondary" ? children : undefined}>{children}</span>
