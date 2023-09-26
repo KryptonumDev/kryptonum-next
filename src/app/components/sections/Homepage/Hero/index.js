@@ -4,6 +4,7 @@ import Wrapper from "./Wrapper";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import Button from "@/app/components/atoms/Button";
 import CaseStudies from "../CaseStudies";
+import HeroSubheading from '../HeroSubheadings'
 
 const Hero = ({
   data: {
@@ -17,17 +18,13 @@ const Hero = ({
       <header>
         <div className="copy">
           <DecorativeHeading type="h1">{hero_Heading}</DecorativeHeading>
-          <ol>
-            {hero_Subheading.map((subheading, i) => (
-              <li key={i}>{subheading}</li>
-            ))}
-          </ol>
+          <HeroSubheading>{hero_Subheading}</HeroSubheading>
         </div>
         <div className="cta-wrapper">
           <Button to={hero_Cta.href} theme={hero_Cta.theme}>{hero_Cta.text}</Button>
         </div>
       </header>
-      <CaseStudies eagerLoading={1} />
+      <CaseStudies/>
     </Wrapper>
   );
 }

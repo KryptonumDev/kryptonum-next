@@ -7,6 +7,8 @@
 }
 
 :root {
+  --rem-px: 16px;
+  --clamp-vw: 7.68vw;
   --neutral-50: #EFF0F3;
   --neutral-100: #F5F6FA;
   --neutral-200: #EFF0F3;
@@ -92,11 +94,11 @@ main {
   display: grid;
   grid-template-columns: 1fr;
 
-  row-gap: clamp(96px, 144px, 172px);
+  row-gap: clamp(96px, calc(144vw/--clamp-vw), 172px);
   padding-top: 40px;
 
   @media (max-width: 999px) {
-    padding-top: clamp(48px, 128px, 128px);
+    padding-top: clamp(48px, calc(128vw/--clamp-vw), 128px);
   }
 }
 
@@ -153,15 +155,15 @@ h6 {
 }
 
 h1 {
-  font-size: clamp(28px, 50px, 56px);
+  font-size: clamp(28px, calc(50vw/--clamp-vw), 56px);
 }
 
 h2 {
-  font-size: clamp(28px, 50px, 48px);
+  font-size: clamp(28px, calc(50vw/--clamp-vw), 48px);
 }
 
 h3 {
-  font-size: clamp(24px, 40px, 40px);
+  font-size: clamp(24px, calc(50vw/--clamp-vw), 40px);
 }
 
 p strong,

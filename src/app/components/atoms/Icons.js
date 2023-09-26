@@ -117,7 +117,7 @@ export const HeadingLineFlexibility = () => (
   </svg>
 )
 
-export const ArrowTopRight = ({ id = `arrow_${Math.random().toString(36).substring(2, 7)}` }) => (
+export const ArrowTopRight = ({ id = `arrow_TR` }) => (
   <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none'>
     <path
       stroke={`url(#${id})`}

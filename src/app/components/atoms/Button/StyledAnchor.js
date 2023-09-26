@@ -1,52 +1,8 @@
 'use client'
-import React from "react";
-import { Link } from "next/navigation";
-import { ArrowTopRight } from "./Icons";
-import styled from "styled-components";
-import { Clamp } from "@/utils/functions";
 
-const Button = ({theme = 'secondary', children, to, className, ...props}) => {
-  const isExternal = to && to.startsWith('https://');
-  return (
-    <>
-      {to ? (
-        isExternal ? (
-          <StyledAnchor
-            as='a'
-            className={`cta ${theme}${className ? ` ${className}` : ''}`}
-            href={to}
-            target="_blank"
-            rel="noreferrer"
-            {...props}
-          >
-            <span data-text={theme === 'secondary' ? children : undefined}>{children}</span>
-            <ArrowTopRight />
-          </StyledAnchor>
-        ) : (
-          <StyledAnchor
-            as={Link}
-            className={`cta ${theme}${className ? ` ${className}` : ''}`}
-            to={to}
-            {...props}
-          >
-            <span data-text={theme === "secondary" ? children : undefined}>{children}</span>
-            <ArrowTopRight />
-          </StyledAnchor>
-        )
-      ) : (
-        <StyledAnchor
-          as='button'
-          className={`cta ${theme}${className ? ` ${className}` : ''}`}
-          type="submit"
-          {...props}
-        >
-          <span data-text={theme === 'secondary' ? children : undefined}>{children}</span>
-          <ArrowTopRight />
-        </StyledAnchor>
-      )}
-    </>
-  )
-}
+import styled from "styled-components"
+import React from "react"
+import { Clamp } from "@/utils/functions"
 
 const StyledAnchor = styled.a`
   font-size: ${Clamp(15, 22, 22)};
@@ -143,5 +99,5 @@ const StyledAnchor = styled.a`
     }
   }
 `
- 
-export default Button;
+
+export default StyledAnchor;
