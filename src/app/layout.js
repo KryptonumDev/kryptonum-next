@@ -1,11 +1,11 @@
 
 import "./globals.css";
-import { Inter } from "next/font/google";
+import localFont from 'next/font/local';
 
-const inter = Inter({ subsets: ["latin"] });
+const font = localFont({ src: '../resources/fonts/Poppins-Light.woff2'});
 
 export const metadata = {
-  title: `Kryptonum`,
+  title: `Agencja interaktywna Kryptonum`,
   siteUrl: `https://kryptonum.eu`,
 };
 
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="robots" content="noindex"></meta>
       </head>
-        <body className={inter.className}>{children}</body>
+        <body className={font.className}>{children}</body>
     </html>
   );
 }

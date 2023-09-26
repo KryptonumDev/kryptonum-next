@@ -1,25 +1,31 @@
-import React from "react";
+import React, { lazy } from "react";
 import fetchData from "@/utils/fetchData";
 import Button from "@/app/components/atoms/Button";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
+import NextImage from "next/image";
 
 import Wrapper from "./Wrapper";
-import Image from "next/image";
 
 const CaseStudies = async () => {
   let body  = await query();
-    
+
+    return (
     <Wrapper>
       {<DecorativeHeading type="h2"></DecorativeHeading>}
       <div className="wrapper">
         {body.data.caseStudies.map((caseStudy, i) => (
           <div className="caseStudy" key={i}>
-            <Image
+            <NextImage
               key={i}
-              image={caseStudy.img?.asset.gatsbyImageData}
+              src={caseStudy.img?.asset.url}
+              width={caseStudy.img?.asset.metadata?.dimensions.width || 0}
+              height={caseStudy.img?.asset.metadata?.dimensions.height || 0}
               alt={caseStudy.img?.asset.altText || ""}
+              blurDataURL = {caseStudy.img?.asset.metadata.lqip}
+              placeholder="blur"
+              loading={"lazy"}
+              quality= {80}
               className="img"
-              loading={i == 0 ? "eager" : "lazy"}
             />
             <Button
               to={`/pl/portfolio/${caseStudy.slug.current}`}
@@ -36,6 +42,7 @@ const CaseStudies = async () => {
         </Button>
       )}
     </Wrapper>
+    );
 };
 const query = async () => {
   const {
@@ -49,7 +56,9 @@ const query = async () => {
           img {
             asset {
               altText
+              url
               metadata {
+                lqip
                 dimensions {
                   height
                   width

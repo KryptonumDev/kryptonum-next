@@ -1,5 +1,4 @@
 "use client"
-
 import { Clamp } from "../../../../../utils/functions";
 import styled from "styled-components";
 import React from 'react';
