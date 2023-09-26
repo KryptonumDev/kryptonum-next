@@ -50,3 +50,12 @@ export const smoothScroll = (e) => {
   targetElement.scrollIntoView({ behavior: 'smooth' });
   history.pushState(null, '', targetId);
 }
+
+export const changeImageDimensions = (height, width,images) => {
+  return images.map((image,i) => {
+    image.asset.metadata.dimensions.width = width;
+    image.asset.metadata.dimensions.height = height;
+    return image;
+  }
+  )
+}

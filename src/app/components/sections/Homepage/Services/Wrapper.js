@@ -1,44 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import DecorativeHeading from "../../atoms/DecorativeHeading";
-import { Clamp } from "../../../../utils/functions";
-import { Link } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { ArrowTopRight } from "../../atoms/Icons";
+"use client";
 
-const Services = ({
-  data: {
-    services_Heading,
-    services_List,
-    webDevelopment,
-    workshop,
-    agency,
-    graphicsAndDesign,
-  }
-}) => {
-  const images = [webDevelopment.hero_Img, workshop.hero_Img, agency.hero_Img, graphicsAndDesign.hero_Img];
-  return (
-    <Wrapper>
-      <DecorativeHeading type="h2">{services_Heading}</DecorativeHeading>
-      <div className="wrapper">
-        {services_List.map((service, i) => (
-          <Link to={service.href} className="item" key={i}>
-            <GatsbyImage
-              image={images[i].asset.gatsbyImageData}
-              alt={images[i].asset.altText || ''}
-              className="img"
-            />
-            <h3>
-              <span>{service.title}</span>
-              <ArrowTopRight />
-            </h3>
-            <p className="strong">{service.description}</p>
-          </Link>
-        ))}
-      </div>
-    </Wrapper>
-  );
-}
+import styled from "styled-components";
+
+import React from "react";
+import { Clamp } from "@/utils/functions";
 
 const Wrapper = styled.section`
   h2 {
@@ -62,7 +27,7 @@ const Wrapper = styled.section`
         right: 0;
         top: 100%;
         transform: translate(-50%, -50%);
-        transition: transform .5s, opacity .3s;
+        transition: transform 0.5s, opacity 0.3s;
         transition-timing-function: var(--easing);
       }
       &:hover {
@@ -90,7 +55,7 @@ const Wrapper = styled.section`
         }
         svg {
           align-self: center;
-          transition: transform .3s;
+          transition: transform 0.3s;
         }
       }
       p {
@@ -98,11 +63,10 @@ const Wrapper = styled.section`
       }
     }
   }
-  @media (max-width: 999px){
+  @media (max-width: 999px) {
     .wrapper {
       grid-template-columns: 1fr;
     }
   }
-`
- 
-export default Services;
+`;
+export default Wrapper;
