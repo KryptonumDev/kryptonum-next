@@ -3,7 +3,7 @@ import * as React from "react";
 import Hero from "../app/components/sections/Homepage/Hero";
 import Services from "../app/components/sections/Homepage/Services";
 import FourGrid from "../app/components/sections/Homepage/FourGrid";
-// import Creativity from "../components/sections/Homepage/Creativity";
+import Creativity from "./components/sections/Homepage/Creativity";
 // import Roadmap from "../components/sections/Homepage/Roadmap";
 // import Team from "../components/sections/Homepage/Team";
 // import Testimonials from "../components/sections/Homepage/Testimonials";
@@ -30,6 +30,9 @@ const IndexPage = async () => {
       challenge_Paragraph,
       challenge_SecondClaim,
       challenge_Cta,
+      creativity_Heading,
+      creativity_Paragraph,
+      creativity_SecondParagraph,
     },
     webDevelopment,
     workshop,
@@ -69,6 +72,13 @@ const IndexPage = async () => {
         secondClaim={challenge_SecondClaim}
         cta={challenge_Cta}
       />
+      <Creativity
+        data={{
+          creativity_Heading,
+          creativity_Paragraph,
+          creativity_SecondParagraph,
+        }}
+      />
     </>
   );
 };
@@ -86,7 +96,7 @@ const query = async () => {
       text
       href
     }
-    #Services
+    # Services
     services_Heading
     services_List {
       title
@@ -94,25 +104,29 @@ const query = async () => {
       href
     }
     # Conquest
-      conquest_Heading
-      conquest_Claim
-      conquest_Paragraph
-      conquest_SecondClaim
-      conquest_Cta {
-        theme
-        text
-        href
-      }
-      # Challange
-      challenge_Heading
-      challenge_Claim
-      challenge_Paragraph
-      challenge_SecondClaim
-      challenge_Cta {
-        theme
-        text
-        href
-      }
+    conquest_Heading
+    conquest_Claim
+    conquest_Paragraph
+    conquest_SecondClaim
+    conquest_Cta {
+      theme
+      text
+      href
+    }
+    # Challange
+    challenge_Heading
+    challenge_Claim
+    challenge_Paragraph
+    challenge_SecondClaim
+    challenge_Cta {
+      theme
+      text
+      href
+    }
+    # Creativity
+    creativity_Heading
+    creativity_Paragraph
+    creativity_SecondParagraph
   }
   webDevelopment: WebDevelopment(id: "webDevelopment") {
     hero_Img {
