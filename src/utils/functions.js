@@ -62,6 +62,15 @@ export const smoothScroll = (e) => {
   history.pushState(null, "", targetId);
 };
 
+export const formatDateToPolishLocale = (date) => {
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  };
+  return date = new Date(date).toLocaleDateString('pl-PL', options );
+}
+
 export const changeImagesDimensions = (
   images,
   height = "inherit",

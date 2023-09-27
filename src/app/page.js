@@ -11,6 +11,7 @@ import Testimonials from "./components/sections/Homepage/Testimonials";
 // import LatestBlogEntries from "../components/sections/Homepage/LatestBlogEntries";
 import "../styles/global.css";
 import fetchData from "../utils/fetchData";
+import LatestBlogEntries from "./components/sections/Homepage/LatestBlogEntries";
 
 const IndexPage = async () => {
   const {
@@ -96,6 +97,7 @@ const IndexPage = async () => {
         cta={team_Cta}
       />
       <Testimonials />
+      <LatestBlogEntries/>
     </>
   );
 };
