@@ -6,9 +6,7 @@ import FourGrid from "../app/components/sections/Homepage/FourGrid";
 import Creativity from "./components/sections/Homepage/Creativity";
 import Roadmap from "./components/sections/Homepage/Roadmap";
 import Team from "./components/sections/Homepage/Team";
-// import Roadmap from "../components/sections/Homepage/Roadmap";
-// import Team from "../components/sections/Homepage/Team";
-// import Testimonials from "../components/sections/Homepage/Testimonials";
+import Testimonials from "./components/sections/Homepage/Testimonials";
 
 // import LatestBlogEntries from "../components/sections/Homepage/LatestBlogEntries";
 import "../styles/global.css";
@@ -97,6 +95,7 @@ const IndexPage = async () => {
         paragraph={team_Text}
         cta={team_Cta}
       />
+      <Testimonials />
     </>
   );
 };
