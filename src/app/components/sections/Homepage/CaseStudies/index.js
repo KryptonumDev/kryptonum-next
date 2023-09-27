@@ -1,32 +1,21 @@
-import React, { lazy } from "react";
+import React from "react";
 import fetchData from "@/utils/fetchData";
 import Button from "@/app/components/atoms/Button";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
-import NextImage from "next/image";
+import Img from "@/utils/Img";
 
 import Wrapper from "./Wrapper";
 
 const CaseStudies = async () => {
-  let body  = await query();
+  let body = await query();
 
-    return (
+  return (
     <Wrapper>
       {<DecorativeHeading type="h2"></DecorativeHeading>}
       <div className="wrapper">
         {body.data.caseStudies.map((caseStudy, i) => (
           <div className="caseStudy" key={i}>
-            <NextImage
-              key={i}
-              src={caseStudy.img?.asset.url}
-              width={caseStudy.img?.asset.metadata?.dimensions.width || 0}
-              height={caseStudy.img?.asset.metadata?.dimensions.height || 0}
-              alt={caseStudy.img?.asset.altText || ""}
-              blurDataURL = {caseStudy.img?.asset.metadata.lqip}
-              placeholder="blur"
-              loading={"lazy"}
-              quality= {80}
-              className="img"
-            />
+              <Img data={caseStudy.img} key={i} className="img"/>
             <Button
               to={`/pl/portfolio/${caseStudy.slug.current}`}
               aria-label={`Sprawdź projekt ${caseStudy.name}`}
@@ -36,18 +25,16 @@ const CaseStudies = async () => {
           </div>
         ))}
       </div>
-      {(
+      {
         <Button theme="primary" to="/pl/portfolio">
           Wszystkie projekty
         </Button>
-      )}
+      }
     </Wrapper>
-    );
+  );
 };
 const query = async () => {
-  const {
-    body
-  } = await fetchData(`
+  const { body } = await fetchData(`
     caseStudies: allCaseStudyEntries(limit: 3, sort: {_updatedAt:ASC}) {
           name
           slug {
@@ -68,7 +55,7 @@ const query = async () => {
           }
         }
       `);
-      return body;
+  return body;
 };
 
 export default CaseStudies;
