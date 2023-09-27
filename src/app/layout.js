@@ -1,8 +1,7 @@
+import '../styles/global.scss';
+import localFont from "next/font/local";
 
-import "./globals.css";
-import localFont from 'next/font/local';
-
-const font = localFont({ src: '../resources/fonts/Poppins-Light.woff2'});
+const font = localFont({ src: "../resources/fonts/Poppins-Light.woff2" });
 
 export const metadata = {
   title: `Agencja interaktywna Kryptonum`,
@@ -15,7 +14,9 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="robots" content="noindex"></meta>
       </head>
-        <body className={font.className}>{children}</body>
+      <body className={font.className}>
+        <main id="main">{children}</main>
+      </body>
     </html>
   );
 }

@@ -29,6 +29,7 @@ const Wrapper = styled.section`
         transform: translate(-50%, -50%);
         transition: transform 0.5s, opacity 0.3s;
         transition-timing-function: var(--easing);
+        object-fit: cover;
       }
       &:hover {
         .img {
