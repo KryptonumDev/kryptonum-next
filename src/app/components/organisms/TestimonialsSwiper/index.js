@@ -1,29 +1,29 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import Wrapper from "./Wrapper";
 import { Quote } from "../../atoms/Icons";
 import Button from "../../atoms/Button";
 import Img from "@/utils/Img";
+import styles from './styles.module.scss';
 
 const TestimonialsSwiper = ({ data }) => {
   return (
-    <Wrapper>
+    <div>
       {data.testimonials.map((testimonial, i) => (
-        <div className={`item ${testimonial.img ? "" : "noImg"}`} key={i}>
+        <div className={`${styles.item}`} key={i}>
           {testimonial.img && (
             <div>
               <Img
                 data={testimonial.img}
                 alt={testimonial.img.asset.altText || ""}
-                className="img"
+                className={styles.img}
               />
               </div>
           )}
-          <div className="content">
+          <div className={styles.content}>
             <Quote />
             <ReactMarkdown>{testimonial.text}</ReactMarkdown>
           </div>
-          <div className="info">
+          <div className={`${styles.info}`}>
             <h3>
               {testimonial.name}
               <span>{testimonial.project}</span>
@@ -34,7 +34,7 @@ const TestimonialsSwiper = ({ data }) => {
           </div>
         </div>
       ))}
-    </Wrapper>
+    </div>
   );
 };
 export default TestimonialsSwiper;

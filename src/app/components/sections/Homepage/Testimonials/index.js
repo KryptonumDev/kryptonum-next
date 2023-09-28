@@ -1,17 +1,17 @@
 import React from "react";
-import Wrapper from "./Wrapper";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import fetchData from "@/utils/fetchData";
 import TestimonialsSwiper from "@/app/components/organisms/TestimonialsSwiper";
+import styles from "./styles.module.scss";
 
 const Testimonials = async () => {
   const data = await query();
 
   return (
-    <Wrapper>
+    <section className={styles.wrapper}>
       <DecorativeHeading type="h2">Zobacz, co mówią **klienci**:</DecorativeHeading>
       <TestimonialsSwiper data={data} />
-    </Wrapper>
+    </section>
   );
 }
 

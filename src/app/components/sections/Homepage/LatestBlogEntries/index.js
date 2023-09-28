@@ -1,10 +1,10 @@
 import React from "react";
 import fetchData from "@/utils/fetchData";
-import Wrapper from "./Wrapper";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import Button from "@/app/components/atoms/Button";
 import BlogEntry from "@/app/components/organisms/BlogEntry";
 import { changeImageDimensions, formatDateToPolishLocale } from "@/utils/functions";
+import styles from './styles.module.scss';
 
 const LatestBlogEntries = async ({
   data,
@@ -25,14 +25,14 @@ const LatestBlogEntries = async ({
 
   let body;
   if (data) {
-    body = data;
+    body.data.blogEntries = data;
   } else {
      body = await query();
      changeBlogEntriesData(body);
   }
 
   return (
-    <Wrapper>
+    <section className={styles.section}>
       <DecorativeHeading type="h2">
         {heading || "Zobacz nasze najnowsze **posty** na blogu"}
       </DecorativeHeading>
@@ -46,10 +46,10 @@ const LatestBlogEntries = async ({
               )
           )}
       </div>
-      <Button theme="secondary" to="/pl/blog" className="cta">
+      <Button theme="secondary" to="/pl/blog" className={styles.cta}>
         Przejdź do bloga
       </Button>
-    </Wrapper>
+    </section>
   );
 };
 

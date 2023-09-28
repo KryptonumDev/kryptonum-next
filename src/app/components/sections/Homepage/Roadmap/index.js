@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import Button from "@/app/components/atoms/Button";
-import Wrapper from './Wrapper';
+import styles from './styles.module.scss';
 
 
 const Roadmap = ({ heading, list, cta }) => {
@@ -12,7 +12,7 @@ const Roadmap = ({ heading, list, cta }) => {
   useEffect(() => {
     const roadmap = roadmapRef.current;
     const container = roadmap.querySelector(".roadmap");
-    const items = container.querySelectorAll(".roadmap-item");
+    const items = container.querySelectorAll(".roadmapItem");
     const anim = () => {
       var scrollableWidth = container.scrollWidth - container.clientWidth;
       setScrollable(scrollableWidth);
@@ -21,8 +21,8 @@ const Roadmap = ({ heading, list, cta }) => {
       const topPositive = Math.abs(top);
       items.forEach((item) => {
         item.getBoundingClientRect().left <= window.innerWidth / 2.5
-          ? item.classList.add("active")
-          : item.classList.remove("active");
+          ? item.classList.add(styles.active)
+          : item.classList.remove(styles.active);
       });
       if (topPositive >= scrollableWidth) {
         container.scrollTo({ left: scrollableWidth });
@@ -38,30 +38,29 @@ const Roadmap = ({ heading, list, cta }) => {
   }, []);
 
   return (
-    <Wrapper
+    <section className={`${styles.roadmapWrapper} roadmapWrapper`}
       style={{ minHeight: `calc(100vh + ${scrollable}px` }}
-      className="roadmapWrapper"
       ref={roadmapRef}
     >
-      <div className="sticky">
+      <div className={`${styles.sticky} sticky`}>
         <DecorativeHeading type="h2">{heading}</DecorativeHeading>
-        <div className="line"></div>
-        <div className="roadmap">
+        <div className={`${styles.line} line`}></div>
+        <div className={`${styles.roadmap} roadmap`}>
           {list.map((item, i) => (
-            <div className="roadmap-item" key={i}>
+            <div className={`${styles.roadmapItem} roadmapItem`} key={i}>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
               {i + 1 === list.length && cta?.text && (
-                <Button to={cta.href} theme={cta.theme}>
+                <Button to={cta.href} theme={cta.theme} className={styles.cta}>
                   {cta.text}
                 </Button>
               )}
             </div>
           ))}
-          <div className="roadmap-item"></div>
+          <div className={`${styles.roamdapItem} roadmapItem`}></div>
         </div>
       </div>
-    </Wrapper>
+    </section>
   );
 };
 

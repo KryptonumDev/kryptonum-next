@@ -1,7 +1,7 @@
 import React from "react";
 import { toPlainText } from '@portabletext/react';
 import { Clock } from "../Icons";
-import Wrapper from "./Wrapper";
+import styles from "./styles.module.scss";
 
 const readingTime = (text) => {
   const countWords = (text) => {
@@ -21,10 +21,10 @@ const readingTime = (text) => {
 
 const ReadingTime = ({ content }) => {
   return (
-    <Wrapper className="readingTime">
+    <p className={styles.readingTime}>
       <Clock />
       <span>{readingTime(content)} min czytania</span>
-    </Wrapper>
+    </p>
   );
 }
 

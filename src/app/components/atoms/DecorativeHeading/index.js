@@ -1,7 +1,7 @@
-import Wrapper from "./Wrapper";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import { HeadingDecoration, HeadingLineFlexibility } from "../Icons";
+import styles from "./styles.module.scss";
 
 const DecorativeHeading = ({
   type = "h1",
@@ -31,8 +31,17 @@ const DecorativeHeading = ({
     return <span>{renderedChildren}</span>;
   };
 
+  const Heading = type;
+
   return (
-    <Wrapper as={type} $has2spans={children?.includes("\n\n").toString()} {...props}>
+    <Heading
+      className={
+        children?.includes("\n\n")
+          ? `${styles.has2Spans} ${styles.wrapper}`
+          : `${styles.wrapper} `
+      }
+      {...props}
+    >
       {decoration && <HeadingDecoration />}
       <ReactMarkdown
         components={{
@@ -42,7 +51,7 @@ const DecorativeHeading = ({
       >
         {children}
       </ReactMarkdown>
-    </Wrapper>
+    </Heading>
   );
 };
 

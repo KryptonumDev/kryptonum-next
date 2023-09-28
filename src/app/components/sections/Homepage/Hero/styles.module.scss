@@ -1,33 +1,38 @@
-"use client"
-import { Clamp } from "../../../../../utils/functions";
-import styled from "styled-components";
-import React from 'react';
-
-const Wrapper = styled.section`
+.section {
   header {
     display: grid;
     align-items: flex-end;
     grid-template-columns: auto auto;
     margin-bottom: 172px;
+
     .copy {
-      max-width: ${740/16}rem;
+      max-width: calc(740/16)*1rem;
+
       h1 {
-        margin-bottom: ${Clamp(28, 40, 72, "px")};
+        margin-bottom: clamp(28px, calc(40/7.68) *1vw, 72px);
       }
+
       ol {
-        margin-left: calc(${Clamp(24, 40, 48, "px")} + 8px);
+        margin-left: calc(clamp(24px, calc(40/7.68)*1vw, 48px) + 8px);
         counter-reset: counter;
+
         li {
           counter-increment: counter;
           list-style-type: none;
-          font-size: ${Clamp(20, 32, 28)};
+
+          font-size: clamp(calc(20/16) * 1rem, calc(32/7.68) * 1vw, calc(28/16)*1rem);
           display: grid;
           grid-template-columns: 32px auto;
-          column-gap: ${Clamp(12, 16, 32, "px")};
+
+          column-gap: clamp(12px, clac(16/7.68) *1vw, 32px);
+
+          ;
           align-items: baseline;
-          &:not(:last-child){
+
+          &:not(:last-child) {
             margin-bottom: .5rem;
           }
+
           &::before {
             content: "/0" counter(counter);
             display: inline-block;
@@ -36,35 +41,40 @@ const Wrapper = styled.section`
         }
       }
     }
-    .cta-wrapper {
+
+    .ctaWrapper {
       align-items: flex-end;
     }
   }
-  @media (max-width: 1189px){
+
+  @media (max-width: 1189px) {
     header {
-      margin-bottom: ${Clamp(96, 144, 144, "px")};
+      margin-bottom: clamp(96px, calc(144/7.68) *1vw, 144px);
       grid-template-columns: 1fr;
-      .cta-wrapper {
-        margin-top: ${Clamp(64, 96, 96, "px")};
-        margin-left: calc(${Clamp(24, 40, 48, "px")} + 8px);
+
+      .ctaWrapper {
+        margin-top: clamp(64px, calc(96/7.68) *1vw, 96px);
+
+        margin-left: calc(clamp(24px, calc(40/7.68) *1vw, 48px) + 8px);
         align-items: flex-start;
         flex-direction: column-reverse;
       }
     }
   }
-  @media (max-width: 499px){
+
+  @media (max-width: 499px) {
     header {
       .copy {
         ol {
           margin-left: 0;
         }
       }
-      .cta-wrapper {
+
+      .ctaWrapper {
         margin-left: 0;
         flex-direction: column;
         align-items: center;
       }
     }
   }
-`
-export default Wrapper;
+}
