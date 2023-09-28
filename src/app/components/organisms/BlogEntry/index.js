@@ -3,27 +3,27 @@ import Link from "next/link";
 import { removeMarkdown } from "@/utils/functions";
 import ReadingTime from "../../atoms/ReadingTime";
 import Img from "@/utils/Img";
-import Wrapper from "./Wrapper";
+import styles from "./styles.module.scss";
 
 const BlogEntry = ({ data, smallEntry }) => {
   return (
-    <Wrapper className={`entry${smallEntry ? " smallEntry" : ""}`}>
-      <Img data={data.img} className="img" quality="100" />
+    <div className={`entry${smallEntry ? " smallEntry" : ""} ${styles.wrapper}`}>
+      <Img data={data.img} className={styles.img} quality="100" />
       <Link
         href={`/pl/blog/${data.slug.current}`}
-        className="link"
+        className={styles.link}
         aria-label={removeMarkdown(data.title)}
       ></Link>
-      <h3 className="title">{removeMarkdown(data.title)}</h3>
-      <p className="subtitle">{removeMarkdown(data.subtitle)}</p>
+      <h3 className={styles.title}>{removeMarkdown(data.title)}</h3>
+      <p className={styles.subtitle}>{removeMarkdown(data.subtitle)}</p>
       <Link
         href={`/pl/zespol/${data.author[0].slug.current}`}
-        className="author"
+        className={styles.author}
       >
-        <Img data={data.author[0].img} className="person-border" />
+        <Img data={data.author[0].img} className={`person-border`} />
         <span>{data.author[0].name}</span>
       </Link>
-      <div className="categories">
+      <div className={styles.categories}>
         {data.categories.slice(0, 3).map((category, i) => (
           <Link href={`/pl/blog/kategoria/${category.slug.current}`} key={i}>
             {category.name}
@@ -31,8 +31,8 @@ const BlogEntry = ({ data, smallEntry }) => {
         ))}
       </div>
       <ReadingTime content={data.contentRaw} />
-      <span className="createdAt">{data._createdAt}</span>
-    </Wrapper>
+      <span className={styles.createdAt}>{data._createdAt}</span>
+    </div>
   );
 };
 

@@ -1,12 +1,10 @@
-'use client'
 import React from "react";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import { ArrowTopRight } from "@/app/components/atoms/Icons";
-import styled from "styled-components";
-import { Clamp, changeImagesDimensions } from "@/utils/functions";
-import Wrapper from "./Wrapper";
+import { changeImagesDimensions } from "@/utils/functions";
 import Link from "next/link";
 import Img from "@/utils/Img";
+import styles from "./styles.module.scss";
 
 const Services = ({
   data: {
@@ -22,12 +20,12 @@ const Services = ({
   let images = [webDevelopment.hero_Img, workshop.hero_Img, agency.hero_Img, graphicsAndDesign.hero_Img];
   images = changeImagesDimensions(images, 200, 200);
   return (
-    <Wrapper>
+    <section className={styles.section}>
       <DecorativeHeading type="h2">{services_Heading}</DecorativeHeading>
-      <div className="wrapper">
+      <div className={styles.wrapper}>
         {services_List.map((service, i) => (
-          <Link href={service.href} className="item" key={i}>
-            <Img data={images[i]} className="img"
+          <Link href={service.href} className={styles.item} key={i}>
+            <Img data={images[i]} className={styles.img}
             />
             <h3>
               <span>{service.title}</span>
@@ -37,7 +35,7 @@ const Services = ({
           </Link>
         ))}
       </div>
-    </Wrapper>
+    </section>
   );
 }
 

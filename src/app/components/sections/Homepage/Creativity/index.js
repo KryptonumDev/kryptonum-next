@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
-import Wrapper from './Wrapper';
+import styles from './styles.module.scss';
 
 
 const Creativity = ({
@@ -12,11 +12,11 @@ const Creativity = ({
   }
 }) => {
   return (
-    <Wrapper>
+    <section className={styles.section}>
       <DecorativeHeading type="h2">{creativity_Heading}</DecorativeHeading>
       <p>{creativity_Paragraph}</p>
       <ReactMarkdown>{creativity_SecondParagraph}</ReactMarkdown>
-    </Wrapper>
+    </section>
   );
 }
  

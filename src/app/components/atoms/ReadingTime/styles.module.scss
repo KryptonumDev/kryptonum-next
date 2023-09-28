@@ -1,0 +1,15 @@
+.readingTime {
+  grid-area: e;
+  justify-self: flex-end;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+
+  @media (max-width: 849px) {
+    span {
+      font-size: 14px;
+    }
+  }
+}

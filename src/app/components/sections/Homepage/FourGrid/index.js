@@ -1,21 +1,21 @@
 import React from "react";
 import ReactMarkdown from 'react-markdown';
-import Wrapper from "./Wrapper";
 import Button from "@/app/components/atoms/Button";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
+import styles from './styles.module.scss';
 
 
 const FourGrid = ({ heading, claim, paragraph, secondClaim, cta }) => {
   return (
-    <Wrapper>
+    <section className={styles.section}>
       <DecorativeHeading type="h2">{heading}</DecorativeHeading>
       <ReactMarkdown>{claim}</ReactMarkdown>
       <p>{paragraph}</p>
       <div>
         <ReactMarkdown>{secondClaim}</ReactMarkdown>
-        <Button theme={cta.theme} to={cta.href}>{cta.text}</Button>
+        <Button theme={cta.theme} to={cta.href} className={styles.cta}>{cta.text}</Button>
       </div>
-    </Wrapper>
+    </section>
   );
 }
  

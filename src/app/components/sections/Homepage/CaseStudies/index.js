@@ -3,22 +3,25 @@ import fetchData from "@/utils/fetchData";
 import Button from "@/app/components/atoms/Button";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import Img from "@/utils/Img";
+import styles from './styles.module.scss';
 
-import Wrapper from "./Wrapper";
-
-const CaseStudies = async () => {
+const CaseStudies = async ({data, heading}) => {
   let body = await query();
+  if(data){
+    body.data.caseStudies = data;
+  }
 
   return (
-    <Wrapper>
-      {<DecorativeHeading type="h2"></DecorativeHeading>}
-      <div className="wrapper">
+    <section className={styles.wrapper}>
+      {heading && (<DecorativeHeading type="h2"></DecorativeHeading>)}
+      <div className={`wrapper`}>
         {body.data.caseStudies.map((caseStudy, i) => (
-          <div className="caseStudy" key={i}>
-              <Img data={caseStudy.img} key={i} className="img"/>
+          <div className={`${styles.caseStudy} caseStudy`} key={i}>
+              <Img data={caseStudy.img} key={i} className={`${styles.img} img`}/>
             <Button
               to={`/pl/portfolio/${caseStudy.slug.current}`}
               aria-label={`Sprawdź projekt ${caseStudy.name}`}
+              className={styles.cta}
             >
               Sprawdź projekt
             </Button>
@@ -30,7 +33,7 @@ const CaseStudies = async () => {
           Wszystkie projekty
         </Button>
       }
-    </Wrapper>
+    </section>
   );
 };
 const query = async () => {
