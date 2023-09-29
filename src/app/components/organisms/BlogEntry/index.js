@@ -20,7 +20,7 @@ const BlogEntry = ({ data, smallEntry }) => {
         href={`/pl/zespol/${data.author[0].slug.current}`}
         className={styles.author}
       >
-        <Img data={data.author[0].img} className={`person-border`} />
+        <Img data={data.author[0].img} className={`personBorder`} />
         <span>{data.author[0].name}</span>
       </Link>
       <div className={styles.categories}>

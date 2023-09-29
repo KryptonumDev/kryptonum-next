@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import fetchData from "@/utils/fetchData";
 import Footer from "./components/organisms/Footer";
 import Nav from "./components/organisms/Nav";
+import { formatDateToPolishLocale, changeImageDimensions } from "@/utils/functions";
 
 const font = localFont({ src: "../resources/fonts/Poppins-Light.woff2" });
 
@@ -185,7 +186,7 @@ const query = async () => {
 };
 
 const RootLayout = async ({ children }) => {
-  const {
+  let {
     caseStudies,
     team,
     blogEntries,
@@ -196,6 +197,11 @@ const RootLayout = async ({ children }) => {
     academyAuthors,
     global,
   } = await query();
+
+  blogAuthors = uniqueAuthors(blogAuthors);
+  academyAuthors = uniqueAuthors(academyAuthors);
+  handleDataChangesForComponents(caseStudies, team, blogEntries, blogAuthors, curiosityEntries, academyAuthors);
+  
   return (
     <html lang="en">
       <head>
@@ -224,3 +230,39 @@ const RootLayout = async ({ children }) => {
   );
 };
 export default RootLayout;
+
+
+const handleDataChangesForComponents = (caseStudies, team, blogEntries, blogAuthors, curiosityEntries, academyAuthors) => {
+  caseStudies.map((caseStudy) => {
+    caseStudy.img = changeImageDimensions(caseStudy.img, 420, 420);
+  });
+  team.map((person) => {
+    person.img = changeImageDimensions(person.img, 96, 96);
+  });
+  blogEntries.map((entry) => {
+    entry.img = changeImageDimensions(entry.img, 200, 200 );
+    entry.author[0].img = changeImageDimensions(entry.author[0].img, 32, 32);
+    entry._createdAt = formatDateToPolishLocale(entry._createdAt);
+  });
+  blogAuthors.map((person)=> {
+    person.img = changeImageDimensions(person.img, 96, 96);
+  });
+  curiosityEntries.map((curiosity) => {
+    curiosity.img = changeImageDimensions(curiosity.img, 188, 188);
+  });
+  academyAuthors.map((person) => {
+    person.img = changeImageDimensions(person.img, 96, 96);
+  }); 
+}
+
+const uniqueAuthors = (data) => {
+  const uniqueAuthors = {};
+  data.forEach(node => {
+    const author = node.author[0];
+    const key = author.name;
+    if (!uniqueAuthors[key]) {
+      uniqueAuthors[key] = author;
+    }
+  });
+  return Object.values(uniqueAuthors);
+}

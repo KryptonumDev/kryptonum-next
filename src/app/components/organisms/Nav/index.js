@@ -2,22 +2,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { ChevronDown, ChevronLeft, KryptonumLogo } from '../../atoms/Icons';
-import { Clamp, removeMarkdown, scrollLock } from "@/utils/functions";
+import { Clamp, changeImageDimensions, removeMarkdown, scrollLock } from "@/utils/functions";
 import Button from "../../atoms/Button";
 import Link from "next/link";
 import Img from "@/utils/Img";
 
-const uniqueAuthors = (data) => {
-  const uniqueAuthors = {};
-  data.forEach(node => {
-    const author = node.author[0];
-    const key = author.name;
-    if (!uniqueAuthors[key]) {
-      uniqueAuthors[key] = author;
-    }
-  });
-  return Object.values(uniqueAuthors);
-}
 
 const Nav = ({caseStudies,
     team,
@@ -28,9 +17,6 @@ const Nav = ({caseStudies,
     blogAuthors,
     academyAuthors
 }) => {
-
-  blogAuthors = uniqueAuthors(blogAuthors);
-  academyAuthors = uniqueAuthors(academyAuthors);
 
   const locationPath = typeof window !== 'undefined' ? window.location.pathname : '';
   const [ navOpened, setNavOpened ] = useState(false)
@@ -235,7 +221,7 @@ const Nav = ({caseStudies,
                           className="person"
                         >
                           <Img data={person.img}
-                            className="img person-border"
+                            className="img personBorder"
                           />
                           <p>{person.name}</p>
                         </Link>
@@ -278,7 +264,7 @@ const Nav = ({caseStudies,
                                 className="person"
                               >
                                 <Img data={entry.author[0]?.img}
-                                  className="person-border"
+                                  className="personBorder"
                                 />
                                 <span>{entry.author[0]?.name}</span>
                               </Link>
@@ -314,7 +300,7 @@ const Nav = ({caseStudies,
                             className="person"
                           >
                             <Img data={person.img}
-                              className="person-border"
+                              className="personBorder"
                             />
                             <p>{person.name}</p>
                           </Link>
@@ -378,7 +364,7 @@ const Nav = ({caseStudies,
                             className="person"
                           >
                             <Img data = {person.img}
-                              className="person-border"
+                              className="personBorder"
                             />
                             <p>{person.name}</p>
                           </Link>
@@ -610,7 +596,7 @@ const Wrapper = styled.nav`
                   align-items: center;
                   gap: 4px;
                   z-index: 2;
-                  .person-border {
+                  .personBorder {
                     width: 32px;
                     height: 32px;
                   }
@@ -653,7 +639,7 @@ const Wrapper = styled.nav`
               align-items: center;
               gap: 8px;
             }
-            .person-border {
+            .personBorder {
               width: 48px;
               height: 48px;
             }
@@ -729,7 +715,7 @@ const Wrapper = styled.nav`
               align-items: center;
               gap: 8px;
             }
-            .person-border {
+            .personBorder {
               width: 48px;
               height: 48px;
             }
@@ -755,13 +741,13 @@ const Wrapper = styled.nav`
           p, span {
             transition: opacity .3s;
           }
-          .person-border {
+          .personBorder {
             img {
               transition: transform .3s;
             }
           }
           &:hover {
-            .person-border {
+            .personBorder {
               img {
                 transform: scale(1.05);
               }
@@ -1001,7 +987,7 @@ const Wrapper = styled.nav`
                 flex-direction: column;
                 gap: 8px;
               }
-              .person-border {
+              .personBorder {
                 width: 96px;
                 height: 96px;
               }
@@ -1032,7 +1018,7 @@ const Wrapper = styled.nav`
                 flex-direction: column;
                 gap: 8px;
               }
-              .person-border {
+              .personBorder {
                 width: 96px;
                 height: 96px;
               }
