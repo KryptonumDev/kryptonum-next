@@ -2,7 +2,7 @@
   padding: 32px 0;
   position: relative;
 
-  &.max-width {
+  &.maxWidth {
     margin-top: clamp(96px, calc(144/7.68) *1vw, 172px);
   }
 

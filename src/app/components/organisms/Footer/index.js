@@ -34,7 +34,7 @@ const Footer = ({
   const peopleToExpand = team.length - maxPeople;
 
   return (
-    <footer className={`${styles.wrapper} max-width`}>
+    <footer className={`${styles.wrapper} maxWidth`}>
       <ul className={styles.footerWrapper}>
         <li className={styles.info}>
           <Link

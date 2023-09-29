@@ -118,7 +118,7 @@ const query = async () => {
       }
     }
   }
-  curiosityCategories: allCuriosityCategories(limit: 8) {
+  curiosityCategories: allCuriosityCategories(limit: 8, sort: { _createdAt: ASC }) {
     name
     slug {
       current
