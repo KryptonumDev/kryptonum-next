@@ -23,7 +23,7 @@ const Team = async ({ heading, paragraph, cta }) => {
       <div className={styles.wrapper}>
         {data.team.map((person, i) => (
           <Link href={`/pl/zespol/${person.slug.current}`} key={i}>
-            <div className={`${styles.img} person-border`}>
+            <div className={`${styles.img} personBorder`}>
               <Img data={person.img} className={styles.img}/>
             </div>
             <div className={styles.info}>
