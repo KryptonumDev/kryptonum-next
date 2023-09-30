@@ -334,6 +334,10 @@
               display: flex;
               align-items: center;
               gap: 8px;
+              .img {
+                height:100%;
+                width: 100%;
+              }
 
               &:hover {
                 .img {
@@ -449,6 +453,11 @@
               align-items: center;
               gap: 8px;
 
+              .img {
+                height:100%;
+                width:100%;
+              }
+
               &:hover {
                 .img {
                   transform: scale(1.05);
@@ -497,7 +506,6 @@
           }
 
           .personBorder {
-            display: inline-block;
             overflow: hidden;
 
             .img {
@@ -656,6 +664,17 @@
   }
 
   @media (min-width: 1150px) {
+    .navList .navListItem{
+      &.blog .navList2 .authors .wrapper .imageWrapper {
+      width:48px;
+      height:48px;
+    }
+    &.academy .navList2 .authors .wrapper .imageWrapper {
+      width:48px;
+      height:48px;
+    }
+    }
+
 
     &[data-tab="services"] .navListItem.services,
     &[data-tab="caseStudies"] .navListItem.caseStudies,
@@ -764,6 +783,7 @@
             max-width: unset;
             justify-content: start;
             gap: 16px;
+            font-size: 0px;
 
             a {
               width: calc(50% - 8px);

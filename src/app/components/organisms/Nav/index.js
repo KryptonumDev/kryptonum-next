@@ -351,7 +351,7 @@ const Nav = ({
                             aria-label={removeMarkdown(entry.title)}
                             onClick={(e) => handleNavLinks(e)}
                           ></Link>
-                          <div className={`${styles.imgWrapper} ${styles.img}`}>
+                          <div className={`${styles.imgWrapper}`}>
                             <Img data={entry.img} className={styles.img} />
                           </div>
                           <div className={styles.copy}>
@@ -443,7 +443,7 @@ const Nav = ({
                           className={styles.link}
                           onClick={(e) => handleNavLinks(e)}
                         >
-                          <div className={`${styles.imgWrapper} ${styles.img}`}>
+                          <div className={`${styles.imgWrapper}`}>
                             <Img data={curiosity.img} className={styles.img} />
                           </div>
                           <p>{removeMarkdown(curiosity.title)}</p>
