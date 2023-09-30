@@ -117,7 +117,10 @@ export const HeadingLineFlexibility = () => (
   </svg>
 )
 
-export const ArrowTopRight = ({ id = `arrow_TR` }) => (
+export const ArrowTopRight = () => {
+  'use client'
+  const id = `arrowTR_${Math.random().toString(36).substring(2, 7)}`;
+  return (
   <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none'>
     <path
       stroke={`url(#${id})`}
@@ -140,7 +143,8 @@ export const ArrowTopRight = ({ id = `arrow_TR` }) => (
       </linearGradient>
     </defs>
   </svg>
-);
+  );
+};
 
 export const ChevronDown = () => (
   <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none' stroke="url(#ChevronDown)">

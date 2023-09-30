@@ -34,7 +34,7 @@ const Footer = ({
   const peopleToExpand = team.length - maxPeople;
 
   return (
-    <footer className={`${styles.wrapper} maxWidth`}>
+    <footer className={`${styles.wrapper} ${styles.maxWidth} maxWidth`}>
       <ul className={styles.footerWrapper}>
         <li className={styles.info}>
           <Link
@@ -114,13 +114,17 @@ const Footer = ({
                 className={styles.link}
                 aria-label={removeMarkdown(entry.title)}
               ></Link>
+              <div className={styles.thumbnailWrapper}>
                 <Img data={entry.img} className={styles.thumbnail} />
+                </div>
               <div className={styles.copy}>
                 <Link
                   href={`/pl/zespol/${entry.author[0]?.slug.current}`}
                   className={styles.author}
                 >
-                  <Img data={entry.author[0]?.img} className={`${styles.personBorder} personBorder`} />
+                  <div className={`${styles.blogPersonBorder} personBorder`}>
+                  <Img data={entry.author[0]?.img} className={styles.blogImg}/>
+                  </div>
                   <span>{entry.author[0]?.name}</span>
                 </Link>
                 <span>{entry._createdAt}</span>

@@ -20,7 +20,7 @@ const Hero = ({
           <DecorativeHeading type="h1">{hero_Heading}</DecorativeHeading>
           <HeroSubheading>{hero_Subheading}</HeroSubheading>
         </div>
-        <div className={styles.ctaWrapper}>
+        <div className={`${styles.ctaWrapper} ctaWrapper`}>
           <Button to={hero_Cta.href} theme={hero_Cta.theme}>{hero_Cta.text}</Button>
         </div>
       </header>

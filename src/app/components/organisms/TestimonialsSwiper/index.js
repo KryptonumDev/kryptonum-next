@@ -11,7 +11,7 @@ const TestimonialsSwiper = ({ data }) => {
       {data.testimonials.map((testimonial, i) => (
         <div className={`${styles.item}`} key={i}>
           {testimonial.img && (
-            <div>
+            <div className={styles.imgWrapper}>
               <Img
                 data={testimonial.img}
                 alt={testimonial.img.asset.altText || ""}
