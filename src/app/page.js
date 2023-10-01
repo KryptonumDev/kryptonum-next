@@ -1,5 +1,4 @@
 import * as React from "react";
-//import { SEO } from "../components/global/Seo";
 import Hero from "../app/components/sections/Homepage/Hero";
 import Services from "../app/components/sections/Homepage/Services";
 import FourGrid from "../app/components/sections/Homepage/FourGrid";
@@ -7,10 +6,9 @@ import Creativity from "./components/sections/Homepage/Creativity";
 import Roadmap from "./components/sections/Homepage/Roadmap";
 import Team from "./components/sections/Homepage/Team";
 import Testimonials from "./components/sections/Homepage/Testimonials";
-
-// import LatestBlogEntries from "../components/sections/Homepage/LatestBlogEntries";
 import fetchData from "../utils/fetchData";
 import LatestBlogEntries from "./components/sections/Homepage/LatestBlogEntries";
+import SEO from "./components/global/Seo";
 
 const IndexPage = async () => {
   const {
@@ -101,6 +99,16 @@ const IndexPage = async () => {
   );
 };
 
+export async function generateMetadata() {
+  const { page: { seo } } = await query();
+   return SEO({
+    title: seo?.title,
+    description: seo?.description,
+    url: ''
+  }
+  );
+}
+
 const query = async () => {
   const {
     body: { data },
@@ -163,6 +171,11 @@ const query = async () => {
       theme
       text
       href
+    }
+    # SEO
+    seo {
+      title
+      description
     }
   }
   webDevelopment: WebDevelopment(id: "webDevelopment") {

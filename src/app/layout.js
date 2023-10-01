@@ -7,10 +7,42 @@ import { formatDateToPolishLocale, changeImageDimensions } from "@/utils/functio
 
 const font = localFont({ src: "../resources/fonts/Poppins-Light.woff2" });
 
-export const metadata = {
-  title: `Agencja interaktywna Kryptonum`,
-  siteUrl: `https://kryptonum.eu`,
-};
+const handleDataChangesForComponents = (caseStudies, team, blogEntries, blogAuthors, curiosityEntries, academyAuthors) => {
+  caseStudies.map((caseStudy) => {
+    caseStudy.img = changeImageDimensions(caseStudy.img, 420, 420);
+  });
+  team.map((person) => {
+    person.img = changeImageDimensions(person.img, 96, 96);
+  });
+  blogEntries.map((entry) => {
+    entry.img = changeImageDimensions(entry.img, 200, 200 );
+    entry.author[0].img = changeImageDimensions(entry.author[0].img, 32, 32);
+    entry._createdAt = formatDateToPolishLocale(entry._createdAt);
+  });
+  blogAuthors.map((person)=> {
+    person.img = changeImageDimensions(person.img, 96, 96);
+  });
+  curiosityEntries.map((curiosity) => {
+    curiosity.img = changeImageDimensions(curiosity.img, 188, 188);
+  });
+  academyAuthors.map((person) => {
+    person.img = changeImageDimensions(person.img, 96, 96);
+  }); 
+}
+
+const uniqueAuthors = (data) => {
+  const uniqueAuthors = {};
+  data.forEach(node => {
+    const author = node.author[0];
+    const key = author.name;
+    if (!uniqueAuthors[key]) {
+      uniqueAuthors[key] = author;
+    }
+  });
+  return Object.values(uniqueAuthors);
+}
+
+
 
 const query = async () => {
   const {
@@ -204,9 +236,6 @@ const RootLayout = async ({ children }) => {
   
   return (
     <html lang="en">
-      <head>
-        <meta name="robots" content="noindex"></meta>
-      </head>
       <body className={font.className}>
         <Nav
           caseStudies={caseStudies}
@@ -230,39 +259,3 @@ const RootLayout = async ({ children }) => {
   );
 };
 export default RootLayout;
-
-
-const handleDataChangesForComponents = (caseStudies, team, blogEntries, blogAuthors, curiosityEntries, academyAuthors) => {
-  caseStudies.map((caseStudy) => {
-    caseStudy.img = changeImageDimensions(caseStudy.img, 420, 420);
-  });
-  team.map((person) => {
-    person.img = changeImageDimensions(person.img, 96, 96);
-  });
-  blogEntries.map((entry) => {
-    entry.img = changeImageDimensions(entry.img, 200, 200 );
-    entry.author[0].img = changeImageDimensions(entry.author[0].img, 32, 32);
-    entry._createdAt = formatDateToPolishLocale(entry._createdAt);
-  });
-  blogAuthors.map((person)=> {
-    person.img = changeImageDimensions(person.img, 96, 96);
-  });
-  curiosityEntries.map((curiosity) => {
-    curiosity.img = changeImageDimensions(curiosity.img, 188, 188);
-  });
-  academyAuthors.map((person) => {
-    person.img = changeImageDimensions(person.img, 96, 96);
-  }); 
-}
-
-const uniqueAuthors = (data) => {
-  const uniqueAuthors = {};
-  data.forEach(node => {
-    const author = node.author[0];
-    const key = author.name;
-    if (!uniqueAuthors[key]) {
-      uniqueAuthors[key] = author;
-    }
-  });
-  return Object.values(uniqueAuthors);
-}
