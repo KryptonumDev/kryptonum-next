@@ -118,12 +118,12 @@ export const HeadingLineFlexibility = () => (
 )
 
 export const ArrowTopRight = () => {
-  'use client'
-  const id = `arrowTR_${Math.random().toString(36).substring(2, 7)}`;
+  const id = React.useId();
+  const arrowTRid = `arrowTR_${id}`;
   return (
   <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none'>
     <path
-      stroke={`url(#${id})`}
+      stroke={`url(#${arrowTRid})`}
       strokeLinecap='round'
       strokeLinejoin='round'
       strokeWidth='2'
@@ -131,7 +131,7 @@ export const ArrowTopRight = () => {
     ></path>
     <defs>
       <linearGradient
-        id={id}
+        id={arrowTRid}
         x1='17.738'
         x2='7.331'
         y1='7'
