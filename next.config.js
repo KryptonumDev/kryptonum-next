@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
+
 const nextConfig = {
-  compiler: {
-    styledComponents: true,
+  productionBrowserSourceMaps: true,
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')]
   },
   images: {
+    dangerouslyAllowSVG: true,
     domains: ['cdn.sanity.io']
   }
 }
