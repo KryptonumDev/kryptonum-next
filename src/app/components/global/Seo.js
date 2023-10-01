@@ -1,6 +1,3 @@
-import React from "react";
-import Organization from "./OrganisationSchema";
-import Article from "./ArticleSchema";
 import fetchData from "@/utils/fetchData";
 
 const SEO = async ({
