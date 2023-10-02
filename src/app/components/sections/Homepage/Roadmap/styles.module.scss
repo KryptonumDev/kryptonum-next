@@ -51,9 +51,8 @@
           border-radius: 50%;
         }
         &::before {
-          background: linear-gradient(var(--neutral-950), var(--neutral-950))
-              padding-box,
-            var(--gradient) border-box;
+          background: linear-gradient(var(--neutral-950), var(--neutral-950)) padding-box,
+                      var(--gradient) border-box;
           border: 1px solid transparent;
         }
         &::after {
@@ -86,12 +85,12 @@
         content: "/0" counter(counter);
       }
       p {
-        padding-left: clamp(calc(8 + 40)*1px, calc((16 + 40)/7.68)*1vw, calc(16 + 40)*1px);
+        padding-left: clamp(48px, calc(56/7.68)*1vw, 56px);
         font-size: clamp(calc(16/16)*1rem, calc(22/7.68)*1vw, calc(22/16)*1rem);
       }
       .cta {
         margin-top: 2rem;
-        margin-left: clamp(calc(8 + 40)*1px, calc((16 + 40)/7.68)*1vw, calc(16 + 40)*1px);
+        margin-left: clamp(48px, calc(56/7.68)*1vw, 56px);
         pointer-events: auto;
       }
     }

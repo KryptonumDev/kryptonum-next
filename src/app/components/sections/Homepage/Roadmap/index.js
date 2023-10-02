@@ -38,7 +38,7 @@ const Roadmap = ({ heading, list, cta }) => {
   }, []);
 
   return (
-    <section className={`${styles.roadmapWrapper} roadmapWrapper`}
+    <section className={`${styles.roadmapWrapper}`}
       style={{ minHeight: `calc(100vh + ${scrollable}px` }}
       ref={roadmapRef}
     >
@@ -51,13 +51,13 @@ const Roadmap = ({ heading, list, cta }) => {
               <h3>{item.title}</h3>
               <p>{item.description}</p>
               {i + 1 === list.length && cta?.text && (
-                <Button to={cta.href} theme={cta.theme} className={styles.cta}>
+                <Button to={cta.href} theme={cta.theme} className={`${styles.cta} cta`}>
                   {cta.text}
                 </Button>
               )}
             </div>
           ))}
-          <div className={`${styles.roamdapItem} roadmapItem`}></div>
+          <div className={`${styles.roadmapItem} ${styles.active} roadmapItem active`}></div>
         </div>
       </div>
     </section>
