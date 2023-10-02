@@ -270,7 +270,7 @@ const Nav = ({
                           onClick={(e) => handleNavLinks(e)}
                         >
                           <div className={styles.imgWrapper}>
-                            <Img data={caseStudy.img} className={styles.img} />
+                            <Img data={caseStudy.img} className={styles.img} srcParamsString={"?w=420"}/>
                           </div>
                           <p>{caseStudy.name}</p>
                         </Link>
