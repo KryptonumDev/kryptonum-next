@@ -25,7 +25,7 @@ const Services = ({
       <div className={styles.wrapper}>
         {services_List.map((service, i) => (
           <Link href={service.href} className={styles.item} key={i}>
-            <Img data={images[i]} className={styles.img}
+            <Img data={images[i]} className={styles.img} sizes="200px"
             />
             <h3>
               <span>{service.title}</span>
