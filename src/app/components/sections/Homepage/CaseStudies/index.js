@@ -17,7 +17,7 @@ const CaseStudies = async ({data, heading}) => {
       <div className={`wrapper`}>
         {body.data.caseStudies.map((caseStudy, i) => (
           <div className={`${styles.caseStudy} caseStudy`} key={i}>
-              <Img data={caseStudy.img} key={i} className={`${styles.img} img`} loading="eager"/>
+              <Img data={caseStudy.img} key={i} className={`${styles.img} img`} loading="eager" sizes="100vw"/>
             <Button
               to={`/pl/portfolio/${caseStudy.slug.current}`}
               aria-label={`Sprawdź projekt ${caseStudy.name}`}
