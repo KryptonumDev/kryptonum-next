@@ -9,14 +9,22 @@
   }
 
   text-align: center;
+  .caseStudy {
+    overflow: hidden;
+    .img {
+      width: 100%;
+      display:block;
+      height:100%;
+    }
+  }
 
   @media (min-width: 500px) {
     .caseStudy {
-      overflow: hidden;
+      
       position: sticky;
       top: 0;
-      max-height: 100vh;
-      max-height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
 
       .img {
         width: 100%;

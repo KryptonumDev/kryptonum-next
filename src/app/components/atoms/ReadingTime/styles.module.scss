@@ -5,11 +5,5 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 1rem;
-
-  @media (max-width: 849px) {
-    span {
-      font-size: 14px;
-    }
-  }
+  font-size: clamp(calc(16/16)*1rem, calc(22/7.68)*1vw, calc(20/16)*1rem);
 }

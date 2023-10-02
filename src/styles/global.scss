@@ -152,15 +152,15 @@ h6 {
 }
 
 h1 {
-  font-size: clamp(28px, calc(50/7.68) *1vw, 56px);
+  font-size: clamp(calc(28/16)*1rem, calc(50/7.68) *1vw, calc(56/16)*1rem);
 }
 
 h2 {
-  font-size: clamp(28px, calc(50/7.68) *1vw, 48px);
+  font-size: clamp(calc(28/16)*1rem, calc(50/7.68) *1vw, calc(48/16)*1rem);
 }
 
 h3 {
-  font-size: clamp(24px, calc(50/7.68) *1vw, 40px);
+  font-size: clamp(calc(24/16)*1rem, calc(50/7.68) *1vw,calc(40/16)*1rem);
 }
 
 p strong,
