@@ -14,6 +14,7 @@
     display:block;
     margin-bottom: -64px;
     align-self: end;
+    max-width:none;
     .img {
     object-fit: contain;
     width: 100%;
@@ -103,8 +104,9 @@
     align-items: flex-end;
     gap: 24px;
 
-    .img {
+    .imgWrapper {
       margin-bottom: -32px;
+      max-width:268px;
     }
 
     .info {
@@ -153,12 +155,13 @@
       }
     }
 
-    .img {
+    .imgWrapper {
       width: 100%;
       height: 200px;
       display:block;
       order: 2;
       margin-bottom: -24px;
+      max-width:none;
     }
 
     .content {
