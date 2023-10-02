@@ -101,7 +101,6 @@ const query = async () => {
           altText
           url
           metadata {
-            lqip
             dimensions {
               height
               width
