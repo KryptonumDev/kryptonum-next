@@ -1,7 +1,7 @@
 import React from "react";
-import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
+import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import fetchData from "@/utils/fetchData";
-import TestimonialsSwiper from "@/app/components/organisms/TestimonialsSwiper";
+import TestimonialsSwiper from "@/components/organisms/TestimonialsSwiper";
 import styles from "./styles.module.scss";
 
 const Testimonials = async () => {
@@ -9,41 +9,43 @@ const Testimonials = async () => {
 
   return (
     <section className={styles.wrapper}>
-      <DecorativeHeading type="h2">Zobacz, co mówią **klienci**:</DecorativeHeading>
+      <DecorativeHeading type="h2">
+        Zobacz, co mówią **klienci**:
+      </DecorativeHeading>
       <TestimonialsSwiper data={data} />
     </section>
   );
-}
+};
 
 const query = async () => {
   const {
-    body: {data}, 
+    body: { data },
   } = await fetchData(`
-  testimonials: allTestimonials(limit: 3, sort: {_createdAt:ASC}) {
-    name
-    project
-    text
-    cta {
-      theme
+    testimonials: allTestimonials(limit: 3, sort: {_createdAt:ASC}) {
+      name
+      project
       text
-      href
-    }
-    img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
+      cta {
+        theme
+        text
+        href
+      }
+      img {
+        asset {
+          altText
+          url
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
           }
         }
       }
     }
-  }
   `);
   return data;
-}
- 
+};
+
 export default Testimonials;

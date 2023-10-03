@@ -1,6 +1,6 @@
 .section {
   h2 {
-    margin: 0 auto clamp(28px, calc(48/7.68)*1vw, 72px);
+    margin: 0 auto clamp(28px, calc(48vw/7.68), 72px);
   }
 
   .wrapper {
@@ -34,11 +34,11 @@
 
       .info {
         h3 {
-          font-size: clamp(calc(20/16)*1rem, calc(32/7.68)*1vw, calc(30/16)*1rem);
+          font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(30rem/16));
         }
 
         p {
-          font-size: clamp(calc(16/16)*1rem, calc(22/7.68)*1vw, calc(22/16)*1rem);
+          font-size: clamp(calc(16rem/16), calc(22vw/7.68), calc(22rem/16));
         }
       }
     }
@@ -49,18 +49,18 @@
     max-width: 858px;
     margin: 0 auto;
 
-    margin-top: clamp(28px, calc(48/7.68)*1vw, 48px);
+    margin-top: clamp(28px, calc(48vw/7.68), 48px);
 
     p {
-      font-size: clamp(calc(20/16)*1rem, calc(32/7.68)*1vw, calc(30/16)*1rem);
+      font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(30rem/16));
 
       &:not(:last-of-type) {
-        margin-bottom: clamp(16px, calc(32/7.68)*1vw, 32px);
+        margin-bottom: clamp(16px, calc(32vw/7.68), 32px);
       }
     }
 
     a {
-      margin-top: clamp(28px, calc(48/7.68)*1vw, 48px);
+      margin-top: clamp(28px, calc(48vw/7.68), 48px);
     }
   }
 

@@ -1,7 +1,7 @@
 .section {
   h2 {
-    max-width: calc(686/16) * 1rem;
-    margin-bottom: clamp(calc(28/16)*1rem, calc(48/7.68)*1vw, calc(72/16)*1rem);
+    max-width: calc(686rem/16);
+    margin-bottom: clamp(calc(28rem/16), calc(48vw/7.68), calc(72rem/16));
   }
   .cta {
     display: flex;

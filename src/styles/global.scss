@@ -93,11 +93,11 @@ main {
   display: grid;
   grid-template-columns: 1fr;
 
-  row-gap: clamp(96px, calc(144/7.68) *1vw, 172px);
+  row-gap: clamp(96px, calc(144vw/7.68), 172px);
   padding-top: 40px;
 
   @media (max-width: 999px) {
-    padding-top: clamp(48px, calc(128/7.68) *1vw, 128px);
+    padding-top: clamp(48px, calc(128vw/7.68), 128px);
   }
 }
 
@@ -152,15 +152,15 @@ h6 {
 }
 
 h1 {
-  font-size: clamp(calc(28/16)*1rem, calc(50/7.68) *1vw, calc(56/16)*1rem);
+  font-size: clamp(calc(28rem/16), calc(50vw/7.68), calc(56rem/16));
 }
 
 h2 {
-  font-size: clamp(calc(28/16)*1rem, calc(50/7.68) *1vw, calc(48/16)*1rem);
+  font-size: clamp(calc(28rem/16), calc(50vw/7.68), calc(48rem/16));
 }
 
 h3 {
-  font-size: clamp(calc(24/16)*1rem, calc(50/7.68) *1vw,calc(40/16)*1rem);
+  font-size: clamp(calc(24rem/16), calc(50vw/7.68),calc(40rem/16));
 }
 
 p strong,

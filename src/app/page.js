@@ -1,14 +1,25 @@
 import * as React from "react";
-import Hero from "../app/components/sections/Homepage/Hero";
-import Services from "../app/components/sections/Homepage/Services";
-import FourGrid from "../app/components/sections/Homepage/FourGrid";
-import Creativity from "./components/sections/Homepage/Creativity";
-import Roadmap from "./components/sections/Homepage/Roadmap";
-import Team from "./components/sections/Homepage/Team";
-import Testimonials from "./components/sections/Homepage/Testimonials";
-import fetchData from "../utils/fetchData";
-import LatestBlogEntries from "./components/sections/Homepage/LatestBlogEntries";
-import SEO from "./components/global/Seo";
+import Hero from "@/components/sections/Homepage/Hero";
+import Services from "@/components/sections/Homepage/Services";
+import FourGrid from "@/components/sections/Homepage/FourGrid";
+import Creativity from "@/components/sections/Homepage/Creativity";
+import Roadmap from "@/components/sections/Homepage/Roadmap";
+import Team from "@/components/sections/Homepage/Team";
+import Testimonials from "@/components/sections/Homepage/Testimonials";
+import fetchData from "@/utils/fetchData";
+import LatestBlogEntries from "@/components/sections/Homepage/LatestBlogEntries";
+import SEO from "@/components/global/Seo";
+
+export async function generateMetadata() {
+  const {
+    page: { seo },
+  } = await query();
+  return SEO({
+    title: seo?.title,
+    description: seo?.description,
+    url: "",
+  });
+}
 
 const IndexPage = async () => {
   const {
@@ -43,6 +54,7 @@ const IndexPage = async () => {
     agency,
     graphicsAndDesign,
   } = await query();
+
   return (
     <>
       <Hero
@@ -88,156 +100,142 @@ const IndexPage = async () => {
         list={roadmap_Process}
         cta={roadmap_Cta}
       />
-      <Team
-        heading={team_Heading}
-        paragraph={team_Text}
-        cta={team_Cta}
-      />
+      <Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
       <Testimonials />
-      <LatestBlogEntries/>
+      <LatestBlogEntries />
     </>
   );
 };
-
-export async function generateMetadata() {
-  const { page: { seo } } = await query();
-   return SEO({
-    title: seo?.title,
-    description: seo?.description,
-    url: ''
-  }
-  );
-}
 
 const query = async () => {
   const {
     body: { data },
   } = await fetchData(`
-  page: Homepage(id: "homepage") {
-    # Hero
-    hero_Heading
-    hero_Subheading
-    hero_Cta {
-      theme
-      text
-      href
+    page: Homepage(id: "homepage") {
+      # Hero
+      hero_Heading
+      hero_Subheading
+      hero_Cta {
+        theme
+        text
+        href
+      }
+      # Services
+      services_Heading
+      services_List {
+        title
+        description
+        href
+      }
+      # Conquest
+      conquest_Heading
+      conquest_Claim
+      conquest_Paragraph
+      conquest_SecondClaim
+      conquest_Cta {
+        theme
+        text
+        href
+      }
+      # Challange
+      challenge_Heading
+      challenge_Claim
+      challenge_Paragraph
+      challenge_SecondClaim
+      challenge_Cta {
+        theme
+        text
+        href
+      }
+      # Creativity
+      creativity_Heading
+      creativity_Paragraph
+      creativity_SecondParagraph
+      # Roadmap
+      roadmap_Heading
+      roadmap_Process {
+        title
+        description
+      }
+      roadmap_Cta {
+        theme
+        text
+        href
+      }
+      # Team
+      team_Heading
+      team_Text
+      team_Cta {
+        theme
+        text
+        href
+      }
+      # SEO
+      seo {
+        title
+        description
+      }
     }
-    # Services
-    services_Heading
-    services_List {
-      title
-      description
-      href
-    }
-    # Conquest
-    conquest_Heading
-    conquest_Claim
-    conquest_Paragraph
-    conquest_SecondClaim
-    conquest_Cta {
-      theme
-      text
-      href
-    }
-    # Challange
-    challenge_Heading
-    challenge_Claim
-    challenge_Paragraph
-    challenge_SecondClaim
-    challenge_Cta {
-      theme
-      text
-      href
-    }
-    # Creativity
-    creativity_Heading
-    creativity_Paragraph
-    creativity_SecondParagraph
-    # Roadmap
-    roadmap_Heading
-    roadmap_Process {
-      title
-      description
-    }
-    roadmap_Cta {
-      theme
-      text
-      href
-    }
-    # Team
-    team_Heading
-    team_Text
-    team_Cta {
-      theme
-      text
-      href
-    }
-    # SEO
-    seo {
-      title
-      description
-    }
-  }
-  webDevelopment: WebDevelopment(id: "webDevelopment") {
-    hero_Img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
+    webDevelopment: WebDevelopment(id: "webDevelopment") {
+      hero_Img {
+        asset {
+          altText
+          url
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
           }
         }
       }
     }
-  }
-  workshop: Workshop(id: "workshop") {
-    hero_Img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
+    workshop: Workshop(id: "workshop") {
+      hero_Img {
+        asset {
+          altText
+          url
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
           }
         }
       }
     }
-  }
-  agency: Agency(id:"agency") {
-    hero_Img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
+    agency: Agency(id:"agency") {
+      hero_Img {
+        asset {
+          altText
+          url
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
           }
         }
       }
     }
-  }
-  graphicsAndDesign: GraphicsDesign(id:"graphics-design") {
-    hero_Img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
+    graphicsAndDesign: GraphicsDesign(id:"graphics-design") {
+      hero_Img {
+        asset {
+          altText
+          url
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
           }
         }
       }
     }
-  }
   `);
   return data;
 };

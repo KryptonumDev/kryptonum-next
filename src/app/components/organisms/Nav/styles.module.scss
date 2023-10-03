@@ -46,7 +46,7 @@
 
   .navCta,
   .navCtaMobile a {
-    font-size: clamp(calc(16/16) *1rem, calc(11/7.68)*1vw, calc(20/16) *1rem);
+    font-size: clamp(calc(16rem/16), calc(11vw/7.68), calc(20rem/16));
 
     &[aria-current="page"] {
       svg {
@@ -75,7 +75,7 @@
 
     .navListItem {
       >button {
-        font-size: clamp(calc(16/16)*1rem, calc(11/7.68)*1vw, calc(20/16)*1rem);
+        font-size: clamp(calc(16rem/16), calc(11vw/7.68), calc(20rem/16));
 
         span {
           transition: opacity .3s;
@@ -124,7 +124,7 @@
         li {
           >a {
             display: inline-block;
-            font-size: clamp(calc(16/16) *1rem, calc(20/7.68) *1vw, calc(20/16) *1rem);
+            font-size: clamp(calc(16rem/16), calc(20vw/7.68), calc(20rem/16));
           }
 
           &:nth-of-type(1) {
@@ -196,7 +196,7 @@
           justify-content: center;
 
           p {
-            font-size: clamp(calc(16/16) *1rem, calc(22/7.68) *1vw, calc(22/16) *1rem);
+            font-size: clamp(calc(16rem/16), calc(22vw/7.68), calc(22rem/16));
             margin-top: 8px;
             transition: opacity .3s;
           }
@@ -248,7 +248,7 @@
             display: grid;
             grid-template-columns: 128px 1fr;
             align-items: start;
-            gap: clamp(calc(12/16) *1rem, calc(22/7.68) *1vw, calc(22/16) *1rem);
+            gap: clamp(calc(12rem/16), calc(22vw/7.68), calc(22rem/16));
 
             .imgWrapper {
               overflow: hidden;
@@ -360,7 +360,7 @@
             }
 
             p {
-              font-size: clamp(calc(16/16) *1rem, calc(20/7.68) *1vw, calc(20/16) *1rem);
+              font-size: clamp(calc(16rem/16), calc(20vw/7.68), calc(20rem/16));
             }
           }
         }
@@ -479,7 +479,7 @@
             }
 
             p {
-              font-size: clamp(calc(16/16) *1rem, calc(20/7.68) *1vw, calc(20/16) *1rem);
+              font-size: clamp(calc(16rem/16), calc(20vw/7.68), calc(20rem/16));
             }
           }
         }
@@ -553,7 +553,7 @@
 
     .navList2Subpage {
       text-align: center;
-      font-size: clamp(calc(20/16) *1rem, calc(32/7.68) *1vw, calc(30/16) *1rem);
+      font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(30rem/16));
       margin-bottom: 32px;
 
       a {
@@ -566,7 +566,7 @@
     }
 
     h3 {
-      font-size: clamp(calc(20/16) *1rem, calc(32/7.68) *1vw, calc(30/16) *1rem);
+      font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(30rem/16));
       margin-bottom: 20px;
     }
   }

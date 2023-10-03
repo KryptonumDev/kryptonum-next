@@ -3,7 +3,7 @@
   position: relative;
 
   &.maxWidth {
-    margin-top: clamp(96px, calc(144/7.68) *1vw, 172px);
+    margin-top: clamp(96px, calc(144vw/7.68), 172px);
   }
 
   &::before {
@@ -39,7 +39,7 @@
         }
 
         display: block;
-        font-size: clamp(calc(16/16) *1rem, calc(20/7.68) *1vw, calc(20/16) *1rem);
+        font-size: clamp(calc(16rem/16), calc(20vw/7.68), calc(20rem/16));
 
         svg {
           margin-right: 8px;
@@ -53,7 +53,7 @@
       }
 
       h3 {
-        font-size: clamp(calc(20/16) *1rem, calc(22/7.68) *1vw, calc(22/16)*1rem);
+        font-size: clamp(calc(20rem/16), calc(22vw/7.68), calc(22rem/16));
 
         a {
           font-size: inherit;
