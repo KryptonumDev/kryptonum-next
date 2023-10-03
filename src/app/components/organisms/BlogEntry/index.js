@@ -1,14 +1,22 @@
 import React from "react";
 import Link from "next/link";
 import { removeMarkdown } from "@/utils/functions";
-import ReadingTime from "../../atoms/ReadingTime";
+import ReadingTime from "@/atoms/ReadingTime";
 import Img from "@/utils/Img";
 import styles from "./styles.module.scss";
 
 const BlogEntry = ({ data, smallEntry }) => {
   return (
-    <div className={`entry${smallEntry ? " smallEntry" : ""} ${styles.wrapper}`}>
-      <Img data={data.img} className={styles.img} width={230} height={230} quality="100" />
+    <div
+      className={`entry${smallEntry ? " smallEntry" : ""} ${styles.wrapper}`}
+    >
+      <Img
+        data={data.img}
+        className={styles.img}
+        width={230}
+        height={230}
+        quality="100"
+      />
       <Link
         href={`/pl/blog/${data.slug.current}`}
         className={styles.link}
@@ -20,7 +28,12 @@ const BlogEntry = ({ data, smallEntry }) => {
         href={`/pl/zespol/${data.author[0].slug.current}`}
         className={styles.author}
       >
-        <Img data={data.author[0].img} className={`personBorder`} height={48} width={48}/>
+        <Img
+          data={data.author[0].img}
+          className={`personBorder`}
+          height={48}
+          width={48}
+        />
         <span>{data.author[0].name}</span>
       </Link>
       <div className={styles.categories}>

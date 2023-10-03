@@ -1,10 +1,10 @@
 import React from "react";
 import fetchData from "@/utils/fetchData";
-import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
-import Button from "@/app/components/atoms/Button";
-import BlogEntry from "@/app/components/organisms/BlogEntry";
+import DecorativeHeading from "@/components/atoms/DecorativeHeading";
+import Button from "@/components/atoms/Button";
+import BlogEntry from "@/components/organisms/BlogEntry";
 import { formatDateToPolishLocale } from "@/utils/functions";
-import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
 
 const LatestBlogEntries = async ({
   data,
@@ -12,7 +12,6 @@ const LatestBlogEntries = async ({
   exclude = null,
   smallEntry = false,
 }) => {
-  
   function changeBlogEntriesData(body) {
     return body.data.blogEntries.map((entry) => {
       entry._createdAt = formatDateToPolishLocale(entry._createdAt);
@@ -23,8 +22,8 @@ const LatestBlogEntries = async ({
   if (data) {
     body.data.blogEntries = data;
   } else {
-     body = await query();
-     changeBlogEntriesData(body);
+    body = await query();
+    changeBlogEntriesData(body);
   }
 
   return (

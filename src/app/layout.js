@@ -1,11 +1,9 @@
 import "../styles/global.scss";
 import localFont from "next/font/local";
 import fetchData from "@/utils/fetchData";
-import Footer from "./components/organisms/Footer";
-import Nav from "./components/organisms/Nav";
-import {
-  formatDateToPolishLocale,
-} from "@/utils/functions";
+import Footer from "@/components/organisms/Footer";
+import Nav from "@/components/organisms/Nav";
+import { formatDateToPolishLocale } from "@/utils/functions";
 
 const font = localFont({ src: "../resources/fonts/Poppins-Light.woff2" });
 
@@ -13,7 +11,7 @@ const changeBlogEntriesLocale = (blogEntries) => {
   blogEntries.map((entry) => {
     entry._createdAt = formatDateToPolishLocale(entry._createdAt);
   });
-}
+};
 
 const RootLayout = async ({ children }) => {
   let {

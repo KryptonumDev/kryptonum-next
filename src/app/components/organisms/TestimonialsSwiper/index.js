@@ -1,9 +1,9 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
-import { Quote } from "../../atoms/Icons";
-import Button from "../../atoms/Button";
+import { Quote } from "@/atoms/Icons";
+import Button from "@/atoms/Button";
 import Img from "@/utils/Img";
-import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
+import Markdown from "@/utils/markdown";
 
 const TestimonialsSwiper = ({ data }) => {
   return (
@@ -17,11 +17,11 @@ const TestimonialsSwiper = ({ data }) => {
                 alt={testimonial.img.asset.altText || ""}
                 className={styles.img}
               />
-              </div>
+            </div>
           )}
           <div className={styles.content}>
             <Quote />
-            <ReactMarkdown>{testimonial.text}</ReactMarkdown>
+            <Markdown>{testimonial.text}</Markdown>
           </div>
           <div className={`${styles.info}`}>
             <h3>

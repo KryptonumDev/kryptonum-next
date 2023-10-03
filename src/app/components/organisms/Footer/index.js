@@ -9,7 +9,7 @@ import {
   Tiktok,
   Whatsapp,
   Youtube,
-} from "../../atoms/Icons";
+} from "@/atoms/Icons";
 import Link from "next/link";
 import Img from "@/utils/Img";
 import { removeMarkdown } from "@/utils/functions";

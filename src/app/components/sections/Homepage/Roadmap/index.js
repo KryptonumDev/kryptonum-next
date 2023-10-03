@@ -1,10 +1,9 @@
-'use client'
+"use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
-import Button from "@/app/components/atoms/Button";
-import styles from './styles.module.scss';
-
+import DecorativeHeading from "@/components/atoms/DecorativeHeading";
+import Button from "@/components/atoms/Button";
+import styles from "./styles.module.scss";
 
 const Roadmap = ({ heading, list, cta }) => {
   const roadmapRef = useRef();
@@ -38,7 +37,8 @@ const Roadmap = ({ heading, list, cta }) => {
   }, []);
 
   return (
-    <section className={`${styles.roadmapWrapper}`}
+    <section
+      className={`${styles.roadmapWrapper}`}
       style={{ minHeight: `calc(100vh + ${scrollable}px` }}
       ref={roadmapRef}
     >
@@ -51,13 +51,19 @@ const Roadmap = ({ heading, list, cta }) => {
               <h3>{item.title}</h3>
               <p>{item.description}</p>
               {i + 1 === list.length && cta?.text && (
-                <Button to={cta.href} theme={cta.theme} className={`${styles.cta} cta`}>
+                <Button
+                  to={cta.href}
+                  theme={cta.theme}
+                  className={`${styles.cta} cta`}
+                >
                   {cta.text}
                 </Button>
               )}
             </div>
           ))}
-          <div className={`${styles.roadmapItem} ${styles.active} roadmapItem active`}></div>
+          <div
+            className={`${styles.roadmapItem} ${styles.active} roadmapItem active`}
+          ></div>
         </div>
       </div>
     </section>

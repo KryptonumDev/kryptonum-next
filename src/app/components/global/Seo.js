@@ -20,18 +20,18 @@ const SEO = async ({
     },
   } = await getData();
 
-  const domain = 'https://kryptonum.eu';
+  const domain = "https://kryptonum.eu";
   const locale = "pl_PL";
   const seo = {
-    title: title || 'Kryptonum - Agencja dla tych, którym zależy',
-    description: description || '',
-    url: url ? (url + (pagination ? `/${pagination}` : '')): '',
-    ogImage: og_Img.asset.url
-  }
+    title: title || "Kryptonum - Agencja dla tych, którym zależy",
+    description: description || "",
+    url: url ? url + (pagination ? `/${pagination}` : "") : "",
+    ogImage: og_Img.asset.url,
+  };
 
   const metadata = {
     robots: {
-      index: false
+      index: false,
     },
     metadataBase: new URL(domain),
     title: seo.title,
@@ -52,11 +52,11 @@ const SEO = async ({
         },
       ],
       locale: locale,
-      type: 'website',
+      type: "website",
     },
-  }
+  };
   return metadata;
-}
+};
 
 const getData = async () => {
   return await fetchData(

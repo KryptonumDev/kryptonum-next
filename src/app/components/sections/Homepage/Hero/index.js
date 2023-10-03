@@ -1,18 +1,12 @@
 import React from "react";
 
-import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
-import Button from "@/app/components/atoms/Button";
+import DecorativeHeading from "@/components/atoms/DecorativeHeading";
+import Button from "@/components/atoms/Button";
 import CaseStudies from "../CaseStudies";
-import HeroSubheading from '../HeroSubheadings'
-import styles from './styles.module.scss';
+import HeroSubheading from "../HeroSubheadings";
+import styles from "./styles.module.scss";
 
-const Hero = ({
-  data: {
-    hero_Heading,
-    hero_Subheading,
-    hero_Cta,
-  }
-}) => {
+const Hero = ({ data: { hero_Heading, hero_Subheading, hero_Cta } }) => {
   return (
     <section className={styles.section}>
       <header>
@@ -21,14 +15,14 @@ const Hero = ({
           <HeroSubheading>{hero_Subheading}</HeroSubheading>
         </div>
         <div className={`${styles.ctaWrapper} ctaWrapper`}>
-          <Button to={hero_Cta.href} theme={hero_Cta.theme}>{hero_Cta.text}</Button>
+          <Button to={hero_Cta.href} theme={hero_Cta.theme}>
+            {hero_Cta.text}
+          </Button>
         </div>
       </header>
-      <CaseStudies/>
+      <CaseStudies />
     </section>
   );
-}
+};
 
-
- 
 export default Hero;

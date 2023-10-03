@@ -1,23 +1,24 @@
 import * as React from "react";
-import Hero from "../app/components/sections/Homepage/Hero";
-import Services from "../app/components/sections/Homepage/Services";
-import FourGrid from "../app/components/sections/Homepage/FourGrid";
-import Creativity from "./components/sections/Homepage/Creativity";
-import Roadmap from "./components/sections/Homepage/Roadmap";
-import Team from "./components/sections/Homepage/Team";
-import Testimonials from "./components/sections/Homepage/Testimonials";
-import fetchData from "../utils/fetchData";
-import LatestBlogEntries from "./components/sections/Homepage/LatestBlogEntries";
-import SEO from "./components/global/Seo";
+import Hero from "@/components/sections/Homepage/Hero";
+import Services from "@/components/sections/Homepage/Services";
+import FourGrid from "@/components/sections/Homepage/FourGrid";
+import Creativity from "@/components/sections/Homepage/Creativity";
+import Roadmap from "@/components/sections/Homepage/Roadmap";
+import Team from "@/components/sections/Homepage/Team";
+import Testimonials from "@/components/sections/Homepage/Testimonials";
+import fetchData from "@/utils/fetchData";
+import LatestBlogEntries from "@/components/sections/Homepage/LatestBlogEntries";
+import SEO from "@/components/global/Seo";
 
 export async function generateMetadata() {
-  const { page: { seo } } = await query();
-   return SEO({
+  const {
+    page: { seo },
+  } = await query();
+  return SEO({
     title: seo?.title,
     description: seo?.description,
-    url: ''
-  }
-  );
+    url: "",
+  });
 }
 
 const IndexPage = async () => {
@@ -99,13 +100,9 @@ const IndexPage = async () => {
         list={roadmap_Process}
         cta={roadmap_Cta}
       />
-      <Team
-        heading={team_Heading}
-        paragraph={team_Text}
-        cta={team_Cta}
-      />
+      <Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
       <Testimonials />
-      <LatestBlogEntries/>
+      <LatestBlogEntries />
     </>
   );
 };

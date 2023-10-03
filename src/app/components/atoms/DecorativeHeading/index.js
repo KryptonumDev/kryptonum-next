@@ -1,7 +1,7 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
 import { HeadingDecoration, HeadingLineFlexibility } from "../Icons";
 import styles from "./styles.module.scss";
+import Markdown from "@/utils/markdown";
 
 const DecorativeHeading = ({
   type = "h1",
@@ -43,14 +43,14 @@ const DecorativeHeading = ({
       {...props}
     >
       {decoration && <HeadingDecoration />}
-      <ReactMarkdown
+      <Markdown
         components={{
           p: renderParagraph,
           ...components,
         }}
       >
         {children}
-      </ReactMarkdown>
+      </Markdown>
     </Heading>
   );
 };

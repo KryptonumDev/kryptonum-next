@@ -64,9 +64,9 @@ export const smoothScroll = (e) => {
 
 export const formatDateToPolishLocale = (date) => {
   const options = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   };
-  return date = new Date(date).toLocaleDateString('pl-PL', options );
-}
+  return (date = new Date(date).toLocaleDateString("pl-PL", options));
+};

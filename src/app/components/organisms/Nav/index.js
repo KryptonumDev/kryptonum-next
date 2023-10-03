@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { ChevronDown, ChevronLeft, KryptonumLogo } from "../../atoms/Icons";
+import { ChevronDown, ChevronLeft, KryptonumLogo } from "@/atoms/Icons";
 import { removeMarkdown, scrollLock } from "@/utils/functions";
-import Button from "../../atoms/Button";
+import Button from "@/atoms/Button";
 import Link from "next/link";
 import Img from "@/utils/Img";
 import styles from "./styles.module.scss";
@@ -97,7 +97,7 @@ const Nav = ({
     scrollLock(!navOpened);
     nav.removeAttribute("data-tab");
   };
-  
+
   const uniqueAuthors = (data) => {
     const uniqueAuthors = {};
     data.forEach((node) => {
