@@ -3,7 +3,7 @@ import fetchData from "@/utils/fetchData";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import Button from "@/app/components/atoms/Button";
 import BlogEntry from "@/app/components/organisms/BlogEntry";
-import { changeImageDimensions, formatDateToPolishLocale } from "@/utils/functions";
+import { formatDateToPolishLocale } from "@/utils/functions";
 import styles from './styles.module.scss';
 
 const LatestBlogEntries = async ({
@@ -16,10 +16,6 @@ const LatestBlogEntries = async ({
   function changeBlogEntriesData(body) {
     return body.data.blogEntries.map((entry) => {
       entry._createdAt = formatDateToPolishLocale(entry._createdAt);
-      entry.author.map((author) => {
-        author.img = changeImageDimensions(author.img, 48, 48);
-      });
-      entry.img = changeImageDimensions(entry.img, 230, 230);
     });
   }
 
@@ -52,6 +48,8 @@ const LatestBlogEntries = async ({
     </section>
   );
 };
+
+export default LatestBlogEntries;
 
 const query = async () => {
   const { body } = await fetchData(`
@@ -105,5 +103,3 @@ const query = async () => {
   `);
   return body;
 };
-
-export default LatestBlogEntries;

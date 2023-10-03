@@ -93,7 +93,7 @@ const Footer = ({
               key={i}
               style={{ display: !showMore && i + 1 > maxPeople ? "none" : "" }}
             >
-              <div className ={`${styles.personBorder} personBorder`}>
+              <div className={`${styles.personBorder} personBorder`}>
                 <Img data={person.img} className={`${styles.personBorder}`} />
               </div>
               <span>{person.name}</span>
@@ -103,7 +103,7 @@ const Footer = ({
             {showMore ? `Pokaż mniej` : `Pokaż więcej (${peopleToExpand})`}
           </button>
         </li>
-        <li className = {styles.blog}>
+        <li className={styles.blog}>
           <h3>
             <Link href="/pl/blog">Blog</Link>
           </h3>
@@ -115,15 +115,25 @@ const Footer = ({
                 aria-label={removeMarkdown(entry.title)}
               ></Link>
               <div className={styles.thumbnailWrapper}>
-                <Img data={entry.img} className={styles.thumbnail} />
-                </div>
+                <Img
+                  data={entry.img}
+                  width={200}
+                  height={200}
+                  className={styles.thumbnail}
+                />
+              </div>
               <div className={styles.copy}>
                 <Link
                   href={`/pl/zespol/${entry.author[0]?.slug.current}`}
                   className={styles.author}
                 >
                   <div className={`${styles.blogPersonBorder} personBorder`}>
-                  <Img data={entry.author[0]?.img} className={styles.blogImg}/>
+                    <Img
+                      data={entry.author[0]?.img}
+                      width={32}
+                      height={32}
+                      className={styles.blogImg}
+                    />
                   </div>
                   <span>{entry.author[0]?.name}</span>
                 </Link>

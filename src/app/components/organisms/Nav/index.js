@@ -17,21 +17,19 @@ const Nav = ({
   blogAuthors,
   academyAuthors,
 }) => {
-  const locationPath =
-    typeof window !== "undefined" ? window.location.pathname : "";
   const [navOpened, setNavOpened] = useState(false);
   const navRef = useRef(null);
 
   useEffect(() => {
     const nav = navRef.current;
     const navHeight = nav.offsetHeight;
-    let prevScrollPos = window.pageYOffset;
+    let prevScrollPos = window.scrollY;
     let currentScrollPos = prevScrollPos;
     let scrollDistance = 0;
     const handleScroll = () => {
       if (!nav.getAttribute("data-tab")) {
         prevScrollPos = currentScrollPos;
-        currentScrollPos = window.pageYOffset;
+        currentScrollPos = window.scrollY;
         if (currentScrollPos < prevScrollPos && currentScrollPos > navHeight) {
           nav.classList.add(styles.fixed);
           scrollDistance = 0;
@@ -58,7 +56,7 @@ const Nav = ({
       window.removeEventListener("resize", handleScroll);
       document.removeEventListener("keydown", handleEscapeKey);
     };
-  }, [locationPath]);
+  }, []);
 
   const handleEscapeKey = (e) => {
     const nav = navRef.current;
@@ -99,6 +97,21 @@ const Nav = ({
     scrollLock(!navOpened);
     nav.removeAttribute("data-tab");
   };
+  
+  const uniqueAuthors = (data) => {
+    const uniqueAuthors = {};
+    data.forEach((node) => {
+      const author = node.author[0];
+      const key = author.name;
+      if (!uniqueAuthors[key]) {
+        uniqueAuthors[key] = author;
+      }
+    });
+    return Object.values(uniqueAuthors);
+  };
+
+  blogAuthors = uniqueAuthors(blogAuthors);
+  academyAuthors = uniqueAuthors(academyAuthors);
 
   return (
     <>
@@ -270,7 +283,13 @@ const Nav = ({
                           onClick={(e) => handleNavLinks(e)}
                         >
                           <div className={styles.imgWrapper}>
-                            <Img data={caseStudy.img} className={styles.img} sizes="420px"/>
+                            <Img
+                              data={caseStudy.img}
+                              className={styles.img}
+                              width={420}
+                              height={420}
+                              sizes="420px"
+                            />
                           </div>
                           <p>{caseStudy.name}</p>
                         </Link>
@@ -308,11 +327,15 @@ const Nav = ({
                           onClick={(e) => handleNavLinks(e)}
                           className={styles.person}
                         >
-                          <div className={`${styles.personBorder} personBorder`}>
-                          <Img
-                            data={person.img}
-                            className={`${styles.img}`}
-                          />
+                          <div
+                            className={`${styles.personBorder} personBorder`}
+                          >
+                            <Img
+                              data={person.img}
+                              width={96}
+                              height={96}
+                              className={`${styles.img}`}
+                            />
                           </div>
                           <p>{person.name}</p>
                         </Link>
@@ -352,7 +375,12 @@ const Nav = ({
                             onClick={(e) => handleNavLinks(e)}
                           ></Link>
                           <div className={`${styles.imgWrapper}`}>
-                            <Img data={entry.img} className={styles.img} />
+                            <Img
+                              data={entry.img}
+                              className={styles.img}
+                              height={200}
+                              width={200}
+                            />
                           </div>
                           <div className={styles.copy}>
                             <div className={styles.copyTop}>
@@ -361,11 +389,15 @@ const Nav = ({
                                 onClick={(e) => handleNavLinks(e)}
                                 className={styles.person}
                               >
-                                <div className={`${styles.img} ${styles.personBorder} personBorder`}>
-                                <Img
-                                  data={entry.author[0]?.img}
-                                  className={styles.img}
-                                />
+                                <div
+                                  className={`${styles.img} ${styles.personBorder} personBorder`}
+                                >
+                                  <Img
+                                    data={entry.author[0]?.img}
+                                    height={32}
+                                    width={32}
+                                    className={styles.img}
+                                  />
                                 </div>
                                 <span>{entry.author[0]?.name}</span>
                               </Link>
@@ -400,11 +432,15 @@ const Nav = ({
                             onClick={(e) => handleNavLinks(e)}
                             className={styles.person}
                           >
-                            <div className={`${styles.imageWrapper} personBorder`}>
-                            <Img
-                              data={person.img}
-                              className={`${styles.personBorder} ${styles.img}`}
-                            />
+                            <div
+                              className={`${styles.imageWrapper} personBorder`}
+                            >
+                              <Img
+                                data={person.img}
+                                width={96}
+                                height={96}
+                                className={`${styles.personBorder} ${styles.img}`}
+                              />
                             </div>
                             <p>{person.name}</p>
                           </Link>
@@ -444,7 +480,12 @@ const Nav = ({
                           onClick={(e) => handleNavLinks(e)}
                         >
                           <div className={`${styles.imgWrapper}`}>
-                            <Img data={curiosity.img} className={styles.img} />
+                            <Img
+                              data={curiosity.img}
+                              height={188}
+                              width={188}
+                              className={styles.img}
+                            />
                           </div>
                           <p>{removeMarkdown(curiosity.title)}</p>
                         </Link>
@@ -474,11 +515,15 @@ const Nav = ({
                             onClick={(e) => handleNavLinks(e)}
                             className={styles.person}
                           >
-                            <div className={`${styles.imageWrapper} personBorder`}>
-                            <Img
-                              data={person.img}
-                              className={`${styles.personBorder} ${styles.img}`}
-                            />
+                            <div
+                              className={`${styles.imageWrapper} personBorder`}
+                            >
+                              <Img
+                                data={person.img}
+                                width={96}
+                                height={96}
+                                className={`${styles.personBorder} ${styles.img}`}
+                              />
                             </div>
                             <p>{person.name}</p>
                           </Link>

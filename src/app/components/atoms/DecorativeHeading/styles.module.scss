@@ -11,7 +11,7 @@
   }
   span>svg {
     vertical-align: middle;
-    width: clamp(calc(100/16)*1rem, calc(216/7.68)*1vw, calc(216/16)*1rem);
+    width: clamp(calc(100rem/16), calc(216vw/7.68), calc(216rem/16));
   }
 }
 .has2Spans {
@@ -27,7 +27,7 @@
     grid-column: 3/-1;
     align-self: flex-end;
     text-align: right;
-    font-size: clamp(calc(20/16) *1rem, calc(22/7.68) *1vw, calc(22/16) *1rem);
+    font-size: clamp(calc(20rem/16), calc(22vw/7.68), calc(22rem/16));
     margin: 0 0 .8em 0;
     max-width: calc(400/16) *1rem;
     justify-self: end;

@@ -5,15 +5,10 @@ import Button from "@/app/components/atoms/Button";
 import Link from "next/link";
 import Img from "@/utils/Img";
 import fetchData from "@/utils/fetchData";
-import { changeImageDimensions } from "@/utils/functions";
 import styles from './styles.module.scss';
 
 const Team = async ({ heading, paragraph, cta }) => {
   let data = await query();
-  data.team = data.team.map((person) => {
-    person.img = changeImageDimensions(person.img, 156, 156);
-    return person;
-  });
 
   return (
     <section className={styles.section}>
@@ -24,7 +19,7 @@ const Team = async ({ heading, paragraph, cta }) => {
         {data.team.map((person, i) => (
           <Link href={`/pl/zespol/${person.slug.current}`} key={i}>
             <div className={`${styles.img} personBorder`}>
-              <Img data={person.img} className={styles.img}/>
+              <Img data={person.img} className={styles.img} width={156} height={156}/>
             </div>
             <div className={styles.info}>
               <h3>{person.name}</h3>

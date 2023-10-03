@@ -70,32 +70,3 @@ export const formatDateToPolishLocale = (date) => {
   };
   return date = new Date(date).toLocaleDateString('pl-PL', options );
 }
-
-export const changeImagesDimensions = (
-  images,
-  height = "inherit",
-  width = "inherit"
-) => {
-  return images.map((image) => {
-    if (width != "inherit") {
-      image.asset.metadata.dimensions.width = width;
-    }
-    if (height != "inherit") {
-      image.asset.metadata.dimensions.height = height;
-    }
-    return image;
-  });
-};
-export const changeImageDimensions = (
-  image,
-  height = "inherit",
-  width = "inherit"
-) => {
-  if (width != "inherit") {
-    image.asset.metadata.dimensions.width = width;
-  }
-  if (height != "inherit") {
-    image.asset.metadata.dimensions.height = height;
-  }
-  return image;
-};

@@ -36,6 +36,7 @@ const CaseStudies = async ({data, heading}) => {
     </section>
   );
 };
+
 const query = async () => {
   const { body } = await fetchData(`
     caseStudies: allCaseStudyEntries(limit: 3, sort: {_updatedAt:ASC}) {
