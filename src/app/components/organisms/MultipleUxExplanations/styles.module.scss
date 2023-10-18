@@ -1,0 +1,7 @@
+@media (min-width:1200px) {
+  .explanation:nth-child(even) {
+    .imageWrapper {
+      order: -1;
+    }
+  }
+}

@@ -20,6 +20,7 @@ export default function UxDesignPage() {
 		<main id="main" className={styles.main}>
 			<Hero></Hero>
 			<UxExplanation></UxExplanation>
+			
 		</main>
 	);
 }
