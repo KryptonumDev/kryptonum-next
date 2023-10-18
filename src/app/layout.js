@@ -41,7 +41,7 @@ const RootLayout = async ({ children }) => {
           blogAuthors={blogAuthors}
           academyAuthors={academyAuthors}
         />
-        <main id="main">{children}</main>
+        {children}
         <Footer
           caseStudies={caseStudies}
           team={team}
