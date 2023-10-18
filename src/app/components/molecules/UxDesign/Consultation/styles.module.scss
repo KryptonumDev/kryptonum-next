@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 0.38fr 1fr;
   grid-template-areas: "decorativeHeading img" "button img";
-  border: 1px solid grey;
+  border: 1px solid var(--neutral-700, #5B5F67);
   margin-top:112px;
 
   .consultationWrapper {
@@ -40,7 +40,7 @@
     margin-top:unset;
     .consultationWrapper {
       z-index:1;
-      border:1px solid grey;
+      border: 1px solid var(--neutral-700, #5B5F67);
       background-color: var(--neutral-950);
       .decorativeHeading {
         max-width:407px;
