@@ -1,0 +1,23 @@
+.headingImageText {
+  border-bottom: 1px solid var(--neutral-700, #5B5F67);
+  grid-column-gap: 67px;
+  padding-bottom: 48px;
+  padding-top: 80px;
+
+  .headingWrapper {
+    margin-bottom: 24px;
+  }
+}
+
+@media(max-width:1200px) {
+  .imageWrapper {
+    padding: 12px 47px 48px 47px;
+  }
+
+  .headingImageText {
+    padding-top:48px;
+    .headingWrapper {
+      margin-bottom: -8px;
+    }
+  }
+}

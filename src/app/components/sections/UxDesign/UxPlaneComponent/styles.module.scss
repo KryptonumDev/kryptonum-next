@@ -1,0 +1,13 @@
+.wrapper {
+  .questioning {
+    padding-bottom: 24px;
+  }
+  .multipleUxEplanations {
+    padding-top: 91px;
+  }
+  @media(max-width:1200px) {
+    .multipleUxEplanations {
+      padding-top: clamp(96px, calc(128vw/7.68), 128px);
+    }
+  }
+}

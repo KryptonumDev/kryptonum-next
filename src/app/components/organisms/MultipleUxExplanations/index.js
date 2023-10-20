@@ -1,7 +1,7 @@
 import Explanation from "../../molecules/UxDesign/Explanation";
 import styles from "./styles.module.scss";
 
-const MulitpleUxEplanations = () => {
+const MulitpleUxEplanations = ({className}) => {
 	const explanations = [
 		{
 			title: "**Artyzm**",
@@ -57,7 +57,7 @@ const MulitpleUxEplanations = () => {
 	];
 
 	return (
-		<div>
+		<div className={className}>
 			{explanations.map((explanation, index) => (
 				<Explanation
 					key={index}

@@ -14,7 +14,6 @@ const Explanation = ({title, context, image, explanationClassName, imageWrapperC
 			<div className={`${styles.imageWrapper} ${imageWrapperClassName}`}>
 				<Img data={image} className={styles.image}></Img>
 			</div>
-			
 		</div>
 	);
 };
