@@ -1,7 +1,15 @@
-@media (min-width:1200px) {
+@media (min-width:1201px) {
   .explanation:nth-child(even) {
     .imageWrapper {
       order: -1;
+    }
+  }
+}
+@media (max-width:1200px) {
+  .explanation:first-child {
+    margin-top:0px;
+    .imageWrappper{
+      margin-top:0px;
     }
   }
 }

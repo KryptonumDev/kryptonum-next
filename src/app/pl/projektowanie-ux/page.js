@@ -1,8 +1,9 @@
 import fetchData from "@/utils/fetchData";
 import SEO from "@/components/global/Seo";
 import Hero from "@/app/components/sections/UxDesign/Hero";
-import UxExplanation from "@/app/components/sections/UxDesign/UxComponent";
+import UxExplanation from "@/app/components/sections/UxDesign/UxPlaneComponent";
 import styles from "./styles.module.scss";
+import ImageHeadingWrappers from "@/app/components/sections//UxDesign/ImageHeadingWrappers";
 
 export async function generateMetadata() {
 	const {
@@ -18,9 +19,9 @@ export async function generateMetadata() {
 export default function UxDesignPage() {
 	return (
 		<main id="main" className={styles.main}>
-			<Hero></Hero>
-			<UxExplanation></UxExplanation>
-			
+			<Hero/>
+			<UxExplanation/>
+			<ImageHeadingWrappers/>
 		</main>
 	);
 }

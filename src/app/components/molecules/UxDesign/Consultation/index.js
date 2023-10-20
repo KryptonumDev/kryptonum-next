@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 import Img from "@/utils/Img";
 import { useState, useEffect }  from 'react';
 
-const Consultation = () => {
+const Consultation = ({className}) => {
   const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const Consultation = () => {
 	};
 
 	return (
-		<div className={styles.wrapper}>
+		<div className={`${styles.wrapper} ${className}`}>
 			<div className={styles.imgWrapper}>
 				<Img data={image} className={styles.img} />
 			</div>

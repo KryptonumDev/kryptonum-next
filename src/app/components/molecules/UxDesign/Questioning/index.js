@@ -5,9 +5,10 @@ const title="Wiesz, jakie dwie litery sprawią, że pomiędzy **Twoją stroną a
 const content1="Bez dobrego UX strona internetowa jest jak [ szpilki Louboutina ] pod Giewontem. Ładne, ale nie zabiorą Cię na szczyt."
 const content2="Zaprojektujemy Twoją stronę www, sklep internetowy czy apkę tak, by zachwycała nie tylko designem, ale i użytecznością, dzięki czemu Twoja marka zyska +10 punktów do za… zaufania, of course."
 
-const Questioning = () => {
+const Questioning = ({className}) => {
 	return (
 		<>
+		<div className={className}>
 			<div className={styles.decorativeHeadingWrapper}>
 				<DecorativeHeading type="h4">{title}</DecorativeHeading>
 			</div>
@@ -19,6 +20,7 @@ const Questioning = () => {
 					<p className={styles.firstContent}>{content1}</p>
 					<p>{content2}</p>
 				</div>
+			</div>
 			</div>
 		</>
 	);

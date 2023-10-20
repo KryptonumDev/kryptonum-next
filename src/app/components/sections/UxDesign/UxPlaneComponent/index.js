@@ -4,15 +4,15 @@ import Questioning from '@/app/components/molecules/UxDesign/Questioning';
 import Explanation from '@/app/components/molecules/UxDesign/Explanation';
 import MultipleUxEplanations from '@/app/components/organisms/MultipleUxExplanations';
 
-const UxComponent = () => {
+const UxPlaneComponent = () => {
   
   return (
     <section className={styles.wrapper}>
-      <Questioning/>
-      <Consultation/>
-      <MultipleUxEplanations/>
+      <Questioning className={styles.questioning}/>
+      <Consultation className={styles.consultation}/>
+      <MultipleUxEplanations className={styles.multipleUxEplanations}/>
     </section>
   )
 }
 
-export default UxComponent;
+export default UxPlaneComponent;
