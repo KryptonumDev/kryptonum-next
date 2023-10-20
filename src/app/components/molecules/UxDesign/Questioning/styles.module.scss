@@ -8,8 +8,8 @@
   gap:clamp(16px, calc(24vw/7.68), 20px);
 }
 .explanation {
-  .firstContent {
-    padding-bottom:clamp(16px, calc(32vw/7.68), 40px);;
+  .paragraph {
+    padding-bottom:clamp(16px, calc(32vw/7.68), 40px);
   }
 }
 @media(max-width:1200px) {
@@ -20,16 +20,8 @@
     width:100%;
   }
 }
-@media(min-width: 700px) {
-  .question{
-  text-align:end;
-}
-}
 @media(max-width: 699px) {
   .contentWrapper {
     grid-template-columns: 1fr;
-  }
-  .question {
-    text-align:start;
   }
 }
