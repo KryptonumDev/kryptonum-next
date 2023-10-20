@@ -1,0 +1,29 @@
+.wrapper {
+  margin-top:112px;
+  .imageWrapper {
+    width:calc(100% + 53px);
+    margin-top:-112px;
+    .image {
+      max-width:1000px;
+      bottom: 0;
+      right:0;
+    }
+  }
+  .questioning {
+    padding-bottom: 24px;
+  }
+  .multipleUxEplanations {
+    padding-top: 91px;
+  }
+  @media(max-width:1200px) {
+    .multipleUxEplanations {
+      padding-top: clamp(96px, calc(128vw/7.68), 128px);
+    }
+    .imageWrapper {
+      width:auto;
+      .image {
+        max-width:unset;
+       }
+    }
+  }
+}

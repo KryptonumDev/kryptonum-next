@@ -3,7 +3,6 @@
   grid-template-columns: 0.38fr 1fr;
   grid-template-areas: "decorativeHeading img" "button img";
   border: 1px solid var(--neutral-700, #5B5F67);
-  margin-top:112px;
 
   .consultationWrapper {
     .button {
@@ -20,14 +19,9 @@
   .imgWrapper {
     position:relative;
     grid-area:img;
-    height:calc(100% + 114px);
-    width:calc(100% + 53px);
-    margin-top:-112px;
     overflow:hidden;
     .img {
       position: absolute;
-      bottom: 0;
-      right:0;
       object-fit: contain;
       width:100%;
       height:auto;
@@ -42,7 +36,7 @@
       z-index:1;
       border: 1px solid var(--neutral-700, #5B5F67);
       background-color: var(--neutral-950);
-      .decorativeHeading {
+      .decorativeHeadingWrapper {
         max-width:407px;
       }
     }
@@ -53,20 +47,19 @@
       margin-bottom:-20px;
       .img {
         position:relative;
+        max-width:unset;
       }
     }
   }
   @media(max-width: 500px) {
     .consultationWrapper {
-      
+      padding: 24px 16px;
       .button {
-        width:auto;
-        padding: 12px 42px;
-        margin:0px 0px 24px 16px;
+        margin:unset;
       }
       .decorativeHeadingWrapper {
         padding-bottom:40px;
-        margin: 24px 0px 0px 16px;
+        margin:unset;
       }
     }
   }
