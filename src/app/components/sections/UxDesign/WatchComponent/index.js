@@ -1,7 +1,7 @@
 import Consultation from "@/app/components/molecules/UxDesign/Consultation";
 import styles from "./styles.module.scss";
 
-const Watch = () => {
+const WatchComponent = () => {
 	const buttonContext = "Umów darmową konsultację";
 	const buttonMobileContext = "Umów konsultację";
 	const headingContext = "Projektowanie UX potrzebne od zaraz?";
@@ -32,4 +32,4 @@ const Watch = () => {
 	);
 };
 
-export default Watch;
+export default WatchComponent;

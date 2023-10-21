@@ -1,9 +1,9 @@
 import styles from "./styles.module.scss";
 import Consultation from "@/app/components/molecules/UxDesign/Consultation";
-import Questioning from "@/app/components/molecules/UxDesign/Questioning";
 import MultipleUxEplanations from "@/app/components/organisms/MultipleUxExplanations";
+import TextComponent from "@/app/components/sections/TextComponent";
 
-const Plane = () => {
+const PlaneComponent = () => {
 	const buttonContext = "Umów darmową konsultację";
 	const buttonMobileContext = "Umów konsultację";
 	const headingContext = "Marzy Ci się UX **wysokich lotów**?";
@@ -19,23 +19,27 @@ const Plane = () => {
 			},
 		},
 	};
-	const question = "Dlaczego?";
 	const questionHeadingContext =
 		"Wiesz, jakie dwie litery sprawią, że pomiędzy **Twoją stroną a użytkownikiem** coś naprawdę zaklika? UX.";
-	const description = [
-		"Bez dobrego UX strona internetowa jest jak [ szpilki Louboutina ] pod Giewontem. Ładne, ale nie zabiorą Cię na szczyt.",
-		"Zaprojektujemy Twoją stronę www, sklep internetowy czy apkę tak, by zachwycała nie tylko designem, ale i użytecznością, dzięki czemu Twoja marka zyska +10 punktów do za… zaufania, of course.",
+	const blocks = [
+		{
+			title: "Dlaczego?",
+			description:
+				"Bez dobrego UX strona internetowa jest jak [ szpilki Louboutina ] pod Giewontem. Ładne, ale nie zabiorą Cię na szczyt.",
+		},
+		{
+			description:
+				"Zaprojektujemy Twoją stronę www, sklep internetowy czy apkę tak, by zachwycała nie tylko designem, ale i użytecznością, dzięki czemu Twoja marka zyska +10 punktów do za… zaufania, of course.",
+		},
 	];
+	const data = {
+		heading: questionHeadingContext,
+		blocks: blocks,
+	};
 
 	return (
 		<section className={styles.wrapper}>
-			<Questioning
-				className={styles.questioning}
-				question={question}
-				headingContext={questionHeadingContext}
-				description={description}
-				questionClassName={styles.question}
-			/>
+			<TextComponent data={data}></TextComponent>
 			<Consultation
 				className={styles.wrapper}
 				image={image}
@@ -50,4 +54,4 @@ const Plane = () => {
 	);
 };
 
-export default Plane;
+export default PlaneComponent;
