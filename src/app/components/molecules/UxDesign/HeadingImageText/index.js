@@ -33,7 +33,7 @@ const HeadingImageText = ({
 						);
 					} else {
 						return (
-							<Button className={styles.button}>
+							<Button className={styles.button} key={index}>
 								{paragraph.replace(/<btn>/, "").replace(/<\/btn>/, "")}
 							</Button>
 						);
