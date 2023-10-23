@@ -1,4 +1,4 @@
-import TextComponent from "@/app/components/sections/TextComponent";
+import TextComponent from "@/app/components/molecules/TextComponent";
 
 const WcagGuidelines = () => {
 

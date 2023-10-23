@@ -7,10 +7,11 @@ import WatchComponent from "@/app/components/sections/UxDesign/WatchComponent";
 import WcagGuidelines from "@/app/components/sections/UxDesign/WcagGuidelines";
 import PlaneComponent from "@/app/components/sections/UxDesign/PlaneComponent";
 import ImageComponent from "@/app/components/sections/UxDesign/Photo";
-import TextComponent from "@/app/components/sections/TextComponent";
 import CardWithOverflowIcon from "@/app/components/sections/UxDesign/CardWithOverflowIcon";
 import WcagExplanation from "@/app/components/sections/UxDesign/WcagExplanation";
 import ChairComponent from "@/app/components/sections/UxDesign/ChairComponent";
+import InvestInSite from "@/app/components/sections/UxDesign/InvestInSite";
+import SustainableDevelopment from "@/app/components/sections/UxDesign/SustainableDevelopment";
 
 const blocks = [
 	{
@@ -120,7 +121,17 @@ const wcagData = {
 const headingData = {
 	heading: "Jak tu nie lubić WCAG?",
 	subheading: "Tylko spójrz",
-	type: "h4"
+	type: "h4",
+};
+const sustainableDevelopmentData = {
+	heading: "Strony internetowe w duchu zrównoważonego rozwoju",
+	blocks: [
+		{
+			description: "Niepokojąco ciekawych",
+			title:
+				"Jesteś jedną z tych osób, które nie biorą reklamówek w marketach  i martwią się o topniejące lodowce? Mamy dla Ciebie garść newsów.",
+		},
+	],
 };
 
 export async function generateMetadata() {
@@ -156,10 +167,11 @@ export default function UxDesignPage() {
 			<WatchComponent />
 			<WcagGuidelines />
 			<ImageComponent image={image} />
-			<TextComponent data={data}></TextComponent>
+			<InvestInSite data={data} />
 			<CardWithOverflowIcon cardData={cardData}></CardWithOverflowIcon>
 			<WcagExplanation wcagData={wcagData} headingData={headingData}></WcagExplanation>
-			<ChairComponent/>
+			<ChairComponent />
+			<SustainableDevelopment sustainableDevelopmentData={sustainableDevelopmentData} />
 		</main>
 	);
 }

@@ -3,13 +3,13 @@ import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import Img from "@/utils/Img";
 import Markdown from "@/utils/markdown";
 
-const TextComponent = ({ data: { heading, blocks } }) => {
+const TextComponent = ({ data: { heading, blocks }, itemClassName, descriptionClassName, wrapperClassName }) => {
 	return (
-		<section className={styles.wrapper}>
+		<div className={wrapperClassName ? wrapperClassName : styles.wrapper}>
 			<DecorativeHeading type="h2">{heading}</DecorativeHeading>
 			<div className={styles.divWrapper}>
 				{blocks.map((item, i) => (
-					<div className={styles.item} key={i}>
+					<div className={itemClassName ? itemClassName : styles.item} key={i}>
 						{item.icon ? (
 							<div className={styles.imageWrapper}>
 								<Img
@@ -21,7 +21,7 @@ const TextComponent = ({ data: { heading, blocks } }) => {
 							<Markdown className={styles.title}>{item.title}</Markdown>
 						)}
 						<Markdown
-							className={styles.description}
+							className={descriptionClassName ?  descriptionClassName : styles.description}
 							components={{
 								li: ({ children, ordered }) => (
 									<li>
@@ -41,7 +41,7 @@ const TextComponent = ({ data: { heading, blocks } }) => {
 					</div>
 				))}
 			</div>
-		</section>
+		</div>
 	);
 };
 

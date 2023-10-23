@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 import Consultation from "@/app/components/molecules/UxDesign/Consultation";
 import MultipleUxEplanations from "@/app/components/organisms/MultipleUxExplanations";
-import TextComponent from "@/app/components/sections/TextComponent";
+import TextComponent from "@/app/components/molecules/TextComponent";
 
 const PlaneComponent = () => {
 	const buttonContext = "Umów darmową konsultację";

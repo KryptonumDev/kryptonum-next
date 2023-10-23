@@ -6,7 +6,7 @@ const ListWithOverflowIcon = ({ data: { blocks }, className, itemClassName }) =>
 	return (
 		<div className={`${styles.wrapper} ${className}`}>
 			{blocks.map(({ icon, description, title, img }, i) => (
-				<div className={`${styles.item} ${itemClassName}`} key={i} data-isImg={Boolean(img)}>
+				<div className={`${styles.item} ${itemClassName}`} key={i}>
 					<Img data={icon} className={styles.icon}></Img>
 					{title && (
 						<ReactMarkdown className={styles.title} components={{ p: "h2" }}>
