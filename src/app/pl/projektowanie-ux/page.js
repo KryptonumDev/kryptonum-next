@@ -8,7 +8,8 @@ import WcagGuidelines from "@/app/components/sections/UxDesign/WcagGuidelines";
 import PlaneComponent from "@/app/components/sections/UxDesign/PlaneComponent";
 import ImageComponent from "@/app/components/sections/UxDesign/Photo";
 import TextComponent from "@/app/components/sections/TextComponent";
-import CardWithOverflowIcon from "@/app/components/sections/CardWithOverflowIcon";
+import CardWithOverflowIcon from "@/app/components/sections/UxDesign/CardWithOverflowIcon";
+import WcagExplanation from "@/app/components/sections/UxDesign/WcagExplanation";
 
 const blocks = [
 	{
@@ -27,21 +28,99 @@ const data = {
 };
 
 const cardData = {
-	icon: {
-		asset: {
-			altText: "Aasdasd",
-			url: "/question_icon.svg",
-			metadata: {
-				dimensions: {
-					height: 300,
-					width: 300,
+	blocks: [
+		{
+			icon: {
+				asset: {
+					altText: "Aasdasd",
+					url: "/question_icon.svg",
+					metadata: {
+						dimensions: {
+							height: 300,
+							width: 300,
+						},
+					},
 				},
 			},
+			title: "Czy Twój biznes potrzebuje strony WCAG?",
+			description:
+				"Podmioty publiczne nie mają wyboru – ich strony muszą spełniać zalecenia WCAG, inaczej grożą im konsekwencje. \n\n Tylko czemu postrzegać WCAG jak zło konieczne, zamiast wykorzystać szansę, jaką daje użytkownikom i biznesom na jeszcze lepsze strony internetowe?",
 		},
-	},
-	heading: "Czy Twój biznes potrzebuje strony WCAG?",
-	description: "Podmioty publiczne nie mają wyboru – ich strony muszą spełniać zalecenia WCAG, inaczej grożą im konsekwencje. \n\n Tylko czemu postrzegać WCAG jak zło konieczne, zamiast wykorzystać szansę, jaką daje użytkownikom i biznesom na jeszcze lepsze strony internetowe?"
-}
+	],
+};
+const wcagData = {
+	blocks: [
+		{
+			icon: {
+				asset: {
+					altText: "Aasdasd",
+					url: "/infoIcon.svg",
+					metadata: {
+						dimensions: {
+							height: 300,
+							width: 300,
+						},
+					},
+				},
+			},
+			description:
+				"Kolory wyraźne dla każdego – zapomnij o słabo widocznych linkach, napisach zlewających się z tłem czy rozpikselowanych ikonach",
+		},
+		{
+			icon: {
+				asset: {
+					altText: "Aasdasd",
+					url: "/infoIcon.svg",
+					metadata: {
+						dimensions: {
+							height: 300,
+							width: 300,
+						},
+					},
+				},
+			},
+			description:
+				"Jasno opisane linki i przyciski – poruszaj się po stronie bez potrzeby zgadywania „co dalej?",
+		},
+		{
+			icon: {
+				asset: {
+					altText: "Aasdasd",
+					url: "/infoIcon.svg",
+					metadata: {
+						dimensions: {
+							height: 300,
+							width: 300,
+						},
+					},
+				},
+			},
+			description:
+				"Szybki powrót na start – przenieś się na stronę główną jednym kliknięciem, bez naparzania tabulatorem jakieś, hmm... 40 razy",
+		},
+		{
+			icon: {
+				asset: {
+					altText: "Aasdasd",
+					url: "/infoIcon.svg",
+					metadata: {
+						dimensions: {
+							height: 300,
+							width: 300,
+						},
+					},
+				},
+			},
+			description:
+				"Oglądanie bez przeszkód – zawsze i wszędzie, na desktopie i na komórce, przy powiększeniu strony o 200%",
+		},
+	],
+};
+const headingData = {
+	heading: "Jak tu nie lubić WCAG?",
+	subheading: "Tylko spójrz",
+	type: "h4"
+};
 
 export async function generateMetadata() {
 	const {
@@ -77,7 +156,8 @@ export default function UxDesignPage() {
 			<WcagGuidelines />
 			<ImageComponent image={image} />
 			<TextComponent data={data}></TextComponent>
-			<CardWithOverflowIcon data={cardData}></CardWithOverflowIcon>
+			<CardWithOverflowIcon cardData={cardData}></CardWithOverflowIcon>
+			<WcagExplanation wcagData={wcagData} headingData={headingData}></WcagExplanation>
 		</main>
 	);
 }

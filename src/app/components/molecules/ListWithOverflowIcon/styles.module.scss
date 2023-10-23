@@ -1,7 +1,7 @@
 .wrapper {
   display: grid;
   column-gap: clamp(32px, calc(48vw/7.68), 48px);
-  .card {
+  .item {
     padding: clamp(24px, calc(30vw/7.68), 30px) clamp(16px, calc(20vw/7.68), 20px);
     border: 1px solid var(--neutral-700);
     margin-top: 30px;
@@ -35,7 +35,7 @@
       }
     }
     @media(max-width: 799px) {
-      .heading {
+      .title {
         margin-bottom:32px;
       }
       .description {
