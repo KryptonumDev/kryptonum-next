@@ -7,7 +7,6 @@ import CardGrid from "@/app/components/molecules/CardGrid";
 import CentralizedHeading from "@/app/components/molecules/CentralizedHeading";
 
 const WcagExplanation = ({wcagData, headingData}) => {
-	console.log(headingData);
 	return (
     <section className={styles.section}>
 			<CentralizedHeading data={headingData}></CentralizedHeading>

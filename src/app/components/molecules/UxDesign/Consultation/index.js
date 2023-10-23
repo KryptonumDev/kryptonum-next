@@ -14,6 +14,7 @@ const Consultation = ({
 	imageWrapperClassName,
 	imageClassName,
 	image,
+	buttonClassName
 }) => {
 	const [windowWidth, setWindowWidth] = useState(0);
 
@@ -37,7 +38,7 @@ const Consultation = ({
 				<div className={styles.decorativeHeadingWrapper}>
 					<DecorativeHeading type="h4">{headingContext}</DecorativeHeading>
 				</div>
-				<Button to="" theme={"primary"} className={styles.button}>
+				<Button to="" theme={"primary"} className={`${styles.button} ${buttonClassName}`}>
 					{windowWidth > 500 ? buttonContext : buttonMobileContext}
 				</Button>
 			</div>

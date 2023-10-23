@@ -8,6 +8,7 @@
     .button {
       grid-area: button;
       margin:0px 0px 72px 72px;
+      width:calc(100% - 74px);
     }
     .decorativeHeadingWrapper {
       padding-bottom: 32px;
@@ -36,8 +37,11 @@
       z-index:1;
       border: 1px solid var(--neutral-700, #5B5F67);
       background-color: var(--neutral-950);
+      .button {
+        width:calc(200%/3);
+      }
       .decorativeHeadingWrapper {
-        max-width:407px;
+        max-width:calc(200%/3);
       }
     }
     .imgWrapper {
@@ -56,10 +60,12 @@
       padding: 24px 16px;
       .button {
         margin:unset;
+        width:100%;
       }
       .decorativeHeadingWrapper {
         padding-bottom:40px;
         margin:unset;
+        max-width:unset;
       }
     }
   }

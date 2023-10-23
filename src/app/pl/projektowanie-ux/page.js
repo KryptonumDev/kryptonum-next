@@ -10,6 +10,7 @@ import ImageComponent from "@/app/components/sections/UxDesign/Photo";
 import TextComponent from "@/app/components/sections/TextComponent";
 import CardWithOverflowIcon from "@/app/components/sections/UxDesign/CardWithOverflowIcon";
 import WcagExplanation from "@/app/components/sections/UxDesign/WcagExplanation";
+import ChairComponent from "@/app/components/sections/UxDesign/ChairComponent";
 
 const blocks = [
 	{
@@ -158,6 +159,7 @@ export default function UxDesignPage() {
 			<TextComponent data={data}></TextComponent>
 			<CardWithOverflowIcon cardData={cardData}></CardWithOverflowIcon>
 			<WcagExplanation wcagData={wcagData} headingData={headingData}></WcagExplanation>
+			<ChairComponent/>
 		</main>
 	);
 }
