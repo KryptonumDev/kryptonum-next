@@ -10,7 +10,7 @@ const IconTitleDescriptionTable = ({ data: { blocks } }) => {
 					<div className={styles.iconWrapper}>
 						<Img data={icon} className={styles.icon} />
 					</div>
-					<Markdown className={styles.title} components={{ p: "h3" }}>
+					<Markdown className={styles.title}>
 						{title}
 					</Markdown>
 					<Markdown className={styles.description}>{description}</Markdown>

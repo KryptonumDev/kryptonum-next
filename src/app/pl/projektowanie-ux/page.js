@@ -6,7 +6,7 @@ import ImageHeadingWrappers from "@/app/components/sections//UxDesign/ImageHeadi
 import WatchComponent from "@/app/components/sections/UxDesign/WatchComponent";
 import WcagGuidelines from "@/app/components/sections/UxDesign/WcagGuidelines";
 import PlaneComponent from "@/app/components/sections/UxDesign/PlaneComponent";
-import ImageComponent from "@/app/components/sections/UxDesign/Photo";
+import ImageComponent from "@/app/components/sections/Photo";
 import CardWithOverflowIcon from "@/app/components/sections/UxDesign/CardWithOverflowIcon";
 import WcagExplanation from "@/app/components/sections/UxDesign/WcagExplanation";
 import ChairComponent from "@/app/components/sections/UxDesign/ChairComponent";
@@ -14,6 +14,8 @@ import InvestInSite from "@/app/components/sections/UxDesign/InvestInSite";
 import SustainableDevelopment from "@/app/components/sections/UxDesign/SustainableDevelopment";
 import ConsultationCta from "@/app/components/sections/UxDesign/ConsultationCta";
 import DesignSteps from "@/app/components/sections/UxDesign/DesignSteps";
+import ImageDisplayedOnTablet from "@/app/components/sections/ImageDisplayedOnTablet";
+import JamstackTechnology from "@/app/components/sections/UxDesign/JamstackTechnology";
 
 const blocks = [
 	{
@@ -226,6 +228,102 @@ const designStepsData = {
 	]
 }
 
+const jamstackTechnologyData = {
+	heading: "Technologia JamStack  z kosmicznymi możliwościami",
+	blocks: [
+		{
+			icon: {
+				asset: {
+					altText: "Aasdasd",
+					url: "/Ssg.png",
+					metadata: {
+						dimensions: {
+							height: 300,
+							width: 300,
+						},
+					},
+				},
+			},
+			title: "Statyczne generatory kodu SSG",
+			description: "Nie zaśmiecamy netu niepotrzebnym kodem. Korzystamy z rozwiązań takich jak Next, Gatsby czy Astro, dzięki czemu strony są na maxa lekkie i wczytują tylko to, co trzeba."
+		},
+		{
+			icon: {
+				asset: {
+					altText: "Aasdasd",
+					url: "/Hosting.svg",
+					metadata: {
+						dimensions: {
+							height: 300,
+							width: 300,
+						},
+					},
+				},
+			},
+			title: "Hosting",
+			description: "Stawiamy na nowoczesne platformy hostingowe zasilane energią odnawialną. To bezpieczne serwery  o kosmicznej mocy obliczeniowej. Zaparkujemy Twoją stronę w najlepszej miejscówce w mieście."
+		},
+		{
+			icon: {
+				asset: {
+					altText: "Aasdasd",
+					url: "/Api.svg",
+					metadata: {
+						dimensions: {
+							height: 300,
+							width: 300,
+						},
+					},
+				},
+			},
+			title: "API",
+			description: "Czy można pójść na całość, uzbrajając stronę w wypasione funkcjonalności, jednocześnie nie szkodząc środowisku? Można. Integracje z platformami takimi jak Stripe, Algola czy Shopify to nasza specjalność."
+		},
+		{
+			icon: {
+				asset: {
+					altText: "Aasdasd",
+					url: "/Sanity.svg",
+					metadata: {
+						dimensions: {
+							height: 300,
+							width: 300,
+						},
+					},
+				},
+			},
+			title: "CMS",
+			description: "Czas na nowoczesne CMS-y w trybie headless, które pozwalają przechowywać treści niezależnie od wyglądu. Zapomnij o stronie spuchniętej od nadmiaru wtyczek. Zrobimy dla Ciebie witrynę lekką jak piórko  i megałatwą w obsłudze."
+		},
+	]
+}
+
+const image2 = {
+	asset: {
+		altText: "asdasdsadsadasd",
+		url: "/Photo2.jpg",
+		metadata: {
+			dimensions: {
+				width: 3840,
+				height: 2160,
+			},
+		},
+	},
+};
+
+const image = {
+	asset: {
+		altText: "asdasdsadsadasd",
+		url: "/Photo1.jpg",
+		metadata: {
+			dimensions: {
+				width: 3840,
+				height: 2160,
+			},
+		},
+	},
+};
+
 export async function generateMetadata() {
 	const {
 		page: { seo },
@@ -237,19 +335,8 @@ export async function generateMetadata() {
 	});
 }
 
+
 export default function UxDesignPage() {
-	const image = {
-		asset: {
-			altText: "asdasdsadsadasd",
-			url: "/Photo1.jpg",
-			metadata: {
-				dimensions: {
-					width: 3840,
-					height: 2160,
-				},
-			},
-		},
-	};
 
 	return (
 		<>
@@ -269,6 +356,8 @@ export default function UxDesignPage() {
 			/>
 			<ConsultationCta/>
 			<DesignSteps data={designStepsData}/>
+			<ImageDisplayedOnTablet image={image2}/>
+			<JamstackTechnology data={jamstackTechnologyData}/>
 		</>
 	);
 }
