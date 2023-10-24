@@ -4,8 +4,8 @@ import styles from "./styles.module.scss";
 const TitleDescriptionImageList = ({ data }) => {
 	return (
 		<section>
-			{data.map((titleDescriptionImage) => (
-				<TitleDescriptionImage data={titleDescriptionImage} parentStyles={styles} />
+			{data.map((titleDescriptionImage,i) => (
+				<TitleDescriptionImage data={titleDescriptionImage} parentStyles={styles} key={i} />
 			))}
 		</section>
 	);
