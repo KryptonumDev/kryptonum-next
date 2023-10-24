@@ -8,56 +8,51 @@ import { formatDateToPolishLocale } from "@/utils/functions";
 const font = localFont({ src: "../resources/fonts/Poppins-Light.woff2" });
 
 const changeBlogEntriesLocale = (blogEntries) => {
-  blogEntries.map((entry) => {
-    entry._createdAt = formatDateToPolishLocale(entry._createdAt);
-  });
+	blogEntries.map((entry) => {
+		entry._createdAt = formatDateToPolishLocale(entry._createdAt);
+	});
 };
 
 const RootLayout = async ({ children }) => {
-  let {
-    caseStudies,
-    team,
-    blogEntries,
-    blogCategories,
-    curiosityEntries,
-    curiosityCategories,
-    blogAuthors,
-    academyAuthors,
-    global,
-  } = await query();
+	let {
+		caseStudies,
+		team,
+		blogEntries,
+		blogCategories,
+		curiosityEntries,
+		curiosityCategories,
+		blogAuthors,
+		academyAuthors,
+		global,
+	} = await query();
 
-  changeBlogEntriesLocale(blogEntries);
+	changeBlogEntriesLocale(blogEntries);
 
-  return (
-    <html lang="en">
-      <body className={font.className}>
-        <Nav
-          caseStudies={caseStudies}
-          team={team}
-          blogEntries={blogEntries}
-          blogCategories={blogCategories}
-          curiosityEntries={curiosityEntries}
-          curiosityCategories={curiosityCategories}
-          blogAuthors={blogAuthors}
-          academyAuthors={academyAuthors}
-        />
-        {children}
-        <Footer
-          caseStudies={caseStudies}
-          team={team}
-          blogEntries={blogEntries}
-          global={global}
-        />
-      </body>
-    </html>
-  );
+	return (
+		<html lang="en">
+			<body className={font.className}>
+				<Nav
+					caseStudies={caseStudies}
+					team={team}
+					blogEntries={blogEntries}
+					blogCategories={blogCategories}
+					curiosityEntries={curiosityEntries}
+					curiosityCategories={curiosityCategories}
+					blogAuthors={blogAuthors}
+					academyAuthors={academyAuthors}
+				/>
+				<main id="main">{children}</main>
+				<Footer caseStudies={caseStudies} team={team} blogEntries={blogEntries} global={global} />
+			</body>
+		</html>
+	);
 };
 export default RootLayout;
 
 const query = async () => {
-  const {
-    body: { data },
-  } = await fetchData(`
+	const {
+		body: { data },
+	} = await fetchData(`
     caseStudies: allCaseStudyEntries(limit: 4, sort: { _createdAt: DESC }) {
       name
       slug {
@@ -223,5 +218,5 @@ const query = async () => {
       }
     }
   `);
-  return data;
+	return data;
 };

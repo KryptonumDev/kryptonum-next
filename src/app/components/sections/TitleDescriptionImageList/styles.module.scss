@@ -1,0 +1,15 @@
+@media (min-width:1201px) {
+  .titleDescriptionImage:nth-child(even) {
+    .imageWrapper {
+      order: -1;
+    }
+  }
+}
+@media (max-width:1200px) {
+  .titleDescriptionImage:first-child {
+    margin-top:0px;
+    .imageWrappper{
+      margin-top:0px;
+    }
+  }
+}
