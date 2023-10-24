@@ -41,7 +41,7 @@ const PlaneComponent = () => {
 		<section className={styles.wrapper}>
 			<TextComponent data={data}></TextComponent>
 			<Consultation
-				className={styles.wrapper}
+				className={styles.consultation}
 				image={image}
 				buttonContext={buttonContext}
 				buttonMobileContext={buttonMobileContext}

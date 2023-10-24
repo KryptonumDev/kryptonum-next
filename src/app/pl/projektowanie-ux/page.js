@@ -12,6 +12,8 @@ import WcagExplanation from "@/app/components/sections/UxDesign/WcagExplanation"
 import ChairComponent from "@/app/components/sections/UxDesign/ChairComponent";
 import InvestInSite from "@/app/components/sections/UxDesign/InvestInSite";
 import SustainableDevelopment from "@/app/components/sections/UxDesign/SustainableDevelopment";
+import ConsultationCta from "@/app/components/sections/UxDesign/ConsultationCta";
+import DesignSteps from "@/app/components/sections/UxDesign/DesignSteps";
 
 const blocks = [
 	{
@@ -134,6 +136,96 @@ const sustainableDevelopmentData = {
 	],
 };
 
+const animatedCardGridData = {
+	blocks: [
+		{
+			description:
+				"przemysł cyfrowy generuje więcej gazów cieplarnianych niż przemysł lotniczy, czyli mniej więcej 2-5% globalnej emisji.",
+		},
+		{
+			description:
+				"gdyby internet był państwem, zająłby 4 miejsce na liście państw generujących najwięcej zanieczyszczeń.",
+		},
+		{
+			description: "Czy mamy w tym swój udział? Tak, ale możemy go znacznie zmniejszyć!",
+		},
+		{
+			description:
+				"Dążymy do tego, by tworzyć strony internetowe w duchu zrównoważonego rozwoju – dobre i dla ludzi, i dla planety. Wchodzisz w to?",
+		},
+	],
+};
+
+const designStepsData = {
+	heading: "Design z szacunkiem dla odbiorców i środowiska",
+	blocks: [
+		{
+			icon: {
+				asset: {
+					altText: "Aasdasd",
+					url: "/quotaIcon.svg",
+					metadata: {
+						dimensions: {
+							height: 300,
+							width: 300,
+						},
+					},
+				},
+			},
+			title: "Copy",
+			description: "Napiszemy wartościowe treści, dzięki którym Twoi odbiorcy szybko znajdą to, czego potrzebują, redukując czas spędzony w internecie."
+		},
+		{
+			icon: {
+				asset: {
+					altText: "Aasdasd",
+					url: "/personIcon.svg",
+					metadata: {
+						dimensions: {
+							height: 300,
+							width: 300,
+						},
+					},
+				},
+			},
+			title: "UX",
+			description: "Projektujemy tak, by użytkownicy przemieszczali się po stronach szybko i gładko, nie nadużywając cierpliwości ani energii elektrycznej."
+		},
+		{
+			icon: {
+				asset: {
+					altText: "Aasdasd",
+					url: "/photoIcon.svg",
+					metadata: {
+						dimensions: {
+							height: 300,
+							width: 300,
+						},
+					},
+				},
+			},
+			title: "Foto i wideo",
+			description: "Czas, by strony przeładowane ciężkimi zdjęciami i filmami wyginęły jak dinozaury. Optymalizacja mediów to nasz konik!"
+		},
+		{
+			icon: {
+				asset: {
+					altText: "Aasdasd",
+					url: "/textIcon.svg",
+					metadata: {
+						dimensions: {
+							height: 300,
+							width: 300,
+						},
+					},
+				},
+			},
+			title: "Fonty",
+			description: "Im prościej, tym lepiej i tego się trzymamy, dobierając fonty. Mniej wariacji w imię lekkości. No i ostrożnie z boldem, ma dużo kalorii."
+		},
+	]
+}
+
 export async function generateMetadata() {
 	const {
 		page: { seo },
@@ -160,7 +252,7 @@ export default function UxDesignPage() {
 	};
 
 	return (
-		<main id="main" className={styles.main}>
+		<>
 			<Hero />
 			<PlaneComponent />
 			<ImageHeadingWrappers />
@@ -171,8 +263,13 @@ export default function UxDesignPage() {
 			<CardWithOverflowIcon cardData={cardData}></CardWithOverflowIcon>
 			<WcagExplanation wcagData={wcagData} headingData={headingData}></WcagExplanation>
 			<ChairComponent />
-			<SustainableDevelopment sustainableDevelopmentData={sustainableDevelopmentData} />
-		</main>
+			<SustainableDevelopment
+				sustainableDevelopmentData={sustainableDevelopmentData}
+				animatedCardGridData={animatedCardGridData}
+			/>
+			<ConsultationCta/>
+			<DesignSteps data={designStepsData}/>
+		</>
 	);
 }
 

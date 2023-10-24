@@ -1,0 +1,39 @@
+.item {
+  display: grid;
+  grid-template-columns: 0fr 3fr 6fr;
+  gap: 32px;
+  padding:24px 0px 64px 0px;
+  border-bottom:1px solid var(--neutral-700);
+  justify-content: center;
+  align-items: center;
+  grid-template-areas: "icon title description";
+
+  .iconWrapper {
+    border-radius: 50%;
+    border:1px solid var(--neutral-700);
+    width:72px;
+    height:72px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    grid-area:icon;
+    .icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  .title {
+    grid-area:title;
+    font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28rem/16));
+  }
+  .description {
+    grid-area:description;
+  }
+  @media(max-width:1200px) {
+    grid-template-columns: 0fr 7fr 3fr;
+    grid-template-areas: "icon title ." "description description description";
+  }
+  @media(max-width:650px) {
+    grid-template-areas: "icon title title" "description description description";
+  }
+}

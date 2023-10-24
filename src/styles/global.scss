@@ -92,9 +92,11 @@ main,
 main {
   display: grid;
   grid-template-columns: 1fr;
-
-  row-gap: clamp(96px, calc(144vw/7.68), 172px);
+  row-gap:73px;
   padding-top: 40px;
+  @media(max-width:1250px) {
+    row-gap: clamp(96px, calc(128vw/7.68), 128px);
+  }
 }
 
 svg {
