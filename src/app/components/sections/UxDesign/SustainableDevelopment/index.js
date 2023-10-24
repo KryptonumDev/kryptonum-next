@@ -1,6 +1,6 @@
 import TextComponent from "@/app/components/molecules/TextComponent";
 import styles from "./styles.module.scss";
-import AnimatedCardGrid from "@/app/components/molecules/AnimatedCardGrid";
+import AnimatedCardGrid from "@/app/components/organisms/AnimatedCardGrid";
 
 const SustainableDevelopment = ({ sustainableDevelopmentData, animatedCardGridData }) => {
 	return (

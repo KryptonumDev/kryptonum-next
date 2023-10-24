@@ -1,21 +1,157 @@
 import fetchData from "@/utils/fetchData";
 import SEO from "@/components/global/Seo";
 import Hero from "@/app/components/sections/UxDesign/Hero";
-import styles from "./styles.module.scss";
 import ImageHeadingWrappers from "@/app/components/sections//UxDesign/ImageHeadingWrappers";
-import WatchComponent from "@/app/components/sections/UxDesign/WatchComponent";
-import WcagGuidelines from "@/app/components/sections/UxDesign/WcagGuidelines";
-import PlaneComponent from "@/app/components/sections/UxDesign/PlaneComponent";
-import ImageComponent from "@/app/components/sections/Photo";
-import CardWithOverflowIcon from "@/app/components/sections/UxDesign/CardWithOverflowIcon";
-import WcagExplanation from "@/app/components/sections/UxDesign/WcagExplanation";
-import ChairComponent from "@/app/components/sections/UxDesign/ChairComponent";
-import InvestInSite from "@/app/components/sections/UxDesign/InvestInSite";
+import FullWidthImageComponent from "@/app/components/sections/FullWidthImageComponent";
+import CardWithOverflowIcon from "@/app/components/sections/CardWithOverflowIcon";
 import SustainableDevelopment from "@/app/components/sections/UxDesign/SustainableDevelopment";
 import ConsultationCta from "@/app/components/sections/UxDesign/ConsultationCta";
-import DesignSteps from "@/app/components/sections/UxDesign/DesignSteps";
 import ImageDisplayedOnTablet from "@/app/components/sections/ImageDisplayedOnTablet";
-import JamstackTechnology from "@/app/components/sections/UxDesign/JamstackTechnology";
+import HeadingWithMaxWidth from "@/app/components/sections/HeadingWithMaxWidth";
+import VerticalCtaSectionWithImage from "@/app/components/sections/VerticalCtaWithImage";
+import TextSection from "@/app/components/sections/TextSection";
+import HorizontalCtaWithImage from "@/app/components/sections/HorizontalCtaWithImage";
+import TitleDescriptionImageList from "@/app/components/sections/TitleDescriptionImageList";
+import CentralizedHeadingWithCardGrid from "@/app/components/sections/CentralizedHeadingWithCardGrid";
+import HeadingWithIconTitleDescriptionList from "@/app/components/sections/HeadingWithIconTitleDescriptionList";
+
+
+export default function UxDesignPage() {
+	return (
+		<>
+			<Hero />
+			<TextSection data={textSectionData}/>
+			<HorizontalCtaWithImage data={planeImageData}/>
+			<TitleDescriptionImageList data={titleDescriptionImageListData}/>
+			<ImageHeadingWrappers />
+			<VerticalCtaSectionWithImage data={watchImageData3} />
+			<TextSection data={wcagGuidelines} />
+			<FullWidthImageComponent image={image} />
+			<TextSection data={data} />
+			<CardWithOverflowIcon cardData={cardData}></CardWithOverflowIcon>
+			<CentralizedHeadingWithCardGrid cardData={wcagData} headingData={headingData}/>
+			<VerticalCtaSectionWithImage data ={CtaSectionWithImageData1}/>
+			<SustainableDevelopment
+				sustainableDevelopmentData={sustainableDevelopmentData}
+				animatedCardGridData={animatedCardGridData}
+			/>
+			<ConsultationCta/>
+			<HeadingWithIconTitleDescriptionList data={designStepsData}/>
+			<ImageDisplayedOnTablet image={image2}/>
+			<HeadingWithIconTitleDescriptionList data={jamstackTechnologyData}/>
+			<HeadingWithMaxWidth data={headingWithMaxWidthData}/>
+			<VerticalCtaSectionWithImage data={CtaSectionWithImageData2}></VerticalCtaSectionWithImage>
+		</>
+	);
+}
+
+export async function generateMetadata() {
+	const {
+		page: { seo },
+	} = await getUxDesignPageData();
+	return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "",
+	});
+}
+
+//wait for new database data
+const getUxDesignPageData = async () => {
+	const {
+		body: { data },
+	} = await fetchData(`
+  page: Homepage(id: "homepage") {
+  # SEO
+  seo {
+    title
+    description
+  }
+}
+  `);
+	return data;
+};
+
+const wcagGuidelines = {
+	heading: "Wytyczne WCAG, czyli UX na wysoki połysk",
+	blocks: [
+		{
+			description: "Czy zdarzyło Ci się widzieć matkę próbującą wciągnąć wózek  z dzieckiem pod wysoki krawężnik? Niezły challenge, prawda? Na stronach internetowych roi się od podobnych przeszkód.",
+		},
+		{
+			description: "Jeśli chcesz, by Twoja strona była dostępna dla wszystkich, nie tylko dla wysportowanych osiłków, zaprojektujemy ją zgodnie z zasadami dostępności WCAG."
+		}
+	]
+}
+
+const titleDescriptionImageListData = [
+	{
+		title: "**Artyzm**",
+		description:
+			"Projektujemy strony piękne, a piękno… podbija użyteczność w oczach odbiorców. i użyteczne. Miło jest na nie popatrzeć, jeszcze przyjemniej poklikać. Wiemy, jak sprawić, by strony, sklepy i apki robiły [ niesamowite pierwsze wrażenie ]. I każde kolejne.",
+		image: {
+			asset: {
+				altText: "asdsadsadsad",
+				url: "/Rzexba 1.svg",
+				metadata: {
+					dimensions: {
+						height: 430,
+						width: 340,
+					},
+				},
+			},
+		},
+	},
+	{
+		title: "**Wydajność**",
+		description:
+			"Za gładkim obliczem interfejsów stoi konkret. Proporcje, hierarchia, badania i testy, a to wszystko [ w służbie konwersji ], które napędzą Twój biznes. Odpalamy szalone pomysły, bazując na danych.",
+		image: {
+			asset: {
+				altText: "asdsadsadsad",
+				url: "/Rzeźbawydajnosc 1.svg",
+				metadata: {
+					dimensions: {
+						height: 326,
+						width: 495,
+					},
+				},
+			},
+		},
+	},
+	{
+		title: "**Wpływ**",
+		description:
+			"Co powiesz na stronę, która szanuje wszystkich odbiorców i dba  o matkę naturę? Projektujemy strony w duchu zrównoważonego rozwoju, [ zgodne z zasadami dostępności ] cyfrowej WCAG.",
+		image: {
+			asset: {
+				altText: "asdsadsadsad",
+				url: "/Drzeworzezba 1.svg",
+				metadata: {
+					dimensions: {
+						height: 354,
+						width: 581,
+					},
+				},
+			},
+		},
+	},
+];
+
+const textSectionData={
+	heading: "Wiesz, jakie dwie litery sprawią, że pomiędzy **Twoją stroną a użytkownikiem** coś naprawdę zaklika? UX.",
+	blocks: [
+		{
+			title: "Dlaczego?",
+			description:
+				"Bez dobrego UX strona internetowa jest jak [ szpilki Louboutina ] pod Giewontem. Ładne, ale nie zabiorą Cię na szczyt.",
+		},
+		{
+			description:
+				"Zaprojektujemy Twoją stronę www, sklep internetowy czy apkę tak, by zachwycała nie tylko designem, ale i użytecznością, dzięki czemu Twoja marka zyska +10 punktów do za… zaufania, of course.",
+		}
+	]
+};
 
 const blocks = [
 	{
@@ -298,6 +434,78 @@ const jamstackTechnologyData = {
 	]
 }
 
+const CtaSectionWithImageData1 = {
+	buttonContext:"Pogadajmy!",
+	buttonMobileContext:"Pogadajmy!",
+	headingContext: "Chcesz mieć stronę, która ugości jak należy każdego użytkownika?",
+	image: {
+		asset: {
+			altText: "asdasd",
+			url: "/Tron 1.svg",
+			metadata: {
+				dimensions: {
+					height: 2048,
+					width: 2048,
+				}
+			}
+		}
+	}
+}
+
+const CtaSectionWithImageData2 = {
+	buttonContext:"Pogadajmy!",
+	buttonMobileContext:"Pogadajmy!",
+	headingContext: "Potrzebujesz zrównoważonej strony internetowej?",
+	image: {
+		asset: {
+			altText: "asdasd",
+			url: "/Astronauta.svg",
+			metadata: {
+				dimensions: {
+					height: 2048,
+					width: 2048,
+				}
+			}
+		}
+	}
+}
+
+const watchImageData3 = {
+	buttonContext:"Pogadajmy!",
+	buttonMobileContext:"Pogadajmy!",
+	headingContext: "Projektowanie UX potrzebne od zaraz?",
+	image: {
+		asset: {
+			altText: "asdasd",
+			url: "/Image2.svg",
+			metadata: {
+				dimensions: {
+					height: 2048,
+					width: 2048,
+				}
+			}
+		}
+	}
+}
+
+const planeImageData = {
+	buttonContext:"Umów darmową konsultację",
+	buttonMobileContext:"Umów konsultację",
+	headingContext: "Marzy Ci się UX **wysokich lotów**?",
+	image: {
+		asset: {
+			altText: "asdasd",
+			url: "/Image.svg",
+			metadata: {
+				dimensions: {
+					height: 2048,
+					width: 2048,
+				}
+			}
+		}
+	}
+}
+
 const image2 = {
 	asset: {
 		altText: "asdasdsadsadasd",
@@ -323,57 +531,6 @@ const image = {
 		},
 	},
 };
-
-export async function generateMetadata() {
-	const {
-		page: { seo },
-	} = await getUxDesignPageData();
-	return SEO({
-		title: seo?.title,
-		description: seo?.description,
-		url: "",
-	});
-}
-
-
-export default function UxDesignPage() {
-
-	return (
-		<>
-			<Hero />
-			<PlaneComponent />
-			<ImageHeadingWrappers />
-			<WatchComponent />
-			<WcagGuidelines />
-			<ImageComponent image={image} />
-			<InvestInSite data={data} />
-			<CardWithOverflowIcon cardData={cardData}></CardWithOverflowIcon>
-			<WcagExplanation wcagData={wcagData} headingData={headingData}></WcagExplanation>
-			<ChairComponent />
-			<SustainableDevelopment
-				sustainableDevelopmentData={sustainableDevelopmentData}
-				animatedCardGridData={animatedCardGridData}
-			/>
-			<ConsultationCta/>
-			<DesignSteps data={designStepsData}/>
-			<ImageDisplayedOnTablet image={image2}/>
-			<JamstackTechnology data={jamstackTechnologyData}/>
-		</>
-	);
-}
-
-//wait for new database data
-const getUxDesignPageData = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  page: Homepage(id: "homepage") {
-  # SEO
-  seo {
-    title
-    description
-  }
-}
-  `);
-	return data;
-};
+const headingWithMaxWidthData = {
+		heading:"Tworzymy strony internetowe  i aplikacje webowe, które topią serca odwiedzających, niekoniecznie lodowce."
+	}

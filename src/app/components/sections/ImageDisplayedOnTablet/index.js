@@ -5,9 +5,9 @@ const ImageDisplayedOnTablet = ({ image }) => {
 	return (
 		<section className={styles.section}>
 			<div className={styles.imageWrapper}>
-        <div class={styles.lowerVolume}/>
-        <div class={styles.increaseVolume}/>
-        <div class={styles.onOffSwitch}/>
+        <div className={styles.lowerVolume}/>
+        <div className={styles.increaseVolume}/>
+        <div className={styles.onOffSwitch}/>
 				<Img data={image} className={styles.image} />
 			</div>
       <div className={styles.test}></div>
