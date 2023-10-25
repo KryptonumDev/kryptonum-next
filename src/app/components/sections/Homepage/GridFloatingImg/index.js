@@ -1,19 +1,20 @@
 "use client";
 
-import React, { useEffect, useRef} from "react";
+import React, { useEffect, useRef } from "react";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import { ArrowTopRight } from "@/components/atoms/Icons";
 import Link from "next/link";
 import Img from "@/utils/Img";
 import styles from "./styles.module.scss";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import Markdown from "@/utils/markdown";
 import ReactMarkdown from "react-markdown";
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { removeMarkdown } from "@/utils/functions";
 
 const options = {
-  damping: 20,
-  swiftness: 80,
-}
-
+	damping: 50,
+	swiftness: 300,
+};
 
 const GridFloatingImg = ({ data: { heading, list } }) => {
 	const wrapper = useRef(null);
@@ -24,8 +25,8 @@ const GridFloatingImg = ({ data: { heading, list } }) => {
 	};
 
 	const handleMouseMove = (e) => {
-		const x = e.clientX - wrapper.current.getBoundingClientRect().left;
-		const y = e.clientY - wrapper.current.getBoundingClientRect().top;
+		const x = e.offsetX;
+		const y = e.offsetY;
 		mouse.x.set(x);
 		mouse.y.set(y);
 	};
@@ -41,23 +42,25 @@ const GridFloatingImg = ({ data: { heading, list } }) => {
 				<DecorativeHeading type="h2">{heading}</DecorativeHeading>
 			</header>
 			<div className={styles.wrapper} ref={wrapper}>
-				{list.map(({title, description, img, href}, i) => (
-					<Link href={href} className={styles.item} key={i}>
-            <motion.div
-            style={{
-              left: mouse.x,
-              top: mouse.y,
-            }}
-            className={styles.img}
-            >
-						<Img data={img} className={styles.cover} sizes="320px" width={320} height={320} />
-						</motion.div>
-            <h3>
-							<span>{title}</span>
-							<ArrowTopRight />
-						</h3>
-						<ReactMarkdown className={styles.description}>{description}</ReactMarkdown>
-					</Link>
+				{list.map(({ title, description, img, href }, i) => (
+					<div className={styles.item} key={i}>
+						<Link href={href} aria-label={removeMarkdown(title)} className={styles.link}>
+							<motion.div
+								style={{
+									left: mouse.x,
+									top: mouse.y,
+								}}
+								className={styles.img}
+							>
+								<Img data={img} className={styles.cover} sizes="320px" />
+							</motion.div>
+							<h3>
+								<span>{title}</span>
+								<ArrowTopRight />
+							</h3>
+							<ReactMarkdown className={styles.description}>{description}</ReactMarkdown>
+						</Link>
+					</div>
 				))}
 			</div>
 		</section>

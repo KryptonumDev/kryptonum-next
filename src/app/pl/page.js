@@ -52,10 +52,11 @@ const PolishIndexPage = async () => {
 		workshop,
 		agency,
 		graphicsAndDesign,
+		testimonials,
 	} = await query();
 
 	return (
-		<main id="main">
+		<>
 			<Hero
 				data={{
 					hero_Heading,
@@ -63,7 +64,7 @@ const PolishIndexPage = async () => {
 					hero_Cta,
 				}}
 			/>
-			<GridFloatingImg data={services} />
+			{/* <GridFloatingImg data={services} /> */}
 			<FourGrid
 				heading={conquest_Heading}
 				claim={conquest_Claim}
@@ -87,9 +88,9 @@ const PolishIndexPage = async () => {
 			/>
 			<Roadmap heading={roadmap_Heading} list={roadmap_Process} cta={roadmap_Cta} />
 			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
-			<Testimonials />
+			<Testimonials testimonials={testimonials}/>
 			<LatestBlogEntries />
-		</main>
+		</>
 	);
 };
 
@@ -224,6 +225,28 @@ const query = async () => {
     }
     graphicsAndDesign: GraphicsDesign(id:"graphics-design") {
       hero_Img {
+        asset {
+          altText
+          url
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
+          }
+        }
+      }
+    }
+    testimonials: allTestimonials(limit: 3, sort: {_createdAt:ASC}) {
+      name
+      text
+      cta {
+        theme
+        text
+        href
+      }
+      img {
         asset {
           altText
           url

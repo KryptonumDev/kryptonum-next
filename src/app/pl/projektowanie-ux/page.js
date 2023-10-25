@@ -15,6 +15,7 @@ import TitleDescriptionImageList from "@/app/components/sections/TitleDescriptio
 import CentralizedHeadingWithCardGrid from "@/app/components/sections/CentralizedHeadingWithCardGrid";
 import HeadingWithIconTitleDescriptionList from "@/app/components/sections/HeadingWithIconTitleDescriptionList";
 import Team from "@/app/components/sections/Team";
+import Testimonials from "@/app/components/sections/Testimonials";
 
 export default async function UxDesignPage() {
 	const {
@@ -22,7 +23,8 @@ export default async function UxDesignPage() {
 			team_Cta,
 			team_Heading,
 			team_Text
-		}
+		},
+		testimonials
 	} = await query();
 	return (
 		<>
@@ -48,7 +50,8 @@ export default async function UxDesignPage() {
 			<HeadingWithIconTitleDescriptionList data={jamstackTechnologyData}/>
 			<HeadingWithMaxWidth data={headingWithMaxWidthData}/>
 			<VerticalCtaSectionWithImage data={CtaSectionWithImageData2}/>
-			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta}/>
+			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
+			<Testimonials testimonials={testimonials}/>
 		</>
 	);
 }
@@ -556,7 +559,29 @@ const query = async () => {
 			text
 			href
 		}
-	}`
-	);
+	}
+	testimonials: allTestimonials(limit: 3, sort: {_createdAt:ASC}) {
+		name
+		text
+		cta {
+			theme
+			text
+			href
+		}
+		img {
+			asset {
+				altText
+				url
+				metadata {
+					lqip
+					dimensions {
+						height
+						width
+					}
+				}
+			}
+		}
+	}
+	`);
 	return data;
 }
