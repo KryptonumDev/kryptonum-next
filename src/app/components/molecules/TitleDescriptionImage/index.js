@@ -1,6 +1,7 @@
 import styles from './styles.module.scss';
 import DecorativeHeading from '../../atoms/DecorativeHeading';
 import Img from '@/utils/Img';
+import Markdown from '@/utils/markdown';
 
 const TitleDescriptionImage = ({data: {title, description, image}, parentStyles}) => {
   return (
@@ -8,7 +9,7 @@ const TitleDescriptionImage = ({data: {title, description, image}, parentStyles}
 			<div className={styles.descriptionWrapper}>
 				<DecorativeHeading type="h4" decoration={false}>{title}</DecorativeHeading>
 				<div className={styles.contextWrapper}>
-					<span className={styles.context}>{description}</span>
+					<Markdown className={styles.context}>{description}</Markdown>
 				</div>
 			</div>
 			<div className={`${styles.imageWrapper} ${parentStyles.imageWrapper}`}>

@@ -22,8 +22,8 @@ const Team = async ({ heading, paragraph, cta }) => {
               <Img
                 data={person.img}
                 className={styles.img}
-                width={156}
-                height={156}
+                width={128}
+                height={128}
               />
             </div>
             <div className={styles.info}>

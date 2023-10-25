@@ -1,6 +1,6 @@
 import Img from "@/utils/Img";
 import styles from "./styles.module.scss";
-import ReactMarkdown from "react-markdown";
+import Markdown from "@/utils/markdown";
 
 const ListWithOverflowIcon = ({ data: { blocks }, className, itemClassName }) => {
 	return (
@@ -9,11 +9,11 @@ const ListWithOverflowIcon = ({ data: { blocks }, className, itemClassName }) =>
 				<div className={`${styles.item} ${itemClassName}`} key={i}>
 					<Img data={icon} className={styles.icon}></Img>
 					{title && (
-						<ReactMarkdown className={styles.title} components={{ p: "h2" }}>
+						<Markdown className={styles.title} components={{ p: "h2" }}>
 							{title}
-						</ReactMarkdown>
+						</Markdown>
 					)}
-					<ReactMarkdown className={styles.description}>{description}</ReactMarkdown>
+					<Markdown className={styles.description}>{description}</Markdown>
 				</div>
 			))}
 		</div>

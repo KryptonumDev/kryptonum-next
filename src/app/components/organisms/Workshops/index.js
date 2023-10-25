@@ -1,9 +1,9 @@
-import HeadingImageText from "@/app/components/molecules/UxDesign/HeadingImageText";
+import HeadingImageText from "@/app/components/molecules/HeadingImageText";
 import styles from "./styles.module.scss";
 
 const Workshops = () => {
-	const headingContent = "Warsztaty pożegnalne – tworzymy strategię UX";
-	const headingContent2 = "Warsztaty są grą zespołową. Sprawdź, czy lubisz ten sport";
+	const headingContent = "Warsztaty pożegnalne – **tworzymy strategię UX**";
+	const headingContent2 = "Warsztaty są **grą zespołową**. Sprawdź, czy lubisz ten sport";
 	const images = [
 		{
 			asset: {
@@ -31,15 +31,15 @@ const Workshops = () => {
 		},
 	];
 	const description = [
-		"Powiedz „do widzenia” chaosowi, bo tu wasze drogi rozchodzą się raz na zawsze. Na początek zapoznamy się z Twoją marką, ustalimy dokąd zmierza i jakie [ wyzwanie przed nią stoi ]. Dalej będzie już tylko konkretniej.",
-		"Przygotuj się na prawdziwą burzę mózgów zgodną z podejściem Design Thinking. Efekty? Wygenerujemy pomysły, ustalimy priorytety i kolejne kroki do osiągnięcia [ UX-owego raju ], w pełnym poszanowaniu customer experience",
+		"Powiedz „do widzenia” chaosowi, bo tu wasze drogi rozchodzą się raz na zawsze. Na początek zapoznamy się z Twoją marką, ustalimy dokąd zmierza i jakie **wyzwanie przed nią stoi**. Dalej będzie już tylko konkretniej.",
+		"Przygotuj się na prawdziwą burzę mózgów zgodną z podejściem Design Thinking. Efekty? Wygenerujemy pomysły, ustalimy priorytety i kolejne kroki do osiągnięcia **UX-owego raju**, w pełnym poszanowaniu customer experience",
 	];
 	const description2 = [
 		"Model Value Curve, czyli proste narzędzie, dzięki któremu ustalimy wartości najważniejsze dla Twoich klientów",
-		"[ Lean UX Canvas ] – biznesplan w sprytnym wydaniu pozwalający uniknąć pułapek w rozwijaniu własnego biznesu.",
-		"[ Crazy 8 ] – sprintem do najlepszych pomysłów. Metoda dla fanów adrenaliny.",
-		"[ Card Sorting ] – biznesowa układanka, a konkretniej – metoda ułatwiająca sortowanie informacji na stronie,",
-		"[ Burza Mózgów ] – zapomnij o niekontrolowanym przerzucaniu się pomysłami. To poukładany proces sprzyjający kreatywności.",
+		"**Lean UX Canvas**– biznesplan w sprytnym wydaniu pozwalający uniknąć pułapek w rozwijaniu własnego biznesu.",
+		"**Crazy 8** – sprintem do najlepszych pomysłów. Metoda dla fanów adrenaliny.",
+		"**Card Sorting** – biznesowa układanka, a konkretniej – metoda ułatwiająca sortowanie informacji na stronie,",
+		"**Burza Mózgów** – zapomnij o niekontrolowanym przerzucaniu się pomysłami. To poukładany proces sprzyjający kreatywności.",
 	];
 	return (
 		<div className={styles.wrapper}>

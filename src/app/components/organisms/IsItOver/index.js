@@ -1,8 +1,8 @@
-import HeadingImageText from "@/app/components/molecules/UxDesign/HeadingImageText";
+import HeadingImageText from "@/app/components/molecules/HeadingImageText";
 import styles from './styles.module.scss';
 
 const IsItOver = () => {
-  const headingContent = "I to koniec?"
+  const headingContent = "I to **koniec**?"
   const image = { 
     asset: {
       altText: "asdsadsadsad",

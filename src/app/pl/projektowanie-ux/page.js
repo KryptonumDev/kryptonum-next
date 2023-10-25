@@ -1,7 +1,7 @@
 import fetchData from "@/utils/fetchData";
 import SEO from "@/components/global/Seo";
 import Hero from "@/app/components/sections/UxDesign/Hero";
-import ImageHeadingWrappers from "@/app/components/sections//UxDesign/ImageHeadingWrappers";
+import HeadingImageTextList from "@/app/components/sections/UxDesign/HeadingImageTextList";
 import FullWidthImageComponent from "@/app/components/sections/FullWidthImageComponent";
 import CardWithOverflowIcon from "@/app/components/sections/CardWithOverflowIcon";
 import SustainableDevelopment from "@/app/components/sections/UxDesign/SustainableDevelopment";
@@ -14,21 +14,28 @@ import HorizontalCtaWithImage from "@/app/components/sections/HorizontalCtaWithI
 import TitleDescriptionImageList from "@/app/components/sections/TitleDescriptionImageList";
 import CentralizedHeadingWithCardGrid from "@/app/components/sections/CentralizedHeadingWithCardGrid";
 import HeadingWithIconTitleDescriptionList from "@/app/components/sections/HeadingWithIconTitleDescriptionList";
+import Team from "@/app/components/sections/Team";
 
-
-export default function UxDesignPage() {
+export default async function UxDesignPage() {
+	const {
+		page: {
+			team_Cta,
+			team_Heading,
+			team_Text
+		}
+	} = await query();
 	return (
 		<>
 			<Hero />
 			<TextSection data={textSectionData}/>
 			<HorizontalCtaWithImage data={planeImageData}/>
 			<TitleDescriptionImageList data={titleDescriptionImageListData}/>
-			<ImageHeadingWrappers />
+			<HeadingImageTextList />
 			<VerticalCtaSectionWithImage data={watchImageData3} />
 			<TextSection data={wcagGuidelines} />
 			<FullWidthImageComponent image={image} />
 			<TextSection data={data} />
-			<CardWithOverflowIcon cardData={cardData}></CardWithOverflowIcon>
+			<CardWithOverflowIcon cardData={cardData}/>
 			<CentralizedHeadingWithCardGrid cardData={wcagData} headingData={headingData}/>
 			<VerticalCtaSectionWithImage data ={CtaSectionWithImageData1}/>
 			<SustainableDevelopment
@@ -40,7 +47,8 @@ export default function UxDesignPage() {
 			<ImageDisplayedOnTablet image={image2}/>
 			<HeadingWithIconTitleDescriptionList data={jamstackTechnologyData}/>
 			<HeadingWithMaxWidth data={headingWithMaxWidthData}/>
-			<VerticalCtaSectionWithImage data={CtaSectionWithImageData2}></VerticalCtaSectionWithImage>
+			<VerticalCtaSectionWithImage data={CtaSectionWithImageData2}/>
+			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta}/>
 		</>
 	);
 }
@@ -73,7 +81,7 @@ const getUxDesignPageData = async () => {
 };
 
 const wcagGuidelines = {
-	heading: "Wytyczne WCAG, czyli UX na wysoki połysk",
+	heading: "**Wytyczne WCAG**, czyli UX na wysoki połysk",
 	blocks: [
 		{
 			description: "Czy zdarzyło Ci się widzieć matkę próbującą wciągnąć wózek  z dzieckiem pod wysoki krawężnik? Niezły challenge, prawda? Na stronach internetowych roi się od podobnych przeszkód.",
@@ -88,7 +96,7 @@ const titleDescriptionImageListData = [
 	{
 		title: "**Artyzm**",
 		description:
-			"Projektujemy strony piękne, a piękno… podbija użyteczność w oczach odbiorców. i użyteczne. Miło jest na nie popatrzeć, jeszcze przyjemniej poklikać. Wiemy, jak sprawić, by strony, sklepy i apki robiły [ niesamowite pierwsze wrażenie ]. I każde kolejne.",
+			"Projektujemy strony piękne, a piękno… podbija użyteczność w oczach odbiorców. i użyteczne. Miło jest na nie popatrzeć, jeszcze przyjemniej poklikać. Wiemy, jak sprawić, by strony, sklepy i apki robiły **niesamowite pierwsze wrażenie**. I każde kolejne.",
 		image: {
 			asset: {
 				altText: "asdsadsadsad",
@@ -105,7 +113,7 @@ const titleDescriptionImageListData = [
 	{
 		title: "**Wydajność**",
 		description:
-			"Za gładkim obliczem interfejsów stoi konkret. Proporcje, hierarchia, badania i testy, a to wszystko [ w służbie konwersji ], które napędzą Twój biznes. Odpalamy szalone pomysły, bazując na danych.",
+			"Za gładkim obliczem interfejsów stoi konkret. Proporcje, hierarchia, badania i testy, a to wszystko **w służbie konwersji**, które napędzą Twój biznes. Odpalamy szalone pomysły, bazując na danych.",
 		image: {
 			asset: {
 				altText: "asdsadsadsad",
@@ -122,7 +130,7 @@ const titleDescriptionImageListData = [
 	{
 		title: "**Wpływ**",
 		description:
-			"Co powiesz na stronę, która szanuje wszystkich odbiorców i dba  o matkę naturę? Projektujemy strony w duchu zrównoważonego rozwoju, [ zgodne z zasadami dostępności ] cyfrowej WCAG.",
+			"Co powiesz na stronę, która szanuje wszystkich odbiorców i dba  o matkę naturę? Projektujemy strony w duchu zrównoważonego rozwoju, **zgodne z zasadami dostępności** cyfrowej WCAG.",
 		image: {
 			asset: {
 				altText: "asdsadsadsad",
@@ -144,7 +152,7 @@ const textSectionData={
 		{
 			title: "Dlaczego?",
 			description:
-				"Bez dobrego UX strona internetowa jest jak [ szpilki Louboutina ] pod Giewontem. Ładne, ale nie zabiorą Cię na szczyt.",
+				"Bez dobrego UX strona internetowa jest jak **szpilki Louboutina** pod Giewontem. Ładne, ale nie zabiorą Cię na szczyt.",
 		},
 		{
 			description:
@@ -165,7 +173,7 @@ const blocks = [
 ];
 
 const data = {
-	heading: "Zainwestuj w stronę internetową dostępną dla wszystkich",
+	heading: "Zainwestuj w stronę internetową **dostępną dla wszystkich**",
 	blocks,
 };
 
@@ -184,7 +192,7 @@ const cardData = {
 					},
 				},
 			},
-			title: "Czy Twój biznes potrzebuje strony WCAG?",
+			title: "Czy Twój biznes potrzebuje **strony WCAG**?",
 			description:
 				"Podmioty publiczne nie mają wyboru – ich strony muszą spełniać zalecenia WCAG, inaczej grożą im konsekwencje. \n\n Tylko czemu postrzegać WCAG jak zło konieczne, zamiast wykorzystać szansę, jaką daje użytkownikom i biznesom na jeszcze lepsze strony internetowe?",
 		},
@@ -259,15 +267,15 @@ const wcagData = {
 	],
 };
 const headingData = {
-	heading: "Jak tu nie lubić WCAG?",
+	heading: "Jak tu nie lubić **WCAG**?",
 	subheading: "Tylko spójrz",
 	type: "h4",
 };
 const sustainableDevelopmentData = {
-	heading: "Strony internetowe w duchu zrównoważonego rozwoju",
+	heading: "Strony internetowe w duchu **zrównoważonego rozwoju**",
 	blocks: [
 		{
-			description: "Niepokojąco ciekawych",
+			description: "Niepokojąco **ciekawych**",
 			title:
 				"Jesteś jedną z tych osób, które nie biorą reklamówek w marketach  i martwią się o topniejące lodowce? Mamy dla Ciebie garść newsów.",
 		},
@@ -295,7 +303,7 @@ const animatedCardGridData = {
 };
 
 const designStepsData = {
-	heading: "Design z szacunkiem dla odbiorców i środowiska",
+	heading: "**Design z szacunkiem** dla odbiorców i środowiska",
 	blocks: [
 		{
 			icon: {
@@ -365,7 +373,7 @@ const designStepsData = {
 }
 
 const jamstackTechnologyData = {
-	heading: "Technologia JamStack  z kosmicznymi możliwościami",
+	heading: "**Technologia JamStack**  z kosmicznymi możliwościami",
 	blocks: [
 		{
 			icon: {
@@ -437,7 +445,7 @@ const jamstackTechnologyData = {
 const CtaSectionWithImageData1 = {
 	buttonContext:"Pogadajmy!",
 	buttonMobileContext:"Pogadajmy!",
-	headingContext: "Chcesz mieć stronę, która ugości jak należy każdego użytkownika?",
+	headingContext: "Chcesz mieć stronę, która **ugości jak należy** każdego użytkownika?",
 	image: {
 		asset: {
 			altText: "asdasd",
@@ -455,7 +463,7 @@ const CtaSectionWithImageData1 = {
 const CtaSectionWithImageData2 = {
 	buttonContext:"Pogadajmy!",
 	buttonMobileContext:"Pogadajmy!",
-	headingContext: "Potrzebujesz zrównoważonej strony internetowej?",
+	headingContext: "Potrzebujesz **zrównoważonej strony** internetowej?",
 	image: {
 		asset: {
 			altText: "asdasd",
@@ -473,7 +481,7 @@ const CtaSectionWithImageData2 = {
 const watchImageData3 = {
 	buttonContext:"Pogadajmy!",
 	buttonMobileContext:"Pogadajmy!",
-	headingContext: "Projektowanie UX potrzebne od zaraz?",
+	headingContext: "**Projektowanie UX** potrzebne od zaraz?",
 	image: {
 		asset: {
 			altText: "asdasd",
@@ -532,5 +540,23 @@ const image = {
 	},
 };
 const headingWithMaxWidthData = {
-		heading:"Tworzymy strony internetowe  i aplikacje webowe, które topią serca odwiedzających, niekoniecznie lodowce."
+		heading:"Tworzymy strony internetowe  i aplikacje webowe, **które topią serca odwiedzających**, niekoniecznie lodowce."
 	}
+
+const query = async () => {
+	const {
+		body: { data },
+	} = await fetchData(`
+	page: Homepage(id: "homepage") {
+		# Team
+		team_Heading
+		team_Text
+		team_Cta {
+			theme
+			text
+			href
+		}
+	}`
+	);
+	return data;
+}

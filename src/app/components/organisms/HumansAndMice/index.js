@@ -1,9 +1,9 @@
-import HeadingImageText from "@/app/components/molecules/UxDesign/HeadingImageText";
+import HeadingImageText from "@/app/components/molecules/HeadingImageText";
 import styles from './styles.module.scss';
 
 const HumansAndMice = () => {
 
-  const headingContent="Ludzie i myszy – testujemy pełną parą";
+  const headingContent="Ludzie i myszy – **testujemy pełną parą**";
   const image = {
     		asset: {
 			altText: "asdsadsadsad",

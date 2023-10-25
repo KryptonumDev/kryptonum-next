@@ -1,15 +1,15 @@
-import TextComponent from "@/app/components/molecules/TextComponent";
+import HeadingWithDescriptionTitle from "@/app/components/molecules/HeadingWithDescriptionTitle";
 import styles from "./styles.module.scss";
 import AnimatedCardGrid from "@/app/components/organisms/AnimatedCardGrid";
 
 const SustainableDevelopment = ({ sustainableDevelopmentData, animatedCardGridData }) => {
+	const type = "h2";
+
+
 	return (
 		<section className={styles.section}>
-			<TextComponent
+			<HeadingWithDescriptionTitle
 				data={sustainableDevelopmentData}
-				itemClassName={styles.item}
-				descriptionClassName={styles.description}
-				wrapperClassName={styles.wrapper}
 			/>
 			<AnimatedCardGrid data={animatedCardGridData} />
 		</section>
