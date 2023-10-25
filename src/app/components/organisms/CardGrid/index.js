@@ -7,7 +7,7 @@ const CardGrid = ({ data: { blocks } }) => {
 		<div className={styles.wrapper}>
 			{blocks.map(({ title, description, icon }, i) => (
 				<div className={styles.item} key={i}>
-					{icon ? <Img data={icon} className={styles.icon} /> : <p className={styles.icon}>{i}</p>}
+					{icon ? <Img data={icon} className={styles.icon} /> : <p className={styles.icon} width={60} height={60}>{i}</p>}
           
 					<ReactMarkdown className={styles.title} components={{ p: "h3" }}>
 						{title}

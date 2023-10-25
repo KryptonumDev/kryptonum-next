@@ -17,7 +17,7 @@
   .multipleUxEplanations {
     padding-top: 91px;
   }
-  @media(max-width:1200px) {
+  @media(max-width:1300px) {
     .multipleUxEplanations {
       padding-top: clamp(96px, calc(128vw/7.68), 128px);
     }

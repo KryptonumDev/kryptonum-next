@@ -26,6 +26,8 @@ const ConsultationCta = async ({
           <Img
 					data={quickForm_Person.img}
             className={`${styles.img} personBorder`}
+						width={120}
+						height={120}
           />
           {quickForm_Person.tel && (
             <a href={`tel:${quickForm_Person.tel.replace(/\s/g, '')}`}>{quickForm_Person.tel}</a>
