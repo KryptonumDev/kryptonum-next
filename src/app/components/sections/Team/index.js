@@ -1,11 +1,10 @@
-import React from "react";
-import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import Button from "@/components/atoms/Button";
-import Link from "next/link";
+import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import Img from "@/utils/Img";
 import fetchData from "@/utils/fetchData";
-import styles from "./styles.module.scss";
 import Markdown from "@/utils/markdown";
+import Link from "next/link";
+import styles from "./styles.module.scss";
 
 const Team = async ({ heading, paragraph, cta }) => {
   let data = await query();

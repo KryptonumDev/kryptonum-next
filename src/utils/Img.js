@@ -1,4 +1,3 @@
-import React from "react";
 import NextImage from "next/image";
 
 const Img = ({ data, width, height, sizes, ...props }) =>

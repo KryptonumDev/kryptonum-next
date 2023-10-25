@@ -1,9 +1,9 @@
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
-import styles from "./styles.module.scss";
-import Markdown from "@/utils/markdown";
 import ConsultationCtaForm from "@/app/components/organisms/forms/ConsultationCtaForm";
-import fetchData from "@/utils/fetchData";
 import Img from "@/utils/Img";
+import fetchData from "@/utils/fetchData";
+import Markdown from "@/utils/markdown";
+import styles from "./styles.module.scss";
 
 const ConsultationCta = async ({
 	data: { heading, subheading, cta },

@@ -1,5 +1,5 @@
 import CtaWithImage from "../../molecules/CtaWithImage";
-import styles from './styles.module.scss'
+import styles from './styles.module.scss';
 
 const HorizontalCtaWithImage = ({data}) => {
 	return (

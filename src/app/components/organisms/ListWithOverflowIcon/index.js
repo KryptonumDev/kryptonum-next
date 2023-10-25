@@ -1,6 +1,6 @@
 import Img from "@/utils/Img";
-import styles from "./styles.module.scss";
 import Markdown from "@/utils/markdown";
+import styles from "./styles.module.scss";
 
 const ListWithOverflowIcon = ({ data: { blocks }, className, itemClassName }) => {
 	return (

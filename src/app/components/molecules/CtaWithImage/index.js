@@ -1,10 +1,10 @@
 'use client'
 
-import styles from './styles.module.scss';
+import Img from '@/utils/Img';
+import { useEffect, useState } from "react";
 import Button from '../../atoms/Button';
 import DecorativeHeading from '../../atoms/DecorativeHeading';
-import Img from '@/utils/Img';
-import{ useState, useEffect } from "react";
+import styles from './styles.module.scss';
 
 const CtaWithImage = ({data:{buttonContext, buttonMobileContext, headingContext, image}, parentStyles}) => {
   const [windowWidth, setWindowWidth] = useState(0);
