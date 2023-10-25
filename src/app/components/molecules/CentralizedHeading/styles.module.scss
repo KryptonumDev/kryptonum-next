@@ -3,8 +3,14 @@
   grid-row-gap: 24px;
   align-items: center;
   justify-content: center;
+  .subheading {
+    text-align:center;
+  }
   @media(max-width:800px) {
     align-items: start;
     justify-content: start;
+    .subheading {
+      text-align: start;
+    }
   }
 }

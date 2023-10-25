@@ -482,8 +482,8 @@ const CtaSectionWithImageData2 = {
 }
 
 const watchImageData3 = {
-	buttonContext:"Pogadajmy!",
-	buttonMobileContext:"Pogadajmy!",
+	buttonContext:"Umów darmową konsultację!",
+	buttonMobileContext:"umów konsultacje!",
 	headingContext: "**Projektowanie UX** potrzebne od zaraz?",
 	image: {
 		asset: {
@@ -543,7 +543,8 @@ const image = {
 	},
 };
 const headingWithMaxWidthData = {
-		heading:"Tworzymy strony internetowe  i aplikacje webowe, **które topią serca odwiedzających**, niekoniecznie lodowce."
+		heading:"Tworzymy strony internetowe  i aplikacje webowe, **które topią serca odwiedzających**, niekoniecznie lodowce.",
+		decoration: false
 	}
 
 const query = async () => {
