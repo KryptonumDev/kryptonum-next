@@ -1,26 +1,31 @@
-import React from "react";
+"use client";
+
+import React, { useRef, useState } from "react";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import fetchData from "@/utils/fetchData";
 import TestimonialsSwiper from "@/components/organisms/TestimonialsSwiper";
 import styles from "./styles.module.scss";
+const Testimonials = async ({ heading }) => {
+	const data = await query();
 
-const Testimonials = async () => {
-  const data = await query();
+	const [activeIndex, setActiveIndex] = useState(0);
+	const swiperRef = useRef(null);
 
-  return (
-    <section className={styles.wrapper}>
-      <DecorativeHeading type="h2">
-        Zobacz, co mówią **klienci**:
-      </DecorativeHeading>
-      <TestimonialsSwiper data={data} />
-    </section>
-  );
+	const handlePrev = () => swiperRef?.current.swiper.slidePrev();
+	const handleNext = () => swiperRef?.current.swiper.slideNext();
+
+	return (
+		<section className={styles.wrapper}>
+			<DecorativeHeading type="h2">{heading || "Zobacz, co mówią **klienci**:"}</DecorativeHeading>
+			<TestimonialsSwiper data={data} />
+		</section>
+	);
 };
 
 const query = async () => {
-  const {
-    body: { data },
-  } = await fetchData(`
+	const {
+		body: { data },
+	} = await fetchData(`
     testimonials: allTestimonials(limit: 3, sort: {_createdAt:ASC}) {
       name
       project
@@ -45,7 +50,7 @@ const query = async () => {
       }
     }
   `);
-  return data;
+	return data;
 };
 
 export default Testimonials;

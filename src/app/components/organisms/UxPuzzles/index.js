@@ -1,7 +1,7 @@
-import HeadingImageText from "../../molecules/UxDesign/HeadingImageText";
+import HeadingImageText from "../../molecules/HeadingImageText";
 import styles from "./styles.module.scss";
 const UxPuzzles = () => {
-	const headingContent = "Układanie UX-owych puzzli – tworzymy prototyp";
+	const headingContent = "Układanie UX-owych puzzli – **tworzymy prototyp**";
 	const image = {
 		asset: {
 			altText: "asdsadsadsad",
@@ -17,7 +17,7 @@ const UxPuzzles = () => {
 	const description = [
 		"Sfokusowani na celu i nakarmieni wiedzą zaczniemy tworzyć architekturę informacji oraz prototyp Twojej witryny lub aplikacji.",
 		"Jeśli Twoja strona lub apka już śmiga w sieci, zaczniemy od audytu UX, by skonfrontować obecny stan rzeczy z założonymi celami. Tutaj dowiesz się więcej o audycie UX.",
-		"<btn>Sprawdź, jak wygląda audyt</btn>",
+		"[Sprawdź, jak wygląda audyt]()",
 		"Zaprzęgniemy do akcji dobre praktyki budowania interfejsów cyfrowych, heurystyki Nielsena, zasady Gestalt i piramidę potrzeb UX, by zaprojektować intuicyjną stronę internetową. Nigdy więcej frustrujących formularzy, linków prowadzących donikąd czy zamulających filmów wideo!",
 		"Krok po kroku, przy użyciu naszej ukochanej Figmy, powstanie prototyp gotowy do przeklikania wzdłuż i wszerz.",
 	];

@@ -1,5 +1,6 @@
 .section {
   h2 {
+    font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28rem/16));
     margin: 0 auto clamp(28px, calc(48vw/7.68), 72px);
   }
 
@@ -11,11 +12,12 @@
     a {
       display: grid;
       grid-template-columns: auto 1fr;
-      gap: 16px;
+      gap: 8px;
       align-items: center;
 
       .img {
-        width: 156px;
+        width: 128px;
+        height: 128px;
         object-fit: cover;
         overflow: hidden;
         display: block;
@@ -34,11 +36,11 @@
 
       .info {
         h3 {
-          font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(30rem/16));
+          font-size: clamp(calc(18rem/16), calc(18vw/7.68), calc(20rem/16));
         }
 
         p {
-          font-size: clamp(calc(16rem/16), calc(22vw/7.68), calc(22rem/16));
+          font-size: 1rem;
         }
       }
     }
@@ -46,21 +48,21 @@
 
   .copy {
     text-align: center;
-    max-width: 858px;
+    max-width: 633px;
     margin: 0 auto;
 
     margin-top: clamp(28px, calc(48vw/7.68), 48px);
 
     p {
-      font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(30rem/16));
+      font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
 
       &:not(:last-of-type) {
-        margin-bottom: clamp(16px, calc(32vw/7.68), 32px);
+        margin-bottom: clamp(16px, calc(16vw/7.68), 24px);
       }
     }
 
     a {
-      margin-top: clamp(28px, calc(48vw/7.68), 48px);
+      margin-top: clamp(28px, calc(32vw/7.68), 32px);
     }
   }
 

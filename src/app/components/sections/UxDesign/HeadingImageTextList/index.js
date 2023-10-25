@@ -4,7 +4,7 @@ import UxPuzzles from "@/app/components/organisms/UxPuzzles";
 import HumansAndMice from "@/app/components/organisms/HumansAndMice";
 import IsItOver from "@/app/components/organisms/IsItOver";
 
-const ImageHeadingWrappers = () => {
+const HeadingImageTextList = () => {
 	return (
 		<section>
 			<Workshops />
@@ -15,4 +15,4 @@ const ImageHeadingWrappers = () => {
 			</section>
 	);
 };
-export default ImageHeadingWrappers;
+export default HeadingImageTextList;

@@ -3,43 +3,45 @@ import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import Img from "@/utils/Img";
 import Markdown from "@/utils/markdown";
 
-const TextComponent = ({ data: { heading, blocks }, itemClassName, descriptionClassName, wrapperClassName }) => {
+const TextComponent = ({
+	data: { heading, blocks }
+}) => {
 	return (
-		<div className={wrapperClassName ? wrapperClassName : styles.wrapper}>
+		<div className={styles.wrapper}>
 			<DecorativeHeading type="h2">{heading}</DecorativeHeading>
 			<div className={styles.divWrapper}>
-				{blocks.map((item, i) => (
-					<div className={itemClassName ? itemClassName : styles.item} key={i}>
-						{item.icon ? (
-							<div className={styles.imageWrapper}>
-								<Img
-									data={item.icon}
-									className={`${styles.icon} person-border`}
-								/>
-							</div>
-						) : (
-							<Markdown className={styles.title}>{item.title}</Markdown>
-						)}
-						<Markdown
-							className={descriptionClassName ?  descriptionClassName : styles.description}
-							components={{
-								li: ({ children, ordered }) => (
-									<li>
-										{!ordered && <BulletListIcon />}
-										<span>{children}</span>
-									</li>
-								),
-								a: ({ href, children }) => (
-									<Button theme="secondary" to={href}>
-										{children}
-									</Button>
-								),
-							}}
-						>
-							{item.description}
-						</Markdown>
-					</div>
-				))}
+				{blocks.map((item, i) => {
+					item.description
+					return (
+						<div className={styles.item} key={i}>
+							{item.icon ? (
+								<div className={styles.imageWrapper}>
+									<Img data={item.icon} className={`${styles.icon} person-border`} />
+								</div>
+							) : (
+								<Markdown className={styles.title}>{item.title}</Markdown>
+							)}
+							<Markdown
+								className={styles.description}
+								components={{
+									li: ({ children, ordered }) => (
+										<li>
+											{!ordered && <BulletListIcon />}
+											<span>{children}</span>
+										</li>
+									),
+									a: ({ href, children }) => (
+										<Button theme="secondary" to={href}>
+											{children}
+										</Button>
+									),
+								}}
+							>
+								{item.description}
+							</Markdown>
+						</div>
+					);
+				})}
 			</div>
 		</div>
 	);
