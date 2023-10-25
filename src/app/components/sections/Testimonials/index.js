@@ -31,7 +31,7 @@ const Testimonials = ({ heading, testimonials }) => {
 					{testimonials.map(({ name, text, cta, img }, i) => (
 						<SwiperSlide className={styles.slide} key={i}>
 							<div className={styles.author}>
-								<Img data={img} className={styles.img}/>
+								<Img data={img} className={styles.img} width={158} height={158}/>
 								<div>
 									<h3>{name}</h3>
 									<Button theme={cta.theme} to={cta.href}>

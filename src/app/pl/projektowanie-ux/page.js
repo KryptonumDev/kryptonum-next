@@ -5,7 +5,7 @@ import HeadingImageTextList from "@/app/components/sections/UxDesign/HeadingImag
 import FullWidthImageComponent from "@/app/components/sections/FullWidthImageComponent";
 import CardWithOverflowIcon from "@/app/components/sections/CardWithOverflowIcon";
 import SustainableDevelopment from "@/app/components/sections/UxDesign/SustainableDevelopment";
-import ConsultationCta from "@/app/components/sections/UxDesign/ConsultationCta";
+import ConsultationCta from "@/app/components/sections/ConsultationCta";
 import ImageDisplayedOnTablet from "@/app/components/sections/ImageDisplayedOnTablet";
 import HeadingWithMaxWidth from "@/app/components/sections/HeadingWithMaxWidth";
 import VerticalCtaSectionWithImage from "@/app/components/sections/VerticalCtaWithImage";
@@ -44,7 +44,7 @@ export default async function UxDesignPage() {
 				sustainableDevelopmentData={sustainableDevelopmentData}
 				animatedCardGridData={animatedCardGridData}
 			/>
-			<ConsultationCta/>
+			<ConsultationCta data={consultationCtaData}/>
 			<HeadingWithIconTitleDescriptionList data={designStepsData}/>
 			<ImageDisplayedOnTablet image={image2}/>
 			<HeadingWithIconTitleDescriptionList data={jamstackTechnologyData}/>
@@ -482,8 +482,8 @@ const CtaSectionWithImageData2 = {
 }
 
 const watchImageData3 = {
-	buttonContext:"Pogadajmy!",
-	buttonMobileContext:"Pogadajmy!",
+	buttonContext:"Umów darmową konsultację!",
+	buttonMobileContext:"umów konsultacje!",
 	headingContext: "**Projektowanie UX** potrzebne od zaraz?",
 	image: {
 		asset: {
@@ -543,7 +543,14 @@ const image = {
 	},
 };
 const headingWithMaxWidthData = {
-		heading:"Tworzymy strony internetowe  i aplikacje webowe, **które topią serca odwiedzających**, niekoniecznie lodowce."
+		heading:"Tworzymy strony internetowe  i aplikacje webowe, **które topią serca odwiedzających**, niekoniecznie lodowce.",
+		decoration: false
+	}
+
+	const consultationCtaData= {
+		heading: "Dobry UX jest **zielony**!",
+		subheading: "Zaprojektujemy dla Ciebie ultraszybką i intuicyjną stronę  z małym apetytem na prąd. Kto wie, może dzięki niej nie wyginą maskonury?",
+		cta: "Umawiam konsultację"
 	}
 
 const query = async () => {

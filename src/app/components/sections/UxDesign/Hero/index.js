@@ -38,7 +38,7 @@ const Hero = () => {
 					</div>
 				</header>
 				<div className={styles.imageWrapper}>
-					<Img data={image} className={styles.img} />
+					<Img data={image} className={styles.img} sizes="100vw" loading="eager"/>
 				</div>
 			</section>
 	);

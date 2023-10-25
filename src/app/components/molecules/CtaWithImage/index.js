@@ -23,7 +23,7 @@ const CtaWithImage = ({data:{buttonContext, buttonMobileContext, headingContext,
 	return (
 		<div className={`${styles.wrapper} ${parentStyles.consultation}`}>
 			<div className={`${styles.imgWrapper} ${parentStyles.imageWrapper}`}>
-				<Img data={image} className={`${styles.img} ${parentStyles.image}`} />
+				<Img data={image} className={`${styles.img} ${parentStyles.image}`} sizes="(min-width: 1000px) 1000px, (max-width:999px) 100vw"/>
 			</div>
 			<div className={styles.consultationWrapper}>
 				<div className={styles.decorativeHeadingWrapper}>
