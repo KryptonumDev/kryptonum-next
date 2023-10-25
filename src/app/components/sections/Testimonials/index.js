@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useRef, useState } from "react";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { A11y } from "swiper/modules";
-import "swiper/css";
-import styles from "./styles.module.scss";
 import Img from "@/utils/Img";
+import { useRef, useState } from "react";
+import "swiper/css";
+import { A11y } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import Button from "../../atoms/Button";
 import { Quote } from "../../atoms/Icons";
+import styles from "./styles.module.scss";
 
 const Testimonials = ({ heading, testimonials }) => {
 	const [activeIndex, setActiveIndex] = useState(0);

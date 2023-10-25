@@ -1,7 +1,6 @@
-import React from "react";
-import styles from './styles.module.scss';
-import CardGrid from "@/app/components/organisms/CardGrid";
 import CentralizedHeading from "@/app/components/molecules/CentralizedHeading";
+import CardGrid from "@/app/components/organisms/CardGrid";
+import styles from './styles.module.scss';
 
 const CentralizedHeadingWithCardGrid = ({cardData, headingData}) => {
 	return (

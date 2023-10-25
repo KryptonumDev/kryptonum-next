@@ -1,7 +1,7 @@
-import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
-import styles from "./styles.module.scss";
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import Img from "@/utils/Img";
+import styles from "./styles.module.scss";
 
 const Hero = () => {
 	const breadcrumbs = [

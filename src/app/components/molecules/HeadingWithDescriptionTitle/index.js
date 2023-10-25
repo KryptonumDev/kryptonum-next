@@ -1,6 +1,6 @@
-import styles from "./styles.module.scss";
 import Markdown from "@/utils/markdown";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
+import styles from "./styles.module.scss";
 
 const HeadingWithDescriptionTitle = ({ data: { heading, blocks } }) => {
 	return (

@@ -1,7 +1,5 @@
-import Img from "@/utils/Img";
-import ReactMarkdown from "react-markdown";
-import styles from "./styles.module.scss";
 import ListWithOverflowIcon from "../../organisms/ListWithOverflowIcon";
+import styles from "./styles.module.scss";
 
 const CardWithOverflowIcon = ({ cardData }) => {
 	return (

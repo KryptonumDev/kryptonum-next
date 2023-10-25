@@ -1,7 +1,7 @@
-import styles from "./styles.module.scss";
+import { removeMarkdown } from "@/utils/functions";
 import Script from "next/script";
 import { Fragment } from "react";
-import { removeMarkdown } from "@/utils/functions";
+import styles from "./styles.module.scss";
 
 const Icon = () => (
   <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,10 +1,10 @@
-import Img from "@/utils/Img";
-import styles from "./styles.module.scss";
-import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import Button from "@/app/components/atoms/Button";
+import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
+import Img from "@/utils/Img";
 import Markdown from "@/utils/markdown";
-import { isExternal } from "util/types";
 import Link from "next/link";
+import { isExternal } from "util/types";
+import styles from "./styles.module.scss";
 
 const HeadingImageText = ({
 	headingType,

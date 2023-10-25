@@ -1,7 +1,7 @@
-import styles from "./styles.module.scss";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import Img from "@/utils/Img";
 import Markdown from "@/utils/markdown";
+import styles from "./styles.module.scss";
 
 const TextComponent = ({
 	data: { heading, blocks }

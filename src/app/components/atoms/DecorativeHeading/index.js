@@ -1,7 +1,6 @@
-import React from "react";
+import Markdown from "@/utils/markdown";
 import { HeadingDecoration, HeadingLineFlexibility } from "../Icons";
 import styles from "./styles.module.scss";
-import Markdown from "@/utils/markdown";
 
 const DecorativeHeading = ({
   type = "h1",

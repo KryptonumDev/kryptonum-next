@@ -1,6 +1,6 @@
 import Img from "@/utils/Img";
-import styles from './styles.module.scss';
 import ReactMarkdown from "react-markdown";
+import styles from './styles.module.scss';
 
 const CardGrid = ({ data: { blocks } }) => {
 	return (
