@@ -8,11 +8,11 @@ import styles from "./styles.module.scss";
 const Testimonials = async ({ heading }) => {
 	const data = await query();
 
-	const [activeIndex, setActiveIndex] = useState(0);
-	const swiperRef = useRef(null);
+	// const [activeIndex, setActiveIndex] = useState(0);
+	// const swiperRef = useRef(null);
 
-	const handlePrev = () => swiperRef?.current.swiper.slidePrev();
-	const handleNext = () => swiperRef?.current.swiper.slideNext();
+	// const handlePrev = () => swiperRef?.current.swiper.slidePrev();
+	// const handleNext = () => swiperRef?.current.swiper.slideNext();
 
 	return (
 		<section className={styles.wrapper}>
