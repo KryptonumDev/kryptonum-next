@@ -295,6 +295,7 @@ const headingData = {
 	heading: "Jak tu nie lubić **WCAG**?",
 	subheading: "Tylko spójrz",
 	type: "h4",
+	decoration: true
 };
 const sustainableDevelopmentData = {
 	heading: "Strony internetowe w duchu **zrównoważonego rozwoju**",
