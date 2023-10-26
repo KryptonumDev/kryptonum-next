@@ -23,10 +23,7 @@ const ConsultationCtaForm = ({ cta }) => {
     setSubmitProccessing(true)
     fetch('/api/quick-contact', {
       method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      }
+      body: JSON.stringify(data)
     }).then(() => {
       reset()
       setIsEmailSent('success')

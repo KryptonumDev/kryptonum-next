@@ -1,53 +1,34 @@
 import sgMail from "@sendgrid/mail";
+import { NextResponse } from "next/server";
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+export async function POST(req) {
+	const headers = {
+		"Content-Type": "application/json",
+		"Access-Control-Allow-Origin": "https://kryptonum.eu",
+		"Access-Control-Allow-Methods": "POST",
+	};
+	const data = await req.json();
+	sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-export async function POST(req, res) {
-	const json = await req.json();
-	sgMail
-		.send({
-			to: "michal@kryptonum.eu",
-			from: "michal@kryptonum.eu",
-			subject: "Szybki formularz - kryptonum.eu",
-			text: "Wiadomość z szybkiego formularza kontaktowego.",
-			replyTo: `${json.name}`,
-			html: `
+	const message = {
+		to: "michal@kryptonum.eu",
+		from: "michal@kryptonum.eu",
+		subject: "Szybki formularz - kryptonum.eu",
+		text: "Wiadomość z szybkiego formularza kontaktowego.",
+    replyTo: `${data.mail}`,
+    html: `
       <div>
         <div>
-          <p><b>Imię:</b> ${json.name}</p>
-          <p><b>Email:</b> ${json.mail}</p>
+          <p><b>Imię:</b> ${data.name}</p>
+          <p><b>Email:</b> ${data.mail}</p>
         </div
       </div>
       `,
-		})
-		.then(() => {
-			// sgMail.send({
-			//   to: req.body.mail,
-			//   from: 'kryptonumstudio@gmail.com',
-			//   subject: 'Kryptonum Studio - Formularz kontaktowy',
-			//   text: 'Dziękujemy za kontakt, odpowiemy najszybciej jak to możliwe.',
-			//   html: `
-			//   <div>
-			//     <div>
-			//       <p>Dziękujemy za kontakt, odpowiemy najszybciej jak to możliwe.</p>
-			//       <p>Tutaj jest kopia twojej wiadomości:</p>
-			//       <p><b>Imię:</b> ${req.body.name}</p>
-			//       <p><b>Telefon:</b> ${req.body.phone}</p>
-			//       <p><b>Email:</b> ${req.body.mail}</p>
-			//     </div
-			//   </div>
-			//   `,
-			// })
-			//   .then(() => {
-			res.status(200).json({ success: true });
-			// })
-			// .catch(() => {
-			//   res.status(400).send({
-			//     statusMSG: 'Błąd wysyłania wiadomości do ciebie'
-			//   });
-			// })
-		})
-		.catch(() => {
-			res.status(400).json({ success: false });
-		});
+	};
+	try {
+		await sgMail.send(message);
+		NextResponse.json({ success: true }, { status: 200, headers });
+	} catch (error) {
+		NextResponse.json({ success: false }, { status: 500, headers });
+	}
 }
