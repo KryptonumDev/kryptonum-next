@@ -46,21 +46,8 @@
   }
 
   form {
-
-    input:not([type="checkbox"]),
-    textarea {
-      background: var(--neutral-900) !important;
-      position: relative;
-      z-index: 2;
-    }
-
     .legend {
       background: var(--neutral-900) !important;
-      z-index: 3;
-    }
-
-    .border {
-      z-index: 0;
     }
   }
 

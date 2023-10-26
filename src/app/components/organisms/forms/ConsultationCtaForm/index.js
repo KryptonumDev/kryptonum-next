@@ -1,5 +1,4 @@
 'use client'
-
 import { Label } from "@/app/components/atoms/Label";
 import { useForm } from "react-hook-form"
 import { Checkbox } from "@/app/components/atoms/Checkbox";
@@ -38,7 +37,7 @@ const ConsultationCtaForm = ({ cta }) => {
     })
   }
   return (
-    <from className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <Label
         title='Imię'
         name='name'
@@ -83,7 +82,7 @@ const ConsultationCtaForm = ({ cta }) => {
           </motion.div>
         )}
       </AnimatePresence>
-    </from>
+    </form>
   )
 }
 export default ConsultationCtaForm;
