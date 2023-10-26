@@ -11,9 +11,9 @@ import Testimonials from "@/app/components/sections/Testimonials";
 import TextSection from "@/app/components/sections/TextSection";
 import TitleDescriptionImageList from "@/app/components/sections/TitleDescriptionImageList";
 import HeadingImageTextList from "@/app/components/sections/UxDesign/HeadingImageTextList";
-import Hero from "@/app/components/sections/UxDesign/Hero";
+import Hero from "@/app/components/sections/Hero";
 import SustainableDevelopment from "@/app/components/sections/UxDesign/SustainableDevelopment";
-import VerticalCtaSectionWithImage from "@/app/components/sections/VerticalCtaWithImage";
+import VerticalCtaWithImage from "@/app/components/sections/VerticalCtaWithImage";
 import SEO from "@/components/global/Seo";
 import fetchData from "@/utils/fetchData";
 
@@ -28,18 +28,18 @@ export default async function UxDesignPage() {
 	} = await query();
 	return (
 		<>
-			<Hero />
+			<Hero data={heroData}/>
 			<TextSection data={textSectionData}/>
 			<HorizontalCtaWithImage data={planeImageData}/>
 			<TitleDescriptionImageList data={titleDescriptionImageListData}/>
 			<HeadingImageTextList />
-			<VerticalCtaSectionWithImage data={watchImageData3} />
+			<VerticalCtaWithImage data={watchImageData3} />
 			<TextSection data={wcagGuidelines} />
 			<FullWidthImageComponent image={image} />
 			<TextSection data={data} />
 			<CardWithOverflowIcon cardData={cardData}/>
 			<CentralizedHeadingWithCardGrid cardData={wcagData} headingData={headingData}/>
-			<VerticalCtaSectionWithImage data ={CtaSectionWithImageData1}/>
+			<VerticalCtaWithImage data ={CtaSectionWithImageData1}/>
 			<SustainableDevelopment
 				sustainableDevelopmentData={sustainableDevelopmentData}
 				animatedCardGridData={animatedCardGridData}
@@ -49,7 +49,7 @@ export default async function UxDesignPage() {
 			<ImageDisplayedOnTablet image={image2}/>
 			<HeadingWithIconTitleDescriptionList data={jamstackTechnologyData}/>
 			<HeadingWithMaxWidth data={headingWithMaxWidthData}/>
-			<VerticalCtaSectionWithImage data={CtaSectionWithImageData2}/>
+			<VerticalCtaWithImage data={CtaSectionWithImageData2}/>
 			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
 			<Testimonials testimonials={testimonials}/>
 		</>
@@ -82,6 +82,28 @@ const getUxDesignPageData = async () => {
   `);
 	return data;
 };
+
+const heroData = {
+	heading: "**Projektowanie UX**, by klikało się lepiej",
+	subheading: "Kompleksowe usługi graficzne i projekowanie.",
+	img: {
+		asset: {
+			altText:
+				"ASDASDasd",
+			url: "/Hero.png",
+			metadata: {
+				dimensions: {
+					height: 1152,
+					width: 1929,
+				},
+			},
+		},
+	},
+	breadcrumbs: [{
+		name: "Projektowanie UX",
+		link: "/projektowanie-ux"
+	}]
+}
 
 const wcagGuidelines = {
 	heading: "**Wytyczne WCAG**, czyli UX na wysoki połysk",
@@ -446,10 +468,12 @@ const jamstackTechnologyData = {
 }
 
 const CtaSectionWithImageData1 = {
-	buttonContext:"Pogadajmy!",
-	buttonMobileContext:"Pogadajmy!",
-	headingContext: "Chcesz mieć stronę, która **ugości jak należy** każdego użytkownika?",
-	image: {
+	cta: {
+		text: "Pogadajmy!",
+		theme:"primary",
+	},
+	heading: "Chcesz mieć stronę, która **ugości jak należy** każdego użytkownika?",
+	img: {
 		asset: {
 			altText: "asdasd",
 			url: "/Tron 1.svg",
@@ -464,10 +488,12 @@ const CtaSectionWithImageData1 = {
 }
 
 const CtaSectionWithImageData2 = {
-	buttonContext:"Pogadajmy!",
-	buttonMobileContext:"Pogadajmy!",
-	headingContext: "Potrzebujesz **zrównoważonej strony** internetowej?",
-	image: {
+	cta: {
+		text: "Pogadajmy!",
+		theme: "primary"
+	},
+	heading: "Potrzebujesz **zrównoważonej strony** internetowej?",
+	img: {
 		asset: {
 			altText: "asdasd",
 			url: "/Astronauta.svg",
@@ -482,10 +508,13 @@ const CtaSectionWithImageData2 = {
 }
 
 const watchImageData3 = {
-	buttonContext:"Umów darmową konsultację!",
-	buttonMobileContext:"umów konsultacje!",
-	headingContext: "**Projektowanie UX** potrzebne od zaraz?",
-	image: {
+	cta : {
+		text: "Umów darmową konsultację!",
+		textMobile:"umów konsultacje!",
+		theme:"primary",
+	},
+	heading: "**Projektowanie UX** potrzebne od zaraz?",
+	img: {
 		asset: {
 			altText: "asdasd",
 			url: "/Image2.svg",
