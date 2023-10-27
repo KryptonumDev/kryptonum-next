@@ -1,9 +1,9 @@
-import "../styles/global.scss";
-import localFont from "next/font/local";
-import fetchData from "@/utils/fetchData";
 import Footer from "@/components/organisms/Footer";
 import Nav from "@/components/organisms/Nav";
+import fetchData from "@/utils/fetchData";
 import { formatDateToPolishLocale } from "@/utils/functions";
+import localFont from "next/font/local";
+import "../styles/global.scss";
 
 const font = localFont({ src: "../resources/fonts/Poppins-Light.woff2" });
 

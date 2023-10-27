@@ -22,6 +22,7 @@ const CaseStudies = async ({ data, heading }) => {
               key={i}
               className={`${styles.img} img`}
               loading="eager"
+              sizes="100vw"
             />
             <Button
               to={`/pl/portfolio/${caseStudy.slug.current}`}

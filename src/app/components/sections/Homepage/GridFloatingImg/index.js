@@ -52,7 +52,7 @@ const GridFloatingImg = ({ data: { heading, list } }) => {
 								}}
 								className={styles.img}
 							>
-								<Img data={img} className={styles.cover} />
+								<Img data={img} className={styles.cover} sizes="320px" />
 							</motion.div>
 							<h3>
 								<span>{title}</span>

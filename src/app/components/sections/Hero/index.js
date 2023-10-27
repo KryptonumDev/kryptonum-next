@@ -18,7 +18,7 @@ const Hero = ({ data: { heading, breadcrumbs, subheading, img } }) => {
 				)}
 			</header>
 			<div className={styles.imageWrapper}>
-				<Img data={img} className={styles.img} />
+				<Img data={img} className={styles.img} sizes="100vw" loading="eager"/>
 			</div>
 		</section>
 	);

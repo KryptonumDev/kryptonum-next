@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-import { ChevronDown, ChevronLeft, KryptonumLogo } from "@/atoms/Icons";
-import { removeMarkdown, scrollLock } from "@/utils/functions";
 import Button from "@/atoms/Button";
-import Link from "next/link";
+import { ChevronDown, ChevronLeft, KryptonumLogo } from "@/atoms/Icons";
 import Img from "@/utils/Img";
+import { removeMarkdown, scrollLock } from "@/utils/functions";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 
 const Nav = ({
@@ -286,8 +286,7 @@ const Nav = ({
                             <Img
                               data={caseStudy.img}
                               className={styles.img}
-                              width={420}
-                              height={420}
+                              sizes="(max-width:1149) 50vw, (min-width: 1150px) 25vw"
                             />
                           </div>
                           <p>{caseStudy.name}</p>

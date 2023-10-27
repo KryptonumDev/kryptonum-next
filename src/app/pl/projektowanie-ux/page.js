@@ -1,9 +1,11 @@
 import CardWithOverflowIcon from "@/app/components/sections/CardWithOverflowIcon";
 import CentralizedHeadingWithCardGrid from "@/app/components/sections/CentralizedHeadingWithCardGrid";
 import ConsultationCta from "@/app/components/sections/ConsultationCta";
+import CtaWithVerticalImage from "@/app/components/sections/CtaWithVerticalImage";
 import FullWidthImageComponent from "@/app/components/sections/FullWidthImageComponent";
 import HeadingWithIconTitleDescriptionList from "@/app/components/sections/HeadingWithIconTitleDescriptionList";
 import HeadingWithMaxWidth from "@/app/components/sections/HeadingWithMaxWidth";
+import Hero from "@/app/components/sections/Hero";
 import HorizontalCtaWithImage from "@/app/components/sections/HorizontalCtaWithImage";
 import ImageDisplayedOnTablet from "@/app/components/sections/ImageDisplayedOnTablet";
 import Team from "@/app/components/sections/Team";
@@ -11,10 +13,7 @@ import Testimonials from "@/app/components/sections/Testimonials";
 import TextSection from "@/app/components/sections/TextSection";
 import TitleDescriptionImageList from "@/app/components/sections/TitleDescriptionImageList";
 import HeadingImageTextList from "@/app/components/sections/UxDesign/HeadingImageTextList";
-import Hero from "@/app/components/sections/Hero";
 import SustainableDevelopment from "@/app/components/sections/UxDesign/SustainableDevelopment";
-import CtaWithVerticalImage from "@/app/components/sections/CtaWithVerticalImage";
-import SEO from "@/components/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function UxDesignPage() {
