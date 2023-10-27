@@ -16,12 +16,16 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 32px;
+      height:min-content;
 
       .descriptionWrapper {
         justify-self: end;
+        display:flex;
+        align-items: end;
 
         h2 {
           width: 100%;
+          margin-bottom: unset;
         }
       }
 
@@ -33,9 +37,6 @@
       .title {
         margin-left: auto;
         text-align: left;
-      }
-
-      .title {
         font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
       }
     }
