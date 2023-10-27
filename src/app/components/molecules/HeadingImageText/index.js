@@ -24,7 +24,7 @@ const HeadingImageText = ({
 				</DecorativeHeading>
 			</div>
 			<div className={`${styles.imageWrapper} ${imageWrapperClassName}`}>
-				<Img className={styles.image} data={image} sizes="(max-width:1199) 100vw, (min-width: 1200px) 50vw"></Img>
+				<Img className={styles.image} data={image} sizes="(max-width: 1199px) 100vw, (min-width: 1200px) 50vw"></Img>
 			</div>
 			<div className={styles.descriptionWrapper}>
 				{description.map((paragraph, index) => {
