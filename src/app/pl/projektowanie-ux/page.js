@@ -1,9 +1,11 @@
 import CardWithOverflowIcon from "@/app/components/sections/CardWithOverflowIcon";
 import CentralizedHeadingWithCardGrid from "@/app/components/sections/CentralizedHeadingWithCardGrid";
 import ConsultationCta from "@/app/components/sections/ConsultationCta";
+import CtaWithVerticalImage from "@/app/components/sections/CtaWithVerticalImage";
 import FullWidthImageComponent from "@/app/components/sections/FullWidthImageComponent";
 import HeadingWithIconTitleDescriptionList from "@/app/components/sections/HeadingWithIconTitleDescriptionList";
 import HeadingWithMaxWidth from "@/app/components/sections/HeadingWithMaxWidth";
+import Hero from "@/app/components/sections/Hero";
 import HorizontalCtaWithImage from "@/app/components/sections/HorizontalCtaWithImage";
 import ImageDisplayedOnTablet from "@/app/components/sections/ImageDisplayedOnTablet";
 import Team from "@/app/components/sections/Team";
@@ -11,10 +13,7 @@ import Testimonials from "@/app/components/sections/Testimonials";
 import TextSection from "@/app/components/sections/TextSection";
 import TitleDescriptionImageList from "@/app/components/sections/TitleDescriptionImageList";
 import HeadingImageTextList from "@/app/components/sections/UxDesign/HeadingImageTextList";
-import Hero from "@/app/components/sections/Hero";
 import SustainableDevelopment from "@/app/components/sections/UxDesign/SustainableDevelopment";
-import VerticalCtaWithImage from "@/app/components/sections/VerticalCtaWithImage";
-import SEO from "@/components/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function UxDesignPage() {
@@ -33,13 +32,13 @@ export default async function UxDesignPage() {
 			<HorizontalCtaWithImage data={planeImageData}/>
 			<TitleDescriptionImageList data={titleDescriptionImageListData}/>
 			<HeadingImageTextList />
-			<VerticalCtaWithImage data={watchImageData3} />
+			<CtaWithVerticalImage data={watchImageData3} />
 			<TextSection data={wcagGuidelines} />
 			<FullWidthImageComponent image={image} />
 			<TextSection data={data} />
 			<CardWithOverflowIcon cardData={cardData}/>
 			<CentralizedHeadingWithCardGrid cardData={wcagData} headingData={headingData}/>
-			<VerticalCtaWithImage data ={CtaSectionWithImageData1}/>
+			<CtaWithVerticalImage data ={CtaSectionWithImageData1}/>
 			<SustainableDevelopment
 				sustainableDevelopmentData={sustainableDevelopmentData}
 				animatedCardGridData={animatedCardGridData}
@@ -49,39 +48,39 @@ export default async function UxDesignPage() {
 			<ImageDisplayedOnTablet image={image2}/>
 			<HeadingWithIconTitleDescriptionList data={jamstackTechnologyData}/>
 			<HeadingWithMaxWidth data={headingWithMaxWidthData}/>
-			<VerticalCtaWithImage data={CtaSectionWithImageData2}/>
+			<CtaWithVerticalImage data={CtaSectionWithImageData2}/>
 			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
 			<Testimonials testimonials={testimonials}/>
 		</>
 	);
 }
 
-export async function generateMetadata() {
-	const {
-		page: { seo },
-	} = await getUxDesignPageData();
-	return SEO({
-		title: seo?.title,
-		description: seo?.description,
-		url: "",
-	});
-}
+// export async function generateMetadata() {
+// 	const {
+// 		page: { seo },
+// 	} = await getUxDesignPageData();
+// 	return SEO({
+// 		title: seo?.title,
+// 		description: seo?.description,
+// 		url: "",
+// 	});
+// }
 
-//wait for new database data
-const getUxDesignPageData = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  page: Homepage(id: "homepage") {
-  # SEO
-  seo {
-    title
-    description
-  }
-}
-  `);
-	return data;
-};
+// //wait for new database data
+// const getUxDesignPageData = async () => {
+// 	const {
+// 		body: { data },
+// 	} = await fetchData(`
+//   page: Homepage(id: "homepage") {
+//   # SEO
+//   seo {
+//     title
+//     description
+//   }
+// }
+//   `);
+// 	return data;
+// };
 
 const heroData = {
 	heading: "**Projektowanie UX**, by klikało się lepiej",
@@ -125,7 +124,7 @@ const titleDescriptionImageListData = [
 		image: {
 			asset: {
 				altText: "asdsadsadsad",
-				url: "/Rzexba 1.svg",
+				url: "/Rzexba 1.png",
 				metadata: {
 					dimensions: {
 						height: 430,
@@ -142,7 +141,7 @@ const titleDescriptionImageListData = [
 		image: {
 			asset: {
 				altText: "asdsadsadsad",
-				url: "/Rzeźbawydajnosc 1.svg",
+				url: "/Rzeźbawydajnosc 1.png",
 				metadata: {
 					dimensions: {
 						height: 326,
@@ -159,7 +158,7 @@ const titleDescriptionImageListData = [
 		image: {
 			asset: {
 				altText: "asdsadsadsad",
-				url: "/Drzeworzezba 1.svg",
+				url: "/Drzeworzezba 1.png",
 				metadata: {
 					dimensions: {
 						height: 354,
@@ -208,7 +207,7 @@ const cardData = {
 			icon: {
 				asset: {
 					altText: "Aasdasd",
-					url: "/question_icon.svg",
+					url: "/question_icon.png",
 					metadata: {
 						dimensions: {
 							height: 300,
@@ -229,7 +228,7 @@ const wcagData = {
 			icon: {
 				asset: {
 					altText: "Aasdasd",
-					url: "/infoIcon.svg",
+					url: "/infoIcon.png",
 					metadata: {
 						dimensions: {
 							height: 300,
@@ -245,7 +244,7 @@ const wcagData = {
 			icon: {
 				asset: {
 					altText: "Aasdasd",
-					url: "/infoIcon.svg",
+					url: "/infoIcon.png",
 					metadata: {
 						dimensions: {
 							height: 300,
@@ -261,7 +260,7 @@ const wcagData = {
 			icon: {
 				asset: {
 					altText: "Aasdasd",
-					url: "/infoIcon.svg",
+					url: "/infoIcon.png",
 					metadata: {
 						dimensions: {
 							height: 300,
@@ -277,7 +276,7 @@ const wcagData = {
 			icon: {
 				asset: {
 					altText: "Aasdasd",
-					url: "/infoIcon.svg",
+					url: "/infoIcon.png",
 					metadata: {
 						dimensions: {
 							height: 300,
@@ -335,7 +334,7 @@ const designStepsData = {
 			icon: {
 				asset: {
 					altText: "Aasdasd",
-					url: "/quotaIcon.svg",
+					url: "/quotaIcon.png",
 					metadata: {
 						dimensions: {
 							height: 300,
@@ -351,7 +350,7 @@ const designStepsData = {
 			icon: {
 				asset: {
 					altText: "Aasdasd",
-					url: "/personIcon.svg",
+					url: "/personIcon.png",
 					metadata: {
 						dimensions: {
 							height: 300,
@@ -367,7 +366,7 @@ const designStepsData = {
 			icon: {
 				asset: {
 					altText: "Aasdasd",
-					url: "/photoIcon.svg",
+					url: "/photoIcon.png",
 					metadata: {
 						dimensions: {
 							height: 300,
@@ -383,7 +382,7 @@ const designStepsData = {
 			icon: {
 				asset: {
 					altText: "Aasdasd",
-					url: "/textIcon.svg",
+					url: "/textIcon.png",
 					metadata: {
 						dimensions: {
 							height: 300,
@@ -421,7 +420,7 @@ const jamstackTechnologyData = {
 			icon: {
 				asset: {
 					altText: "Aasdasd",
-					url: "/Hosting.svg",
+					url: "/Hosting.png",
 					metadata: {
 						dimensions: {
 							height: 300,
@@ -437,7 +436,7 @@ const jamstackTechnologyData = {
 			icon: {
 				asset: {
 					altText: "Aasdasd",
-					url: "/Api.svg",
+					url: "/Api.png",
 					metadata: {
 						dimensions: {
 							height: 300,
@@ -453,7 +452,7 @@ const jamstackTechnologyData = {
 			icon: {
 				asset: {
 					altText: "Aasdasd",
-					url: "/Sanity.svg",
+					url: "/Sanity.png",
 					metadata: {
 						dimensions: {
 							height: 300,
@@ -477,7 +476,7 @@ const CtaSectionWithImageData1 = {
 	img: {
 		asset: {
 			altText: "asdasd",
-			url: "/Tron 1.svg",
+			url: "/Tron 1.png",
 			metadata: {
 				dimensions: {
 					height: 2048,
@@ -497,7 +496,7 @@ const CtaSectionWithImageData2 = {
 	img: {
 		asset: {
 			altText: "asdasd",
-			url: "/Astronauta.svg",
+			url: "/Astronauta.png",
 			metadata: {
 				dimensions: {
 					height: 2048,
@@ -518,7 +517,7 @@ const watchImageData3 = {
 	img: {
 		asset: {
 			altText: "asdasd",
-			url: "/Image2.svg",
+			url: "/Watch.png",
 			metadata: {
 				dimensions: {
 					height: 2048,
@@ -536,7 +535,7 @@ const planeImageData = {
 	image: {
 		asset: {
 			altText: "asdasd",
-			url: "/Image.svg",
+			url: "/Image.png",
 			metadata: {
 				dimensions: {
 					height: 2048,
@@ -550,7 +549,7 @@ const planeImageData = {
 const image2 = {
 	asset: {
 		altText: "asdasdsadsadasd",
-		url: "/Photo2.jpg",
+		url: "/Photo2.png",
 		metadata: {
 			dimensions: {
 				width: 3840,
@@ -563,7 +562,7 @@ const image2 = {
 const image = {
 	asset: {
 		altText: "asdasdsadsadasd",
-		url: "/Photo1.jpg",
+		url: "/Photo1.png",
 		metadata: {
 			dimensions: {
 				width: 3840,

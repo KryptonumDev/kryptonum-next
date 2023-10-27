@@ -6,11 +6,11 @@ const IsItOver = () => {
   const image = { 
     asset: {
       altText: "asdsadsadsad",
-      url: "/Frame 26081372.svg",
+      url: "/Frame 26081372.png",
       metadata: {
         dimensions: {
-          height: 603,
-          width: 302,
+          height: 1000,
+          width: 2000,
         },
       },
     },

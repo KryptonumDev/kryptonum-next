@@ -1,5 +1,4 @@
 "use client";
-import React, { useState } from "react";
 import {
   Facebook,
   Instagram,
@@ -10,9 +9,10 @@ import {
   Whatsapp,
   Youtube,
 } from "@/atoms/Icons";
-import Link from "next/link";
 import Img from "@/utils/Img";
 import { removeMarkdown } from "@/utils/functions";
+import Link from "next/link";
+import { useState } from "react";
 import styles from "./styles.module.scss";
 
 const Footer = ({

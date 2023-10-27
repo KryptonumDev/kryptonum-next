@@ -1,19 +1,34 @@
+import fetchData from "@/utils/fetchData";
 import CentralizedHeading from "@/app/components/molecules/CentralizedHeading";
 import FullWidthImageComponent from "@/app/components/sections/FullWidthImageComponent";
 import Hero from "@/app/components/sections/Hero";
 import TextSection from "@/app/components/sections/TextSection";
-import VerticalCtaWithImage from "@/app/components/sections/VerticalCtaWithImage";
+import CtaWithVerticalImage from "@/app/components/sections/CtaWithVerticalImage";
+import Team from "@/app/components/sections/Team";
+import Testimonials from "@/app/components/sections/Testimonials";
+import TilesComponent from "@/app/components/sections/TilesComponent";
+import styles from './styles.module.scss';
 
-export default function UiDesignPage() {
+export default async function UiDesignPage() {
+	const {
+		page: { team_Cta, team_Heading, team_Text },
+		testimonials,
+	} = await query();
 	return (
 		<>
 			<Hero data={heroData} />
 			<TextSection data={professionalSiteData} />
 			<CentralizedHeading data={headingData} />
-      <VerticalCtaWithImage data={jarData}/>
-      <FullWidthImageComponent image={uiPhoto}/>
-      <FullWidthImageComponent image={phones}/>
-      <TextSection data={kryptonumPractices}/>
+			<CtaWithVerticalImage data={jarData} />
+			<TilesComponent data={tilesData} additionalStyles={styles}/>
+			<FullWidthImageComponent image={uiPhoto} />
+			<FullWidthImageComponent image={phones} />
+			<TextSection data={kryptonumPractices} />
+			<CtaWithVerticalImage data={trophyData} />
+			<TextSection data={uiDesignShell} />
+			<CtaWithVerticalImage data={phoneData} />
+			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
+			<Testimonials testimonials={testimonials} />
 		</>
 	);
 }
@@ -56,31 +71,58 @@ const professionalSiteData = {
 };
 
 const headingData = {
-	heading: "Chcesz **cieszyć oczy** ładną stroną internetową czy **napędzać biznes** interfejsem zaprojektowanym według najlepszych zasad UI?",
+	heading:
+		"Chcesz **cieszyć oczy** ładną stroną internetową czy **napędzać biznes** interfejsem zaprojektowanym według najlepszych zasad UI?",
 	subheading: "Do it like a boss!",
 	type: "h4",
-  decoration: false,
+	decoration: false,
 };
 
 const jarData = {
-	cta : {
+	cta: {
 		text: "Umów darmową konsultację!",
-		textMobile:"umów konsultacje!",
-		theme:"primary",
+		textMobile: "umów konsultacje!",
+		theme: "primary",
 	},
 	heading: "Potrzebujesz projektu, który wie, **jak zarabiać**?",
 	img: {
 		asset: {
 			altText: "asdasd",
-			url: "/sloig 1.svg",
+			url: "/Sloig 1.png",
 			metadata: {
 				dimensions: {
 					height: 2048,
 					width: 2048,
-				}
-			}
-		}
+				},
+			},
+		},
+	},
+};
+
+const tilesData = {
+	heading: "**Projektujemy interfejsy** dla:",
+	list: [{
+		title: "/01",
+		description:"Stron internetowych"
+	},
+	{
+		title: "/02",
+		description: "Landing page"
+	},
+	{
+		title: "/03",
+		description: "Platform kursowych"
+	},
+	{
+		title: "/04",
+		description: "Aplikacji biznesowych"
+	},
+	{
+		title: "/05",
+		description: "Sklepów internetowych"
 	}
+
+]
 }
 
 const uiPhoto = {
@@ -121,4 +163,93 @@ const kryptonumPractices = {
 				"No i są elastyczni – jeśli zechcesz przechwycić projekt UI i wdrożyć go z własnym zespołem, nie będziemy stawać na drodze. A nawet więcej – możesz liczyć na solidne wsparcie naszych designerów.",
 		},
 	],
+};
+
+const trophyData = {
+	cta: {
+		text: "Pogadajmy!",
+		theme: "primary",
+	},
+	heading: "Potrzebujesz projektu, który wie, **jak zarabiać**?",
+	img: {
+		asset: {
+			altText: "asdasd",
+			url: "/Trophy.png",
+			metadata: {
+				dimensions: {
+					height: 2048,
+					width: 2048,
+				},
+			},
+		},
+	},
+};
+const uiDesignShell = {
+	heading: "Zajrzyj pod powierzchnię **UI design**",
+	blocks: [
+		{
+			description:
+				"Pamiętasz, jak mówiliśmy o tym, że w projektowaniu nie ma przypadków? Dobry UI design wie, że co do zasady ludzki mózg nie lubi się męczyć.",
+		},
+	],
+};
+const phoneData = {
+	cta: {
+		text: "Umów darmową konsultację!",
+		textMobile: "umów konsultacje!",
+		theme: "primary",
+	},
+	heading: "Czujesz, że potrzebujesz **świetnego UI designu**?",
+	img: {
+		asset: {
+			altText: "asdasd",
+			url: "/Phone.png",
+			metadata: {
+				dimensions: {
+					height: 2048,
+					width: 2048,
+				},
+			},
+		},
+	},
+};
+
+const query = async () => {
+	const {
+		body: { data },
+	} = await fetchData(`
+		page: Homepage(id: "homepage") {
+			# Team
+			team_Heading
+			team_Text
+			team_Cta {
+				theme
+				text
+				href
+			}
+		}
+		testimonials: allTestimonials(limit: 3, sort: {_createdAt:ASC}) {
+			name
+			text
+			cta {
+				theme
+				text
+				href
+			}
+			img {
+				asset {
+					altText
+					url
+					metadata {
+						lqip
+						dimensions {
+							height
+							width
+						}
+					}
+				}
+			}
+		}
+		`);
+	return data;
 };

@@ -7,11 +7,11 @@ const HumansAndMice = () => {
   const image = {
     		asset: {
 			altText: "asdsadsadsad",
-			url: "/Frame 26081370.svg",
+			url: "/Frame 26081370.png",
 			metadata: {
 				dimensions: {
-					height: 603,
-					width: 302,
+					height: 1000,
+					width: 2000,
 				},
 			},
 		},
