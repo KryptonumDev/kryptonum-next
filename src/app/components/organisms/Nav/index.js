@@ -288,7 +288,6 @@ const Nav = ({
                               className={styles.img}
                               width={420}
                               height={420}
-                              sizes="420px"
                             />
                           </div>
                           <p>{caseStudy.name}</p>
