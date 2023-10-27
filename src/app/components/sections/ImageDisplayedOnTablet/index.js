@@ -8,7 +8,7 @@ const ImageDisplayedOnTablet = ({ image }) => {
         <div className={styles.lowerVolume}/>
         <div className={styles.increaseVolume}/>
         <div className={styles.onOffSwitch}/>
-				<Img data={image} className={styles.image} sizes="90vw" />
+				<Img data={image} className={styles.image} sizes="100vw" />
 			</div>
       <div className={styles.test}></div>
 		</section>

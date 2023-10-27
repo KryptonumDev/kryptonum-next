@@ -6,12 +6,18 @@
   grid-template-columns: 1fr 1fr;
   gap: 32px;
   button {
-    width:80%;
+    width:70%;
+  }
+  h4 {
+    width:70%;
   }
   padding: clamp(24px, calc(72vw/7.68), 72px) clamp(16px, calc(72vw/7.68), 72px);
   @media (max-width: 499px){
     padding-left: var(--pageMargin);
     padding-right: var(--pageMargin);
+    h4 {
+      width:100%;
+    }
   }
   border-radius: 2px;
   h4 {
@@ -41,9 +47,5 @@
       height: unset;
       max-height: 300px;
     }
-  }
-  @media (max-width: 767px){
-    margin-left: calc(var(--pageMargin) * -1);
-    margin-right: calc(var(--pageMargin) * -1);
   }
 }

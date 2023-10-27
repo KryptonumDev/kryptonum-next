@@ -1,6 +1,6 @@
 import CardWithOverflowIcon from "@/app/components/sections/CardWithOverflowIcon";
 import CentralizedHeadingWithCardGrid from "@/app/components/sections/CentralizedHeadingWithCardGrid";
-import ConsultationCta from "@/app/components/sections/ConsultationCta";
+import ConsultationForm from "@/app/components/sections/ConsultationForm";
 import CtaWithVerticalImage from "@/app/components/sections/CtaWithVerticalImage";
 import FullWidthImageComponent from "@/app/components/sections/FullWidthImageComponent";
 import HeadingWithIconTitleDescriptionList from "@/app/components/sections/HeadingWithIconTitleDescriptionList";
@@ -39,7 +39,7 @@ export default async function UxDesignPage() {
 				sustainableDevelopmentData={data.sustainableDevelopmentData}
 				animatedCardGridData={data.animatedCardGridData}
 			/>
-			<ConsultationCta data={data.consultationCtaData} />
+			<ConsultationForm data={data.consultationCtaData} />
 			<HeadingWithIconTitleDescriptionList data={data.designStepsData} />
 			<ImageDisplayedOnTablet image={data.image2} />
 			<HeadingWithIconTitleDescriptionList data={data.jamstackTechnologyData} />
@@ -557,7 +557,7 @@ const data = {
 	image2: {
 		asset: {
 			altText: "asdasdsadsadasd",
-			url: "/Photo2.png",
+			url: "/Photo2.jpg",
 			metadata: {
 				dimensions: {
 					width: 3840,
@@ -570,7 +570,7 @@ const data = {
 	image: {
 		asset: {
 			altText: "asdasdsadsadasd",
-			url: "/Photo1.png",
+			url: "/Photo1.jpg",
 			metadata: {
 				dimensions: {
 					width: 3840,

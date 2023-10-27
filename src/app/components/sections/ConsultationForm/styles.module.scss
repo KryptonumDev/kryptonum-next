@@ -4,7 +4,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 48px 32px;
 
-  padding: clamp(32px, calc(48vw/7.68), 64px) clamp(16px, calc(64vw/7.68), 96px);
+  // padding: clamp(32px, calc(48vw/7.68), 64px) clamp(16px, calc(64vw/7.68), 96px);
 
   h4 {
     margin-bottom: 12px;
@@ -64,11 +64,8 @@
     }
   }
 
-  @media (max-width: 449px) {
-    padding-left: 16px;
-    padding-right: 16px;
-    margin: 0 calc(var(--pageMargin) * -1);
-
+  @media (max-width: 699px) {
+    
     .info {
       .person {
         .img {
@@ -77,6 +74,9 @@
         }
       }
     }
+  }
+  @media (min-width:700px) {
+    padding: clamp(32px, calc(48vw/7.68), 64px) clamp(16px, calc(64vw/7.68), 96px);
   }
 
   &.portable {
@@ -105,10 +105,8 @@
       }
     }
 
-    @media (max-width: 499px) {
-      padding-left: var(--pageMargin);
-      padding-right: var(--pageMargin);
-      margin: 0 calc(var(--pageMargin) * -1);
+    @media (max-width: 699px) {
+      
       margin-top: 32px;
     }
 

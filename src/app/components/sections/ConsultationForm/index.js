@@ -5,7 +5,7 @@ import fetchData from "@/utils/fetchData";
 import Markdown from "@/utils/markdown";
 import styles from "./styles.module.scss";
 
-const ConsultationCta = async ({
+const ConsultationForm = async ({
 	data: { heading, subheading, cta },
 	isPortableContent = false,
 }) => {
@@ -37,7 +37,7 @@ const ConsultationCta = async ({
 		</section>
 	);
 };
-export default ConsultationCta;
+export default ConsultationForm;
 
 const query = async () => {
 	const {

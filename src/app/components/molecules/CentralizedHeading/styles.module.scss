@@ -2,7 +2,6 @@
   display:grid;
   grid-row-gap: 24px;
   align-items: center;
-  justify-content: center;
   max-width:714px;
   justify-self: center;
   .subheading {
@@ -10,7 +9,7 @@
   }
   @media(max-width:800px) {
     align-items: start;
-    justify-content: start;
+    justify-self:start;
     .subheading {
       text-align: start;
     }
