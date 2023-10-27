@@ -48,8 +48,4 @@
       max-height: 300px;
     }
   }
-  @media (max-width: 767px){
-    margin-left: calc(var(--pageMargin) * -1);
-    margin-right: calc(var(--pageMargin) * -1);
-  }
 }
