@@ -84,7 +84,7 @@ const data = {
 		img: {
 			asset: {
 				altText: "ASDASDasd",
-				url: "/Hero.webp",
+				url: "/Hero.png",
 				metadata: {
 					dimensions: {
 						height: 1152,
@@ -557,7 +557,7 @@ const data = {
 	image2: {
 		asset: {
 			altText: "asdasdsadsadasd",
-			url: "/Photo2.png",
+			url: "/Photo2.jpg",
 			metadata: {
 				dimensions: {
 					width: 3840,
@@ -570,7 +570,7 @@ const data = {
 	image: {
 		asset: {
 			altText: "asdasdsadsadasd",
-			url: "/Photo1.png",
+			url: "/Photo1.jpg",
 			metadata: {
 				dimensions: {
 					width: 3840,
