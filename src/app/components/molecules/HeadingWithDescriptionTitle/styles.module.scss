@@ -19,9 +19,9 @@
       height:min-content;
 
       .descriptionWrapper {
-        justify-self: end;
+        justify-self: flex-end;
         display:flex;
-        align-items: end;
+        align-items: flex-end;
 
         h2 {
           width: 100%;

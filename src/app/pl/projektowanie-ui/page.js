@@ -38,7 +38,7 @@ const heroData = {
 	img: {
 		asset: {
 			altText: "ASDASDasd",
-			url: "/UiHero.png",
+			url: "/UiHero.webp",
 			metadata: {
 				dimensions: {
 					height: 1152,
@@ -88,7 +88,7 @@ const jarData = {
 	img: {
 		asset: {
 			altText: "asdasd",
-			url: "/Sloig 1.png",
+			url: "/Sloig 1.webp",
 			metadata: {
 				dimensions: {
 					height: 2048,
@@ -128,7 +128,7 @@ const tilesData = {
 const uiPhoto = {
 	asset: {
 		altText: "asdasdsadsadasd",
-		url: "/UiPhoto.jpg",
+		url: "/UiPhoto.webp",
 		metadata: {
 			dimensions: {
 				width: 3840,
@@ -141,7 +141,7 @@ const uiPhoto = {
 const phones = {
 	asset: {
 		altText: "asdasdsadsadasd",
-		url: "/Phones.png",
+		url: "/Phones.webp",
 		metadata: {
 			dimensions: {
 				width: 3840,
@@ -174,7 +174,7 @@ const trophyData = {
 	img: {
 		asset: {
 			altText: "asdasd",
-			url: "/Trophy.png",
+			url: "/Trophy.webp",
 			metadata: {
 				dimensions: {
 					height: 2048,
@@ -203,7 +203,7 @@ const phoneData = {
 	img: {
 		asset: {
 			altText: "asdasd",
-			url: "/Phone.png",
+			url: "/Phone.webp",
 			metadata: {
 				dimensions: {
 					height: 2048,

@@ -5,7 +5,7 @@ const UxPuzzles = () => {
 	const image = {
 		asset: {
 			altText: "asdsadsadsad",
-			url: "/Group 33751.png",
+			url: "/Group 33751.webp",
 			metadata: {
 				dimensions: {
 					height: 603,

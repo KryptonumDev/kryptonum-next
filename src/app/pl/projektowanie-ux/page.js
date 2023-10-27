@@ -84,7 +84,7 @@ const data = {
 		img: {
 			asset: {
 				altText: "ASDASDasd",
-				url: "/Hero.jpg",
+				url: "/Hero.webp",
 				metadata: {
 					dimensions: {
 						height: 1152,
@@ -123,7 +123,7 @@ const data = {
 			image: {
 				asset: {
 					altText: "asdsadsadsad",
-					url: "/Rzexba 1.png",
+					url: "/Rzexba 1.webp",
 					metadata: {
 						dimensions: {
 							height: 430,
@@ -140,7 +140,7 @@ const data = {
 			image: {
 				asset: {
 					altText: "asdsadsadsad",
-					url: "/Rzeźbawydajnosc 1.png",
+					url: "/Rzeźbawydajnosc 1.webp",
 					metadata: {
 						dimensions: {
 							height: 326,
@@ -157,7 +157,7 @@ const data = {
 			image: {
 				asset: {
 					altText: "asdsadsadsad",
-					url: "/Drzeworzezba 1.png",
+					url: "/Drzeworzezba 1.webp",
 					metadata: {
 						dimensions: {
 							height: 354,
@@ -484,7 +484,7 @@ const data = {
 		img: {
 			asset: {
 				altText: "asdasd",
-				url: "/Tron 1.png",
+				url: "/Tron 1.webp",
 				metadata: {
 					dimensions: {
 						height: 2048,
@@ -504,7 +504,7 @@ const data = {
 		img: {
 			asset: {
 				altText: "asdasd",
-				url: "/Astronauta.png",
+				url: "/Astronauta.webp",
 				metadata: {
 					dimensions: {
 						height: 2048,
@@ -525,7 +525,7 @@ const data = {
 		img: {
 			asset: {
 				altText: "asdasd",
-				url: "/Watch.png",
+				url: "/Watch.webp",
 				metadata: {
 					dimensions: {
 						height: 2048,
@@ -543,7 +543,7 @@ const data = {
 		image: {
 			asset: {
 				altText: "asdasd",
-				url: "/Image.png",
+				url: "/Image.webp",
 				metadata: {
 					dimensions: {
 						height: 2048,
@@ -557,7 +557,7 @@ const data = {
 	image2: {
 		asset: {
 			altText: "asdasdsadsadasd",
-			url: "/Photo2.jpg",
+			url: "/Photo2.webp",
 			metadata: {
 				dimensions: {
 					width: 3840,
@@ -570,7 +570,7 @@ const data = {
 	image: {
 		asset: {
 			altText: "asdasdsadsadasd",
-			url: "/Photo1.jpg",
+			url: "/Photo1.webp",
 			metadata: {
 				dimensions: {
 					width: 3840,
