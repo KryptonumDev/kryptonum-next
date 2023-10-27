@@ -1,5 +1,5 @@
 .section {
-  padding:5% 8%;
+  padding:clamp(0px, 2.5%, 5%) clamp(0px, 4%, 8%);
   .imageWrapper {
     position:relative;
     border-radius: 20px;
