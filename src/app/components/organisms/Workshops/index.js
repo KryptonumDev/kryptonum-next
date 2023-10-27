@@ -8,11 +8,11 @@ const Workshops = () => {
 		{
 			asset: {
 				altText: "asdsadsadsad",
-				url: "/image 22.svg",
+				url: "/image 22.png",
 				metadata: {
 					dimensions: {
-						height: 603,
-						width: 302,
+						height: 1000,
+						width: 2000,
 					},
 				},
 			},
@@ -20,11 +20,11 @@ const Workshops = () => {
 		{
 			asset: {
 				altText: "asdsadsadsad",
-				url: "/image 21.svg",
+				url: "/image 21.png",
 				metadata: {
 					dimensions: {
-						height: 603,
-						width: 302,
+						height: 1000,
+						width: 2000,
 					},
 				},
 			},

@@ -88,7 +88,7 @@ const jarData = {
 	img: {
 		asset: {
 			altText: "asdasd",
-			url: "/sloig 1.svg",
+			url: "/Sloig 1.png",
 			metadata: {
 				dimensions: {
 					height: 2048,
@@ -174,7 +174,7 @@ const trophyData = {
 	img: {
 		asset: {
 			altText: "asdasd",
-			url: "/Trophy.svg",
+			url: "/Trophy.png",
 			metadata: {
 				dimensions: {
 					height: 2048,

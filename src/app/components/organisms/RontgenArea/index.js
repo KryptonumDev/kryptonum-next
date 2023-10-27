@@ -6,7 +6,7 @@ const RontgenArea = () => {
 	const image = {
 		asset: {
 			altText: "asdsadsadsad",
-			url: "/image 20.svg",
+			url: "/image 20.png",
 			metadata: {
 				dimensions: {
 					height: 610,
