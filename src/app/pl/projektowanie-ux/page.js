@@ -13,7 +13,7 @@ import TitleDescriptionImageList from "@/app/components/sections/TitleDescriptio
 import HeadingImageTextList from "@/app/components/sections/UxDesign/HeadingImageTextList";
 import Hero from "@/app/components/sections/Hero";
 import SustainableDevelopment from "@/app/components/sections/UxDesign/SustainableDevelopment";
-import VerticalCtaWithImage from "@/app/components/sections/VerticalCtaWithImage";
+import CtaWithVerticalImage from "@/app/components/sections/CtaWithVerticalImage";
 import SEO from "@/components/global/Seo";
 import fetchData from "@/utils/fetchData";
 
@@ -33,13 +33,13 @@ export default async function UxDesignPage() {
 			<HorizontalCtaWithImage data={planeImageData}/>
 			<TitleDescriptionImageList data={titleDescriptionImageListData}/>
 			<HeadingImageTextList />
-			<VerticalCtaWithImage data={watchImageData3} />
+			<CtaWithVerticalImage data={watchImageData3} />
 			<TextSection data={wcagGuidelines} />
 			<FullWidthImageComponent image={image} />
 			<TextSection data={data} />
 			<CardWithOverflowIcon cardData={cardData}/>
 			<CentralizedHeadingWithCardGrid cardData={wcagData} headingData={headingData}/>
-			<VerticalCtaWithImage data ={CtaSectionWithImageData1}/>
+			<CtaWithVerticalImage data ={CtaSectionWithImageData1}/>
 			<SustainableDevelopment
 				sustainableDevelopmentData={sustainableDevelopmentData}
 				animatedCardGridData={animatedCardGridData}
@@ -49,7 +49,7 @@ export default async function UxDesignPage() {
 			<ImageDisplayedOnTablet image={image2}/>
 			<HeadingWithIconTitleDescriptionList data={jamstackTechnologyData}/>
 			<HeadingWithMaxWidth data={headingWithMaxWidthData}/>
-			<VerticalCtaWithImage data={CtaSectionWithImageData2}/>
+			<CtaWithVerticalImage data={CtaSectionWithImageData2}/>
 			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
 			<Testimonials testimonials={testimonials}/>
 		</>

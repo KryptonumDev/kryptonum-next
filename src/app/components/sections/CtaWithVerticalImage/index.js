@@ -7,7 +7,7 @@ import DecorativeHeading from "../../atoms/DecorativeHeading";
 import Button from "../../atoms/Button";
 import { useState,useEffect } from "react";
 
-const VerticalCtaWithImage = ({ data: { img, heading, cta } }) => {
+const CtaWithVerticalImage = ({ data: { img, heading, cta } }) => {
   const [windowWidth, setWindowWidth] = useState(0);
 
 	useEffect(() => {
@@ -31,4 +31,4 @@ const VerticalCtaWithImage = ({ data: { img, heading, cta } }) => {
 		</section>
 	);
 };
-export default VerticalCtaWithImage;
+export default CtaWithVerticalImage;
