@@ -84,7 +84,7 @@ const data = {
 		img: {
 			asset: {
 				altText: "ASDASDasd",
-				url: "/Hero.png",
+				url: "/Hero.jpg",
 				metadata: {
 					dimensions: {
 						height: 1152,
