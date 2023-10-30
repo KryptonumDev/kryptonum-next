@@ -22,6 +22,7 @@ export default async function UiDesignPage() {
 			<CtaWithVerticalImage data={jarData} />
 			<TilesComponentWithHeading data={tilesComponentWithHeadingData} additionalStyles={styles} />
 			<FullWidthImageComponent image={uiPhoto} additionalStyles={styles}/>
+			<TextSection data={goodUiDesignData}/>
 			<FullWidthImageComponent image={phones} />
 			<TextSection data={kryptonumPractices} />
 			<CtaWithVerticalImage data={trophyData} />
@@ -51,6 +52,15 @@ const heroData = {
 		{
 			name: "Projektowanie UI",
 			link: "/projektowanie-ui",
+		},
+	],
+};
+const goodUiDesignData = {
+	heading: "Jak **dobry UI design** zaopiekował się biznesem…",
+	blocks: [
+		{
+			description:
+				"To może być Twoja bajka. Bo kiedy roztropny, twardo stąpający po ziemi UX, spotka na swej drodze wyrafinowany UI z charakterem, biznesowy [ happy end ] jest nieunikniony.",
 		},
 	],
 };
