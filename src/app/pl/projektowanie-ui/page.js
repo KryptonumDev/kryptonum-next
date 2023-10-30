@@ -8,6 +8,7 @@ import Team from "@/app/components/sections/Team";
 import Testimonials from "@/app/components/sections/Testimonials";
 import styles from "./styles.module.scss";
 import TilesComponentWithHeading from "@/app/components/sections/TilesComponentWithHeading";
+import IconTitleDescriptionListSection from "@/app/components/sections/IconTitleDescriptionListSection";
 
 export default async function UiDesignPage() {
 	const {
@@ -21,8 +22,9 @@ export default async function UiDesignPage() {
 			<CentralizedHeading data={headingData} />
 			<CtaWithVerticalImage data={jarData} />
 			<TilesComponentWithHeading data={tilesComponentWithHeadingData} additionalStyles={styles} />
-			<FullWidthImageComponent image={uiPhoto} additionalStyles={styles}/>
-			<TextSection data={goodUiDesignData}/>
+			<FullWidthImageComponent image={uiPhoto} additionalStyles={styles} />
+			<TextSection data={goodUiDesignData} />
+			<IconTitleDescriptionListSection data={iconTitleDescriptionListData} />
 			<FullWidthImageComponent image={phones} />
 			<TextSection data={kryptonumPractices} />
 			<CtaWithVerticalImage data={trophyData} />
@@ -33,6 +35,29 @@ export default async function UiDesignPage() {
 		</>
 	);
 }
+
+const iconTitleDescriptionListData = {
+	blocks: [
+		{
+			header: "/01",
+			title: "Charakterystyczna marka",
+			description:
+				"Mieć stronę internetową, której nie da się pomylić z żadną inną? Załatwione. Sklep internetowy, o którym klienci będą opowiadać znajomym? Robi się. Dowieziemy projekt UI, który sprawi, że klienci Cię zapamiętają i polubią.",
+		},
+		{
+			header: "/02",
+			title: "Niezapomniane wrażenia",
+			description:
+				"Masz tylko kilka sekund, aby zrobić dobre wrażenie. Głupio byłoby je zmarnować, pop-upem zasłaniającym pół ekranu… UI design stoi na straży tego, by klient nie uciekł z Twojej strony, tylko swobodnie żeglował po niej prosto do celu.",
+		},
+		{
+			header: "/03",
+			title: "Zrealizowane cele",
+			description:
+				"Dobre wrażenie się opłaca. Kozacki projekt UI przekłada się na pobrane PDF-y, wypełnione formularze, no i szalone zakupy w sklepie internetowym, nie tylko  w Black Friday. Przedsiębiorco, pamiętaj – UI design to inwestycja!",
+		}
+	],
+};
 
 const heroData = {
 	heading: "**Projektowanie UI** – poznaj ładniejszą siostrę UX",
