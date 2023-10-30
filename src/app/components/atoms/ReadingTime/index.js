@@ -1,4 +1,3 @@
-import React from "react";
 import { toPlainText } from "@portabletext/react";
 import { Clock } from "../Icons";
 import styles from "./styles.module.scss";

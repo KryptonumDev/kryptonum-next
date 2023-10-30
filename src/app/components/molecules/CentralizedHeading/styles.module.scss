@@ -1,15 +1,29 @@
 .header {
   display:grid;
   grid-row-gap: 24px;
-  align-items: center;
   max-width:714px;
+  align-items: center;
   justify-self: center;
+  text-align:center;
+  .decorativeHeading {
+    >svg {
+      width: 0.86em;
+      height: 0.86em;
+      margin-top: 0.25em;
+      margin-right: 8px;
+    }
+    span>svg {
+      vertical-align: middle;
+      width: clamp(calc(100rem/16), calc(216vw/7.68), calc(216rem/16));
+    }
+  }
   .subheading {
     text-align:center;
   }
-  @media(max-width:800px) {
+  @media(max-width:500px) {
     align-items: start;
     justify-self:start;
+    text-align:start;
     .subheading {
       text-align: start;
     }

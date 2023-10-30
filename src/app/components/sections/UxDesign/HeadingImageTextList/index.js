@@ -7,6 +7,7 @@ const HeadingImageTextList = ({ data }) => {
 			{data.map((headingImageText, index) => (
 				<HeadingImageText
 					data={headingImageText}
+					decoration={index != 1 || false}
 					parentStyles={index === 0 ? styles : undefined}
 					key={index}
 				/>

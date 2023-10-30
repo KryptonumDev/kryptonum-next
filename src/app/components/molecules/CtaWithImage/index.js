@@ -30,7 +30,7 @@ const CtaWithImage = ({data:{heading, image, cta}, parentStyles}) => {
 					<DecorativeHeading type="h4">{heading}</DecorativeHeading>
 				</div>
 				<Button data={cta} theme={"primary"} className={`${styles.button}`}>
-					{windowWidth < 500 ? cta.textMobile : cta.text}
+					{windowWidth < 550 ? cta.textMobile : cta.text}
 				</Button>
 			</div>
 		</div>

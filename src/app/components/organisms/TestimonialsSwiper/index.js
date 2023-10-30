@@ -1,9 +1,8 @@
-import React from "react";
-import { Quote } from "@/atoms/Icons";
 import Button from "@/atoms/Button";
+import { Quote } from "@/atoms/Icons";
 import Img from "@/utils/Img";
-import styles from "./styles.module.scss";
 import Markdown from "@/utils/markdown";
+import styles from "./styles.module.scss";
 
 const TestimonialsSwiper = ({ data }) => {
   return (

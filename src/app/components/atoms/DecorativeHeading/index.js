@@ -37,7 +37,7 @@ const DecorativeHeading = ({
       className={
         children?.includes("\n\n")
           ? `${styles.has2Spans} ${styles.wrapper}`
-          : `${styles.wrapper} `
+          : `${styles.wrapper}`
       }
       {...props}
     >

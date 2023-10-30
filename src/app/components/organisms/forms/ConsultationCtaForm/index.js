@@ -1,12 +1,12 @@
 'use client'
-import { Label } from "@/app/components/atoms/Label";
-import { useForm } from "react-hook-form"
-import { Checkbox } from "@/app/components/atoms/Checkbox";
-import { AnimatePresence, motion } from "framer-motion";
-import styles from './styles.module.scss';
-import { useState } from "react";
-import { emailRegex } from "@/constants/regex";
 import Button from "@/app/components/atoms/Button";
+import { Checkbox } from "@/app/components/atoms/Checkbox";
+import { Label } from "@/app/components/atoms/Label";
+import { emailRegex } from "@/constants/regex";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import styles from './styles.module.scss';
 
 const ConsultationCtaForm = ({ cta }) => {
   const {

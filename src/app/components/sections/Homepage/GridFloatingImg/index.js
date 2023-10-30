@@ -1,15 +1,14 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import { ArrowTopRight } from "@/components/atoms/Icons";
-import Link from "next/link";
 import Img from "@/utils/Img";
-import styles from "./styles.module.scss";
-import { motion, useMotionValue, useSpring } from "framer-motion";
-import Markdown from "@/utils/markdown";
-import ReactMarkdown from "react-markdown";
 import { removeMarkdown } from "@/utils/functions";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import Link from "next/link";
+import { useEffect, useRef } from "react";
+import ReactMarkdown from "react-markdown";
+import styles from "./styles.module.scss";
 
 const options = {
 	damping: 50,

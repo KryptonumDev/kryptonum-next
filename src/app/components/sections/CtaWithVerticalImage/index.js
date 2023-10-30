@@ -25,7 +25,7 @@ const CtaWithVerticalImage = ({ data: { img, heading, cta } }) => {
 		<section className={styles.wrapper}>
 			<header>
 				<DecorativeHeading type="h4">{heading}</DecorativeHeading>
-				<Button theme={cta.theme} to={cta.href}>{(windowWidth < 500 && cta.textMobile) ? cta.textMobile : cta.text}</Button>
+				<Button theme={cta.theme} to={cta.href}>{(windowWidth < 550 && cta.textMobile) ? cta.textMobile : cta.text}</Button>
 			</header>
 			<Img data={img} className={styles.img} />
 		</section>
