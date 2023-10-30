@@ -1,8 +1,7 @@
-import React from "react";
-import fetchData from "@/utils/fetchData";
-import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import Button from "@/components/atoms/Button";
+import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import BlogEntry from "@/components/organisms/BlogEntry";
+import fetchData from "@/utils/fetchData";
 import { formatDateToPolishLocale } from "@/utils/functions";
 import styles from "./styles.module.scss";
 

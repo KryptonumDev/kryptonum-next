@@ -1,7 +1,7 @@
-import Markdown from "@/utils/markdown";
-import styles from "./styles.module.scss";
-import DecorativeHeading from "../../atoms/DecorativeHeading";
 import Img from "@/utils/Img";
+import Markdown from "@/utils/markdown";
+import DecorativeHeading from "../../atoms/DecorativeHeading";
+import styles from "./styles.module.scss";
 
 const TilesComponent = ({ data: { heading, list }, additionalStyles }) => {
 	return (

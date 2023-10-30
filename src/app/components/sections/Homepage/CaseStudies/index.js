@@ -1,9 +1,8 @@
-import React from "react";
-import fetchData from "@/utils/fetchData";
 import Button from "@/components/atoms/Button";
 import Img from "@/utils/Img";
-import styles from "./styles.module.scss";
+import fetchData from "@/utils/fetchData";
 import Markdown from "@/utils/markdown";
+import styles from "./styles.module.scss";
 
 const CaseStudies = async ({ data, heading }) => {
   let body = await query();

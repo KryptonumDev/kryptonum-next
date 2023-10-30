@@ -1,8 +1,7 @@
-import React from "react";
 import Button from "@/components/atoms/Button";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import styles from "./styles.module.scss";
 import Markdown from "@/utils/markdown";
+import styles from "./styles.module.scss";
 
 const FourGrid = ({ heading, claim, paragraph, secondClaim, cta }) => {
   return (

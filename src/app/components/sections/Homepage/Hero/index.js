@@ -1,7 +1,6 @@
-import React from "react";
 
-import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import Button from "@/components/atoms/Button";
+import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import CaseStudies from "../CaseStudies";
 import HeroSubheading from "../HeroSubheadings";
 import styles from "./styles.module.scss";

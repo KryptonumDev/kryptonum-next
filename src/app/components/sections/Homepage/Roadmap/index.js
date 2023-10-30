@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import Button from "@/components/atoms/Button";
+import DecorativeHeading from "@/components/atoms/DecorativeHeading";
+import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 
 const Roadmap = ({ heading, list, cta }) => {

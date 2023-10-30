@@ -1,6 +1,6 @@
-import styles from "./styles.module.scss";
-import { SmallError } from "../Icons";
 import { AnimatePresence, motion } from "framer-motion";
+import { SmallError } from "../Icons";
+import styles from "./styles.module.scss";
 
 export const Label = ({ rows, placeholder, title, name, register, errors, error = 'To pole jest wymagane' }) => (
   <label className={styles.label}>

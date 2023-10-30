@@ -1,7 +1,6 @@
-import React from "react";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import styles from "./styles.module.scss";
 import Markdown from "@/utils/markdown";
+import styles from "./styles.module.scss";
 
 const Creativity = ({
   data: {
