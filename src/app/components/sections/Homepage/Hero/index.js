@@ -1,7 +1,7 @@
 
 import Button from "@/components/atoms/Button";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import CaseStudies from "../CaseStudies";
+import CaseStudies from "../../CaseStudies";
 import HeroSubheading from "../HeroSubheadings";
 import styles from "./styles.module.scss";
 

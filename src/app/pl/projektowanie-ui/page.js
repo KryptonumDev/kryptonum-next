@@ -9,6 +9,7 @@ import TextSection from "@/app/components/sections/TextSection";
 import TilesComponentWithHeading from "@/app/components/sections/TilesComponentWithHeading";
 import fetchData from "@/utils/fetchData";
 import styles from "./styles.module.scss";
+import CaseStudies from "@/app/components/sections/CaseStudies";
 
 export default async function UiDesignPage() {
 	const {
@@ -29,7 +30,8 @@ export default async function UiDesignPage() {
 			<TextSection data={kryptonumPractices} />
 			<CtaWithVerticalImage data={trophyData} />
 			<TextSection data={uiDesignShell} />
-			<CentralizedHeadingSection data={CentralizedHeadingSectionData}/>
+			<CentralizedHeadingSection data={centralizedHeadingSectionData}/>
+			<CaseStudies cta={caseStudiesCta}/>
 			<CtaWithVerticalImage data={phoneData} />
 			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
 			<Testimonials testimonials={testimonials} />
@@ -37,8 +39,15 @@ export default async function UiDesignPage() {
 	);
 }
 
-const CentralizedHeadingSectionData = {
+const centralizedHeadingSectionData = {
 	heading: "Dobry UI nie istnieje bez **porządnie zaprojektowanego UX**",
+}
+
+const caseStudiesCta = {
+	text: "Zobacz projektowanie UX w naszym wydaniu",
+	theme: "secondary",
+	href: "/pl/portfolio"
+
 }
 
 const iconTitleDescriptionListData = {
