@@ -159,7 +159,7 @@ const jarData = {
 	img: {
 		asset: {
 			altText: "asdasd",
-			url: "/Sloig 1.webp",
+			url: "/JarFilledWithCoins.webp",
 			metadata: {
 				dimensions: {
 					height: 2048,
