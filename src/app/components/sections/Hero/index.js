@@ -1,3 +1,5 @@
+'use server'
+
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import Img from "@/utils/Img";

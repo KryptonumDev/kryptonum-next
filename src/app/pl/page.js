@@ -1,5 +1,4 @@
 import Team from "@/app/components/sections/Team";
-import Testimonials from "@/app/components/sections/Testimonials";
 import SEO from "@/components/global/Seo";
 import Creativity from "@/components/sections/Homepage/Creativity";
 import FourGrid from "@/components/sections/Homepage/FourGrid";
@@ -7,6 +6,8 @@ import Hero from "@/components/sections/Homepage/Hero";
 import LatestBlogEntries from "@/components/sections/Homepage/LatestBlogEntries";
 import Roadmap from "@/components/sections/Homepage/Roadmap";
 import fetchData from "@/utils/fetchData";
+import DecorativeHeading from "../components/atoms/DecorativeHeading";
+import Testimonials from "../components/sections/Testimonials";
 
 export async function generateMetadata() {
 	const {
@@ -84,7 +85,7 @@ const PolishIndexPage = async () => {
 					creativity_SecondParagraph,
 				}}
 			/>
-			<Roadmap heading={roadmap_Heading} list={roadmap_Process} cta={roadmap_Cta} />
+			<Roadmap heading={roadmap_Heading} list={roadmap_Process} cta={roadmap_Cta}/>
 			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
 			<Testimonials testimonials={testimonials}/>
 			<LatestBlogEntries />

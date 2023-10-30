@@ -7,8 +7,8 @@ import { removeMarkdown } from "@/utils/functions";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import ReactMarkdown from "react-markdown";
 import styles from "./styles.module.scss";
+import Markdown from "@/utils/markdown";
 
 const options = {
 	damping: 50,
@@ -57,7 +57,7 @@ const GridFloatingImg = ({ data: { heading, list } }) => {
 								<span>{title}</span>
 								<ArrowTopRight />
 							</h3>
-							<ReactMarkdown className={styles.description}>{description}</ReactMarkdown>
+							<Markdown className={styles.description}>{description}</Markdown>
 						</Link>
 					</div>
 				))}

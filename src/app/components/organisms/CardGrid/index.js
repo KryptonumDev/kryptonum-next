@@ -1,6 +1,6 @@
 import Img from "@/utils/Img";
-import ReactMarkdown from "react-markdown";
 import styles from './styles.module.scss';
+import Markdown from "@/utils/markdown";
 
 const CardGrid = ({ data: { blocks } }) => {
 	return (
@@ -9,10 +9,10 @@ const CardGrid = ({ data: { blocks } }) => {
 				<div className={styles.item} key={i}>
 					{icon ? <Img data={icon} className={styles.icon} /> : <p className={styles.icon} width={60} height={60}>{i}</p>}
           
-					<ReactMarkdown className={styles.title} components={{ p: "h3" }}>
+					<Markdown className={styles.title} components={{ p: "h3" }}>
 						{title}
-					</ReactMarkdown>
-					<ReactMarkdown className={styles.description}>{description}</ReactMarkdown>
+					</Markdown>
+					<Markdown className={styles.description}>{description}</Markdown>
 				</div>
 			))}
 		</div>
