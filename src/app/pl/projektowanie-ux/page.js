@@ -477,6 +477,7 @@ const data = {
 		cta: {
 			text: "Pogadajmy!",
 			theme: "primary",
+			href:"/pl/kontakt"
 		},
 		heading: "Chcesz mieć stronę, która **ugości jak należy** każdego użytkownika?",
 		img: {
@@ -497,6 +498,7 @@ const data = {
 		cta: {
 			text: "Pogadajmy!",
 			theme: "primary",
+			href:"/pl/kontakt"
 		},
 		heading: "Potrzebujesz **zrównoważonej strony** internetowej?",
 		img: {
@@ -518,6 +520,7 @@ const data = {
 			text: "Umów darmową konsultację!",
 			textMobile: "umów konsultacje!",
 			theme: "primary",
+			href:"/pl/kontakt"
 		},
 		heading: "**Projektowanie UX** potrzebne od zaraz?",
 		img: {
@@ -535,9 +538,13 @@ const data = {
 	},
 
 	planeImageData: {
-		buttonContext: "Umów darmową konsultację",
-		buttonMobileContext: "Umów konsultację",
-		headingContext: "Marzy Ci się UX **wysokich lotów**?",
+		heading: "Marzy Ci się UX **wysokich lotów**?",
+		cta: {
+			text: "Umów darmową konsultację!",
+			textMobile: "umów konsultacje!",
+			theme: "primary",
+			href: "/pl/kontakt",
+		},
 		image: {
 			asset: {
 				altText: "asdasd",

@@ -5,7 +5,7 @@ import Img from "@/utils/Img";
 
 const TilesComponent = ({ data: { heading, list }, additionalStyles}) => {
 	return (
-		<section
+		<div
 			className={additionalStyles ? `${styles.section} ${additionalStyles.tiles}` : styles.section}
 		>
 			<header>
@@ -23,7 +23,7 @@ const TilesComponent = ({ data: { heading, list }, additionalStyles}) => {
 					</div>
 				))}
 			</div>
-		</section>
+		</div>
 	);
 };
 export default TilesComponent;

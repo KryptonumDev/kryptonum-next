@@ -6,7 +6,7 @@ import Button from '../../atoms/Button';
 import DecorativeHeading from '../../atoms/DecorativeHeading';
 import styles from './styles.module.scss';
 
-const CtaWithImage = ({data:{buttonContext, buttonMobileContext, headingContext, image}, parentStyles}) => {
+const CtaWithImage = ({data:{heading, image, cta}, parentStyles}) => {
   const [windowWidth, setWindowWidth] = useState(0);
 
 	useEffect(() => {
@@ -27,10 +27,10 @@ const CtaWithImage = ({data:{buttonContext, buttonMobileContext, headingContext,
 			</div>
 			<div className={styles.consultationWrapper}>
 				<div className={styles.decorativeHeadingWrapper}>
-					<DecorativeHeading type="h4">{headingContext}</DecorativeHeading>
+					<DecorativeHeading type="h4">{heading}</DecorativeHeading>
 				</div>
-				<Button to="" theme={"primary"} className={`${styles.button} ${styles.button}`}>
-					{windowWidth > 500 ? buttonContext : buttonMobileContext}
+				<Button data={cta} theme={"primary"} className={`${styles.button}`}>
+					{windowWidth < 500 ? cta.textMobile : cta.text}
 				</Button>
 			</div>
 		</div>
