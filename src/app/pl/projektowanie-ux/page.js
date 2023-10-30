@@ -87,8 +87,8 @@ const data = {
 				url: "/UxHero.webp",
 				metadata: {
 					dimensions: {
-						height: 1152,
-						width: 1929,
+						height: 2160,
+						width: 3840,
 					},
 				},
 			},
