@@ -7,27 +7,31 @@ import { isExternal } from "util/types";
 import styles from "./styles.module.scss";
 
 const HeadingImageText = ({
-	headingType,
-	headingDecoration,
-	headingContent,
-	image,
-	description,
-	className,
-	imageWrapperClassName,
-	headingWrapperClassName,
+	data: {
+		heading,
+		headingType,
+		headingDecoration,
+		image,
+		blocks,
+	},
+	parentStyles
 }) => {
 	return (
-		<div className={`${className} ${styles.wrapper}`}>
-			<div className={`${styles.headingWrapper} ${headingWrapperClassName}`}>
+		<div className={parentStyles ? ` ${styles.wrapper} ${parentStyles.wrapper}` : `${styles.wrapper}`}>
+			<div className={`${styles.headingWrapper}`}>
 				<DecorativeHeading type={headingType} decoration={headingDecoration}>
-					{headingContent}
+					{heading}
 				</DecorativeHeading>
 			</div>
-			<div className={`${styles.imageWrapper} ${imageWrapperClassName}`}>
-				<Img className={styles.image} data={image} sizes="(max-width: 1199px) 100vw, (min-width: 1200px) 50vw"></Img>
+			<div className={`${styles.imageWrapper}`}>
+				<Img
+					className={styles.image}
+					data={image}
+					sizes="(max-width: 1199px) 100vw, (min-width: 1200px) 50vw"
+				></Img>
 			</div>
 			<div className={styles.descriptionWrapper}>
-				{description.map((paragraph, index) => {
+				{blocks.map(({description}, index) => {
 					return (
 						<Markdown
 							components={{
@@ -36,7 +40,7 @@ const HeadingImageText = ({
 							}}
 							key={index}
 						>
-							{paragraph}
+							{description}
 						</Markdown>
 					);
 				})}

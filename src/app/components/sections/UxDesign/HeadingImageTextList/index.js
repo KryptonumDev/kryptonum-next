@@ -1,18 +1,17 @@
-import HumansAndMice from "@/app/components/organisms/HumansAndMice";
-import IsItOver from "@/app/components/organisms/IsItOver";
-import RontgenArea from "@/app/components/organisms/RontgenArea";
-import UxPuzzles from "@/app/components/organisms/UxPuzzles";
-import Workshops from "@/app/components/organisms/Workshops";
+import HeadingImageText from "@/app/components/molecules/HeadingImageText";
+import styles from "./styles.module.scss";
 
-const HeadingImageTextList = () => {
+const HeadingImageTextList = ({ data }) => {
 	return (
 		<section>
-			<Workshops />
-			<RontgenArea />
-			<UxPuzzles/>
-			<HumansAndMice/>
-			<IsItOver/>
-			</section>
+			{data.map((headingImageText, index) => (
+				<HeadingImageText
+					data={headingImageText}
+					parentStyles={index === 0 ? styles : undefined}
+					key={index}
+				/>
+			))}
+		</section>
 	);
 };
 export default HeadingImageTextList;
