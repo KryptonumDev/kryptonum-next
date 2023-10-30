@@ -1,14 +1,12 @@
-import * as React from "react";
-import Hero from "@/components/sections/Homepage/Hero";
-import FourGrid from "@/components/sections/Homepage/FourGrid";
-import Creativity from "@/components/sections/Homepage/Creativity";
-import Roadmap from "@/components/sections/Homepage/Roadmap";
 import Team from "@/app/components/sections/Team";
 import Testimonials from "@/app/components/sections/Testimonials";
-import fetchData from "@/utils/fetchData";
-import LatestBlogEntries from "@/components/sections/Homepage/LatestBlogEntries";
 import SEO from "@/components/global/Seo";
-import GridFloatingImg from "../components/sections/Homepage/GridFloatingImg";
+import Creativity from "@/components/sections/Homepage/Creativity";
+import FourGrid from "@/components/sections/Homepage/FourGrid";
+import Hero from "@/components/sections/Homepage/Hero";
+import LatestBlogEntries from "@/components/sections/Homepage/LatestBlogEntries";
+import Roadmap from "@/components/sections/Homepage/Roadmap";
+import fetchData from "@/utils/fetchData";
 
 export async function generateMetadata() {
 	const {
