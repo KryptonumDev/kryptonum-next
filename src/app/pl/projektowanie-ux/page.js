@@ -84,7 +84,7 @@ const data = {
 		img: {
 			asset: {
 				altText: "ASDASDasd",
-				url: "/Hero.webp",
+				url: "/UxHero.webp",
 				metadata: {
 					dimensions: {
 						height: 1152,
@@ -123,7 +123,7 @@ const data = {
 			image: {
 				asset: {
 					altText: "asdsadsadsad",
-					url: "/Rzexba 1.webp",
+					url: "/ArtristryStatue.webp",
 					metadata: {
 						dimensions: {
 							height: 430,
@@ -140,7 +140,7 @@ const data = {
 			image: {
 				asset: {
 					altText: "asdsadsadsad",
-					url: "/Rzeźbawydajnosc 1.webp",
+					url: "/EfficiencyStatue.webp",
 					metadata: {
 						dimensions: {
 							height: 326,
@@ -157,7 +157,7 @@ const data = {
 			image: {
 				asset: {
 					altText: "asdsadsadsad",
-					url: "/Drzeworzezba 1.webp",
+					url: "/TreeStatue.webp",
 					metadata: {
 						dimensions: {
 							height: 354,
@@ -205,7 +205,7 @@ const data = {
 				icon: {
 					asset: {
 						altText: "Aasdasd",
-						url: "/question_icon.png",
+						url: "/question-icon.svg",
 						metadata: {
 							dimensions: {
 								height: 300,
@@ -226,7 +226,7 @@ const data = {
 				icon: {
 					asset: {
 						altText: "Aasdasd",
-						url: "/infoIcon.png",
+						url: "/info-icon.svg",
 						metadata: {
 							dimensions: {
 								height: 300,
@@ -242,7 +242,7 @@ const data = {
 				icon: {
 					asset: {
 						altText: "Aasdasd",
-						url: "/infoIcon.png",
+						url: "/info-icon.svg",
 						metadata: {
 							dimensions: {
 								height: 300,
@@ -258,7 +258,7 @@ const data = {
 				icon: {
 					asset: {
 						altText: "Aasdasd",
-						url: "/infoIcon.png",
+						url: "/info-icon.svg",
 						metadata: {
 							dimensions: {
 								height: 300,
@@ -274,7 +274,7 @@ const data = {
 				icon: {
 					asset: {
 						altText: "Aasdasd",
-						url: "/infoIcon.png",
+						url: "/info-icon.svg",
 						metadata: {
 							dimensions: {
 								height: 300,
@@ -332,7 +332,7 @@ const data = {
 				icon: {
 					asset: {
 						altText: "Aasdasd",
-						url: "/quotaIcon.png",
+						url: "/quota-icon.svg",
 						metadata: {
 							dimensions: {
 								height: 300,
@@ -349,7 +349,7 @@ const data = {
 				icon: {
 					asset: {
 						altText: "Aasdasd",
-						url: "/personIcon.png",
+						url: "/person-icon.svg",
 						metadata: {
 							dimensions: {
 								height: 300,
@@ -366,7 +366,7 @@ const data = {
 				icon: {
 					asset: {
 						altText: "Aasdasd",
-						url: "/photoIcon.png",
+						url: "/photo-icon.svg",
 						metadata: {
 							dimensions: {
 								height: 300,
@@ -383,7 +383,7 @@ const data = {
 				icon: {
 					asset: {
 						altText: "Aasdasd",
-						url: "/textIcon.png",
+						url: "/font-icon.svg",
 						metadata: {
 							dimensions: {
 								height: 300,
@@ -406,7 +406,7 @@ const data = {
 				icon: {
 					asset: {
 						altText: "Aasdasd",
-						url: "/Ssg.png",
+						url: "/next-icon.svg",
 						metadata: {
 							dimensions: {
 								height: 300,
@@ -423,7 +423,7 @@ const data = {
 				icon: {
 					asset: {
 						altText: "Aasdasd",
-						url: "/Hosting.png",
+						url: "/vercel-icon.svg",
 						metadata: {
 							dimensions: {
 								height: 300,
@@ -440,7 +440,7 @@ const data = {
 				icon: {
 					asset: {
 						altText: "Aasdasd",
-						url: "/Api.png",
+						url: "/api-icon.svg",
 						metadata: {
 							dimensions: {
 								height: 300,
@@ -457,7 +457,7 @@ const data = {
 				icon: {
 					asset: {
 						altText: "Aasdasd",
-						url: "/Sanity.png",
+						url: "/sanity-icon.svg",
 						metadata: {
 							dimensions: {
 								height: 300,
@@ -483,7 +483,7 @@ const data = {
 		img: {
 			asset: {
 				altText: "asdasd",
-				url: "/Tron 1.webp",
+				url: "/Chair.webp",
 				metadata: {
 					dimensions: {
 						height: 2048,
@@ -504,7 +504,7 @@ const data = {
 		img: {
 			asset: {
 				altText: "asdasd",
-				url: "/Astronauta.webp",
+				url: "/Scale.webp",
 				metadata: {
 					dimensions: {
 						height: 2048,
@@ -548,7 +548,7 @@ const data = {
 		image: {
 			asset: {
 				altText: "asdasd",
-				url: "/Image.webp",
+				url: "/Plane.webp",
 				metadata: {
 					dimensions: {
 						height: 2048,
@@ -562,7 +562,7 @@ const data = {
 	image2: {
 		asset: {
 			altText: "asdasdsadsadasd",
-			url: "/Photo2.webp",
+			url: "/TabletPhoto.webp",
 			metadata: {
 				dimensions: {
 					width: 3840,
@@ -575,7 +575,7 @@ const data = {
 	image: {
 		asset: {
 			altText: "asdasdsadsadasd",
-			url: "/Photo1.webp",
+			url: "/UxPhoto.webp",
 			metadata: {
 				dimensions: {
 					width: 3840,
@@ -604,7 +604,7 @@ const data = {
 			image: {
 				asset: {
 					altText: "asdsadsadsad",
-					url: "/image 22.png",
+					url: "/DesignThinking.webp",
 					metadata: {
 						dimensions: {
 							height: 1000,
@@ -631,7 +631,7 @@ const data = {
 			image: {
 				asset: {
 					altText: "asdsadsadsad",
-					url: "/image 21.png",
+					url: "/OrganizationComparisonGraph.webp",
 					metadata: {
 						dimensions: {
 							height: 1000,
@@ -670,7 +670,7 @@ const data = {
 			image: {
 				asset: {
 					altText: "asdsadsadsad",
-					url: "/image 20.png",
+					url: "/ProductGraph.webp",
 					metadata: {
 						dimensions: {
 							height: 610,
@@ -701,7 +701,7 @@ const data = {
 			image : {
 				asset: {
 					altText: "asdsadsadsad",
-					url: "/Group 33751.webp",
+					url: "/UxPuzzles.webp",
 					metadata: {
 						dimensions: {
 							height: 603,
@@ -740,7 +740,7 @@ const data = {
 			image: {
 				asset: {
 					altText: "asdsadsadsad",
-					url: "/Frame 26081370.png",
+					url: "/TestingShowcase.webp",
 					metadata: {
 						dimensions: {
 							height: 1000,
@@ -775,7 +775,7 @@ const data = {
 			image :{ 
 				asset: {
 					altText: "asdsadsadsad",
-					url: "/Frame 26081372.png",
+					url: "/WorkflowShowcase.webp",
 					metadata: {
 						dimensions: {
 							height: 1000,
