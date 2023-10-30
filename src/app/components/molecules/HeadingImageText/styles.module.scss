@@ -1,7 +1,12 @@
 .wrapper {
   display:grid;
+  padding-top:40px;
+  padding-bottom:40px;
   grid-template-columns: 0.5fr 0.5fr;
   grid-template-areas: "heading ." "img description";
+  border-bottom: 1px solid var(--neutral-700, #5B5F67);
+  grid-column-gap: 32px;
+  grid-row-gap: 24px;
 
   .headingWrapper {
     grid-area: heading;
@@ -34,6 +39,10 @@
     grid-template-columns: 1fr;
     grid-template-areas: "heading" "description" "img";
     grid-row-gap: 32px;
+    padding-bottom:unset;
+    .imageWrapper {
+      padding: 16px 41.5px 24px 41.5px;
+    }
   }
   @media(max-width:800px) {
     .imageWrapper {

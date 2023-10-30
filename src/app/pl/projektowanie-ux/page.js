@@ -27,7 +27,7 @@ export default async function UxDesignPage() {
 			<TextSection data={data.textSectionData} />
 			<HorizontalCtaWithImage data={data.planeImageData} />
 			<TitleDescriptionImageList data={data.titleDescriptionImageListData} />
-			<HeadingImageTextList />
+			<HeadingImageTextList data={data.headingImageTextListData} />
 			<CtaWithVerticalImage data={data.watchImageData3} />
 			<TextSection data={data.wcagGuidelines} />
 			<FullWidthImageComponent image={data.image} />
@@ -184,8 +184,6 @@ const data = {
 			},
 		],
 	},
-
-	
 
 	data: {
 		heading: "Zainwestuj w stronę internetową **dostępną dla wszystkich**",
@@ -591,6 +589,202 @@ const data = {
 			"Zaprojektujemy dla Ciebie ultraszybką i intuicyjną stronę  z małym apetytem na prąd. Kto wie, może dzięki niej nie wyginą maskonury?",
 		cta: "Umawiam konsultację",
 	},
+	headingImageTextListData: [
+		{
+			heading: "Warsztaty pożegnalne – **tworzymy strategię UX**",
+			headingDecoration: true,
+			headingType: "h4",
+			image: {
+				asset: {
+					altText: "asdsadsadsad",
+					url: "/image 22.png",
+					metadata: {
+						dimensions: {
+							height: 1000,
+							width: 2000,
+						},
+					},
+				},
+			},
+			blocks: [
+				{
+					description:
+						"Powiedz „do widzenia” chaosowi, bo tu wasze drogi rozchodzą się raz na zawsze. Na początek zapoznamy się z Twoją marką, ustalimy dokąd zmierza i jakie **wyzwanie przed nią stoi**. Dalej będzie już tylko konkretniej.",
+				},
+				{
+					description:
+						"Przygotuj się na prawdziwą burzę mózgów zgodną z podejściem Design Thinking. Efekty? Wygenerujemy pomysły, ustalimy priorytety i kolejne kroki do osiągnięcia **UX-owego raju**, w pełnym poszanowaniu customer experience",
+				},
+			],
+		},
+		{
+			heading: "Warsztaty są **grą zespołową**. Sprawdź, czy lubisz ten sport",
+			headingDecoration: false,
+			headingType: "h4",
+			image: {
+				asset: {
+					altText: "asdsadsadsad",
+					url: "/image 21.png",
+					metadata: {
+						dimensions: {
+							height: 1000,
+							width: 2000,
+						},
+					},
+				},
+			},
+			blocks: [
+				{
+					description:
+						"Model Value Curve, czyli proste narzędzie, dzięki któremu ustalimy wartości najważniejsze dla Twoich klientów",
+				},
+				{
+					description:
+						"**Lean UX Canvas**– biznesplan w sprytnym wydaniu pozwalający uniknąć pułapek w rozwijaniu własnego biznesu.",
+				},
+				{
+					description:
+						"**Crazy 8** – sprintem do najlepszych pomysłów. Metoda dla fanów adrenaliny.",
+				},
+				{
+					description:
+						"**Card Sorting** – biznesowa układanka, a konkretniej – metoda ułatwiająca sortowanie informacji na stronie,",
+				},
+				{
+					description:
+						"**Burza Mózgów** – zapomnij o niekontrolowanym przerzucaniu się pomysłami. To poukładany proces sprzyjający kreatywności.",
+				},
+			],
+		},
+		{
+			heading: "Strefa rentgena – badamy produkt, **szukamy możliwości**",
+			headingDecoration: true,
+			headingType: "h4",
+			image: {
+				asset: {
+					altText: "asdsadsadsad",
+					url: "/image 20.png",
+					metadata: {
+						dimensions: {
+							height: 610,
+							width: 211,
+						},
+					},
+				},
+			},
+			blocks: [
+				{
+					description:
+						"Bez prześwietlenia operacja UX nie może się udać. Na etapie desk researchu przeczeszemy rynek i Twoją konkurencję, by dostrzec **możliwości dla Twojego produktu**.",
+				},
+				{
+					description:
+						"**Zanurzymy się w raporty**, analizy i badania. Nie pominiemy istotnych publikacji i statystyk, by mieć pełen obraz sytuacji. Zaczniemy bywać tam, gdzie Twoi klienci – z radarami mocno nastawionymi na ich potrzeby, bolączki i życzenia.",
+				},
+				{
+					description:
+						"W fazie badania nie pozostajemy wyłącznie za biurkami. Pogłębione wywiady z klientami i zbieranie insightów to megaważna część tego etapu, **przynosząca wnioski na wagę złota**.",
+				},
+			],
+		},
+		{
+			heading: "Układanie UX-owych puzzli – **tworzymy prototyp**",
+			headingDecoration: true,
+			headingType: "h4",
+			image : {
+				asset: {
+					altText: "asdsadsadsad",
+					url: "/Group 33751.webp",
+					metadata: {
+						dimensions: {
+							height: 603,
+							width: 302,
+						},
+					},
+				},
+			},
+			blocks: [
+				{
+					description:
+						"Sfokusowani na celu i nakarmieni wiedzą zaczniemy tworzyć architekturę informacji oraz prototyp Twojej witryny lub aplikacji.",
+				},
+				{
+					description:
+						"Jeśli Twoja strona lub apka już śmiga w sieci, zaczniemy od audytu UX, by skonfrontować obecny stan rzeczy z założonymi celami. Tutaj dowiesz się więcej o audycie UX.",
+				},
+				{
+					description:
+						"[Sprawdź, jak wygląda audyt](audyt)",
+				},
+				{
+					description:
+						"Zaprzęgniemy do akcji dobre praktyki budowania interfejsów cyfrowych, heurystyki Nielsena, zasady Gestalt i piramidę potrzeb UX, by zaprojektować intuicyjną stronę internetową. Nigdy więcej frustrujących formularzy, linków prowadzących donikąd czy zamulających filmów wideo!",
+				},
+				{
+					description:
+						"Krok po kroku, przy użyciu naszej ukochanej Figmy, powstanie prototyp gotowy do przeklikania wzdłuż i wszerz.",
+				},
+			],
+		},
+		{
+			heading: "Ludzie i myszy – **testujemy pełną parą**",
+			headingDecoration: true,
+			headingType: "h4",
+			image: {
+				asset: {
+					altText: "asdsadsadsad",
+					url: "/Frame 26081370.png",
+					metadata: {
+						dimensions: {
+							height: 1000,
+							width: 2000,
+						},
+					},
+				},
+			},
+			blocks: [
+				{
+					description:
+						"Pora solidnie przetestować wszystko, co do tej pory wypracowaliśmy. To właśnie tutaj pojawiają się ludzie i myszy (no, OK, same klawiatury też wystarczą) gotowi przeklikać wszystkie zakamarki strony internetowej lub aplikacji.",
+				},
+				{
+					description:
+						"Logowanie, odzyskiwanie hasła, sprawdzanie różnych przeglądarek czy odpalanie strony na słabym necie – testy UX nie są zwykłym scrollowankiem.",
+				},
+				{
+					description:
+						"Zaprzęgniemy do akcji dobre praktyki budowania interfejsów cyfrowych, heurystyki Nielsena, zasady Gestalt i piramidę potrzeb UX, by zaprojektować intuicyjną stronę internetową. Nigdy więcej frustrujących formularzy, linków prowadzących donikąd czy zamulających filmów wideo!",
+				},
+				{
+					description:
+						"Testerzy mają full zadań do wykonania, a my śledzimy każdy ich ruch, by nie przeoczyć żadnej przeszkody, o którą może się potknąć świetny UX.",
+				},
+			],
+		},
+		{
+			heading: "I to **koniec**?",
+			headingDecoration: true,
+			headingType: "h4",
+			image :{ 
+				asset: {
+					altText: "asdsadsadsad",
+					url: "/Frame 26081372.png",
+					metadata: {
+						dimensions: {
+							height: 1000,
+							width: 2000,
+						},
+					},
+				},
+			},
+			blocks: [
+				{
+					description:
+					"Projektowanie UX nie kończy się wraz z uruchomieniem strony, sklepu internetowego czy aplikacji. Trzeba niezmiennie trzymać rękę na pulsie, analizować, wyciągać wnioski, zmieniać i testować. W tym też Ci pomożemy!"
+				}
+			],
+		},
+	],
 };
 
 const query = async () => {
