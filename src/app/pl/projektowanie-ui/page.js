@@ -6,8 +6,8 @@ import TextSection from "@/app/components/sections/TextSection";
 import CtaWithVerticalImage from "@/app/components/sections/CtaWithVerticalImage";
 import Team from "@/app/components/sections/Team";
 import Testimonials from "@/app/components/sections/Testimonials";
-import TilesComponent from "@/app/components/organisms/TilesComponent";
-import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
+import TilesComponentWithHeading from "@/app/components/sections/TilesComponentWithHeading";
 
 export default async function UiDesignPage() {
 	const {
@@ -20,8 +20,8 @@ export default async function UiDesignPage() {
 			<TextSection data={professionalSiteData} />
 			<CentralizedHeading data={headingData} />
 			<CtaWithVerticalImage data={jarData} />
-			<TilesComponent data={tilesData} additionalStyles={styles}/>
-			<FullWidthImageComponent image={uiPhoto} />
+			<TilesComponentWithHeading data={tilesComponentWithHeadingData} additionalStyles={styles} />
+			<FullWidthImageComponent image={uiPhoto} additionalStyles={styles}/>
 			<FullWidthImageComponent image={phones} />
 			<TextSection data={kryptonumPractices} />
 			<CtaWithVerticalImage data={trophyData} />
@@ -99,31 +99,34 @@ const jarData = {
 	},
 };
 
-const tilesData = {
-	heading: "**Projektujemy interfejsy** dla:",
-	list: [{
-		title: "/01",
-		description:"Stron internetowych"
+const tilesComponentWithHeadingData = {
+	heading: "W UI design **każdej stronie do twarzy**",
+	tiles: {
+		heading: "**Projektujemy interfejsy** dla:",
+		list: [
+			{
+				title: "/01",
+				description: "Stron internetowych",
+			},
+			{
+				title: "/02",
+				description: "Landing page",
+			},
+			{
+				title: "/03",
+				description: "Platform kursowych",
+			},
+			{
+				title: "/04",
+				description: "Aplikacji biznesowych",
+			},
+			{
+				title: "/05",
+				description: "Sklepów internetowych",
+			},
+		],
 	},
-	{
-		title: "/02",
-		description: "Landing page"
-	},
-	{
-		title: "/03",
-		description: "Platform kursowych"
-	},
-	{
-		title: "/04",
-		description: "Aplikacji biznesowych"
-	},
-	{
-		title: "/05",
-		description: "Sklepów internetowych"
-	}
-
-]
-}
+};
 
 const uiPhoto = {
 	asset: {
