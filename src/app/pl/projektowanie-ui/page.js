@@ -6,7 +6,7 @@ import TextSection from "@/app/components/sections/TextSection";
 import CtaWithVerticalImage from "@/app/components/sections/CtaWithVerticalImage";
 import Team from "@/app/components/sections/Team";
 import Testimonials from "@/app/components/sections/Testimonials";
-import TilesComponent from "@/app/components/sections/TilesComponent";
+import TilesComponent from "@/app/components/organisms/TilesComponent";
 import styles from './styles.module.scss';
 
 export default async function UiDesignPage() {

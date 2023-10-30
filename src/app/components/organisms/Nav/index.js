@@ -142,7 +142,7 @@ const Nav = ({
           <div className={styles.navList}>
             <ul>
               <li className={styles.navCtaMobile}>
-                <Button href="/pl/kontakt" onClick={(e) => handleNavLinks(e)}>
+                <Button to="/pl/kontakt" onClick={(e) => handleNavLinks(e)}>
                   Darmowa konsultacja
                 </Button>
               </li>
@@ -534,7 +534,7 @@ const Nav = ({
             </ul>
           </div>
           <Button
-            href="/pl/kontakt"
+            to="/pl/kontakt"
             className={styles.navCta}
             onClick={(e) => handleNavLinks(e)}
           >
