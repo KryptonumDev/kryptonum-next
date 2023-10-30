@@ -291,7 +291,6 @@ const data = {
 	headingData: {
 		heading: "Jak tu nie lubić **WCAG**?",
 		subheading: "Tylko spójrz",
-		type: "h4",
 		decoration: true,
 	},
 	sustainableDevelopmentData: {
@@ -599,8 +598,6 @@ const data = {
 	headingImageTextListData: [
 		{
 			heading: "Warsztaty pożegnalne – **tworzymy strategię UX**",
-			headingDecoration: true,
-			headingType: "h4",
 			image: {
 				asset: {
 					altText: "asdsadsadsad",
@@ -626,8 +623,6 @@ const data = {
 		},
 		{
 			heading: "Warsztaty są **grą zespołową**. Sprawdź, czy lubisz ten sport",
-			headingDecoration: false,
-			headingType: "h4",
 			image: {
 				asset: {
 					altText: "asdsadsadsad",
@@ -665,8 +660,6 @@ const data = {
 		},
 		{
 			heading: "Strefa rentgena – badamy produkt, **szukamy możliwości**",
-			headingDecoration: true,
-			headingType: "h4",
 			image: {
 				asset: {
 					altText: "asdsadsadsad",
@@ -696,8 +689,6 @@ const data = {
 		},
 		{
 			heading: "Układanie UX-owych puzzli – **tworzymy prototyp**",
-			headingDecoration: true,
-			headingType: "h4",
 			image : {
 				asset: {
 					altText: "asdsadsadsad",
@@ -735,8 +726,6 @@ const data = {
 		},
 		{
 			heading: "Ludzie i myszy – **testujemy pełną parą**",
-			headingDecoration: true,
-			headingType: "h4",
 			image: {
 				asset: {
 					altText: "asdsadsadsad",
@@ -770,8 +759,6 @@ const data = {
 		},
 		{
 			heading: "I to **koniec**?",
-			headingDecoration: true,
-			headingType: "h4",
 			image :{ 
 				asset: {
 					altText: "asdsadsadsad",

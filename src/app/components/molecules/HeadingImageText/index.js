@@ -9,17 +9,16 @@ import styles from "./styles.module.scss";
 const HeadingImageText = ({
 	data: {
 		heading,
-		headingType,
-		headingDecoration,
 		image,
 		blocks,
 	},
-	parentStyles
+	parentStyles,
+	decoration = true
 }) => {
 	return (
 		<div className={parentStyles ? ` ${styles.wrapper} ${parentStyles.wrapper}` : `${styles.wrapper}`}>
 			<div className={`${styles.headingWrapper}`}>
-				<DecorativeHeading type={headingType} decoration={headingDecoration}>
+				<DecorativeHeading type="h4" decoration={decoration}>
 					{heading}
 				</DecorativeHeading>
 			</div>

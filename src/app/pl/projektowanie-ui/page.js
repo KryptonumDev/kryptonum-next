@@ -1,4 +1,3 @@
-import CentralizedHeading from "@/app/components/molecules/CentralizedHeading";
 import CentralizedHeadingSection from "@/app/components/sections/CentralizedHeadingSection";
 import CtaWithVerticalImage from "@/app/components/sections/CtaWithVerticalImage";
 import FullWidthImageComponent from "@/app/components/sections/FullWidthImageComponent";
@@ -20,7 +19,7 @@ export default async function UiDesignPage() {
 		<>
 			<Hero data={heroData} />
 			<TextSection data={professionalSiteData} />
-			<CentralizedHeading data={headingData} />
+			<CentralizedHeadingSection data={headingData} decoration={false}/>
 			<CtaWithVerticalImage data={jarData} />
 			<TilesComponentWithHeading data={tilesComponentWithHeadingData} additionalStyles={styles} />
 			<FullWidthImageComponent image={uiPhoto} additionalStyles={styles} />
@@ -40,8 +39,6 @@ export default async function UiDesignPage() {
 
 const CentralizedHeadingSectionData = {
 	heading: "Dobry UI nie istnieje bez **porządnie zaprojektowanego UX**",
-	type: "h4",
-	decoration: true,
 }
 
 const iconTitleDescriptionListData = {
@@ -116,9 +113,7 @@ const professionalSiteData = {
 const headingData = {
 	heading:
 		"Chcesz **cieszyć oczy** ładną stroną internetową czy **napędzać biznes** interfejsem zaprojektowanym według najlepszych zasad UI?",
-	subheading: "Do it like a boss!",
-	type: "h4",
-	decoration: false,
+	subheading: "Do it like a boss!"
 };
 
 const jarData = {
