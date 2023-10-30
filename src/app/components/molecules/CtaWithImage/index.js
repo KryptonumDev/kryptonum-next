@@ -3,10 +3,9 @@
 import Img from '@/utils/Img';
 import { useEffect, useState } from "react";
 import Button from '../../atoms/Button';
-import DecorativeHeading from '../../atoms/DecorativeHeading';
 import styles from './styles.module.scss';
 
-const CtaWithImage = ({data:{heading, image, cta}, parentStyles}) => {
+const CtaWithImage = ({data:{image, cta}, parentStyles, children}) => {
   const [windowWidth, setWindowWidth] = useState(0);
 
 	useEffect(() => {
@@ -27,7 +26,7 @@ const CtaWithImage = ({data:{heading, image, cta}, parentStyles}) => {
 			</div>
 			<div className={styles.consultationWrapper}>
 				<div className={styles.decorativeHeadingWrapper}>
-					<DecorativeHeading type="h4">{heading}</DecorativeHeading>
+					{children}
 				</div>
 				<Button data={cta} theme={"primary"} className={`${styles.button}`}>
 					{windowWidth < 550 ? cta.textMobile : cta.text}
