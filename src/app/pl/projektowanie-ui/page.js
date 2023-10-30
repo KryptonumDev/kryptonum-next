@@ -9,6 +9,7 @@ import Testimonials from "@/app/components/sections/Testimonials";
 import styles from "./styles.module.scss";
 import TilesComponentWithHeading from "@/app/components/sections/TilesComponentWithHeading";
 import IconTitleDescriptionListSection from "@/app/components/sections/IconTitleDescriptionListSection";
+import CentralizedHeadingSection from "@/app/components/sections/CentralizedHeadingSection";
 
 export default async function UiDesignPage() {
 	const {
@@ -29,11 +30,18 @@ export default async function UiDesignPage() {
 			<TextSection data={kryptonumPractices} />
 			<CtaWithVerticalImage data={trophyData} />
 			<TextSection data={uiDesignShell} />
+			<CentralizedHeadingSection data={CentralizedHeadingSectionData}/>
 			<CtaWithVerticalImage data={phoneData} />
 			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
 			<Testimonials testimonials={testimonials} />
 		</>
 	);
+}
+
+const CentralizedHeadingSectionData = {
+	heading: "Dobry UI nie istnieje bez **porządnie zaprojektowanego UX**",
+	type: "h4",
+	decoration: true,
 }
 
 const iconTitleDescriptionListData = {

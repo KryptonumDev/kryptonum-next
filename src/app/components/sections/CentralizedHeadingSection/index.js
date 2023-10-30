@@ -1,8 +1,9 @@
 import CentralizedHeading from "../../molecules/CentralizedHeading";
+import styles from './styles.module.scss';
 
 const CentralizedHeadingSection = ({data}) => {
   return (
-    <section>
+    <section className={styles.section}>
       <CentralizedHeading data={data}></CentralizedHeading>
     </section>
   )
