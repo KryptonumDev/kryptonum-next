@@ -1,14 +1,16 @@
-'use server'
+"use server";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import Img from "@/utils/Img";
 import Markdown from "@/utils/markdown";
 import styles from "./styles.module.scss";
 
-const TextComponent = ({
-	data: { heading, blocks }
-}) => {
+const TextComponent = ({ data: { heading, blocks }, additionalStyles }) => {
 	return (
-		<div className={styles.wrapper}>
+		<div
+			className={
+				additionalStyles ? `${styles.wrapper} ${additionalStyles.textSection}` : styles.wrapper
+			}
+		>
 			<DecorativeHeading type="h2">{heading}</DecorativeHeading>
 			<div className={styles.divWrapper}>
 				{blocks.map((item, i) => {

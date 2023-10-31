@@ -28,7 +28,7 @@ export default async function UiDesignPage() {
 			<TextSection data={goodUiDesignData} />
 			<IconTitleDescriptionListSection data={iconTitleDescriptionListData} />
 			<FullWidthImageComponent image={phones} />
-			<TextSection data={kryptonumPractices} />
+			<TextSection data={kryptonumPractices} additionalStyles={styles} />
 			<CtaWithVerticalImage data={trophyData} />
 			<Process data={processData}/>
 			<TextSection data={uiDesignShell} />
