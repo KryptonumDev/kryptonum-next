@@ -10,3 +10,12 @@
   border: 1px solid var(--neutral-700, #5B5F67);
   border-radius: 0.822px;
 }
+.textSection {
+  h2 {
+    >span {
+      strong {
+        display:block;
+      }
+    }
+  }
+}
