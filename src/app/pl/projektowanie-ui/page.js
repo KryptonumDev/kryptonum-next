@@ -30,15 +30,33 @@ export default async function UiDesignPage() {
 			<FullWidthImageComponent image={phones} />
 			<TextSection data={kryptonumPractices} additionalStyles={styles} />
 			<CtaWithVerticalImage data={trophyData} />
-			<Process data={processData}/>
 			<TextSection data={uiDesignShell} />
-			<CentralizedHeadingSection data={centralizedHeadingSectionData}/>
+			<Process data={processData}/>
+			<CentralizedHeadingSection data={centralizedHeadingSectionData} additionalStyles={styles}/>
 			<CaseStudies cta={caseStudiesCta}/>
 			<CtaWithVerticalImage data={phoneData} />
 			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
 			<Testimonials testimonials={testimonials} />
 		</>
 	);
+}
+
+const headingBlockSwiperData = {
+	heading: "UI design oznacza User Interface. Dla nas to Urzekająca Intuicyjność.",
+	blocks: [
+		{
+			title: "Spójny Design System",
+			description: "Tworzymy wizualną bazę Twojej marki, czyli full custom design nasycony efektywnością. Kolory, typografia, proporcje i odległości – tu wszystko ma znaczenie. Dobre wrażenie, jakie wywołasz na odbiorcach, nie może być dziełem przypadku."
+		},
+		{
+			title: "Responsywny Interfejs",
+			description: "Czas zaparkować design na zoptymalizowanych interfejsach. Pokażemy przyjazną twarz Twojej marki na desktopie, smartfonie czy tablecie. Zadbamy o hierarchię, równowagę i dostępność projektu, by wszyscy odbiorcy kroczyli po wygodnych ścieżkach."
+		},
+		{
+			title: "Angażujące interakcje",
+			description: "Wprawimy interfejsy w ruch! Doprawimy design smaczkami, które przyjemnie zaskoczą użytkowników i ułatwią im przemieszczanie się po stronach. Animacje i sprytne interakcje potrafią wbić w fotel i zwiększyć zaangażowanie. Zobaczysz!"
+		},
+	]
 }
 
 const processData= {
@@ -67,10 +85,9 @@ const centralizedHeadingSectionData = {
 }
 
 const caseStudiesCta = {
-	text: "Zobacz projektowanie UX w naszym wydaniu",
+	text: "Zobacz nasze projekty",
 	theme: "secondary",
 	href: "/pl/portfolio"
-
 }
 
 const iconTitleDescriptionListData = {

@@ -14,7 +14,7 @@ const CaseStudies = async ({ data, heading, cta }) => {
 		<section className={styles.wrapper}>
 			{heading && (
 				<header>
-					<DecorativeHeading type="h4">{heading}</DecorativeHeading>
+					<DecorativeHeading type="h3">{heading}</DecorativeHeading>
 				</header>
 			)}
 			<div>

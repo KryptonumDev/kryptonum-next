@@ -25,7 +25,7 @@ export default async function UxDesignPage() {
 		<>
 			<Hero data={data.heroData} />
 			<TextSection data={data.textSectionData} />
-			<HorizontalCtaWithImage data={data.planeImageData} />
+			<CtaWithVerticalImage data={data.planeImageData} />
 			<TitleDescriptionImageList data={data.titleDescriptionImageListData} />
 			<HeadingImageTextList data={data.headingImageTextListData} />
 			<CtaWithVerticalImage data={data.watchImageData3} />
@@ -544,7 +544,7 @@ const data = {
 			theme: "primary",
 			href: "/pl/kontakt",
 		},
-		image: {
+		img: {
 			asset: {
 				altText: "asdasd",
 				url: "/Plane.webp",

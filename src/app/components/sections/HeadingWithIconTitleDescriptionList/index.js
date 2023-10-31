@@ -6,7 +6,7 @@ const HeadingWithIconTitleDescriptionList = ({ data }) => {
 	return (
 		<section className={styles.section}>
 			<header>
-				<DecorativeHeading type="h4">{data.heading}</DecorativeHeading>
+				<DecorativeHeading type="h3">{data.heading}</DecorativeHeading>
 			</header>
 			<IconTitleDescriptionList data={data}/>
 		</section>

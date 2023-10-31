@@ -4,7 +4,7 @@ import DecorativeHeading from "../../atoms/DecorativeHeading";
 const Testimonials = ({ heading, testimonials }) => {
 	return (
 		<TestimonialsClient testimonials={testimonials}>
-			<DecorativeHeading type="h4">{heading || "Zobacz, co mówią **klienci**"}</DecorativeHeading>
+			<DecorativeHeading type="h3">{heading || "Zobacz, co mówią **klienci**"}</DecorativeHeading>
 		</TestimonialsClient>
 	);
 };
