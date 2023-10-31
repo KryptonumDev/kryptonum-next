@@ -10,7 +10,7 @@ const CentralizedHeading = ({ data: { heading, subheading }, decoration, additio
 					: styles.header
 			}
 		>
-			<DecorativeHeading type="h4" decoration={decoration} className={styles.decorativeHeading}>
+			<DecorativeHeading type="h3" decoration={decoration} className={styles.decorativeHeading}>
 				{heading}
 			</DecorativeHeading>
 			{subheading && <div className={styles.subheading}>{subheading}</div>}

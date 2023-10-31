@@ -15,7 +15,7 @@ const ConsultationForm = async ({
 	return (
 		<section className={isPortableContent ? `${styles.portable} ${styles.section}` : styles.section}>
 			<header>
-				<DecorativeHeading type="h4">{heading}</DecorativeHeading>
+				<DecorativeHeading type="h3">{heading}</DecorativeHeading>
 				<Markdown className={styles.subheading}>{subheading}</Markdown>
 			</header>
       <ConsultationCtaForm cta={cta}/>

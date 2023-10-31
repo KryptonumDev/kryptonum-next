@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 const TilesComponentWithHeading = ({ data: {heading,tiles}, additionalStyles }) => {
 	return (
 		<section className={styles.wrapper}>
-			<DecorativeHeading type="h4">{heading}</DecorativeHeading>
+			<DecorativeHeading type="h3">{heading}</DecorativeHeading>
 			<TilesComponent data={tiles} additionalStyles={additionalStyles}></TilesComponent>
 		</section>
 	);

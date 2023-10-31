@@ -18,7 +18,7 @@ const HeadingImageText = ({
 	return (
 		<div className={parentStyles ? ` ${styles.wrapper} ${parentStyles.wrapper}` : `${styles.wrapper}`}>
 			<div className={`${styles.headingWrapper}`}>
-				<DecorativeHeading type="h4" decoration={decoration}>
+				<DecorativeHeading type="h3" decoration={decoration}>
 					{heading}
 				</DecorativeHeading>
 			</div>
