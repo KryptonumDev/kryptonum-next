@@ -19,3 +19,10 @@
     }
   }
 }
+.centralizedHeadingSection {
+  @media(max-width:500px) {
+    align-items:center;
+    justify-self: center;
+    text-align: center;
+  }
+}

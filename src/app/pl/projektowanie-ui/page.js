@@ -30,9 +30,9 @@ export default async function UiDesignPage() {
 			<FullWidthImageComponent image={phones} />
 			<TextSection data={kryptonumPractices} additionalStyles={styles} />
 			<CtaWithVerticalImage data={trophyData} />
-			<Process data={processData}/>
 			<TextSection data={uiDesignShell} />
-			<CentralizedHeadingSection data={centralizedHeadingSectionData}/>
+			<Process data={processData}/>
+			<CentralizedHeadingSection data={centralizedHeadingSectionData} additionalStyles={styles}/>
 			<CaseStudies cta={caseStudiesCta}/>
 			<CtaWithVerticalImage data={phoneData} />
 			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
@@ -67,10 +67,9 @@ const centralizedHeadingSectionData = {
 }
 
 const caseStudiesCta = {
-	text: "Zobacz projektowanie UX w naszym wydaniu",
+	text: "Zobacz nasze projekty",
 	theme: "secondary",
 	href: "/pl/portfolio"
-
 }
 
 const iconTitleDescriptionListData = {
