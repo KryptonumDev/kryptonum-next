@@ -21,7 +21,7 @@ export default async function UiDesignPage() {
 		<>
 			<Hero data={heroData} />
 			<TextSection data={professionalSiteData} />
-			<CentralizedHeadingSection data={headingData} decoration={false}/>
+			<CentralizedHeadingSection data={headingData} decoration={false} additionalStyles={styles}/>
 			<CtaWithVerticalImage data={jarData} />
 			<TilesComponentWithHeading data={tilesComponentWithHeadingData} additionalStyles={styles} />
 			<FullWidthImageComponent image={uiPhoto} additionalStyles={styles} />

@@ -26,7 +26,7 @@ const CtaWithVerticalImageClient = ({ data: { img, cta }, children }) => {
 					{windowWidth < 550 && cta.textMobile ? cta.textMobile : cta.text}
 				</Button>
 			</header>
-			<Img data={img} className={styles.img} />
+			<Img data={img} className={styles.img} sizes="(min-width: 1200px) 50vw, (max-width: 1199px) 70vw, (max-width: 500px) 100vw"/>
 		</section>
 	);
 };

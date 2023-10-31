@@ -1,10 +1,11 @@
 .header {
-  display:grid;
+  display: grid;
   grid-row-gap: 24px;
-  max-width:714px;
+  max-width: 714px;
   align-items: center;
   justify-self: center;
-  text-align:center;
+  text-align: center;
+
   .decorativeHeading {
     >svg {
       width: 0.86em;
@@ -12,19 +13,24 @@
       margin-top: 0.25em;
       margin-right: 8px;
     }
+
     span>svg {
       vertical-align: middle;
       width: clamp(calc(100rem/16), calc(216vw/7.68), calc(216rem/16));
     }
   }
-  .subheading {
-    text-align:center;
+
+  >div {
+    text-align: center;
   }
-  @media(max-width:500px) {
+}
+
+@media(max-width:500px) {
+  .header {
     align-items: start;
-    justify-self:start;
-    text-align:start;
-    .subheading {
+    justify-self: start;
+    text-align: start;
+    >div {
       text-align: start;
     }
   }
