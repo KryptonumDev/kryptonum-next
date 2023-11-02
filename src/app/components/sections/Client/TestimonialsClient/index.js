@@ -1,14 +1,13 @@
 "use client";
 
-import styles from "./styles.module.scss";
 import Img from "@/utils/Img";
 import { useRef, useState } from "react";
 import "swiper/css";
 import { A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Button from "../../../atoms/Button";
-import { Quote } from "../../../atoms/Icons";
-const TestimonialsClient = ({ testimonials, children }) => {
+import styles from "./styles.module.scss";
+const TestimonialsClient = ({ testimonials, quote, arrowLeft, arrowRight, children }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const swiperRef = useRef(null);
 
@@ -37,7 +36,7 @@ const TestimonialsClient = ({ testimonials, children }) => {
 							</div>
 						</div>
 						<div className={styles.context}>
-							<Quote />
+							{quote}
 							<p>{text}</p>
 						</div>
 					</SwiperSlide>
@@ -51,7 +50,7 @@ const TestimonialsClient = ({ testimonials, children }) => {
 					disabled={activeIndex === 0}
 					aria-label="Przejdź do poprzedniego elementu"
 				>
-					<ArrowLeft />
+					{arrowLeft}
 				</button>
 				<button
 					onClick={() => {
@@ -60,34 +59,10 @@ const TestimonialsClient = ({ testimonials, children }) => {
 					disabled={activeIndex === testimonials.length - 1}
 					aria-label="Przejdź do następnego elementu"
 				>
-					<ArrowRight />
+					{arrowRight}
 				</button>
 			</div>
 		</section>
 	);
 };
 export default TestimonialsClient;
-
-const ArrowLeft = () => (
-	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
-		<path
-			stroke="#EFF0F3"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-			strokeWidth="2"
-			d="M19 12H5m0 0l7 7m-7-7l7-7"
-		></path>
-	</svg>
-);
-
-const ArrowRight = () => (
-	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
-		<path
-			stroke="#EFF0F3"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-			strokeWidth="2"
-			d="M5 12h14m0 0l-7-7m7 7l-7 7"
-		></path>
-	</svg>
-);

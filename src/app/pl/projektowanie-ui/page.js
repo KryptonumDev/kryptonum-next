@@ -11,6 +11,7 @@ import fetchData from "@/utils/fetchData";
 import styles from "./styles.module.scss";
 import CaseStudies from "@/app/components/sections/CaseStudies";
 import Process from "@/app/components/sections/Process";
+import Slider from "@/app/components/sections/Slider";
 
 export default async function UiDesignPage() {
 	const {
@@ -25,6 +26,7 @@ export default async function UiDesignPage() {
 			<CtaWithVerticalImage data={jarData} />
 			<TilesComponentWithHeading data={tilesComponentWithHeadingData} additionalStyles={styles} />
 			<FullWidthImageComponent image={uiPhoto} additionalStyles={styles} />
+			<Slider data={sliderData}/>
 			<TextSection data={goodUiDesignData} />
 			<IconTitleDescriptionListSection data={iconTitleDescriptionListData} />
 			<FullWidthImageComponent image={phones} />
@@ -41,19 +43,19 @@ export default async function UiDesignPage() {
 	);
 }
 
-const headingBlockSwiperData = {
-	heading: "UI design oznacza User Interface. Dla nas to Urzekająca Intuicyjność.",
-	blocks: [
+const sliderData = {
+	heading: "UI design oznacza **User Interface**. Dla nas to Urzekająca Intuicyjność.",
+	slides: [
 		{
-			title: "Spójny Design System",
+			title: "**Spójny** Design System",
 			description: "Tworzymy wizualną bazę Twojej marki, czyli full custom design nasycony efektywnością. Kolory, typografia, proporcje i odległości – tu wszystko ma znaczenie. Dobre wrażenie, jakie wywołasz na odbiorcach, nie może być dziełem przypadku."
 		},
 		{
-			title: "Responsywny Interfejs",
+			title: "**Responsywny** Interfejs",
 			description: "Czas zaparkować design na zoptymalizowanych interfejsach. Pokażemy przyjazną twarz Twojej marki na desktopie, smartfonie czy tablecie. Zadbamy o hierarchię, równowagę i dostępność projektu, by wszyscy odbiorcy kroczyli po wygodnych ścieżkach."
 		},
 		{
-			title: "Angażujące interakcje",
+			title: "**Angażujące** interakcje",
 			description: "Wprawimy interfejsy w ruch! Doprawimy design smaczkami, które przyjemnie zaskoczą użytkowników i ułatwią im przemieszczanie się po stronach. Animacje i sprytne interakcje potrafią wbić w fotel i zwiększyć zaangażowanie. Zobaczysz!"
 		},
 	]
