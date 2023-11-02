@@ -20,24 +20,33 @@
       align-self: stretch;
     }
 
-    @media(min-width: 1068px) {
+    @media(min-width: 1300px) {
       .span {
         text-align: end;
         max-width:450px;
       }
     }
+    .sideImg {
+      width:90%;
+      height:auto;
+      object-fit:cover;
+      justify-self: flex-end;
+      border: 1px solid var(--neutral-700, #5B5F67);
+    }
   }
 
-  @media(max-width: 1068px) {
+  @media(max-width: 1299px) {
     header {
       grid-template-columns: 1fr;
+      .sideImg {
+        width:100%;
+        justify-self: center;
+      }
+      .spanWrapper {
+        width: fit-content;
+        margin-top: -54px;
+      }
     }
-
-    .spanWrapper {
-      width: fit-content;
-      margin-top: -54px;
-    }
-
     span {
       text-align: start;
     }
@@ -45,7 +54,7 @@
 }
 
 .imageWrapper {
-  @media(max-width:1068px) {
+  @media(max-width:1299px) {
     margin-top: 48px;
   }
 
