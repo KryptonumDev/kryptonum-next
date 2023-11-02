@@ -41,3 +41,5 @@ package-lock.json
 .prettierignore
 prettier.config.js
 pnpm-lock.yaml
+# bundle analyzer
+analyze
