@@ -21,6 +21,10 @@
       background: var(--neutral-950);
       margin: -77px auto 16px;
       padding: 8px;
+      h3 {
+        padding-bottom:unset;
+        margin-bottom: unset;
+      }
     }
 
     border: 1px solid var(--neutral-700);

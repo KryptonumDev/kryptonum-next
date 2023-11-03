@@ -1,0 +1,22 @@
+.wrapper {
+  display: grid;
+  gap: clamp(24px, calc(32vw/7.68), 32px);
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+@media(max-width:1200px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+  .wrapper>div:first-child {
+    border-bottom: 1px solid var(--neutral-700, #5B5F67);
+  }
+}
+
+@media(min-width:1201px) {
+  .wrapper>div:first-child {
+    border-right: 1px solid var(--neutral-700, #5B5F67);
+    padding-right: 10px;
+  }
+}

@@ -1,0 +1,23 @@
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap:32px;
+
+  >h3 {
+    max-width: 450px;
+    font-size: clamp(calc(20rem/16), calc(28vw/7.68), calc(24rem/16));;
+  }
+
+  @media(max-width: 1200px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  >.item>.icon {
+    position: relative;
+    transform: none;
+  }
+}

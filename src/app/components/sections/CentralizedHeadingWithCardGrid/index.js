@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 const CentralizedHeadingWithCardGrid = ({cardData, headingData}) => {
 	return (
     <section className={styles.section}>
-			<CentralizedHeading data={headingData}></CentralizedHeading>
+			<CentralizedHeading data={headingData} additionalStyles={styles}></CentralizedHeading>
 			<CardGrid data={cardData}/>
 		</section>
 	)

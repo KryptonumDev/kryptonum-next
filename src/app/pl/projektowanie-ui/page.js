@@ -22,7 +22,7 @@ export default async function UiDesignPage() {
 		<>
 			<Hero data={heroData} />
 			<TextSection data={professionalSiteData} />
-			<CentralizedHeadingSection data={headingData} decoration={false} additionalStyles={styles}/>
+			<CentralizedHeadingSection data={headingData} decoration={false}/>
 			<CtaWithVerticalImage data={jarData} />
 			<TilesComponentWithHeading data={tilesComponentWithHeadingData} additionalStyles={styles} />
 			<FullWidthImageComponent image={uiPhoto} additionalStyles={styles} />
@@ -34,7 +34,7 @@ export default async function UiDesignPage() {
 			<CtaWithVerticalImage data={trophyData} />
 			<TextSection data={uiDesignShell} />
 			<Process data={processData}/>
-			<CentralizedHeadingSection data={centralizedHeadingSectionData} additionalStyles={styles}/>
+			<CentralizedHeadingSection data={centralizedHeadingSectionData}/>
 			<CaseStudies cta={caseStudiesCta}/>
 			<CtaWithVerticalImage data={phoneData} />
 			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />

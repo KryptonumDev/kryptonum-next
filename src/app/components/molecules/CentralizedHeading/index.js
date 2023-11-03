@@ -1,7 +1,12 @@
+import Button from "../../atoms/Button";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import styles from "./styles.module.scss";
 
-const CentralizedHeading = ({ data: { heading, subheading }, decoration, additionalStyles }) => {
+const CentralizedHeading = ({
+	data: { heading, subheading, cta },
+	decoration,
+	additionalStyles,
+}) => {
 	return (
 		<header
 			className={
@@ -14,7 +19,8 @@ const CentralizedHeading = ({ data: { heading, subheading }, decoration, additio
 				{heading}
 			</DecorativeHeading>
 			{subheading && <div className={styles.subheading}>{subheading}</div>}
-		</header>
+			{cta && <Button data={cta} />}
+			</header>
 	);
 };
 export default CentralizedHeading;
