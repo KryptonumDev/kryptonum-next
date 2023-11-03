@@ -6,20 +6,20 @@ const CardGrid = ({ data: { blocks }, additionalStyles }) => {
 	return (
 		<div
 			className={
-				additionalStyles.cardGrid ? `${styles.wrapper} ${additionalStyles.cardGrid}` : styles.wrapper
+				additionalStyles ? `${additionalStyles.cardGrid} ${styles.wrapper} ` : styles.wrapper
 			}
 		>
 			{blocks.map(({ title, description, icon, overflowContent }, i) => (
-				<div className={additionalStyles.item ? `${styles.item} ${additionalStyles.item}` : styles.item} key={i}>
+				<div className={additionalStyles ? `${additionalStyles.item} ${styles.item}` : styles.item} key={i}>
 					{icon ? (
 						<Img
 							data={icon}
 							className={
-								additionalStyles.icon ? `${styles.icon} ${additionalStyles.icon}` : styles.icon
+								additionalStyles ? `${additionalStyles.icon} ${styles.icon}` : styles.icon
 							}
 						/>
 					) : (
-						<Markdown className={additionalStyles.icon ? `${styles.icon} ${additionalStyles.icon}` : styles.icon} width={60} height={60} components={{ p: "h3" }}>
+						<Markdown className={additionalStyles ? `${additionalStyles.icon} ${styles.icon}` : styles.icon} width={60} height={60} components={{ p: "h3" }}>
 							{overflowContent}
 						</Markdown>
 					)}
