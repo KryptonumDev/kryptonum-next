@@ -23,6 +23,7 @@ const Hero = ({ data: { heading, breadcrumbs, subheading, img, sideImg } }) => {
 						data={sideImg}
 						className={styles.sideImg}
 						sizes="(max-width: 1299px) 100vw, (min-width: 1300px) 50vw"
+						loading="eager"
 					/>
 				)}
 			</header>
