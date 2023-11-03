@@ -23,15 +23,12 @@
   >div {
     text-align: center;
   }
-}
-
-@media(max-width:500px) {
-  .header {
-    align-items: start;
-    justify-self: start;
-    text-align: start;
-    >div {
-      text-align: start;
+  >a {
+    white-space: unset;
+    display: grid;
+    grid-template-columns: auto min-content;
+    >span {
+      display:inline-block;
     }
   }
 }

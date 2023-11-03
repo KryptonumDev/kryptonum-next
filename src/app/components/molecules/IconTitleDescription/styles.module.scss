@@ -1,0 +1,40 @@
+.item {
+  display: grid;
+  column-gap: 12px;
+  row-gap: clamp(48px, calc(48px/7.68), 32px);
+  padding: 0px 0px 20px 0px;
+  grid-template-columns: 1fr;
+  grid-template-areas: "icon" "title" "description";
+  justify-content: center;
+  align-items:center;
+
+  .iconWrapper {
+    border-radius: 50%;
+    border: 1px solid var(--neutral-700);
+    width: 72px;
+    height: 72px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: icon;
+
+    .icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .title {
+    font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28rem/16));
+    grid-area:title;
+  }
+  .descriptionWrapper {
+    grid-area: description;
+    display:grid;
+    row-gap: clamp(24px, calc(32vw/7.68), 32px);
+  }
+  @media(max-width:1300px) {
+    grid-template-columns: 0fr 1fr;
+    grid-template-areas: "icon title" "description description";
+  }
+}

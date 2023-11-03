@@ -6,7 +6,6 @@ import FullWidthImageComponent from "@/app/components/sections/FullWidthImageCom
 import HeadingWithIconTitleDescriptionList from "@/app/components/sections/HeadingWithIconTitleDescriptionList";
 import HeadingWithMaxWidth from "@/app/components/sections/HeadingWithMaxWidth";
 import Hero from "@/app/components/sections/Hero";
-import HorizontalCtaWithImage from "@/app/components/sections/HorizontalCtaWithImage";
 import ImageDisplayedOnTablet from "@/app/components/sections/ImageDisplayedOnTablet";
 import Team from "@/app/components/sections/Team";
 import Testimonials from "@/app/components/sections/Testimonials";

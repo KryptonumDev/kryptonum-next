@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 const ListWithOverflowIcon = ({ data: { blocks }, className, itemClassName }) => {
 	return (
 		<div className={`${styles.wrapper} ${className}`}>
-			{blocks.map(({ icon, description, title, img }, i) => (
+			{blocks.map(({ icon, description, title }, i) => (
 				<div className={`${styles.item} ${itemClassName}`} key={i}>
 					<Img data={icon} className={styles.icon} width={60} height={60}></Img>
 					{title && (

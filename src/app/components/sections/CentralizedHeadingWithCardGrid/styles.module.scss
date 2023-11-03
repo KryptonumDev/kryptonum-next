@@ -2,3 +2,13 @@
   display:grid;
   row-gap:48px;
 }
+.centralizedHeadingSection {
+  @media(max-width:500px) {
+    align-items:start;
+    justify-self: start;
+    text-align: start;
+    >div {
+      text-align:start;
+    }
+  }
+}
