@@ -6,10 +6,7 @@ import "swiper/css";
 import { A11y } from "swiper/modules";
 import Button from "../../../atoms/Button";
 import styles from "./styles.module.scss";
-import dynamic from "next/dynamic";
-
-const Swiper = dynamic(() => import("swiper/react").then((mod) => mod.Swiper));
-const SwiperSlide = dynamic(() => import("swiper/react").then((mod) => mod.SwiperSlide));
+import {Swiper, SwiperSlide} from 'swiper/react';
 
 const TestimonialsClient = ({ testimonials, quote, arrowLeft, arrowRight, children }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
