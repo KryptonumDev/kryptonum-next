@@ -2,7 +2,7 @@
 
 import IconTitleDescriptionListSection from "@/app/components/sections/IconTitleDescriptionListSection";
 import CentralizedHeadingSection from "@/app/components/sections/CentralizedHeadingSection";
-import CtaWithVerticalImage from "@/app/components/sections/CtaWithVerticalImage";
+import CtaSection from "@/app/components/sections/CtaSection";
 import Hero from "@/app/components/sections/Hero";
 import TextSection from "@/app/components/sections/TextSection";
 import fetchData from "@/utils/fetchData";
@@ -20,7 +20,7 @@ export default async function BraindingPage() {
 		<>
 			<Hero data={heroData} />
 			<TextSection data={brandingExplanation} />
-			<CtaWithVerticalImage data={brandImageryData} />
+			<CtaSection data={brandImageryData} />
 			<TilesWithOverflowIcon data={tilesWithOverflowIconData} />
 			<TextSection data={accessibilityData} />
 			<IconTitleDescriptionGrid data={iconTitleDescriptionGridData} />
@@ -29,7 +29,7 @@ export default async function BraindingPage() {
 			<CentralizedHeadingSection data={centralizedHeadingData2} decoration={false} />
 			<TextSection data={brandingCipher} />
 			<IconTitleDescriptionListSection data={iconTitleDescriptionListData} />
-			<CtaWithVerticalImage data={brandingProcess} />
+			<CtaSection data={brandingProcess} />
 			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
 			<Testimonials testimonials={testimonials} />
 		</>

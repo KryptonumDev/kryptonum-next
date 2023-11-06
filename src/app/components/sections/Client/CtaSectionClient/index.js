@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 import { useState, useEffect } from "react";
 import Button from "@/app/components/atoms/Button";
 
-const CtaWithVerticalImageClient = ({ data: { img, cta }, children }) => {
+const CtaSectionClient = ({ data: { img, cta }, children }) => {
 	const [windowWidth, setWindowWidth] = useState(0);
 
 	useEffect(() => {
@@ -30,4 +30,4 @@ const CtaWithVerticalImageClient = ({ data: { img, cta }, children }) => {
 		</section>
 	);
 };
-export default CtaWithVerticalImageClient;
+export default CtaSectionClient;

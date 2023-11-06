@@ -1,7 +1,7 @@
 import CardWithOverflowIcon from "@/app/components/sections/CardWithOverflowIcon";
 import CentralizedHeadingWithCardGrid from "@/app/components/sections/CentralizedHeadingWithCardGrid";
 import ConsultationForm from "@/app/components/sections/ConsultationForm";
-import CtaWithVerticalImage from "@/app/components/sections/CtaWithVerticalImage";
+import CtaSection from "@/app/components/sections/CtaSection";
 import FullWidthImageComponent from "@/app/components/sections/FullWidthImageComponent";
 import HeadingWithIconTitleDescriptionList from "@/app/components/sections/HeadingWithIconTitleDescriptionList";
 import HeadingWithMaxWidth from "@/app/components/sections/HeadingWithMaxWidth";
@@ -24,16 +24,16 @@ export default async function UxDesignPage() {
 		<>
 			<Hero data={data.heroData} />
 			<TextSection data={data.textSectionData} />
-			<CtaWithVerticalImage data={data.planeImageData} />
+			<CtaSection data={data.planeImageData} />
 			<TitleDescriptionImageList data={data.titleDescriptionImageListData} />
 			<HeadingImageTextList data={data.headingImageTextListData} />
-			<CtaWithVerticalImage data={data.watchImageData3} />
+			<CtaSection data={data.watchImageData3} />
 			<TextSection data={data.wcagGuidelines} />
 			<FullWidthImageComponent image={data.image} />
 			<TextSection data={data.data} />
 			<CardWithOverflowIcon cardData={data.cardData} />
-			<CentralizedHeadingWithCardGrid cardData={data.wcagData} headingData={data.headingData} />
-			<CtaWithVerticalImage data={data.CtaSectionWithImageData1} />
+			<CentralizedHeadingWithCardGrid cardData={data.wcagData} headingData={data.headingData} decoration={true} />
+			<CtaSection data={data.CtaSectionWithImageData1} />
 			<SustainableDevelopment
 				sustainableDevelopmentData={data.sustainableDevelopmentData}
 				animatedCardGridData={data.animatedCardGridData}
@@ -42,8 +42,8 @@ export default async function UxDesignPage() {
 			<HeadingWithIconTitleDescriptionList data={data.designStepsData} />
 			<ImageDisplayedOnTablet image={data.image2} />
 			<HeadingWithIconTitleDescriptionList data={data.jamstackTechnologyData} />
-			<HeadingWithMaxWidth data={data.headingWithMaxWidthData} />
-			<CtaWithVerticalImage data={data.CtaSectionWithImageData2} />
+			<HeadingWithMaxWidth data={data.headingWithMaxWidthData} decoration={false} />
+			<CtaSection data={data.CtaSectionWithImageData2} />
 			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
 			<Testimonials testimonials={testimonials} />
 		</>
@@ -290,7 +290,6 @@ const data = {
 	headingData: {
 		heading: "Jak tu nie lubić **WCAG**?",
 		subheading: "Tylko spójrz",
-		decoration: true,
 	},
 	sustainableDevelopmentData: {
 		heading: "Strony internetowe w duchu **zrównoważonego rozwoju**",
@@ -584,8 +583,7 @@ const data = {
 	},
 	headingWithMaxWidthData: {
 		heading:
-			"Tworzymy strony internetowe  i aplikacje webowe, **które topią serca odwiedzających**, niekoniecznie lodowce.",
-		decoration: false,
+			"Tworzymy strony internetowe  i aplikacje webowe, **które topią serca odwiedzających**, niekoniecznie lodowce."
 	},
 
 	consultationCtaData: {

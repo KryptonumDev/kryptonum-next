@@ -1,5 +1,5 @@
 import CentralizedHeadingSection from "@/app/components/sections/CentralizedHeadingSection";
-import CtaWithVerticalImage from "@/app/components/sections/CtaWithVerticalImage";
+import CtaSection from "@/app/components/sections/CtaSection";
 import FullWidthImageComponent from "@/app/components/sections/FullWidthImageComponent";
 import Hero from "@/app/components/sections/Hero";
 import IconTitleDescriptionListSection from "@/app/components/sections/IconTitleDescriptionListSection";
@@ -23,7 +23,7 @@ export default async function UiDesignPage() {
 			<Hero data={heroData} />
 			<TextSection data={professionalSiteData} />
 			<CentralizedHeadingSection data={headingData} decoration={false}/>
-			<CtaWithVerticalImage data={jarData} />
+			<CtaSection data={jarData} />
 			<TilesComponentWithHeading data={tilesComponentWithHeadingData} additionalStyles={styles} />
 			<FullWidthImageComponent image={uiPhoto} additionalStyles={styles} />
 			<Slider data={sliderData}/>
@@ -31,12 +31,12 @@ export default async function UiDesignPage() {
 			<IconTitleDescriptionListSection data={iconTitleDescriptionListData} />
 			<FullWidthImageComponent image={phones} />
 			<TextSection data={kryptonumPractices} additionalStyles={styles} />
-			<CtaWithVerticalImage data={trophyData} />
+			<CtaSection data={trophyData} />
 			<TextSection data={uiDesignShell} />
 			<Process data={processData}/>
 			<CentralizedHeadingSection data={centralizedHeadingSectionData}/>
 			<CaseStudies cta={caseStudiesCta}/>
-			<CtaWithVerticalImage data={phoneData} />
+			<CtaSection data={phoneData} />
 			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
 			<Testimonials testimonials={testimonials} />
 		</>
