@@ -3,7 +3,7 @@ import Markdown from '@/utils/markdown';
 import DecorativeHeading from '../../atoms/DecorativeHeading';
 import styles from './styles.module.scss';
 
-const TitleDescriptionImage = ({data: {title, description, image}, parentStyles}) => {
+const TitleDescriptionImage = ({data: {title, description, img}, parentStyles}) => {
   return (
 		<div className={`${styles.wrapper} ${parentStyles.titleDescriptionImage}`}>
 			<div className={styles.descriptionWrapper}>
@@ -13,7 +13,7 @@ const TitleDescriptionImage = ({data: {title, description, image}, parentStyles}
 				</div>
 			</div>
 			<div className={`${styles.imageWrapper} ${parentStyles.imageWrapper}`}>
-				<Img data={image} className={styles.image} sizes="(max-width: 1199px) 70vw, (min-width: 1200px) 50vw"></Img>
+				<Img data={img} className={styles.image} sizes="(max-width: 1199px) 70vw, (min-width: 1200px) 50vw"></Img>
 			</div>
 		</div>
 	);
