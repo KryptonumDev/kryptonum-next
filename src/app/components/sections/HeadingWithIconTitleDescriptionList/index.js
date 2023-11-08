@@ -8,7 +8,7 @@ const HeadingWithIconTitleDescriptionList = ({ data }) => {
 			<header>
 				<DecorativeHeading type="h3">{data.heading}</DecorativeHeading>
 			</header>
-			<IconTitleDescriptionList data={data}/>
+			<IconTitleDescriptionList data={data.IconTitleDescriptionList}/>
 		</section>
 	);
 };

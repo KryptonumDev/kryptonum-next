@@ -5,7 +5,7 @@ import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import Img from "@/utils/Img";
 import styles from "./styles.module.scss";
 
-const Hero = ({ data: { heading, breadcrumbs, subheading, img, sideImg } }) => {
+const Hero = ({ data: { heading, breadcrumbs, subheading, image, sideImage } }) => {
 	return (
 		<section className={styles.section}>
 			<Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -18,9 +18,9 @@ const Hero = ({ data: { heading, breadcrumbs, subheading, img, sideImg } }) => {
 						<span className={styles.span}>{subheading}</span>
 					</div>
 				)}
-				{sideImg && (
+				{sideImage && (
 					<Img
-						data={sideImg}
+						data={sideImage}
 						className={styles.sideImg}
 						sizes="(max-width: 1299px) 100vw, (min-width: 1300px) 50vw"
 						loading="eager"
@@ -28,7 +28,7 @@ const Hero = ({ data: { heading, breadcrumbs, subheading, img, sideImg } }) => {
 				)}
 			</header>
 			<div className={styles.imageWrapper}>
-				<Img data={img} className={styles.img} sizes="100vw" loading="eager" />
+				<Img data={image} className={styles.img} sizes="100vw" loading="eager" />
 			</div>
 		</section>
 	);
