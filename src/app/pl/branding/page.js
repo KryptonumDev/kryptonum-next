@@ -175,6 +175,11 @@ const query = async () => {
       #Centralized Heading 2
       centralizedHeading2 {
         heading
+        cta {
+          theme
+          text
+          href
+        }
       }
       #Text section 3
       textSection3 {

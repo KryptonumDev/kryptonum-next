@@ -91,6 +91,7 @@ const query = async () => {
         heading
         blocks {
           description
+          title
         }
       }
       #CentralizedHeading

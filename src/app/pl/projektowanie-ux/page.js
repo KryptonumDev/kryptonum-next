@@ -28,7 +28,7 @@ export default async function UxDesignPage() {
 			headingImageBlocksList,
 			ctaSection2,
 			textSection2,
-			image,
+			imageSection,
 			textSection3,
 			cardWithOverflowIcon,
 			cardGridWithCentralizedHeading,
@@ -52,7 +52,7 @@ export default async function UxDesignPage() {
 			<HeadingImageTextList data={headingImageBlocksList} />
 			<CtaSection data={ctaSection2} />
 			<TextSection data={textSection2} />
-			<FullWidthImageComponent image={image} />
+			<FullWidthImageComponent image={imageSection} />
 			<TextSection data={textSection3} />
 			<CardWithOverflowIcon cardData={cardWithOverflowIcon} />
 			<CentralizedHeadingWithCardGrid data={cardGridWithCentralizedHeading} decoration={true} />
@@ -63,7 +63,7 @@ export default async function UxDesignPage() {
 			<HeadingWithIconTitleDescriptionList data={headingWithIconTitleDescriptionList} />
 			<ImageDisplayedOnTablet image={imageDisplayedOnTablet} />
 			<HeadingWithIconTitleDescriptionList data={headingWithIconDescriptionList2} />
-			<HeadingWithMaxWidth data={headingWithMaxWidth} decoration={false} />
+			<HeadingWithMaxWidth heading={headingWithMaxWidth} decoration={false} />
 			<CtaSection data={ctaSection4} />
 			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
 			<Testimonials testimonials={testimonials} />
