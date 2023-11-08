@@ -5,7 +5,7 @@ import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import Img from "@/utils/Img";
 import styles from "./styles.module.scss";
 
-const Hero = ({ data: { heading, breadcrumbs, subheading, image, sideImage } }) => {
+const Hero = ({ data: { heading, subheading, image, sideImage }, breadcrumbs }) => {
 	return (
 		<section className={styles.section}>
 			<Breadcrumbs breadcrumbs={breadcrumbs} />
