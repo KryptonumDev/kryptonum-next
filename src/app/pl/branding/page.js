@@ -10,6 +10,7 @@ import Testimonials from "@/app/components/sections/Testimonials";
 import Team from "@/app/components/sections/Team";
 import TilesWithOverflowIcon from "@/app/components/sections/TilesWithOverflowIcon";
 import IconTitleDescriptionGrid from "@/app/components/sections/IconTitleDescriptionGrid";
+import SEO from "@/app/components/global/Seo";
 
 export default async function BraindingPage() {
 	const {
@@ -32,9 +33,15 @@ export default async function BraindingPage() {
 		},
 		testimonials,
 	} = await query();
+
+  const breadcrumbs = [{
+    name: "Branding",
+    link: "/branding"
+  }];
+
 	return (
 		<>
-			<Hero data={hero} />
+			<Hero data={hero} breadcrumbs={breadcrumbs}/>
 			<TextSection data={textSection} />
 			<CtaSection data={ctaSection} />
 			<TilesWithOverflowIcon data={tiles} />
@@ -51,6 +58,18 @@ export default async function BraindingPage() {
 		</>
 	);
 }
+
+export async function generateMetadata() {
+	const {
+		page: { seo },
+	} = await query();
+	return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "",
+	});
+}
+
 
 const query = async () => {
 	const {

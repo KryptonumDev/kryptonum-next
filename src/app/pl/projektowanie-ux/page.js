@@ -14,6 +14,7 @@ import TitleDescriptionImageList from "@/app/components/sections/TitleDescriptio
 import HeadingImageTextList from "@/app/components/sections/UxDesign/HeadingImageTextList";
 import SustainableDevelopment from "@/app/components/sections/UxDesign/SustainableDevelopment";
 import fetchData from "@/utils/fetchData";
+import SEO from "@/app/components/global/Seo";
 
 export default async function UxDesignPage() {
 	const {
@@ -43,9 +44,13 @@ export default async function UxDesignPage() {
 		},
 		testimonials,
 	} = await query();
+	const breadcrumbs = [{
+    name: "Projektowanie UX",
+    link: "/projektowanie-ux"
+  }];
 	return (
 		<>
-			<Hero data={hero} />
+			<Hero data={hero} breadcrumbs={breadcrumbs}/>
 			<TextSection data={textSection} />
 			<CtaSection data={ctaSection} />
 			<TitleDescriptionImageList data={titleDescriptionImageList} />
@@ -71,32 +76,16 @@ export default async function UxDesignPage() {
 	);
 }
 
-// export async function generateMetadata() {
-// 	const {
-// 		page: { seo },
-// 	} = await getUxDesignPageData();
-// 	return SEO({
-// 		title: seo?.title,
-// 		description: seo?.description,
-// 		url: "",
-// 	});
-// }
-
-// //wait for new database data
-// const getUxDesignPageData = async () => {
-// 	const {
-// 		body: { data },
-// 	} = await fetchData(`
-//   page: Homepage(id: "homepage") {
-//   # SEO
-//   seo {
-//     title
-//     description
-//   }
-// }
-//   `);
-// 	return data;
-// };
+export async function generateMetadata() {
+	const {
+		page: { seo },
+	} = await query();
+	return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "",
+	});
+}
 
 const query = async () => {
 	const {

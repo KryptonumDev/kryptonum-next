@@ -12,6 +12,7 @@ import styles from "./styles.module.scss";
 import CaseStudies from "@/app/components/sections/CaseStudies";
 import Process from "@/app/components/sections/Process";
 import Slider from "@/app/components/sections/Slider";
+import SEO from "@/app/components/global/Seo";
 
 export default async function UiDesignPage() {
 	const {
@@ -39,9 +40,15 @@ export default async function UiDesignPage() {
 		},
 		testimonials,
 	} = await query();
+
+  const breadcrumbs = [{
+    name: "Projektowanie UI",
+    link: "/projektowanie-ui"
+  }];
+  
 	return (
 		<>
-			<Hero data={hero} />
+			<Hero data={hero} breadcrumbs={breadcrumbs}/>
 			<TextSection data={textSection} />
 			<CentralizedHeadingSection data={centralizedHeading} decoration={false} />
 			<CtaSection data={ctaSection} />
@@ -63,6 +70,18 @@ export default async function UiDesignPage() {
 		</>
 	);
 }
+
+export async function generateMetadata() {
+	const {
+		page: { seo },
+	} = await query();
+	return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "",
+	});
+}
+
 
 const query = async () => {
 	const {
