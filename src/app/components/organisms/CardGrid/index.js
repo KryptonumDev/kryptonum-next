@@ -2,14 +2,14 @@ import Img from "@/utils/Img";
 import styles from "./styles.module.scss";
 import Markdown from "@/utils/markdown";
 
-const CardGrid = ({ data: { blocks }, additionalStyles }) => {
+const CardGrid = ({ data: { list }, additionalStyles }) => {
 	return (
 		<div
 			className={
 				additionalStyles ? `${additionalStyles.cardGrid} ${styles.wrapper} ` : styles.wrapper
 			}
 		>
-			{blocks.map(({ title, description, icon, overflowContent }, i) => (
+			{list.map(({ title, description, icon, overflowContent }, i) => (
 				<div className={additionalStyles ? `${additionalStyles.item} ${styles.item}` : styles.item} key={i}>
 					{icon ? (
 						<Img
