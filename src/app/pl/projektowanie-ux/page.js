@@ -40,7 +40,7 @@ export default async function UxDesignPage() {
 			imageDisplayedOnTablet,
 			headingWithIconDescriptionList2,
 			headingWithMaxWidth,
-			ctaSection4
+			ctaSection4,
 		},
 		testimonials,
 	} = await query();
@@ -397,6 +397,11 @@ const query = async () => {
       theme
       text
       href
+    }
+    #SEO
+    seo {
+      title
+      description
     }
   }
   testimonials: allTestimonials(limit: 3, sort: { _createdAt: ASC }) {

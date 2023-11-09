@@ -298,6 +298,11 @@ const query = async () => {
         text
         href
       }
+      #SEO
+      seo {
+        title
+        description
+      }
     }
     testimonials: allTestimonials(limit: 3, sort: { _createdAt: ASC }) {
       name
