@@ -12,7 +12,7 @@ import Testimonials from "@/app/components/sections/Testimonials";
 import TextSection from "@/app/components/sections/TextSection";
 import TitleDescriptionImageList from "@/app/components/sections/TitleDescriptionImageList";
 import HeadingImageTextList from "@/app/components/sections/UxDesign/HeadingImageTextList";
-import SustainableDevelopment from "@/app/components/sections/UxDesign/SustainableDevelopment";
+import HeadingBlocksCardGrid from "@/app/components/sections/UxDesign/HeadingBlocksCardGrid";
 import fetchData from "@/utils/fetchData";
 import SEO from "@/app/components/global/Seo";
 
@@ -34,7 +34,7 @@ export default async function UxDesignPage() {
 			cardWithOverflowIcon,
 			cardGridWithCentralizedHeading,
 			ctaSection3,
-			development,
+			headingBlocksCardGrid,
 			consultationCta,
 			headingWithIconTitleDescriptionList,
 			imageDisplayedOnTablet,
@@ -62,8 +62,7 @@ export default async function UxDesignPage() {
 			<CardWithOverflowIcon cardData={cardWithOverflowIcon} />
 			<CentralizedHeadingWithCardGrid data={cardGridWithCentralizedHeading} decoration={true} />
 			<CtaSection data={ctaSection3} />
-			<SustainableDevelopment data={development}
-			/>
+			<HeadingBlocksCardGrid data={headingBlocksCardGrid}/>
 			<ConsultationForm data={consultationCta} />
 			<HeadingWithIconTitleDescriptionList data={headingWithIconTitleDescriptionList} />
 			<ImageDisplayedOnTablet image={imageDisplayedOnTablet} />
@@ -294,8 +293,8 @@ const query = async () => {
         }
       }
     }
-    #Development
-    development {
+    #HeadingBlocksCardGrid
+    headingBlocksCardGrid {
       heading
       blocks {
         title

@@ -2,7 +2,7 @@ import HeadingWithDescriptionTitle from "@/app/components/molecules/HeadingWithD
 import AnimatedCardGrid from "@/app/components/organisms/AnimatedCardGrid";
 import styles from "./styles.module.scss";
 
-const SustainableDevelopment = ({ data }) => {
+const HeadingBlocksCardGrid = ({ data }) => {
 	return (
 		<section className={styles.section}>
 			<HeadingWithDescriptionTitle
@@ -12,4 +12,4 @@ const SustainableDevelopment = ({ data }) => {
 		</section>
 	);
 };
-export default SustainableDevelopment;
+export default HeadingBlocksCardGrid;

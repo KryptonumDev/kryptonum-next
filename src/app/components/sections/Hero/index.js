@@ -4,6 +4,7 @@ import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import Img from "@/utils/Img";
 import styles from "./styles.module.scss";
+import Markdown from "@/utils/markdown";
 
 const Hero = ({ data: { heading, subheading, image, sideImage }, breadcrumbs }) => {
 	return (
@@ -15,7 +16,7 @@ const Hero = ({ data: { heading, subheading, image, sideImage }, breadcrumbs }) 
 				</div>
 				{subheading && (
 					<div className={styles.spanWrapper}>
-						<span className={styles.span}>{subheading}</span>
+						<Markdown className={styles.span}>{subheading}</Markdown>
 					</div>
 				)}
 				{sideImage && (
