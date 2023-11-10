@@ -1,0 +1,23 @@
+.section {
+  header {
+    display: grid;
+    grid-template-columns: auto auto;
+
+    @media (max-width: 849px) {
+      grid-template-columns: 1fr;
+    }
+
+    justify-content: space-between;
+    align-items: end;
+    gap: 24px 32px;
+    margin-bottom: clamp(calc(28rem/16), calc(48vw/7.68), calc(72rem/16));
+
+    h2 {
+      max-width: calc(686rem/16);
+    }
+
+    p {
+      font-size: clamp(calc(16rem/16), calc(22vw/7.68), calc(22rem/16));
+    }
+  }
+}

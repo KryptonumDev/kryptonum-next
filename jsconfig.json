@@ -4,7 +4,10 @@
       "@/*": ["./src/*"],
       "@/components/*": ["./src/app/components/*"],
       "@/utils/*": ["./src/utils/*"],
-      "@/atoms/*": ["./src/app/components/atoms/*"]
+      "@/atoms/*": ["./src/app/components/atoms/*"],
+      "@/organisms/*": ["./src/app/components/organisms/*"],
+      "@/molecules/*": ["./src/app/components/molecules/*"],
+      "@/sections/*": ["./src/app/components/sections/*"],
     }
   }
 }

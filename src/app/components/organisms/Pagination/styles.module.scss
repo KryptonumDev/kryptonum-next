@@ -1,0 +1,49 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 32px;
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .link {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+    width: 44px;
+    height: 44px;
+    font-size: 1.875rem;
+
+    &.arrow {
+      padding: 6px;
+      border-radius: 2px;
+      border: 1px solid var(--neutral-200, #EFF0F3);
+    }
+  }
+  .active {
+    border-radius: 2px;
+    background: var(--neutral-200, #EFF0F3);
+    color: var(--neutral-950, #010104);
+  }
+  .disabled {
+    pointer-events: none;
+    border: 1px solid var(--neutral-800, #212123);
+
+    path {
+      stroke: #212123;
+    }
+  }
+  .not {
+    pointer-events: none;
+  }
+}

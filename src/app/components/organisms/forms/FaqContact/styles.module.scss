@@ -1,0 +1,29 @@
+.form {
+  position: relative;
+  display: grid;
+  gap: 32px;
+  max-width: 500px;
+}
+.overlay {
+  position: absolute;
+  z-index: 4;
+  inset: -2px;
+  border-radius: 4px;
+  background: var(--neutral-900, #101012);
+  padding: clamp(calc(24rem/16), calc(48vw/7.68), calc(64rem/16)) clamp(calc(16rem/16), calc(64vw/7.68), calc(64rem/16));
+  display: grid;
+  .grid {
+    margin: auto;
+    h2 {
+      margin-bottom: 16px;
+    }
+    p {
+      font-size: clamp(calc(20rem/16), calc(22vw/7.68), calc(22rem/16));
+    }
+    button{
+      margin-top: 64px;
+      margin-left: 0;
+      width: fit-content;
+    }
+  }
+}
