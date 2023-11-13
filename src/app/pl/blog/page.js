@@ -1,10 +1,10 @@
 import fetchData from "@/utils/fetchData";
-import Hero from "@/app/components/sections/Hero";
-import Categories from "@/app/components/sections/Categories";
 import BlogEntries from "@/app/components/sections/BlogEntries";
+import Categories from "@/app/components/sections/Categories";
 import CtaSection from "@/app/components/sections/CtaSection";
-import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
 import Faq from "@/app/components/sections/Faq";
+import Hero from "@/app/components/sections/Hero";
+import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
 
 const itemCount = 12;
 

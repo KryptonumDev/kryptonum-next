@@ -1,17 +1,17 @@
+import fetchData from "@/utils/fetchData";
+import SEO from "@/app/components/global/Seo";
+import CaseStudies from "@/app/components/sections/CaseStudies";
 import CentralizedHeadingSection from "@/app/components/sections/CentralizedHeadingSection";
 import CtaSection from "@/app/components/sections/CtaSection";
 import FullWidthImageComponent from "@/app/components/sections/FullWidthImageComponent";
 import Hero from "@/app/components/sections/Hero";
 import IconTitleDescriptionListSection from "@/app/components/sections/IconTitleDescriptionListSection";
+import Process from "@/app/components/sections/Process";
+import Slider from "@/app/components/sections/Slider";
 import Team from "@/app/components/sections/Team";
 import Testimonials from "@/app/components/sections/Testimonials";
 import TextSection from "@/app/components/sections/TextSection";
 import TilesComponentWithHeading from "@/app/components/sections/TilesComponentWithHeading";
-import fetchData from "@/utils/fetchData";
-import CaseStudies from "@/app/components/sections/CaseStudies";
-import Process from "@/app/components/sections/Process";
-import Slider from "@/app/components/sections/Slider";
-import SEO from "@/app/components/global/Seo";
 
 export default async function UiDesignPage() {
 	const {

@@ -1,3 +1,5 @@
+import fetchData from "@/utils/fetchData";
+import SEO from "@/app/components/global/Seo";
 import CardWithOverflowIcon from "@/app/components/sections/CardWithOverflowIcon";
 import CentralizedHeadingWithCardGrid from "@/app/components/sections/CentralizedHeadingWithCardGrid";
 import ConsultationForm from "@/app/components/sections/ConsultationForm";
@@ -11,10 +13,8 @@ import Team from "@/app/components/sections/Team";
 import Testimonials from "@/app/components/sections/Testimonials";
 import TextSection from "@/app/components/sections/TextSection";
 import TitleDescriptionImageList from "@/app/components/sections/TitleDescriptionImageList";
-import HeadingImageTextList from "@/app/components/sections/UxDesign/HeadingImageTextList";
 import HeadingBlocksCardGrid from "@/app/components/sections/UxDesign/HeadingBlocksCardGrid";
-import fetchData from "@/utils/fetchData";
-import SEO from "@/app/components/global/Seo";
+import HeadingImageTextList from "@/app/components/sections/UxDesign/HeadingImageTextList";
 
 export default async function UxDesignPage() {
 	const {

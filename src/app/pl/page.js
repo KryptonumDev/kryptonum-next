@@ -1,12 +1,11 @@
+import fetchData from "@/utils/fetchData";
 import Team from "@/app/components/sections/Team";
 import SEO from "@/components/global/Seo";
-import Creativity from "@/components/sections/Homepage/Creativity";
-import FourGrid from "@/components/sections/Homepage/FourGrid";
-import Hero from "@/components/sections/Homepage/Hero";
-import LatestBlogEntries from "@/components/sections/Homepage/LatestBlogEntries";
-import Roadmap from "@/components/sections/Homepage/Roadmap";
-import fetchData from "@/utils/fetchData";
-import DecorativeHeading from "../components/atoms/DecorativeHeading";
+import Creativity from "@/components/sections/homepage/Creativity";
+import FourGrid from "@/components/sections/homepage/FourGrid";
+import Hero from "@/components/sections/homepage/Hero";
+import LatestBlogEntries from "@/components/sections/homepage/LatestBlogEntries";
+import Roadmap from "@/components/sections/homepage/Roadmap";
 import Testimonials from "../components/sections/Testimonials";
 
 export async function generateMetadata() {

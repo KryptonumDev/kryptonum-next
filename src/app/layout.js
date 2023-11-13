@@ -5,7 +5,18 @@ import { formatDateToPolishLocale } from "@/utils/functions";
 import localFont from "next/font/local";
 import "../styles/global.scss";
 
-const font = localFont({ src: "../resources/fonts/Poppins-Light.woff2" });
+
+const font = localFont({ 
+  src: [
+    {
+      path: "../resources/fonts/Poppins-Light.woff2",
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  display: 'swap',
+  fallback: ['sans-serif']
+});
 
 
 const RootLayout = async ({ children }) => {

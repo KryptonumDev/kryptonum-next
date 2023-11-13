@@ -1,11 +1,11 @@
 "use server";
 
+import fetchData from "@/utils/fetchData";
 import IconTitleDescriptionListSection from "@/app/components/sections/IconTitleDescriptionListSection";
 import CentralizedHeadingSection from "@/app/components/sections/CentralizedHeadingSection";
 import CtaSection from "@/app/components/sections/CtaSection";
 import Hero from "@/app/components/sections/Hero";
 import TextSection from "@/app/components/sections/TextSection";
-import fetchData from "@/utils/fetchData";
 import Testimonials from "@/app/components/sections/Testimonials";
 import Team from "@/app/components/sections/Team";
 import TilesWithOverflowIcon from "@/app/components/sections/TilesWithOverflowIcon";
