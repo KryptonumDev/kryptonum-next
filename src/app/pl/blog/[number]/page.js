@@ -6,6 +6,7 @@ import BlogEntries from "@/app/components/sections/BlogEntries";
 import CtaSection from "@/app/components/sections/CtaSection";
 import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
 import Faq from "@/app/components/sections/Faq";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
 	const blogEntriesCount = await paramsQuery();
@@ -19,15 +20,16 @@ export async function generateStaticParams() {
 export default async function blogPageWithNumber({ params }) {
 
 	const {
-		page: { 
-      hero_Heading,
-      hero_Paragraph,
-      hero_Img,
-      ctaSection },
+		page: { hero_Heading, hero_Paragraph, hero_Img, ctaSection },
 		blogEntries,
 		blogCategories,
 		blogEntriesCount,
 	} = await query(params);
+
+	if (blogEntries.length == 0) {
+		return notFound();
+	}
+
 	return (
 		<>
 			<Hero
@@ -36,9 +38,12 @@ export default async function blogPageWithNumber({ params }) {
 					paragraph: hero_Paragraph,
 					sideImage: hero_Img,
 				}}
-        isBlogHero={true}
+				isBlogHero={true}
 			/>
-			<Categories categorySlug="/pl/blog/" categories={blogCategories} />
+			<Categories
+				categorySlug="/pl/blog/"
+				categories={blogCategories}
+			/>
 			<BlogEntries
 				urlBasis={"/pl/blog"}
 				totalCount={blogEntriesCount.length}
@@ -50,7 +55,6 @@ export default async function blogPageWithNumber({ params }) {
 			<Faq />
 		</>
 	);
-
 }
 
 const paramsQuery = async () => {
@@ -65,8 +69,7 @@ const paramsQuery = async () => {
 };
 
 const query = async (params) => {
-
-	const offset = (parseInt(params.number)-1)*itemsPerPage;
+	const offset = (parseInt(params.number) - 1) * itemsPerPage;
 
 	const {
 		body: { data },
