@@ -9,7 +9,6 @@ const BlogEntries = ({ urlBasis,
   blogEntries, 
   page, 
   heading, 
-  itemCount 
 }) => {
 	blogEntries.map((entry) => {
 		entry._createdAt = formatDateToPolishLocale(entry._createdAt);
@@ -35,7 +34,6 @@ const BlogEntries = ({ urlBasis,
 				itemCount={totalCount}
 				urlBasis={urlBasis}
 				urlID="#wpisy"
-				pageItemCount={itemCount}
 			/>
 		</section>
 	);

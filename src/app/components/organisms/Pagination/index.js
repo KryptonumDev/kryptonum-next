@@ -1,17 +1,16 @@
 import Link from "next/link";
-import { env } from "process";
 import { useMemo } from "react";
 import styles from "./styles.module.scss";
+import { itemsPerPage } from "@/constants/shared";
 
 export default async function Pagination({
 	currentPage,
 	itemCount,
 	urlBasis,
 	urlID = "",
-	pageItemCount,
 }) {
 	const pagesCount = useMemo(() => {
-		return Math.ceil(itemCount / Number(pageItemCount));
+		return Math.ceil(itemCount / Number(itemsPerPage));
 	}, [itemCount]);
 
 	const buttons = useMemo(() => {

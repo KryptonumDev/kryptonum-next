@@ -1,6 +1,6 @@
 'use server'
 
-import TestimonialsClient from "../Client/TestimonialsClient";
+import TestimonialsClient from "../client/TestimonialsClient";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import { Quote } from "../../atoms/Icons";
 

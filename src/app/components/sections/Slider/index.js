@@ -1,6 +1,6 @@
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import { SliderArrowLeft, SliderArrowRight } from "../../atoms/Icons";
-import SliderClient from "../Client/SliderClient";
+import SliderClient from "../client/SliderClient";
 
 const Slider = ({ data }) => {
 	const arrowLeft = <SliderArrowLeft />;

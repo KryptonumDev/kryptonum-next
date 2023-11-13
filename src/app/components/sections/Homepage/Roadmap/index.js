@@ -1,5 +1,5 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import RoadmapClient from "../../Client/RoadmapClient";
+import RoadmapClient from "../../client/RoadmapClient";
 
 const Roadmap = ({ heading, list, cta }) => {
 

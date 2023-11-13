@@ -1,13 +1,22 @@
 import fetchData from "@/utils/fetchData";
 import { itemsPerPage } from "@/constants/shared";
-import BlogEntries from "@/app/components/sections/BlogEntries";
-import Categories from "@/app/components/sections/Categories";
-import CtaSection from "@/app/components/sections/CtaSection";
-import Faq from "@/app/components/sections/Faq";
 import Hero from "@/app/components/sections/Hero";
+import Categories from "@/app/components/sections/Categories";
+import BlogEntries from "@/app/components/sections/BlogEntries";
+import CtaSection from "@/app/components/sections/CtaSection";
 import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
+import Faq from "@/app/components/sections/Faq";
 
-export default async function blogPage() {
+export async function generateStaticParams() {
+	const blogEntriesCount = await paramsQuery();
+	const pageNumbers = [];
+	for (let i = 1; i < Math.ceil(blogEntriesCount.length / itemsPerPage); i++) {
+		pageNumbers.push(i + 1);
+	}
+	return pageNumbers.map((number) => ({ number: number }));
+}
+
+export default async function blogPageWithNumber({ params }) {
 
 	const {
 		page: { 
@@ -18,7 +27,7 @@ export default async function blogPage() {
 		blogEntries,
 		blogCategories,
 		blogEntriesCount,
-	} = await query();
+	} = await query(params);
 	return (
 		<>
 			<Hero
@@ -34,21 +43,37 @@ export default async function blogPage() {
 				urlBasis={"/pl/blog"}
 				totalCount={blogEntriesCount.length}
 				blogEntries={blogEntries}
-				page={1}
+				page={parseInt(params.number)}
 			/>
 			<CtaSection data={ctaSection} />
 			<LatestCuriosityEntries />
 			<Faq />
 		</>
 	);
+
 }
 
-const query = async () => {
+const paramsQuery = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
-  blogEntries: allBlogEntries(
+  blogEntriesCount: allBlogEntries { 
+    _type
+  }
+  `);
+	return data;
+};
+
+const query = async (params) => {
+
+	const offset = (parseInt(params.number)-1)*itemsPerPage;
+
+	const {
+		body: { data },
+	} = await fetchData(`
+	blogEntries: allBlogEntries(
     limit: ${itemsPerPage}
+		offset: ${offset}
     sort: { _createdAt: DESC }
   ) {
     title
