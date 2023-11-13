@@ -8,7 +8,6 @@ import Testimonials from "@/app/components/sections/Testimonials";
 import TextSection from "@/app/components/sections/TextSection";
 import TilesComponentWithHeading from "@/app/components/sections/TilesComponentWithHeading";
 import fetchData from "@/utils/fetchData";
-import styles from "./styles.module.scss";
 import CaseStudies from "@/app/components/sections/CaseStudies";
 import Process from "@/app/components/sections/Process";
 import Slider from "@/app/components/sections/Slider";
@@ -52,13 +51,13 @@ export default async function UiDesignPage() {
 			<TextSection data={textSection} />
 			<CentralizedHeadingSection data={centralizedHeading} decoration={false} />
 			<CtaSection data={ctaSection} />
-			<TilesComponentWithHeading data={tilesWithHeading} additionalStyles={styles} />
-			<FullWidthImageComponent image={image} additionalStyles={styles} />
+			<TilesComponentWithHeading data={tilesWithHeading} />
+			<FullWidthImageComponent image={image} withBorder={true}/>
 			<Slider data={slider} />
 			<TextSection data={textSection2} />
 			<IconTitleDescriptionListSection data={headerTitleDescriptionList} />
 			<FullWidthImageComponent image={image2} />
-			<TextSection data={textSection3} additionalStyles={styles} />
+			<TextSection data={textSection3} breakLine={true}/>
 			<CtaSection data={ctaSection2} />
 			<TextSection data={textSection4} />
 			<Process data={process}/>

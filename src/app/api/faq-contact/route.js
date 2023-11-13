@@ -6,12 +6,13 @@ const isValidEmail = (email) => {
 	return emailRegex.test(email.toLowerCase());
 };
 
+const headers = {
+	"Content-Type": "application/json",
+	"Access-Control-Allow-Origin": "https://kryptonum.eu",
+	"Access-Control-Allow-Methods": "POST",
+};
+
 export async function POST(req) {
-	const headers = {
-		"Content-Type": "application/json",
-		"Access-Control-Allow-Origin": "https://kryptonum.eu",
-		"Access-Control-Allow-Methods": "POST",
-	};
 	const data = await req.json();
 	sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -22,7 +23,7 @@ export async function POST(req) {
 	const message = {
 		to: "michal@kryptonum.eu",
 		from: "michal@kryptonum.eu",
-		subject: 'Formularz pod FAQ - kryptonum.eu',
+		subject: "Formularz pod FAQ - kryptonum.eu",
 		replyTo: `${data.mail}`,
 		html: `
       <div>

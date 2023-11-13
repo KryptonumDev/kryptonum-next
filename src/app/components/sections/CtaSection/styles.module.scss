@@ -8,19 +8,19 @@
   a {
     width:70%;
   }
-  h4 {
+  h3 {
     width:70%;
   }
   padding: clamp(24px, calc(72vw/7.68), 72px) clamp(16px, calc(72vw/7.68), 72px);
   @media (max-width: 499px){
     padding-left: var(--pageMargin);
     padding-right: var(--pageMargin);
-    h4 {
+    h3 {
       width:100%;
     }
   }
   border-radius: 2px;
-  h4 {
+  h3 {
     font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28rem/16));
     margin-bottom: 32px;
   }

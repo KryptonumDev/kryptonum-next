@@ -3,7 +3,12 @@ import Markdown from "@/utils/markdown";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import styles from "./styles.module.scss";
 
-const TilesComponent = ({ data: { heading, list }, additionalStyles }) => {
+const TilesComponent = ({ 
+	data: { 
+		heading,
+		list 
+	}, 
+	additionalStyles }) => {
 	return (
 		<div
 			className={additionalStyles ? `${styles.section} ${additionalStyles.tiles}` : styles.section}
@@ -13,7 +18,10 @@ const TilesComponent = ({ data: { heading, list }, additionalStyles }) => {
 			</header>
 			<div className={styles.wrapper}>
 				{list.map(({ icon, title, description }, i) => (
-					<div className={`${styles.item}${icon ? ` ${styles.isIcon}` : ""}`} key={i}>
+					<div
+						className={`${styles.item}${icon ? ` ${styles.isIcon}` : ""}`}
+						key={i}
+					>
 						{title ? (
 							<Markdown
 								className={
@@ -23,7 +31,10 @@ const TilesComponent = ({ data: { heading, list }, additionalStyles }) => {
 								{title}
 							</Markdown>
 						) : (
-							<Img data={icon} className={styles.img} />
+							<Img
+								data={icon}
+								className={styles.img}
+							/>
 						)}
 						<Markdown
 							className={

@@ -1,42 +1,42 @@
 import fetchData from "@/utils/fetchData";
-import { env } from "process";
 import Hero from "@/app/components/sections/Hero";
-import styles from './styles.module.scss';
 import Categories from "@/app/components/sections/Categories";
 import BlogEntries from "@/app/components/sections/BlogEntries";
-import { formatDateToPolishLocale } from "@/utils/functions";
 import CtaSection from "@/app/components/sections/CtaSection";
 import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
 import Faq from "@/app/components/sections/Faq";
 
-const changeBlogEntriesLocale = (blogEntries) => {
-	blogEntries.map((entry) => {
-		entry._createdAt = formatDateToPolishLocale(entry._createdAt);
-	});
-};
+const itemCount = 12;
 
 export default async function blogPage() {
+
 	const {
-		page: { hero_Heading, hero_Paragraph, hero_Img, ctaSection },
+		page: { 
+      hero_Heading,
+      hero_Paragraph,
+      hero_Img,
+      ctaSection },
 		blogEntries,
 		blogCategories,
-    blogEntriesCount
+		blogEntriesCount,
 	} = await query();
-	const hero = {
-		heading: hero_Heading,
-		paragraph: hero_Paragraph,
-		sideImage: hero_Img,
-	};
-  changeBlogEntriesLocale(blogEntries);
 	return (
 		<>
-			<Hero data={hero} additionalStyles={styles}/>
+			<Hero
+				data={{
+					heading: hero_Heading,
+					paragraph: hero_Paragraph,
+					sideImage: hero_Img,
+				}}
+        isBlogHero={true}
+			/>
 			<Categories categorySlug="/pl/blog/" categories={blogCategories} />
 			<BlogEntries
 				urlBasis={"/pl/blog"}
 				totalCount={blogEntriesCount.length}
 				blogEntries={blogEntries}
 				page={1}
+        itemCount={itemCount}
 			/>
 			<CtaSection data={ctaSection} />
 			<LatestCuriosityEntries />
@@ -50,7 +50,7 @@ const query = async () => {
 		body: { data },
 	} = await fetchData(`
   blogEntries: allBlogEntries(
-    limit: ${env.PAGE_ITEM_COUNT}
+    limit: ${itemCount}
     sort: { _createdAt: DESC }
   ) {
     title
@@ -100,6 +100,7 @@ const query = async () => {
     _createdAt
   }
   page: Blog(id: "blog") {
+
     # Hero
     hero_Heading
     hero_Paragraph
@@ -116,6 +117,7 @@ const query = async () => {
         }
       }
     }
+
     # Call To Action
     ctaSection {
       heading
@@ -138,18 +140,21 @@ const query = async () => {
         }
       }
     }
+
     # SEO
     seo {
       title
       description
     }
   }
+
   blogCategories: allBlogCategories {
     name
     slug {
       current
     }
   }
+
   blogEntriesCount: allBlogEntries {
     _type
   }

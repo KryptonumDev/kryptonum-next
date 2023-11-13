@@ -3,16 +3,36 @@ import Markdown from "@/utils/markdown";
 import Button from "@/app/components/atoms/Button";
 import styles from "./styles.module.scss";
 
-const FaqTime = ({ data: { img, heading, paragraph, cta, listHeading, list, additionalStyles }}) => {
+const FaqTime = ({
+	data: { 
+		img,
+		heading, 
+		paragraph, 
+		cta,
+		listHeading,
+		list,
+		additionalStyles 
+	},
+}) => {
 	return (
 		<section className={`${styles.answer} ${additionalStyles}`}>
-			<Img data={img} className={styles.img} />
+			<Img
+				data={img}
+				className={styles.img}
+			/>
 			<div className={styles.copy}>
-				<Markdown components={{ p: "h3" }} className={styles.heading}>
+				<Markdown
+					components={{ p: "h3" }}
+					className={styles.heading}
+				>
 					{heading}
 				</Markdown>
 				<Markdown className={styles.paragraph}>{paragraph}</Markdown>
-				<Button theme={cta.theme} to={cta.href} className={styles.cta}>
+				<Button
+					theme={cta.theme}
+					to={cta.href}
+					className={styles.cta}
+				>
 					{cta.text}
 				</Button>
 			</div>
@@ -25,4 +45,4 @@ const FaqTime = ({ data: { img, heading, paragraph, cta, listHeading, list, addi
 		</section>
 	);
 };
-export default FaqTime
+export default FaqTime;

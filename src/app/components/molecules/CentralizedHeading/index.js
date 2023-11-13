@@ -3,7 +3,11 @@ import DecorativeHeading from "../../atoms/DecorativeHeading";
 import styles from "./styles.module.scss";
 
 const CentralizedHeading = ({
-	data: { heading, paragraph, cta },
+	data: { 
+		heading, 
+		paragraph, 
+		cta 
+	},
 	decoration,
 	additionalStyles,
 }) => {
@@ -20,7 +24,7 @@ const CentralizedHeading = ({
 			</DecorativeHeading>
 			{paragraph && <div className={styles.subheading}>{paragraph}</div>}
 			{cta && <Button data={cta} />}
-			</header>
+		</header>
 	);
 };
 export default CentralizedHeading;

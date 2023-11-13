@@ -4,7 +4,11 @@ import styles from './styles.module.scss';
 
 const categoryUrl = 'kategoria/';
 
-const Categories = ({ categories, categorySlug, currentSlug }) => {
+const Categories = ({ 
+  categories,
+  categorySlug,
+currentSlug 
+}) => {
   const fullSlug = categorySlug + categoryUrl;
   return (
     <section className={styles.section}>

@@ -7,11 +7,6 @@ import "../styles/global.scss";
 
 const font = localFont({ src: "../resources/fonts/Poppins-Light.woff2" });
 
-const changeBlogEntriesLocale = (blogEntries) => {
-	blogEntries.map((entry) => {
-		entry._createdAt = formatDateToPolishLocale(entry._createdAt);
-	});
-};
 
 const RootLayout = async ({ children }) => {
 	let {
@@ -26,7 +21,9 @@ const RootLayout = async ({ children }) => {
 		global,
 	} = await query();
 
-	changeBlogEntriesLocale(blogEntries);
+  blogEntries.map((entry) => {
+		entry._createdAt = formatDateToPolishLocale(entry._createdAt);
+	});
 
 	return (
 		<html lang="en">

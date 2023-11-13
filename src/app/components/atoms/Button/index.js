@@ -2,7 +2,13 @@ import Link from "next/link";
 import { ArrowTopRight } from "../Icons";
 import styles from "./styles.module.scss";
 
-const Button = ({data, theme = "secondary", children, to, className, ...props }) => {
+const Button = ({
+  data,
+  theme = "secondary",
+  children,
+  to, 
+  className, 
+  ...props }) => {
   if (data) {
     theme = data.theme;
     to = data.href;
@@ -13,7 +19,7 @@ const Button = ({data, theme = "secondary", children, to, className, ...props })
   
   const linkClassName = `${styles.wrapper} ${isExternal ? '' : 'cta'} ${
     theme === "secondary" ? styles.secondary : styles.primary
-  } ${className}`;
+  } ${className} || ""`;
 
   return (
     <>

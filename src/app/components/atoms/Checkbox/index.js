@@ -1,6 +1,12 @@
 import styles from './styles.module.scss';
 
-export const Checkbox = ({ icon, text, name, register, errors, error }) => (
+export const Checkbox = ({ 
+  icon, 
+  text, 
+  name, 
+  register, 
+  errors, 
+  error }) => (
   <label className={errors[name] ? `${styles.errored} ${styles.label}` : styles.label}>
     <input type="checkbox" {...register} />
     <span className={styles.checkbox} />

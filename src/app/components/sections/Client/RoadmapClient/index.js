@@ -3,7 +3,11 @@ import Button from "@/components/atoms/Button";
 import { useEffect, useRef, useState } from "react";
 import styles from './styles.module.scss';
 
-const RoadmapClient = ({ list, cta, children }) => {
+const RoadmapClient = ({
+	list,
+	cta,
+	children
+}) => {
 	const roadmapRef = useRef();
 	const [scrollable, setScrollable] = useState(0);
 	useEffect(() => {

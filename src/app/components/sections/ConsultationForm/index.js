@@ -6,7 +6,11 @@ import Markdown from "@/utils/markdown";
 import styles from "./styles.module.scss";
 
 const ConsultationForm = async ({
-	data: { heading, subheading, cta },
+	data: {
+		heading,
+		subheading,
+		cta
+	},
 	isPortableContent = false,
 }) => {
 	const {

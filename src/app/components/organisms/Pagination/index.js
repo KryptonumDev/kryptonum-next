@@ -3,9 +3,15 @@ import { env } from "process";
 import { useMemo } from "react";
 import styles from "./styles.module.scss";
 
-export default async function Pagination({ currentPage, itemCount, urlBasis, urlID = "" }) {
+export default async function Pagination({
+	currentPage,
+	itemCount,
+	urlBasis,
+	urlID = "",
+	pageItemCount,
+}) {
 	const pagesCount = useMemo(() => {
-		return Math.ceil(itemCount / Number(env.PAGE_ITEM_COUNT));
+		return Math.ceil(itemCount / Number(pageItemCount));
 	}, [itemCount]);
 
 	const buttons = useMemo(() => {

@@ -6,9 +6,15 @@ import "swiper/css";
 import { A11y } from "swiper/modules";
 import Button from "../../../atoms/Button";
 import styles from "./styles.module.scss";
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 
-const TestimonialsClient = ({ testimonials, quote, arrowLeft, arrowRight, children }) => {
+const TestimonialsClient = ({ 
+	testimonials,
+	quote,
+	arrowLeft,
+	arrowRight,
+	children
+}) => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const swiperRef = useRef(null);
 
@@ -26,12 +32,23 @@ const TestimonialsClient = ({ testimonials, quote, arrowLeft, arrowRight, childr
 				onSlideChange={(slider) => setActiveIndex(slider.activeIndex)}
 			>
 				{testimonials.map(({ name, text, cta, img }, i) => (
-					<SwiperSlide className={styles.slide} key={i}>
+					<SwiperSlide
+						className={styles.slide}
+						key={i}
+					>
 						<div className={styles.author}>
-							<Img data={img} className={styles.img} width={158} height={158} />
+							<Img
+								data={img}
+								className={styles.img}
+								width={158}
+								height={158}
+							/>
 							<div>
 								<h3>{name}</h3>
-								<Button theme={cta.theme} to={cta.href}>
+								<Button
+									theme={cta.theme}
+									to={cta.href}
+								>
 									{cta.text}
 								</Button>
 							</div>
