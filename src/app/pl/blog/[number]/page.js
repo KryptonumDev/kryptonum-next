@@ -20,7 +20,12 @@ export async function generateStaticParams() {
 export default async function blogPageWithNumber({ params }) {
 
 	const {
-		page: { hero_Heading, hero_Paragraph, hero_Img, ctaSection },
+		page: {
+			hero_Heading,
+			hero_Paragraph, 
+			hero_Img, 
+			ctaSection 
+		},
 		blogEntries,
 		blogCategories,
 		blogEntriesCount,
