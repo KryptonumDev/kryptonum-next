@@ -9,12 +9,12 @@ import Faq from "@/app/components/sections/Faq";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-	const blogEntriesCount = await paramsQuery();
+	const {blogEntriesCount} = await paramsQuery();
 	const pageNumbers = [];
 	for (let i = 1; i < Math.ceil(blogEntriesCount.length / itemsPerPage); i++) {
 		pageNumbers.push(i + 1);
 	}
-	return pageNumbers.map((number) => ({ number: number }));
+	return pageNumbers.map((number) => ({ number: number.toString() }));
 }
 
 export default async function blogPageWithNumber({ params }) {
