@@ -4,7 +4,8 @@ import BlogEntry from "../../organisms/BlogEntry";
 import Pagination from "../../organisms/Pagination";
 import { formatDateToPolishLocale } from "@/utils/functions";
 
-const BlogEntries = ({ urlBasis, 
+const BlogEntries = ({ 
+	urlBasis, 
   totalCount, 
   blogEntries, 
   page, 

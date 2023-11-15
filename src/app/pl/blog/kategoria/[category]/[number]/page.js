@@ -229,7 +229,7 @@ const query = async (category, id, number) => {
 		.filter((blogEntry) => blogEntry.categories.map((text) => text.slug.current).includes(category))
 		.slice((number - 1) * itemsPerPage, number * itemsPerPage);
 
-	if (data.blogEntries.length == 0) {
+	if (data.blogEntries.length == 0 || number == 1) {
 		return notFound();
 	}
 
