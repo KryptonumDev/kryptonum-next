@@ -11,7 +11,9 @@ const CuriosityEntries = ({
 	heading 
 }) => {
 	return (
-		<section className={styles.section}>
+		<section 
+		className={styles.section}
+		id="wpisy">
 			<DecorativeHeading type="h2">
 				{heading || `Arena **ciekawostek** (${totalCount})`}
 			</DecorativeHeading>
@@ -27,6 +29,7 @@ const CuriosityEntries = ({
 				currentPage={page}
 				itemCount={totalCount}
 				urlBasis={urlBasis}
+				urlID="#wpisy"
 			/>
 		</section>
 	);
