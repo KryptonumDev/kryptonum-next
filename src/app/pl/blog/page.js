@@ -1,5 +1,4 @@
 import fetchData from "@/utils/fetchData";
-import { itemsPerPage } from "@/constants/shared";
 import BlogEntries from "@/app/components/sections/BlogEntries";
 import Categories from "@/app/components/sections/Categories";
 import CtaSection from "@/app/components/sections/CtaSection";
@@ -35,6 +34,7 @@ export default async function blogPage() {
 				totalCount={blogEntriesCount.length}
 				blogEntries={blogEntries}
 				page={1}
+        itemsPerPage={blogItemsPerPage}
 			/>
 			<CtaSection data={ctaSection} />
 			<LatestCuriosityEntries />
@@ -48,7 +48,7 @@ const query = async () => {
 		body: { data },
 	} = await fetchData(`
   blogEntries: allBlogEntries(
-    limit: ${itemsPerPage}
+    limit: ${blogItemsPerPage}
     sort: { _createdAt: DESC }
   ) {
     title
@@ -159,3 +159,5 @@ const query = async () => {
   `);
 	return data;
 };
+
+export const blogItemsPerPage = 12;

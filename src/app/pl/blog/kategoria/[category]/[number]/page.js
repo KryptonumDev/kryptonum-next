@@ -1,5 +1,5 @@
 import fetchData from "@/utils/fetchData";
-import { itemsPerPage } from "@/constants/shared";
+import { blogItemsPerPage } from "../../../page";
 import Hero from "@/app/components/sections/Hero";
 import Categories from "@/app/components/sections/Categories";
 import BlogEntries from "@/app/components/sections/BlogEntries";
@@ -9,14 +9,30 @@ import Faq from "@/app/components/sections/Faq";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-	return await paramsQuery();
+	const { blogEntriesCount } = await query();
+	return blogEntriesCount
+		.flatMap((entry) =>
+			entry.categories.map((category) => {
+				const categorySlug = category.slug.current;
+				return { category: categorySlug };
+			}),
+		)
+		.map((obj, index, array) => ({
+			...obj,
+			number: Math.ceil(
+				(array.filter((o) => o.category === obj.category).indexOf(obj) + 1) / blogItemsPerPage,
+			).toString(),
+		}))
+		.filter(
+			(value, index, self) =>
+				index ===
+					self.findIndex((v) => v.number === value.number && v.category === value.category) &&
+				value.number !== "1",
+		);
 }
 
-export default async function categoryPageWithNumber({ params }) {
-	const { category, number } = params;
-
+export default async function blogCategoryPaginationPage({ params: { category, number } }) {
 	const id = await getCategoryId(category);
-
 	const {
 		page: { ctaSection },
 		blogEntries,
@@ -25,15 +41,15 @@ export default async function categoryPageWithNumber({ params }) {
 		blogEntriesCount,
 	} = await query(category, id, number);
 
+	if (blogEntries.length === 0 || number === 1) {
+		return notFound();
+	}
+
 	return (
 		<>
 			<Hero
-				data={{
-					heading: hero_Heading,
-					paragraph: hero_Paragraph,
-					sideImage: hero_Img,
-				}}
-				isBlogHero={true}
+				data={{ heading: hero_Heading, paragraph: hero_Paragraph, sideImage: hero_Img }}
+				isBlogHero
 			/>
 			<Categories
 				categorySlug="/pl/blog/"
@@ -45,6 +61,7 @@ export default async function categoryPageWithNumber({ params }) {
 				totalCount={blogEntriesCount.length}
 				blogEntries={blogEntries}
 				page={parseInt(number)}
+        itemsPerPage={blogItemsPerPage}
 			/>
 			<CtaSection data={ctaSection} />
 			<LatestCuriosityEntries />
@@ -53,71 +70,69 @@ export default async function categoryPageWithNumber({ params }) {
 	);
 }
 
-const getCategoryId = async (category) => {
+async function getCategoryId(category) {
 	const {
 		body: { data },
 	} = await fetchData(`
-  allBlogCategories {
-    _id
-    slug {
-      current
-    }
-  }
-  `);
-	return data.allBlogCategories.filter((blogCategory) => blogCategory.slug.current == category)[0]
-		?._id;
-};
-
-const paramsQuery = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  blogEntriesCount: allBlogEntries {
-    categories {
+    allBlogCategories {
+      _id
       slug {
         current
       }
     }
-  }
   `);
-	const categoriesData = data.blogEntriesCount;
+	return (
+		data.allBlogCategories.find((blogCategory) => blogCategory.slug.current === category)?._id ||
+		null
+	);
+}
 
-	return categoriesData
-		.flatMap((entry) =>
-			entry.categories.map((category) => {
-				const categorySlug = category.slug.current;
-				return { category: categorySlug };
-			}),
-		)
-		.map((obj, index, array) => ({
-			...obj,
-			number: Math.ceil(
-				(array.filter((o) => o.category === obj.category).indexOf(obj) + 1) / itemsPerPage,
-			).toString(),
-		}))
-		.filter(
-			(value, index, self) =>
-				index ===
-					self.findIndex((v) => v.number === value.number && v.category === value.category) &&
-				value.number !== "1",
-		);
-};
-
-const query = async (category, id, number) => {
+async function query(category, id, number) {
 	const {
 		body: { data },
 	} = await fetchData(`
-  page: Blog(id: "blog") {
-    
-    # Call To Action
-    ctaSection {
-      heading
-      cta {
-        theme
-        text
-        href
+    ${
+			category
+				? `
+    page: Blog(id: "blog") {
+      ctaSection {
+        heading
+        cta {
+          theme
+          text
+          href
+        }
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
       }
-      img {
+    }
+
+    blogCategories: allBlogCategories {
+      name
+      slug {
+        current
+      }
+    }
+
+    blogCategory: BlogCategories(id: "${id}") {
+      name
+      slug {
+        current
+      }
+      hero_Heading
+      hero_Paragraph
+      hero_Img {
         asset {
           altText
           url
@@ -130,61 +145,42 @@ const query = async (category, id, number) => {
           }
         }
       }
-    }
-  }
-  
-  blogCategories: allBlogCategories {
-    name
-    slug {
-      current
-    }
-  }
-  
-  blogCategory: BlogCategories(id: "${id}") {
-    name
-    slug {
-      current
-    }
-    hero_Heading
-    hero_Paragraph
-    hero_Img {
-      asset {
-        altText
-        url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
+      seo {
+        title
+        description
       }
     }
-    # SEO
-    seo {
+
+    blogEntries: allBlogEntries(sort: { _createdAt: DESC }) {
+      categories {
+        name
+        slug {
+          current
+        }
+      }
       title
-      description
-    }
-  }
-  
-  blogEntries: allBlogEntries(
-    sort: { _createdAt: DESC }
-  ) {
-    categories{
-      name
+      subtitle
       slug {
         current
       }
-    }
-    title
-    subtitle
-    slug {
-      current
-    }
-    author {
-      name
-      slug {
-        current
+      author {
+        name
+        slug {
+          current
+        }
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
       }
       img {
         asset {
@@ -199,42 +195,36 @@ const query = async (category, id, number) => {
           }
         }
       }
-    }
-    
-    img {
-      asset {
-        altText
-        url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-      }
-    }
-    _createdAt
-    contentRaw
-  }
-  blogEntriesCount:allBlogEntries {
-    categories {
-      slug {
-        current
-      }
-    }
-  }
-  `);
-	data.blogEntries = data.blogEntries
-		.filter((blogEntry) => blogEntry.categories.map((text) => text.slug.current).includes(category))
-		.slice((number - 1) * itemsPerPage, number * itemsPerPage);
+      _createdAt
+      contentRaw
+    }`
+				: ``
+		}
 
-	if (data.blogEntries.length == 0 || number == 1) {
-		return notFound();
+    blogEntriesCount: allBlogEntries {
+      categories {
+        slug {
+          current
+        }
+      }
+    }
+  `);
+
+	if (category) {
+		data.blogEntries = data.blogEntries
+			.filter((blogEntry) =>
+				blogEntry.categories.map((text) => text.slug.current).includes(category),
+			)
+			.slice((number - 1) * blogItemsPerPage, number * blogItemsPerPage);
+
+		if (data.blogEntries.length === 0 || number === 1) {
+			return notFound();
+		}
+
+		data.blogEntriesCount = data.blogEntriesCount.filter((blogEntry) =>
+			blogEntry.categories.map((text) => text.slug.current).includes(category),
+		);
 	}
 
-	data.blogEntriesCount = data.blogEntriesCount.filter((blogEntry) =>
-		blogEntry.categories.map((text) => text.slug.current).includes(category),
-	);
 	return data;
-};
+}

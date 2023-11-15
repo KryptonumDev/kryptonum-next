@@ -1,4 +1,3 @@
-import { itemsPerPage } from "@/constants/shared";
 import fetchData from "@/utils/fetchData";
 import Hero from "@/app/components/sections/Hero";
 import Categories from "@/app/components/sections/Categories";
@@ -7,11 +6,12 @@ import Faq from "@/app/components/sections/Faq";
 import CuriosityEntries from "@/app/components/sections/CuriosityEntries";
 import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
 import { notFound } from "next/navigation";
+import { academyItemsPerPage } from "../page";
 
 export async function generateStaticParams() {
 	const { curiosityEntriesCount } = await paramsQuery();
 	const pageNumbers = [];
-	for (let i = 1; i < Math.ceil(curiosityEntriesCount.length / itemsPerPage); i++) {
+	for (let i = 1; i < Math.ceil(curiosityEntriesCount.length / academyItemsPerPage); i++) {
 		pageNumbers.push(i + 1);
 	}
 	return pageNumbers.map((number) => ({ number: number.toString() }));
@@ -51,6 +51,7 @@ export default async function academyPageWithNumber({ params }) {
 				totalCount={curiosityEntriesCount.length}
 				page={parseInt(params.number)}
 				curiosityEntries={curiosityEntries}
+        itemsPerPage={academyItemsPerPage}
 			/>
 			<CtaSection data={ctaSection} />
 			<LatestBlogEntries />
@@ -60,13 +61,13 @@ export default async function academyPageWithNumber({ params }) {
 }
 
 const query = async (params) => {
-	const offset = (parseInt(params.number) - 1) * itemsPerPage;
+	const offset = (parseInt(params.number) - 1) * academyItemsPerPage;
 
 	const {
 		body: { data },
 	} = await fetchData(`
   curiosityEntries: allCuriosityEntries(
-    limit: ${itemsPerPage},
+    limit: ${academyItemsPerPage},
     offset: ${offset},
     sort: { _createdAt: DESC }) {
     title

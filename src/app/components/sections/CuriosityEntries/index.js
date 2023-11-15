@@ -8,7 +8,8 @@ const CuriosityEntries = ({
 	totalCount, 
 	urlBasis, 
 	curiosityEntries, 
-	heading 
+	heading,
+	itemsPerPage 
 }) => {
 	return (
 		<section 
@@ -30,6 +31,7 @@ const CuriosityEntries = ({
 				itemCount={totalCount}
 				urlBasis={urlBasis}
 				urlID="#wpisy"
+				itemsPerPage={itemsPerPage}
 			/>
 		</section>
 	);

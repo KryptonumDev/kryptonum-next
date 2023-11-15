@@ -1,5 +1,5 @@
 import fetchData from "@/utils/fetchData";
-import { itemsPerPage } from "@/constants/shared";
+import { blogItemsPerPage } from "../page";
 import Hero from "@/app/components/sections/Hero";
 import Categories from "@/app/components/sections/Categories";
 import BlogEntries from "@/app/components/sections/BlogEntries";
@@ -9,15 +9,15 @@ import Faq from "@/app/components/sections/Faq";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-	const {blogEntriesCount} = await paramsQuery();
+	const {blogEntriesCount} = await query();
 	const pageNumbers = [];
-	for (let i = 1; i < Math.ceil(blogEntriesCount.length / itemsPerPage); i++) {
+	for (let i = 1; i < Math.ceil(blogEntriesCount.length / blogItemsPerPage); i++) {
 		pageNumbers.push(i + 1);
 	}
 	return pageNumbers.map((number) => ({ number: number.toString() }));
 }
 
-export default async function blogPageWithNumber({ params }) {
+export default async function blogPaginationPage({ params }) {
 
 	const {
 		page: {
@@ -54,6 +54,7 @@ export default async function blogPageWithNumber({ params }) {
 				totalCount={blogEntriesCount.length}
 				blogEntries={blogEntries}
 				page={parseInt(params.number)}
+        itemsPerPage={blogItemsPerPage}
 			/>
 			<CtaSection data={ctaSection} />
 			<LatestCuriosityEntries />
@@ -62,26 +63,15 @@ export default async function blogPageWithNumber({ params }) {
 	);
 }
 
-const paramsQuery = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  blogEntriesCount: allBlogEntries { 
-    _type
-  }
-  `);
-	return data;
-};
-
 const query = async (params) => {
-	const offset = (parseInt(params.number) - 1) * itemsPerPage;
 
 	const {
 		body: { data },
 	} = await fetchData(`
+  ${params ? `
 	blogEntries: allBlogEntries(
-    limit: ${itemsPerPage}
-		offset: ${offset}
+    limit: ${blogItemsPerPage}
+		offset: ${(parseInt(params.number) - 1) * blogItemsPerPage}
     sort: { _createdAt: DESC }
   ) {
     title
@@ -185,6 +175,7 @@ const query = async (params) => {
       current
     }
   }
+  ` : ``}
 
   blogEntriesCount: allBlogEntries {
     _type

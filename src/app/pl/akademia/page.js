@@ -1,4 +1,3 @@
-import { itemsPerPage } from "@/constants/shared";
 import fetchData from "@/utils/fetchData";
 import Hero from "@/app/components/sections/Hero";
 import Categories from "@/app/components/sections/Categories";
@@ -33,6 +32,7 @@ export default async function academyPage() {
 				totalCount={curiosityEntriesCount.length}
 				page={1}
 				curiosityEntries={curiosityEntries}
+        itemsPerPage={academyItemsPerPage}
 			/>
 			<CtaSection data={ctaSection} />
 			<LatestBlogEntries />
@@ -46,7 +46,7 @@ const query = async () => {
 		body: { data },
 	} = await fetchData(`
   curiosityEntries: allCuriosityEntries(
-    limit: ${itemsPerPage},
+    limit: ${academyItemsPerPage},
     sort: { _createdAt: DESC }) {
     title
     subtitle
@@ -131,3 +131,5 @@ const query = async () => {
   `);
 	return data;
 };
+
+export const academyItemsPerPage=12;
