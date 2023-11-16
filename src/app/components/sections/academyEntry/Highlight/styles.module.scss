@@ -1,0 +1,18 @@
+.wrapper {
+  padding: clamp(34px, calc(48vw/7.68), 64px) clamp(16px, calc(64vw/7.68), 110px);
+  background-color: var(--neutral-900);
+  border-radius: 2px;
+  h2 {
+    margin-bottom: clamp(28px, calc(32vw/7.68), 48px);
+  }
+  .paragraph {
+    font-size: clamp(calc(16rem/16), calc(28vw/7.68), calc(30rem/16));
+    p:not(:last-child){
+      margin-bottom: 16px;
+    }
+  }
+  @media (max-width: 999px){
+    padding: clamp(32px, calc(48vw/7.68), 64px) var(--pageMargin);
+    margin: 0 calc(var(--pageMargin) * -1);
+  }
+}
