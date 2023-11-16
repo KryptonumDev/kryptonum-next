@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 	return pageNumbers.map((number) => ({ slug: number.toString() }));
 }
 
-export default async function blogPaginationPage({ params }) {
+export default async function blogSlugPage({ params }) {
 	const {
 		page: { hero_Heading, hero_Paragraph, hero_Img, ctaSection, seo },
 		blogEntries,
