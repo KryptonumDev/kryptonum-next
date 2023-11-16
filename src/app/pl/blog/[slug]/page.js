@@ -7,73 +7,105 @@ import CtaSection from "@/app/components/sections/CtaSection";
 import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
 import Faq from "@/app/components/sections/Faq";
 import { notFound } from "next/navigation";
+import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
+import EntryHero from "@/app/components/sections/EntryHero";
+import Content from "@/app/components/sections/Content";
 
 export async function generateStaticParams() {
-	const {blogEntriesCount} = await query();
+	const { blogEntriesCount } = await query();
 	const pageNumbers = [];
 	for (let i = 1; i < Math.ceil(blogEntriesCount.length / blogItemsPerPage); i++) {
 		pageNumbers.push(i + 1);
 	}
-	return pageNumbers.map((number) => ({ number: number.toString() }));
+	blogEntriesCount.map((entry) => pageNumbers.push(entry.slug.current));
+	return pageNumbers.map((number) => ({ slug: number.toString() }));
 }
 
 export default async function blogPaginationPage({ params }) {
-
 	const {
-		page: {
-			hero_Heading,
-			hero_Paragraph, 
-			hero_Img, 
-			ctaSection 
-		},
+		page: { hero_Heading, hero_Paragraph, hero_Img, ctaSection, seo },
 		blogEntries,
 		blogCategories,
 		blogEntriesCount,
 	} = await query(params);
 
-	if (blogEntries.length == 0 || params.number == 1) {
-		return notFound();
+	if ((blogEntries.length != 0 || params.slug != 1) && parseInt(params.slug)) {
+		return (
+			<>
+				<Hero
+					data={{
+						heading: hero_Heading,
+						paragraph: hero_Paragraph,
+						sideImage: hero_Img,
+					}}
+					isBlogHero={true}
+				/>
+				<Categories
+					categorySlug="/pl/blog/"
+					categories={blogCategories}
+				/>
+				<BlogEntries
+					urlBasis={"/pl/blog"}
+					totalCount={blogEntriesCount.length}
+					blogEntries={blogEntries}
+					page={parseInt(params.slug)}
+					itemsPerPage={blogItemsPerPage}
+				/>
+				<CtaSection data={ctaSection} />
+				<LatestCuriosityEntries />
+				<Faq />
+			</>
+		);
+	} else if (params.slug == blogEntries.map((entry) => entry.slug.current)) {
+		return (
+			<>
+				<EntryHero
+					title={blogEntries[0].title}
+					subtitle={blogEntries[0].subtitle}
+					categories={blogEntries[0].categories}
+					categorySlug="/pl/blog/kategoria/"
+					_createdAt={blogEntries[0]._createdAt}
+					img={blogEntries[0].img}
+				/>
+				{/* <Content
+        _rawContent={blogEntries[0].contentRaw}
+        author={blogEntries[0].author}
+        share={seo}
+      /> */}
+				<LatestBlogEntries exclude={params.slug} />
+				<LatestCuriosityEntries />
+			</>
+		);
+	} else {
+		notFound();
 	}
-
-	return (
-		<>
-			<Hero
-				data={{
-					heading: hero_Heading,
-					paragraph: hero_Paragraph,
-					sideImage: hero_Img,
-				}}
-				isBlogHero={true}
-			/>
-			<Categories
-				categorySlug="/pl/blog/"
-				categories={blogCategories}
-			/>
-			<BlogEntries
-				urlBasis={"/pl/blog"}
-				totalCount={blogEntriesCount.length}
-				blogEntries={blogEntries}
-				page={parseInt(params.number)}
-        itemsPerPage={blogItemsPerPage}
-			/>
-			<CtaSection data={ctaSection} />
-			<LatestCuriosityEntries />
-			<Faq />
-		</>
-	);
 }
 
 const query = async (params) => {
+	let queryString = "";
+
+	if (params) {
+		if (parseInt(params.slug)) {
+			queryString = `blogEntries: allBlogEntries(
+        limit: ${blogItemsPerPage}
+        offset: ${(parseInt(params.slug) - 1) * blogItemsPerPage}
+        sort: { _createdAt: DESC }
+      )`;
+		} else {
+			queryString = `blogEntries: allBlogEntries(
+        sort: { _createdAt: DESC }
+        where: {slug: {current: {eq: "${params.slug}"}}}
+      )`;
+		}
+	}
 
 	const {
 		body: { data },
 	} = await fetchData(`
-  ${params ? `
-	blogEntries: allBlogEntries(
-    limit: ${blogItemsPerPage}
-		offset: ${(parseInt(params.number) - 1) * blogItemsPerPage}
-    sort: { _createdAt: DESC }
-  ) {
+  ${
+		params
+			? `
+  ${queryString} {
     title
     subtitle
     slug {
@@ -175,10 +207,15 @@ const query = async (params) => {
       current
     }
   }
-  ` : ``}
+  `
+			: ``
+	}
 
   blogEntriesCount: allBlogEntries {
-    _type
+    slug
+    {
+      current
+    }
   }
   `);
 	return data;
