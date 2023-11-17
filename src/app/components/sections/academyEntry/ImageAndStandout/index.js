@@ -1,6 +1,7 @@
 import Markdown from '@/utils/markdown';
 import styles from './styles.module.scss'
 import Img from '@/utils/Img';
+import DecorativeHeading from '@/app/components/atoms/DecorativeHeading';
 
 const ImageAndStandout = ({ 
   heading,

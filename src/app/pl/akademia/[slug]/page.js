@@ -19,6 +19,7 @@ import ConsultationForm from "@/app/components/sections/ConsultationForm";
 import Share from "@/app/components/sections/academyEntry/Share";
 import Sources from "@/app/components/sections/academyEntry/Sources";
 import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
+import ExtendedList from "@/app/components/sections/academyEntry/ExtendedList";
 
 export async function generateStaticParams() {
 	const { curiosityEntriesCount } = await query();
