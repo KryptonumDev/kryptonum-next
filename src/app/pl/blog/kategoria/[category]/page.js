@@ -7,6 +7,7 @@ import CtaSection from "@/app/components/sections/CtaSection";
 import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
 import Faq from "@/app/components/sections/Faq";
 import { notFound } from "next/navigation";
+import SEO from "@/app/components/global/Seo";
 
 export async function generateStaticParams() {
 	const { blogCategories } = await query();
@@ -54,6 +55,17 @@ export default async function blogCategoryPage({ params: { category } }) {
 			<Faq />
 		</>
 	);
+}
+
+export async function generateMetadata() {
+  const {
+    page: { seo },
+  } = await query();
+  return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "",
+	});
 }
 
 const getCategoryId = async (category) => {

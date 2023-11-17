@@ -10,6 +10,7 @@ import { notFound } from "next/navigation";
 import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
 import EntryHero from "@/app/components/sections/EntryHero";
 import Content from "@/app/components/sections/Content";
+import SEO from "@/app/components/global/Seo";
 
 export async function generateStaticParams() {
 	const { blogEntriesCount } = await query();
@@ -79,6 +80,17 @@ export default async function blogSlugPage({ params }) {
 	} else {
 		notFound();
 	}
+}
+
+export async function generateMetadata() {
+  const {
+    page: { seo },
+  } = await query();
+  return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "",
+	});
 }
 
 const query = async (params) => {

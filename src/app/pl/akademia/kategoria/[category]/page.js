@@ -7,6 +7,7 @@ import CuriosityEntries from "@/app/components/sections/CuriosityEntries";
 import CtaSection from "@/app/components/sections/CtaSection";
 import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
 import Faq from "@/app/components/sections/Faq";
+import SEO from "@/app/components/global/Seo";
 
 
 export async function generateStaticParams() {
@@ -56,6 +57,18 @@ export default async function academyCategoryPage({ params: { category } }) {
     </>
   )
 }
+
+export async function generateMetadata() {
+  const {
+    page: { seo },
+  } = await query();
+  return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "",
+	});
+}
+
 
 const getCategoryId = async (category) => {
 	const {

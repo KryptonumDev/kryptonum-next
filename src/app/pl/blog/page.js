@@ -5,6 +5,7 @@ import CtaSection from "@/app/components/sections/CtaSection";
 import Faq from "@/app/components/sections/Faq";
 import Hero from "@/app/components/sections/Hero";
 import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
+import SEO from "@/app/components/global/Seo";
 
 export default async function blogPage() {
 
@@ -41,6 +42,17 @@ export default async function blogPage() {
 			<Faq />
 		</>
 	);
+}
+
+export async function generateMetadata() {
+  const {
+    page: { seo },
+  } = await query();
+  return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "",
+	});
 }
 
 const query = async () => {

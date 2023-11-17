@@ -20,6 +20,7 @@ import Share from "@/app/components/sections/academyEntry/Share";
 import Sources from "@/app/components/sections/academyEntry/Sources";
 import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
 import ExtendedList from "@/app/components/sections/academyEntry/ExtendedList";
+import SEO from "@/app/components/global/Seo";
 
 export async function generateStaticParams() {
 	const { curiosityEntriesCount } = await query();
@@ -178,6 +179,18 @@ export default async function academySlugPage({ params: { slug } }) {
 		notFound();
 	}
 }
+
+export async function generateMetadata() {
+  const {
+    page: { seo },
+  } = await query();
+  return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "",
+	});
+}
+
 
 const query = async (slug) => {
 	let queryString = "";
