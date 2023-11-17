@@ -217,7 +217,7 @@ async function query(category, id, number) {
 			)
 			.slice((number - 1) * blogItemsPerPage, number * blogItemsPerPage);
 
-		if (data.blogEntries.length === 0 || number === 1) {
+		if (data.blogEntries.length === 0 || number == 1) {
 			return notFound();
 		}
 

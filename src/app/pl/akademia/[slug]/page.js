@@ -39,7 +39,7 @@ export default async function academySlugPage({ params: { slug } }) {
 		curiosityEntriesCount,
 	} = await query(slug);
 
-	if ((curiosityEntries.length != 0 || slug != 1) && parseInt(slug)) {
+	if ((curiosityEntries.length != 0 && slug != 1) && parseInt(slug)) {
 		return (
 			<>
 				<Hero

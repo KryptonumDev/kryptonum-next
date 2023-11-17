@@ -29,7 +29,7 @@ export default async function blogSlugPage({ params }) {
 		blogEntriesCount,
 	} = await query(params);
 
-	if ((blogEntries.length != 0 || params.slug != 1) && parseInt(params.slug)) {
+	if ((blogEntries.length != 0 && params.slug != 1) && parseInt(params.slug)) {
 		return (
 			<>
 				<Hero
