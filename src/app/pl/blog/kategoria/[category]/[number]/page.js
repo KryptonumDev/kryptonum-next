@@ -71,10 +71,11 @@ export default async function blogCategoryPaginationPage({ params: { category, n
 	);
 }
 
-export async function generateMetadata() {
+export async function generateMetadata({params:{category,number}}) {
+  const id = await getCategoryId(category);
   const {
     page: { seo },
-  } = await query();
+  } = await query(category, id, number);
   return SEO({
 		title: seo?.title,
 		description: seo?.description,

@@ -180,10 +180,10 @@ export default async function academySlugPage({ params: { slug } }) {
 	}
 }
 
-export async function generateMetadata() {
+export async function generateMetadata({params:{slug}}) {
   const {
     page: { seo },
-  } = await query();
+  } = await query(slug);
   return SEO({
 		title: seo?.title,
 		description: seo?.description,

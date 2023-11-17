@@ -57,10 +57,11 @@ export default async function blogCategoryPage({ params: { category } }) {
 	);
 }
 
-export async function generateMetadata() {
+export async function generateMetadata({params:{category}}) {
+  const id = await getCategoryId(category);
   const {
     page: { seo },
-  } = await query();
+  } = await query(category, id);
   return SEO({
 		title: seo?.title,
 		description: seo?.description,

@@ -82,10 +82,10 @@ export default async function blogSlugPage({ params }) {
 	}
 }
 
-export async function generateMetadata() {
+export async function generateMetadata(params) {
   const {
     page: { seo },
-  } = await query();
+  } = await query(params);
   return SEO({
 		title: seo?.title,
 		description: seo?.description,
@@ -206,11 +206,7 @@ const query = async (params) => {
       }
     }
 
-    # SEO
-    seo {
-      title
-      description
-    }
+
   }
 
   blogCategories: allBlogCategories {
