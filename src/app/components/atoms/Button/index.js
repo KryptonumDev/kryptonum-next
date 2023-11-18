@@ -19,7 +19,7 @@ const Button = ({
   
   const linkClassName = `${styles.wrapper} ${isExternal ? '' : 'cta'} ${
     theme === "secondary" ? styles.secondary : styles.primary
-  } ${className} || ""`;
+  } ${className || ""} `;
 
   return (
     <>
