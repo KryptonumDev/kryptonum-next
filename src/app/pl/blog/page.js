@@ -7,6 +7,8 @@ import Hero from "@/app/components/sections/Hero";
 import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
 import SEO from "@/app/components/global/Seo";
 
+
+
 export default async function blogPage() {
 
 	const {
@@ -166,7 +168,10 @@ const query = async () => {
   }
 
   blogEntriesCount: allBlogEntries {
-    _type
+    slug
+    {
+      current
+    }
   }
   `);
 	return data;

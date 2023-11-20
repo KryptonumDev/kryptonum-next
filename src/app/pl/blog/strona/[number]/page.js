@@ -1,33 +1,32 @@
-import fetchData from "@/utils/fetchData";
-import { academyItemsPerPage } from "../../page";
-import { notFound } from "next/navigation";
 import Hero from "@/app/components/sections/Hero";
 import Categories from "@/app/components/sections/Categories";
-import CuriosityEntries from "@/app/components/sections/CuriosityEntries";
+import BlogEntries from "@/app/components/sections/BlogEntries";
 import CtaSection from "@/app/components/sections/CtaSection";
-import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
+import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
 import Faq from "@/app/components/sections/Faq";
-import { redirect } from "next/navigation";
+import { blogItemsPerPage } from "../../page";
+import fetchData from "@/utils/fetchData";
+import { notFound, redirect } from "next/navigation";
 import SEO from "@/app/components/global/Seo";
 
 export async function generateStaticParams() {
-	const { curiosityEntriesCount } = await query();
+	const { blogEntriesCount } = await query();
 	const pageNumbers = [];
-	for (let i = 1; i < Math.ceil(curiosityEntriesCount.length / academyItemsPerPage); i++) {
+	for (let i = 1; i < Math.ceil(blogEntriesCount.length / blogItemsPerPage); i++) {
 		pageNumbers.push(i + 1);
 	}
 	return pageNumbers.map((number) => ({ number: number.toString() }));
 }
 
-export default async function academyPaginationPage({ params: { number } }) {
+export default async function blogPaginationPage({ params: { number } }) {
 	if (parseInt(number)) {
 		const {
 			page: { hero_Heading, hero_Paragraph, hero_Img, ctaSection },
-			curiosityCategories,
-			curiosityEntries,
-			curiosityEntriesCount,
+			blogEntries,
+			blogCategories,
+			blogEntriesCount,
 		} = await query(number);
-		if (curiosityEntries.length != 0 && number != 1) {
+		if (blogEntries.length != 0 && number != 1) {
 			return (
 				<>
 					<Hero
@@ -39,29 +38,29 @@ export default async function academyPaginationPage({ params: { number } }) {
 						isBlogHero={true}
 					/>
 					<Categories
-						categorySlug="/pl/akademia/"
-						categories={curiosityCategories}
+						categorySlug="/pl/blog/"
+						categories={blogCategories}
 					/>
-					<CuriosityEntries
-						urlBasis="/pl/akademia"
-						totalCount={curiosityEntriesCount.length}
+					<BlogEntries
+						urlBasis={"/pl/blog"}
+						totalCount={blogEntriesCount.length}
+						blogEntries={blogEntries}
 						page={parseInt(number)}
-						curiosityEntries={curiosityEntries}
-						itemsPerPage={academyItemsPerPage}
+						itemsPerPage={blogItemsPerPage}
 					/>
 					<CtaSection data={ctaSection} />
-					<LatestBlogEntries />
+					<LatestCuriosityEntries />
 					<Faq />
 				</>
 			);
 		} else if (number == 1) {
-			redirect("/pl/akademia");
-		} else {
-			return notFound();
+      redirect("/pl/blog");
+    }else {
+			notFound();
 		}
 	} else {
-		return notFound();
-	}
+    return notFound();
+  }
 }
 
 export async function generateMetadata({params: {number}}) {
@@ -81,15 +80,35 @@ const query = async (number) => {
 	} = await fetchData(
 		`${
 			number
-				? `curiosityEntries: allCuriosityEntries(
-    limit: ${academyItemsPerPage}
-    offset: ${(number - 1) * academyItemsPerPage}
-    sort: { _createdAt: DESC }
-  ) {
-    title
+				? 
+        `blogEntries: allBlogEntries(
+        limit: ${blogItemsPerPage}
+        offset: ${(parseInt(number) - 1) * (blogItemsPerPage)}
+        sort: { _createdAt: DESC }
+      ) {
+      title
     subtitle
     slug {
       current
+    }
+    author {
+      name
+      slug {
+        current
+      }
+      img {
+        asset {
+          altText
+          url
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
+          }
+        }
+      }
     }
     categories {
       name
@@ -101,18 +120,20 @@ const query = async (number) => {
       asset {
         altText
         url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
+        metadata {
+          lqip
+          dimensions {
+            height
+            width
           }
+        }
       }
     }
+    contentRaw
     _createdAt
   }
-  page: Academy(id: "academy") {
+  page: Blog(id: "blog") {
+
     # Hero
     hero_Heading
     hero_Paragraph
@@ -120,15 +141,16 @@ const query = async (number) => {
       asset {
         altText
         url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
+        metadata {
+          lqip
+          dimensions {
+            height
+            width
           }
+        }
       }
     }
+
     # Call To Action
     ctaSection {
       heading
@@ -157,20 +179,22 @@ const query = async (number) => {
       description
     }
   }
-  curiosityCategories: allCuriosityCategories {
+
+  blogCategories: allBlogCategories {
     name
     slug {
       current
     }
-	}`
+  }
+  `
 				: ``
 		}
-    curiosityEntriesCount: allCuriosityEntries {
-      slug {
+    blogEntriesCount: allBlogEntries {
+      slug
+      {
         current
       }
-    }
-    `,
+    }`,
 	);
 	return data;
 };

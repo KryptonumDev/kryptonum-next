@@ -1,9 +1,5 @@
 import fetchData from "@/utils/fetchData";
 import { blogItemsPerPage } from "../page";
-import Hero from "@/app/components/sections/Hero";
-import Categories from "@/app/components/sections/Categories";
-import BlogEntries from "@/app/components/sections/BlogEntries";
-import CtaSection from "@/app/components/sections/CtaSection";
 import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
 import Faq from "@/app/components/sections/Faq";
 import { notFound } from "next/navigation";
@@ -15,62 +11,29 @@ import SEO from "@/app/components/global/Seo";
 export async function generateStaticParams() {
 	const { blogEntriesCount } = await query();
 	const pageNumbers = [];
-	for (let i = 1; i < Math.ceil(blogEntriesCount.length / blogItemsPerPage); i++) {
-		pageNumbers.push(i + 1);
-	}
 	blogEntriesCount.map((entry) => pageNumbers.push(entry.slug.current));
 	return pageNumbers.map((number) => ({ slug: number.toString() }));
 }
 
 export default async function blogSlugPage({ params }) {
 	const {
-		page: { hero_Heading, hero_Paragraph, hero_Img, ctaSection, seo },
-		blogEntries,
-		blogCategories,
-		blogEntriesCount,
-	} = await query(params);
+		page: { title, subtitle, categories, _createdAt, img, contentRaw, author, seo, slug },
+	} = await query(params.slug);
 
-	if ((blogEntries.length != 0 && params.slug != 1) && parseInt(params.slug)) {
-		return (
-			<>
-				<Hero
-					data={{
-						heading: hero_Heading,
-						paragraph: hero_Paragraph,
-						sideImage: hero_Img,
-					}}
-					isBlogHero={true}
-				/>
-				<Categories
-					categorySlug="/pl/blog/"
-					categories={blogCategories}
-				/>
-				<BlogEntries
-					urlBasis={"/pl/blog"}
-					totalCount={blogEntriesCount.length}
-					blogEntries={blogEntries}
-					page={parseInt(params.slug)}
-					itemsPerPage={blogItemsPerPage}
-				/>
-				<CtaSection data={ctaSection} />
-				<LatestCuriosityEntries />
-				<Faq />
-			</>
-		);
-	} else if (params.slug == blogEntries.map((entry) => entry.slug.current)) {
+	if (params.slug == slug.current) {
 		return (
 			<>
 				<EntryHero
-					title={blogEntries[0].title}
-					subtitle={blogEntries[0].subtitle}
-					categories={blogEntries[0].categories}
+					title={title}
+					subtitle={subtitle}
+					categories={categories}
 					categorySlug="/pl/blog/kategoria/"
-					_createdAt={blogEntries[0]._createdAt}
-					img={blogEntries[0].img}
+					_createdAt={_createdAt}
+					img={img}
 				/>
 				{/* <Content
-        _rawContent={blogEntries[0].contentRaw}
-        author={blogEntries[0].author}
+        _rawContent={contentRaw}
+        author={author}
         share={seo}
       /> */}
 				<LatestBlogEntries exclude={params.slug} />
@@ -82,42 +45,28 @@ export default async function blogSlugPage({ params }) {
 	}
 }
 
-export async function generateMetadata(params) {
-  const {
-    page: { seo },
-  } = await query(params);
-  return SEO({
+export async function generateMetadata({ params: { slug } }) {
+	const {
+		page: { seo },
+	} = await query(slug);
+	return SEO({
 		title: seo?.title,
 		description: seo?.description,
 		url: "",
 	});
 }
 
-const query = async (params) => {
-	let queryString = "";
-
-	if (params) {
-		if (parseInt(params.slug)) {
-			queryString = `blogEntries: allBlogEntries(
-        limit: ${blogItemsPerPage}
-        offset: ${(parseInt(params.slug) - 1) * blogItemsPerPage}
-        sort: { _createdAt: DESC }
-      )`;
-		} else {
-			queryString = `blogEntries: allBlogEntries(
-        sort: { _createdAt: DESC }
-        where: {slug: {current: {eq: "${params.slug}"}}}
-      )`;
-		}
-	}
-
+const query = async (slug) => {
 	const {
 		body: { data },
 	} = await fetchData(`
   ${
-		params
+		slug
 			? `
-  ${queryString} {
+  page: allBlogEntries(
+    sort: { _createdAt: DESC }
+    where: {slug: {current: {eq: "${slug}"}}}
+  ) {
     title
     subtitle
     slug {
@@ -163,56 +112,10 @@ const query = async (params) => {
     }
     contentRaw
     _createdAt
-  }
-  page: Blog(id: "blog") {
-
-    # Hero
-    hero_Heading
-    hero_Paragraph
-    hero_Img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
-          }
-        }
-      }
-    }
-
-    # Call To Action
-    ctaSection {
-      heading
-      cta {
-        theme
-        text
-        href
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-
-
-  }
-
-  blogCategories: allBlogCategories {
-    name
-    slug {
-      current
+    # SEO
+    seo {
+      title
+      description
     }
   }
   `
@@ -226,5 +129,8 @@ const query = async (params) => {
     }
   }
   `);
+	if (slug) {
+		data.page = data.page[0];
+	}
 	return data;
 };

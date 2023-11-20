@@ -144,4 +144,4 @@ const query = async () => {
 	return data;
 };
 
-export const academyItemsPerPage=1;
+export const academyItemsPerPage=12;
