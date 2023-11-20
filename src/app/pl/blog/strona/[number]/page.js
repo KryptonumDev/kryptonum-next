@@ -31,7 +31,7 @@ export default async function blogPaginationPage({ params: { number } }) {
 				<>
 					<Hero
 						data={{
-							heading: hero_Heading,
+							heading: `**Blog** - strona ${number}`,
 							paragraph: hero_Paragraph,
 							sideImage: hero_Img,
 						}}

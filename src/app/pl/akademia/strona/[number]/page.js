@@ -32,7 +32,7 @@ export default async function academyPaginationPage({ params: { number } }) {
 				<>
 					<Hero
 						data={{
-							heading: hero_Heading,
+							heading: `**Akademia** - strona ${number}`,
 							paragraph: hero_Paragraph,
 							sideImage: hero_Img,
 						}}
