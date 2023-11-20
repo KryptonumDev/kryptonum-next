@@ -13,7 +13,7 @@ const ExtendedList = ({
   return (
     <section className={styles.section}>
       <DecorativeHeading type="h2">{heading}</DecorativeHeading>
-      <Markdown className={styles.subtitle}>{subtitle}</Markdown>
+      {subtitle && <Markdown className={styles.subtitle}>{subtitle}</Markdown>}
       <div className={styles.list}>
         {extendedList.map((list, i) => (
           <div className={styles.listItem} key={i}>

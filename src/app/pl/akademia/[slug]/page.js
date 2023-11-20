@@ -25,61 +25,39 @@ import SEO from "@/app/components/global/Seo";
 export async function generateStaticParams() {
 	const { curiosityEntriesCount } = await query();
 	const pageNumbers = [];
-	for (let i = 1; i < Math.ceil(curiosityEntriesCount.length / academyItemsPerPage); i++) {
-		pageNumbers.push(i + 1);
-	}
 	curiosityEntriesCount.map((entry) => pageNumbers.push(entry.slug.current));
 	return pageNumbers.map((number) => ({ slug: number.toString() }));
 }
 
-export default async function academySlugPage({ params: { slug } }) {
+export default async function academySlugPage({ params }) {
 	const {
-		page: { hero_Heading, hero_Paragraph, hero_Img, ctaSection, seo },
-		curiosityCategories,
-		curiosityEntries,
-		curiosityEntriesCount,
-	} = await query(slug);
-
-	if ((curiosityEntries.length != 0 && slug != 1) && parseInt(slug)) {
-		return (
-			<>
-				<Hero
-					data={{
-						heading: hero_Heading,
-						paragraph: hero_Paragraph,
-						sideImage: hero_Img,
-					}}
-					isBlogHero={true}
-				/>
-				<Categories
-					categorySlug="/pl/akademia/"
-					categories={curiosityCategories}
-				/>
-				<CuriosityEntries
-					urlBasis="/pl/akademia"
-					totalCount={curiosityEntriesCount.length}
-					page={parseInt(slug)}
-					curiosityEntries={curiosityEntries}
-					itemsPerPage={academyItemsPerPage}
-				/>
-				<CtaSection data={ctaSection} />
-				<LatestBlogEntries />
-				<Faq />
-			</>
-		);
-	} else if (slug == curiosityEntries.map((entry) => entry.slug.current)) {
+		page: {
+			title,
+			slug,
+			subtitle,
+			author,
+			categories,
+			img,
+			_createdAt,
+			content,
+			share,
+			sources,
+			latestCuriosities_Heading,
+		},
+	} = await query(params.slug);
+	if (params.slug == slug.current) {
 		return (
 			<>
 				<EntryHero
-					title={curiosityEntries[0].title}
-					subtitle={curiosityEntries[0].subtitle}
-					categories={curiosityEntries[0].categories}
+					title={title}
+					subtitle={subtitle}
+					categories={categories}
 					categorySlug="/pl/akademia/kategoria/"
-					_createdAt={curiosityEntries[0]._createdAt}
-					author={curiosityEntries[0].author}
-					img={curiosityEntries[0].img}
+					_createdAt={_createdAt}
+					author={author}
+					img={img}
 				/>
-				{curiosityEntries[0].content.map((component, i) => {
+				{content.map((component, i) => {
 					switch (component._type) {
 						case "standout":
 							return (
@@ -164,13 +142,13 @@ export default async function academySlugPage({ params: { slug } }) {
 					}
 				})}
 				<Share
-					heading={curiosityEntries[0].share.heading}
-					img={curiosityEntries[0].share.img}
-					url={slug.current}
+					heading={share.heading}
+					img={share.img}
+					url={params.slug.current}
 				/>
-				<Sources data={curiosityEntries[0].sources} />
+				<Sources data={sources} />
 				<LatestCuriosityEntries
-					heading={curiosityEntries[0].latestCuriosities_Heading}
+					heading={latestCuriosities_Heading}
 					exclude={slug.current}
 				/>
 			</>
@@ -180,38 +158,59 @@ export default async function academySlugPage({ params: { slug } }) {
 	}
 }
 
-export async function generateMetadata({params:{slug}}) {
-  const {
-    page: { seo },
-  } = await query(slug);
-  return SEO({
+export async function generateMetadata({ params: { slug } }) {
+	const {
+		page: { seo },
+	} = await query(slug);
+	return SEO({
 		title: seo?.title,
 		description: seo?.description,
 		url: "",
 	});
 }
 
-
 const query = async (slug) => {
-	let queryString = "";
-
-	if (slug) {
-		if (parseInt(slug)) {
-			queryString = `curiosityEntries: allCuriosityEntries(
-        limit: ${academyItemsPerPage}
-        offset: ${(parseInt(slug) - 1) * academyItemsPerPage}
-        sort: { _createdAt: DESC }
-      ) {`;
-		} else {
-			queryString = `curiosityEntries: allCuriosityEntries(
-        sort: { _createdAt: DESC }
-        where: {slug: {current: {eq: "${slug}"}}}
-      ) {
-        author {
-          name
-          slug {
-            current
+	const {
+		body: { data },
+	} = await fetchData(`
+  ${
+		slug
+			? `
+    page: allCuriosityEntries(
+      sort: { _createdAt: DESC }
+      where: {slug: {current: {eq: "${slug}"}}}
+    ) {
+      author {
+        name
+        slug {
+          current
+        }
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
           }
+        }
+      }
+      content {
+        ... on CuriosityKeyElements {
+          _type
+          heading
+          list
+          paragraph
+        }
+        ... on Standout {
+          _type
+          heading
+          paragraph
+          standout
           img {
             asset {
               altText
@@ -225,128 +224,91 @@ const query = async (slug) => {
               }
             }
           }
+          reversed
         }
-        content {
-          ... on CuriosityKeyElements {
-            _type
-            heading
-            list
+        ... on CuriosityHighlight {
+          _type
+          heading
+          paragraph
+        }
+        ... on CuriosityNote {
+          _type
+          heading
+          paragraph
+          attention
+        }
+        ... on CuriosityTiles {
+          _type
+          heading
+          list
+          annotation
+        }
+        ... on CuriosityLargeList {
+          _type
+          heading
+          list
+          paragraph
+        }
+        ... on CuriosityColumnText {
+          _type
+          heading
+          paragraph
+        }
+        ... on QuickForm {
+          _type
+          heading
+          subheading
+          cta
+        }
+        ... on CuriosityExtendedList {
+          _type
+          heading
+          subtitle
+          extendedList: list {
             paragraph
-          }
-          ... on Standout {
-            _type
-            heading
-            paragraph
-            standout
-            img {
-              asset {
-                altText
-                url
-                metadata {
-                  lqip
-                  dimensions {
-                    height
-                    width
-                  }
-                }
-              }
-            }
-            reversed
-          }
-          ... on CuriosityHighlight {
-            _type
-            heading
-            paragraph
-          }
-          ... on CuriosityNote {
-            _type
-            heading
-            paragraph
-            attention
-          }
-          ... on CuriosityTiles {
-            _type
-            heading
-            list
-            annotation
-          }
-          ... on CuriosityLargeList {
-            _type
-            heading
-            list
-            paragraph
-          }
-          ... on CuriosityColumnText {
-            _type
-            heading
-            paragraph
-          }
-          ... on QuickForm {
-            _type
-            heading
-            subheading
-            cta
-          }
-          ... on CuriosityExtendedList {
-            _type
-            heading
-            subtitle
-            extendedList: list {
-              paragraph
-              item {
-                img {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
+            item {
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
                     }
                   }
                 }
-                paragraph
               }
+              paragraph
             }
           }
         }
-        share {
-          heading
-          img {
-            asset {
-              altText
-              url
-                metadata {
-                  lqip
-                  dimensions {
-                    height
-                    width
-                  }
+      }
+      share {
+        heading
+        img {
+          asset {
+            altText
+            url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
                 }
-            }
+              }
           }
         }
-        sources {
-          heading
-          list {
-            text
-            href
-          }
+      }
+      sources {
+        heading
+        list {
+          text
+          href
         }
-        latestCuriosities_Heading
-        `;
-		}
-	}
-
-	const {
-		body: { data },
-	} = await fetchData(`
-  ${
-		slug
-			? `
-    ${queryString} 
+      }
+      latestCuriosities_Heading
       title
     subtitle
     slug {
@@ -372,46 +334,6 @@ const query = async (slug) => {
       }
     }
     _createdAt
-  }
-  page: Academy(id: "academy") {
-    # Hero
-    hero_Heading
-    hero_Paragraph
-    hero_Img {
-      asset {
-        altText
-        url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-      }
-    }
-    # Call To Action
-    ctaSection {
-      heading
-      cta {
-        theme
-        text
-        href
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
     # SEO
     seo {
       title
@@ -432,5 +354,8 @@ const query = async (slug) => {
       }
     }
   `);
+  if (slug) {
+    data.page = data.page[0];
+  }
 	return data;
 };

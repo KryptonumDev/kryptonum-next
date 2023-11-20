@@ -35,7 +35,12 @@
   }
   margin-top: 48px;
   .img {
+    display:block;
     margin-top: -48px;
+    width:100%;
+    height: calc(100% + 48px);
+    object-fit:contain;
+    object-position: bottom;
   }
   @media (max-width: 1189px){
     grid-template-columns: 1fr;
@@ -57,12 +62,16 @@
     .img {
       order: -1;
       margin-top: 0;
+      height:100%;
+      max-width:600px;
+      justify-self: center;
     }
   }
   @media (max-width: 899px){
     margin: 0 calc(var(--pageMargin) * -1);
     .img {
       margin: 0 var(--pageMargin);
+      max-width:600px;
     }
   }
   @media (max-width: 599px){

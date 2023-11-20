@@ -31,7 +31,7 @@ export default async function Pagination({
 				className={
 					currentPage == 1 ? `${styles.disabled} ${styles.link}` : `${styles.arrow} ${styles.link}`
 				}
-				href={currentPage >= 3 ? `${urlBasis}/${currentPage - 1}${urlID}` : `${urlBasis}${urlID}`}
+				href={currentPage >= 3 ? `${urlBasis}/strona/${currentPage - 1}${urlID}` : `${urlBasis}${urlID}`}
 			>
 				<svg
 					width="33"
@@ -58,7 +58,7 @@ export default async function Pagination({
 									currentPage === el ? `${styles.link} ${styles.active}` : `${styles.link}`
 								}
 								key={i}
-								href={el >= 2 ? `${urlBasis}/${el}${urlID}` : `${urlBasis}${urlID}`}
+								href={el >= 2 ? `${urlBasis}/strona/${el}${urlID}` : `${urlBasis}${urlID}`}
 							>
 								{el}
 							</Link>
@@ -82,7 +82,7 @@ export default async function Pagination({
 											currentPage === el ? `${styles.link} ${styles.active}` : `${styles.link}`
 										}
 										key={index}
-										href={el >= 2 ? `${urlBasis}/${el}${urlID}` : `${urlBasis}${urlID}`}
+										href={el >= 2 ? `${urlBasis}/strona/${el}${urlID}` : `${urlBasis}${urlID}`}
 									>
 										{el}
 									</Link>
@@ -96,7 +96,7 @@ export default async function Pagination({
 											currentPage === el ? `${styles.link} ${styles.active}` : `${styles.link}`
 										}
 										key={index}
-										href={`${urlBasis}/${el}${urlID}`}
+										href={`${urlBasis}/strona/${el}${urlID}`}
 									>
 										{el}
 									</Link>
@@ -110,7 +110,7 @@ export default async function Pagination({
 											currentPage === el ? `${styles.link} ${styles.active}` : `${styles.link}`
 										}
 										key={index}
-										href={`${urlBasis}/${el}${urlID}`}
+										href={`${urlBasis}/strona/${el}${urlID}`}
 									>
 										{el}
 									</Link>
@@ -123,7 +123,7 @@ export default async function Pagination({
 							<a className={`${styles.not}`}>...</a>
 						)}
 						{(currentPage === 1 || pagesCount - currentPage > 2) && (
-							<Link className={`${styles.link}`} href={`${urlBasis}/${pagesCount}${urlID}`}>
+							<Link className={`${styles.link}`} href={`${urlBasis}/strona/${pagesCount}${urlID}`}>
 								{pagesCount}
 							</Link>
 						)}
@@ -138,8 +138,8 @@ export default async function Pagination({
 				}
 				href={
 					currentPage < pagesCount
-						? `${urlBasis}/${currentPage + 1}${urlID}`
-						: `${urlBasis}/${pagesCount}${urlID}`
+						? `${urlBasis}/strona/${currentPage + 1}${urlID}`
+						: `${urlBasis}/strona/${pagesCount}${urlID}`
 				}
 			>
 				<svg
