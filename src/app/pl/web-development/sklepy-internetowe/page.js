@@ -7,7 +7,7 @@ import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntr
 import Process from "@/app/components/sections/webDevelopmentShoppingSites/Process";
 import Develop from "@/app/components/sections/webDevelopmentShoppingSites/Develop";
 
-export default async function WebDevelopmentShoppingSitesPage() {
+export default async function webDevelopmentShoppingSitesPage() {
 	const {
 		page: {
 			hero_Heading,

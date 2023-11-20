@@ -1,0 +1,91 @@
+.section {
+  h2 {
+    max-width: calc(840rem / 16);
+    margin-bottom: clamp(48px, 48px, 64px);
+  }
+
+  .whatHeading,
+  .whoHeading {
+    font-size: clamp(20px, calc(32vw/7.68), 30px);
+    margin-bottom: clamp(16px, 24px, 32px);
+  }
+
+  .whatList,
+  .whoList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: flex-start;
+    gap: 32px;
+    counter-reset: counter;
+
+    .item {
+      counter-increment: counter;
+      border: 1px solid var(--neutral-800);
+      padding: clamp(24px, 32px, 32px);
+      font-size: clamp(20px, 22px, 22px);
+      position: sticky;
+      top: clamp(16px, 24px, 32px);
+
+      p::before {
+        content: "/0" counter(counter);
+        display: block;
+        margin-bottom: clamp(16px, 24px, 32px);
+      }
+
+      &:nth-child(2) {
+        margin-top: 200px;
+      }
+
+      &:nth-child(3) {
+        margin-top: 400px;
+      }
+    }
+  }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    font-size: clamp(20px, 22px, 22px);
+    margin: clamp(32px, 48px, 64px) 0;
+  }
+
+  .whoAnnotation {
+    font-size: clamp(20px, 22px, 22px);
+    margin-top: clamp(24px, 34px, 48px);
+    max-width: calc(620rem / 16);
+    text-align: right;
+    margin-left: auto;
+  }
+
+  @media (max-width: 999px) {
+
+    .whatList,
+    .whoList {
+      grid-template-columns: 1fr;
+      gap: 24px;
+
+      .item {
+        position: static;
+
+        &:nth-child(2) {
+          margin-top: 0;
+        }
+
+        &:nth-child(3) {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .wrapper {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .whoAnnotation {
+      max-width: unset;
+      text-align: left;
+    }
+  }
+}
