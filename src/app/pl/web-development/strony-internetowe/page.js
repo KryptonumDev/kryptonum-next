@@ -5,9 +5,9 @@ import CaseStudies from "@/app/components/sections/CaseStudies";
 import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
 import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
 import fetchData from "@/utils/fetchData";
-import Pricing from "@/app/components/sections/webDevelopmentSite/Pricing";
-import Process from "@/app/components/sections/webDevelopmentSite/Process";
-import Technology from "@/app/components/sections/webDevelopmentSite/Technology";
+import Pricing from "@/app/components/sections/webDevelopmentWebsites/Pricing";
+import Process from "@/app/components/sections/webDevelopmentWebsites/Process";
+import Technology from "@/app/components/sections/webDevelopmentWebsites/Technology";
 
 export default async function WebDevelopmentWebsitesPage() {
 	const {
