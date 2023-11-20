@@ -51,7 +51,7 @@ const HeroServices = ({
         </nav>
       )}
       {(hero_simpleCtaSection) && (
-        <SimpleCtaSection data={hero_simpleCtaSection} />
+        <SimpleCtaSection data={hero_simpleCtaSection} className={styles.simpleCtaSection}/>
       )}
     </section>
   );
