@@ -1,7 +1,7 @@
 .section {
   header {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto 0fr;
 
     >div:first-child {
       margin-bottom: clamp(28px, calc(40vw/7.68), 72px);
@@ -12,6 +12,9 @@
         p:not(:last-of-type){
           margin-bottom: 1rem;
         }
+      }
+      .cta {
+        margin-top: clamp(24px, calc(48vw/7.68), 48px);
       }
     }
 
@@ -31,7 +34,7 @@
       }
     }
     >img {
-      width:90%;
+      width:unset;
       height:auto;
       object-fit:cover;
       justify-self: flex-end;
@@ -39,12 +42,13 @@
     }
   }
 
-  @media(max-width: 1299px) {
+  @media(max-width: 1409px) {
     header {
       grid-template-columns: 1fr;
       .sideImg {
         width:100%;
         justify-self: center;
+        height:100%;
       }
       .spanWrapper {
         width: fit-content;

@@ -1,10 +1,10 @@
-"use server";
 
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import Img from "@/utils/Img";
 import styles from "./styles.module.scss";
 import Markdown from "@/utils/markdown";
+import Button from "../../atoms/Button";
 
 const Hero = ({
 	data: {
@@ -12,7 +12,8 @@ const Hero = ({
 		subheading,
 		image,
 		sideImage,
-		paragraph
+		paragraph,
+		cta
   },
 	breadcrumbs,
 	isBlogHero = false,
@@ -24,6 +25,9 @@ const Hero = ({
 				<div className={styles.copy}>
 					<DecorativeHeading type="h1">{heading}</DecorativeHeading>
 					{paragraph && <Markdown className={styles.paragraph}>{paragraph}</Markdown>}
+					{cta?.text && (
+          <Button theme={cta.theme} to={cta.href} className={styles.cta}>{cta.text}</Button>
+        )}
 				</div>
 				{sideImage && (
 					<Img
