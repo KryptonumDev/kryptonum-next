@@ -1,11 +1,12 @@
-import HeroServices from "@/app/components/sections/HeroServices";
-import fetchData from "@/utils/fetchData";
-import Advantages from "@/app/components/sections/webDevelopment/Advantages";
-import Flexibility from "@/app/components/sections/webDevelopment/Flexibility";
-import Testimonials from "@/app/components/sections/Testimonials";
+import SEO from "@/app/components/global/Seo";
 import CaseStudies from "@/app/components/sections/CaseStudies";
 import CtaSection from "@/app/components/sections/CtaSection";
+import HeroServices from "@/app/components/sections/HeroServices";
 import ListSection from "@/app/components/sections/ListSection";
+import Testimonials from "@/app/components/sections/Testimonials";
+import Advantages from "@/app/components/sections/webDevelopment/Advantages";
+import Flexibility from "@/app/components/sections/webDevelopment/Flexibility";
+import fetchData from "@/utils/fetchData";
 
 export default async function webDevelopmentPage() {
 	const {
@@ -70,6 +71,17 @@ export default async function webDevelopmentPage() {
 			<CtaSection data={ctaSection} />
 		</>
 	);
+}
+
+export async function generateMetadata() {
+	const {
+		page: { seo },
+	} = await query();
+	return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "",
+	});
 }
 
 const query = async () => {

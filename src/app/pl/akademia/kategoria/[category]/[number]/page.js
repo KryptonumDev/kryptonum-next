@@ -1,12 +1,12 @@
-import { academyItemsPerPage } from "../../../page";
-import fetchData from "@/utils/fetchData";
-import Hero from "@/app/components/sections/Hero";
-import Categories from "@/app/components/sections/Categories";
-import CuriosityEntries from "@/app/components/sections/CuriosityEntries";
-import CtaSection from "@/app/components/sections/CtaSection";
-import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
-import Faq from "@/app/components/sections/Faq";
 import SEO from "@/app/components/global/Seo";
+import Categories from "@/app/components/sections/Categories";
+import CtaSection from "@/app/components/sections/CtaSection";
+import CuriosityEntries from "@/app/components/sections/CuriosityEntries";
+import Faq from "@/app/components/sections/Faq";
+import Hero from "@/app/components/sections/Hero";
+import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
+import fetchData from "@/utils/fetchData";
+import { academyItemsPerPage } from "../../../page";
 
 export async function generateStaticParams() {
 	const { curiosityEntriesCount } = await query();

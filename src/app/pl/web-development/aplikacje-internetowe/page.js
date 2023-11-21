@@ -1,11 +1,12 @@
-import fetchData from "@/utils/fetchData";
-import HeroServices from "@/app/components/sections/HeroServices";
-import Process from "@/app/components/sections/webDevelopmentWebApps/Process";
-import ConsultationForm from "@/app/components/sections/ConsultationForm";
-import Customer from "@/app/components/sections/webDevelopmentWebApps/Customer";
-import CtaSection from "@/app/components/sections/CtaSection";
+import SEO from "@/app/components/global/Seo";
 import CaseStudies from "@/app/components/sections/CaseStudies";
+import ConsultationForm from "@/app/components/sections/ConsultationForm";
+import CtaSection from "@/app/components/sections/CtaSection";
+import HeroServices from "@/app/components/sections/HeroServices";
 import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
+import Customer from "@/app/components/sections/webDevelopmentWebApps/Customer";
+import Process from "@/app/components/sections/webDevelopmentWebApps/Process";
+import fetchData from "@/utils/fetchData";
 
 export default async function webDevelopmentWebAppsPage() {
 	const {
@@ -68,6 +69,17 @@ export default async function webDevelopmentWebAppsPage() {
       <LatestBlogEntries heading={blogEntries_Heading} />
     </>
   );
+}
+
+export async function generateMetadata() {
+	const {
+		page: { seo },
+	} = await query();
+	return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "",
+	});
 }
 
 const query = async () => {

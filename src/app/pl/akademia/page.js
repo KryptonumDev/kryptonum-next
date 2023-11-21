@@ -1,11 +1,11 @@
-import fetchData from "@/utils/fetchData";
-import Hero from "@/app/components/sections/Hero";
+import SEO from "@/app/components/global/Seo";
 import Categories from "@/app/components/sections/Categories";
 import CtaSection from "@/app/components/sections/CtaSection";
-import Faq from "@/app/components/sections/Faq";
 import CuriosityEntries from "@/app/components/sections/CuriosityEntries";
+import Faq from "@/app/components/sections/Faq";
+import Hero from "@/app/components/sections/Hero";
 import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
-import SEO from "@/app/components/global/Seo";
+import fetchData from "@/utils/fetchData";
 
 export default async function academyPage() {
 	const {

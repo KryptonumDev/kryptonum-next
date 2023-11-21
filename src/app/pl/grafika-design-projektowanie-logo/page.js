@@ -1,12 +1,13 @@
-import fetchData from "@/utils/fetchData";
-import HeroServices from "@/app/components/sections/HeroServices";
-import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
-import ConsultationForm from "@/app/components/sections/ConsultationForm";
-import ListSection from "@/app/components/sections/ListSection";
-import CtaSection from "@/app/components/sections/CtaSection";
-import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
+import SEO from "@/app/components/global/Seo";
 import CaseStudies from "@/app/components/sections/CaseStudies";
+import ConsultationForm from "@/app/components/sections/ConsultationForm";
+import CtaSection from "@/app/components/sections/CtaSection";
+import HeroServices from "@/app/components/sections/HeroServices";
+import ListSection from "@/app/components/sections/ListSection";
 import Showcase from "@/app/components/sections/Showcase";
+import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
+import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
+import fetchData from "@/utils/fetchData";
 
 export default async function graphicsAndDesignDesigningLogoPage() {
 	const {
@@ -65,6 +66,17 @@ export default async function graphicsAndDesignDesigningLogoPage() {
 			<LatestBlogEntries heading={blogEntries_Heading} />
 		</>
 	);
+}
+
+export async function generateMetadata() {
+	const {
+		page: { seo },
+	} = await query();
+	return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "",
+	});
 }
 
 const query = async () => {

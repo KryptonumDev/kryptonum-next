@@ -1,13 +1,14 @@
-import HeroServices from "@/app/components/sections/HeroServices";
-import Faq from "@/app/components/sections/Faq";
-import CtaSection from "@/app/components/sections/CtaSection";
+import SEO from "@/app/components/global/Seo";
 import CaseStudies from "@/app/components/sections/CaseStudies";
+import CtaSection from "@/app/components/sections/CtaSection";
+import Faq from "@/app/components/sections/Faq";
+import HeroServices from "@/app/components/sections/HeroServices";
 import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
 import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
-import fetchData from "@/utils/fetchData";
 import Pricing from "@/app/components/sections/webDevelopmentWebsites/Pricing";
 import Process from "@/app/components/sections/webDevelopmentWebsites/Process";
 import Technology from "@/app/components/sections/webDevelopmentWebsites/Technology";
+import fetchData from "@/utils/fetchData";
 
 export default async function WebDevelopmentWebsitesPage() {
 	const {
@@ -79,6 +80,17 @@ export default async function WebDevelopmentWebsitesPage() {
 			<LatestBlogEntries heading={blogEntries_Heading} />
 		</>
 	);
+}
+
+export async function generateMetadata() {
+	const {
+		page: { seo },
+	} = await query();
+	return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "",
+	});
 }
 
 const query = async () => {

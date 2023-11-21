@@ -1,12 +1,9 @@
-import fetchData from "@/utils/fetchData";
-import { blogItemsPerPage } from "../page";
-import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
-import Faq from "@/app/components/sections/Faq";
-import { notFound } from "next/navigation";
-import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
-import EntryHero from "@/app/components/sections/EntryHero";
-import Content from "@/app/components/sections/Content";
 import SEO from "@/app/components/global/Seo";
+import EntryHero from "@/app/components/sections/EntryHero";
+import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
+import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
+import fetchData from "@/utils/fetchData";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
 	const { blogEntriesCount } = await query();

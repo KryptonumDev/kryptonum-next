@@ -1,11 +1,12 @@
-import HeroServices from "@/app/components/sections/HeroServices";
-import fetchData from "@/utils/fetchData";
-import Audit from "@/app/components/sections/graphicsAndDesign/Audit";
-import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
-import MasonryList from "@/app/components/sections/MasonryList";
+import SEO from "@/app/components/global/Seo";
 import CaseStudies from "@/app/components/sections/CaseStudies";
 import CtaSection from "@/app/components/sections/CtaSection";
+import HeroServices from "@/app/components/sections/HeroServices";
+import MasonryList from "@/app/components/sections/MasonryList";
+import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
+import Audit from "@/app/components/sections/graphicsAndDesign/Audit";
 import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
+import fetchData from "@/utils/fetchData";
 
 export default async function graphicsAndDesignPage() {
 	const {
@@ -58,26 +59,37 @@ export default async function graphicsAndDesignPage() {
 					audit_Img,
 				}}
 			/>
-      <SimpleCtaSection data={simpleCtaSection} />
-      <MasonryList
-        heading={digital_Heading}
-        paragraph={digital_Paragraph}
-        paragraph2={digital_Paragraph2}
-        list={digital_List}
-      />
-      <SimpleCtaSection data={simpleCtaSection2} />
-      <MasonryList
-        heading={phisical_Heading}
-        paragraph={phisical_Paragraph}
-        paragraph2={phisical_Paragraph2}
-        list={phisical_List}
-      />
-      <SimpleCtaSection data={simpleCtaSection3} />
-      <CaseStudies heading={caseStudies_Heading} />
-      <CtaSection data={ctaSection} />
-      <LatestBlogEntries heading={blogEntries_Heading} />
+			<SimpleCtaSection data={simpleCtaSection} />
+			<MasonryList
+				heading={digital_Heading}
+				paragraph={digital_Paragraph}
+				paragraph2={digital_Paragraph2}
+				list={digital_List}
+			/>
+			<SimpleCtaSection data={simpleCtaSection2} />
+			<MasonryList
+				heading={phisical_Heading}
+				paragraph={phisical_Paragraph}
+				paragraph2={phisical_Paragraph2}
+				list={phisical_List}
+			/>
+			<SimpleCtaSection data={simpleCtaSection3} />
+			<CaseStudies heading={caseStudies_Heading} />
+			<CtaSection data={ctaSection} />
+			<LatestBlogEntries heading={blogEntries_Heading} />
 		</>
 	);
+}
+
+export async function generateMetadata() {
+	const {
+		page: { seo },
+	} = await query();
+	return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "",
+	});
 }
 
 const query = async () => {

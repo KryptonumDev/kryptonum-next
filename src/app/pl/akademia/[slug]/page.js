@@ -1,26 +1,19 @@
-import fetchData from "@/utils/fetchData";
-import Hero from "@/app/components/sections/Hero";
-import Categories from "@/app/components/sections/Categories";
-import CtaSection from "@/app/components/sections/CtaSection";
-import Faq from "@/app/components/sections/Faq";
-import CuriosityEntries from "@/app/components/sections/CuriosityEntries";
-import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
-import { notFound } from "next/navigation";
-import { academyItemsPerPage } from "../page";
+import SEO from "@/app/components/global/Seo";
+import ConsultationForm from "@/app/components/sections/ConsultationForm";
 import EntryHero from "@/app/components/sections/EntryHero";
+import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
+import ColumnText from "@/app/components/sections/academyEntry/ColumnText";
+import ExtendedList from "@/app/components/sections/academyEntry/ExtendedList";
+import Highlight from "@/app/components/sections/academyEntry/Highlight";
 import ImageAndStandout from "@/app/components/sections/academyEntry/ImageAndStandout";
 import KeyElements from "@/app/components/sections/academyEntry/KeyElements";
-import Highlight from "@/app/components/sections/academyEntry/Highlight";
-import Note from "@/app/components/sections/academyEntry/Note";
-import Tiles from "@/app/components/sections/academyEntry/Tiles";
 import LargeList from "@/app/components/sections/academyEntry/LargeList";
-import ColumnText from "@/app/components/sections/academyEntry/ColumnText";
-import ConsultationForm from "@/app/components/sections/ConsultationForm";
+import Note from "@/app/components/sections/academyEntry/Note";
 import Share from "@/app/components/sections/academyEntry/Share";
 import Sources from "@/app/components/sections/academyEntry/Sources";
-import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
-import ExtendedList from "@/app/components/sections/academyEntry/ExtendedList";
-import SEO from "@/app/components/global/Seo";
+import Tiles from "@/app/components/sections/academyEntry/Tiles";
+import fetchData from "@/utils/fetchData";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
 	const { curiosityEntriesCount } = await query();
