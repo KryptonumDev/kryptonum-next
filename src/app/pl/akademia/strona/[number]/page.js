@@ -64,14 +64,14 @@ export default async function academyPaginationPage({ params: { number } }) {
 }
 
 export async function generateMetadata({params: {number}}) {
-  const {
-    page: { seo },
-  } = await query(number);
+  const data = await query(number);
+  if (data) {
   return SEO({
-		title: seo?.title,
-		description: seo?.description,
+		title: data.page.seo?.title,
+		description: data.page.seo?.description,
 		url: "",
 	});
+}
 }
 
 const query = async (number) => {

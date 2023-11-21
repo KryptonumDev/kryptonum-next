@@ -13,44 +13,46 @@ export async function generateStaticParams() {
 }
 
 export default async function blogSlugPage({ params }) {
-	const {
-		page: { title, subtitle, categories, _createdAt, img, contentRaw, author, seo, slug },
-	} = await query(params.slug);
-
-	if (params.slug == slug.current) {
-		return (
-			<>
-				<EntryHero
-					title={title}
-					subtitle={subtitle}
-					categories={categories}
-					categorySlug="/pl/blog/kategoria/"
-					_createdAt={_createdAt}
-					img={img}
-				/>
-				{/* <Content
+	const data = await query(params.slug);
+	if (data.page) {
+		const page = data.page;
+		if (params.slug == page.slug.current) {
+			return (
+				<>
+					<EntryHero
+						title={page.title}
+						subtitle={page.subtitle}
+						categories={page.categories}
+						categorySlug="/pl/blog/kategoria/"
+						_createdAt={page._createdAt}
+						img={page.img}
+					/>
+					{/* <Content
         _rawContent={contentRaw}
         author={author}
         share={seo}
       /> */}
-				<LatestBlogEntries exclude={params.slug} />
-				<LatestCuriosityEntries />
-			</>
-		);
+					<LatestBlogEntries exclude={params.slug} />
+					<LatestCuriosityEntries />
+				</>
+			);
+		} else {
+			notFound();
+		}
 	} else {
 		notFound();
 	}
 }
 
 export async function generateMetadata({ params: { slug } }) {
-	const {
-		page: { seo },
-	} = await query(slug);
-	return SEO({
-		title: seo?.title,
-		description: seo?.description,
-		url: "",
-	});
+	const data = await query(slug);
+	if (data) {
+		return SEO({
+			title: data.page.seo?.title,
+			description: data.page.seo?.description,
+			url: "",
+		});
+	}
 }
 
 const query = async (slug) => {
