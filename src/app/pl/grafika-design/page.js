@@ -7,7 +7,7 @@ import CaseStudies from "@/app/components/sections/CaseStudies";
 import CtaSection from "@/app/components/sections/CtaSection";
 import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
 
-export default async function GraphicsAndDesignPage() {
+export default async function graphicsAndDesignPage() {
 	const {
 		page: {
 			hero_Heading,
