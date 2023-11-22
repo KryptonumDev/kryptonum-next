@@ -4,6 +4,7 @@ import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
 import Document from "@/app/components/sections/workshop/Document";
 import Why from "@/app/components/sections/workshop/Why";
 import fetchData from "@/utils/fetchData";
+import SEO from "@/app/components/global/Seo";
 
 export default async function discoveryWorkshopsPage() {
 	const {
@@ -57,6 +58,17 @@ export default async function discoveryWorkshopsPage() {
       <SimpleCtaSection data={document_SimpleCtaSection} />
     </>
   );
+}
+
+export async function generateMetadata() {
+	const {
+		page: { seo },
+	} = await query();
+	return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "/pl/warsztaty-discovery",
+	});
 }
 
 const query = async () => {
