@@ -4,7 +4,7 @@
 
   .type {
     &:not(:last-child) {
-      margin-bottom: calc(48px + (82 - 48) * ((100vw - 550px) / (899 - 550)));
+      margin-bottom: clamp(48px, calc(82vw/7.68), 110px);
     }
 
     header {
@@ -17,11 +17,11 @@
       }
 
       h2 {
-        margin-bottom: calc(28px + (48 - 28) * ((100vw - 550px) / (899 - 550)));
+        margin-bottom: clamp(28px, calc(48vw/7.68), 48px);
       }
 
       .paragraph {
-        font-size: clamp(20px, 32px, 30px);
+        font-size: clamp(20px, calc(32vw/7.68), 30px);
 
         &+p {
           margin-top: 8px;
@@ -30,7 +30,7 @@
     }
 
     .list {
-      font-size: clamp(16px, 22px, 22px);
+      font-size: clamp(16px, calc(22vw/7.68), 22px);
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
 
@@ -38,9 +38,9 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      gap: clamp(16px, 24px, 32px);
+      gap: clamp(16px, calc(24vw/7.68), 32px);
       list-style-type: none;
-      margin-top: clamp(24px, 32px, 48px);
+      margin-top: clamp(24px, calc(32vw/7.68), 48px);
 
       li {
         display: grid;
