@@ -1,13 +1,13 @@
 .section {
   h2 {
     max-width: calc(840rem / 16);
-    margin-bottom: clamp(48px, 48px, 64px);
+    margin-bottom: clamp(48px, calc(48vw/7.68), 48px);
   }
 
   .whatHeading,
   .whoHeading {
-    font-size: clamp(20px, calc(32vw/7.68), 30px);
-    margin-bottom: clamp(16px, 24px, 32px);
+    font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(30rem/16));
+    margin-bottom: clamp(16px, calc(24vw/7.68), 32px);
   }
 
   .whatList,
@@ -21,15 +21,15 @@
     .item {
       counter-increment: counter;
       border: 1px solid var(--neutral-800);
-      padding: clamp(24px, 32px, 32px);
-      font-size: clamp(20px, 22px, 22px);
+      padding: clamp(24px, calc(32vw/7.68), 32px);
+      font-size: clamp(20px, calc(22vw/7.68), 22px);
       position: sticky;
-      top: clamp(16px, 24px, 32px);
+      top: clamp(16px, calc(24vw/7.68), 32px);
 
       p::before {
         content: "/0" counter(counter);
         display: block;
-        margin-bottom: clamp(16px, 24px, 32px);
+        margin-bottom: clamp(16px, (24vw/7.68), 32px);
       }
 
       &:nth-child(2) {
@@ -46,13 +46,13 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
-    font-size: clamp(20px, 22px, 22px);
-    margin: clamp(32px, 48px, 64px) 0;
+    font-size: clamp(calc(20rem/16), calc(22vw/7.68), calc(22rem/16));
+    margin: clamp(32px, calc(48vw/7.68), 64px) 0; 
   }
 
   .whoAnnotation {
-    font-size: clamp(20px, 22px, 22px);
-    margin-top: clamp(24px, 34px, 48px);
+    font-size: clamp(calc(20rem/16), calc(22vw/7.68), calc(22rem/16));
+    margin-top: clamp(24px, calc(34vw/7.68), 48px);
     max-width: calc(620rem / 16);
     text-align: right;
     margin-left: auto;
