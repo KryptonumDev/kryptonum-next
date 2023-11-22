@@ -1,3 +1,4 @@
+import SEO from "@/app/components/global/Seo";
 import CaseStudies from "@/app/components/sections/CaseStudies";
 import ConsultationForm from "@/app/components/sections/ConsultationForm";
 import CtaSection from "@/app/components/sections/CtaSection";
@@ -7,7 +8,6 @@ import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
 import UxAudit from "@/app/components/sections/graphicsAndDesign/UxAudit";
 import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
 import fetchData from "@/utils/fetchData";
-
 
 export default async function graphicsAndDesignAuditPage() {
 	const {
@@ -101,6 +101,17 @@ export default async function graphicsAndDesignAuditPage() {
       <LatestBlogEntries heading={blogEntries_Heading} />
     </>
   );
+}
+
+export async function generateMetadata() {
+	const {
+		page: { seo },
+	} = await query();
+	return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "/pl/grafika-design/audyt-ux-ui",
+	});
 }
 
 const query = async () => {
