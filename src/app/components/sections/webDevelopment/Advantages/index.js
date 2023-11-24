@@ -1,4 +1,3 @@
-"use server";
 import SimpleCtaSection from "../../SimpleCtaSection";
 import AdvantagesClient from "../../client/AdvantagesClient";
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";

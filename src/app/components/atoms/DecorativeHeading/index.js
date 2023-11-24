@@ -1,4 +1,3 @@
-'use server'
 import Markdown from "@/utils/markdown";
 import { HeadingDecoration, HeadingLineFlexibility } from "../Icons";
 import styles from "./styles.module.scss";

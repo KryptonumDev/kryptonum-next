@@ -1,5 +1,3 @@
-"use server";
-
 import fetchData from "@/utils/fetchData";
 import IconTitleDescriptionListSection from "@/app/components/sections/IconTitleDescriptionListSection";
 import CentralizedHeadingSection from "@/app/components/sections/CentralizedHeadingSection";

@@ -1,0 +1,144 @@
+.nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 920px) {
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  @media (max-width: 680px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .line {
+    position: absolute;
+    z-index: -1;
+    left: 60px;
+    right: 60px;
+    top: 30px;
+    background: var(--neutral-800);
+    height: 4px;
+
+    @media (max-width: 920px) {
+      width: 4px;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+    }
+
+    @media (max-width: 680px) {
+      display: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      transition: all .3s var(--easing);
+      background: var(--gradient);
+      width: var(--step-width);
+      max-width: 100%;
+
+      @media (max-width: 920px) {
+        height: var(--step-width);
+        width: 100%;
+      }
+    }
+  }
+
+  .steps {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 920px) {
+      flex-direction: row;
+    }
+
+    @media (max-width: 680px) {
+      display: none;
+    }
+
+    span {
+      font-size: clamp(1rem, calc(16vw/10.24), 1.25rem);
+      font-weight: 700;
+
+      color: #5B5F67;
+      transition: background .3s var(--easing);
+    }
+
+    svg {
+      linearGradient {
+        stop {
+          stopColor: var(--neutral-700, #5B5F67);
+          transition: stopColor .3s var(--easing);
+        }
+      }
+    }
+
+    
+  }
+
+  @media(max-width: 680px) {
+    .next {
+      display: flex;
+      flex-direction: row-reverse;
+      text-align: right;
+      color: var(--neutral-700);
+
+      svg {
+        display: none;
+      }
+    }
+    .display {
+      display: flex;
+    }
+  }
+
+  .complete {
+    span {
+      color: #EFF0F3 !important;
+      font-weight: 500;
+
+      &.name {
+        font-weight: 700;
+        background: -webkit-linear-gradient(0deg, #90F4E8, #2DD282);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+    svg {
+      linearGradient {
+        stop {
+
+          &:first-child {
+            stopColor: #2DD282;
+          }
+
+          &:last-child {
+            stopColor: #90F4E8;
+          }
+        }
+      }
+    }
+  }
+
+  .step {
+    display: none;
+
+    @media (max-width: 680px) {
+      display: block;
+    }
+  }
+}

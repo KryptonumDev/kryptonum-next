@@ -2,7 +2,9 @@
   position: relative;
   display: flex;
   gap: 12px;
-
+  padding: 16px clamp(8px, calc(16vw/7.68), 20px);
+  background: var(--neutral-900);
+  border: 1px solid var(--neutral-800);
   border-radius: 2px;
   transition: border-color .3s var(--easing);
   cursor: pointer;

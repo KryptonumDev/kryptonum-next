@@ -1,5 +1,3 @@
-'use server'
-
 import styles from './styles.module.scss'
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import Button from '../../atoms/Button';

@@ -1,4 +1,3 @@
-'use server'
 import Button from "@/components/atoms/Button";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import Markdown from "@/utils/markdown";

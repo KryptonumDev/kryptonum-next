@@ -1,5 +1,3 @@
-"use server";
-
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import ListSectionClient from "../client/ListSectionClient";
 import styles from "./styles.module.scss";

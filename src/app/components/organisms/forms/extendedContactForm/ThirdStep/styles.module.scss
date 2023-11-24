@@ -1,0 +1,66 @@
+.form {
+  display: grid;
+  gap: 24px;
+
+  h2{
+    font-size: 2rem;
+    margin-top: 16px;
+  }
+
+  button{
+    max-width: 400px;
+  }
+
+  .divider{
+    border-color: #212123;
+    margin-bottom: 24px;
+  }
+
+  .checkGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 24px 0;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .designGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+    }
+
+    div:first-child{
+      grid-column-start: 1;
+      grid-column-end: 3;
+
+      @media (max-width: 1024px) {
+        grid-column-end: 2;
+      }
+
+      h3{
+        margin: 40px 0 32px;
+        font-size: 1.375rem;
+      }
+
+      label{
+        max-width: unset;
+        margin-top: 24px;
+
+        &:last-child{
+          margin-top: 42px;
+        }
+
+        &:first-child{
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+}
