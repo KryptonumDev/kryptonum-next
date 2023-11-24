@@ -4,7 +4,7 @@ import CtaSection from "@/app/components/sections/CtaSection";
 import CuriosityEntries from "@/app/components/sections/CuriosityEntries";
 import Faq from "@/app/components/sections/Faq";
 import Hero from "@/app/components/sections/Hero";
-import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
+import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
 import fetchData from "@/utils/fetchData";
 
 export default async function academyPage() {
@@ -12,7 +12,8 @@ export default async function academyPage() {
 		page: { hero_Heading, hero_Paragraph, hero_Img, ctaSection },
 		curiosityCategories,
 		curiosityEntries,
-    curiosityEntriesCount
+    curiosityEntriesCount,
+    blogEntries
 	} = await query();
 	return (
 		<>
@@ -36,7 +37,7 @@ export default async function academyPage() {
         itemsPerPage={academyItemsPerPage}
 			/>
 			<CtaSection data={ctaSection} />
-			<LatestBlogEntries />
+			<LatestBlogEntries data={blogEntries}/>
 			<Faq />
 		</>
 	);
@@ -139,6 +140,53 @@ const query = async () => {
   }
   curiosityEntriesCount: allCuriosityEntries {
     _type
+  }
+  blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+    title
+    subtitle
+    slug {
+      current
+    }
+    author {
+      name
+      slug {
+        current
+      }
+      img {
+        asset {
+          altText
+          url
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
+          }
+        }
+      }
+    }
+    categories {
+      name
+      slug {
+        current
+      }
+    }
+    _createdAt
+    contentRaw
+    img {
+      asset {
+        altText
+        url
+        metadata {
+          lqip
+          dimensions {
+            height
+            width
+          }
+        }
+      }
+    }
   }
   `);
 	return data;

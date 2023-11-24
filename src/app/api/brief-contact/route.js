@@ -15,7 +15,7 @@ const headers = {
 export async function POST(req) {
 	const data = await req.json();
 	sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-  
+
 	if (
 		!isValidEmail(data.Client["e-mail"]) ||
 		data.Client.name.trim().length === 0 ||
@@ -133,11 +133,9 @@ export async function POST(req) {
       `,
 	};
 	try {
-		//await sgMail.send(message);
-    console.log("message sent");
+		await sgMail.send(message);
 		return NextResponse.json({ success: true }, { status: 200 }, { headers });
 	} catch (error) {
-    console.log(error);
 		return NextResponse.json({ success: false }, { status: 500 }, { headers });
 	}
 }

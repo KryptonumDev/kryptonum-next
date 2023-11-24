@@ -3,7 +3,7 @@ import CaseStudies from "@/app/components/sections/CaseStudies";
 import ConsultationForm from "@/app/components/sections/ConsultationForm";
 import CtaSection from "@/app/components/sections/CtaSection";
 import HeroServices from "@/app/components/sections/HeroServices";
-import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
+import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
 import Customer from "@/app/components/sections/webDevelopmentWebApps/Customer";
 import Process from "@/app/components/sections/webDevelopmentWebApps/Process";
 import fetchData from "@/utils/fetchData";
@@ -35,40 +35,47 @@ export default async function webDevelopmentWebAppsPage() {
 			caseStudies_Heading,
 			blogEntries_Heading,
 		},
+		blogEntries,
 	} = await query();
-  return (
-    <>
-      <HeroServices data={{
-        hero_Heading,
-        hero_Annotation,
-        hero_Paragraph,
-        hero_SecondParagraph,
-        hero_Img,
-        hero_CtaHeading,
-        hero_Cta
-      }} />
-      <Process data={{
-        process_Heading,
-        process_Paragraph,
-        process_SecondParagraph,
-        process_List
-      }} />
-      <ConsultationForm data={quickForm} />
-      <Customer data={{
-        customer_Heading,
-        customer_WhatHeading,
-        customer_WhatList,
-        customer_WhatParagraph,
-        customer_WhatSecondParagraph,
-        customer_WhoHeading,
-        customer_WhoList,
-        customer_WhoAnnotation,
-      }} />
-      <CtaSection data={ctaSection} />
-      <CaseStudies heading={caseStudies_Heading} />
-      <LatestBlogEntries heading={blogEntries_Heading} />
-    </>
-  );
+	return (
+		<>
+			<HeroServices
+				data={{
+					hero_Heading,
+					hero_Annotation,
+					hero_Paragraph,
+					hero_SecondParagraph,
+					hero_Img,
+					hero_CtaHeading,
+					hero_Cta,
+				}}
+			/>
+			<Process
+				data={{
+					process_Heading,
+					process_Paragraph,
+					process_SecondParagraph,
+					process_List,
+				}}
+			/>
+			<ConsultationForm data={quickForm} />
+			<Customer
+				data={{
+					customer_Heading,
+					customer_WhatHeading,
+					customer_WhatList,
+					customer_WhatParagraph,
+					customer_WhatSecondParagraph,
+					customer_WhoHeading,
+					customer_WhoList,
+					customer_WhoAnnotation,
+				}}
+			/>
+			<CtaSection data={ctaSection} />
+			<CaseStudies heading={caseStudies_Heading} />
+			<LatestBlogEntries heading={blogEntries_Heading} data={blogEntries}/>
+		</>
+	);
 }
 
 export async function generateMetadata() {
@@ -193,6 +200,53 @@ page: WebDevelopmentPwa(id: "webDevelopment_Pwa") {
   seo {
     title
     description
+  }
+}
+blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+  title
+  subtitle
+  slug {
+    current
+  }
+  author {
+    name
+    slug {
+      current
+    }
+    img {
+      asset {
+        altText
+        url
+        metadata {
+          lqip
+          dimensions {
+            height
+            width
+          }
+        }
+      }
+    }
+  }
+  categories {
+    name
+    slug {
+      current
+    }
+  }
+  _createdAt
+  contentRaw
+  img {
+    asset {
+      altText
+      url
+      metadata {
+        lqip
+        dimensions {
+          height
+          width
+        }
+      }
+    }
   }
 }`);
 	return data;

@@ -4,7 +4,7 @@ import CtaSection from "@/app/components/sections/CtaSection";
 import CuriosityEntries from "@/app/components/sections/CuriosityEntries";
 import Faq from "@/app/components/sections/Faq";
 import Hero from "@/app/components/sections/Hero";
-import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
+import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
 import fetchData from "@/utils/fetchData";
 import { academyItemsPerPage } from "../../../page";
 
@@ -40,7 +40,8 @@ export default async function academyCategoryPaginationPage({params: {category, 
     curiosityEntries,
     curiosityCategory: { slug, hero_Heading, hero_Paragraph, hero_Img },
     curiosityCategories,
-    curiosityEntriesCount
+    curiosityEntriesCount,
+    blogEntries
   } = await query(category, id, number);
 
   return (
@@ -66,7 +67,7 @@ export default async function academyCategoryPaginationPage({params: {category, 
         itemsPerPage={academyItemsPerPage}
       />
       <CtaSection data={ctaSection} />
-      <LatestBlogEntries />
+      <LatestBlogEntries data={blogEntries}/>
       <Faq />
     </>
   )
@@ -208,6 +209,53 @@ const query = async(category, id, number) => {
     categories {
       slug {
         current
+      }
+    }
+  }
+  blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+    title
+    subtitle
+    slug {
+      current
+    }
+    author {
+      name
+      slug {
+        current
+      }
+      img {
+        asset {
+          altText
+          url
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
+          }
+        }
+      }
+    }
+    categories {
+      name
+      slug {
+        current
+      }
+    }
+    _createdAt
+    contentRaw
+    img {
+      asset {
+        altText
+        url
+        metadata {
+          lqip
+          dimensions {
+            height
+            width
+          }
+        }
       }
     }
   }`);

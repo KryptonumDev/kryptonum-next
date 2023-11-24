@@ -1,7 +1,7 @@
 import SEO from "@/app/components/global/Seo";
 import EntryHero from "@/app/components/sections/EntryHero";
+import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
 import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
-import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
 import fetchData from "@/utils/fetchData";
 import { notFound } from "next/navigation";
 
@@ -32,7 +32,7 @@ export default async function blogSlugPage({ params }) {
         author={author}
         share={seo}
       /> */}
-					<LatestBlogEntries exclude={params.slug} />
+					<LatestBlogEntries exclude={params.slug} data={data.blogEntries} />
 					<LatestCuriosityEntries />
 				</>
 			);
@@ -125,6 +125,53 @@ const query = async (slug) => {
     slug
     {
       current
+    }
+  }
+  blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+    title
+    subtitle
+    slug {
+      current
+    }
+    author {
+      name
+      slug {
+        current
+      }
+      img {
+        asset {
+          altText
+          url
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
+          }
+        }
+      }
+    }
+    categories {
+      name
+      slug {
+        current
+      }
+    }
+    _createdAt
+    contentRaw
+    img {
+      asset {
+        altText
+        url
+        metadata {
+          lqip
+          dimensions {
+            height
+            width
+          }
+        }
+      }
     }
   }
   `);

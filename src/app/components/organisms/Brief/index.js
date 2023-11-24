@@ -27,10 +27,8 @@ const Brief = ({ data }) => {
 				.then((response) => response.json())
 				.then((response) => {
 					if (response.success) {
-						console.log("Im here!");
 						setIsEmailSent("success");
 					} else {
-						console.log("IM there!")
 						setIsEmailSent("failed");
 					}
 				})
@@ -119,6 +117,7 @@ const Brief = ({ data }) => {
 					<Summary
 						name={formData?.Client?.name}
 						endTime={endTime}
+						blogEntries = {data.blogEntries}
 					/>
 				</motion.div>
 			)}

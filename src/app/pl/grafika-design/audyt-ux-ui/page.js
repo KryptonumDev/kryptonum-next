@@ -4,9 +4,9 @@ import ConsultationForm from "@/app/components/sections/ConsultationForm";
 import CtaSection from "@/app/components/sections/CtaSection";
 import HeroServices from "@/app/components/sections/HeroServices";
 import ImageAndStandout from "@/app/components/sections/ImageAndStandout";
+import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
 import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
 import UxAudit from "@/app/components/sections/graphicsAndDesign/UxAudit";
-import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
 import fetchData from "@/utils/fetchData";
 
 export default async function graphicsAndDesignAuditPage() {
@@ -48,7 +48,8 @@ export default async function graphicsAndDesignAuditPage() {
 			caseStudies_Heading,
 			ctaSection,
 			blogEntries_Heading,
-		}} = await query();
+		},blogEntries
+  } = await query();
   return (
     <>
       <HeroServices data={{
@@ -98,7 +99,7 @@ export default async function graphicsAndDesignAuditPage() {
       />
       <CaseStudies heading={caseStudies_Heading} />
       <CtaSection data={ctaSection} />
-      <LatestBlogEntries heading={blogEntries_Heading} />
+      <LatestBlogEntries heading={blogEntries_Heading} data={blogEntries} />
     </>
   );
 }
@@ -234,6 +235,53 @@ const query = async () => {
     seo {
       title
       description
+    }
+  }
+  blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+    title
+    subtitle
+    slug {
+      current
+    }
+    author {
+      name
+      slug {
+        current
+      }
+      img {
+        asset {
+          altText
+          url
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
+          }
+        }
+      }
+    }
+    categories {
+      name
+      slug {
+        current
+      }
+    }
+    _createdAt
+    contentRaw
+    img {
+      asset {
+        altText
+        url
+        metadata {
+          lqip
+          dimensions {
+            height
+            width
+          }
+        }
+      }
     }
   }
   `);

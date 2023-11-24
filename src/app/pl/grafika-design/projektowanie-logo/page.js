@@ -3,10 +3,10 @@ import CaseStudies from "@/app/components/sections/CaseStudies";
 import ConsultationForm from "@/app/components/sections/ConsultationForm";
 import CtaSection from "@/app/components/sections/CtaSection";
 import HeroServices from "@/app/components/sections/HeroServices";
+import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
 import ListSection from "@/app/components/sections/ListSection";
 import Showcase from "@/app/components/sections/Showcase";
 import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
-import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
 import fetchData from "@/utils/fetchData";
 
 export default async function graphicsAndDesignDesigningLogoPage() {
@@ -32,6 +32,7 @@ export default async function graphicsAndDesignDesigningLogoPage() {
 			ctaSection,
 			blogEntries_Heading,
 		},
+    blogEntries
 	} = await query();
 	return (
 		<>
@@ -63,7 +64,7 @@ export default async function graphicsAndDesignDesigningLogoPage() {
 			/>
 			<CaseStudies heading={caseStudies_Heading} />
 			<CtaSection data={ctaSection} />
-			<LatestBlogEntries heading={blogEntries_Heading} />
+			<LatestBlogEntries heading={blogEntries_Heading} data={blogEntries}/>
 		</>
 	);
 }
@@ -174,6 +175,53 @@ const query = async () => {
     seo {
       title
       description
+    }
+  }
+  blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+    title
+    subtitle
+    slug {
+      current
+    }
+    author {
+      name
+      slug {
+        current
+      }
+      img {
+        asset {
+          altText
+          url
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
+          }
+        }
+      }
+    }
+    categories {
+      name
+      slug {
+        current
+      }
+    }
+    _createdAt
+    contentRaw
+    img {
+      asset {
+        altText
+        url
+        metadata {
+          lqip
+          dimensions {
+            height
+            width
+          }
+        }
+      }
     }
   }`);
 	return data;

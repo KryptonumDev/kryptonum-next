@@ -3,8 +3,8 @@ import CaseStudies from "@/app/components/sections/CaseStudies";
 import CtaSection from "@/app/components/sections/CtaSection";
 import Faq from "@/app/components/sections/Faq";
 import HeroServices from "@/app/components/sections/HeroServices";
+import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
 import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
-import LatestBlogEntries from "@/app/components/sections/homepage/LatestBlogEntries";
 import Pricing from "@/app/components/sections/webDevelopmentWebsites/Pricing";
 import Process from "@/app/components/sections/webDevelopmentWebsites/Process";
 import Technology from "@/app/components/sections/webDevelopmentWebsites/Technology";
@@ -36,6 +36,7 @@ export default async function WebDevelopmentWebsitesPage() {
 			simpleCtaSection,
 			blogEntries_Heading,
 		},
+    blogEntries
 	} = await query();
 	return (
 		<>
@@ -77,7 +78,7 @@ export default async function WebDevelopmentWebsitesPage() {
 			/>
 			<CaseStudies heading={caseStudies_Heading} />
 			<SimpleCtaSection data={simpleCtaSection} />
-			<LatestBlogEntries heading={blogEntries_Heading} />
+			<LatestBlogEntries heading={blogEntries_Heading} data={blogEntries} />
 		</>
 	);
 }
@@ -247,6 +248,53 @@ const query = async () => {
     seo {
       title
       description
+    }
+  }
+  blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+    title
+    subtitle
+    slug {
+      current
+    }
+    author {
+      name
+      slug {
+        current
+      }
+      img {
+        asset {
+          altText
+          url
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
+          }
+        }
+      }
+    }
+    categories {
+      name
+      slug {
+        current
+      }
+    }
+    _createdAt
+    contentRaw
+    img {
+      asset {
+        altText
+        url
+        metadata {
+          lqip
+          dimensions {
+            height
+            width
+          }
+        }
+      }
     }
   }
   `);

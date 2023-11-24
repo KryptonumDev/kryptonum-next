@@ -1,11 +1,11 @@
-import fetchData from "@/utils/fetchData";
+import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
 import Team from "@/app/components/sections/Team";
 import SEO from "@/components/global/Seo";
 import Creativity from "@/components/sections/homepage/Creativity";
 import FourGrid from "@/components/sections/homepage/FourGrid";
 import Hero from "@/components/sections/homepage/Hero";
-import LatestBlogEntries from "@/components/sections/homepage/LatestBlogEntries";
 import Roadmap from "@/components/sections/homepage/Roadmap";
+import fetchData from "@/utils/fetchData";
 import Testimonials from "../components/sections/Testimonials";
 
 export async function generateMetadata() {
@@ -51,6 +51,7 @@ const PolishIndexPage = async () => {
 		agency,
 		graphicsAndDesign,
 		testimonials,
+    blogEntries
 	} = await query();
 
 	return (
@@ -87,7 +88,7 @@ const PolishIndexPage = async () => {
 			<Roadmap heading={roadmap_Heading} list={roadmap_Process} cta={roadmap_Cta}/>
 			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
 			<Testimonials testimonials={testimonials}/>
-			<LatestBlogEntries />
+			<LatestBlogEntries data={blogEntries}/>
 		</>
 	);
 };
@@ -244,6 +245,53 @@ const query = async () => {
         text
         href
       }
+      img {
+        asset {
+          altText
+          url
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
+          }
+        }
+      }
+    }
+    blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+      title
+      subtitle
+      slug {
+        current
+      }
+      author {
+        name
+        slug {
+          current
+        }
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+      }
+      categories {
+        name
+        slug {
+          current
+        }
+      }
+      _createdAt
+      contentRaw
       img {
         asset {
           altText

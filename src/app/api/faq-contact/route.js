@@ -35,7 +35,7 @@ export async function POST(req) {
       `,
 	};
 	try {
-		//await sgMail.send(message);
+		await sgMail.send(message);
 		return NextResponse.json({ success: true }, { status: 200 }, { headers });
 	} catch (error) {
 		return NextResponse.json({ success: false }, { status: 500 }, { headers });
