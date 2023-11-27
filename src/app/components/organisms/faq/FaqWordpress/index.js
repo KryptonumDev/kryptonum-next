@@ -22,16 +22,12 @@ const FaqWordpress = ({
 			<div className={styles.secondParagraph}>
 				<Markdown>{secondParagraph}</Markdown>
 				{cta?.text && (
-					<Button theme={cta.theme} to={cta.href} className={styles.cta}>
-						{cta.text}
-					</Button>
+					<Button data={cta}className={styles.cta}/>
 				)}
 			</div>
 			<div className={styles.summary}>
 				<Markdown>{summary}</Markdown>
-				<Button theme={summaryCta.theme} to={summaryCta.href} className={styles.cta}>
-					{summaryCta.text}
-				</Button>
+				<Button data={summaryCta}className={styles.cta}/>
 			</div>
 		</section>
 	);

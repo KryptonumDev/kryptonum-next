@@ -28,13 +28,9 @@ const FaqTime = ({
 					{heading}
 				</Markdown>
 				<Markdown className={styles.paragraph}>{paragraph}</Markdown>
-				<Button
-					theme={cta.theme}
-					to={cta.href}
+				<Button data={cta}
 					className={styles.cta}
-				>
-					{cta.text}
-				</Button>
+				/>
 			</div>
 			<p className={styles.listHeading}>{listHeading}</p>
 			<ul className={styles.list}>

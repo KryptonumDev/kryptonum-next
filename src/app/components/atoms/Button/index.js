@@ -6,16 +6,16 @@ const Button = ({
   data,
   theme = "secondary",
   children,
-  to, 
+  href, 
   className, 
   ...props }) => {
   if (data) {
     theme = data.theme;
-    to = data.href;
+    href = data.href;
     children = data.text;
   }
 
-  const isExternal = to && to.startsWith('https://');
+  const isExternal = href && href.startsWith('https://');
   
   const linkClassName = `${styles.wrapper} ${isExternal ? '' : 'cta'} ${
     theme === "secondary" ? styles.secondary : styles.primary
@@ -23,11 +23,11 @@ const Button = ({
 
   return (
     <>
-      {to ? (
+      {href ? (
         isExternal ? (
           <a
             className={linkClassName}
-            href={to}
+            href={href}
             target="_blank"
             rel="noreferrer"
             {...props}
@@ -38,7 +38,7 @@ const Button = ({
         ) : (
           <Link
             className={linkClassName}
-            href={to}
+            href={href}
             {...props}
           >
             <span data-text={theme === "secondary" ? children : undefined}>{children}</span>

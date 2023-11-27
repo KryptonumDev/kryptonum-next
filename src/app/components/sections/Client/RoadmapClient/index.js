@@ -52,9 +52,7 @@ const RoadmapClient = ({
 							<h3>{item.title}</h3>
 							<p>{item.description}</p>
 							{i + 1 === list.length && cta?.text && (
-								<Button to={cta.href} theme={cta.theme} className={`${styles.cta} cta`}>
-									{cta.text}
-								</Button>
+								<Button data={cta} className={`${styles.cta} cta`}/>
 							)}
 						</div>
 					))}

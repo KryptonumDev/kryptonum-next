@@ -20,7 +20,7 @@ const CuriosityEntry = ({ data }) => {
         </div>
         <h3 className={styles.title}>{removeMarkdown(data.title)}</h3>
         <p className={styles.subtitle}>{removeMarkdown(data.subtitle)}</p>
-        <Button theme="secondary" to={`/pl/akademia/${data.slug.current}`}>Czytaj więcej</Button>
+        <Button theme="secondary" href={`/pl/akademia/${data.slug.current}`}>Czytaj więcej</Button>
       </div>
     </div>
   );

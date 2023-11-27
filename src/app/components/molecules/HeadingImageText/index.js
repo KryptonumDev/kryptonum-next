@@ -35,7 +35,7 @@ const HeadingImageText = ({
 						<Markdown
 							components={{
 								a: ({ href, children }) =>
-									isExternal ? <Button children={children} to={href} /> : <Link href={href} />,
+									isExternal ? <Button children={children} href={href} /> : <Link href={href} />,
 							}}
 							key={index}
 						>

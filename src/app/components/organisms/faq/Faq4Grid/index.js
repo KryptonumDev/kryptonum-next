@@ -20,7 +20,7 @@ const Faq4Grid = ({
       <div className={styles.secondParagraph}>
         <Markdown>{secondParagraph}</Markdown>
         {cta?.text && (
-          <Button theme={cta.theme} to={cta.href} className={styles.cta}>{cta.text}</Button>
+          <Button data={cta}className={styles.cta}/>
         )}
       </div>
     </section>

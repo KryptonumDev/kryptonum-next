@@ -1,4 +1,3 @@
-
 import DecorativeHeading from "@/app/components/atoms/DecorativeHeading";
 import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import Img from "@/utils/Img";
@@ -7,14 +6,7 @@ import Markdown from "@/utils/markdown";
 import Button from "../../atoms/Button";
 
 const Hero = ({
-	data: {
-		heading, 
-		subheading,
-		image,
-		sideImage,
-		paragraph,
-		cta
-  },
+	data: { heading, subheading, image, sideImage, paragraph, cta },
 	breadcrumbs,
 	isBlogHero = false,
 }) => {
@@ -26,8 +18,11 @@ const Hero = ({
 					<DecorativeHeading type="h1">{heading}</DecorativeHeading>
 					{paragraph && <Markdown className={styles.paragraph}>{paragraph}</Markdown>}
 					{cta?.text && (
-          <Button theme={cta.theme} to={cta.href} className={styles.cta}>{cta.text}</Button>
-        )}
+						<Button
+							data={cta}
+							className={styles.cta}
+						/>
+					)}
 				</div>
 				{sideImage && (
 					<Img

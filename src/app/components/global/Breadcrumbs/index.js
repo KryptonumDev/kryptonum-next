@@ -55,7 +55,7 @@ const Breadcrumbs = ({breadcrumbs}) => {
       {breadcrumbs?.map((el, index) => (
         <Fragment key={index}>
           {breadcrumbs.length - 1 !== index ? <>
-            <li><Link to={el.link}>{removeMarkdown(el.name)}</Link></li>
+            <li><Link href={el.link}>{removeMarkdown(el.name)}</Link></li>
             <li><Icon /></li>
           </> :
             <li>{removeMarkdown(el.name)}</li>

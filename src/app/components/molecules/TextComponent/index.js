@@ -45,7 +45,7 @@ const TextComponent = ({
 									a: ({ href, children }) => (
 										<Button
 											theme="secondary"
-											to={href}
+											href={href}
 										>
 											{children}
 										</Button>

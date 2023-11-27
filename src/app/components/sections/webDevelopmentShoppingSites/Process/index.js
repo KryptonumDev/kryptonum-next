@@ -30,12 +30,7 @@ const Process = ({ data: { process_Heading, process_Claim, process_List } }) => 
 						<Markdown className={styles.secondHeading}>{item.secondHeading}</Markdown>
 						{item.cta.href && (
 							<div className={styles.ctaWrapper}>
-								<Button
-									theme={item.cta.theme}
-									to={item.cta.href}
-								>
-									{item.cta.text}
-								</Button>
+								<Button data={item.cta} />
 							</div>
 						)}
 					</div>

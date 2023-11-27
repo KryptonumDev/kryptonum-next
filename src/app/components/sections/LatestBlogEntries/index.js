@@ -30,7 +30,7 @@ const LatestBlogEntries = ({
               )
           )}
       </div>
-      <Button theme="secondary" to="/pl/blog" className={styles.cta}>
+      <Button theme="secondary" href="/pl/blog" className={styles.cta}>
         Przejdź do bloga
       </Button>
     </section>

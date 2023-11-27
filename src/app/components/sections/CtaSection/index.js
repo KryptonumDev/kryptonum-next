@@ -13,9 +13,7 @@ const CtaSection = ({ data: {
 		<section className={styles.wrapper}>
 			<header>
 				<DecorativeHeading type="h3">{heading}</DecorativeHeading>
-				<Button theme={cta.theme} to={cta.href}>
-					{cta.text}
-				</Button>
+				<Button data={cta}/>
 			</header>
 			<Img data={img} className={styles.img} sizes="(min-width: 1200px) 50vw, (max-width: 1199px) 70vw, (max-width: 500px) 100vw"/>
 		</section>

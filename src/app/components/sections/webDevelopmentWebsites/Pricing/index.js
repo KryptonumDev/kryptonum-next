@@ -31,7 +31,7 @@ const Pricing = ({
                 </p>
               </div>
               <p className={styles.price}>{plan.price}</p>
-              <Button theme={plan.cta.theme} to={plan.cta.href} className={styles.cta}>{plan.cta.text}</Button>
+              <Button data={plan.cta}className={styles.cta}/>
               <div className={styles.benefits}>
                 <p>Korzyści:</p>
                 <ul>

@@ -28,7 +28,7 @@ const CaseStudies = async ({ data, heading, cta }) => {
 							sizes="100vw"
 						/>
 						<Button
-							to={`/pl/portfolio/${caseStudy.slug.current}`}
+							href={`/pl/portfolio/${caseStudy.slug.current}`}
 							aria-label={`Sprawdź projekt ${caseStudy.name}`}
 							theme="primary"
               className={styles.cta}
@@ -39,7 +39,7 @@ const CaseStudies = async ({ data, heading, cta }) => {
 				))}
 			</div>
 			{
-				<Button theme="secondary" to="/pl/portfolio" data={cta}>
+				<Button theme="secondary" href="/pl/portfolio" data={cta}>
 					{cta || "Wszystkie projekty"}
 				</Button>
 			}

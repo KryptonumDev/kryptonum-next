@@ -13,13 +13,9 @@ const Audit = ({
 			<div className={styles.column}>
 				<div className={styles.copy}>
 					<Markdown className={styles.paragraph3}>{audit_Paragraph3}</Markdown>
-					<Button
-						theme={audit_Cta.theme}
-						to={audit_Cta.href}
+					<Button data={audit_Cta}
             className={styles.cta}
-					>
-						{audit_Cta.text}
-					</Button>
+					/>
 				</div>
         <div className={styles.imgWrapper}>
 				<Img
