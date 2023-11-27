@@ -10,72 +10,66 @@ import { notFound, redirect } from "next/navigation";
 import { academyItemsPerPage } from "../../page";
 
 export async function generateStaticParams() {
-	const { curiosityEntriesCount } = await query();
-	const pageNumbers = [];
-	for (let i = 1; i < Math.ceil(curiosityEntriesCount.length / academyItemsPerPage); i++) {
-		pageNumbers.push(i + 1);
-	}
-	return pageNumbers.map((number) => ({ number: number.toString() }));
+	const { allCuriosityEntries } = await query();
+	return Array.from(
+		{ length: Math.ceil(allCuriosityEntries.length / academyItemsPerPage) },
+		(value, index) => ({ number: (index + 1).toString() }),
+	).filter(({ number }) => number !== "1");
 }
 
 export default async function academyPaginationPage({ params: { number } }) {
-	if (parseInt(number)) {
-		const {
-			page: { hero_Heading, hero_Paragraph, hero_Img, ctaSection },
-			curiosityCategories,
-			curiosityEntries,
-			curiosityEntriesCount,
-      blogEntries
-		} = await query(number);
-		if (curiosityEntries.length != 0 && number != 1) {
-			return (
-				<>
-					<Hero
-						data={{
-							heading: `**Akademia** - strona ${number}`,
-							paragraph: hero_Paragraph,
-							sideImage: hero_Img,
-						}}
-						isBlogHero={true}
-					/>
-					<Categories
-						categorySlug="/pl/akademia/"
-						categories={curiosityCategories}
-					/>
-					<CuriosityEntries
-						urlBasis="/pl/akademia"
-						totalCount={curiosityEntriesCount.length}
-						page={parseInt(number)}
-						curiosityEntries={curiosityEntries}
-						itemsPerPage={academyItemsPerPage}
-					/>
-					<CtaSection data={ctaSection} />
-					<LatestBlogEntries data={blogEntries}/>
-					<Faq />
-				</>
-			);
-		} else if (number == 1) {
-			redirect("/pl/akademia");
-		} else {
-			return notFound();
-		}
-	} else {
-		return notFound();
-	}
+	const {
+		page: { hero_Paragraph, hero_Img, ctaSection },
+		curiosityCategories,
+		curiosityEntries,
+		allCuriosityEntries,
+		blogEntries,
+	} = await query(number);
+	return (
+		<>
+			<Hero
+				data={{
+					heading: `**Akademia** - strona ${number}`,
+					paragraph: hero_Paragraph,
+					sideImage: hero_Img,
+				}}
+				isBlogHero={true}
+			/>
+			<Categories
+				categorySlug="/pl/akademia/"
+				categories={curiosityCategories}
+			/>
+			<CuriosityEntries
+				urlBasis="/pl/akademia"
+				totalCount={allCuriosityEntries.length}
+				page={parseInt(number)}
+				curiosityEntries={curiosityEntries}
+				itemsPerPage={academyItemsPerPage}
+			/>
+			<CtaSection data={ctaSection} />
+			<LatestBlogEntries data={blogEntries} />
+			<Faq />
+		</>
+	);
 }
 
-export async function generateMetadata({params: {number}}) {
-  const data = await query(number);
-  if (data) {
-  return SEO({
-		title: data.page.seo?.title,
-		description: data.page.seo?.description,
-		url: "",
+export async function generateMetadata({ params: { number } }) {
+	const {
+		page: { seo },
+	} = await query(number);
+	return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: `/pl/akademia/strona/${number}`,
 	});
-}
 }
 
 const query = async (number) => {
+	if (number && !parseInt(number)) {
+		return notFound();
+	} else if (number == 1) {
+		redirect("/pl/akademia");
+	}
 	const {
 		body: { data },
 	} = await fetchData(
@@ -83,7 +77,7 @@ const query = async (number) => {
 			number
 				? `curiosityEntries: allCuriosityEntries(
     limit: ${academyItemsPerPage}
-    offset: ${(number - 1) * academyItemsPerPage}
+    offset: ${(parseInt(number) - 1) * academyItemsPerPage}
     sort: { _createdAt: DESC }
   ) {
     title
@@ -114,7 +108,6 @@ const query = async (number) => {
   }
   page: Academy(id: "academy") {
     # Hero
-    hero_Heading
     hero_Paragraph
     hero_Img {
       asset {
@@ -165,7 +158,7 @@ const query = async (number) => {
 	}`
 				: ``
 		}
-    curiosityEntriesCount: allCuriosityEntries {
+    allCuriosityEntries {
       slug {
         current
       }
@@ -219,5 +212,8 @@ const query = async (number) => {
     }
     `,
 	);
+	if (data.curiosityEntries?.length == 0) {
+		notFound();
+	}
 	return data;
 };

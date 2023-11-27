@@ -7,7 +7,7 @@ import Hero from "@/app/components/sections/Hero";
 import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
 import fetchData from "@/utils/fetchData";
 
-export default async function academyPage() {
+export default async function AcademyPage() {
 	const {
 		page: { hero_Heading, hero_Paragraph, hero_Img, ctaSection },
 		curiosityCategories,
@@ -50,7 +50,7 @@ export async function generateMetadata() {
   return SEO({
 		title: seo?.title,
 		description: seo?.description,
-		url: "",
+		url: "/pl/akademia",
 	});
 }
 
@@ -192,4 +192,4 @@ const query = async () => {
 	return data;
 };
 
-export const academyItemsPerPage=12;
+export const academyItemsPerPage=1;

@@ -9,87 +9,63 @@ import fetchData from "@/utils/fetchData";
 import { notFound } from "next/navigation";
 import { academyItemsPerPage } from "../../page";
 
-
 export async function generateStaticParams() {
-	const { curiosityCategories } = await query();
-	const pageNumbers = [];
-	curiosityCategories.map((category) => pageNumbers.push(category.slug.current));
-	return pageNumbers.map((category) => ({ category: category }));
+	const { allCuriosityCategories } = await query();
+	return allCuriosityCategories.map((category) => ({ category: category.slug.current }));
 }
 
-export default async function academyCategoryPage({ params: { category } }) {
-  
-  const id = await getCategoryId(category);
+export default async function AcademyCategoryPage({ params: { category } }) {
+	const {
+		page: { ctaSection },
+		curiosityEntries,
+		curiosityCategory: { slug, hero_Heading, hero_Paragraph, hero_Img },
+		curiosityCategories,
+		allCuriosityEntries,
+		blogEntries,
+	} = await query(category);
 
-  const {
-    page: { ctaSection },
-    curiosityEntries,
-    curiosityCategory: { slug, hero_Heading, hero_Paragraph, hero_Img },
-    curiosityCategories,
-    curiosityEntriesCount,
-    blogEntries
-  } = await query(category, id);
-
-  return (
-    <>
-      <Hero
-      data={{
-        heading: hero_Heading,
-        paragraph: hero_Paragraph,
-        sideImage: hero_Img,
-      }}
-      isBlogHero={true}
-      />
-      <Categories
-        categorySlug="/pl/akademia/"
-        currentSlug={slug.current}
-        categories={curiosityCategories}
-      />
-      <CuriosityEntries
-        urlBasis={`/pl/akademia/kategoria/${category}`}
-        totalCount={curiosityEntriesCount.length}
-        curiosityEntries={curiosityEntries}
-        page={1}
-        itemsPerPage={academyItemsPerPage}
-      />
-      <CtaSection data={ctaSection} />
-      <LatestBlogEntries data={blogEntries}/>
-      <Faq />
-    </>
-  )
+	return (
+		<>
+			<Hero
+				data={{
+					heading: hero_Heading,
+					paragraph: hero_Paragraph,
+					sideImage: hero_Img,
+				}}
+				isBlogHero={true}
+			/>
+			<Categories
+				categorySlug="/pl/akademia/"
+				currentSlug={slug.current}
+				categories={curiosityCategories}
+			/>
+			<CuriosityEntries
+				urlBasis={`/pl/akademia/kategoria/${category}`}
+				totalCount={allCuriosityEntries.length}
+				curiosityEntries={curiosityEntries}
+				page={1}
+				itemsPerPage={academyItemsPerPage}
+				isCategoryPagination={true}
+			/>
+			<CtaSection data={ctaSection} />
+			<LatestBlogEntries data={blogEntries} />
+			<Faq />
+		</>
+	);
 }
 
-export async function generateMetadata({params:{category}}) {
-
-  const id = await getCategoryId(category);
-
-  const {
-    page: { seo },
-  } = await query(category, id);
-  return SEO({
+export async function generateMetadata({ params: { category } }) {
+	const {
+		page: { seo },
+	} = await query(category);
+	return SEO({
 		title: seo?.title,
 		description: seo?.description,
-		url: "",
+		url: `/pl/akademia/kategoria/${category}`,
 	});
 }
 
-
-const getCategoryId = async (category) => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  allCuriosityCategories {
-    _id
-    slug {
-      current
-    }
-  }
-  `);
-	return data.allCuriosityCategories.filter((curiosityCategory) => curiosityCategory.slug.current == category)[0]
-		?._id;
-};
-
-const query = async (category, id) => {
+const query = async (category) => {
 	const {
 		body: { data },
 	} = await fetchData(`
@@ -155,7 +131,8 @@ const query = async (category, id) => {
           current
         }
       }
-      curiosityCategory: CuriosityCategories(id: "${id}") {
+      curiosityCategory: allCuriosityCategories {
+        _id
         name
         slug {
           current
@@ -183,14 +160,15 @@ const query = async (category, id) => {
       }`
 			: ``
 	}
-  curiosityCategories: allCuriosityCategories{
+  allCuriosityCategories{
+    _id
     name
     slug {
       current
     }
   }
 
-  curiosityEntriesCount:allCuriosityEntries {
+  allCuriosityEntries {
     categories {
       slug {
         current
@@ -247,6 +225,9 @@ const query = async (category, id) => {
   `);
 
 	if (category) {
+		data.curiosityCategory = data.curiosityCategory.filter(
+			(curiosityCategory) => curiosityCategory.slug.current == category,
+		)[0];
 		data.curiosityEntries = data.curiosityEntries
 			.filter((curiosityEntry) =>
 				curiosityEntry.categories.map((text) => text.slug.current).includes(category),
@@ -257,7 +238,7 @@ const query = async (category, id) => {
 			return notFound();
 		}
 
-		data.curiosityEntriesCount = data.curiosityEntriesCount.filter((curiosityEntry) =>
+		data.allCuriosityEntries = data.allCuriosityEntries.filter((curiosityEntry) =>
 			curiosityEntry.categories.map((text) => text.slug.current).includes(category),
 		);
 	}

@@ -16,13 +16,11 @@ import fetchData from "@/utils/fetchData";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-	const { curiosityEntriesCount } = await query();
-	const pageNumbers = [];
-	curiosityEntriesCount.map((entry) => pageNumbers.push(entry.slug.current));
-	return pageNumbers.map((number) => ({ slug: number.toString() }));
+	const { allCuriosityEntries } = await query();
+	return allCuriosityEntries.map((entry) => ({ slug: entry.slug.current }));
 }
 
-export default async function academySlugPage({ params }) {
+export default async function AcademySlugPage({ params }) {
 	const {
 		page: {
 			title,
@@ -38,117 +36,114 @@ export default async function academySlugPage({ params }) {
 			latestCuriosities_Heading,
 		},
 	} = await query(params.slug);
-	if (params.slug == slug.current) {
-		return (
-			<>
-				<EntryHero
-					title={title}
-					subtitle={subtitle}
-					categories={categories}
-					categorySlug="/pl/akademia/kategoria/"
-					_createdAt={_createdAt}
-					author={author}
-					img={img}
-				/>
-				{content.map((component, i) => {
-					switch (component._type) {
-						case "standout":
-							return (
-								<ImageAndStandout
-									key={i}
-									heading={component.heading}
-									paragraph={component.paragraph}
-									standout={component.standout}
-									img={component.img}
-									reversed={component.reversed}
-								/>
-							);
-						case "curiosity_KeyElements":
-							return (
-								<KeyElements
-									key={i}
-									heading={component.heading}
-									list={component.list}
-									paragraph={component.paragraph}
-								/>
-							);
-						case "curiosity_Highlight":
-							return (
-								<Highlight
-									key={i}
-									heading={component.heading}
-									paragraph={component.paragraph}
-								/>
-							);
-						case "curiosity_Note":
-							return (
-								<Note
-									key={i}
-									heading={component.heading}
-									paragraph={component.paragraph}
-									attention={component.attention}
-								/>
-							);
-						case "curiosity_Tiles":
-							return (
-								<Tiles
-									key={i}
-									heading={component.heading}
-									list={component.list}
-									annotation={component.annotation}
-								/>
-							);
-						case "curiosity_LargeList":
-							return (
-								<LargeList
-									key={i}
-									isHeading={true}
-									title={component.heading}
-									list={component.list}
-									paragraph={component.paragraph}
-								/>
-							);
-						case "curiosity_ColumnText":
-							return (
-								<ColumnText
-									key={i}
-									heading={component.heading}
-									paragraph={component.paragraph}
-								/>
-							);
-						case "quickForm":
-							return (
-								<ConsultationForm
-									key={i}
-									data={component}
-								/>
-							);
-						case "curiosity_ExtendedList":
-							return (
-								<ExtendedList
-									key={i}
-									data={component}
-								/>
-							);
-						default:
-							break;
-					}
-				})}
-				<Share
-					heading={share.heading}
-					img={share.img}
-					url={params.slug.current}
-				/>
-				<Sources data={sources} />
-				<LatestCuriosityEntries
-					heading={latestCuriosities_Heading}
-					exclude={slug.current}
-				/>
-			</>
-		);
-	} else {
-		notFound();
-	}
+
+	return (
+		<>
+			<EntryHero
+				title={title}
+				subtitle={subtitle}
+				categories={categories}
+				categorySlug="/pl/akademia/kategoria/"
+				_createdAt={_createdAt}
+				author={author}
+				img={img}
+			/>
+			{content.map((component, i) => {
+				switch (component._type) {
+					case "standout":
+						return (
+							<ImageAndStandout
+								key={i}
+								heading={component.heading}
+								paragraph={component.paragraph}
+								standout={component.standout}
+								img={component.img}
+								reversed={component.reversed}
+							/>
+						);
+					case "curiosity_KeyElements":
+						return (
+							<KeyElements
+								key={i}
+								heading={component.heading}
+								list={component.list}
+								paragraph={component.paragraph}
+							/>
+						);
+					case "curiosity_Highlight":
+						return (
+							<Highlight
+								key={i}
+								heading={component.heading}
+								paragraph={component.paragraph}
+							/>
+						);
+					case "curiosity_Note":
+						return (
+							<Note
+								key={i}
+								heading={component.heading}
+								paragraph={component.paragraph}
+								attention={component.attention}
+							/>
+						);
+					case "curiosity_Tiles":
+						return (
+							<Tiles
+								key={i}
+								heading={component.heading}
+								list={component.list}
+								annotation={component.annotation}
+							/>
+						);
+					case "curiosity_LargeList":
+						return (
+							<LargeList
+								key={i}
+								isHeading={true}
+								title={component.heading}
+								list={component.list}
+								paragraph={component.paragraph}
+							/>
+						);
+					case "curiosity_ColumnText":
+						return (
+							<ColumnText
+								key={i}
+								heading={component.heading}
+								paragraph={component.paragraph}
+							/>
+						);
+					case "quickForm":
+						return (
+							<ConsultationForm
+								key={i}
+								data={component}
+							/>
+						);
+					case "curiosity_ExtendedList":
+						return (
+							<ExtendedList
+								key={i}
+								data={component}
+							/>
+						);
+					default:
+						break;
+				}
+			})}
+			<Share
+				heading={share.heading}
+				img={share.img}
+				url={params.slug}
+			/>
+			<Sources data={sources} />
+			<LatestCuriosityEntries
+				heading={latestCuriosities_Heading}
+				exclude={slug.current}
+			/>
+		</>
+	);
 }
 
 export async function generateMetadata({ params: { slug } }) {
@@ -158,7 +153,7 @@ export async function generateMetadata({ params: { slug } }) {
 	return SEO({
 		title: seo?.title,
 		description: seo?.description,
-		url: "",
+		url: `/pl/akademia/${slug}`,
 	});
 }
 
@@ -341,14 +336,15 @@ const query = async (slug) => {
   }`
 			: ``
 	}
-    curiosityEntriesCount: allCuriosityEntries {
-      slug {
-        current
-      }
+  allCuriosityEntries {
+    slug {
+      current
     }
-  `);
-  if (slug) {
-    data.page = data.page[0];
   }
+  `);
+	if (slug) {
+		data.page ? (data.page = data.page[0]) : notFound();
+		slug !== data.page.slug.current && notFound();
+	}
 	return data;
 };

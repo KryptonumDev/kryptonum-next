@@ -44,7 +44,7 @@ export default async function BlogCategoryPage({ params: { category } }) {
 				blogEntries={blogEntries}
 				page={1}
 				itemsPerPage={blogItemsPerPage}
-        isCategoryPagination={true}
+				isCategoryPagination={true}
 			/>
 			<CtaSection data={ctaSection} />
 			<LatestCuriosityEntries />
@@ -193,7 +193,9 @@ const query = async (category) => {
   }
   `);
 	if (category) {
-    data.blogCategory = data.blogCategory.filter((blogCategory) => blogCategory.slug.current == category)[0];
+		data.blogCategory = data.blogCategory.filter(
+			(blogCategory) => blogCategory.slug.current == category,
+		)[0];
 		data.blogEntries = data.blogEntries
 			.filter((blogEntry) =>
 				blogEntry.categories.map((text) => text.slug.current).includes(category),

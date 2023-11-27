@@ -9,7 +9,8 @@ const CuriosityEntries = ({
 	urlBasis, 
 	curiosityEntries, 
 	heading,
-	itemsPerPage 
+	itemsPerPage ,
+	isCategoryPagination=false
 }) => {
 	return (
 		<section 
@@ -32,6 +33,7 @@ const CuriosityEntries = ({
 				urlBasis={urlBasis}
 				urlID="#wpisy"
 				itemsPerPage={itemsPerPage}
+				isCategoryPagination={isCategoryPagination}
 			/>
 		</section>
 	);
