@@ -11,22 +11,17 @@ import { blogItemsPerPage } from "../../page";
 
 export async function generateStaticParams() {
 	const { blogCategories } = await query();
-	const pageNumbers = [];
-	blogCategories.map((category) => pageNumbers.push(category.slug.current));
-	return pageNumbers.map((category) => ({ category: category }));
+	return blogCategories.map((category) => ({ category: category.slug.current }));
 }
 
-export default async function blogCategoryPage({ params: { category } }) {
-
-	const id = await getCategoryId(category);
-
+export default async function BlogCategoryPage({ params: { category } }) {
 	const {
 		page: { ctaSection },
 		blogEntries,
 		blogCategory: { slug, hero_Heading, hero_Paragraph, hero_Img },
-    blogCategories,
-    blogEntriesCount
-	} = await query(category, id);
+		blogCategories,
+		allBlogEntries,
+	} = await query(category);
 
 	return (
 		<>
@@ -45,10 +40,11 @@ export default async function blogCategoryPage({ params: { category } }) {
 			/>
 			<BlogEntries
 				urlBasis={`/pl/blog/kategoria/${category}`}
-				totalCount={blogEntriesCount.length}
+				totalCount={allBlogEntries.length}
 				blogEntries={blogEntries}
 				page={1}
-        itemsPerPage= {blogItemsPerPage}
+				itemsPerPage={blogItemsPerPage}
+        isCategoryPagination={true}
 			/>
 			<CtaSection data={ctaSection} />
 			<LatestCuriosityEntries />
@@ -57,34 +53,18 @@ export default async function blogCategoryPage({ params: { category } }) {
 	);
 }
 
-export async function generateMetadata({params:{category}}) {
-  const id = await getCategoryId(category);
-  const {
-    page: { seo },
-  } = await query(category, id);
-  return SEO({
+export async function generateMetadata({ params: { category } }) {
+	const {
+		page: { seo },
+	} = await query(category);
+	return SEO({
 		title: seo?.title,
 		description: seo?.description,
-		url: "",
+		url: `/pl/blog/kategoria/${category}`,
 	});
 }
 
-const getCategoryId = async (category) => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  allBlogCategories {
-    _id
-    slug {
-      current
-    }
-  }
-  `);
-	return data.allBlogCategories.filter((blogCategory) => blogCategory.slug.current == category)[0]
-		?._id;
-};
-
-const query = async (category, id) => {
+const query = async (category) => {
 	const {
 		body: { data },
 	} = await fetchData(`
@@ -114,33 +94,6 @@ const query = async (category, id) => {
           }
         }
       }
-    }
-  }
-  
-  blogCategory: BlogCategories(id: "${id}") {
-    name
-    slug {
-      current
-    }
-    hero_Heading
-    hero_Paragraph
-    hero_Img {
-      asset {
-        altText
-        url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-      }
-    }
-    # SEO
-    seo {
-      title
-      description
     }
   }
   
@@ -197,11 +150,38 @@ const query = async (category, id) => {
 			: ``
 	}
 
-  blogEntriesCount:allBlogEntries {
+  allBlogEntries {
     categories {
       slug {
         current
       }
+    }
+  }
+  blogCategory: allBlogCategories {
+    _id
+    name
+    slug {
+      current
+    }
+    hero_Heading
+    hero_Paragraph
+    hero_Img {
+      asset {
+        altText
+        url
+        metadata {
+          lqip
+          dimensions {
+            height
+            width
+          }
+        }
+      }
+    }
+    # SEO
+    seo {
+      title
+      description
     }
   }
 
@@ -213,6 +193,7 @@ const query = async (category, id) => {
   }
   `);
 	if (category) {
+    data.blogCategory = data.blogCategory.filter((blogCategory) => blogCategory.slug.current == category)[0];
 		data.blogEntries = data.blogEntries
 			.filter((blogEntry) =>
 				blogEntry.categories.map((text) => text.slug.current).includes(category),
@@ -223,7 +204,7 @@ const query = async (category, id) => {
 			return notFound();
 		}
 
-		data.blogEntriesCount = data.blogEntriesCount.filter((blogEntry) =>
+		data.allBlogEntries = data.allBlogEntries.filter((blogEntry) =>
 			blogEntry.categories.map((text) => text.slug.current).includes(category),
 		);
 	}

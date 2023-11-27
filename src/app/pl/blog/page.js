@@ -7,9 +7,7 @@ import Hero from "@/app/components/sections/Hero";
 import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
 import fetchData from "@/utils/fetchData";
 
-
-
-export default async function blogPage() {
+export default async function BlogPage() {
 
 	const {
 		page: { 
@@ -53,7 +51,7 @@ export async function generateMetadata() {
   return SEO({
 		title: seo?.title,
 		description: seo?.description,
-		url: "",
+		url: "/pl/blog",
 	});
 }
 

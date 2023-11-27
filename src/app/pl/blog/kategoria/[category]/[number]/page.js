@@ -10,8 +10,8 @@ import { notFound } from "next/navigation";
 import { blogItemsPerPage } from "../../../page";
 
 export async function generateStaticParams() {
-	const { blogEntriesCount } = await query();
-	return blogEntriesCount
+	const { allBlogEntries } = await query();
+	return allBlogEntries
 		.flatMap((entry) =>
 			entry.categories.map((category) => {
 				const categorySlug = category.slug.current;
@@ -32,19 +32,14 @@ export async function generateStaticParams() {
 		);
 }
 
-export default async function blogCategoryPaginationPage({ params: { category, number } }) {
-	const id = await getCategoryId(category);
+export default async function BlogCategoryPaginationPage({ params: { category, number } }) {
 	const {
 		page: { ctaSection },
 		blogEntries,
 		blogCategories,
 		blogCategory: { slug, hero_Heading, hero_Paragraph, hero_Img },
-		blogEntriesCount,
-	} = await query(category, id, number);
-
-	if (blogEntries.length === 0 || number === 1) {
-		return notFound();
-	}
+		allBlogEntries,
+	} = await query(category, number);
 
 	return (
 		<>
@@ -59,10 +54,11 @@ export default async function blogCategoryPaginationPage({ params: { category, n
 			/>
 			<BlogEntries
 				urlBasis={`/pl/blog/kategoria/${category}`}
-				totalCount={blogEntriesCount.length}
+				totalCount={allBlogEntries.length}
 				blogEntries={blogEntries}
 				page={parseInt(number)}
         itemsPerPage={blogItemsPerPage}
+        isCategoryPagination={true}
 			/>
 			<CtaSection data={ctaSection} />
 			<LatestCuriosityEntries />
@@ -72,35 +68,17 @@ export default async function blogCategoryPaginationPage({ params: { category, n
 }
 
 export async function generateMetadata({params:{category,number}}) {
-  const id = await getCategoryId(category);
   const {
     page: { seo },
-  } = await query(category, id, number);
+  } = await query(category, number);
   return SEO({
 		title: seo?.title,
 		description: seo?.description,
-		url: "",
+		url: `/pl/blog/kategoria/${category}/${number}`,
 	});
 }
 
-async function getCategoryId(category) {
-	const {
-		body: { data },
-	} = await fetchData(`
-    allBlogCategories {
-      _id
-      slug {
-        current
-      }
-    }
-  `);
-	return (
-		data.allBlogCategories.find((blogCategory) => blogCategory.slug.current === category)?._id ||
-		null
-	);
-}
-
-async function query(category, id, number) {
+async function query(category, number) {
 	const {
 		body: { data },
 	} = await fetchData(`
@@ -135,32 +113,6 @@ async function query(category, id, number) {
       name
       slug {
         current
-      }
-    }
-
-    blogCategory: BlogCategories(id: "${id}") {
-      name
-      slug {
-        current
-      }
-      hero_Heading
-      hero_Paragraph
-      hero_Img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-      seo {
-        title
-        description
       }
     }
 
@@ -214,7 +166,34 @@ async function query(category, id, number) {
 				: ``
 		}
 
-    blogEntriesCount: allBlogEntries {
+    blogCategory: allBlogCategories {
+      _id
+      name
+      slug {
+        current
+      }
+      hero_Heading
+      hero_Paragraph
+      hero_Img {
+        asset {
+          altText
+          url
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
+          }
+        }
+      }
+      seo {
+        title
+        description
+      }
+    }
+
+    allBlogEntries {
       categories {
         slug {
           current
@@ -223,7 +202,8 @@ async function query(category, id, number) {
     }
   `);
 
-	if (category) {
+	if (category && number) {
+    data.blogCategory = data.blogCategory.filter((blogCategory) => blogCategory.slug.current == category)[0];
 		data.blogEntries = data.blogEntries
 			.filter((blogEntry) =>
 				blogEntry.categories.map((text) => text.slug.current).includes(category),
@@ -234,7 +214,7 @@ async function query(category, id, number) {
 			return notFound();
 		}
 
-		data.blogEntriesCount = data.blogEntriesCount.filter((blogEntry) =>
+		data.allBlogEntries = data.allBlogEntries.filter((blogEntry) =>
 			blogEntry.categories.map((text) => text.slug.current).includes(category),
 		);
 	}

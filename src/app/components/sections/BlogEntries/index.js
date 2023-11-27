@@ -10,7 +10,8 @@ const BlogEntries = ({
   blogEntries, 
   page, 
   heading,
-	itemsPerPage 
+	itemsPerPage,
+	isCategoryPagination = false
 }) => {
 	blogEntries.map((entry) => {
 		entry._createdAt = formatDateToPolishLocale(entry._createdAt);
@@ -37,6 +38,7 @@ const BlogEntries = ({
 				urlBasis={urlBasis}
 				urlID="#wpisy"
 				itemsPerPage={itemsPerPage}
+				isCategoryPagination={isCategoryPagination}
 			/>
 		</section>
 	);

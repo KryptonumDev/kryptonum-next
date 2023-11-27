@@ -7,7 +7,8 @@ export default async function Pagination({
 	itemCount,
 	urlBasis,
 	urlID = "",
-	itemsPerPage = 12
+	itemsPerPage = 12,
+	isCategoryPagination = false,
 }) {
 	const pagesCount = useMemo(() => {
 		return Math.ceil(itemCount / Number(itemsPerPage));
@@ -31,7 +32,11 @@ export default async function Pagination({
 				className={
 					currentPage == 1 ? `${styles.disabled} ${styles.link}` : `${styles.arrow} ${styles.link}`
 				}
-				href={currentPage >= 3 ? `${urlBasis}/strona/${currentPage - 1}${urlID}` : `${urlBasis}${urlID}`}
+				href={
+					currentPage >= 3
+						? `${urlBasis}${isCategoryPagination ? "" : "/strona"}/${currentPage - 1}${urlID}`
+						: `${urlBasis}${urlID}`
+				}
 			>
 				<svg
 					width="33"
@@ -58,7 +63,7 @@ export default async function Pagination({
 									currentPage === el ? `${styles.link} ${styles.active}` : `${styles.link}`
 								}
 								key={i}
-								href={el >= 2 ? `${urlBasis}/strona/${el}${urlID}` : `${urlBasis}${urlID}`}
+								href={el >= 2 ? `${urlBasis}${isCategoryPagination ? "" : "/strona"}/${el}${urlID}` : `${urlBasis}${urlID}`}
 							>
 								{el}
 							</Link>
@@ -67,7 +72,10 @@ export default async function Pagination({
 				) : (
 					<>
 						{currentPage > 3 && (
-							<Link className={`${styles.link}`} href={`${urlBasis}${urlID}`}>
+							<Link
+								className={`${styles.link}`}
+								href={`${urlBasis}${urlID}`}
+							>
 								{1}
 							</Link>
 						)}
@@ -82,7 +90,7 @@ export default async function Pagination({
 											currentPage === el ? `${styles.link} ${styles.active}` : `${styles.link}`
 										}
 										key={index}
-										href={el >= 2 ? `${urlBasis}/strona/${el}${urlID}` : `${urlBasis}${urlID}`}
+										href={el >= 2 ? `${urlBasis}${isCategoryPagination ? "" : "/strona"}/${el}${urlID}` : `${urlBasis}${urlID}`}
 									>
 										{el}
 									</Link>
@@ -96,7 +104,7 @@ export default async function Pagination({
 											currentPage === el ? `${styles.link} ${styles.active}` : `${styles.link}`
 										}
 										key={index}
-										href={`${urlBasis}/strona/${el}${urlID}`}
+										href={`${urlBasis}${isCategoryPagination ? "" : "/strona"}/${el}${urlID}`}
 									>
 										{el}
 									</Link>
@@ -110,7 +118,7 @@ export default async function Pagination({
 											currentPage === el ? `${styles.link} ${styles.active}` : `${styles.link}`
 										}
 										key={index}
-										href={`${urlBasis}/strona/${el}${urlID}`}
+										href={`${urlBasis}${isCategoryPagination ? "" : "/strona"}/${el}${urlID}`}
 									>
 										{el}
 									</Link>
@@ -123,7 +131,10 @@ export default async function Pagination({
 							<a className={`${styles.not}`}>...</a>
 						)}
 						{(currentPage === 1 || pagesCount - currentPage > 2) && (
-							<Link className={`${styles.link}`} href={`${urlBasis}/strona/${pagesCount}${urlID}`}>
+							<Link
+								className={`${styles.link}`}
+								href={`${urlBasis}${isCategoryPagination ? "" : "/strona"}/${pagesCount}${urlID}`}
+							>
 								{pagesCount}
 							</Link>
 						)}
@@ -138,8 +149,8 @@ export default async function Pagination({
 				}
 				href={
 					currentPage < pagesCount
-						? `${urlBasis}/strona/${currentPage + 1}${urlID}`
-						: `${urlBasis}/strona/${pagesCount}${urlID}`
+						? `${urlBasis}${isCategoryPagination ? "" : "/strona"}/${currentPage + 1}${urlID}`
+						: `${urlBasis}${isCategoryPagination ? "" : "/strona"}/${pagesCount}${urlID}`
 				}
 			>
 				<svg
