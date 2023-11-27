@@ -89,7 +89,7 @@ export async function generateMetadata() {
 	return SEO({
 		title: seo?.title,
 		description: seo?.description,
-		url: "",
+		url: "/pl/grafika-design",
 	});
 }
 
