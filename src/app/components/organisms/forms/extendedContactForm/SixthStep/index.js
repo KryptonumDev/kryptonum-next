@@ -6,7 +6,7 @@ import { Calendar } from '@/app/components/molecules/forms/Calendar';
 import { useState, useMemo } from 'react';
 
 
-const SixthStep = ({ prevData, setData, setStep }) => {
+const SixthStep = ({ prevData, setData, setStep, setIsEmailSent }) => {
   const {
     register,
     handleSubmit,
@@ -31,8 +31,24 @@ const SixthStep = ({ prevData, setData, setStep }) => {
   }, [chosenDate, chosenTime])
 
   const onSubmit = (data) => {
-    setData({ ...prevData, 'Date': {...data, 'date': inputValue} })
-    setStep((step) => step + 1)
+    const formData ={ ...prevData, 'Date': {...data, 'date': inputValue} }; 
+    setData(formData);
+    setStep((step) => step + 1);
+    fetch("/api/brief-contact", {
+      method: "POST",
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.success) {
+          setIsEmailSent("success");
+        } else {
+          setIsEmailSent("failed");
+        }
+      })
+      .catch(() => {
+        setIsEmailSent("failed");
+      });
   }
 
   return (

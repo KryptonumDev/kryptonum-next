@@ -18,24 +18,6 @@ const Brief = ({ data }) => {
 		if (step === 1 && !startTime) {
 			setStartTime(new Date().getTime());
 		}
-
-		if (step === 7 && !isEmailSent) {
-			fetch("/api/brief-contact", {
-				method: "POST",
-				body: JSON.stringify(formData),
-			})
-				.then((response) => response.json())
-				.then((response) => {
-					if (response.success) {
-						setIsEmailSent("success");
-					} else {
-						setIsEmailSent("failed");
-					}
-				})
-				.catch(() => {
-					setIsEmailSent("failed");
-				});
-		}
 	}, [step]);
 
 	const endTime = useMemo(
@@ -84,6 +66,7 @@ const Brief = ({ data }) => {
 						formData={formData}
 						setFormData={setFormData}
 						endTime={endTime}
+						setIsEmailSent={setIsEmailSent}
 					/>
 				</motion.div>
 			)}
