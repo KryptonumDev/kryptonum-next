@@ -37,7 +37,7 @@ export default async function graphicsAndDesignPage() {
 			ctaSection,
 			blogEntries_Heading,
 		},
-    blogEntries
+		blogEntries,
 	} = await query();
 	return (
 		<>
@@ -77,7 +77,10 @@ export default async function graphicsAndDesignPage() {
 			<SimpleCtaSection data={simpleCtaSection3} />
 			<CaseStudies heading={caseStudies_Heading} />
 			<CtaSection data={ctaSection} />
-			<LatestBlogEntries heading={blogEntries_Heading} data={blogEntries}/>
+			<LatestBlogEntries
+				heading={blogEntries_Heading}
+				data={blogEntries}
+			/>
 		</>
 	);
 }
@@ -97,6 +100,7 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
   page: GraphicsDesign(id: "graphics-design") {
     # Hero
     hero_Heading
@@ -268,6 +272,7 @@ const query = async () => {
         }
       }
     }
-  }`);
+  }
+}`);
 	return data;
 };

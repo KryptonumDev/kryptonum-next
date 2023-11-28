@@ -49,6 +49,7 @@ const CaseStudies = async ({ data, heading, cta }) => {
 
 const query = async () => {
 	const { body } = await fetchData(`
+	query {
     caseStudies: allCaseStudyEntries(limit: 3, sort: {_updatedAt:ASC}) {
           name
           slug {
@@ -68,6 +69,7 @@ const query = async () => {
             }
           }
         }
+			}
       `);
 	return body;
 };

@@ -88,6 +88,7 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
   page: WebDevelopment(id: "webDevelopment") {
     # Hero
     hero_Heading
@@ -220,6 +221,7 @@ const query = async () => {
       }
     }
   }
+}
   `);
 	return data;
 };

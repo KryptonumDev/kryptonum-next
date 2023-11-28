@@ -12,8 +12,8 @@ export default async function AcademyPage() {
 		page: { hero_Heading, hero_Paragraph, hero_Img, ctaSection },
 		curiosityCategories,
 		curiosityEntries,
-    curiosityEntriesCount,
-    blogEntries
+		curiosityEntriesCount,
+		blogEntries,
 	} = await query();
 	return (
 		<>
@@ -34,20 +34,20 @@ export default async function AcademyPage() {
 				totalCount={curiosityEntriesCount.length}
 				page={1}
 				curiosityEntries={curiosityEntries}
-        itemsPerPage={academyItemsPerPage}
+				itemsPerPage={academyItemsPerPage}
 			/>
 			<CtaSection data={ctaSection} />
-			<LatestBlogEntries data={blogEntries}/>
+			<LatestBlogEntries data={blogEntries} />
 			<Faq />
 		</>
 	);
 }
 
 export async function generateMetadata() {
-  const {
-    page: { seo },
-  } = await query();
-  return SEO({
+	const {
+		page: { seo },
+	} = await query();
+	return SEO({
 		title: seo?.title,
 		description: seo?.description,
 		url: "/pl/akademia",
@@ -58,8 +58,9 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query($academyItemsPerPage: Int!) {
   curiosityEntries: allCuriosityEntries(
-    limit: ${academyItemsPerPage},
+    limit: $academyItemsPerPage,
     sort: { _createdAt: DESC }) {
     title
     subtitle
@@ -188,8 +189,11 @@ const query = async () => {
       }
     }
   }
-  `);
+}
+  `,{
+    academyItemsPerPage
+  });
 	return data;
 };
 
-export const academyItemsPerPage=1;
+export const academyItemsPerPage = 12;

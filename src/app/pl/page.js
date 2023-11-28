@@ -7,6 +7,7 @@ import Hero from "@/components/sections/homepage/Hero";
 import Roadmap from "@/components/sections/homepage/Roadmap";
 import fetchData from "@/utils/fetchData";
 import Testimonials from "../components/sections/Testimonials";
+import GridFloatingImg from "../components/sections/homepage/GridFloatingImg";
 
 export async function generateMetadata() {
 	const {
@@ -51,7 +52,7 @@ const PolishIndexPage = async () => {
 		agency,
 		graphicsAndDesign,
 		testimonials,
-    blogEntries
+		blogEntries,
 	} = await query();
 
 	return (
@@ -85,10 +86,18 @@ const PolishIndexPage = async () => {
 					creativity_SecondParagraph,
 				}}
 			/>
-			<Roadmap heading={roadmap_Heading} list={roadmap_Process} cta={roadmap_Cta}/>
-			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
-			<Testimonials testimonials={testimonials}/>
-			<LatestBlogEntries data={blogEntries}/>
+			<Roadmap
+				heading={roadmap_Heading}
+				list={roadmap_Process}
+				cta={roadmap_Cta}
+			/>
+			<Team
+				heading={team_Heading}
+				paragraph={team_Text}
+				cta={team_Cta}
+			/>
+			<Testimonials testimonials={testimonials} />
+			<LatestBlogEntries data={blogEntries} />
 		</>
 	);
 };
@@ -97,6 +106,7 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
     page: Homepage(id: "homepage") {
       # Hero
       hero_Heading
@@ -306,6 +316,7 @@ const query = async () => {
         }
       }
     }
+  }
   `);
 	return data;
 };

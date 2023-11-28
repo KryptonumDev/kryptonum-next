@@ -1,10 +1,10 @@
+import SEO from "@/app/components/global/Seo";
 import HeroServices from "@/app/components/sections/HeroServices";
 import ListSection from "@/app/components/sections/ListSection";
 import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
 import Document from "@/app/components/sections/workshop/Document";
 import Why from "@/app/components/sections/workshop/Why";
 import fetchData from "@/utils/fetchData";
-import SEO from "@/app/components/global/Seo";
 
 export default async function discoveryWorkshopsPage() {
 	const {
@@ -30,34 +30,43 @@ export default async function discoveryWorkshopsPage() {
 			document_SimpleCtaSection,
 		},
 	} = await query();
-  return (
-    <>
-      <HeroServices data={{
-        hero_Heading,
-        hero_Annotation,
-        hero_Paragraph,
-        hero_SecondParagraph,
-        hero_Img,
-      }} />
-      <SimpleCtaSection data={simpleCtaSection} />
-      <ListSection heading={process_Heading} list={process_List} />
-      <Why data={{
-        why_Heading,
-        why_Paragraph,
-        why_SecondParagraph,
-        why_ThirdParagraph,
-        why_FourthParagraph,
-        why_Cta,
-      }} />
-      <Document data={{
-        document_Heading,
-        document_Paragraph,
-        document_Paragraph2,
-        document_Images,
-      }} />
-      <SimpleCtaSection data={document_SimpleCtaSection} />
-    </>
-  );
+	return (
+		<>
+			<HeroServices
+				data={{
+					hero_Heading,
+					hero_Annotation,
+					hero_Paragraph,
+					hero_SecondParagraph,
+					hero_Img,
+				}}
+			/>
+			<SimpleCtaSection data={simpleCtaSection} />
+			<ListSection
+				heading={process_Heading}
+				list={process_List}
+			/>
+			<Why
+				data={{
+					why_Heading,
+					why_Paragraph,
+					why_SecondParagraph,
+					why_ThirdParagraph,
+					why_FourthParagraph,
+					why_Cta,
+				}}
+			/>
+			<Document
+				data={{
+					document_Heading,
+					document_Paragraph,
+					document_Paragraph2,
+					document_Images,
+				}}
+			/>
+			<SimpleCtaSection data={document_SimpleCtaSection} />
+		</>
+	);
 }
 
 export async function generateMetadata() {
@@ -75,6 +84,7 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
   page: Workshop(id: "workshop") {
     # Hero
     hero_Heading
@@ -161,6 +171,7 @@ const query = async () => {
       description
     }
   }
+}
   `);
 	return data;
 };

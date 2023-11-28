@@ -10,7 +10,7 @@ import { notFound, redirect } from "next/navigation";
 import { blogItemsPerPage } from "../../page";
 
 export async function generateStaticParams() {
-	const { allBlogEntries } = await query();
+	const { allBlogEntries } = await paramsQuery();
 	return Array.from(
 		{ length: Math.ceil(allBlogEntries.length / blogItemsPerPage) },
 		(value, index) => ({ number: (index + 1).toString() }),
@@ -71,12 +71,11 @@ const query = async (number) => {
 	}
 	const {
 		body: { data },
-	} = await fetchData(
-		`${
-			number
-				? `blogEntries: allBlogEntries(
-        limit: ${blogItemsPerPage}
-        offset: ${(parseInt(number) - 1) * blogItemsPerPage}
+	} = await fetchData(`
+  query($limit: Int!, $offset: Int!) {
+    blogEntries: allBlogEntries(
+        limit: $limit
+        offset: $offset
         sort: { _createdAt: DESC }
       ) {
       title
@@ -178,18 +177,33 @@ const query = async (number) => {
       current
     }
   }
-  `
-				: ``
-		}
     allBlogEntries: allBlogEntries {
       slug
       {
         current
       }
-    }`,
-	);
+    }
+  }`,{
+    limit: blogItemsPerPage,
+    offset: (parseInt(number) - 1) * blogItemsPerPage
+  });
 	if (data.blogEntries?.length == 0) {
 		notFound();
 	}
+	return data;
+};
+
+const paramsQuery = async () => {
+	const {
+		body: { data },
+	} = await fetchData(`
+  query {
+    allBlogEntries: allBlogEntries {
+      slug
+      {
+        current
+      }
+    }
+  }`);
 	return data;
 };

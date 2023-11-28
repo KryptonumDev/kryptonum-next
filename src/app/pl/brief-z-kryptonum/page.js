@@ -1,12 +1,10 @@
-import fetchData from "@/utils/fetchData";
 import SEO from "@/app/components/global/Seo";
 import Brief from "@/app/components/organisms/Brief";
+import fetchData from "@/utils/fetchData";
 
 export default async function BriefPage() {
-  const data = await query();
-  return(
-    <Brief data={data}/>
-  )
+	const data = await query();
+	return <Brief data={data} />;
 }
 
 export async function generateMetadata() {
@@ -20,10 +18,11 @@ export async function generateMetadata() {
 	});
 }
 
-const query = async() => {
-  const {
-    body: { data },
-  } = await fetchData(`
+const query = async () => {
+	const {
+		body: { data },
+	} = await fetchData(`
+  query {
   page : Brief (id:"brief") {
     hero_Heading
     hero_Paragraph
@@ -82,6 +81,7 @@ const query = async() => {
       }
     }
   }
-  `);
-  return data;
 }
+  `);
+	return data;
+};

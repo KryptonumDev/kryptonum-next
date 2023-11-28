@@ -48,60 +48,72 @@ export default async function graphicsAndDesignAuditPage() {
 			caseStudies_Heading,
 			ctaSection,
 			blogEntries_Heading,
-		},blogEntries
-  } = await query();
-  return (
-    <>
-      <HeroServices data={{
-        hero_Heading,
-        hero_Annotation,
-        hero_Paragraph,
-        hero_SecondParagraph,
-        hero_Img,
-      }} />
-      <SimpleCtaSection data={simpleCtaSection} />
-      <UxAudit data={{
-        heading: digitalAudit_Heading,
-        headline: digitalAudit_Headline,
-        paragraph: digitalAudit_Paragraph,
-        paragraph2: digitalAudit_Paragraph2,
-        listHeading: digitalAudit_ListHeading,
-        list: digitalAudit_List,
-      }} />
-      <UxAudit data={{
-        heading: uxAudit_Heading,
-        headline: uxAudit_Headline,
-        paragraph: uxAudit_Paragraph,
-        paragraph2: uxAudit_Paragraph2,
-        listHeading: uxAudit_ListHeading,
-        list: uxAudit_List,
-        ux: {
-          title: uxAudit_Title,
-          question: uxAudit_Question,
-          answer: uxAudit_Answer,
-          when: uxAudit_When,
-          whenList: uxAudit_WhenList,
-        }
-      }} />
-      <ConsultationForm data={quickForm} />
-      <UxAudit data={{
-        heading: comboAudit_Heading,
-        paragraph: comboAudit_Paragraph,
-        paragraph2: comboAudit_Paragraph2,
-        listHeading: comboAudit_ListHeading,
-        list: comboAudit_List,
-      }} />
-      <ImageAndStandout
-        heading={benefits_Heading}
-        paragraph={benefits_Paragraph}
-        standout={benefits_Standout}
-        img={benefits_Img}
-      />
-      <CaseStudies heading={caseStudies_Heading} />
-      <CtaSection data={ctaSection} />
-      <LatestBlogEntries heading={blogEntries_Heading} data={blogEntries} />
-    </>
-  );
+		},
+		blogEntries,
+	} = await query();
+	return (
+		<>
+			<HeroServices
+				data={{
+					hero_Heading,
+					hero_Annotation,
+					hero_Paragraph,
+					hero_SecondParagraph,
+					hero_Img,
+				}}
+			/>
+			<SimpleCtaSection data={simpleCtaSection} />
+			<UxAudit
+				data={{
+					heading: digitalAudit_Heading,
+					headline: digitalAudit_Headline,
+					paragraph: digitalAudit_Paragraph,
+					paragraph2: digitalAudit_Paragraph2,
+					listHeading: digitalAudit_ListHeading,
+					list: digitalAudit_List,
+				}}
+			/>
+			<UxAudit
+				data={{
+					heading: uxAudit_Heading,
+					headline: uxAudit_Headline,
+					paragraph: uxAudit_Paragraph,
+					paragraph2: uxAudit_Paragraph2,
+					listHeading: uxAudit_ListHeading,
+					list: uxAudit_List,
+					ux: {
+						title: uxAudit_Title,
+						question: uxAudit_Question,
+						answer: uxAudit_Answer,
+						when: uxAudit_When,
+						whenList: uxAudit_WhenList,
+					},
+				}}
+			/>
+			<ConsultationForm data={quickForm} />
+			<UxAudit
+				data={{
+					heading: comboAudit_Heading,
+					paragraph: comboAudit_Paragraph,
+					paragraph2: comboAudit_Paragraph2,
+					listHeading: comboAudit_ListHeading,
+					list: comboAudit_List,
+				}}
+			/>
+			<ImageAndStandout
+				heading={benefits_Heading}
+				paragraph={benefits_Paragraph}
+				standout={benefits_Standout}
+				img={benefits_Img}
+			/>
+			<CaseStudies heading={caseStudies_Heading} />
+			<CtaSection data={ctaSection} />
+			<LatestBlogEntries
+				heading={blogEntries_Heading}
+				data={blogEntries}
+			/>
+		</>
+	);
 }
 
 export async function generateMetadata() {
@@ -119,6 +131,7 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
   page: Audits(id: "audits") {
     # Hero
     hero_Heading
@@ -284,6 +297,7 @@ const query = async () => {
       }
     }
   }
+}
   `);
-  return data;
+	return data;
 };

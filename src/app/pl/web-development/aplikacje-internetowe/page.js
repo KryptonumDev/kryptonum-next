@@ -73,7 +73,10 @@ export default async function webDevelopmentWebAppsPage() {
 			/>
 			<CtaSection data={ctaSection} />
 			<CaseStudies heading={caseStudies_Heading} />
-			<LatestBlogEntries heading={blogEntries_Heading} data={blogEntries}/>
+			<LatestBlogEntries
+				heading={blogEntries_Heading}
+				data={blogEntries}
+			/>
 		</>
 	);
 }
@@ -93,6 +96,7 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
 page: WebDevelopmentPwa(id: "webDevelopment_Pwa") {
   # Hero
   hero_Heading
@@ -248,6 +252,7 @@ blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
       }
     }
   }
+}
 }`);
 	return data;
 };

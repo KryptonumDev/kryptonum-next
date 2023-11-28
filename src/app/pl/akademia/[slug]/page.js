@@ -16,7 +16,7 @@ import fetchData from "@/utils/fetchData";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-	const { allCuriosityEntries } = await query();
+	const { allCuriosityEntries } = await paramsQuery();
 	return allCuriosityEntries.map((entry) => ({ slug: entry.slug.current }));
 }
 
@@ -161,12 +161,10 @@ const query = async (slug) => {
 	const {
 		body: { data },
 	} = await fetchData(`
-  ${
-		slug
-			? `
+  query($slug: String!){
     page: allCuriosityEntries(
       sort: { _createdAt: DESC }
-      where: {slug: {current: {eq: "${slug}"}}}
+      where: {slug: {current: {eq: $slug}}}
     ) {
       author {
         name
@@ -333,18 +331,28 @@ const query = async (slug) => {
     slug {
       current
     }
-  }`
-			: ``
-	}
-  allCuriosityEntries {
-    slug {
-      current
-    }
   }
-  `);
+}
+  `,{
+    slug
+  });
 	if (slug) {
 		data.page ? (data.page = data.page[0]) : notFound();
 		slug !== data.page.slug.current && notFound();
 	}
 	return data;
 };
+
+const paramsQuery = async () => {
+  const {
+		body: { data },
+	} = await fetchData(`
+  query{
+  allCuriosityEntries {
+    slug {
+      current
+    }
+  }
+}`);
+return data;
+}

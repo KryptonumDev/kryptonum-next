@@ -1,14 +1,14 @@
-import fetchData from "@/utils/fetchData";
-import IconTitleDescriptionListSection from "@/app/components/sections/IconTitleDescriptionListSection";
+import SEO from "@/app/components/global/Seo";
 import CentralizedHeadingSection from "@/app/components/sections/CentralizedHeadingSection";
 import CtaSection from "@/app/components/sections/CtaSection";
 import Hero from "@/app/components/sections/Hero";
-import TextSection from "@/app/components/sections/TextSection";
-import Testimonials from "@/app/components/sections/Testimonials";
-import Team from "@/app/components/sections/Team";
-import TilesWithOverflowIcon from "@/app/components/sections/TilesWithOverflowIcon";
 import IconTitleDescriptionGrid from "@/app/components/sections/IconTitleDescriptionGrid";
-import SEO from "@/app/components/global/Seo";
+import IconTitleDescriptionListSection from "@/app/components/sections/IconTitleDescriptionListSection";
+import Team from "@/app/components/sections/Team";
+import Testimonials from "@/app/components/sections/Testimonials";
+import TextSection from "@/app/components/sections/TextSection";
+import TilesWithOverflowIcon from "@/app/components/sections/TilesWithOverflowIcon";
+import fetchData from "@/utils/fetchData";
 
 export default async function BraindingPage() {
 	const {
@@ -21,37 +21,52 @@ export default async function BraindingPage() {
 			ctaSection,
 			tiles,
 			textSection2,
-      iconTitleBlocksList,
+			iconTitleBlocksList,
 			centralizedHeading,
-      iconTitleBlocksList2,
-      centralizedHeading2,
-      textSection3,
-      headerTitleDescriptionList,
-      ctaSection2
+			iconTitleBlocksList2,
+			centralizedHeading2,
+			textSection3,
+			headerTitleDescriptionList,
+			ctaSection2,
 		},
 		testimonials,
 	} = await query();
 
-  const breadcrumbs = [{
-    name: "Branding",
-    link: "/branding"
-  }];
+	const breadcrumbs = [
+		{
+			name: "Branding",
+			link: "/branding",
+		},
+	];
 
 	return (
 		<>
-			<Hero data={hero} breadcrumbs={breadcrumbs}/>
+			<Hero
+				data={hero}
+				breadcrumbs={breadcrumbs}
+			/>
 			<TextSection data={textSection} />
 			<CtaSection data={ctaSection} />
 			<TilesWithOverflowIcon data={tiles} />
 			<TextSection data={textSection2} />
 			<IconTitleDescriptionGrid data={iconTitleBlocksList} />
-			<CentralizedHeadingSection data={centralizedHeading} decoration={false} />
+			<CentralizedHeadingSection
+				data={centralizedHeading}
+				decoration={false}
+			/>
 			<IconTitleDescriptionGrid data={iconTitleBlocksList2} />
-			<CentralizedHeadingSection data={centralizedHeading2} decoration={false} />
+			<CentralizedHeadingSection
+				data={centralizedHeading2}
+				decoration={false}
+			/>
 			<TextSection data={textSection3} />
 			<IconTitleDescriptionListSection data={headerTitleDescriptionList} />
 			<CtaSection data={ctaSection2} />
-			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
+			<Team
+				heading={team_Heading}
+				paragraph={team_Text}
+				cta={team_Cta}
+			/>
 			<Testimonials testimonials={testimonials} />
 		</>
 	);
@@ -68,11 +83,11 @@ export async function generateMetadata() {
 	});
 }
 
-
 const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
     page: BrandingPage(id: "brandingPage") {
       #Hero
       hero {
@@ -271,7 +286,7 @@ const query = async () => {
         }
       }
     }
-  
+  }
 		`);
 	return data;
 };

@@ -32,7 +32,7 @@ export default async function graphicsAndDesignDesigningLogoPage() {
 			ctaSection,
 			blogEntries_Heading,
 		},
-    blogEntries
+		blogEntries,
 	} = await query();
 	return (
 		<>
@@ -64,7 +64,10 @@ export default async function graphicsAndDesignDesigningLogoPage() {
 			/>
 			<CaseStudies heading={caseStudies_Heading} />
 			<CtaSection data={ctaSection} />
-			<LatestBlogEntries heading={blogEntries_Heading} data={blogEntries}/>
+			<LatestBlogEntries
+				heading={blogEntries_Heading}
+				data={blogEntries}
+			/>
 		</>
 	);
 }
@@ -84,6 +87,7 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
   page: GraphicsDesignLogo(id: "graphicsDesign_Logo") {
     # Hero
     hero_Heading
@@ -223,6 +227,7 @@ const query = async () => {
         }
       }
     }
-  }`);
+  }
+}`);
 	return data;
 };

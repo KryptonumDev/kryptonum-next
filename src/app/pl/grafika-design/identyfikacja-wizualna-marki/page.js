@@ -37,43 +37,50 @@ export default async function graphicsAndDesignVisualIdentityPage() {
 			ctaSection,
 			blogEntries_Heading,
 		},
-    blogEntries
+		blogEntries,
 	} = await query();
-  return (
-    <>
-      <HeroServices data={{
-        hero_Heading,
-        hero_Annotation,
-        hero_Paragraph,
-        hero_SecondParagraph,
-        hero_Img,
-      }} />
-      <SimpleCtaSection data={simpleCtaSection} />
-      <ImageAndStandout
-        heading={brandbook_Heading}
-        paragraph={brandbook_Paragraph}
-        standout={brandbook_Standout}
-        img={brandbook_Img}
-      />
-      <BrandbookTypes data={{
-        primaryBrandbook_Heading,
-        primaryBrandbook_Paragraph,
-        primaryBrandbook_List,
-        extendedBrandbook_Heading,
-        extendedBrandbook_Paragraph,
-        extendedBrandbook_Annotation,
-        extendedBrandbook_List,
-      }} />
-      <ConsultationForm data={quickForm} />
-      <MasonryList
-        heading={who_Heading}
-        list={who_List}
-      />
-      <CaseStudies heading={caseStudies_Heading} />
-      <CtaSection data={ctaSection} />
-      <LatestBlogEntries heading={blogEntries_Heading} data={blogEntries}/>
-    </>
-  )
+	return (
+		<>
+			<HeroServices
+				data={{
+					hero_Heading,
+					hero_Annotation,
+					hero_Paragraph,
+					hero_SecondParagraph,
+					hero_Img,
+				}}
+			/>
+			<SimpleCtaSection data={simpleCtaSection} />
+			<ImageAndStandout
+				heading={brandbook_Heading}
+				paragraph={brandbook_Paragraph}
+				standout={brandbook_Standout}
+				img={brandbook_Img}
+			/>
+			<BrandbookTypes
+				data={{
+					primaryBrandbook_Heading,
+					primaryBrandbook_Paragraph,
+					primaryBrandbook_List,
+					extendedBrandbook_Heading,
+					extendedBrandbook_Paragraph,
+					extendedBrandbook_Annotation,
+					extendedBrandbook_List,
+				}}
+			/>
+			<ConsultationForm data={quickForm} />
+			<MasonryList
+				heading={who_Heading}
+				list={who_List}
+			/>
+			<CaseStudies heading={caseStudies_Heading} />
+			<CtaSection data={ctaSection} />
+			<LatestBlogEntries
+				heading={blogEntries_Heading}
+				data={blogEntries}
+			/>
+		</>
+	);
 }
 
 export async function generateMetadata() {
@@ -91,6 +98,7 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
   page: VisualIdentity(id: "visual-identity") {
     # Hero
     hero_Heading
@@ -241,6 +249,7 @@ const query = async () => {
         }
       }
     }
-  }`);
+  }
+}`);
 	return data;
 };

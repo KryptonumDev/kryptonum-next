@@ -1,28 +1,21 @@
 import SEO from "@/app/components/global/Seo";
+import Content from "@/app/components/sections/Content";
 import EntryHero from "@/app/components/sections/EntryHero";
 import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
 import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
 import fetchData from "@/utils/fetchData";
 import { notFound } from "next/navigation";
-import Content from "@/app/components/sections/Content";
 
 export async function generateStaticParams() {
-	const { allBlogEntries } = await query();
-  return allBlogEntries.map((entry) => ({ slug: entry.slug.current }));
+	const { allBlogEntries } = await paramsQuery();
+	return allBlogEntries.map((entry) => ({ slug: entry.slug.current }));
 }
 
 export default async function BlogSlugPage({ params }) {
-  const { page: {
-    title,
-    subtitle,
-    categories,
-    _createdAt,
-    img,
-    contentRaw,
-    author,
-    seo
-  },
-blogEntries} = await query(params.slug);
+	const {
+		page: { title, subtitle, categories, _createdAt, img, contentRaw, author, seo },
+		blogEntries,
+	} = await query(params.slug);
 
 	return (
 		<>
@@ -35,10 +28,10 @@ blogEntries} = await query(params.slug);
 				img={img}
 			/>
 			<Content
-        contentRaw={contentRaw}
-        author={author}
-        share={seo}
-      />
+				contentRaw={contentRaw}
+				author={author}
+				share={seo}
+			/>
 			<LatestBlogEntries
 				exclude={params.slug}
 				data={blogEntries}
@@ -61,12 +54,10 @@ const query = async (slug) => {
 	const {
 		body: { data },
 	} = await fetchData(`
-  ${
-		slug
-			? `
+  query($slug: String!) {
   page: allBlogEntries(
     sort: { _createdAt: DESC }
-    where: {slug: {current: {eq: "${slug}"}}}
+    where: {slug: {current: {eq: $slug}}}
   ) {
     title
     subtitle
@@ -119,10 +110,6 @@ const query = async (slug) => {
       description
     }
   }
-  `
-			: ``
-	}
-
   allBlogEntries: allBlogEntries {
     slug
     {
@@ -176,10 +163,28 @@ const query = async (slug) => {
       }
     }
   }
-  `);
+}
+  `,{
+    slug
+  });
 	if (slug) {
-		data.page ? (data.page = data.page[0]) : notFound(); 
+		data.page ? (data.page = data.page[0]) : notFound();
 		slug !== data.page.slug.current && notFound();
 	}
 	return data;
 };
+
+const paramsQuery = async () => {
+  const {
+		body: { data },
+	} = await fetchData(`
+  query{
+    allBlogEntries: allBlogEntries {
+      slug
+      {
+        current
+      }
+    }
+}`);
+return data;
+}

@@ -33,6 +33,7 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
   page: NotFound(id: "notFound") {
     # Hero
     hero_Heading
@@ -85,6 +86,7 @@ const query = async () => {
       description
     }
   }
+}
   `);
 	return data;
 };

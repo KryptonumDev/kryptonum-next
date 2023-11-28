@@ -10,7 +10,7 @@ import { notFound } from "next/navigation";
 import { academyItemsPerPage } from "../../page";
 
 export async function generateStaticParams() {
-	const { allCuriosityCategories } = await query();
+	const { allCuriosityCategories } = await paramsQuery();
 	return allCuriosityCategories.map((category) => ({ category: category.slug.current }));
 }
 
@@ -69,9 +69,7 @@ const query = async (category) => {
 	const {
 		body: { data },
 	} = await fetchData(`
-  ${
-		category
-			? `
+  query {
       page: Academy(id: "academy") {
         # Call To Action
         ctaSection {
@@ -157,9 +155,7 @@ const query = async (category) => {
           title
           description
         }
-      }`
-			: ``
-	}
+      }
   allCuriosityCategories{
     _id
     name
@@ -222,6 +218,7 @@ const query = async (category) => {
       }
     }
   }
+}
   `);
 
 	if (category) {
@@ -242,5 +239,19 @@ const query = async (category) => {
 			curiosityEntry.categories.map((text) => text.slug.current).includes(category),
 		);
 	}
+	return data;
+};
+
+const paramsQuery = async () => {
+	const {
+		body: { data },
+	} = await fetchData(`
+  query {
+    allCuriosityCategories{
+      slug {
+        current
+      }
+    }
+  }`);
 	return data;
 };

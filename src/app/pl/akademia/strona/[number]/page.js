@@ -10,7 +10,7 @@ import { notFound, redirect } from "next/navigation";
 import { academyItemsPerPage } from "../../page";
 
 export async function generateStaticParams() {
-	const { allCuriosityEntries } = await query();
+	const { allCuriosityEntries } = await paramsQuery();
 	return Array.from(
 		{ length: Math.ceil(allCuriosityEntries.length / academyItemsPerPage) },
 		(value, index) => ({ number: (index + 1).toString() }),
@@ -24,7 +24,7 @@ export default async function academyPaginationPage({ params: { number } }) {
 		curiosityEntries,
 		allCuriosityEntries,
 		blogEntries,
-	} = await query(number);
+	} = await query(number, academyItemsPerPage, (parseInt(number) - 1) * academyItemsPerPage);
 	return (
 		<>
 			<Hero
@@ -56,7 +56,7 @@ export default async function academyPaginationPage({ params: { number } }) {
 export async function generateMetadata({ params: { number } }) {
 	const {
 		page: { seo },
-	} = await query(number);
+	} = await query(number, academyItemsPerPage, (parseInt(number) - 1) * academyItemsPerPage);
 	return SEO({
 		title: seo?.title,
 		description: seo?.description,
@@ -64,7 +64,7 @@ export async function generateMetadata({ params: { number } }) {
 	});
 }
 
-const query = async (number) => {
+const query = async (number, academyItemsPerPage, offset) => {
 	if (number && !parseInt(number)) {
 		return notFound();
 	} else if (number == 1) {
@@ -73,11 +73,11 @@ const query = async (number) => {
 	const {
 		body: { data },
 	} = await fetchData(
-		`${
-			number
-				? `curiosityEntries: allCuriosityEntries(
-    limit: ${academyItemsPerPage}
-    offset: ${(parseInt(number) - 1) * academyItemsPerPage}
+		`
+  query($academyItemsPerPage: Int!, $offset: Int!) {
+  curiosityEntries: allCuriosityEntries(
+    limit: $academyItemsPerPage
+    offset: $offset
     sort: { _createdAt: DESC }
   ) {
     title
@@ -155,9 +155,7 @@ const query = async (number) => {
     slug {
       current
     }
-	}`
-				: ``
-		}
+	}
     allCuriosityEntries {
       slug {
         current
@@ -210,10 +208,31 @@ const query = async (number) => {
         }
       }
     }
+  }
     `,
+		{
+			academyItemsPerPage,
+			offset,
+		},
 	);
 	if (data.curiosityEntries?.length == 0) {
 		notFound();
 	}
+	return data;
+};
+
+const paramsQuery = async () => {
+	const {
+		body: { data },
+	} = await fetchData(`
+  query {
+    allCuriosityEntries {
+      categories {
+        slug {
+          current
+        }
+      }
+    }
+  }`);
 	return data;
 };

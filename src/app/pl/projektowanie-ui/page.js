@@ -1,4 +1,3 @@
-import fetchData from "@/utils/fetchData";
 import SEO from "@/app/components/global/Seo";
 import CaseStudies from "@/app/components/sections/CaseStudies";
 import CentralizedHeadingSection from "@/app/components/sections/CentralizedHeadingSection";
@@ -12,6 +11,7 @@ import Team from "@/app/components/sections/Team";
 import Testimonials from "@/app/components/sections/Testimonials";
 import TextSection from "@/app/components/sections/TextSection";
 import TilesComponentWithHeading from "@/app/components/sections/TilesComponentWithHeading";
+import fetchData from "@/utils/fetchData";
 
 export default async function UiDesignPage() {
 	const {
@@ -26,45 +26,63 @@ export default async function UiDesignPage() {
 			tilesWithHeading,
 			image,
 			slider,
-      textSection2,
-      headerTitleDescriptionList,
-      image2,
-      textSection3,
-      ctaSection2,
-      textSection4,
-      process,
-      centralizedHeading2,
-      caseStudies,
-      ctaSection3
+			textSection2,
+			headerTitleDescriptionList,
+			image2,
+			textSection3,
+			ctaSection2,
+			textSection4,
+			process,
+			centralizedHeading2,
+			caseStudies,
+			ctaSection3,
 		},
 		testimonials,
 	} = await query();
 
-  const breadcrumbs = [{
-    name: "Projektowanie UI",
-    link: "/projektowanie-ui"
-  }];
-  
+	const breadcrumbs = [
+		{
+			name: "Projektowanie UI",
+			link: "/projektowanie-ui",
+		},
+	];
+
 	return (
 		<>
-			<Hero data={hero} breadcrumbs={breadcrumbs}/>
+			<Hero
+				data={hero}
+				breadcrumbs={breadcrumbs}
+			/>
 			<TextSection data={textSection} />
-			<CentralizedHeadingSection data={centralizedHeading} decoration={false} />
+			<CentralizedHeadingSection
+				data={centralizedHeading}
+				decoration={false}
+			/>
 			<CtaSection data={ctaSection} />
 			<TilesComponentWithHeading data={tilesWithHeading} />
-			<FullWidthImageComponent image={image} withBorder={true}/>
+			<FullWidthImageComponent
+				image={image}
+				withBorder={true}
+			/>
 			<Slider data={slider} />
 			<TextSection data={textSection2} />
 			<IconTitleDescriptionListSection data={headerTitleDescriptionList} />
 			<FullWidthImageComponent image={image2} />
-			<TextSection data={textSection3} breakLine={true}/>
+			<TextSection
+				data={textSection3}
+				breakLine={true}
+			/>
 			<CtaSection data={ctaSection2} />
 			<TextSection data={textSection4} />
-			<Process data={process}/>
-			<CentralizedHeadingSection data={centralizedHeading2}/>
-			<CaseStudies cta={caseStudies}/>
+			<Process data={process} />
+			<CentralizedHeadingSection data={centralizedHeading2} />
+			<CaseStudies cta={caseStudies} />
 			<CtaSection data={ctaSection3} />
-			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
+			<Team
+				heading={team_Heading}
+				paragraph={team_Text}
+				cta={team_Cta}
+			/>
 			<Testimonials testimonials={testimonials} />
 		</>
 	);
@@ -81,11 +99,11 @@ export async function generateMetadata() {
 	});
 }
 
-
 const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
     page: UiDesignPage(id: "uiDesignPage") {
       #Hero
       hero {
@@ -325,7 +343,7 @@ const query = async () => {
         }
       }
     }
-  
+  }
 		`);
 	return data;
 };

@@ -1,4 +1,3 @@
-import fetchData from "@/utils/fetchData";
 import SEO from "@/app/components/global/Seo";
 import CardWithOverflowIcon from "@/app/components/sections/CardWithOverflowIcon";
 import CentralizedHeadingWithCardGrid from "@/app/components/sections/CentralizedHeadingWithCardGrid";
@@ -15,6 +14,7 @@ import TextSection from "@/app/components/sections/TextSection";
 import TitleDescriptionImageList from "@/app/components/sections/TitleDescriptionImageList";
 import HeadingBlocksCardGrid from "@/app/components/sections/UxDesign/HeadingBlocksCardGrid";
 import HeadingImageTextList from "@/app/components/sections/UxDesign/HeadingImageTextList";
+import fetchData from "@/utils/fetchData";
 
 export default async function UxDesignPage() {
 	const {
@@ -44,13 +44,18 @@ export default async function UxDesignPage() {
 		},
 		testimonials,
 	} = await query();
-	const breadcrumbs = [{
-    name: "Projektowanie UX",
-    link: "/projektowanie-ux"
-  }];
+	const breadcrumbs = [
+		{
+			name: "Projektowanie UX",
+			link: "/projektowanie-ux",
+		},
+	];
 	return (
 		<>
-			<Hero data={hero} breadcrumbs={breadcrumbs}/>
+			<Hero
+				data={hero}
+				breadcrumbs={breadcrumbs}
+			/>
 			<TextSection data={textSection} />
 			<CtaSection data={ctaSection} />
 			<TitleDescriptionImageList data={titleDescriptionImageList} />
@@ -60,16 +65,26 @@ export default async function UxDesignPage() {
 			<FullWidthImageComponent image={imageSection} />
 			<TextSection data={textSection3} />
 			<CardWithOverflowIcon cardData={cardWithOverflowIcon} />
-			<CentralizedHeadingWithCardGrid data={cardGridWithCentralizedHeading} decoration={true} />
+			<CentralizedHeadingWithCardGrid
+				data={cardGridWithCentralizedHeading}
+				decoration={true}
+			/>
 			<CtaSection data={ctaSection3} />
-			<HeadingBlocksCardGrid data={headingBlocksCardGrid}/>
+			<HeadingBlocksCardGrid data={headingBlocksCardGrid} />
 			<ConsultationForm data={consultationCta} />
 			<HeadingWithIconTitleDescriptionList data={headingWithIconTitleDescriptionList} />
 			<ImageDisplayedOnTablet image={imageDisplayedOnTablet} />
 			<HeadingWithIconTitleDescriptionList data={headingWithIconDescriptionList2} />
-			<HeadingWithMaxWidth heading={headingWithMaxWidth} decoration={false} />
+			<HeadingWithMaxWidth
+				heading={headingWithMaxWidth}
+				decoration={false}
+			/>
 			<CtaSection data={ctaSection4} />
-			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
+			<Team
+				heading={team_Heading}
+				paragraph={team_Text}
+				cta={team_Cta}
+			/>
 			<Testimonials testimonials={testimonials} />
 		</>
 	);
@@ -90,6 +105,7 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
 	page: UxDesignPage(id: "uxDesignPage") {
     #Hero
     hero {
@@ -425,6 +441,7 @@ const query = async () => {
       }
     }
   }
+}
 	`);
 	return data;
 };

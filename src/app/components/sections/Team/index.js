@@ -45,6 +45,7 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+	query {
     team: allTeamMember(sort: { _createdAt: ASC }) {
       name
       slug {
@@ -65,6 +66,7 @@ const query = async () => {
       }
       cryptonym
     }
+	}
   `);
 	return data;
 };

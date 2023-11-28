@@ -61,6 +61,7 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
     caseStudies: allCaseStudyEntries(limit: 4, sort: { _createdAt: DESC }) {
       name
       slug {
@@ -225,6 +226,7 @@ const query = async () => {
         href
       }
     }
+  }
   `);
 	return data;
 };

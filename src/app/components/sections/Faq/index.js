@@ -11,7 +11,7 @@ import FaqInfo from "../../organisms/faq/FaqInfo";
 import FaqTime from "../../organisms/faq/FaqTime";
 import FaqWhy from "../../organisms/faq/FaqWhy";
 import FaqWordpress from "../../organisms/faq/FaqWordpress";
-import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
 
 const Faq = async ({ heading }) => {
 	const {
@@ -30,7 +30,7 @@ const Faq = async ({ heading }) => {
 						secondParagraph: price.secondParagraph,
 						subheading: price.subheading,
 						cta: price.cta,
-						additionalStyles: styles.answer
+						additionalStyles: styles.answer,
 					}}
 				/>
 			),
@@ -46,7 +46,7 @@ const Faq = async ({ heading }) => {
 						thirdParagraph: payment.thirdParagraph,
 						text: payment.text,
 						list: payment.list,
-						additionalStyles: styles.answer
+						additionalStyles: styles.answer,
 					}}
 				/>
 			),
@@ -62,7 +62,7 @@ const Faq = async ({ heading }) => {
 						cta: time.cta,
 						listHeading: time.listHeading,
 						list: time.list,
-						additionalStyles: styles.answer
+						additionalStyles: styles.answer,
 					}}
 				/>
 			),
@@ -80,7 +80,7 @@ const Faq = async ({ heading }) => {
 						thirdHeading: info.thirdHeading,
 						thirdList: info.thirdList,
 						summary: info.summary,
-						additionalStyles: styles.answer
+						additionalStyles: styles.answer,
 					}}
 				/>
 			),
@@ -94,7 +94,7 @@ const Faq = async ({ heading }) => {
 						paragraph: why.paragraph,
 						list: why.list,
 						summary: why.summary,
-						additionalStyles: styles.answer
+						additionalStyles: styles.answer,
 					}}
 				/>
 			),
@@ -109,7 +109,7 @@ const Faq = async ({ heading }) => {
 						secondParagraph: cooperation.secondParagraph,
 						subheading: cooperation.subheading,
 						cta: cooperation.cta,
-						additionalStyles: styles.answer
+						additionalStyles: styles.answer,
 					}}
 				/>
 			),
@@ -124,7 +124,7 @@ const Faq = async ({ heading }) => {
 						secondParagraph: logo.secondParagraph,
 						subheading: logo.subheading,
 						cta: logo.cta,
-						additionalStyles: styles.answer
+						additionalStyles: styles.answer,
 					}}
 				/>
 			),
@@ -138,7 +138,7 @@ const Faq = async ({ heading }) => {
 						paragraph: seo.paragraph,
 						secondParagraph: seo.secondParagraph,
 						subheading: seo.subheading,
-						additionalStyles: styles.answer
+						additionalStyles: styles.answer,
 					}}
 				/>
 			),
@@ -152,7 +152,7 @@ const Faq = async ({ heading }) => {
 						heading: copy.heading,
 						paragraph: copy.paragraph,
 						summary: copy.summary,
-						additionalStyles: styles.answer
+						additionalStyles: styles.answer,
 					}}
 				/>
 			),
@@ -169,7 +169,7 @@ const Faq = async ({ heading }) => {
 						cta: wordpress.cta,
 						summary: wordpress.summary,
 						summaryCta: wordpress.summaryCta,
-						additionalStyles: styles.answer
+						additionalStyles: styles.answer,
 					}}
 				/>
 			),
@@ -201,18 +201,21 @@ const Faq = async ({ heading }) => {
 			<div className={styles.faqForm}>
 				<div className={`${styles.maxWidth} maxWidth`}>
 					<div className={styles.copy}>
-						<Markdown className={styles.heading} components={{ p: "h3" }}>
+						<Markdown
+							className={styles.heading}
+							components={{ p: "h3" }}
+						>
 							{faq.form.heading}
 						</Markdown>
 						<Markdown className={styles.subheading}>{faq.form.subheading}</Markdown>
 					</div>
-					<FaqContact/>
+					<FaqContact />
 					<div className={styles.person}>
 						<Markdown className={styles.paragraph}>{faq.form.paragraph}</Markdown>
 						<Img
-						data={faq.form.person.img}
-						height={96}
-						width={96}
+							data={faq.form.person.img}
+							height={96}
+							width={96}
 							className={`personBorder ${styles.img}`}
 						/>
 						<a href={`tel:${faq.form.person.tel.replace(/\s/g, "")}`}>{faq.form.person.tel}</a>
@@ -227,6 +230,7 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+	query {
   global: Global(id: "global") {
     faq {
       heading
@@ -386,6 +390,7 @@ const query = async () => {
       }
     }
   }
+}
   `);
 	return data;
 };

@@ -10,7 +10,7 @@ import { notFound } from "next/navigation";
 import { blogItemsPerPage } from "../../../page";
 
 export async function generateStaticParams() {
-	const { allBlogEntries } = await query();
+	const { allBlogEntries } = await paramsQuery();
 	return allBlogEntries
 		.flatMap((entry) =>
 			entry.categories.map((category) => {
@@ -57,8 +57,8 @@ export default async function BlogCategoryPaginationPage({ params: { category, n
 				totalCount={allBlogEntries.length}
 				blogEntries={blogEntries}
 				page={parseInt(number)}
-        itemsPerPage={blogItemsPerPage}
-        isCategoryPagination={true}
+				itemsPerPage={blogItemsPerPage}
+				isCategoryPagination={true}
 			/>
 			<CtaSection data={ctaSection} />
 			<LatestCuriosityEntries />
@@ -67,11 +67,11 @@ export default async function BlogCategoryPaginationPage({ params: { category, n
 	);
 }
 
-export async function generateMetadata({params:{category,number}}) {
-  const {
-    page: { seo },
-  } = await query(category, number);
-  return SEO({
+export async function generateMetadata({ params: { category, number } }) {
+	const {
+		page: { seo },
+	} = await query(category, number);
+	return SEO({
 		title: seo?.title,
 		description: seo?.description,
 		url: `/pl/blog/kategoria/${category}/${number}`,
@@ -82,9 +82,7 @@ async function query(category, number) {
 	const {
 		body: { data },
 	} = await fetchData(`
-    ${
-			category
-				? `
+  query {
     page: Blog(id: "blog") {
       ctaSection {
         heading
@@ -162,9 +160,7 @@ async function query(category, number) {
       }
       _createdAt
       contentRaw
-    }`
-				: ``
-		}
+    }
 
     blogCategory: allBlogCategories {
       _id
@@ -200,10 +196,13 @@ async function query(category, number) {
         }
       }
     }
+  }
   `);
 
 	if (category && number) {
-    data.blogCategory = data.blogCategory.filter((blogCategory) => blogCategory.slug.current == category)[0];
+		data.blogCategory = data.blogCategory.filter(
+			(blogCategory) => blogCategory.slug.current == category,
+		)[0];
 		data.blogEntries = data.blogEntries
 			.filter((blogEntry) =>
 				blogEntry.categories.map((text) => text.slug.current).includes(category),
@@ -221,3 +220,19 @@ async function query(category, number) {
 
 	return data;
 }
+
+const paramsQuery = async () => {
+	const {
+		body: { data },
+	} = await fetchData(`
+  query {
+    allBlogEntries {
+      categories {
+        slug {
+          current
+        }
+      }
+    }
+  }`);
+	return data;
+};

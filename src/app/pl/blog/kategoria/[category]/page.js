@@ -10,7 +10,7 @@ import { notFound } from "next/navigation";
 import { blogItemsPerPage } from "../../page";
 
 export async function generateStaticParams() {
-	const { blogCategories } = await query();
+	const { blogCategories } = await paramsQuery();
 	return blogCategories.map((category) => ({ category: category.slug.current }));
 }
 
@@ -68,9 +68,7 @@ const query = async (category) => {
 	const {
 		body: { data },
 	} = await fetchData(`
-  ${
-		category
-			? `
+  query {
   page: Blog(id: "blog") {
     
     # Call To Action
@@ -146,10 +144,7 @@ const query = async (category) => {
     }
     _createdAt
     contentRaw
-  }`
-			: ``
-	}
-
+  }
   allBlogEntries {
     categories {
       slug {
@@ -191,6 +186,7 @@ const query = async (category) => {
       current
     }
   }
+}
   `);
 	if (category) {
 		data.blogCategory = data.blogCategory.filter(
@@ -210,5 +206,20 @@ const query = async (category) => {
 			blogEntry.categories.map((text) => text.slug.current).includes(category),
 		);
 	}
+	return data;
+};
+
+const paramsQuery = async () => {
+	const {
+		body: { data },
+	} = await fetchData(`
+  query {
+    blogCategories: allBlogCategories {
+      name
+      slug {
+        current
+      }
+    }
+  }`);
 	return data;
 };

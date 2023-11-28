@@ -8,13 +8,8 @@ import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEnt
 import fetchData from "@/utils/fetchData";
 
 export default async function BlogPage() {
-
 	const {
-		page: { 
-      hero_Heading,
-      hero_Paragraph,
-      hero_Img,
-      ctaSection },
+		page: { hero_Heading, hero_Paragraph, hero_Img, ctaSection },
 		blogEntries,
 		blogCategories,
 		blogEntriesCount,
@@ -27,15 +22,18 @@ export default async function BlogPage() {
 					paragraph: hero_Paragraph,
 					sideImage: hero_Img,
 				}}
-        isBlogHero={true}
+				isBlogHero={true}
 			/>
-			<Categories categorySlug="/pl/blog/" categories={blogCategories} />
+			<Categories
+				categorySlug="/pl/blog/"
+				categories={blogCategories}
+			/>
 			<BlogEntries
 				urlBasis={"/pl/blog"}
 				totalCount={blogEntriesCount.length}
 				blogEntries={blogEntries}
 				page={1}
-        itemsPerPage={blogItemsPerPage}
+				itemsPerPage={blogItemsPerPage}
 			/>
 			<CtaSection data={ctaSection} />
 			<LatestCuriosityEntries />
@@ -45,10 +43,10 @@ export default async function BlogPage() {
 }
 
 export async function generateMetadata() {
-  const {
-    page: { seo },
-  } = await query();
-  return SEO({
+	const {
+		page: { seo },
+	} = await query();
+	return SEO({
 		title: seo?.title,
 		description: seo?.description,
 		url: "/pl/blog",
@@ -58,9 +56,11 @@ export async function generateMetadata() {
 const query = async () => {
 	const {
 		body: { data },
-	} = await fetchData(`
+	} = await fetchData(
+		`
+  query($limit: Int!) {
   blogEntries: allBlogEntries(
-    limit: ${blogItemsPerPage}
+    limit: $limit
     sort: { _createdAt: DESC }
   ) {
     title
@@ -171,8 +171,13 @@ const query = async () => {
       current
     }
   }
-  `);
+}
+  `,
+		{
+			limit: blogItemsPerPage,
+		},
+	);
 	return data;
 };
 
-export const blogItemsPerPage = 12;
+export const blogItemsPerPage = 2;

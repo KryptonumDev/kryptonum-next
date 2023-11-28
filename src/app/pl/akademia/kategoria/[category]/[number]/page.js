@@ -9,7 +9,7 @@ import fetchData from "@/utils/fetchData";
 import { academyItemsPerPage } from "../../../page";
 
 export async function generateStaticParams() {
-	const { allCuriosityEntries } = await query();
+	const { allCuriosityEntries } = await paramsQuery();
 	return allCuriosityEntries
 		.flatMap((entry) =>
 			entry.categories.map((category) => {
@@ -86,9 +86,7 @@ const query = async (category, number) => {
 	const {
 		body: { data },
 	} = await fetchData(`
-  ${
-		category
-			? `
+  query {
       page: Academy(id: "academy") {
         # Call To Action
         ctaSection {
@@ -174,9 +172,7 @@ const query = async (category, number) => {
           title
           description
         }
-      }`
-			: ``
-	}
+      }
   allCuriosityCategories {
     _id
     name
@@ -238,7 +234,8 @@ const query = async (category, number) => {
         }
       }
     }
-  }`);
+  }
+}`);
 
 	if (category) {
 		data.curiosityCategory = data.curiosityCategory.filter(
@@ -258,5 +255,21 @@ const query = async (category, number) => {
 			curiosityEntry.categories.map((text) => text.slug.current).includes(category),
 		);
 	}
+	return data;
+};
+
+const paramsQuery = async () => {
+	const {
+		body: { data },
+	} = await fetchData(`
+  query {
+    allCuriosityEntries {
+      categories {
+        slug {
+          current
+        }
+      }
+    }
+  }`);
 	return data;
 };

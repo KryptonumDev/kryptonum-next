@@ -18,6 +18,7 @@ import DetailedGrid from "../portableText/DetailedGrid";
 import SimpleGridList2Columns from "../../molecules/portableText/SimpleGridList2Columns";
 import SimpleGridImage2Columns from "../../molecules/portableText/SimpleGridImage2Columns";
 import TabSection from "../../molecules/portableText/TabSection";
+import Img from "@/utils/Img";
 
 
 export const ImageRenderer = ({ value: { asset: { _ref }, altText }, sizes }) => {
@@ -27,7 +28,7 @@ export const ImageRenderer = ({ value: { asset: { _ref }, altText }, sizes }) =>
     apiVersion: '2023-11-21',
   });
   return (
-    <NextImage
+    <Img
       src={builder.image(_ref).url()}
       width={getImageDimensions(_ref).width}
       height={getImageDimensions(_ref).height}
