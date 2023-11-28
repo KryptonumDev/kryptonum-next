@@ -6,6 +6,7 @@ import Team from "@/app/components/sections/Team";
 import Hero from "@/app/components/sections/teamSections/Hero";
 import Testimonials from "@/app/components/sections/teamSections/Testimonials";
 import fetchData from "@/utils/fetchData";
+import SEO from "@/app/components/global/Seo";
 
 export default async function TeamPage() {
 	const {
@@ -69,6 +70,18 @@ export default async function TeamPage() {
     </>
   )
 }
+
+export async function generateMetadata() {
+	const {
+		page: { seo },
+	} = await query();
+	return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: `/pl/zespol`,
+	});
+}
+
 const query = async () => {
 	const {
 		body: { data },
