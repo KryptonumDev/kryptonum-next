@@ -1,0 +1,18 @@
+.author {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  margin-top: -78px;
+
+  p {
+    font-size: calc(22rem/16);
+  }
+}
+
+.img {
+  height: 156px;
+  width: 156px;
+  object-fit: cover;
+}

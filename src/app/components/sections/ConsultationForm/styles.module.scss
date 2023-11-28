@@ -83,9 +83,9 @@
     padding: clamp(32px, calc(48vw/7.68), 48px) clamp(16px, calc(64vw/7.68), 64px);
     margin: 64px 0;
     display: block;
-
     form {
       margin: 32px 0px;
+      max-width: 31.25rem;
     }
 
     .info {

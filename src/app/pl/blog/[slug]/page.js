@@ -4,6 +4,7 @@ import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
 import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
 import fetchData from "@/utils/fetchData";
 import { notFound } from "next/navigation";
+import Content from "@/app/components/sections/Content";
 
 export async function generateStaticParams() {
 	const { allBlogEntries } = await query();
@@ -33,11 +34,11 @@ blogEntries} = await query(params.slug);
 				_createdAt={_createdAt}
 				img={img}
 			/>
-			{/* <Content
-        _rawContent={contentRaw}
+			<Content
+        contentRaw={contentRaw}
         author={author}
         share={seo}
-      /> */}
+      />
 			<LatestBlogEntries
 				exclude={params.slug}
 				data={blogEntries}

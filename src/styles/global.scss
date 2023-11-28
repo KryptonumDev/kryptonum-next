@@ -201,3 +201,9 @@ li strong {
   flex-direction: column;
   gap: 24px;
 }
+
+@media (min-width: 1099px){
+  nav.nav:not(.fixed) ~ main .content nav {
+    transform: translateY(-94px) !important;
+  }
+}

@@ -1,72 +1,138 @@
 export const scrollLock = (boolean) => {
-  const body = typeof document !== `undefined` ? document.body : null;
-  switch (boolean) {
-    case true:
-      body.classList.add("scrollLock");
-      break;
-    case false:
-      body.classList.remove("scrollLock");
-      break;
-    default:
-      break;
-  }
+	const body = typeof document !== `undefined` ? document.body : null;
+	switch (boolean) {
+		case true:
+			body.classList.add("scrollLock");
+			break;
+		case false:
+			body.classList.remove("scrollLock");
+			break;
+		default:
+			break;
+	}
 };
 
 export const Clamp = (minSize, vw, maxSize, unit = "rem") => {
-  return unit === "rem"
-    ? `clamp(${minSize / 16}rem, ${vw / 7.68}vw, ${maxSize / 16}rem)`
-    : `clamp(${minSize}px, ${vw / 7.68}vw, ${maxSize}px)`;
+	return unit === "rem"
+		? `clamp(${minSize / 16}rem, ${vw / 7.68}vw, ${maxSize / 16}rem)`
+		: `clamp(${minSize}px, ${vw / 7.68}vw, ${maxSize}px)`;
 };
 
 export const removeMarkdown = (markdown) => {
-  return markdown?.replace(/\*\*(.*?)\*\*/g, "$1");
+	return markdown?.replace(/\*\*(.*?)\*\*/g, "$1");
 };
 
 export const portableTextToMarkdown = (node) => {
-  if (node._type === "span") {
-    let text = node.text;
-    if (node.marks && node.marks.includes("strong")) {
-      text = `**${text}**`;
-    }
-    return text;
-  }
-  if (Array.isArray(node.children)) {
-    return node.children.map((child) => portableTextToMarkdown(child)).join("");
-  }
-  return "";
+	if (node._type === "span") {
+		let text = node.text;
+		if (node.marks && node.marks.includes("strong")) {
+			text = `**${text}**`;
+		}
+		return text;
+	}
+	if (Array.isArray(node.children)) {
+		return node.children.map((child) => portableTextToMarkdown(child)).join("");
+	}
+	return "";
 };
 
 export const slugify = (text) => {
-  const a =
-      "àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;",
-    b =
-      "aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------",
-    p = new RegExp(a.split("").join("|"), "g");
-  return text
-    .toString()
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(p, (c) => b.charAt(a.indexOf(c)))
-    .replace(/&/g, "-i-")
-    .replace(/[^\w-]+/g, "")
-    .replace(/--+/g, "-")
-    .replace(/^-+/, "")
-    .replace(/-+$/, "");
+	text = text.toString().toLowerCase().trim();
+	const sets = [
+		{ to: "a", from: "[ÀÁÂÃÄÅÆĀĂĄẠẢẤẦẨẪẬẮẰẲẴẶἀ]" },
+		{ to: "c", from: "[ÇĆĈČ]" },
+		{ to: "d", from: "[ÐĎĐÞ]" },
+		{ to: "e", from: "[ÈÉÊËĒĔĖĘĚẸẺẼẾỀỂỄỆ]" },
+		{ to: "g", from: "[ĜĞĢǴ]" },
+		{ to: "h", from: "[ĤḦ]" },
+		{ to: "i", from: "[ÌÍÎÏĨĪĮİỈỊ]" },
+		{ to: "j", from: "[Ĵ]" },
+		{ to: "ij", from: "[Ĳ]" },
+		{ to: "k", from: "[Ķ]" },
+		{ to: "l", from: "[ĹĻĽŁ]" },
+		{ to: "m", from: "[Ḿ]" },
+		{ to: "n", from: "[ÑŃŅŇ]" },
+		{ to: "o", from: "[ÒÓÔÕÖØŌŎŐỌỎỐỒỔỖỘỚỜỞỠỢǪǬƠ]" },
+		{ to: "oe", from: "[Œ]" },
+		{ to: "p", from: "[ṕ]" },
+		{ to: "r", from: "[ŔŖŘ]" },
+		{ to: "s", from: "[ßŚŜŞŠȘ]" },
+		{ to: "t", from: "[ŢŤ]" },
+		{ to: "u", from: "[ÙÚÛÜŨŪŬŮŰŲỤỦỨỪỬỮỰƯ]" },
+		{ to: "w", from: "[ẂŴẀẄ]" },
+		{ to: "x", from: "[ẍ]" },
+		{ to: "y", from: "[ÝŶŸỲỴỶỸ]" },
+		{ to: "z", from: "[ŹŻŽ]" },
+		{ to: "-", from: "[·/_,:;']" },
+	];
+	sets.forEach(({ from, to }) => {
+		text = text.replace(new RegExp(from, "gi"), to);
+	});
+	return text
+		.replace(/\s+/g, "-")
+		.replace(/[^-a-zа-я\u0370-\u03ff\u1f00-\u1fff]+/g, "")
+		.replace(/--+/g, "-")
+		.replace(/^-+/, "")
+		.replace(/-+$/, "");
 };
 
 export const smoothScroll = (e) => {
-  e.preventDefault();
-  const targetId = e.target.getAttribute("href");
-  const targetElement = document.querySelector(targetId);
-  targetElement.scrollIntoView({ behavior: "smooth" });
-  history.pushState(null, "", targetId);
+	e.preventDefault();
+	const targetId = e.target.getAttribute("href");
+	const targetElement = document.querySelector(targetId);
+	targetElement.scrollIntoView({ behavior: "smooth" });
+	history.pushState(null, "", targetId);
 };
 
 export const formatDateToPolishLocale = (date) => {
-  const options = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  return (date = new Date(date).toLocaleDateString("pl-PL", options));
+	const options = {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	};
+	return (date = new Date(date).toLocaleDateString("pl-PL", options));
+};
+
+export const generateTableOfContent = (ast) => {
+	const filter = (ast, match) =>
+		ast.reduce((acc, node) => {
+			if (match(node)) acc.push(node);
+			if (node.children) acc.push(...filter(node.children, match));
+			return acc;
+		}, []);
+
+	const getChildrenText = ({ children }) =>
+		children.map((node) => (typeof node === "string" ? node : node.text || "")).join("");
+
+	const findHeadings = (ast) =>
+		filter(ast, (node) => /h\d/.test(node.style)).map((node) => {
+			const text = getChildrenText(node);
+			const slug = slugify(text);
+
+			return { ...node, text, slug };
+		});
+
+	const get = (object, path) => path.reduce((prev, curr) => prev[curr], object);
+
+	const getObjectPath = (path) => {
+		return path.length === 0 ? path : ["subheadings"].concat(path.join(".subheadings.").split("."));
+	};
+
+	const outline = { subheadings: [] };
+	const headings = findHeadings(ast);
+	const path = [];
+	let lastLevel = 0;
+	headings.forEach((heading) => {
+		const level = Number(heading.style.slice(1));
+		heading.subheadings = [];
+
+		if (level < lastLevel) for (let i = lastLevel; i >= level; i--) path.pop();
+		else if (level === lastLevel) path.pop();
+
+		const prop = get(outline, getObjectPath(path));
+		prop.subheadings.push(heading);
+		path.push(prop.subheadings.length - 1);
+		lastLevel = level;
+	});
+	return outline.subheadings;
 };

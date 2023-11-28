@@ -31,12 +31,12 @@ const Nav = ({
         prevScrollPos = currentScrollPos;
         currentScrollPos = window.scrollY;
         if (currentScrollPos < prevScrollPos && currentScrollPos > navHeight) {
-          nav.classList.add(styles.fixed);
+          nav.classList.add(`${styles.fixed}`, "fixed" );
           scrollDistance = 0;
         } else if (nav.classList.contains(styles.fixed)) {
           scrollDistance += prevScrollPos - currentScrollPos;
           if (scrollDistance * -1 >= navHeight) {
-            nav.classList.remove(styles.fixed);
+            nav.classList.remove(`${styles.fixed}`, "fixed");
             scrollDistance = 0;
           }
         }
@@ -116,7 +116,7 @@ const Nav = ({
   return (
     <>
       <nav
-        className={`${styles.mainWrapper}`}
+        className={`${styles.mainWrapper} nav`}
         aria-expanded={navOpened}
         ref={navRef}
       >

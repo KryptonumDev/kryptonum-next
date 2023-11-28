@@ -17,7 +17,7 @@ const ConsultationForm = async ({
 		global: { quickForm_Paragraph, quickForm_Person },
 	} = await query();
 	return (
-		<section className={isPortableContent ? `${styles.portable} ${styles.section}` : styles.section}>
+		<section className={isPortableContent ? `${styles.section} ${styles.portable}` : styles.section}>
 			<header>
 				<DecorativeHeading type="h3">{heading}</DecorativeHeading>
 				<Markdown className={styles.subheading}>{subheading}</Markdown>
