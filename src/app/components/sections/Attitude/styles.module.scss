@@ -1,0 +1,44 @@
+.section {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 32px;
+
+  .claim,
+  .paragraph {
+    font-size: clamp(20px, calc(30vw/7.68), 32px);
+  }
+
+  .heading {
+    margin-bottom: clamp(24px, calc(48vw/7.68), 64px);
+  }
+
+  .paragraph {
+    text-align: right;
+    margin: 0 auto;
+    max-width: calc(300rem/16);
+  }
+
+  .claim {
+    grid-column: 2/-1;
+  }
+
+  .img {
+    align-self: center;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 899px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+
+    .paragraph {
+      margin: 0 0 0 auto;
+    }
+
+    .claim {
+      grid-column: unset;
+    }
+  }
+}

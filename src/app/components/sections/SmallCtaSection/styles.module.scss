@@ -1,0 +1,64 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-areas: "heading heading2" "cta1 cta2";
+  justify-content: space-between;
+  gap: clamp(24px, calc(40vw/7.68), 48px) 32px;
+
+  h3 {
+    font-size: clamp(calc(20rem/16), calc(30vw/7.68), calc(32rem/16));
+    max-width: calc(350rem/16);
+  }
+
+  .heading {
+    grid-area: heading
+  }
+
+  .cta1 {
+    grid-area: cta1
+  }
+
+  .heading2 {
+    grid-area: heading2;
+    text-align: right;
+  }
+
+  .cta2 {
+    grid-area: cta2;
+    justify-self: end;
+  }
+
+  @media (max-width: 899px) {
+    max-width: calc(600rem/16);
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: unset;
+    gap: 0;
+    text-align: center;
+
+    h3 {
+      max-width: unset;
+      margin-bottom: 24px;
+    }
+
+    .heading {
+      grid-area: unset;
+    }
+
+    .cta1 {
+      grid-area: unset;
+    }
+
+    .heading2 {
+      grid-area: unset;
+      text-align: center;
+      margin-top: clamp(48px, calc(72vw/7.68), 72px);
+    }
+
+    .cta2 {
+      grid-area: unset;
+      justify-self: center;
+    }
+
+  }
+}
