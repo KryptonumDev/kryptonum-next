@@ -32,8 +32,8 @@ export const ImageRenderer = ({ value: { asset: { _ref }, altText }, sizes }) =>
       width={getImageDimensions(_ref).width}
       height={getImageDimensions(_ref).height}
       alt={altText || ''}
-      {...sizes && ({ sizes })}
       className={styles.img}
+      {...sizes && ({ sizes })}
     />
   )
 }

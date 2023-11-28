@@ -32,7 +32,7 @@
   .wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin-bottom: 70px;
+    align-items: flex-start;
 
     @media (max-width: 999px) {
       grid-template-columns: 1fr 1fr;
@@ -40,16 +40,16 @@
 
     @media (max-width: 549px) {
       grid-template-columns: 1fr;
-      gap: 32px 24px;
     }
 
-    gap: 70px 24px;
+    gap: 32px 24px;
 
     .wrapperItem {
       .img {
         width:100%;
         height:100%;
         object-fit: contain;
+        margin-bottom: clamp(8px, calc(16vw/7.68), 24px);;
       }
     }
   }

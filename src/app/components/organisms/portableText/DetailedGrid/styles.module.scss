@@ -1,6 +1,7 @@
 .detailedGrid {
   margin: 24px 0;
   display: grid;
+  align-items: flex-start;
   @media (min-width: 500px){
     grid-template-columns: 1fr 1fr;
   }
@@ -8,6 +9,7 @@
   .item {
     img {
       margin-bottom: clamp(16px, calc(24vw/7.68), 24px);
+      max-height:300px;
     }
     .title {
       margin-bottom: clamp(12px, calc(16vw/7.68), 16px);
