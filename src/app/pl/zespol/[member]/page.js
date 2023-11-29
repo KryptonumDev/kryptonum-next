@@ -13,6 +13,21 @@ import Tools from "@/app/components/sections/teamMember/Tools";
 import notFound from "@/app/not-found";
 import fetchData from "@/utils/fetchData";
 import styles from "./styles.module.scss";
+import SEO from "@/app/components/global/Seo";
+import { removeMarkdown } from "@/utils/functions";
+
+export async function generateStaticParams() {
+	const { allTeamMember } = await paramsQuery();
+	return allTeamMember.map((member) => ({ member: member.slug.current }));
+}
+
+const truncateText = (text, limit = 140) => {
+	text = removeMarkdown(text).replace(/[\r\n]+/gm, " ");
+	if (text.length > limit) {
+		text = text.slice(0, limit - 3) + "...";
+	}
+	return text;
+};
 
 export default async function TeamMemberPage({ params: { member } }) {
 	const {
@@ -50,17 +65,17 @@ export default async function TeamMemberPage({ params: { member } }) {
 			<Skills data={skills} />
 			<Tools data={tools} />
 			<Benefits data={benefits} />
-			{links.length >= 1 && <Links data={links} />}
+			{links?.length >= 1 && <Links data={links} />}
 			<AfterWork data={afterWork} />
 			<Hobbies data={hobbies} />
-			{inspirations.length >= 1 && <Inspirations data={inspirations} />}
-			{filteredCaseStudiesByPerson.length >= 1 && (
+			{inspirations?.length >= 1 && <Inspirations data={inspirations} />}
+			{filteredCaseStudiesByPerson?.length >= 1 && (
 				<CaseStudies
 					heading="Mam swój **udział** w…"
 					data={filteredCaseStudiesByPerson}
 				/>
 			)}
-			{blogEntries.length >= 1 && (
+			{blogEntries?.length >= 1 && (
 				<LatestBlogEntries
 					heading="Tutaj dzielę się **wiedzą**"
 					data={blogEntries}
@@ -77,6 +92,17 @@ export default async function TeamMemberPage({ params: { member } }) {
 			)}
 		</div>
 	);
+}
+
+export async function generateMetadata({ params: { member } }) {
+	const {
+		page: { name, cryptonym, bio },
+	} = await query(member);
+	return SEO({
+		title: `${name} - ${cryptonym} w Kryptonum`,
+		description: truncateText(bio),
+		url: `/pl/zespol/${member}`,
+	});
 }
 
 const query = async (member) => {
@@ -254,5 +280,19 @@ const query = async (member) => {
 		return entry.author.some((author) => author.slug.current == member);
 	});
 
+	return data;
+};
+
+const paramsQuery = async () => {
+	const {
+		body: { data },
+	} = await fetchData(`
+  query {
+    allTeamMember {
+      slug {
+        current
+      }
+    }
+  }`);
 	return data;
 };
