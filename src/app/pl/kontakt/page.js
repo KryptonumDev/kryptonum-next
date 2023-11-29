@@ -1,3 +1,4 @@
+import SEO from "@/app/components/global/Seo";
 import Faq from "@/app/components/sections/Faq";
 import Team from "@/app/components/sections/Team";
 import ContactUs from "@/app/components/sections/contact/ContactUs";
@@ -27,10 +28,11 @@ export default async function ContactPage() {
 	} = await query();
 	return (
 		<>
-			<Hero data={{
-        heading: hero_Heading,
-        paragraph: hero_Subheading,
-      }}
+			<Hero
+				data={{
+					heading: hero_Heading,
+					paragraph: hero_Subheading,
+				}}
 				heading={hero_Heading}
 				subheading={hero_Subheading}
 				contact={hero_Contact}
@@ -62,6 +64,17 @@ export default async function ContactPage() {
 			<Faq />
 		</>
 	);
+}
+
+export async function generateMetadata() {
+	const {
+		page: { seo },
+	} = await query();
+	return SEO({
+		title: seo?.title,
+		description: seo?.description,
+		url: "pl/kontakt",
+	});
 }
 
 const query = async () => {
