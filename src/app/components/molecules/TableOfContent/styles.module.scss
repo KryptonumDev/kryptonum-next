@@ -2,14 +2,26 @@
   list-style-type: none;
   li {
     & {
+      list-style-type: none;
       font-size: 20px;
 
       &:not(:last-child) {
         margin-bottom: 8px;
       }
     }
+    ul {
+      li {
+        font-size: 16px;
+        margin-bottom: 5px;
+        margin-top: unset !important;
+      }
+    }
     &:not(:first-of-type) {
       margin-top: 24px;
+    }
+    a {
+      display:block;
+      margin-bottom: 8px;
     }
   }
 }

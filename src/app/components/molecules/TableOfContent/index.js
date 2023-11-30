@@ -8,17 +8,15 @@ const TableOfContent = ({ content }) => {
 				<li key={index}>
 					<Link
 						href={`#${slug}`}
-						onClick={() => setOpen(false)}
 					>
 						<span>{text}</span>
 					</Link>
-					{subheadings.length > 0 && (
+					{subheadings?.length > 0 && (
 						<ul>
 							{subheadings.map(({ text, slug }, subIndex) => (
 								<li key={subIndex}>
 									<Link
 										href={`#${slug}`}
-										onClick={() => setOpen(false)}
 									>
 										<span>{text}</span>
 									</Link>
