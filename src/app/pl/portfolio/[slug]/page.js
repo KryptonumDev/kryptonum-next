@@ -14,7 +14,7 @@ import fetchData from "@/utils/fetchData";
 
 export async function generateStaticParams() {
 	const { caseStudies } = await paramsQuery();
-	return caseStudies.map((caseStudy) => caseStudy.slug.current);
+	return caseStudies.map((caseStudy) => ({ slug: caseStudy.slug.current}));
 }
 
 export default async function PortfolioSlugPage({ params: { slug } }) {
