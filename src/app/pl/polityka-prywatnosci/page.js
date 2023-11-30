@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import SEO from "@/app/components/global/Seo";
+=======
+>>>>>>> 2dcc939d18d8753f2c592d978767eb5919fb928a
 import Hero from "@/app/components/sections/Hero";
 import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
 import Content from "@/app/components/sections/privacyPolicy/Content";
