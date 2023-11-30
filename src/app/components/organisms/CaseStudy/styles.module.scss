@@ -1,0 +1,20 @@
+.link {
+  margin-top: 48px;
+  padding: 16px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  border-top: 1px solid var(--neutral-800, #212123);
+  border-bottom: 1px solid var(--neutral-800, #212123);
+
+  p {
+    margin-top: 16px;
+    font-size: 1.875rem;
+  }
+
+  .img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
