@@ -2,6 +2,7 @@ import { removeMarkdown } from "@/utils/functions";
 import Script from "next/script";
 import { Fragment } from "react";
 import styles from "./styles.module.scss";
+import Link from "next/link";
 
 const Icon = () => (
   <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +32,7 @@ const createBreadcrumbs = (breadCrumbs) => {
   return items;
 }
 
-const Breadcrumbs = ({breadcrumbs}) => {
+const Breadcrumbs = ({portfolio, breadcrumbs}) => {
 	
   if (breadcrumbs?.length < 1 || !breadcrumbs) {
     return null;
@@ -39,7 +40,7 @@ const Breadcrumbs = ({breadcrumbs}) => {
 
   const breadCrumbsItems = createBreadcrumbs(breadcrumbs);
   return (
-    <nav className={styles.wrapper}>
+    <nav className={portfolio ? `${styles.portfolio} ${styles.wrapper}` : styles.wrapper}>
     {breadCrumbsItems.length > 1 && (
       <Script type="application/ld+json">
         {JSON.stringify({

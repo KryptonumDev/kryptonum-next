@@ -1,0 +1,34 @@
+.section{
+  display:grid;
+  align-items: start;
+  .img {
+    display: block;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    &.img0 {
+      width: 40%;
+    }
+    &.img1 {
+      margin-left: auto;
+      margin-top: -20%;
+      width: 65%;
+      height:auto;
+    }
+  }
+  @media (max-width: 699px){
+    .img {
+      &.img0 {
+        width: 70%;
+      }
+      &.img1 {
+        margin-top: -5%;
+        width: 90%;
+      }
+    }
+  }
+  text-align: center;
+  .cta {
+    margin-top: clamp(32px, calc(48vw/7.68), 48px);
+  }
+}

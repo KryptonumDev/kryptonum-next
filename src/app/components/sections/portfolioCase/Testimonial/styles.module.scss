@@ -1,0 +1,103 @@
+.section {
+  display: grid;
+  grid-template-columns: 1fr auto auto 2fr;
+  align-items: center;
+  h2 {
+    font-size: clamp(calc(20rem/16), calc(28vw/7.68), calc(28rem/16));
+  }
+
+  .hr {
+    height: 100%;
+    min-height: 550px;
+    width: 1px;
+    margin: 0 clamp(48px, calc(64vw/7.68), 120px);
+    background-color: var(--neutral-700);
+  }
+
+  .author {
+    .img {
+      width: clamp(96px, calc(144vw/7.68), 156px);
+      height: clamp(96px, calc(144vw/7.68), 156px);
+      border: 1px solid var(--neutral-200);
+      border-radius: 50%;
+      padding: 4px;
+      object-fit: contain;
+      object-position: top;
+    }
+
+    text-align: center;
+
+    h3 {
+      font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+      margin: clamp(12px, calc(24vw/7.68), 24px) auto clamp(4px, calc(12vw/7.68), 12px);
+    }
+
+    a {
+      font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+    }
+  }
+
+  .content {
+    margin-left: clamp(48px, calc(64vw/7.68), 120px);
+
+    svg {
+      width: clamp(24px, calc(48vw/7.68), 48px);
+      height: clamp(24px, calc(48vw/7.68), 48px);
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+    }
+  }
+
+  @media (max-width: 999px) {
+    grid-template-columns: 1fr 2fr;
+
+    h2 {
+      margin: 0 auto;
+      grid-column: 3/1;
+    }
+
+    .hr {
+      height: 1px;
+      min-height: unset;
+      width: 100%;
+      margin: clamp(16px, calc(32vw/7.68), 32px) 0 clamp(32px, calc(32vw/7.68), 72px);
+      grid-column: 3/1;
+    }
+  }
+
+  @media (max-width: 499px) {
+    grid-template-columns: 1fr;
+
+    h2 {
+      grid-column: unset;
+    }
+
+    .hr {
+      height: 1px;
+      min-height: unset;
+      width: 100%;
+      margin: clamp(16px, calc(32vw/7.68), 32px) 0 clamp(32px, calc(32vw/7.68), 72px);
+      grid-column: unset;
+    }
+
+    .author {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      text-align: left;
+      align-items: center;
+
+      h3 {
+        margin: 0 0 4px 0;
+      }
+    }
+
+    .content {
+      margin-left: 0;
+      margin-top: 16px;
+    }
+  }
+}
