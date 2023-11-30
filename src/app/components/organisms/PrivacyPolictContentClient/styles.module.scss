@@ -1,0 +1,40 @@
+.section {
+  header {
+    margin-bottom: clamp(28px, calc(48vw/7.68), 72px);
+    max-width: calc(734rem/16);
+  }
+
+  .column {
+    display: grid;
+
+    @media (min-width: 1100px) {
+      grid-template-columns: 1fr 2fr;
+
+      nav {
+        position: sticky;
+        top: 126px;
+      }
+    }
+
+    @media (min-width: 1099px) {
+      nav {
+        max-height: calc(100vh - 126px);
+        max-height: calc(100dvh - 126px);
+        overflow-y: auto;
+      }
+    }
+
+    align-items: start;
+    gap: 144px 32px;
+
+    .readingTime {
+      margin-bottom: 24px;
+    }
+
+    nav {
+      border: 1px solid var(--neutral-800);
+      padding: 32px 16px;
+      
+    }
+  }
+}
