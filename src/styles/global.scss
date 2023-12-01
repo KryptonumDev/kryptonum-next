@@ -92,10 +92,10 @@ main,
 main {
   display: grid;
   grid-template-columns: 1fr;
-  row-gap:73px;
+  row-gap:clamp(96px, calc(144vw/7.68), 172px);
   padding-top: 40px;
-  @media(max-width:1250px) {
-    row-gap: clamp(96px, calc(128vw/7.68), 128px);
+  @media (max-width: 999px) {
+    padding-top: clamp(48px, calc(128vw/7.68), 128px);
   }
 }
 
@@ -150,7 +150,7 @@ h6 {
 }
 
 h1 {
-  font-size: clamp(calc(32rem/16), calc(54vw/7.68), calc(56rem/16));
+  font-size: clamp(calc(28rem/16), calc(50vw/7.68), calc(56rem/16));
 }
 
 h2 {
@@ -158,7 +158,7 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28rem/16));
+  font-size: clamp(calc(24rem/16), calc(40vw/7.68), calc(40rem/16));
 }
 
 p strong,
