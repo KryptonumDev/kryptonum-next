@@ -62,6 +62,7 @@ const PolishIndexPage = async () => {
 					hero_Subheading,
 					hero_Cta,
 				}}
+        eagerLoading={true}
 			/>
 			{/* <GridFloatingImg data={services} /> */}
 			<FourGrid

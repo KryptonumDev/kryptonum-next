@@ -169,7 +169,7 @@ const query = async (slug) => {
   });
 	if (slug) {
 		data.page ? (data.page = data.page[0]) : notFound();
-		slug !== data.page.slug.current && notFound();
+		slug !== data.page?.slug.current && notFound();
 	}
 	return data;
 };

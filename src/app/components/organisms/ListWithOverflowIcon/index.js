@@ -2,13 +2,10 @@ import Img from "@/utils/Img";
 import Markdown from "@/utils/markdown";
 import styles from "./styles.module.scss";
 
-const ListWithOverflowIcon = ({ 
-	data: { blocks }, 
-	className, 
-	itemClassName }) => {
+const ListWithOverflowIcon = ({ data: { blocks }, className, itemClassName }) => {
 	return (
 		<div className={`${styles.wrapper} ${className}`}>
-			{blocks.map(({ icon, description, title }, i) => (
+			{blocks.map(({ icon, description, title, img }, i) => (
 				<div
 					className={`${styles.item} ${itemClassName}`}
 					key={i}
@@ -26,6 +23,12 @@ const ListWithOverflowIcon = ({
 						>
 							{title}
 						</Markdown>
+					)}
+					{img && (
+						<Img
+							data={img}
+							className={styles.img}
+						/>
 					)}
 					<Markdown className={styles.description}>{description}</Markdown>
 				</div>

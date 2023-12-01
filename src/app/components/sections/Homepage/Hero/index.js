@@ -4,7 +4,7 @@ import CaseStudies from "../../CaseStudies";
 import HeroSubheading from "../HeroSubheadings";
 import styles from "./styles.module.scss";
 
-const Hero = ({ data: { hero_Heading, hero_Subheading, hero_Cta } }) => {
+const Hero = ({ data: { hero_Heading, hero_Subheading, hero_Cta }, eagerLoading=false }) => {
 	return (
 		<section className={styles.section}>
 			<header>
@@ -16,7 +16,7 @@ const Hero = ({ data: { hero_Heading, hero_Subheading, hero_Cta } }) => {
 					<Button data={hero_Cta} />
 				</div>
 			</header>
-			<CaseStudies />
+			<CaseStudies eagerLoading={eagerLoading}/>
 		</section>
 	);
 };

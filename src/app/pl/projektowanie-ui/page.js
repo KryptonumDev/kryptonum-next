@@ -51,7 +51,6 @@ export default async function UiDesignPage() {
 		<>
 			<Hero
 				data={hero}
-				breadcrumbs={breadcrumbs}
 			/>
 			<TextSection data={textSection} />
 			<CentralizedHeadingSection
@@ -74,7 +73,9 @@ export default async function UiDesignPage() {
 			/>
 			<CtaSection data={ctaSection2} />
 			<TextSection data={textSection4} />
-			<Process data={process} />
+			<Process data={{
+        blocks: process
+      }} />
 			<CentralizedHeadingSection data={centralizedHeading2} />
 			<CaseStudies cta={caseStudies} />
 			<CtaSection data={ctaSection3} />

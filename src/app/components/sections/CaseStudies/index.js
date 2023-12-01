@@ -4,7 +4,7 @@ import fetchData from "@/utils/fetchData";
 import styles from "./styles.module.scss";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 
-const CaseStudies = async ({ data, heading, cta }) => {
+const CaseStudies = async ({ data, heading, cta, eagerLoading=false }) => {
 	let body = await query();
 	if (data) {
 		body.data.caseStudies = data;
@@ -24,7 +24,7 @@ const CaseStudies = async ({ data, heading, cta }) => {
 							data={caseStudy.img}
 							key={i}
 							className={styles.img}
-							loading={i == 0 ? "eager" : "lazy"}
+							loading={eagerLoading && i == 0 ? "eager" : "lazy"}
 							sizes="100vw"
 						/>
 						<Button

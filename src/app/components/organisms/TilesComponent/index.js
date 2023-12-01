@@ -13,9 +13,9 @@ const TilesComponent = ({
 		<div
 			className={additionalStyles ? `${styles.section} ${additionalStyles.tiles}` : styles.section}
 		>
-			<header>
+			{heading && <header>
 				<DecorativeHeading type="h2">{heading}</DecorativeHeading>
-			</header>
+			</header>}
 			<div className={styles.wrapper}>
 				{list.map(({ icon, title, description }, i) => (
 					<div
