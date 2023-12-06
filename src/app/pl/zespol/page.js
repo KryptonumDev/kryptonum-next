@@ -7,6 +7,7 @@ import Hero from "@/app/components/sections/teamSections/Hero";
 import Testimonials from "@/app/components/sections/teamSections/Testimonials";
 import fetchData from "@/utils/fetchData";
 import SEO from "@/app/components/global/Seo";
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 
 export default async function TeamPage() {
 	const {
@@ -33,8 +34,17 @@ export default async function TeamPage() {
 			curiosityEntries_Heading,
 		},
 	} = await query();
+
+  const breadcrumbs = [
+    {
+      name: "Zespół",
+      link: "/pl/zespol"
+    },
+  ];
+
   return (
     <>
+    <Breadcrumbs breadcrumbs={breadcrumbs}/>
       <Hero data={{
         hero_Heading,
         hero_Paragraph,

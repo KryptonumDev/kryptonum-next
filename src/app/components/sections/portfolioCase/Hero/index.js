@@ -13,7 +13,7 @@ const Hero = ({
   breadcrumbs
 }) => {
   return (
-    <section className={styles.section}>
+    <section className={`${styles.section}`}>
       <Img
         data={img}
         className={styles.img}

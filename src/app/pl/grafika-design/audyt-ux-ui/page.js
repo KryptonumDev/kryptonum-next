@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import CaseStudies from "@/app/components/sections/CaseStudies";
 import ConsultationForm from "@/app/components/sections/ConsultationForm";
@@ -51,8 +52,21 @@ export default async function graphicsAndDesignAuditPage() {
 		},
 		blogEntries,
 	} = await query();
+
+  const breadcrumbs = [
+    {
+      name: "Grafika & design",
+      link: "/pl/grafika-design"
+    },
+    {
+      name: "Audyt UX/UI",
+      link: "/pl/grafika-design/audyt-ux-ui"
+    }
+  ];
+
 	return (
 		<>
+    <Breadcrumbs breadcrumbs={breadcrumbs}/>
 			<HeroServices
 				data={{
 					hero_Heading,

@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import CardWithOverflowIcon from "@/app/components/sections/CardWithOverflowIcon";
 import CentralizedHeadingWithCardGrid from "@/app/components/sections/CentralizedHeadingWithCardGrid";
@@ -52,10 +53,8 @@ export default async function UxDesignPage() {
 	];
 	return (
 		<>
-			<Hero
-				data={hero}
-				breadcrumbs={breadcrumbs}
-			/>
+			<Breadcrumbs breadcrumbs={breadcrumbs} />
+			<Hero data={hero} />
 			<TextSection data={textSection} />
 			<CtaSection data={ctaSection} />
 			<TitleDescriptionImageList data={titleDescriptionImageList} />

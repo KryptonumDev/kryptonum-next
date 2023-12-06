@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import BlogEntries from "@/app/components/sections/BlogEntries";
 import Categories from "@/app/components/sections/Categories";
@@ -14,8 +15,17 @@ export default async function BlogPage() {
 		blogCategories,
 		blogEntriesCount,
 	} = await query();
+
+	const breadcrumbs = [
+		{
+			name: "Blog",
+			link: "/pl/blog",
+		},
+	];
+
 	return (
 		<>
+			<Breadcrumbs breadcrumbs={breadcrumbs} />
 			<Hero
 				data={{
 					heading: hero_Heading,

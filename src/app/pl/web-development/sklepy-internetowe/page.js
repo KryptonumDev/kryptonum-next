@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import CaseStudies from "@/app/components/sections/CaseStudies";
 import ConsultationForm from "@/app/components/sections/ConsultationForm";
@@ -32,8 +33,21 @@ export default async function webDevelopmentShoppingSitesPage() {
 		},
 		blogEntries,
 	} = await query();
+
+  const breadcrumbs =[
+    {
+      name: "Web Development",
+      link: "/pl/web-development"
+    },
+    {
+      name: "Sklepy internetowe",
+      link: "/pl/sklepy-internetowe"
+    }
+  ];
+
 	return (
 		<>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
 			<HeroServices
 				data={{
 					hero_Heading,

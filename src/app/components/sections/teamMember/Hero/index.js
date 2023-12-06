@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 
 const Hero = ({ name, cryptonym, img }) => {
 	return (
-		<section className={styles.section}>
+		<section className={`${styles.section} hero`}>
 			<header>
 				<DecorativeHeading>{name}</DecorativeHeading>
 				<h2 className="strong">{cryptonym}</h2>

@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import Faq from "@/app/components/sections/Faq";
 import Team from "@/app/components/sections/Team";
@@ -26,8 +27,17 @@ export default async function ContactPage() {
 			helpDesk_FormTitle,
 		},
 	} = await query();
+
+	const breadcrumbs = [
+    {
+      name: "Kontakt",
+      link: "/pl/kontakt"
+    }
+  ];
+
 	return (
 		<>
+		<Breadcrumbs breadcrumbs={breadcrumbs}/>
 			<Hero
 				data={{
 					heading: hero_Heading,

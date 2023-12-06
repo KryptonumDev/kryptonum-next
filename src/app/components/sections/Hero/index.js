@@ -7,12 +7,10 @@ import Button from "../../atoms/Button";
 
 const Hero = ({
 	data: { heading, subheading, image, sideImage, paragraph, cta },
-	breadcrumbs,
 	isBlogHero = false,
 }) => {
 	return (
-		<section className={isBlogHero ? `${styles.section} ${styles.blogSection}` : styles.section}>
-			{breadcrumbs && <Breadcrumbs breadcrumbs={breadcrumbs} />}
+		<section className={isBlogHero ? `${styles.section} ${styles.blogSection} hero` : `${styles.section} hero`}>
 			<header>
 				<div className={styles.copy}>
 					<DecorativeHeading type="h1">{heading}</DecorativeHeading>

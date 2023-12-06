@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import Hero from "@/app/components/sections/Hero";
 import Grid from "@/app/components/sections/SitemapGrid";
@@ -20,8 +21,16 @@ export default async function SitemapPage() {
     akademiaEntries
   } = await query();
 
+  const breadcrumbs = [
+    {
+      name: "Mapa strony",
+      link: "/pl/mapa-strony"
+    },
+  ];
+
   return (
     <>
+      <Breadcrumbs breadcrumbs={breadcrumbs}/>
       <Hero data={{
         heading: hero_Heading,
         paragraph: hero_Subheading,

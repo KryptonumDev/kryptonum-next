@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import TextComponent from "@/app/components/molecules/TextComponent";
 import CtaSection from "@/app/components/sections/CtaSection";

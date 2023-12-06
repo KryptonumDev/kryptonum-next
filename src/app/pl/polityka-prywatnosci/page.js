@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import Hero from "@/app/components/sections/Hero";
 import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
@@ -17,8 +18,16 @@ export default async function PrivacyPolicyPage() {
     simpleCtaSection
   }} = await query();
 
+  const breadcrumbs = [
+    {
+      name: "Polityka prywatności",
+      link: "/pl/polityka-prywatnosci"
+    }
+  ];
+
   return (
     <>
+      <Breadcrumbs breadcrumbs={breadcrumbs}/>
       <Hero data={{
         heading: hero_Heading,
         paragraph: hero_Paragraph,

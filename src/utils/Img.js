@@ -9,7 +9,7 @@ const defaultPlaceholder =
 const Img = ({ src, alt, data, width, height, sizes, loading, ...props }) => (
 	<NextImage
 		src={data?.asset.url || src}
-		alt={data?.asset.altText || alt}
+		alt={alt || data?.asset.altText}
 		width={width || data?.asset.metadata.dimensions?.width }
 		height={height || data?.asset.metadata.dimensions?.height}
 		sizes={sizes}

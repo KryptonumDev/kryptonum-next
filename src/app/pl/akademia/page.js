@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import Categories from "@/app/components/sections/Categories";
 import CtaSection from "@/app/components/sections/CtaSection";
@@ -15,8 +16,17 @@ export default async function AcademyPage() {
 		curiosityEntriesCount,
 		blogEntries,
 	} = await query();
+
+  const breadcrumbs = [
+    {
+      name: "Akademia",
+      link: "/pl/akademia",
+    }
+  ]
+
 	return (
 		<>
+      <Breadcrumbs breadcrumbs={breadcrumbs}/>
 			<Hero
 				data={{
 					heading: hero_Heading,
@@ -196,4 +206,4 @@ const query = async () => {
 	return data;
 };
 
-export const academyItemsPerPage = 12;
+export const academyItemsPerPage = 1;

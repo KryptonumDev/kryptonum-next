@@ -40,7 +40,7 @@ const Breadcrumbs = ({portfolio, breadcrumbs}) => {
 
   const breadCrumbsItems = createBreadcrumbs(breadcrumbs);
   return (
-    <nav className={portfolio ? `${styles.portfolio} ${styles.wrapper}` : styles.wrapper}>
+    <nav className={portfolio ? `${styles.portfolio} ${styles.wrapper} breadcrumb` : `${styles.wrapper} breadcrumb`}>
     {breadCrumbsItems.length > 1 && (
       <Script type="application/ld+json">
         {JSON.stringify({

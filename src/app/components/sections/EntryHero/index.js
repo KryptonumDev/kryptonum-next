@@ -16,7 +16,7 @@ const EntryHero = ({
 }) => {
   _createdAt = formatDateToPolishLocale(_createdAt);
 	return (
-		<section className={styles.wrapper}>
+		<section className={`${styles.wrapper} hero`}>
 			<header className={author ? styles.hasAuthor : ""}>
 				<DecorativeHeading>{title}</DecorativeHeading>
 				<Markdown className={styles.subtitle}>{subtitle}</Markdown>

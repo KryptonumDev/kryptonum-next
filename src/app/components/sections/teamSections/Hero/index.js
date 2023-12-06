@@ -11,9 +11,9 @@ const Hero = ({
   }
 }) => {
   return (
-    <section className={styles.section}>
+    <section className={`${styles.section} hero`}>
       <header>
-        <DecorativeHeading className={styles.heading}>{hero_Heading}</DecorativeHeading>
+        <DecorativeHeading>{hero_Heading}</DecorativeHeading>
         <div className={styles.paragraph}>
           <Error />
           <Markdown>{hero_Paragraph}</Markdown>

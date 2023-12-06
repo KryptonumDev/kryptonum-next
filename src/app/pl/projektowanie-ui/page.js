@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import CaseStudies from "@/app/components/sections/CaseStudies";
 import CentralizedHeadingSection from "@/app/components/sections/CentralizedHeadingSection";
@@ -49,6 +50,7 @@ export default async function UiDesignPage() {
 
 	return (
 		<>
+      <Breadcrumbs breadcrumbs={breadcrumbs}/>
 			<Hero
 				data={hero}
 			/>

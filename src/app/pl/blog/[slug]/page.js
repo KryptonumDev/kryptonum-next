@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import Content from "@/app/components/sections/Content";
 import EntryHero from "@/app/components/sections/EntryHero";
@@ -17,8 +18,20 @@ export default async function BlogSlugPage({ params }) {
 		blogEntries,
 	} = await query(params.slug);
 
+  const breadcrumbs = [
+    {
+      name: "Blog",
+      link: "/pl/blog"
+    },
+    {
+      name: title,
+      link: params.slug
+    }
+  ];
+
 	return (
 		<>
+      <Breadcrumbs breadcrumbs={breadcrumbs}/>
 			<EntryHero
 				title={title}
 				subtitle={subtitle}

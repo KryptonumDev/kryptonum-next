@@ -7,7 +7,7 @@ import Form from "@/app/components/organisms/forms/FastContact";
 
 const Hero = ({ heading, subheading, contact }) => {
 	return (
-		<section className={styles.section}>
+		<section className={`${styles.section} hero`}>
 			<div>
 				<DecorativeHeading>{heading}</DecorativeHeading>
 				<Markdown className={styles.subheading}>{subheading}</Markdown>

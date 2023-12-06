@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import HeroServices from "@/app/components/sections/HeroServices";
 import ListSection from "@/app/components/sections/ListSection";
@@ -30,8 +31,17 @@ export default async function discoveryWorkshopsPage() {
 			document_SimpleCtaSection,
 		},
 	} = await query();
+
+  const breadcrumbs = [
+    {
+      name: "Warsztaty strategiczny",
+      link: "/pl/warsztaty-discovery"
+    }
+  ];
+
 	return (
 		<>
+      <Breadcrumbs breadcrumbs={breadcrumbs}/>
 			<HeroServices
 				data={{
 					hero_Heading,

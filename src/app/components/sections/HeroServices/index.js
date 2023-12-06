@@ -17,7 +17,7 @@ const HeroServices = ({
   }
 }) => {
   return (
-    <section className={styles.section}>
+    <section className={`${styles.section} hero`}>
       <DecorativeHeading
         components={{em: ({...props}) => <sup {...props} />}}
       >{hero_Heading}</DecorativeHeading>

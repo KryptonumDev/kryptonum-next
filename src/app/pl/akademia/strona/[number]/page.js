@@ -8,6 +8,7 @@ import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
 import fetchData from "@/utils/fetchData";
 import { notFound, redirect } from "next/navigation";
 import { academyItemsPerPage } from "../../page";
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 
 export async function generateStaticParams() {
 	const { allCuriosityEntries } = await paramsQuery();
@@ -25,8 +26,17 @@ export default async function academyPaginationPage({ params: { number } }) {
 		allCuriosityEntries,
 		blogEntries,
 	} = await query(number, academyItemsPerPage, (parseInt(number) - 1) * academyItemsPerPage);
+
+  const breadcrumbs = [
+    {
+      name: "Akademia",
+      link: "/pl/akademia",
+    }
+  ]
+
 	return (
 		<>
+    <Breadcrumbs breadcrumbs={breadcrumbs}/>
 			<Hero
 				data={{
 					heading: `**Akademia** - strona ${number}`,

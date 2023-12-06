@@ -1,5 +1,6 @@
 .wrapper {
   max-width: calc(680rem/16);
+  position: absolute;
   &:not(.portfolio){
     margin-bottom: clamp(16px, calc(24vw/7.68), 24px);
     + * {
@@ -8,6 +9,7 @@
   }
   &.portfolio {
     margin-top: clamp(16px, calc(24vw/7.68), 24px);
+    position: relative;
   }
   ul {
     max-width: calc(100vw - var(--pageMargin) * 2);

@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import CentralizedHeadingSection from "@/app/components/sections/CentralizedHeadingSection";
 import CtaSection from "@/app/components/sections/CtaSection";
@@ -41,10 +42,8 @@ export default async function BraindingPage() {
 
 	return (
 		<>
-			<Hero
-				data={hero}
-				breadcrumbs={breadcrumbs}
-			/>
+			<Breadcrumbs breadcrumbs={breadcrumbs} />
+			<Hero data={hero} />
 			<TextSection data={textSection} />
 			<CtaSection data={ctaSection} />
 			<TilesWithOverflowIcon data={tiles} />

@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import ConsultationForm from "@/app/components/sections/ConsultationForm";
 import EntryHero from "@/app/components/sections/EntryHero";
@@ -37,8 +38,20 @@ export default async function AcademySlugPage({ params }) {
 		},
 	} = await query(params.slug);
 
+  const breadcrumbs = [
+    {
+      name: "Akademia",
+      link: "/pl/akademia"
+    },
+    {
+      name: title,
+      link: slug
+    }
+  ];
+
 	return (
 		<>
+      <Breadcrumbs breadcrumbs={breadcrumbs}/>
 			<EntryHero
 				title={title}
 				subtitle={subtitle}

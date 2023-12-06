@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import CentralizedHeading from "@/app/components/molecules/CentralizedHeading";
 import TextComponent from "@/app/components/molecules/TextComponent";

@@ -5,7 +5,7 @@
     justify-items: center;
     min-height: 70vh;
 
-    .heading {
+    h1 {
       margin: 0 auto 48px;
       max-width: calc(700rem/16);
     }
@@ -47,7 +47,7 @@
 
   @media (max-width: 859px) {
     header {
-      .heading {
+      h1 {
         text-align: left;
         margin: 0 0 48px;
       }

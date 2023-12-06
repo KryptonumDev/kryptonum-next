@@ -1,6 +1,6 @@
 .wrapper {
   display: grid;
-  row-gap: 73px;
+  row-gap: clamp(96px, calc(144vw/7.68), 172px);
   justify-self: center;
 
   @media(max-width: 1250px) {

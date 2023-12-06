@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import CaseStudies from "@/app/components/sections/CaseStudies";
 import CtaSection from "@/app/components/sections/CtaSection";
@@ -39,8 +40,17 @@ export default async function graphicsAndDesignPage() {
 		},
 		blogEntries,
 	} = await query();
+
+  const breadcrumbs = [
+    {
+      name: "Grafika & design",
+      link: "/pl/grafika-design"
+    }
+  ];
+
 	return (
 		<>
+    <Breadcrumbs breadcrumbs={breadcrumbs}/>
 			<HeroServices
 				data={{
 					hero_Heading,

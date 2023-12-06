@@ -8,6 +8,7 @@ import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
 import fetchData from "@/utils/fetchData";
 import { notFound } from "next/navigation";
 import { academyItemsPerPage } from "../../page";
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 
 export async function generateStaticParams() {
 	const { allCuriosityCategories } = await paramsQuery();
@@ -18,14 +19,26 @@ export default async function AcademyCategoryPage({ params: { category } }) {
 	const {
 		page: { ctaSection },
 		curiosityEntries,
-		curiosityCategory: { slug, hero_Heading, hero_Paragraph, hero_Img },
+		curiosityCategory: { slug, hero_Heading, hero_Paragraph, hero_Img, name },
 		curiosityCategories,
 		allCuriosityEntries,
 		blogEntries,
 	} = await query(category);
 
+	const breadcrumbs = [
+		{
+			name: "Akademia",
+			link: "/pl/akademia",
+		},
+		{
+			name: name,
+			link: slug,
+		},
+	];
+
 	return (
 		<>
+			<Breadcrumbs breadcrumbs={breadcrumbs} />
 			<Hero
 				data={{
 					heading: hero_Heading,

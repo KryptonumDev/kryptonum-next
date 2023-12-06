@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import BrandbookTypes from "@/app/components/sections/BrandbookTypes";
 import CaseStudies from "@/app/components/sections/CaseStudies";
@@ -39,8 +40,21 @@ export default async function graphicsAndDesignVisualIdentityPage() {
 		},
 		blogEntries,
 	} = await query();
+
+  const breadcrumbs = [
+    {
+      name: "Grafika & design",
+      link: "/pl/grafika-design"
+    },
+    {
+      name: "Identyfikacja wizualna marki",
+      link: "/pl/grafika-design/identyfikacja-wizualna-marki"
+    }
+  ];
+
 	return (
 		<>
+      <Breadcrumbs breadcrumbs={breadcrumbs}/>
 			<HeroServices
 				data={{
 					hero_Heading,

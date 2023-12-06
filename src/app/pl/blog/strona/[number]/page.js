@@ -8,6 +8,7 @@ import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEnt
 import fetchData from "@/utils/fetchData";
 import { notFound, redirect } from "next/navigation";
 import { blogItemsPerPage } from "../../page";
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 
 export async function generateStaticParams() {
 	const { allBlogEntries } = await paramsQuery();
@@ -24,8 +25,17 @@ export default async function BlogPaginationPage({ params: { number } }) {
 		blogCategories,
 		allBlogEntries,
 	} = await query(number);
+
+	const breadcrumbs = [
+		{
+			name: "Blog",
+			link: "/pl/blog",
+		},
+	];
+
 	return (
 		<>
+			<Breadcrumbs breadcrumbs={breadcrumbs} />
 			<Hero
 				data={{
 					heading: `**Blog** - strona ${number}`,
@@ -71,7 +81,8 @@ const query = async (number) => {
 	}
 	const {
 		body: { data },
-	} = await fetchData(`
+	} = await fetchData(
+		`
   query($limit: Int!, $offset: Int!) {
     blogEntries: allBlogEntries(
         limit: $limit
@@ -183,10 +194,12 @@ const query = async (number) => {
         current
       }
     }
-  }`,{
-    limit: blogItemsPerPage,
-    offset: (parseInt(number) - 1) * blogItemsPerPage
-  });
+  }`,
+		{
+			limit: blogItemsPerPage,
+			offset: (parseInt(number) - 1) * blogItemsPerPage,
+		},
+	);
 	if (data.blogEntries?.length == 0) {
 		notFound();
 	}

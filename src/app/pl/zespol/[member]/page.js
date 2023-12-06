@@ -15,6 +15,7 @@ import fetchData from "@/utils/fetchData";
 import styles from "./styles.module.scss";
 import SEO from "@/app/components/global/Seo";
 import { removeMarkdown } from "@/utils/functions";
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 
 export async function generateStaticParams() {
 	const { allTeamMember } = await paramsQuery();
@@ -54,8 +55,20 @@ export default async function TeamMemberPage({ params: { member } }) {
 		node.content?.some((contentItem) => contentItem.people?.some((person) => person._id === _id)),
 	);
 
+  const breadcrumbs = [
+    {
+      name: "Zespół",
+      link: "/pl/zespol"
+    },
+    {
+      name: name,
+      link: member,
+    }
+  ];
+
 	return (
 		<div className={styles.wrapper}>
+      <Breadcrumbs breadcrumbs={breadcrumbs}/>
 			<Hero
 				name={name}
 				cryptonym={cryptonym}

@@ -8,6 +8,7 @@ import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEnt
 import fetchData from "@/utils/fetchData";
 import { notFound } from "next/navigation";
 import { blogItemsPerPage } from "../../../page";
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 
 export async function generateStaticParams() {
 	const { allBlogEntries } = await paramsQuery();
@@ -37,12 +38,24 @@ export default async function BlogCategoryPaginationPage({ params: { category, n
 		page: { ctaSection },
 		blogEntries,
 		blogCategories,
-		blogCategory: { slug, hero_Heading, hero_Paragraph, hero_Img },
+		blogCategory: { slug, hero_Heading, hero_Paragraph, hero_Img, name },
 		allBlogEntries,
 	} = await query(category, number);
 
+  const breadcrumbs = [
+    {
+      name: "Blog",
+      link: "/pl/blog"
+    },
+    {
+      name: name,
+      link: slug
+    }
+  ];
+
 	return (
 		<>
+      <Breadcrumbs breadcrumbs={breadcrumbs}/>
 			<Hero
 				data={{ heading: hero_Heading, paragraph: hero_Paragraph, sideImage: hero_Img }}
 				isBlogHero

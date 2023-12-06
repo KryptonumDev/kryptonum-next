@@ -1,10 +1,24 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import Brief from "@/app/components/organisms/Brief";
 import fetchData from "@/utils/fetchData";
 
 export default async function BriefPage() {
 	const data = await query();
-	return <Brief data={data} />;
+
+	const breadcrumbs = [
+		{
+			name: "Brief z Kryptonum",
+			link: "/pl/brief-z-kryptonum",
+		},
+	];
+
+	return (
+		<>
+			<Breadcrumbs breadcrumbs={breadcrumbs} />
+			<Brief data={data} />
+		</>
+	);
 }
 
 export async function generateMetadata() {

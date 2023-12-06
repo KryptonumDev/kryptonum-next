@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import ConsultationForm from "@/app/components/sections/ConsultationForm";
 import Hero from "@/app/components/sections/Hero";
@@ -10,8 +11,17 @@ export default async function PortfolioPage() {
 		page: { hero_Heading, hero_Paragraph, caseStudies, quickForm, blogEntries_Heading },
 		blogEntries,
 	} = await query();
+
+  const breadcrumbs = [
+    {
+      name: "Portfolio",
+      link: "/pl/portfolio"
+    }
+  ];
+
 	return (
 		<>
+      <Breadcrumbs breadcrumbs={breadcrumbs}/>
 			<Hero data={{ heading: hero_Heading, paragraph: hero_Paragraph }} />
 			<CaseStudies data={caseStudies} />
 			<ConsultationForm data={quickForm} />
