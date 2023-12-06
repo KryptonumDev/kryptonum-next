@@ -5,6 +5,7 @@ import TextComponent from "@/app/components/molecules/TextComponent";
 import ListWithOverflowIcon from "@/app/components/organisms/ListWithOverflowIcon";
 import CaseStudies from "@/app/components/sections/CaseStudies";
 import CtaSection from "@/app/components/sections/CtaSection";
+import GridFloatingImg from "@/app/components/sections/GridFloatingImg";
 import ImageComponent from "@/app/components/sections/ImageComponent";
 import ImageShowcase from "@/app/components/sections/ImageShowcase";
 import LargeListWithImg from "@/app/components/sections/LargeListWithImg";
@@ -120,7 +121,7 @@ export default async function LocationPage({ params: { location } }) {
 				data={component}
 			/>
 		),
-		// 'GridFloatingImg': <GridFloatingImg key={i} data={component} />,
+		'GridFloatingImg': <GridFloatingImg key={i} data={component} />,
 	});
 
 	const {

@@ -7,6 +7,7 @@ import Hero from "@/components/sections/homepage/Hero";
 import Roadmap from "@/components/sections/homepage/Roadmap";
 import fetchData from "@/utils/fetchData";
 import Testimonials from "../components/sections/Testimonials";
+import GridFloatingImg from "../components/sections/GridFloatingImg";
 
 export async function generateMetadata() {
 	const {
@@ -64,7 +65,7 @@ const PolishIndexPage = async () => {
 				}}
         eagerLoading={true}
 			/>
-			{/* <GridFloatingImg data={services} /> */}
+			<GridFloatingImg data={services} />
 			<FourGrid
 				heading={conquest_Heading}
 				claim={conquest_Claim}

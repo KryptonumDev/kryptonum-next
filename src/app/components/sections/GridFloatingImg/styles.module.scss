@@ -24,7 +24,7 @@
     .item {
       counter-increment: counter;
       position: relative;
-      .link > {
+      > .link {
         position: absolute;
         left: 0;
         top: 0;
@@ -32,7 +32,7 @@
         height:100%;
       }
 
-      h3 {
+      h2 {
         font-size: clamp(18px, calc(28vw/7.68), 28px);
         margin-bottom: clamp(12px, calc(16vw/7.68), 32px);
         display: flex;
@@ -53,7 +53,7 @@
         }
       }
 
-      &:nth-child(-n+9) h3::before {
+      &:nth-child(-n+9) h2::before {
         content: "/0" counter(counter);
       }
 
