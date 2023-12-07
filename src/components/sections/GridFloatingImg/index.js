@@ -48,11 +48,11 @@ const GridFloatingImg = ({ data: { heading, list } }) => {
 						className={styles.item}
 						key={i}
 					>
-						<Link
+						{href &&<Link
 							href={href}
 							aria-label={removeMarkdown(title)}
 							className={styles.link}
-						/>
+						/>}
 						<motion.div
 							style={{
 								left: mouse.x,
