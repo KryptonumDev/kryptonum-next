@@ -11,28 +11,36 @@
   transition: border-color .3s var(--easing);
   cursor: pointer;
 
-  &.errored{
+  &.errored {
     border-color: #EE6470;
   }
 
-  input{
+  input {
     position: absolute;
     left: 0;
     top: 0;
     opacity: 0;
   }
 
-  input:checked ~ .radio::after{
+  &:focus-within {
+    background: linear-gradient(var(--neutral-900), var(--neutral-900)) padding-box,
+    var(--gradient) border-box;
+    border: 1px solid transparent;
+    border-radius: 2px;
+  }
+
+  input:checked~.radio::after {
     transform: translate(-50%, -50%) scale(1);
   }
 
-  .radio{
+  .radio {
     width: clamp(24px, calc(24vw/7.68), 34px);
     height: clamp(24px, calc(24vw/7.68), 34px);
     border: 2px solid #EFF0F3;
     border-radius: 50%;
     position: relative;
-    &::after{
+
+    &::after {
       content: "";
       position: absolute;
       left: 50%;
