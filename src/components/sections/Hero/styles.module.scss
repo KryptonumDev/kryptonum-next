@@ -35,6 +35,7 @@
     }
     >img {
       width:unset;
+      max-width: 900px;
       height:auto;
       object-fit:cover;
       justify-self: flex-end;
@@ -49,6 +50,7 @@
         width:100%;
         justify-self: center;
         height:100%;
+        max-width: unset;
       }
       .spanWrapper {
         width: fit-content;
