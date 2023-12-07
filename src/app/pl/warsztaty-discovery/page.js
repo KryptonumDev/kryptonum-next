@@ -2,6 +2,7 @@ import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import HeroServices from "@/app/components/sections/HeroServices";
 import ListSection from "@/app/components/sections/ListSection";
+import ScrollToNext from "@/app/components/sections/ScrollToNext";
 import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
 import Document from "@/app/components/sections/workshop/Document";
 import Why from "@/app/components/sections/workshop/Why";
@@ -29,52 +30,56 @@ export default async function discoveryWorkshopsPage() {
 			document_Paragraph2,
 			document_Images,
 			document_SimpleCtaSection,
+			scrollToNext,
 		},
 	} = await query();
 
-  const breadcrumbs = [
-    {
-      name: "Warsztaty strategiczny",
-      link: "/pl/warsztaty-discovery"
-    }
-  ];
+	const breadcrumbs = [
+		{
+			name: "Warsztaty strategiczny",
+			link: "/pl/warsztaty-discovery",
+		},
+	];
 
 	return (
 		<>
-      <Breadcrumbs breadcrumbs={breadcrumbs}/>
-			<HeroServices
-				data={{
-					hero_Heading,
-					hero_Annotation,
-					hero_Paragraph,
-					hero_SecondParagraph,
-					hero_Img,
-				}}
-			/>
-			<SimpleCtaSection data={simpleCtaSection} />
-			<ListSection
-				heading={process_Heading}
-				list={process_List}
-			/>
-			<Why
-				data={{
-					why_Heading,
-					why_Paragraph,
-					why_SecondParagraph,
-					why_ThirdParagraph,
-					why_FourthParagraph,
-					why_Cta,
-				}}
-			/>
-			<Document
-				data={{
-					document_Heading,
-					document_Paragraph,
-					document_Paragraph2,
-					document_Images,
-				}}
-			/>
-			<SimpleCtaSection data={document_SimpleCtaSection} />
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<HeroServices
+					data={{
+						hero_Heading,
+						hero_Annotation,
+						hero_Paragraph,
+						hero_SecondParagraph,
+						hero_Img,
+					}}
+				/>
+				<SimpleCtaSection data={simpleCtaSection} />
+				<ListSection
+					heading={process_Heading}
+					list={process_List}
+				/>
+				<Why
+					data={{
+						why_Heading,
+						why_Paragraph,
+						why_SecondParagraph,
+						why_ThirdParagraph,
+						why_FourthParagraph,
+						why_Cta,
+					}}
+				/>
+				<Document
+					data={{
+						document_Heading,
+						document_Paragraph,
+						document_Paragraph2,
+						document_Images,
+					}}
+				/>
+				<SimpleCtaSection data={document_SimpleCtaSection} />
+			</main>
+			<ScrollToNext data={scrollToNext} />
 		</>
 	);
 }

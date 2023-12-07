@@ -6,6 +6,7 @@ import CtaSection from "@/app/components/sections/CtaSection";
 import HeroServices from "@/app/components/sections/HeroServices";
 import ImageAndStandout from "@/app/components/sections/ImageAndStandout";
 import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
+import ScrollToNext from "@/app/components/sections/ScrollToNext";
 import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
 import UxAudit from "@/app/components/sections/graphicsAndDesign/UxAudit";
 import fetchData from "@/utils/fetchData";
@@ -49,83 +50,87 @@ export default async function graphicsAndDesignAuditPage() {
 			caseStudies_Heading,
 			ctaSection,
 			blogEntries_Heading,
+      scrollToNext
 		},
 		blogEntries,
 	} = await query();
 
-  const breadcrumbs = [
-    {
-      name: "Grafika & design",
-      link: "/pl/grafika-design"
-    },
-    {
-      name: "Audyt UX/UI",
-      link: "/pl/grafika-design/audyt-ux-ui"
-    }
-  ];
+	const breadcrumbs = [
+		{
+			name: "Grafika & design",
+			link: "/pl/grafika-design",
+		},
+		{
+			name: "Audyt UX/UI",
+			link: "/pl/grafika-design/audyt-ux-ui",
+		},
+	];
 
 	return (
 		<>
-    <Breadcrumbs breadcrumbs={breadcrumbs}/>
-			<HeroServices
-				data={{
-					hero_Heading,
-					hero_Annotation,
-					hero_Paragraph,
-					hero_SecondParagraph,
-					hero_Img,
-				}}
-			/>
-			<SimpleCtaSection data={simpleCtaSection} />
-			<UxAudit
-				data={{
-					heading: digitalAudit_Heading,
-					headline: digitalAudit_Headline,
-					paragraph: digitalAudit_Paragraph,
-					paragraph2: digitalAudit_Paragraph2,
-					listHeading: digitalAudit_ListHeading,
-					list: digitalAudit_List,
-				}}
-			/>
-			<UxAudit
-				data={{
-					heading: uxAudit_Heading,
-					headline: uxAudit_Headline,
-					paragraph: uxAudit_Paragraph,
-					paragraph2: uxAudit_Paragraph2,
-					listHeading: uxAudit_ListHeading,
-					list: uxAudit_List,
-					ux: {
-						title: uxAudit_Title,
-						question: uxAudit_Question,
-						answer: uxAudit_Answer,
-						when: uxAudit_When,
-						whenList: uxAudit_WhenList,
-					},
-				}}
-			/>
-			<ConsultationForm data={quickForm} />
-			<UxAudit
-				data={{
-					heading: comboAudit_Heading,
-					paragraph: comboAudit_Paragraph,
-					paragraph2: comboAudit_Paragraph2,
-					listHeading: comboAudit_ListHeading,
-					list: comboAudit_List,
-				}}
-			/>
-			<ImageAndStandout
-				heading={benefits_Heading}
-				paragraph={benefits_Paragraph}
-				standout={benefits_Standout}
-				img={benefits_Img}
-			/>
-			<CaseStudies heading={caseStudies_Heading} />
-			<CtaSection data={ctaSection} />
-			<LatestBlogEntries
-				heading={blogEntries_Heading}
-				data={blogEntries}
-			/>
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<HeroServices
+					data={{
+						hero_Heading,
+						hero_Annotation,
+						hero_Paragraph,
+						hero_SecondParagraph,
+						hero_Img,
+					}}
+				/>
+				<SimpleCtaSection data={simpleCtaSection} />
+				<UxAudit
+					data={{
+						heading: digitalAudit_Heading,
+						headline: digitalAudit_Headline,
+						paragraph: digitalAudit_Paragraph,
+						paragraph2: digitalAudit_Paragraph2,
+						listHeading: digitalAudit_ListHeading,
+						list: digitalAudit_List,
+					}}
+				/>
+				<UxAudit
+					data={{
+						heading: uxAudit_Heading,
+						headline: uxAudit_Headline,
+						paragraph: uxAudit_Paragraph,
+						paragraph2: uxAudit_Paragraph2,
+						listHeading: uxAudit_ListHeading,
+						list: uxAudit_List,
+						ux: {
+							title: uxAudit_Title,
+							question: uxAudit_Question,
+							answer: uxAudit_Answer,
+							when: uxAudit_When,
+							whenList: uxAudit_WhenList,
+						},
+					}}
+				/>
+				<ConsultationForm data={quickForm} />
+				<UxAudit
+					data={{
+						heading: comboAudit_Heading,
+						paragraph: comboAudit_Paragraph,
+						paragraph2: comboAudit_Paragraph2,
+						listHeading: comboAudit_ListHeading,
+						list: comboAudit_List,
+					}}
+				/>
+				<ImageAndStandout
+					heading={benefits_Heading}
+					paragraph={benefits_Paragraph}
+					standout={benefits_Standout}
+					img={benefits_Img}
+				/>
+				<CaseStudies heading={caseStudies_Heading} />
+				<CtaSection data={ctaSection} />
+				<LatestBlogEntries
+					heading={blogEntries_Heading}
+					data={blogEntries}
+				/>
+			</main>
+      <ScrollToNext data={scrollToNext}/>
 		</>
 	);
 }

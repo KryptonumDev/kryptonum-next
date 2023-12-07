@@ -25,29 +25,31 @@ export default async function BlogPage() {
 
 	return (
 		<>
-			<Breadcrumbs breadcrumbs={breadcrumbs} />
-			<Hero
-				data={{
-					heading: hero_Heading,
-					paragraph: hero_Paragraph,
-					sideImage: hero_Img,
-				}}
-				isBlogHero={true}
-			/>
-			<Categories
-				categorySlug="/pl/blog/"
-				categories={blogCategories}
-			/>
-			<BlogEntries
-				urlBasis={"/pl/blog"}
-				totalCount={blogEntriesCount.length}
-				blogEntries={blogEntries}
-				page={1}
-				itemsPerPage={blogItemsPerPage}
-			/>
-			<CtaSection data={ctaSection} />
-			<LatestCuriosityEntries />
-			<Faq />
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<Hero
+					data={{
+						heading: hero_Heading,
+						paragraph: hero_Paragraph,
+						sideImage: hero_Img,
+					}}
+					isBlogHero={true}
+				/>
+				<Categories
+					categorySlug="/pl/blog/"
+					categories={blogCategories}
+				/>
+				<BlogEntries
+					urlBasis={"/pl/blog"}
+					totalCount={blogEntriesCount.length}
+					blogEntries={blogEntries}
+					page={1}
+					itemsPerPage={blogItemsPerPage}
+				/>
+				<CtaSection data={ctaSection} />
+				<LatestCuriosityEntries />
+				<Faq />
+			</main>
 		</>
 	);
 }
@@ -190,4 +192,4 @@ const query = async () => {
 	return data;
 };
 
-export const blogItemsPerPage = 2;
+export const blogItemsPerPage = 12;

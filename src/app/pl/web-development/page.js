@@ -4,6 +4,7 @@ import CaseStudies from "@/app/components/sections/CaseStudies";
 import CtaSection from "@/app/components/sections/CtaSection";
 import HeroServices from "@/app/components/sections/HeroServices";
 import ListSection from "@/app/components/sections/ListSection";
+import ScrollToNext from "@/app/components/sections/ScrollToNext";
 import Testimonials from "@/app/components/sections/Testimonials";
 import Advantages from "@/app/components/sections/webDevelopment/Advantages";
 import Flexibility from "@/app/components/sections/webDevelopment/Flexibility";
@@ -32,53 +33,57 @@ export default async function webDevelopmentPage() {
 			process_List,
 			caseStudies_Heading,
 			ctaSection,
+			scrollToNext,
 		},
 		testimonials,
 	} = await query();
 
-  const breadcrumbs = [
-    {
-      name: "Web Development",
-      link: "/pl/web-development"
-    },
-  ];
+	const breadcrumbs = [
+		{
+			name: "Web Development",
+			link: "/pl/web-development",
+		},
+	];
 
 	return (
 		<>
-      <Breadcrumbs breadcrumbs={breadcrumbs}/>
-			<HeroServices
-				data={{
-					hero_Heading,
-					hero_Annotation,
-					hero_Paragraph,
-					hero_SecondParagraph,
-					hero_Img,
-					hero_Nav,
-				}}
-			/>
-			<Advantages
-				heading={advantages_Heading}
-				advantages={advantages_Array}
-				simpleCtaSection={simpleCtaSection}
-			/>
-			<ListSection
-				heading={process_Heading}
-				paragraph={process_Claim}
-				title={process_Paragraph}
-				list={process_List}
-			/>
-			<Flexibility
-				data={{
-					flexibility_Heading,
-					flexibility_Claim,
-					flexibility_Paragraph,
-					flexibility_SecondParagraph,
-					flexibility_Cta,
-				}}
-			/>
-			<Testimonials testimonials={testimonials} />
-			<CaseStudies heading={caseStudies_Heading} />
-			<CtaSection data={ctaSection} />
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<HeroServices
+					data={{
+						hero_Heading,
+						hero_Annotation,
+						hero_Paragraph,
+						hero_SecondParagraph,
+						hero_Img,
+						hero_Nav,
+					}}
+				/>
+				<Advantages
+					heading={advantages_Heading}
+					advantages={advantages_Array}
+					simpleCtaSection={simpleCtaSection}
+				/>
+				<ListSection
+					heading={process_Heading}
+					paragraph={process_Claim}
+					title={process_Paragraph}
+					list={process_List}
+				/>
+				<Flexibility
+					data={{
+						flexibility_Heading,
+						flexibility_Claim,
+						flexibility_Paragraph,
+						flexibility_SecondParagraph,
+						flexibility_Cta,
+					}}
+				/>
+				<Testimonials testimonials={testimonials} />
+				<CaseStudies heading={caseStudies_Heading} />
+				<CtaSection data={ctaSection} />
+			</main>
+			<ScrollToNext data={scrollToNext} />
 		</>
 	);
 }

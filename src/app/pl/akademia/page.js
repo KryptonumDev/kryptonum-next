@@ -17,38 +17,40 @@ export default async function AcademyPage() {
 		blogEntries,
 	} = await query();
 
-  const breadcrumbs = [
-    {
-      name: "Akademia",
-      link: "/pl/akademia",
-    }
-  ]
+	const breadcrumbs = [
+		{
+			name: "Akademia",
+			link: "/pl/akademia",
+		},
+	];
 
 	return (
 		<>
-      <Breadcrumbs breadcrumbs={breadcrumbs}/>
-			<Hero
-				data={{
-					heading: hero_Heading,
-					paragraph: hero_Paragraph,
-					sideImage: hero_Img,
-				}}
-				isBlogHero={true}
-			/>
-			<Categories
-				categorySlug="/pl/akademia/"
-				categories={curiosityCategories}
-			/>
-			<CuriosityEntries
-				urlBasis="/pl/akademia"
-				totalCount={curiosityEntriesCount.length}
-				page={1}
-				curiosityEntries={curiosityEntries}
-				itemsPerPage={academyItemsPerPage}
-			/>
-			<CtaSection data={ctaSection} />
-			<LatestBlogEntries data={blogEntries} />
-			<Faq />
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<Hero
+					data={{
+						heading: hero_Heading,
+						paragraph: hero_Paragraph,
+						sideImage: hero_Img,
+					}}
+					isBlogHero={true}
+				/>
+				<Categories
+					categorySlug="/pl/akademia/"
+					categories={curiosityCategories}
+				/>
+				<CuriosityEntries
+					urlBasis="/pl/akademia"
+					totalCount={curiosityEntriesCount.length}
+					page={1}
+					curiosityEntries={curiosityEntries}
+					itemsPerPage={academyItemsPerPage}
+				/>
+				<CtaSection data={ctaSection} />
+				<LatestBlogEntries data={blogEntries} />
+				<Faq />
+			</main>
 		</>
 	);
 }
@@ -67,7 +69,8 @@ export async function generateMetadata() {
 const query = async () => {
 	const {
 		body: { data },
-	} = await fetchData(`
+	} = await fetchData(
+		`
   query($academyItemsPerPage: Int!) {
   curiosityEntries: allCuriosityEntries(
     limit: $academyItemsPerPage,
@@ -200,10 +203,12 @@ const query = async () => {
     }
   }
 }
-  `,{
-    academyItemsPerPage
-  });
+  `,
+		{
+			academyItemsPerPage,
+		},
+	);
 	return data;
 };
 
-export const academyItemsPerPage = 1;
+export const academyItemsPerPage = 12;

@@ -53,38 +53,40 @@ export default async function UxDesignPage() {
 	];
 	return (
 		<>
-			<Breadcrumbs breadcrumbs={breadcrumbs} />
-			<Hero data={hero} />
-			<TextSection data={textSection} />
-			<CtaSection data={ctaSection} />
-			<TitleDescriptionImageList data={titleDescriptionImageList} />
-			<HeadingImageTextList data={headingImageBlocksList} />
-			<CtaSection data={ctaSection2} />
-			<TextSection data={textSection2} />
-			<FullWidthImageComponent image={imageSection} />
-			<TextSection data={textSection3} />
-			<CardWithOverflowIcon cardData={cardWithOverflowIcon} />
-			<CentralizedHeadingWithCardGrid
-				data={cardGridWithCentralizedHeading}
-				decoration={true}
-			/>
-			<CtaSection data={ctaSection3} />
-			<HeadingBlocksCardGrid data={headingBlocksCardGrid} />
-			<ConsultationForm data={consultationCta} />
-			<HeadingWithIconTitleDescriptionList data={headingWithIconTitleDescriptionList} />
-			<ImageDisplayedOnTablet image={imageDisplayedOnTablet} />
-			<HeadingWithIconTitleDescriptionList data={headingWithIconDescriptionList2} />
-			<HeadingWithMaxWidth
-				heading={headingWithMaxWidth}
-				decoration={false}
-			/>
-			<CtaSection data={ctaSection4} />
-			<Team
-				heading={team_Heading}
-				paragraph={team_Text}
-				cta={team_Cta}
-			/>
-			<Testimonials testimonials={testimonials} />
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<Hero data={hero} />
+				<TextSection data={textSection} />
+				<CtaSection data={ctaSection} />
+				<TitleDescriptionImageList data={titleDescriptionImageList} />
+				<HeadingImageTextList data={headingImageBlocksList} />
+				<CtaSection data={ctaSection2} />
+				<TextSection data={textSection2} />
+				<FullWidthImageComponent image={imageSection} />
+				<TextSection data={textSection3} />
+				<CardWithOverflowIcon cardData={cardWithOverflowIcon} />
+				<CentralizedHeadingWithCardGrid
+					data={cardGridWithCentralizedHeading}
+					decoration={true}
+				/>
+				<CtaSection data={ctaSection3} />
+				<HeadingBlocksCardGrid data={headingBlocksCardGrid} />
+				<ConsultationForm data={consultationCta} />
+				<HeadingWithIconTitleDescriptionList data={headingWithIconTitleDescriptionList} />
+				<ImageDisplayedOnTablet image={imageDisplayedOnTablet} />
+				<HeadingWithIconTitleDescriptionList data={headingWithIconDescriptionList2} />
+				<HeadingWithMaxWidth
+					heading={headingWithMaxWidth}
+					decoration={false}
+				/>
+				<CtaSection data={ctaSection4} />
+				<Team
+					heading={team_Heading}
+					paragraph={team_Text}
+					cta={team_Cta}
+				/>
+				<Testimonials testimonials={testimonials} />
+			</main>
 		</>
 	);
 }

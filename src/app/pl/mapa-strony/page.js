@@ -30,6 +30,7 @@ export default async function SitemapPage() {
 
   return (
     <>
+    <main id="main">
       <Breadcrumbs breadcrumbs={breadcrumbs}/>
       <Hero data={{
         heading: hero_Heading,
@@ -48,6 +49,7 @@ export default async function SitemapPage() {
         caseStudies={caseStudies}
         akademiaEntries={akademiaEntries}
       />
+      </main>
     </>
   )
 }

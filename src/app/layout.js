@@ -38,7 +38,7 @@ const RootLayout = async ({ children }) => {
 
 	return (
 		<html lang="en">
-			<body className={font.className}>
+			<body className={`${font.className} body`}>
 				<Nav
 					caseStudies={caseStudies}
 					team={team}
@@ -49,7 +49,7 @@ const RootLayout = async ({ children }) => {
 					blogAuthors={blogAuthors}
 					academyAuthors={academyAuthors}
 				/>
-				<main id="main">{children}</main>
+				{children}
 				<Footer caseStudies={caseStudies} team={team} blogEntries={blogEntries} global={global} />
 			</body>
 		</html>

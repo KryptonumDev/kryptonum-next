@@ -1,5 +1,6 @@
 import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
+import ScrollToNext from "@/app/components/sections/ScrollToNext";
 import CaseStudies from "@/app/components/sections/CaseStudies";
 import CtaSection from "@/app/components/sections/CtaSection";
 import Faq from "@/app/components/sections/Faq";
@@ -36,6 +37,7 @@ export default async function WebDevelopmentWebsitesPage() {
 			ctaSection,
 			simpleCtaSection,
 			blogEntries_Heading,
+      scrollToNext
 		},
 		blogEntries,
 	} = await query();
@@ -53,6 +55,7 @@ export default async function WebDevelopmentWebsitesPage() {
 
 	return (
 		<>
+      <main id="main">
       <Breadcrumbs breadcrumbs={breadcrumbs} />
 			<HeroServices
 				data={{
@@ -96,6 +99,8 @@ export default async function WebDevelopmentWebsitesPage() {
 				heading={blogEntries_Heading}
 				data={blogEntries}
 			/>
+      </main>
+      <ScrollToNext data={scrollToNext}/>
 		</>
 	);
 }

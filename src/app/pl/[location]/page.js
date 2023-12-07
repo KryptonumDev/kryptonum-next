@@ -121,7 +121,12 @@ export default async function LocationPage({ params: { location } }) {
 				data={component}
 			/>
 		),
-		'GridFloatingImg': <GridFloatingImg key={i} data={component} />,
+		GridFloatingImg: (
+			<GridFloatingImg
+				key={i}
+				data={component}
+			/>
+		),
 	});
 
 	const {
@@ -131,18 +136,20 @@ export default async function LocationPage({ params: { location } }) {
 
 	return (
 		<>
-			<Hero
-				data={{
-					hero_Heading,
-					hero_Subheading,
-					hero_List,
-					hero_Cta,
-				}}
-			/>
-			{content.map((component, i) => {
-				const Component = mappedComponents(component, i)[component._type];
-				return Component ? Component : null;
-			})}
+			<main id="main">
+				<Hero
+					data={{
+						hero_Heading,
+						hero_Subheading,
+						hero_List,
+						hero_Cta,
+					}}
+				/>
+				{content.map((component, i) => {
+					const Component = mappedComponents(component, i)[component._type];
+					return Component ? Component : null;
+				})}
+			</main>
 		</>
 	);
 }

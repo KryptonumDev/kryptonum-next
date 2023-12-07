@@ -1,4 +1,3 @@
-import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 import SEO from "@/app/components/global/Seo";
 import TextComponent from "@/app/components/molecules/TextComponent";
 import CtaSection from "@/app/components/sections/CtaSection";
@@ -15,7 +14,7 @@ import fetchData from "@/utils/fetchData";
 
 export async function generateStaticParams() {
 	const { caseStudies } = await paramsQuery();
-	return caseStudies.map((caseStudy) => ({ slug: caseStudy.slug.current}));
+	return caseStudies.map((caseStudy) => ({ slug: caseStudy.slug.current }));
 }
 
 export default async function PortfolioSlugPage({ params: { slug } }) {
@@ -49,37 +48,39 @@ export default async function PortfolioSlugPage({ params: { slug } }) {
 
 	return (
 		<>
-			<Hero
-				data={{
-					heading,
-					categories_Paragraph,
-					categories,
-					img,
-				}}
-				breadcrumbs={breadcrumbs}
-			/>
-			{content.map((component, i) => {
-				const Component = mappedComponents[component._type];
-				return (
-					<Component
-						key={i}
-						data={component}
-					/>
-				);
-			})}
+			<main id="main">
+				<Hero
+					data={{
+						heading,
+						categories_Paragraph,
+						categories,
+						img,
+					}}
+					breadcrumbs={breadcrumbs}
+				/>
+				{content.map((component, i) => {
+					const Component = mappedComponents[component._type];
+					return (
+						<Component
+							key={i}
+							data={component}
+						/>
+					);
+				})}
+			</main>
 		</>
 	);
 }
 
-export async function generateMetadata({params: {slug}}) {
+export async function generateMetadata({ params: { slug } }) {
 	const {
-		caseStudy: { seo,ogImage },
+		caseStudy: { seo, ogImage },
 	} = await query(slug);
 	return SEO({
 		title: seo?.title,
 		description: seo?.description,
 		url: `/pl/portfolio/${slug}`,
-    ogImage:`https://kryptonum.eu${ogImage.asset.url}`
+		ogImage: `https://kryptonum.eu${ogImage.asset.url}`,
 	});
 }
 

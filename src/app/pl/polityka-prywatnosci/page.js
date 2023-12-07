@@ -7,45 +7,50 @@ import KeyElements from "@/app/components/sections/privacyPolicy/KeyElements";
 import fetchData from "@/utils/fetchData";
 
 export default async function PrivacyPolicyPage() {
-  const { page: {
-    hero_Heading,
-    hero_Paragraph,
-    hero_Img,
-    keyInfo_Heading,
-    keyInfo_List,
-    content_Heading,
-    contentRaw,
-    simpleCtaSection
-  }} = await query();
+	const {
+		page: {
+			hero_Heading,
+			hero_Paragraph,
+			hero_Img,
+			keyInfo_Heading,
+			keyInfo_List,
+			content_Heading,
+			contentRaw,
+			simpleCtaSection,
+		},
+	} = await query();
 
-  const breadcrumbs = [
-    {
-      name: "Polityka prywatności",
-      link: "/pl/polityka-prywatnosci"
-    }
-  ];
+	const breadcrumbs = [
+		{
+			name: "Polityka prywatności",
+			link: "/pl/polityka-prywatnosci",
+		},
+	];
 
-  return (
-    <>
-      <Breadcrumbs breadcrumbs={breadcrumbs}/>
-      <Hero data={{
-        heading: hero_Heading,
-        paragraph: hero_Paragraph,
-        sideImage: hero_Img
-      }}
-      isBlogHero={true}
-      />
-      <KeyElements
-        heading={keyInfo_Heading}
-        list={keyInfo_List}
-      />
-      <Content
-        heading={content_Heading}
-        _rawContent={contentRaw}
-      />
-      <SimpleCtaSection data={simpleCtaSection} />
-    </>
-  )
+	return (
+		<>
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<Hero
+					data={{
+						heading: hero_Heading,
+						paragraph: hero_Paragraph,
+						sideImage: hero_Img,
+					}}
+					isBlogHero={true}
+				/>
+				<KeyElements
+					heading={keyInfo_Heading}
+					list={keyInfo_List}
+				/>
+				<Content
+					heading={content_Heading}
+					_rawContent={contentRaw}
+				/>
+				<SimpleCtaSection data={simpleCtaSection} />
+			</main>
+		</>
+	);
 }
 
 export async function generateMetadata() {
@@ -60,9 +65,9 @@ export async function generateMetadata() {
 }
 
 const query = async () => {
- const {
-    body: { data },
-  } = await fetchData(`
+	const {
+		body: { data },
+	} = await fetchData(`
   query {
     page: PrivacyPolicy(id: "privacyPolicy") {
       # Hero
@@ -102,7 +107,6 @@ const query = async () => {
       }
     }
   }
-  `
-);
-return data;
+  `);
+	return data;
 };

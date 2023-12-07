@@ -8,6 +8,7 @@ import HeroServices from "@/app/components/sections/HeroServices";
 import ImageAndStandout from "@/app/components/sections/ImageAndStandout";
 import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
 import MasonryList from "@/app/components/sections/MasonryList";
+import ScrollToNext from "@/app/components/sections/ScrollToNext";
 import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
 import fetchData from "@/utils/fetchData";
 
@@ -37,62 +38,66 @@ export default async function graphicsAndDesignVisualIdentityPage() {
 			caseStudies_Heading,
 			ctaSection,
 			blogEntries_Heading,
+			scrollToNext,
 		},
 		blogEntries,
 	} = await query();
 
-  const breadcrumbs = [
-    {
-      name: "Grafika & design",
-      link: "/pl/grafika-design"
-    },
-    {
-      name: "Identyfikacja wizualna marki",
-      link: "/pl/grafika-design/identyfikacja-wizualna-marki"
-    }
-  ];
+	const breadcrumbs = [
+		{
+			name: "Grafika & design",
+			link: "/pl/grafika-design",
+		},
+		{
+			name: "Identyfikacja wizualna marki",
+			link: "/pl/grafika-design/identyfikacja-wizualna-marki",
+		},
+	];
 
 	return (
 		<>
-      <Breadcrumbs breadcrumbs={breadcrumbs}/>
-			<HeroServices
-				data={{
-					hero_Heading,
-					hero_Annotation,
-					hero_Paragraph,
-					hero_SecondParagraph,
-					hero_Img,
-				}}
-			/>
-			<SimpleCtaSection data={simpleCtaSection} />
-			<ImageAndStandout
-				heading={brandbook_Heading}
-				paragraph={brandbook_Paragraph}
-				standout={brandbook_Standout}
-				img={brandbook_Img}
-			/>
-			<BrandbookTypes
-				data={{
-					primaryBrandbook_Heading,
-					primaryBrandbook_Paragraph,
-					primaryBrandbook_List,
-					extendedBrandbook_Heading,
-					extendedBrandbook_Paragraph,
-					extendedBrandbook_Annotation,
-					extendedBrandbook_List,
-				}}
-			/>
-			<ConsultationForm data={quickForm} />
-			<MasonryList
-				heading={who_Heading}
-				list={who_List}
-			/>
-			<CaseStudies heading={caseStudies_Heading} />
-			<CtaSection data={ctaSection} />
-			<LatestBlogEntries
-				heading={blogEntries_Heading}
-				data={blogEntries}
-			/>
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<HeroServices
+					data={{
+						hero_Heading,
+						hero_Annotation,
+						hero_Paragraph,
+						hero_SecondParagraph,
+						hero_Img,
+					}}
+				/>
+				<SimpleCtaSection data={simpleCtaSection} />
+				<ImageAndStandout
+					heading={brandbook_Heading}
+					paragraph={brandbook_Paragraph}
+					standout={brandbook_Standout}
+					img={brandbook_Img}
+				/>
+				<BrandbookTypes
+					data={{
+						primaryBrandbook_Heading,
+						primaryBrandbook_Paragraph,
+						primaryBrandbook_List,
+						extendedBrandbook_Heading,
+						extendedBrandbook_Paragraph,
+						extendedBrandbook_Annotation,
+						extendedBrandbook_List,
+					}}
+				/>
+				<ConsultationForm data={quickForm} />
+				<MasonryList
+					heading={who_Heading}
+					list={who_List}
+				/>
+				<CaseStudies heading={caseStudies_Heading} />
+				<CtaSection data={ctaSection} />
+				<LatestBlogEntries
+					heading={blogEntries_Heading}
+					data={blogEntries}
+				/>
+			</main>
+			<ScrollToNext data={scrollToNext} />
 		</>
 	);
 }

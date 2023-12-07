@@ -5,6 +5,7 @@ import CtaSection from "@/app/components/sections/CtaSection";
 import HeroServices from "@/app/components/sections/HeroServices";
 import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
 import MasonryList from "@/app/components/sections/MasonryList";
+import ScrollToNext from "@/app/components/sections/ScrollToNext";
 import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
 import Audit from "@/app/components/sections/graphicsAndDesign/Audit";
 import fetchData from "@/utils/fetchData";
@@ -37,6 +38,7 @@ export default async function graphicsAndDesignPage() {
 			caseStudies_Heading,
 			ctaSection,
 			blogEntries_Heading,
+      scrollToNext
 		},
 		blogEntries,
 	} = await query();
@@ -50,6 +52,7 @@ export default async function graphicsAndDesignPage() {
 
 	return (
 		<>
+    <main id="main">
     <Breadcrumbs breadcrumbs={breadcrumbs}/>
 			<HeroServices
 				data={{
@@ -91,6 +94,8 @@ export default async function graphicsAndDesignPage() {
 				heading={blogEntries_Heading}
 				data={blogEntries}
 			/>
+      </main>
+      <ScrollToNext data={scrollToNext}/>
 		</>
 	);
 }

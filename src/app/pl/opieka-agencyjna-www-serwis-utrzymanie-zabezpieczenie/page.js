@@ -5,6 +5,7 @@ import ConsultationForm from "@/app/components/sections/ConsultationForm";
 import CtaSection from "@/app/components/sections/CtaSection";
 import HeroServices from "@/app/components/sections/HeroServices";
 import ListSection from "@/app/components/sections/ListSection";
+import ScrollToNext from "@/app/components/sections/ScrollToNext";
 import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
 import Audit from "@/app/components/sections/agencyCare/Audit";
 import Copy from "@/app/components/sections/agencyCare/Copy";
@@ -49,72 +50,76 @@ export default async function AgencyCarePage() {
 			copy_Headline,
 			copy_List,
 			secondSimpleCtaSection,
+			scrollToNext,
 		},
 	} = await query();
 
-  const breadcrumbs = [
-    {
-      name: "Opieka agencyjna",
-      link: "/pl/opieka-agencyjna-www-serwis-utrzymanie-zabezpieczenie"
-    }
-  ];
+	const breadcrumbs = [
+		{
+			name: "Opieka agencyjna",
+			link: "/pl/opieka-agencyjna-www-serwis-utrzymanie-zabezpieczenie",
+		},
+	];
 
 	return (
 		<>
-      <Breadcrumbs breadcrumbs={breadcrumbs}/>
-			<HeroServices
-				data={{
-					hero_Heading,
-					hero_Annotation,
-					hero_Paragraph,
-					hero_SecondParagraph,
-					hero_Img,
-				}}
-			/>
-			<SimpleCtaSection data={simpleCtaSection} />
-			<ListSection
-				heading={services_Heading}
-				paragraph={services_Paragraph}
-				secondParagraph={services_Paragraph2}
-				title={services_Title}
-				list={services_List}
-			/>
-			<Audit
-				data={{
-					audit_Heading,
-					audit_Paragraph,
-					audit_Paragraph2,
-					audit_Title,
-					audit_List,
-					audit_Paragraph3,
-					audit_Paragraph4,
-				}}
-			/>
-			<ConsultationForm data={quickForm} />
-			<CaseStudies heading={caseStudies_Heading} />
-			<CtaSection data={ctaSection} />
-			<Protection
-				data={{
-					protection_Heading,
-					protection_Paragraph,
-					protection_Paragraph2,
-					protection_Paragraph3,
-					protection_List,
-				}}
-			/>
-			<Copy
-				data={{
-					copy_Heading,
-					copy_Paragraph,
-					copy_Paragraph2,
-					copy_Paragraph3,
-					copy_Img,
-					copy_Cta,
-					copy_Headline,
-					copy_List,
-				}}
-			/>
-			<SimpleCtaSection data={secondSimpleCtaSection} />
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<HeroServices
+					data={{
+						hero_Heading,
+						hero_Annotation,
+						hero_Paragraph,
+						hero_SecondParagraph,
+						hero_Img,
+					}}
+				/>
+				<SimpleCtaSection data={simpleCtaSection} />
+				<ListSection
+					heading={services_Heading}
+					paragraph={services_Paragraph}
+					secondParagraph={services_Paragraph2}
+					title={services_Title}
+					list={services_List}
+				/>
+				<Audit
+					data={{
+						audit_Heading,
+						audit_Paragraph,
+						audit_Paragraph2,
+						audit_Title,
+						audit_List,
+						audit_Paragraph3,
+						audit_Paragraph4,
+					}}
+				/>
+				<ConsultationForm data={quickForm} />
+				<CaseStudies heading={caseStudies_Heading} />
+				<CtaSection data={ctaSection} />
+				<Protection
+					data={{
+						protection_Heading,
+						protection_Paragraph,
+						protection_Paragraph2,
+						protection_Paragraph3,
+						protection_List,
+					}}
+				/>
+				<Copy
+					data={{
+						copy_Heading,
+						copy_Paragraph,
+						copy_Paragraph2,
+						copy_Paragraph3,
+						copy_Img,
+						copy_Cta,
+						copy_Headline,
+						copy_List,
+					}}
+				/>
+				<SimpleCtaSection data={secondSimpleCtaSection} />
+			</main>
+			<ScrollToNext data={scrollToNext} />
 		</>
 	);
 }

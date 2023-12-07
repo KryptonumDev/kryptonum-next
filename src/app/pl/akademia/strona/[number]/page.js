@@ -27,38 +27,40 @@ export default async function academyPaginationPage({ params: { number } }) {
 		blogEntries,
 	} = await query(number, academyItemsPerPage, (parseInt(number) - 1) * academyItemsPerPage);
 
-  const breadcrumbs = [
-    {
-      name: "Akademia",
-      link: "/pl/akademia",
-    }
-  ]
+	const breadcrumbs = [
+		{
+			name: "Akademia",
+			link: "/pl/akademia",
+		},
+	];
 
 	return (
 		<>
-    <Breadcrumbs breadcrumbs={breadcrumbs}/>
-			<Hero
-				data={{
-					heading: `**Akademia** - strona ${number}`,
-					paragraph: hero_Paragraph,
-					sideImage: hero_Img,
-				}}
-				isBlogHero={true}
-			/>
-			<Categories
-				categorySlug="/pl/akademia/"
-				categories={curiosityCategories}
-			/>
-			<CuriosityEntries
-				urlBasis="/pl/akademia"
-				totalCount={allCuriosityEntries.length}
-				page={parseInt(number)}
-				curiosityEntries={curiosityEntries}
-				itemsPerPage={academyItemsPerPage}
-			/>
-			<CtaSection data={ctaSection} />
-			<LatestBlogEntries data={blogEntries} />
-			<Faq />
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<Hero
+					data={{
+						heading: `**Akademia** - strona ${number}`,
+						paragraph: hero_Paragraph,
+						sideImage: hero_Img,
+					}}
+					isBlogHero={true}
+				/>
+				<Categories
+					categorySlug="/pl/akademia/"
+					categories={curiosityCategories}
+				/>
+				<CuriosityEntries
+					urlBasis="/pl/akademia"
+					totalCount={allCuriosityEntries.length}
+					page={parseInt(number)}
+					curiosityEntries={curiosityEntries}
+					itemsPerPage={academyItemsPerPage}
+				/>
+				<CtaSection data={ctaSection} />
+				<LatestBlogEntries data={blogEntries} />
+				<Faq />
+			</main>
 		</>
 	);
 }

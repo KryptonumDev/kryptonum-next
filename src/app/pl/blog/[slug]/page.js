@@ -4,7 +4,9 @@ import Content from "@/app/components/sections/Content";
 import EntryHero from "@/app/components/sections/EntryHero";
 import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
 import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
+import ScrollToNext from "@/app/components/sections/ScrollToNext";
 import fetchData from "@/utils/fetchData";
+import { removeMarkdown } from "@/utils/functions";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -14,42 +16,45 @@ export async function generateStaticParams() {
 
 export default async function BlogSlugPage({ params }) {
 	const {
-		page: { title, subtitle, categories, _createdAt, img, contentRaw, author, seo },
+		page: { title, subtitle, categories, _createdAt, img, contentRaw, author, seo, scrollToNext },
 		blogEntries,
 	} = await query(params.slug);
 
-  const breadcrumbs = [
-    {
-      name: "Blog",
-      link: "/pl/blog"
-    },
-    {
-      name: title,
-      link: params.slug
-    }
-  ];
+	const breadcrumbs = [
+		{
+			name: "Blog",
+			link: "/pl/blog",
+		},
+		{
+			name: title,
+			link: params.slug,
+		},
+	];
 
 	return (
 		<>
-      <Breadcrumbs breadcrumbs={breadcrumbs}/>
-			<EntryHero
-				title={title}
-				subtitle={subtitle}
-				categories={categories}
-				categorySlug="/pl/blog/kategoria/"
-				_createdAt={_createdAt}
-				img={img}
-			/>
-			<Content
-				contentRaw={contentRaw}
-				author={author}
-				share={seo}
-			/>
-			<LatestBlogEntries
-				exclude={params.slug}
-				data={blogEntries}
-			/>
-			<LatestCuriosityEntries />
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<EntryHero
+					title={title}
+					subtitle={subtitle}
+					categories={categories}
+					categorySlug="/pl/blog/kategoria/"
+					_createdAt={_createdAt}
+					img={img}
+				/>
+				<Content
+					contentRaw={contentRaw}
+					author={author}
+					share={seo}
+				/>
+				<LatestBlogEntries
+					exclude={params.slug}
+					data={blogEntries}
+				/>
+				<LatestCuriosityEntries />
+			</main>
+      {scrollToNext && <ScrollToNext data={scrollToNext}/>}
 		</>
 	);
 }
@@ -66,7 +71,8 @@ export async function generateMetadata({ params: { slug } }) {
 const query = async (slug) => {
 	const {
 		body: { data },
-	} = await fetchData(`
+	} = await fetchData(
+		`
   query($slug: String!) {
   page: allBlogEntries(
     sort: { _createdAt: DESC }
@@ -123,12 +129,6 @@ const query = async (slug) => {
       description
     }
   }
-  allBlogEntries: allBlogEntries {
-    slug
-    {
-      current
-    }
-  }
   blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
     title
     subtitle
@@ -176,19 +176,37 @@ const query = async (slug) => {
       }
     }
   }
+  scrollToNext_BlogPost: allBlogEntries(sort: { _createdAt: ASC }) {
+    title
+    slug {
+      current
+    }
+  }
 }
-  `,{
-    slug
-  });
+  `,
+		{
+			slug,
+		},
+	);
 	if (slug) {
 		data.page ? (data.page = data.page[0]) : notFound();
 		slug !== data.page?.slug.current && notFound();
 	}
+  const blogPosts = data?.scrollToNext_BlogPost;
+  const currentIndex = blogPosts.findIndex(item => item.slug.current === data.page.slug.current);
+  const nextPost = currentIndex !== -1 && currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
+  if (nextPost) {
+    data.page.scrollToNext = {
+      paragraph: '**Scrolluj**, by przejść do następnego artykułu',
+      title: 'Następny post:',
+      link: { text: removeMarkdown(nextPost.title), href: `/pl/blog/${nextPost.slug.current}` }
+    };
+  }
 	return data;
 };
 
 const paramsQuery = async () => {
-  const {
+	const {
 		body: { data },
 	} = await fetchData(`
   query{
@@ -199,5 +217,5 @@ const paramsQuery = async () => {
       }
     }
 }`);
-return data;
-}
+	return data;
+};

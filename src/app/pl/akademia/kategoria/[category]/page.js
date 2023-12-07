@@ -38,6 +38,7 @@ export default async function AcademyCategoryPage({ params: { category } }) {
 
 	return (
 		<>
+    <main id="main">
 			<Breadcrumbs breadcrumbs={breadcrumbs} />
 			<Hero
 				data={{
@@ -63,6 +64,7 @@ export default async function AcademyCategoryPage({ params: { category } }) {
 			<CtaSection data={ctaSection} />
 			<LatestBlogEntries data={blogEntries} />
 			<Faq />
+      </main>
 		</>
 	);
 }

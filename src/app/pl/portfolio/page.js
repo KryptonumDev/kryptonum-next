@@ -3,32 +3,36 @@ import SEO from "@/app/components/global/Seo";
 import ConsultationForm from "@/app/components/sections/ConsultationForm";
 import Hero from "@/app/components/sections/Hero";
 import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
+import ScrollToNext from "@/app/components/sections/ScrollToNext";
 import CaseStudies from "@/app/components/sections/portfolio/CaseStudies";
 import fetchData from "@/utils/fetchData";
 
 export default async function PortfolioPage() {
 	const {
-		page: { hero_Heading, hero_Paragraph, caseStudies, quickForm, blogEntries_Heading },
+		page: { hero_Heading, hero_Paragraph, caseStudies, quickForm, blogEntries_Heading, scrollToNext },
 		blogEntries,
 	} = await query();
 
-  const breadcrumbs = [
-    {
-      name: "Portfolio",
-      link: "/pl/portfolio"
-    }
-  ];
+	const breadcrumbs = [
+		{
+			name: "Portfolio",
+			link: "/pl/portfolio",
+		},
+	];
 
 	return (
 		<>
-      <Breadcrumbs breadcrumbs={breadcrumbs}/>
-			<Hero data={{ heading: hero_Heading, paragraph: hero_Paragraph }} />
-			<CaseStudies data={caseStudies} />
-			<ConsultationForm data={quickForm} />
-			<LatestBlogEntries
-				heading={blogEntries_Heading}
-				data={blogEntries}
-			/>
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<Hero data={{ heading: hero_Heading, paragraph: hero_Paragraph }} />
+				<CaseStudies data={caseStudies} />
+				<ConsultationForm data={quickForm} />
+				<LatestBlogEntries
+					heading={blogEntries_Heading}
+					data={blogEntries}
+				/>
+			</main>
+      <ScrollToNext data={scrollToNext}/>
 		</>
 	);
 }

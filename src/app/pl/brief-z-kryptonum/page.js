@@ -15,8 +15,10 @@ export default async function BriefPage() {
 
 	return (
 		<>
-			<Breadcrumbs breadcrumbs={breadcrumbs} />
-			<Brief data={data} />
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<Brief data={data} />
+			</main>
 		</>
 	);
 }

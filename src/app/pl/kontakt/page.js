@@ -37,6 +37,7 @@ export default async function ContactPage() {
 
 	return (
 		<>
+    <main id="main">
 		<Breadcrumbs breadcrumbs={breadcrumbs}/>
 			<Hero
 				data={{
@@ -72,6 +73,7 @@ export default async function ContactPage() {
 			/>
 			<Team />
 			<Faq />
+      </main>
 		</>
 	);
 }

@@ -51,6 +51,7 @@ export default async function AcademySlugPage({ params }) {
 
 	return (
 		<>
+    <main id="main">
       <Breadcrumbs breadcrumbs={breadcrumbs}/>
 			<EntryHero
 				title={title}
@@ -155,6 +156,7 @@ export default async function AcademySlugPage({ params }) {
 				heading={latestCuriosities_Heading}
 				exclude={slug.current}
 			/>
+      </main>
 		</>
 	);
 }

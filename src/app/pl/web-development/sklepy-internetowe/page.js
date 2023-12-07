@@ -5,6 +5,7 @@ import ConsultationForm from "@/app/components/sections/ConsultationForm";
 import CtaSection from "@/app/components/sections/CtaSection";
 import HeroServices from "@/app/components/sections/HeroServices";
 import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
+import ScrollToNext from "@/app/components/sections/ScrollToNext";
 import Develop from "@/app/components/sections/webDevelopmentShoppingSites/Develop";
 import Process from "@/app/components/sections/webDevelopmentShoppingSites/Process";
 import fetchData from "@/utils/fetchData";
@@ -30,6 +31,7 @@ export default async function webDevelopmentShoppingSitesPage() {
 			develop_Paragraph4,
 			ctaSection,
 			blogEntries_Heading,
+      scrollToNext
 		},
 		blogEntries,
 	} = await query();
@@ -47,6 +49,7 @@ export default async function webDevelopmentShoppingSitesPage() {
 
 	return (
 		<>
+      <main id="main">
       <Breadcrumbs breadcrumbs={breadcrumbs} />
 			<HeroServices
 				data={{
@@ -81,6 +84,8 @@ export default async function webDevelopmentShoppingSitesPage() {
 				heading={blogEntries_Heading}
 				data={blogEntries}
 			/>
+      </main>
+      <ScrollToNext data={scrollToNext}/>
 		</>
 	);
 }

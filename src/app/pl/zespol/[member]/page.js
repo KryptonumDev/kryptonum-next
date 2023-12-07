@@ -16,6 +16,7 @@ import styles from "./styles.module.scss";
 import SEO from "@/app/components/global/Seo";
 import { removeMarkdown } from "@/utils/functions";
 import Breadcrumbs from "@/app/components/global/Breadcrumbs";
+import ScrollToNext from "@/app/components/sections/ScrollToNext";
 
 export async function generateStaticParams() {
 	const { allTeamMember } = await paramsQuery();
@@ -46,6 +47,7 @@ export default async function TeamMemberPage({ params: { member } }) {
 			hobbies,
 			inspirations,
 			email,
+			scrollToNext,
 		},
 		allCaseStudies,
 		blogEntries,
@@ -55,55 +57,60 @@ export default async function TeamMemberPage({ params: { member } }) {
 		node.content?.some((contentItem) => contentItem.people?.some((person) => person._id === _id)),
 	);
 
-  const breadcrumbs = [
-    {
-      name: "Zespół",
-      link: "/pl/zespol"
-    },
-    {
-      name: name,
-      link: member,
-    }
-  ];
+	const breadcrumbs = [
+		{
+			name: "Zespół",
+			link: "/pl/zespol",
+		},
+		{
+			name: name,
+			link: member,
+		},
+	];
 
 	return (
-		<div className={styles.wrapper}>
-      <Breadcrumbs breadcrumbs={breadcrumbs}/>
-			<Hero
-				name={name}
-				cryptonym={cryptonym}
-				img={img}
-			/>
-			<Bio data={bio} />
-			<Skills data={skills} />
-			<Tools data={tools} />
-			<Benefits data={benefits} />
-			{links?.length >= 1 && <Links data={links} />}
-			<AfterWork data={afterWork} />
-			<Hobbies data={hobbies} />
-			{inspirations?.length >= 1 && <Inspirations data={inspirations} />}
-			{filteredCaseStudiesByPerson?.length >= 1 && (
-				<CaseStudies
-					heading="Mam swój **udział** w…"
-					data={filteredCaseStudiesByPerson}
-				/>
-			)}
-			{blogEntries?.length >= 1 && (
-				<LatestBlogEntries
-					heading="Tutaj dzielę się **wiedzą**"
-					data={blogEntries}
-					smallEntry={true}
-				/>
-			)}
-			{email && (
-				<div className={styles.contact}>
-					<DecorativeHeading type="h2">A może **pogadamy**?</DecorativeHeading>
-					<p>
-						<a href={`mailto:${email}`}>{email}</a>
-					</p>
+		<>
+			<main id="main">
+				<div className={styles.wrapper}>
+					<Breadcrumbs breadcrumbs={breadcrumbs} />
+					<Hero
+						name={name}
+						cryptonym={cryptonym}
+						img={img}
+					/>
+					<Bio data={bio} />
+					<Skills data={skills} />
+					<Tools data={tools} />
+					<Benefits data={benefits} />
+					{links?.length >= 1 && <Links data={links} />}
+					<AfterWork data={afterWork} />
+					<Hobbies data={hobbies} />
+					{inspirations?.length >= 1 && <Inspirations data={inspirations} />}
+					{filteredCaseStudiesByPerson?.length >= 1 && (
+						<CaseStudies
+							heading="Mam swój **udział** w…"
+							data={filteredCaseStudiesByPerson}
+						/>
+					)}
+					{blogEntries?.length >= 1 && (
+						<LatestBlogEntries
+							heading="Tutaj dzielę się **wiedzą**"
+							data={blogEntries}
+							smallEntry={true}
+						/>
+					)}
+					{email && (
+						<div className={styles.contact}>
+							<DecorativeHeading type="h2">A może **pogadamy**?</DecorativeHeading>
+							<p>
+								<a href={`mailto:${email}`}>{email}</a>
+							</p>
+						</div>
+					)}
 				</div>
-			)}
-		</div>
+			</main>
+			{scrollToNext && <ScrollToNext data={scrollToNext} />}
+		</>
 	);
 }
 
@@ -258,7 +265,7 @@ const query = async (member) => {
         }
       }
     }
-    scrollToText_TeamPerson: allTeamMember(sort: { _createdAt: ASC }) {
+    scrollToNext_TeamPerson: allTeamMember(sort: { _createdAt: ASC }) {
       name
       cryptonym
       slug {
@@ -293,6 +300,24 @@ const query = async (member) => {
 		return entry.author.some((author) => author.slug.current == member);
 	});
 
+	const people = data?.scrollToNext_TeamPerson;
+	const currentIndex = people.findIndex((item) => item.slug.current === data.page.slug.current);
+	const nextPerson =
+		currentIndex !== -1 && currentIndex < people.length - 1 ? people[currentIndex + 1] : people[0];
+	if (nextPerson) {
+		data.page.scrollToNext = {
+			paragraph: "**Scrolluj**, by przejść do następnej osoby",
+			title: "Następna osoba:",
+			link: {
+				person: {
+					name: nextPerson.name,
+					cryptonym: nextPerson.cryptonym,
+					img: nextPerson.img,
+				},
+				href: `/pl/zespol/${nextPerson.slug.current}`,
+			},
+		};
+	}
 	return data;
 };
 

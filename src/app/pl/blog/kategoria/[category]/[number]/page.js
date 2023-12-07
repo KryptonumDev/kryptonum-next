@@ -42,40 +42,42 @@ export default async function BlogCategoryPaginationPage({ params: { category, n
 		allBlogEntries,
 	} = await query(category, number);
 
-  const breadcrumbs = [
-    {
-      name: "Blog",
-      link: "/pl/blog"
-    },
-    {
-      name: name,
-      link: slug
-    }
-  ];
+	const breadcrumbs = [
+		{
+			name: "Blog",
+			link: "/pl/blog",
+		},
+		{
+			name: name,
+			link: slug,
+		},
+	];
 
 	return (
 		<>
-      <Breadcrumbs breadcrumbs={breadcrumbs}/>
-			<Hero
-				data={{ heading: hero_Heading, paragraph: hero_Paragraph, sideImage: hero_Img }}
-				isBlogHero
-			/>
-			<Categories
-				categorySlug="/pl/blog/"
-				categories={blogCategories}
-				currentSlug={slug.current}
-			/>
-			<BlogEntries
-				urlBasis={`/pl/blog/kategoria/${category}`}
-				totalCount={allBlogEntries.length}
-				blogEntries={blogEntries}
-				page={parseInt(number)}
-				itemsPerPage={blogItemsPerPage}
-				isCategoryPagination={true}
-			/>
-			<CtaSection data={ctaSection} />
-			<LatestCuriosityEntries />
-			<Faq />
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<Hero
+					data={{ heading: hero_Heading, paragraph: hero_Paragraph, sideImage: hero_Img }}
+					isBlogHero
+				/>
+				<Categories
+					categorySlug="/pl/blog/"
+					categories={blogCategories}
+					currentSlug={slug.current}
+				/>
+				<BlogEntries
+					urlBasis={`/pl/blog/kategoria/${category}`}
+					totalCount={allBlogEntries.length}
+					blogEntries={blogEntries}
+					page={parseInt(number)}
+					itemsPerPage={blogItemsPerPage}
+					isCategoryPagination={true}
+				/>
+				<CtaSection data={ctaSection} />
+				<LatestCuriosityEntries />
+				<Faq />
+			</main>
 		</>
 	);
 }

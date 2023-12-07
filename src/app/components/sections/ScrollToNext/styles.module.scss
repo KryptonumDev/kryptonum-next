@@ -1,0 +1,20 @@
+.paragraph {
+  max-width: clamp(210px, calc(290vw/7.68), 300px);
+
+  font-size: clamp(calc(16rem/16), calc(22vw/7.68), calc(22rem/16));
+
+  margin: clamp(64px, calc(64vw/7.68), 72px) auto clamp(24px, calc(32vw/7.68), 40px);
+  text-align: center;
+
+  p {
+    margin-bottom: 8px;
+  }
+}
+
+.personBorder {
+  object-fit: cover;
+
+  width: clamp(120px, calc(144vw/7.68), 180px);
+
+  height: clamp(120px, calc(144vw/7.68), 180px);
+}
