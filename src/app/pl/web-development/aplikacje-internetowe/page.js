@@ -1,13 +1,13 @@
-import Breadcrumbs from "@/app/components/global/Breadcrumbs";
-import SEO from "@/app/components/global/Seo";
-import CaseStudies from "@/app/components/sections/CaseStudies";
-import ConsultationForm from "@/app/components/sections/ConsultationForm";
-import CtaSection from "@/app/components/sections/CtaSection";
-import HeroServices from "@/app/components/sections/HeroServices";
-import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
-import ScrollToNext from "@/app/components/sections/ScrollToNext";
-import Customer from "@/app/components/sections/webDevelopmentWebApps/Customer";
-import Process from "@/app/components/sections/webDevelopmentWebApps/Process";
+import Breadcrumbs from "@/components/global/Breadcrumbs";
+import SEO from "@/components/global/Seo";
+import CaseStudies from "@/components/sections/CaseStudies";
+import ConsultationForm from "@/components/sections/ConsultationForm";
+import CtaSection from "@/components/sections/CtaSection";
+import HeroServices from "@/components/sections/HeroServices";
+import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
+import ScrollToNext from "@/components/sections/ScrollToNext";
+import Customer from "@/components/sections/webDevelopmentWebApps/Customer";
+import Process from "@/components/sections/webDevelopmentWebApps/Process";
 import fetchData from "@/utils/fetchData";
 
 export default async function webDevelopmentWebAppsPage() {

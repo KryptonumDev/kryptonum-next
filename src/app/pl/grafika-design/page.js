@@ -1,13 +1,13 @@
-import Breadcrumbs from "@/app/components/global/Breadcrumbs";
-import SEO from "@/app/components/global/Seo";
-import CaseStudies from "@/app/components/sections/CaseStudies";
-import CtaSection from "@/app/components/sections/CtaSection";
-import HeroServices from "@/app/components/sections/HeroServices";
-import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
-import MasonryList from "@/app/components/sections/MasonryList";
-import ScrollToNext from "@/app/components/sections/ScrollToNext";
-import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
-import Audit from "@/app/components/sections/graphicsAndDesign/Audit";
+import Breadcrumbs from "@/components/global/Breadcrumbs";
+import SEO from "@/components/global/Seo";
+import CaseStudies from "@/components/sections/CaseStudies";
+import CtaSection from "@/components/sections/CtaSection";
+import HeroServices from "@/components/sections/HeroServices";
+import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
+import MasonryList from "@/components/sections/MasonryList";
+import ScrollToNext from "@/components/sections/ScrollToNext";
+import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
+import Audit from "@/components/sections/graphicsAndDesign/Audit";
 import fetchData from "@/utils/fetchData";
 
 export default async function graphicsAndDesignPage() {

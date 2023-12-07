@@ -1,15 +1,15 @@
-import Breadcrumbs from "@/app/components/global/Breadcrumbs";
-import SEO from "@/app/components/global/Seo";
-import ScrollToNext from "@/app/components/sections/ScrollToNext";
-import CaseStudies from "@/app/components/sections/CaseStudies";
-import CtaSection from "@/app/components/sections/CtaSection";
-import Faq from "@/app/components/sections/Faq";
-import HeroServices from "@/app/components/sections/HeroServices";
-import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
-import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
-import Pricing from "@/app/components/sections/webDevelopmentWebsites/Pricing";
-import Process from "@/app/components/sections/webDevelopmentWebsites/Process";
-import Technology from "@/app/components/sections/webDevelopmentWebsites/Technology";
+import Breadcrumbs from "@/components/global/Breadcrumbs";
+import SEO from "@/components/global/Seo";
+import CaseStudies from "@/components/sections/CaseStudies";
+import CtaSection from "@/components/sections/CtaSection";
+import Faq from "@/components/sections/Faq";
+import HeroServices from "@/components/sections/HeroServices";
+import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
+import ScrollToNext from "@/components/sections/ScrollToNext";
+import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
+import Pricing from "@/components/sections/webDevelopmentWebsites/Pricing";
+import Process from "@/components/sections/webDevelopmentWebsites/Process";
+import Technology from "@/components/sections/webDevelopmentWebsites/Technology";
 import fetchData from "@/utils/fetchData";
 
 export default async function WebDevelopmentWebsitesPage() {

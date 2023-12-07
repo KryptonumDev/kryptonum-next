@@ -1,10 +1,10 @@
-import Breadcrumbs from "@/app/components/global/Breadcrumbs";
-import SEO from "@/app/components/global/Seo";
-import ConsultationForm from "@/app/components/sections/ConsultationForm";
-import Hero from "@/app/components/sections/Hero";
-import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
-import ScrollToNext from "@/app/components/sections/ScrollToNext";
-import CaseStudies from "@/app/components/sections/portfolio/CaseStudies";
+import Breadcrumbs from "@/components/global/Breadcrumbs";
+import SEO from "@/components/global/Seo";
+import ConsultationForm from "@/components/sections/ConsultationForm";
+import Hero from "@/components/sections/Hero";
+import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
+import ScrollToNext from "@/components/sections/ScrollToNext";
+import CaseStudies from "@/components/sections/portfolio/CaseStudies";
 import fetchData from "@/utils/fetchData";
 
 export default async function PortfolioPage() {

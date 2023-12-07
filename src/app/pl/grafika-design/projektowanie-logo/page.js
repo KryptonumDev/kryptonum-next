@@ -1,14 +1,14 @@
-import Breadcrumbs from "@/app/components/global/Breadcrumbs";
-import SEO from "@/app/components/global/Seo";
-import CaseStudies from "@/app/components/sections/CaseStudies";
-import ConsultationForm from "@/app/components/sections/ConsultationForm";
-import CtaSection from "@/app/components/sections/CtaSection";
-import HeroServices from "@/app/components/sections/HeroServices";
-import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
-import ListSection from "@/app/components/sections/ListSection";
-import ScrollToNext from "@/app/components/sections/ScrollToNext";
-import Showcase from "@/app/components/sections/Showcase";
-import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
+import Breadcrumbs from "@/components/global/Breadcrumbs";
+import SEO from "@/components/global/Seo";
+import CaseStudies from "@/components/sections/CaseStudies";
+import ConsultationForm from "@/components/sections/ConsultationForm";
+import CtaSection from "@/components/sections/CtaSection";
+import HeroServices from "@/components/sections/HeroServices";
+import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
+import ListSection from "@/components/sections/ListSection";
+import ScrollToNext from "@/components/sections/ScrollToNext";
+import Showcase from "@/components/sections/Showcase";
+import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
 import fetchData from "@/utils/fetchData";
 
 export default async function graphicsAndDesignDesigningLogoPage() {

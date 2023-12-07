@@ -1,15 +1,15 @@
-import SEO from "@/app/components/global/Seo";
-import TextComponent from "@/app/components/molecules/TextComponent";
-import CtaSection from "@/app/components/sections/CtaSection";
-import ImageComponent from "@/app/components/sections/ImageComponent";
-import ImageShowcase from "@/app/components/sections/ImageShowcase";
-import LogoShowcase from "@/app/components/sections/LogoShowcase";
-import Features from "@/app/components/sections/portfolioCase/Features";
-import Hero from "@/app/components/sections/portfolioCase/Hero";
-import Participated from "@/app/components/sections/portfolioCase/Participated";
-import Slider from "@/app/components/sections/portfolioCase/Slider";
-import Stylescape from "@/app/components/sections/portfolioCase/Stylescape";
-import Testimonial from "@/app/components/sections/portfolioCase/Testimonial";
+import SEO from "@/components/global/Seo";
+import TextComponent from "@/components/molecules/TextComponent";
+import CtaSection from "@/components/sections/CtaSection";
+import ImageComponent from "@/components/sections/ImageComponent";
+import ImageShowcase from "@/components/sections/ImageShowcase";
+import LogoShowcase from "@/components/sections/LogoShowcase";
+import Features from "@/components/sections/portfolioCase/Features";
+import Hero from "@/components/sections/portfolioCase/Hero";
+import Participated from "@/components/sections/portfolioCase/Participated";
+import Slider from "@/components/sections/portfolioCase/Slider";
+import Stylescape from "@/components/sections/portfolioCase/Stylescape";
+import Testimonial from "@/components/sections/portfolioCase/Testimonial";
 import fetchData from "@/utils/fetchData";
 
 export async function generateStaticParams() {

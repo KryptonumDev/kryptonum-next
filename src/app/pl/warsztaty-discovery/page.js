@@ -1,11 +1,11 @@
-import Breadcrumbs from "@/app/components/global/Breadcrumbs";
-import SEO from "@/app/components/global/Seo";
-import HeroServices from "@/app/components/sections/HeroServices";
-import ListSection from "@/app/components/sections/ListSection";
-import ScrollToNext from "@/app/components/sections/ScrollToNext";
-import SimpleCtaSection from "@/app/components/sections/SimpleCtaSection";
-import Document from "@/app/components/sections/workshop/Document";
-import Why from "@/app/components/sections/workshop/Why";
+import Breadcrumbs from "@/components/global/Breadcrumbs";
+import SEO from "@/components/global/Seo";
+import HeroServices from "@/components/sections/HeroServices";
+import ListSection from "@/components/sections/ListSection";
+import ScrollToNext from "@/components/sections/ScrollToNext";
+import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
+import Document from "@/components/sections/workshop/Document";
+import Why from "@/components/sections/workshop/Why";
 import fetchData from "@/utils/fetchData";
 
 export default async function discoveryWorkshopsPage() {

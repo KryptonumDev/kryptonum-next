@@ -2,12 +2,12 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"],
-      "@/components/*": ["./src/app/components/*"],
+      "@/components/*": ["./src/components/*"],
       "@/utils/*": ["./src/utils/*"],
-      "@/atoms/*": ["./src/app/components/atoms/*"],
-      "@/organisms/*": ["./src/app/components/organisms/*"],
-      "@/molecules/*": ["./src/app/components/molecules/*"],
-      "@/sections/*": ["./src/app/components/sections/*"],
+      "@/atoms/*": ["./src/components/atoms/*"],
+      "@/organisms/*": ["./src/components/organisms/*"],
+      "@/molecules/*": ["./src/components/molecules/*"],
+      "@/sections/*": ["./src/components/sections/*"],
     }
   }
 }

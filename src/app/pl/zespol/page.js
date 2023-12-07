@@ -1,13 +1,13 @@
-import Attitude from "@/app/components/sections/Attitude";
-import CtaSection from "@/app/components/sections/CtaSection";
-import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
-import SmallCtaSection from "@/app/components/sections/SmallCtaSection";
-import Team from "@/app/components/sections/Team";
-import Hero from "@/app/components/sections/teamSections/Hero";
-import Testimonials from "@/app/components/sections/teamSections/Testimonials";
+import Breadcrumbs from "@/components/global/Breadcrumbs";
+import SEO from "@/components/global/Seo";
+import Attitude from "@/components/sections/Attitude";
+import CtaSection from "@/components/sections/CtaSection";
+import LatestCuriosityEntries from "@/components/sections/LatestCuriosityEntries";
+import SmallCtaSection from "@/components/sections/SmallCtaSection";
+import Team from "@/components/sections/Team";
+import Hero from "@/components/sections/teamSections/Hero";
+import Testimonials from "@/components/sections/teamSections/Testimonials";
 import fetchData from "@/utils/fetchData";
-import SEO from "@/app/components/global/Seo";
-import Breadcrumbs from "@/app/components/global/Breadcrumbs";
 
 export default async function TeamPage() {
 	const {

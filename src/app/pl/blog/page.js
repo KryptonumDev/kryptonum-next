@@ -1,11 +1,11 @@
-import Breadcrumbs from "@/app/components/global/Breadcrumbs";
-import SEO from "@/app/components/global/Seo";
-import BlogEntries from "@/app/components/sections/BlogEntries";
-import Categories from "@/app/components/sections/Categories";
-import CtaSection from "@/app/components/sections/CtaSection";
-import Faq from "@/app/components/sections/Faq";
-import Hero from "@/app/components/sections/Hero";
-import LatestCuriosityEntries from "@/app/components/sections/LatestCuriosityEntries";
+import Breadcrumbs from "@/components/global/Breadcrumbs";
+import SEO from "@/components/global/Seo";
+import BlogEntries from "@/components/sections/BlogEntries";
+import Categories from "@/components/sections/Categories";
+import CtaSection from "@/components/sections/CtaSection";
+import Faq from "@/components/sections/Faq";
+import Hero from "@/components/sections/Hero";
+import LatestCuriosityEntries from "@/components/sections/LatestCuriosityEntries";
 import fetchData from "@/utils/fetchData";
 
 export default async function BlogPage() {

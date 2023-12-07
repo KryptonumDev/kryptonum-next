@@ -1,6 +1,6 @@
-import Breadcrumbs from "@/app/components/global/Breadcrumbs";
-import SEO from "@/app/components/global/Seo";
-import Brief from "@/app/components/organisms/Brief";
+import Breadcrumbs from "@/components/global/Breadcrumbs";
+import SEO from "@/components/global/Seo";
+import Brief from "@/components/organisms/Brief";
 import fetchData from "@/utils/fetchData";
 
 export default async function BriefPage() {

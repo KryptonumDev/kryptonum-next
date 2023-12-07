@@ -1,14 +1,14 @@
-import Breadcrumbs from "@/app/components/global/Breadcrumbs";
-import SEO from "@/app/components/global/Seo";
-import CentralizedHeadingSection from "@/app/components/sections/CentralizedHeadingSection";
-import CtaSection from "@/app/components/sections/CtaSection";
-import Hero from "@/app/components/sections/Hero";
-import IconTitleDescriptionGrid from "@/app/components/sections/IconTitleDescriptionGrid";
-import IconTitleDescriptionListSection from "@/app/components/sections/IconTitleDescriptionListSection";
-import Team from "@/app/components/sections/Team";
-import Testimonials from "@/app/components/sections/Testimonials";
-import TextSection from "@/app/components/sections/TextSection";
-import TilesWithOverflowIcon from "@/app/components/sections/TilesWithOverflowIcon";
+import Breadcrumbs from "@/components/global/Breadcrumbs";
+import SEO from "@/components/global/Seo";
+import CentralizedHeadingSection from "@/components/sections/CentralizedHeadingSection";
+import CtaSection from "@/components/sections/CtaSection";
+import Hero from "@/components/sections/Hero";
+import IconTitleDescriptionGrid from "@/components/sections/IconTitleDescriptionGrid";
+import IconTitleDescriptionListSection from "@/components/sections/IconTitleDescriptionListSection";
+import Team from "@/components/sections/Team";
+import Testimonials from "@/components/sections/Testimonials";
+import TextSection from "@/components/sections/TextSection";
+import TilesWithOverflowIcon from "@/components/sections/TilesWithOverflowIcon";
 import fetchData from "@/utils/fetchData";
 
 export default async function BraindingPage() {

@@ -1,11 +1,11 @@
-import Breadcrumbs from "@/app/components/global/Breadcrumbs";
-import SEO from "@/app/components/global/Seo";
-import Faq from "@/app/components/sections/Faq";
-import Team from "@/app/components/sections/Team";
-import ContactUs from "@/app/components/sections/contact/ContactUs";
-import Helpdesk from "@/app/components/sections/contact/Helpdesk";
-import Hero from "@/app/components/sections/contact/Hero";
-import Pricing from "@/app/components/sections/contact/Pricing";
+import Breadcrumbs from "@/components/global/Breadcrumbs";
+import SEO from "@/components/global/Seo";
+import Faq from "@/components/sections/Faq";
+import Team from "@/components/sections/Team";
+import ContactUs from "@/components/sections/contact/ContactUs";
+import Helpdesk from "@/components/sections/contact/Helpdesk";
+import Hero from "@/components/sections/contact/Hero";
+import Pricing from "@/components/sections/contact/Pricing";
 import fetchData from "@/utils/fetchData";
 
 export default async function ContactPage() {

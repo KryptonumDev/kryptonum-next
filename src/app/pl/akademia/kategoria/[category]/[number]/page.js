@@ -1,13 +1,14 @@
-import SEO from "@/app/components/global/Seo";
-import Categories from "@/app/components/sections/Categories";
-import CtaSection from "@/app/components/sections/CtaSection";
-import CuriosityEntries from "@/app/components/sections/CuriosityEntries";
-import Faq from "@/app/components/sections/Faq";
-import Hero from "@/app/components/sections/Hero";
-import LatestBlogEntries from "@/app/components/sections/LatestBlogEntries";
+import Breadcrumbs from "@/components/global/Breadcrumbs";
+import SEO from "@/components/global/Seo";
+import Categories from "@/components/sections/Categories";
+import CtaSection from "@/components/sections/CtaSection";
+import CuriosityEntries from "@/components/sections/CuriosityEntries";
+import Faq from "@/components/sections/Faq";
+import Hero from "@/components/sections/Hero";
+import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
 import fetchData from "@/utils/fetchData";
 import { academyItemsPerPage } from "../../../page";
-import Breadcrumbs from "@/app/components/global/Breadcrumbs";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
 	const { allCuriosityEntries } = await paramsQuery();
