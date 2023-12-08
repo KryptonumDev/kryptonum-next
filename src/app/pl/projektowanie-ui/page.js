@@ -33,7 +33,7 @@ export default async function UiDesignPage() {
 			textSection3,
 			ctaSection2,
 			textSection4,
-			process,
+			blocks,
 			centralizedHeading2,
 			caseStudies,
 			ctaSection3,
@@ -74,11 +74,7 @@ export default async function UiDesignPage() {
 				/>
 				<CtaSection data={ctaSection2} />
 				<TextSection data={textSection4} />
-				<Process
-					data={{
-						blocks: process,
-					}}
-				/>
+				<Process data={{blocks}} />
 				<CentralizedHeadingSection data={centralizedHeading2} />
 				<CaseStudies cta={caseStudies} />
 				<CtaSection data={ctaSection3} />
@@ -276,7 +272,7 @@ const query = async () => {
         }
       }
       #Process
-      process {
+      blocks {
         title
         description
       }
