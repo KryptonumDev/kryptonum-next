@@ -12,13 +12,6 @@
     width:70%;
   }
   padding: clamp(24px, calc(72vw/7.68), 72px) clamp(16px, calc(72vw/7.68), 72px);
-  @media (max-width: 499px){
-    padding-left: var(--pageMargin);
-    padding-right: var(--pageMargin);
-    h3 {
-      width:100%;
-    }
-  }
   border-radius: 2px;
   h3 {
     font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28rem/16));
@@ -47,6 +40,14 @@
       width: 100%;
       height: unset;
       max-height: 300px;
+    }
+  }
+  @media (max-width: 499px){
+    padding-left: var(--pageMargin);
+    padding-right: var(--pageMargin);
+    margin-top: min(210px,60vw);
+    h3 {
+      width:100%;
     }
   }
 }
