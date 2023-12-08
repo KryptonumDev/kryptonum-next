@@ -2,8 +2,34 @@
 
 import TableOfContent from "../../molecules/TableOfContent";
 import styles from "./styles.module.scss";
+import { useEffect, useRef } from "react";
 
 const ContentClient = ({ share, shareIcon, link, content, children }) => {
+	const ref = useRef(null);
+
+	useEffect(() => {
+		const handleResize = () => {
+			const viewportWidth = window.innerWidth;
+			if (viewportWidth >= 1099) {
+				const navElement = document.querySelector("nav.nav:not(.fixed)");
+				const section = ref.current;
+				if (navElement) {
+					section.classList.add(styles.transform);
+				} else {
+					section.classList.remove(styles.transform);
+				}
+			}
+		};
+
+		handleResize();
+
+		window.addEventListener("scroll", handleResize);
+
+		return () => {
+			window.removeEventListener("scroll", handleResize);
+		};
+	}, []);
+
 	const shareData = {
 		title: share?.title,
 		text: share?.description || "",
@@ -29,7 +55,10 @@ const ContentClient = ({ share, shareIcon, link, content, children }) => {
 	};
 
 	return (
-		<section className={`content ${styles.wrapper}`}>
+		<section
+			className={`content ${styles.wrapper}`}
+			ref={ref}
+		>
 			<div className={`${styles.column}`}>
 				<nav>
 					{link}

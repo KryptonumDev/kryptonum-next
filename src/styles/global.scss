@@ -202,12 +202,6 @@ li strong {
   gap: 24px;
 }
 
-@media (min-width: 1099px) {
-  nav.nav:not(.fixed)~main .content nav {
-    transform: translateY(-94px) !important;
-  }
-}
-
 .hero {
   padding-top: clamp(16px, calc(24vw/7.68), 24px);
 }
