@@ -95,9 +95,6 @@ main {
   grid-template-columns: 1fr;
   row-gap: clamp(96px, calc(144vw/7.68), 172px);
   padding-top: 40px;
-  @media (max-width: 999px) {
-    padding-top: clamp(48px, calc(128vw/7.68), 128px);
-  }
 }
 
 svg {

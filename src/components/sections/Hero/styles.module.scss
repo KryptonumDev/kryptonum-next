@@ -30,7 +30,7 @@
     @media(min-width: 1300px) {
       .span {
         text-align: end;
-        max-width:450px;
+        width:450px;
       }
     }
     >img {
@@ -55,10 +55,11 @@
       .spanWrapper {
         width: fit-content;
         margin-top: -54px;
+        .span {
+          text-align: start;
+          width:unset;
+        }
       }
-    }
-    span {
-      text-align: start;
     }
   }
 }
