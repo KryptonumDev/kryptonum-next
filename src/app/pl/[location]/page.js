@@ -15,7 +15,7 @@ import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
 import Team from "@/components/sections/Team";
 import Testimonials from "@/components/sections/Testimonials";
 import TextColumnComponent from "@/components/sections/TextColumnComponent";
-import TilesSection from "@/components/sections/TilesSection";
+import TilesComponent from "@/components/sections/TilesComponent";
 import fetchData from "@/utils/fetchData";
 import { notFound } from "next/navigation";
 
@@ -85,7 +85,7 @@ export default async function LocationPage({ params: { location } }) {
 			/>
 		),
 		TilesComponent: (
-			<TilesSection
+			<TilesComponent
 				key={i}
 				data={component}
 			/>

@@ -3,7 +3,7 @@ import DecorativeHeading from "../../atoms/DecorativeHeading";
 import styles from "./styles.module.scss";
 import Markdown from "@/utils/markdown";
 
-const TilesSection = ({ data: { heading, list } }) => {
+const TilesComponent = ({ data: { heading, list } }) => {
 	return (
 		<section className={styles.section}>
 			<header>
@@ -30,4 +30,4 @@ const TilesSection = ({ data: { heading, list } }) => {
 		</section>
 	);
 };
-export default TilesSection;
+export default TilesComponent;
