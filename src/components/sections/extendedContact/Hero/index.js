@@ -37,7 +37,7 @@ const Hero = ({ setStep, data }) => {
 						<Markdown className={styles.top}>{data.hero_Paragraph}</Markdown>
 						<Markdown
 							className={styles.bot}
-							components={{ p: "h3" }}
+							components={{ p: "h2" }}
 						>
 							{data.hero_Paragraph2}
 						</Markdown>
