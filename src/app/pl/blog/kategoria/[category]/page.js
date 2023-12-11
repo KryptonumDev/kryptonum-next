@@ -70,7 +70,7 @@ export default async function BlogCategoryPage({ params: { category } }) {
 
 export async function generateMetadata({ params: { category } }) {
 	const {
-		page: { seo },
+		blogCategory: { seo },
 	} = await query(category);
 	return SEO({
 		title: seo?.title,

@@ -89,7 +89,7 @@ export default async function AcademyCategoryPaginationPage({ params: { category
 
 export async function generateMetadata({ params: { category, number } }) {
 	const {
-		page: { seo },
+		curiosityCategory: { seo },
 	} = await query(category, number);
 	return SEO({
 		title: seo?.title,

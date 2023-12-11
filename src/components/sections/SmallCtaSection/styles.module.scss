@@ -5,7 +5,7 @@
   justify-content: space-between;
   gap: clamp(24px, calc(40vw/7.68), 48px) 32px;
 
-  h3 {
+  h2 {
     font-size: clamp(calc(20rem/16), calc(30vw/7.68), calc(32rem/16));
     max-width: calc(350rem/16);
   }
@@ -36,7 +36,7 @@
     gap: 0;
     text-align: center;
 
-    h3 {
+    h2 {
       max-width: unset;
       margin-bottom: 24px;
     }

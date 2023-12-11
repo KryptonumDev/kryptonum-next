@@ -12,9 +12,9 @@ const SmallCtaSection = ({
 }) => {
   return (
     <section className={styles.wrapper}>
-      <Markdown components={{'p': 'h3'}} className={styles.heading}>{smallCta_Heading}</Markdown>
+      <Markdown components={{'p': 'h2'}} className={styles.heading}>{smallCta_Heading}</Markdown>
       <Button data={smallCta_Cta} className={styles.cta1}/>
-      <Markdown components={{'p': 'h3'}} className={styles.heading2}>{smallCta_Heading2}</Markdown>
+      <Markdown components={{'p': 'h2'}} className={styles.heading2}>{smallCta_Heading2}</Markdown>
       <Button data={smallCta_Cta2} className={styles.cta2}/>
     </section>
   );

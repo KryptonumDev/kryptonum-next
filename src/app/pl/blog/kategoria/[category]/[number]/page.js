@@ -84,7 +84,7 @@ export default async function BlogCategoryPaginationPage({ params: { category, n
 
 export async function generateMetadata({ params: { category, number } }) {
 	const {
-		page: { seo },
+		blogCategory: { seo },
 	} = await query(category, number);
 	return SEO({
 		title: seo?.title,

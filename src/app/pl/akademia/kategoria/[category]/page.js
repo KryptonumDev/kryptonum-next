@@ -71,7 +71,7 @@ export default async function AcademyCategoryPage({ params: { category } }) {
 
 export async function generateMetadata({ params: { category } }) {
 	const {
-		page: { seo },
+		curiosityCategory: { seo },
 	} = await query(category);
 	return SEO({
 		title: seo?.title,
