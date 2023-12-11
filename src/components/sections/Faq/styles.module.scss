@@ -20,7 +20,10 @@
       gap: 24px;
     }
   }
-
+  
+  .wrapper {
+    counter-reset: counter;
+  }
 
   details {
     counter-increment: counter;
