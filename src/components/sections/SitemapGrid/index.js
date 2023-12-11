@@ -122,14 +122,14 @@ export default function Grid({
 						>
 							{el.category.name} ({el.posts.length})
 						</Link>
-						<ul>
+						<div className={styles.categoryCards}>
 							{el.posts.map((entry, i) => (
 								<EntryCard
 									data={entry}
 									key={i}
 								/>
 							))}
-						</ul>
+						</div>
 					</div>
 				))}
 			</div>
@@ -250,14 +250,14 @@ export default function Grid({
 						>
 							{el.category.name} ({el.posts.length})
 						</Link>
-						<ul>
+						<div className={styles.categoryCards}>
 							{el.posts.map((entry, i) => (
 								<AcademyEntrySmall
 									data={entry}
 									key={i}
 								/>
 							))}
-						</ul>
+						</div>
 					</div>
 				))}
 			</div>

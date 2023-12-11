@@ -31,7 +31,7 @@ const EntryCard = ({ data }) => {
 					</Link>
 					<span className={styles.createdAt}>{data._createdAt}</span>
 				</div>
-				<h3 className={styles.title}>{removeMarkdown(data.title)}</h3>
+				<h2 className={styles.title}>{removeMarkdown(data.title)}</h2>
 			</div>
 		</div>
 	);
