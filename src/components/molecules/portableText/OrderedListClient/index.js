@@ -28,11 +28,12 @@ const OrderedListClient = ({ array, children }) => {
 	}, [locationPath]);
 
 	return (
+		<div className={styles.wrapper}>
+		{children}
 		<ol
-			className={styles.orderedList}
 			ref={listRef}
+			className={styles.orderedList}
 		>
-			{children}
 			{array.map((item, i) => (
 				<li key={i}>
 					<p className={styles.title}>{item.title}</p>
@@ -40,6 +41,7 @@ const OrderedListClient = ({ array, children }) => {
 				</li>
 			))}
 		</ol>
+		</div>
 	);
 };
 export default OrderedListClient;
