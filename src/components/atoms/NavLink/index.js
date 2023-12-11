@@ -7,6 +7,7 @@ const NavLink = ({ href, className, children, ...props }) => {
   const handleNavLinks = () => {
     const nav = document.querySelector('nav.nav');
     nav.removeAttribute("data-tab");
+		nav.setAttribute("aria-expanded",false);
   }
 
 	return (
