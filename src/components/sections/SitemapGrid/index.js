@@ -100,6 +100,7 @@ export default function Grid({
 							<Img
               data={person.img}
 								className={`${styles.img} personBorder`}
+								sizes="156px"
 							/>
 							<p>{person.name}</p>
 						</Link>
@@ -140,6 +141,7 @@ export default function Grid({
 					<Img
           data={Agency.hero_Img}
 						className={`${styles.img} ${styles.mainImg}`}
+						sizes="(max-width: 962px) 100vw, 50vw"
 					/>
 					<span>Opieka agencyjna</span>
 				</Link>
@@ -152,6 +154,7 @@ export default function Grid({
 					<Img
           data={WebDevelopment.hero_Img}
 						className={`${styles.img} ${styles.mainImg}`}
+						sizes="(max-width: 962px) 100vw, 50vw"
 					/>
 					<span>Web Development</span>
 				</Link>
@@ -182,6 +185,7 @@ export default function Grid({
 					<Img
           data={GraphicsDesign.hero_Img}
 						className={`${styles.img} ${styles.mainImg}`}
+						sizes="(max-width: 962px) 100vw, 50vw"
 					/>
 					<span>Grafika & design & kreacja</span>
 				</Link>
@@ -212,6 +216,7 @@ export default function Grid({
 					<Img
           data={Workshop.hero_Img}
           className={`${styles.img} ${styles.mainImg}`}
+					sizes="(max-width: 962px) 100vw, 50vw"
 					/>
 					<span>Warsztat strategiczny</span>
 				</Link>

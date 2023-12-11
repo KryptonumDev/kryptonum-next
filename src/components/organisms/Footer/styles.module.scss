@@ -185,6 +185,9 @@
         }
         .blogPersonBorder {
           .blogImg {
+            height:100%;
+            width:100%;
+            display:block;
             transform: scale(1.05);
           }
         }

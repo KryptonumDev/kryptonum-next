@@ -8,6 +8,7 @@ const ImageComponent = ({ data: { isMockup, img } }) => {
 			<Img
 				data={img}
 				className={styles.img}
+				sizes="100vw"
 			/>
 		</section>
 	);

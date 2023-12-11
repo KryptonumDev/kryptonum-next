@@ -14,6 +14,7 @@ const AcademyEntrySmall = ({ data }) => {
 			<Img
 				data={data.img}
 				className={styles.img}
+				sizes="127px"
 			/>
 			<div>
 				<div className={styles.flex}>
@@ -24,6 +25,7 @@ const AcademyEntrySmall = ({ data }) => {
 						<Img
 							data={data.author[0].img}
 							className={`personBorder ${styles.authorImg}`}
+							sizes="34px"
 						/>
 						<span>{data.author[0].name}</span>
 					</Link>

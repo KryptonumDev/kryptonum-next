@@ -18,6 +18,7 @@ const ScrollToNext = ({ data: { heading, paragraph, title, link } }) => {
 		<Img
 			data={link.person?.img}
 			className={`personBorder ${styles.personBorder}`}
+			sizes="180px"
 		/>
 	);
 

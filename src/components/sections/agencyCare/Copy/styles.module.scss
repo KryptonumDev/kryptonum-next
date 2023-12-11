@@ -25,9 +25,11 @@
   .text {
     font-size: clamp(calc(16rem/16), calc(22vw/7.68), calc(22rem/16));
   }
+
   .imageWrapper {
     margin-left: 112px;
   }
+
   .img {
     width: 100%;
     height: auto;
@@ -110,9 +112,11 @@
     .column {
       grid-template-columns: 1fr;
 
-      .img {
-        margin-left: 0;
-        order: -1;
+      .imageWrapper {
+        margin-left: 0px;
+        .img {
+          order: -1;
+        }
       }
     }
 

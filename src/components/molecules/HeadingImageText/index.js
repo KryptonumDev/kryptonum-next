@@ -26,7 +26,7 @@ const HeadingImageText = ({
 				<Img
 					className={styles.image}
 					data={image}
-					sizes="(max-width: 1199px) 100vw, (min-width: 1200px) 50vw"
+					sizes="(max-width: 1199px) 100vw, 50vw"
 				></Img>
 			</div>
 			<div className={styles.descriptionWrapper}>

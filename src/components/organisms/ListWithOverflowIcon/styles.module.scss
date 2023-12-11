@@ -1,6 +1,7 @@
 .wrapper {
   display: grid;
   column-gap: clamp(32px, calc(48vw/7.68), 48px);
+  row-gap: 32px;
   .item {
     padding: clamp(24px, calc(30vw/7.68), 30px) clamp(16px, calc(20vw/7.68), 20px);
     border: 1px solid var(--neutral-700);
@@ -30,7 +31,7 @@
       margin-top: calc(clamp(-32px, calc(-32vw/7.68), -24px) - 30px); 
       padding:12px;
       object-fit:contain;
-      overflow:visible;
+      display:block;
     }
     h2 {
       font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28rem/16)); 

@@ -17,6 +17,7 @@ const LogoShowcase = ({ data: { heading, paragraph, proposals } }) => {
               <Img
                 data={img}
                 className={styles.logo}
+                sizes="(mmax-width: 949px) 100vw, 50vw"
               />
             </div>
             {title && (

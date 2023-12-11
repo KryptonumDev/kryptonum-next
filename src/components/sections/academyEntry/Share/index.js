@@ -39,6 +39,7 @@ const Share = ({ heading, img, url }) => {
       <Img
         data={img}
         className={styles.img}
+        sizes="(max-width: 899px) 50vw, 600px"
       />
     </section>
   );

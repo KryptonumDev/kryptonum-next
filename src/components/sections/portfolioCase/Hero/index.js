@@ -17,7 +17,8 @@ const Hero = ({
       <Img
         data={img}
         className={styles.img}
-        loading="eager"
+        priority={true}
+        sizes="100vw"
       />
       <Breadcrumbs portfolio={true} breadcrumbs={breadcrumbs} />
       <header>

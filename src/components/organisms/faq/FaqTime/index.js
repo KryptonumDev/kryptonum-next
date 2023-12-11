@@ -19,6 +19,7 @@ const FaqTime = ({
 			<Img
 				data={img}
 				className={styles.img}
+				sizes="(max-width: 899px) 100vw, 50vw"
 			/>
 			<div className={styles.copy}>
 				<Markdown

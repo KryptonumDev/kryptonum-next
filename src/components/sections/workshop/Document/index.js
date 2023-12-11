@@ -22,6 +22,7 @@ const Document = ({
 								<Img
 									data={img}
 									className={styles.img}
+									sizes="(max-width: 999px) 100vw, 75vw"
 								/>
 							</div>
 						))}

@@ -14,7 +14,7 @@ const BlogEntry = ({ data, smallEntry }) => {
         className={styles.img}
         width={230}
         height={230}
-        quality="100"
+        sizes="230px"
       />
       <Link
         href={`/pl/blog/${data.slug.current}`}
@@ -32,6 +32,7 @@ const BlogEntry = ({ data, smallEntry }) => {
           className={`personBorder`}
           height={48}
           width={48}
+          sizes="48px"
         />
         <span>{data.author[0].name}</span>
       </Link>

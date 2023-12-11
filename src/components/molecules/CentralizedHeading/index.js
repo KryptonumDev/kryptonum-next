@@ -1,3 +1,4 @@
+import Markdown from "@/utils/markdown";
 import Button from "../../atoms/Button";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import styles from "./styles.module.scss";
@@ -22,7 +23,7 @@ const CentralizedHeading = ({
 			<DecorativeHeading type="h3" decoration={decoration} className={styles.decorativeHeading}>
 				{heading}
 			</DecorativeHeading>
-			{paragraph && <div className={styles.subheading}>{paragraph}</div>}
+			{paragraph && <Markdown className={styles.subheading}>{paragraph}</Markdown>}
 			{cta && <Button data={cta} />}
 		</header>
 	);

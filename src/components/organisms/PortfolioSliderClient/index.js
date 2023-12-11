@@ -45,6 +45,7 @@ const PortfolioSliderClient = ({ arrowLeft, arrowRight, slides, children }) => {
 							<Img
 								data={slide.img}
 								className={styles.img}
+								sizes="40px"
 							/>
 							<Markdown className={styles.title}>{slide.title}</Markdown>
 						</div>

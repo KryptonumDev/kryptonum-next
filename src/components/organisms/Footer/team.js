@@ -23,6 +23,7 @@ const Team = ({ team }) => {
 						<Img
 							data={person.img}
 							className={`${styles.personBorder}`}
+              sizes=""
 						/>
 					</div>
 					<span>{person.name}</span>

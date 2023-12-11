@@ -24,7 +24,8 @@ const HeroServices = ({
       <Img
         data={hero_Img}
         className={styles.img}
-        loading="eager"
+        sizes="100vw"
+        priority={true}
       />
       <div className={styles.copy}>
         {hero_Annotation && (

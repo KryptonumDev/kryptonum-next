@@ -106,6 +106,7 @@ const Footer = ({
 									width={200}
 									height={200}
 									className={styles.thumbnail}
+                  sizes="200px"
 								/>
 							</div>
 							<div className={styles.copy}>
@@ -119,6 +120,7 @@ const Footer = ({
 											width={32}
 											height={32}
 											className={styles.blogImg}
+                      sizes="32px"
 										/>
 									</div>
 									<span>{entry.author[0]?.name}</span>

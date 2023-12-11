@@ -21,6 +21,7 @@ const TilesComponent = ({ data: { heading, list } }) => {
 							<Img
                 data={icon}
 								className={styles.img}
+								sizes="48px"
 							/>
 						)}
 						<Markdown className={styles.description}>{description}</Markdown>

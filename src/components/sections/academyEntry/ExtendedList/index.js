@@ -26,6 +26,7 @@ const ExtendedList = ({
                   <Img
                     data={item.img}
                     className={styles.img}
+                    sizes="(max-width: 549px) 100vw, (max-width: 999px) 50vw, 33vw"
                   />
                   <Markdown className={styles.paragraph}>{item.paragraph}</Markdown>
                 </div>

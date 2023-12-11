@@ -36,6 +36,7 @@ const TestimonialsClient = ({ testimonials, quote, arrowLeft, arrowRight, childr
 								className={styles.img}
 								width={158}
 								height={158}
+								sizes="158px"
 							/>
 							<div>
 								<h3>{name}</h3>

@@ -24,6 +24,7 @@ const Participated = ({ data: { heading, paragraph, people } }) => {
 							<Img
 								data={person.img}
 								className={`personBorder ${styles.img}`}
+								sizes="106px"
 							/>
 							<p className={styles.name}>{person.name}</p>
 						</Link>
@@ -35,6 +36,7 @@ const Participated = ({ data: { heading, paragraph, people } }) => {
 								<Img
 									data={people[i + 3].img}
 									className={`personBorder ${styles.img}`}
+									sizes="106px"
 								/>
 								<p className={styles.name}>{people[i + 3].name}</p>
 							</Link>

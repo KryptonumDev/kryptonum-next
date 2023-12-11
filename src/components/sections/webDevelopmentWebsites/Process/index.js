@@ -30,6 +30,7 @@ const Process = ({
               <Markdown className={styles.subheading}>{item.subheading}</Markdown>
               <Img data={item.img}
                 className={styles.img}
+                sizes="(max-width: 899px) 100vw, 50vw"
               />
               <Markdown className={styles.paragraph}>{item.paragraph}</Markdown>
             </div>

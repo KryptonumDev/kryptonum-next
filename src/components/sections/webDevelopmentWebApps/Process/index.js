@@ -22,6 +22,7 @@ const Process = ({
 						<Img
 							data={item.img}
 							className={styles.img}
+							sizes="(max-width: 1100px) 100vw, 50vw"
 						/>
 						<Markdown
 							className={styles.heading}

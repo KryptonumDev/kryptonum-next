@@ -43,6 +43,7 @@ const LargeListWithImg = ({ data: { heading, img, list } }) => {
 				<Img
 					data={img}
 					className={styles.img}
+					sizes="100vw"
 				/>
 			)}
 			<div

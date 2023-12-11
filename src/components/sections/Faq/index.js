@@ -216,6 +216,7 @@ const Faq = async ({ heading }) => {
 							data={faq.form.person.img}
 							height={96}
 							width={96}
+							sizes="96px"
 							className={`personBorder ${styles.img}`}
 						/>
 						<a href={`tel:${faq.form.person.tel.replace(/\s/g, "")}`}>{faq.form.person.tel}</a>

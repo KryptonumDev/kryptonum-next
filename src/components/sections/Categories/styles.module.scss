@@ -23,7 +23,7 @@
       color: var(--neutral-950);
     }
   }
-  @media (min-width: 1100px){
+  @media (min-width: 1200px){
     .categories {
       a  {
         position: absolute;
@@ -50,7 +50,7 @@
       }
     }
   }
-  @media (max-width: 1099px){
+  @media (max-width: 1199px){
     padding: 0;
     h2 {
       margin: 0 0 clamp(28px, calc(42vw/7.68), 42px) 0;

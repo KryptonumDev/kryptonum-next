@@ -30,6 +30,7 @@ const ConsultationForm = async ({
 						className={`${styles.img} personBorder`}
 						width={120}
 						height={120}
+						sizes="120px"
 					/>
 					{quickForm_Person.tel && (
 						<a href={`tel:${quickForm_Person.tel.replace(/\s/g, "")}`}>{quickForm_Person.tel}</a>

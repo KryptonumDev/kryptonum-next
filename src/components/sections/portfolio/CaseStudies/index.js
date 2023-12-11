@@ -15,8 +15,9 @@ const CaseStudies = ({ data }) => {
 					<div className={styles.imgWrapper}>
 						<Img
 							data={caseStudy.img}
-							loading={i === 0 ? "eager" : "lazy"}
+							priority={i === 0 ? true : false}
 							className={styles.img}
+							sizes="100vw"
 						/>
 					</div>
 					<div className={styles.copy}>

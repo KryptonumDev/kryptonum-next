@@ -25,7 +25,8 @@
     border: 1px solid var(--neutral-800);
     width:100%;
     height:100%;
-    object-fit: cover;
+    object-fit: contain;
+    display:block;
   }
 
   .copy {

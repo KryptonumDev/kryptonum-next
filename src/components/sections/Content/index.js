@@ -18,6 +18,7 @@ const Content = ({ contentRaw, author, share }) => {
 			<Img
 				data={author.img}
 				className={`${styles.img} personBorder`}
+				sizes="156px"
 			/>
 			<p>Autor: {author.name}</p>
 		</Link>

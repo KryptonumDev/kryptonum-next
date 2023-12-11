@@ -15,6 +15,7 @@ const Tools = ({ data }) => {
 						<Img
 							data={tool.img}
 							className={styles.img}
+							sizes="152px"
 						/>
 						<p>{tool.name}</p>
 					</div>

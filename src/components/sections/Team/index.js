@@ -24,6 +24,7 @@ const Team = async ({ heading, paragraph, cta }) => {
 								className={styles.img}
 								width={128}
 								height={128}
+								sizes="128px"
 							/>
 						</div>
 						<div className={styles.info}>

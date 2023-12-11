@@ -23,6 +23,7 @@ const Features = ({ data: { heading, feautures } }) => {
 					<Img
 						data={feature.img}
 						className={styles.img}
+						sizes="48px"
 					/>
 					<Markdown className={styles.title}>{feature.title}</Markdown>
 				</div>

@@ -17,6 +17,7 @@ const CardGrid = ({ data: { list }, additionalStyles }) => {
 							className={
 								additionalStyles ? `${additionalStyles.icon} ${styles.icon}` : styles.icon
 							}
+							sizes="60px"
 						/>
 					) : (
 						<Markdown className={additionalStyles ? `${additionalStyles.icon} ${styles.icon}` : styles.icon} width={60} height={60} components={{ p: "h3" }}>

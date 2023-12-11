@@ -75,6 +75,10 @@
           margin-left: clamp(-64px, calc(-48vw/7.68), -16px);
           margin-right: clamp(-64px, calc(-48vw/7.68), -16px);
         }
+        height:100%;
+        width: 100%;
+        display: block;
+        object-fit:contain;
       }
 
       .heading {

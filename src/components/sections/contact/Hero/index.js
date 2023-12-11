@@ -25,6 +25,7 @@ const Hero = ({ heading, subheading, contact }) => {
 								<Img
 									data={item.person.img}
 									className={`${styles.img} personBorder`}
+									sizes="(max-width: 499px) 96px, 160px"
 								/>
 							</Link>
 							<p>

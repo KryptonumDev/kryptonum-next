@@ -19,6 +19,7 @@ const Stylescape = ({ data: { heading, paragraph, stylescapes, elements } }) => 
 					data={stylescape}
 					className={`${styles.img} img`}
 					key={i}
+					sizes="130vw"
 				/>
 			))}
 		</>
@@ -37,6 +38,7 @@ const Stylescape = ({ data: { heading, paragraph, stylescapes, elements } }) => 
 								data={item.img}
 								className={`${styles.img} img`}
 								key={i}
+								sizes="(max-width: 599px) 100vw, (max-width: 999px) 50vw, 30vw"
 							/>
 						</div>
 					))}

@@ -10,6 +10,7 @@ const ImageShowcase = ({ data: { images, cta } }) => {
         data={image}
           className={`${styles.img} ${styles[`img${i}`]}`}
           key={i}
+          sizes="65vw"
         />
       ))}
       {cta?.href && (

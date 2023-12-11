@@ -31,6 +31,7 @@ const Technology = ({
 					data={img}
 					className={styles.img}
 					key={i}
+					sizes="250px"
 				/>
 			))}
 		</TechnologyClient>

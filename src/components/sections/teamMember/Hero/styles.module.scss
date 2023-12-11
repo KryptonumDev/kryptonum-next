@@ -33,6 +33,7 @@
 
   @media (max-width: 549px) {
     grid-template-columns: 1fr;
+    justify-self: start;
 
     .img {
       order: -1;

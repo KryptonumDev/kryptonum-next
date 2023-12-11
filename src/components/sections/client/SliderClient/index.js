@@ -11,7 +11,7 @@ const Card = ({ className = '', data: { title, description, img } }) => {
   return (
     <div className={className}>
       <div>
-        {img && <Img data={img} className={styles.img} />}
+        {img && <Img data={img} className={styles.img} sizes="40px"/>}
         <Markdown className={styles.title} components={{ p: "h3" }}>
           {title}
         </Markdown>

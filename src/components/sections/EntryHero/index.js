@@ -28,6 +28,7 @@ const EntryHero = ({
 						<Img
 							data={author[0].img}
 							className={`personBorder ${styles.authorImg}`}
+							sizes="64px"
 						/>
 						<span>{author[0].name}</span>
 					</Link>
@@ -47,6 +48,8 @@ const EntryHero = ({
 			<Img
 				data={img}
 				className={styles.img}
+				priority={true}
+				sizes="(max-width: 1199px) 40vw, min(600px, 100vw)"
 			/>
 		</section>
 	);

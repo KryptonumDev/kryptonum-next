@@ -25,6 +25,7 @@ const ImageAndStandout = ({
 				<Img
           data={img}
 					className={styles.img}
+					sizes="(max-width: 1099px) 50vw, 100vw"
 				/>
 			</div>
 		</section>

@@ -19,6 +19,7 @@ const HeadingWithDescriptionTitle = ({ data: { heading, blocks } }) => {
 									<Img
 										data={item.icon}
 										className={`${styles.icon} person-border`}
+										sizes="60px"
 									/>
 								</div>
 							) : (

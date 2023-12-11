@@ -47,6 +47,7 @@ const AdvantagesClient = ({ advantages, simpleCtaSection, children }) => {
 							<Img
 								data={advantage.img}
 								className={styles.img}
+								sizes="100vw"
 							/>
 							<div
 								className={styles.imgOverlay}

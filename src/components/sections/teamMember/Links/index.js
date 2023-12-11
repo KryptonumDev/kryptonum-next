@@ -18,6 +18,7 @@ const Links = ({ data }) => {
 						<Img
 							data={link.img}
 							className={styles.img}
+							sizes="56px"
 						/>
 						<p>{link.text}</p>
 					</a>

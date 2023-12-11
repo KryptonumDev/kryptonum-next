@@ -24,7 +24,7 @@ const CaseStudies = async ({ data, heading, cta, eagerLoading=false }) => {
 							data={caseStudy.img}
 							key={i}
 							className={styles.img}
-							loading={eagerLoading && i == 0 ? "eager" : "lazy"}
+							priority={eagerLoading && i==0 ? true : false}
 							sizes="100vw"
 						/>
 						<Button

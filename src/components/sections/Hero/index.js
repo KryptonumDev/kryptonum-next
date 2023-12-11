@@ -26,7 +26,7 @@ const Hero = ({
 						data={sideImage}
 						className={styles.sideImg}
 						sizes="(max-width: 1299px) 100vw, (min-width: 1300px) 50vw"
-						loading="eager"
+						priority={true}
 					/>
 				)}
 				{subheading && (
@@ -41,7 +41,7 @@ const Hero = ({
 						data={image}
 						className={styles.img}
 						sizes="100vw"
-						loading="eager"
+						priority={true}
 					/>
 				</div>
 			)}

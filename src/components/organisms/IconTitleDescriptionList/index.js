@@ -19,6 +19,7 @@ const IconTitleDescriptionList = ({ data }) => {
 								className={styles.icon}
 								width={40}
 								height={40}
+								sizes="40px"
 							/>
 						)}
 						{header && <p>{header}</p>}

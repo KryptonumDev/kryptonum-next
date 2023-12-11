@@ -29,6 +29,7 @@ const TextComponent = ({
 									<Img
 										data={item.icon}
 										className={`${styles.icon} person-border`}
+										sizes="200px"
 									/>
 								</div>
 							) : (
