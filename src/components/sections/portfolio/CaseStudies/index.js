@@ -21,7 +21,7 @@ const CaseStudies = ({ data }) => {
 						/>
 					</div>
 					<div className={styles.copy}>
-						<h3>{caseStudy.name}</h3>
+						<h2 className={styles.caseStudyName}>{caseStudy.name}</h2>
 						<ul className={styles.categories}>
 							{caseStudy.categories.map((category, i) => (
 								<li key={i}>{category.name}</li>
