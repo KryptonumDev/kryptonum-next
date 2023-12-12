@@ -1,24 +1,21 @@
 'use server'
 
-import NextImage from "next/image";
-import styles from './styles.module.scss';
-import { PortableText } from "@portabletext/react";
-import ConsultationForm from "../../sections/ConsultationForm";
-import imageUrlBuilder from "@sanity/image-url";
-import { getImageDimensions } from "@sanity/asset-utils";
-import DecorativeHeading from "../../atoms/DecorativeHeading";
-import OrderedList from "../portableText/OrderedList";
-import { slugify } from "@/utils/functions";
-import { toPlainText } from "@portabletext/react";
-import { portableTextToMarkdown } from "@/utils/functions";
-import Tiles from "../../sections/portableText/Tiles";
-import UnorderedList from "../portableText/UnorderedList";
-import { Star } from "../../atoms/Icons";
-import DetailedGrid from "../portableText/DetailedGrid";
-import SimpleGridList2Columns from "../../molecules/portableText/SimpleGridList2Columns";
-import SimpleGridImage2Columns from "../../molecules/portableText/SimpleGridImage2Columns";
-import TabSection from "../../molecules/portableText/TabSection";
 import Img from "@/utils/Img";
+import { portableTextToMarkdown, slugify } from "@/utils/functions";
+import { PortableText, toPlainText } from "@portabletext/react";
+import { getImageDimensions } from "@sanity/asset-utils";
+import imageUrlBuilder from "@sanity/image-url";
+import DecorativeHeading from "../../atoms/DecorativeHeading";
+import { Star } from "../../atoms/Icons";
+import SimpleGridImage2Columns from "../../molecules/portableText/SimpleGridImage2Columns";
+import SimpleGridList2Columns from "../../molecules/portableText/SimpleGridList2Columns";
+import TabSection from "../../molecules/portableText/TabSection";
+import ConsultationForm from "../../sections/ConsultationForm";
+import Tiles from "../../sections/portableText/Tiles";
+import DetailedGrid from "../portableText/DetailedGrid";
+import OrderedList from "../portableText/OrderedList";
+import UnorderedList from "../portableText/UnorderedList";
+import styles from './styles.module.scss';
 
 
 export const ImageRenderer = ({ value: { asset: { _ref }, altText }, sizes }) => {
@@ -68,6 +65,7 @@ const components = {
   },
   listItem : {
     bullet: ({ children }) => <li><Star /><span>{children}</span></li>,
+    number: ({ children }) => <ol className={styles.portableList}>{children}</ol>
   },
   list: {
     bullet: ({ children }) => <ul className={styles.portableList}>{children}</ul>,
