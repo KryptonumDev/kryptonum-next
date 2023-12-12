@@ -4,6 +4,7 @@ import CaseStudies from "@/components/sections/CaseStudies";
 import CtaSection from "@/components/sections/CtaSection";
 import HeroServices from "@/components/sections/HeroServices";
 import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
+import QuickForm from "@/components/sections/QuickForm";
 import ScrollToNext from "@/components/sections/ScrollToNext";
 import Customer from "@/components/sections/webDevelopmentWebApps/Customer";
 import Process from "@/components/sections/webDevelopmentWebApps/Process";
