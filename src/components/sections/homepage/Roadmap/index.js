@@ -1,12 +1,12 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import RoadmapClient from "../../client/RoadmapClient";
+import RoadmapSection from "./roadmapSection";
 
 const Roadmap = ({ heading, list, cta }) => {
 
   return (
-    <RoadmapClient list={list} cta={cta}>
+    <RoadmapSection list={list} cta={cta}>
       <DecorativeHeading type="h2">{heading}</DecorativeHeading>
-    </RoadmapClient>
+    </RoadmapSection>
   );
 };
 

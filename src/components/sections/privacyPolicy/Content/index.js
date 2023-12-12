@@ -1,8 +1,8 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import ReadingTime from "@/components/atoms/ReadingTime";
 import PortableContent from "@/components/organisms/PortableContent";
-import PrivacyPolicyContentClient from "@/components/organisms/PrivacyPolictContentClient";
 import { generateTableOfContent } from "@/utils/functions";
+import ContentSection from "./contentSection";
 
 const Content = ({ heading, _rawContent }) => {
   
@@ -15,7 +15,7 @@ const Content = ({ heading, _rawContent }) => {
 	);
 
 	return (
-		<PrivacyPolicyContentClient
+		<ContentSection
 			content={content}
 			header={header}
 		>
@@ -23,7 +23,7 @@ const Content = ({ heading, _rawContent }) => {
 				<ReadingTime content={_rawContent} />
 				<PortableContent data={_rawContent} />
 			</div>
-		</PrivacyPolicyContentClient>
+		</ContentSection>
 	);
 };
 export default Content;

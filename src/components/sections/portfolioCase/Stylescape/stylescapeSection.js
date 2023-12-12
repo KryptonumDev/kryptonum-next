@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 
 const animation = { rotate: 2, x: 60 };
 
-const StylescapeClient = ({ header, stylescapes, children }) => {
+const StylescapeSection = ({ header, stylescapes, children }) => {
 	const stylescapesRef = useRef(null);
 
 	useEffect(() => {
@@ -55,4 +55,4 @@ const StylescapeClient = ({ header, stylescapes, children }) => {
 		</section>
 	);
 };
-export default StylescapeClient;
+export default StylescapeSection;

@@ -1,6 +1,6 @@
-import TestimonialsClient from "../client/TestimonialsClient";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import { Quote } from "../../atoms/Icons";
+import TestimonialsSection from "./testimonialsSection";
 
 const Testimonials = ({ heading, testimonials }) => {
 	const quote = <Quote />;
@@ -30,14 +30,14 @@ const Testimonials = ({ heading, testimonials }) => {
 	);
 
 	return (
-		<TestimonialsClient
+		<TestimonialsSection
 			testimonials={testimonials}
 			quote={quote}
 			arrowLeft={arrowLeft}
 			arrowRight={arrowRight}
 		>
 			<DecorativeHeading type="h3">{heading || "Zobacz, co mówią **klienci**"}</DecorativeHeading>
-		</TestimonialsClient>
+		</TestimonialsSection>
 	);
 };
 

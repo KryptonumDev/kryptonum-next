@@ -2,10 +2,10 @@ import Img from "@/utils/Img";
 import { generateTableOfContent } from "@/utils/functions";
 import Link from "next/link";
 import ReadingTime from "../../atoms/ReadingTime";
-import ContentClient from "../../organisms/ContentClient";
 import PortableContent from "../../organisms/PortableContent";
 import styles from "./styles.module.scss";
 import { Share } from "../../atoms/Icons";
+import ContentSection from "./contentSection";
 
 const Content = ({ contentRaw, author, share }) => {
 	author = author[0];
@@ -30,7 +30,7 @@ const Content = ({ contentRaw, author, share }) => {
 
 	return (
 		
-			<ContentClient
+			<ContentSection
 				link={link}
 				shareIcon={shareIcon}
 				share={share}
@@ -40,7 +40,7 @@ const Content = ({ contentRaw, author, share }) => {
 					<ReadingTime content={contentRaw} />
 					<PortableContent data={contentRaw} />
 				</div>
-			</ContentClient>
+			</ContentSection>
 
 	);
 };

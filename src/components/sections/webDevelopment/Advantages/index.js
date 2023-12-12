@@ -1,6 +1,6 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import SimpleCtaSection from "../../SimpleCtaSection";
-import AdvantagesClient from "../../client/AdvantagesClient";
+import AdvantagesSection from "./advantagesSection";
 
 const Advantages = ({ heading, advantages, simpleCtaSection }) => {
 	const ctaSection = (
@@ -10,12 +10,12 @@ const Advantages = ({ heading, advantages, simpleCtaSection }) => {
 	);
 
 	return (
-		<AdvantagesClient
+		<AdvantagesSection
 			advantages={advantages}
 			simpleCtaSection={ctaSection}
 		>
 			<DecorativeHeading type="h2">{heading}</DecorativeHeading>
-		</AdvantagesClient>
+		</AdvantagesSection>
 	);
 };
 export default Advantages;

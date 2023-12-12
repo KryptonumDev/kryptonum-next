@@ -1,8 +1,8 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import StylescapeClient from "@/components/organisms/StylescapeClient";
 import Img from "@/utils/Img";
 import Markdown from "@/utils/markdown";
 import styles from "./styles.module.scss";
+import StylescapeSection from "./stylescapeSection";
 
 const Stylescape = ({ data: { heading, paragraph, stylescapes, elements } }) => {
 	const header = (
@@ -25,7 +25,7 @@ const Stylescape = ({ data: { heading, paragraph, stylescapes, elements } }) => 
 		</>
 	);
 	return (
-		<StylescapeClient stylescapes={mappedStylescapes} header={header}>
+		<StylescapeSection stylescapes={mappedStylescapes} header={header}>
 			{elements && (
 				<div className={styles.elements}>
 					{elements.map((item, i) => (
@@ -44,7 +44,7 @@ const Stylescape = ({ data: { heading, paragraph, stylescapes, elements } }) => 
 					))}
 				</div>
 			)}
-		</StylescapeClient>
+		</StylescapeSection>
 	);
 };
 export default Stylescape;

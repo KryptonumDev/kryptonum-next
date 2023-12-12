@@ -1,20 +1,20 @@
-'use client'
+"use client";
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 
 const easeInOut = (t) => {
-  return 0.5 - Math.cos(t * Math.PI) / 2;
+	return 0.5 - Math.cos(t * Math.PI) / 2;
 };
 
-const ShowcaseClient = ({
+const ShowcaseSection = ({
 	decorativeHeading,
 	markdown,
 	logos,
 	showcase_SummaryLeft,
 	showcase_SummaryRight,
 	children,
-  ...props
+	...props
 }) => {
 	const listRef = useRef();
 	const [animationValue, setAnimationValue] = useState(0);
@@ -79,4 +79,4 @@ const ShowcaseClient = ({
 		</section>
 	);
 };
-export default ShowcaseClient;
+export default ShowcaseSection;

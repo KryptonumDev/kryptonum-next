@@ -3,7 +3,7 @@ import Markdown from "@/utils/markdown";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import { ArrowDown, ScrollDown } from "../../atoms/Icons";
 import styles from "./styles.module.scss";
-import ScrollToNextClient from "../../molecules/ScrollToNextClient";
+import ScrollToNextSection from "./scrollToNextSection";
 
 const ScrollToNext = ({ data: { heading, paragraph, title, link } }) => {
 	const markdown = <Markdown>{title}</Markdown>;
@@ -23,7 +23,7 @@ const ScrollToNext = ({ data: { heading, paragraph, title, link } }) => {
 	);
 
 	return (
-		<ScrollToNextClient
+		<ScrollToNextSection
 			link={link}
 			decorativeHeading={decorativeHeading}
 			scrollDown={scrollDown}
@@ -34,7 +34,7 @@ const ScrollToNext = ({ data: { heading, paragraph, title, link } }) => {
 				<Markdown>{paragraph}</Markdown>
 				<ArrowDown />
 			</div>
-		</ScrollToNextClient>
+		</ScrollToNextSection>
 	);
 };
 

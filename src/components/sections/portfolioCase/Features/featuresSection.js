@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import styles from "./styles.module.scss";
 
-const FeaturesClient = ({ header, children }) => {
+const FeaturesSection = ({ header, children }) => {
 	const wrapperRef = useRef(null);
 	useEffect(() => {
 		const wrapper = wrapperRef.current;
@@ -50,4 +50,4 @@ const FeaturesClient = ({ header, children }) => {
 		</section>
 	);
 };
-export default FeaturesClient;
+export default FeaturesSection;

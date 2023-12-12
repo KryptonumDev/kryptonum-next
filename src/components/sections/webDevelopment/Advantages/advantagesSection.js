@@ -5,7 +5,7 @@ import Img from "@/utils/Img";
 import Markdown from "@/utils/markdown";
 import { useState, useEffect } from "react";
 
-const AdvantagesClient = ({ advantages, simpleCtaSection, children }) => {
+const AdvantagesSection = ({ advantages, simpleCtaSection, children }) => {
 	const [scales, setScales] = useState({ scale1: 0, scale2: 0, scale3: 0, scale4: 0 });
 	useEffect(() => {
 		const advantages = document.querySelectorAll(".advantages-item");
@@ -61,4 +61,4 @@ const AdvantagesClient = ({ advantages, simpleCtaSection, children }) => {
 		</section>
 	);
 };
-export default AdvantagesClient;
+export default AdvantagesSection;

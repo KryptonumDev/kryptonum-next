@@ -69,3 +69,24 @@
     max-width: unset;
   }
 }
+.section {
+  --offset: 21px;
+  --gap: clamp(16px, calc(24vw/7.68), 32px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: flex-start;
+  gap: clamp(32px, calc(64vw/7.68), 64px) clamp(64px, calc(82vw/7.68), 102px);
+  .wrapper {
+    max-width: 610px;
+    margin-left: auto;
+    transition: transform .5s, margin-bottom .5s;
+    display: grid;
+    gap: var(--gap);
+  }
+  @media( max-width: 949px) {
+    grid-template-columns: 1fr;
+    .wrapper {
+      max-width: unset;
+    }
+  } 
+}

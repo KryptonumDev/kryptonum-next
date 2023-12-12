@@ -1,9 +1,9 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import { ArrowDown } from "@/components/atoms/Icons";
-import TechnologyClient from "@/components/organisms/TechnologyClient";
 import Img from "@/utils/Img";
 import Markdown from "@/utils/markdown";
 import styles from "./styles.module.scss";
+import TechnologySection from "./technologySection";
 
 const Technology = ({
 	data: { technology_Heading, technology_Paragraph, technology_Content, technology_Img },
@@ -19,7 +19,7 @@ const Technology = ({
 	const markdown3 = <Markdown className={styles.paragraph}>{technology_Paragraph}</Markdown>;
 
 	return (
-		<TechnologyClient
+		<TechnologySection
 			markdown={markdown}
 			arrowDown={arrowDown}
 			decorativeHeading={decorativeHeading}
@@ -34,7 +34,7 @@ const Technology = ({
 					sizes="250px"
 				/>
 			))}
-		</TechnologyClient>
+		</TechnologySection>
 	);
 };
 export default Technology;

@@ -3,7 +3,7 @@
 import styles from "./styles.module.scss";
 import { useRef, useEffect } from "react";
 
-const ListSectionClient = ({
+const List = ({
 	decorativeHeading,
 	decorativeHeading2,
 	markdown,
@@ -57,4 +57,4 @@ const ListSectionClient = ({
 	);
 };
 
-export default ListSectionClient;
+export default List;

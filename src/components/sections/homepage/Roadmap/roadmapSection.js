@@ -3,7 +3,7 @@ import Button from "@/components/atoms/Button";
 import { useEffect, useRef, useState } from "react";
 import styles from './styles.module.scss';
 
-const RoadmapClient = ({
+const RoadmapSection = ({
 	list,
 	cta,
 	children
@@ -62,4 +62,4 @@ const RoadmapClient = ({
 		</section>
 	);
 };
-export default RoadmapClient;
+export default RoadmapSection;

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import styles from "./styles.module.scss";
 import { usePathname } from "next/navigation";
 
-const OrderedListClient = ({ array, children }) => {
+const List = ({ array, children }) => {
 	const locationPath = usePathname();
 
 	const listRef = useRef(null);
@@ -44,4 +44,4 @@ const OrderedListClient = ({ array, children }) => {
 		</div>
 	);
 };
-export default OrderedListClient;
+export default List;

@@ -1,5 +1,5 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import PortfolioSliderClient from "@/components/organisms/PortfolioSliderClient";
+import SliderSection from "./sliderSection";
 
 const Slider = ({ data: { heading, slides } }) => {
 	const arrowLeft = <ArrowLeft />;
@@ -7,13 +7,13 @@ const Slider = ({ data: { heading, slides } }) => {
 	const arrowRight = <ArrowRight />;
 
 	return (
-		<PortfolioSliderClient
+		<SliderSection
 			arrowLeft={arrowLeft}
 			arrowRight={arrowRight}
       slides={slides}
 		>
 			<DecorativeHeading type="h2">{heading}</DecorativeHeading>
-		</PortfolioSliderClient>
+		</SliderSection>
 	);
 };
 

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import styles from "./styles.module.scss";
 
-const TechnologyClient = ({
+const TechnologySection = ({
 	markdown,
 	arrowDown,
 	decorativeHeading,
@@ -36,4 +36,4 @@ const TechnologyClient = ({
 		</section>
 	);
 };
-export default TechnologyClient;
+export default TechnologySection;

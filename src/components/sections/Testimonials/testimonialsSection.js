@@ -1,55 +1,52 @@
 "use client";
 
 import Img from "@/utils/Img";
-import Markdown from "@/utils/markdown";
 import { useRef, useState } from "react";
+import "swiper/css";
 import { A11y } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./styles.module.scss";
-import 'swiper/css';
+import { Swiper, SwiperSlide } from "swiper/react";
+import Button from "@/components/atoms/Button";
 
-const PortfolioSliderClient = ({ arrowLeft, arrowRight, slides, children }) => {
+const TestimonialsSection = ({ testimonials, quote, arrowLeft, arrowRight, children }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const swiperRef = useRef(null);
 
 	const handlePrev = () => swiperRef?.current.swiper.slidePrev();
 	const handleNext = () => swiperRef?.current.swiper.slideNext();
-
 	return (
-		<section className={styles.section}>
+		<section className={styles.wrapper}>
 			{children}
 			<Swiper
-				ref={swiperRef}
-				spaceBetween={32}
-				slidesPerView={1.5}
-				breakpoints={{
-					0: {
-						spaceBetween: 16,
-						slidesPerView: 1.1,
-					},
-					768: {
-						spaceBetween: 32,
-						slidesPerView: 1.5,
-					},
-				}}
-				modules={[A11y]}
 				className={styles.slider}
+				ref={swiperRef}
+				spaceBetween={122}
+				slidesPerView={1}
+				modules={[A11y]}
 				onSlideChange={(slider) => setActiveIndex(slider.activeIndex)}
 			>
-				{slides.map((slide, i) => (
+				{testimonials.map(({ name, text, cta, img }, i) => (
 					<SwiperSlide
 						className={styles.slide}
 						key={i}
 					>
-						<div>
+						<div className={styles.author}>
 							<Img
-								data={slide.img}
+								data={img}
 								className={styles.img}
-								sizes="40px"
+								width={158}
+								height={158}
+								sizes="158px"
 							/>
-							<Markdown className={styles.title}>{slide.title}</Markdown>
+							<div>
+								<h3>{name}</h3>
+								<Button data={cta} />
+							</div>
 						</div>
-						<Markdown className={styles.description}>{slide.description}</Markdown>
+						<div className={styles.context}>
+							{quote}
+							<p>{text}</p>
+						</div>
 					</SwiperSlide>
 				))}
 			</Swiper>
@@ -67,7 +64,7 @@ const PortfolioSliderClient = ({ arrowLeft, arrowRight, slides, children }) => {
 					onClick={() => {
 						handleNext();
 					}}
-					disabled={activeIndex === slides.length - 1}
+					disabled={activeIndex === testimonials.length - 1}
 					aria-label="Przejdź do następnego elementu"
 				>
 					{arrowRight}
@@ -76,4 +73,4 @@ const PortfolioSliderClient = ({ arrowLeft, arrowRight, slides, children }) => {
 		</section>
 	);
 };
-export default PortfolioSliderClient;
+export default TestimonialsSection;

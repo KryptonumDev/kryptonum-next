@@ -1,8 +1,8 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import FeaturesClient from "@/components/organisms/FeaturesClient";
 import Img from "@/utils/Img";
 import Markdown from "@/utils/markdown";
 import styles from "./styles.module.scss";
+import FeaturesSection from "./featuresSection";
 
 const Features = ({ data: { heading, feautures } }) => {
   const features = feautures;
@@ -14,7 +14,7 @@ const Features = ({ data: { heading, feautures } }) => {
 	);
 
 	return (
-		<FeaturesClient header={header}>
+		<FeaturesSection header={header}>
 			{features.map((feature, i) => (
 				<div
 					className={`${styles.item} item`}
@@ -28,7 +28,7 @@ const Features = ({ data: { heading, feautures } }) => {
 					<Markdown className={styles.title}>{feature.title}</Markdown>
 				</div>
 			))}
-		</FeaturesClient>
+		</FeaturesSection>
 	);
 };
 export default Features;

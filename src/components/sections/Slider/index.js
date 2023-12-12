@@ -1,15 +1,15 @@
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import { SliderArrowLeft, SliderArrowRight } from "../../atoms/Icons";
-import SliderClient from "../client/SliderClient";
+import SliderSection from "./sliderSection";
 
 const Slider = ({ data }) => {
 	const arrowLeft = <SliderArrowLeft />;
 	const arrowRight = <SliderArrowRight />;
 
 	return (
-		<SliderClient data={data} arrowLeft={arrowLeft} arrowRight={arrowRight}>
+		<SliderSection data={data} arrowLeft={arrowLeft} arrowRight={arrowRight}>
 			<DecorativeHeading type="h3">{data.heading}</DecorativeHeading>
-		</SliderClient>
+		</SliderSection>
 	);
 };
 export default Slider;

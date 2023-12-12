@@ -3,7 +3,7 @@
 import TableOfContent from "@/components/molecules/TableOfContent";
 import styles from "./styles.module.scss";
 
-const PrivacyPolicyContentClient = ({ content, header, children }) => {
+const ContentSection = ({ content, header, children }) => {
 	return (
 		<section className={styles.section}>
 			{header}
@@ -16,4 +16,4 @@ const PrivacyPolicyContentClient = ({ content, header, children }) => {
 		</section>
 	);
 };
-export default PrivacyPolicyContentClient;
+export default ContentSection;

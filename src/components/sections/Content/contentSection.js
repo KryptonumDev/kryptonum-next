@@ -4,7 +4,7 @@ import TableOfContent from "../../molecules/TableOfContent";
 import styles from "./styles.module.scss";
 import { useEffect, useRef } from "react";
 
-const ContentClient = ({ share, shareIcon, link, content, children }) => {
+const ContentSection = ({ share, shareIcon, link, content, children }) => {
 	const ref = useRef(null);
 
 	useEffect(() => {
@@ -86,4 +86,4 @@ const ContentClient = ({ share, shareIcon, link, content, children }) => {
 		</section>
 	);
 };
-export default ContentClient;
+export default ContentSection;

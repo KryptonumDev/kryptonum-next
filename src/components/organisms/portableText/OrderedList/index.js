@@ -1,13 +1,13 @@
-import OrderedListClient from '@/components/molecules/portableText/OrderedListClient';
 import Markdown from "@/utils/markdown";
+import List from "./list";
 
 const OrderedList = ({ paragraph, array }) => {
   return (
-    <OrderedListClient array={array}>
+    <List array={array}>
       {paragraph && (
         <Markdown>{paragraph}</Markdown>
       )}
-    </OrderedListClient>
+    </List>
   );
 }
 export default OrderedList;

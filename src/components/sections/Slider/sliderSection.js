@@ -21,7 +21,7 @@ const Card = ({ className = '', data: { title, description, img } }) => {
   );
 };
 
-const SliderClient = ({ data: { slides }, arrowLeft, arrowRight, children }) => {
+const SliderSection = ({ data: { slides }, arrowLeft, arrowRight, children }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [windowWidth, setWindowWidth] = useState(0);
 
@@ -98,4 +98,4 @@ const SliderClient = ({ data: { slides }, arrowLeft, arrowRight, children }) => 
   );
 };
 
-export default SliderClient;
+export default SliderSection;

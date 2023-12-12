@@ -10,7 +10,7 @@ const easeOut = (t) => {
 
 const scrollHeight = 800;
 
-const ScrollToNextClient = ({ link, decorativeHeading, scrollDown, markdown, image, children }) => {
+const ScrollToNextSection = ({ link, decorativeHeading, scrollDown, markdown, image, children }) => {
 	const router = useRouter();
 
 	const scrollToNext = useRef(null);
@@ -77,4 +77,4 @@ const ScrollToNextClient = ({ link, decorativeHeading, scrollDown, markdown, ima
 	);
 };
 
-export default ScrollToNextClient;
+export default ScrollToNextSection;

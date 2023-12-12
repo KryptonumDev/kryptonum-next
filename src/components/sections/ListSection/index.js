@@ -1,5 +1,5 @@
 import DecorativeHeading from "../../atoms/DecorativeHeading";
-import ListSectionClient from "../client/ListSectionClient";
+import List from "./list";
 import styles from "./styles.module.scss";
 import Markdown from "@/utils/markdown";
 
@@ -18,7 +18,7 @@ const ListSection = ({ heading, list, paragraph, secondParagraph, title }) => {
 	const markdown3 = <Markdown className={styles.title}>{title}</Markdown>;
 
 	return (
-		<ListSectionClient
+		<List
 			decorativeHeading={decorativeHeading}
 			decorativeHeading2={decorativeHeading2}
 			markdown={markdown}
@@ -40,7 +40,7 @@ const ListSection = ({ heading, list, paragraph, secondParagraph, title }) => {
 						<Markdown className={styles.description}>{item.description}</Markdown>
 					</div>
 				))}
-		</ListSectionClient>
+		</List>
 	);
 };
 

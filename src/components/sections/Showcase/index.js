@@ -1,8 +1,8 @@
 import Markdown from "@/utils/markdown";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
-import ShowcaseClient from "../../organisms/ShowcaseClient";
 import { Logo1, Logo2, Logo3, Logo4, Logo5 } from "./logos";
 import styles from "./styles.module.scss";
+import ShowcaseSection from "./showcaseSection";
 
 const Showcase = ({
 	data: {
@@ -34,7 +34,7 @@ const Showcase = ({
 	);
 
 	return (
-		<ShowcaseClient
+		<ShowcaseSection
       decorativeHeading={decorativeHeading}
 			markdown={markdown}
 			logos={logos}
@@ -50,7 +50,7 @@ const Showcase = ({
 					<Markdown className={styles.description}>{item.description}</Markdown>
 				</div>
 			))}
-		</ShowcaseClient>
+		</ShowcaseSection>
 	);
 };
 export default Showcase;
