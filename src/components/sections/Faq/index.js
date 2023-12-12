@@ -189,7 +189,7 @@ const Faq = async ({ heading }) => {
 					<details key={i}>
 						<summary>
 							<div>
-								<span className={styles.counter}>{`/0${i}`}</span>
+								<span className={styles.counter}>{`/0${i+1}`}</span>
 								<span>{faq.question}</span>
 							</div>
 							<div className={styles.plusIcon}>
