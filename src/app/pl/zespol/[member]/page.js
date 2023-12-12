@@ -290,12 +290,10 @@ const query = async (member) => {
 			member,
 		},
 	);
-
+	data.page = data.page[0];
 	if (!data.page) {
 		notFound();
 	}
-	data.page = data.page[0];
-
 	data.blogEntries = data.blogEntries.filter((entry) => {
 		return entry.author.some((author) => author.slug.current == member);
 	});
