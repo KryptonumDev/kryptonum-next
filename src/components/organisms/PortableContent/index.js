@@ -10,12 +10,12 @@ import { Star } from "../../atoms/Icons";
 import SimpleGridImage2Columns from "../../molecules/portableText/SimpleGridImage2Columns";
 import SimpleGridList2Columns from "../../molecules/portableText/SimpleGridList2Columns";
 import TabSection from "../../molecules/portableText/TabSection";
-import ConsultationForm from "../../sections/ConsultationForm";
 import Tiles from "../../sections/portableText/Tiles";
 import DetailedGrid from "../portableText/DetailedGrid";
 import OrderedList from "../portableText/OrderedList";
 import UnorderedList from "../portableText/UnorderedList";
 import styles from './styles.module.scss';
+import QuickForm from "@/components/sections/QuickForm";
 
 
 export const ImageRenderer = ({ value: { asset: { _ref }, altText }, sizes }) => {
@@ -44,7 +44,7 @@ const components = {
         sizes="(max-width: 1099px) 66vw, 100vw"
       />
     ),
-    quickForm: ({ value: { heading, subheading, cta} }) => <ConsultationForm data={{heading,subheading, cta}} isPortableContent={true} />,
+    quickForm: ({ value: { heading, subheading, cta} }) => <QuickForm data={{heading,subheading, cta}} isPortableContent={true} />,
     orderedList: ({ value: { array, paragraph }}) => <OrderedList paragraph={paragraph} array={array} />,
     unorderedList: ({ value: { array }}) => {
       const newArray = array.map(obj => {

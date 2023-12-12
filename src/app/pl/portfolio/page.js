@@ -1,8 +1,8 @@
 import Breadcrumbs from "@/components/global/Breadcrumbs";
 import SEO from "@/components/global/Seo";
-import ConsultationForm from "@/components/sections/ConsultationForm";
 import Hero from "@/components/sections/Hero";
 import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
+import QuickForm from "@/components/sections/QuickForm";
 import ScrollToNext from "@/components/sections/ScrollToNext";
 import CaseStudies from "@/components/sections/portfolio/CaseStudies";
 import fetchData from "@/utils/fetchData";
@@ -26,7 +26,7 @@ export default async function PortfolioPage() {
 				<Breadcrumbs breadcrumbs={breadcrumbs} />
 				<Hero data={{ heading: hero_Heading, paragraph: hero_Paragraph }} />
 				<CaseStudies data={caseStudies} />
-				<ConsultationForm data={quickForm} />
+				<QuickForm data={quickForm} />
 				<LatestBlogEntries
 					heading={blogEntries_Heading}
 					data={blogEntries}

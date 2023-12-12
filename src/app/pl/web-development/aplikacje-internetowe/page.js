@@ -1,7 +1,6 @@
 import Breadcrumbs from "@/components/global/Breadcrumbs";
 import SEO from "@/components/global/Seo";
 import CaseStudies from "@/components/sections/CaseStudies";
-import ConsultationForm from "@/components/sections/ConsultationForm";
 import CtaSection from "@/components/sections/CtaSection";
 import HeroServices from "@/components/sections/HeroServices";
 import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
@@ -75,7 +74,7 @@ export default async function webDevelopmentWebAppsPage() {
 					process_List,
 				}}
 			/>
-			<ConsultationForm data={quickForm} />
+			<QuickForm data={quickForm} />
 			<Customer
 				data={{
 					customer_Heading,

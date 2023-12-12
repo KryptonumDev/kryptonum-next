@@ -1,10 +1,10 @@
 import Breadcrumbs from "@/components/global/Breadcrumbs";
 import SEO from "@/components/global/Seo";
 import CaseStudies from "@/components/sections/CaseStudies";
-import ConsultationForm from "@/components/sections/ConsultationForm";
 import CtaSection from "@/components/sections/CtaSection";
 import HeroServices from "@/components/sections/HeroServices";
 import ListSection from "@/components/sections/ListSection";
+import QuickForm from "@/components/sections/QuickForm";
 import ScrollToNext from "@/components/sections/ScrollToNext";
 import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
 import Audit from "@/components/sections/agencyCare/Audit";
@@ -93,7 +93,7 @@ export default async function AgencyCarePage() {
 						audit_Paragraph4,
 					}}
 				/>
-				<ConsultationForm data={quickForm} />
+				<QuickForm data={quickForm} />
 				<CaseStudies heading={caseStudies_Heading} />
 				<CtaSection data={ctaSection} />
 				<Protection

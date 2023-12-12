@@ -7,8 +7,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
+import { phoneRegex } from "@/constants/regex";
 
-const ConsultationCtaForm = ({ cta }) => {
+const Form = ({ cta, applyAdditionalStyles=false }) => {
 	const {
 		register,
 		handleSubmit,
@@ -21,7 +22,7 @@ const ConsultationCtaForm = ({ cta }) => {
 
 	const onSubmit = (data) => {
 		setSubmitProccessing(true);
-		fetch("/api/consultation-contact", {
+		fetch("/api/quick-contact", {
 			method: "POST",
 			body: JSON.stringify(data),
 		})
@@ -45,12 +46,21 @@ const ConsultationCtaForm = ({ cta }) => {
 				name="name"
 				register={register("name", { required: true, minLength: 3 })}
 				errors={errors}
+        applyAdditionalStyles={applyAdditionalStyles}
 			/>
 			<Label
 				title="Email"
 				name="mail"
 				register={register("mail", { required: true, pattern: emailRegex })}
 				errors={errors}
+        applyAdditionalStyles={applyAdditionalStyles}
+			/>
+			<Label
+				title="Telefon"
+				name="phone"
+				register={register("phone", { pattern: phoneRegex })}
+				errors={errors}
+        applyAdditionalStyles={applyAdditionalStyles}
 			/>
 			<Checkbox
 				name="check"
@@ -119,4 +129,4 @@ const ConsultationCtaForm = ({ cta }) => {
 		</form>
 	);
 };
-export default ConsultationCtaForm;
+export default Form;

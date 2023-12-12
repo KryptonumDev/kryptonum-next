@@ -3,6 +3,7 @@ import { SmallError } from "../Icons";
 import styles from "./styles.module.scss";
 
 export const Label = ({
+	applyAdditionalStyles,
 	rows,
 	placeholder,
 	title,
@@ -12,7 +13,7 @@ export const Label = ({
 	error = "To pole jest wymagane",
 }) => (
 	<label className={styles.label}>
-		<span className={styles.legend}>{title}</span>
+		<span className={applyAdditionalStyles ? `${styles.legend} ${styles.additionalStyles}` : styles.legend}>{title}</span>
 		{rows ? (
 			<textarea
 				rows={rows}
@@ -27,7 +28,7 @@ export const Label = ({
 				{...register}
 			/>
 		)}
-		<span className={styles.border} />
+		<span className={applyAdditionalStyles ? `${styles.border} ${styles.additionalStyles}` : styles.border}/>
 		<AnimatePresence>
 			{errors[name] && (
 				<motion.span

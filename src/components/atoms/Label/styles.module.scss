@@ -70,4 +70,11 @@
       outline: none;
     }
   }
+  .additionalStyles.legend {
+    background: var(--neutral-900);
+    z-index: 3;
+  }
+  .additionalStyles.border{
+    z-index: 0;
+  }
 }

@@ -1,11 +1,11 @@
 import Breadcrumbs from "@/components/global/Breadcrumbs";
 import SEO from "@/components/global/Seo";
 import CaseStudies from "@/components/sections/CaseStudies";
-import ConsultationForm from "@/components/sections/ConsultationForm";
 import CtaSection from "@/components/sections/CtaSection";
 import HeroServices from "@/components/sections/HeroServices";
 import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
 import ListSection from "@/components/sections/ListSection";
+import QuickForm from "@/components/sections/QuickForm";
 import ScrollToNext from "@/components/sections/ScrollToNext";
 import Showcase from "@/components/sections/Showcase";
 import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
@@ -72,7 +72,7 @@ export default async function graphicsAndDesignDesigningLogoPage() {
 					showcase_SummaryRight,
 				}}
 			/>
-			<ConsultationForm data={quickForm} />
+			<QuickForm data={quickForm} />
 			<ListSection
 				heading={process_Heading}
 				paragraph={process_Paragraph}

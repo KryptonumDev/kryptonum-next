@@ -30,7 +30,6 @@ export async function POST(req) {
       <div>
         <div>
           <p><b>Imię:</b> ${data.name}</p>
-					<p><b>Telefon:</b> ${data.phone}</p>
           <p><b>Email:</b> ${data.mail}</p>
         </div
       </div>

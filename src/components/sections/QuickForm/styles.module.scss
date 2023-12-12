@@ -1,0 +1,121 @@
+.wrapper {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 32px;
+  background-color: var(--neutral-900);
+  padding: clamp(32px, calc(48vw/7.68), 64px) clamp(16px, calc(64vw/7.68), 96px);
+
+  h2 {
+    margin-bottom: 12px;
+  }
+
+  .subheading {
+    font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(30rem/16));
+  }
+
+  .info {
+    z-index: 5;
+    grid-column: 3/1;
+    padding-top: clamp(16px, calc(20vw/7.68), 24px);
+    border-top: 1px solid var(--neutral-800);
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 48px;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(30rem/16));
+
+    .person {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      column-gap: 12px;
+      align-items: center;
+      .img {
+        width: 96px;
+        height: 96px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .overlay {
+    align-items: flex-start !important;
+  }
+
+  form {
+    input:not([type="checkbox"]),
+    textarea {
+      background: var(--neutral-900) !important;
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  @media (max-width: 1329px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+
+    .info {
+      grid-column: unset;
+      grid-template-columns: auto;
+      justify-content: flex-start;
+      gap: 4px 0;
+
+      .img {
+        width: 64px;
+        height: 64px;
+      }
+    }
+  }
+
+  @media (max-width: 449px) {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0 calc(var(--pageMargin) * -1);
+
+    .info {
+      .img {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  }
+
+  &.portable {
+    padding: clamp(32px, calc(48vw/7.68), 48px) clamp(16px, calc(64vw/7.68), 64px);
+    margin: 64px 0;
+    display: block;
+
+    form {
+      margin: 32px 0px;
+    }
+
+    .info {
+      display: block;
+
+      .person {
+        margin-top: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 12px;
+
+        .img {
+          width: 64px;
+          height: 64px;
+        }
+      }
+    }
+
+    @media (max-width: 499px) {
+      padding-left: var(--pageMargin);
+      padding-right: var(--pageMargin);
+      margin: 0 calc(var(--pageMargin) * -1);
+      margin-top: 32px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

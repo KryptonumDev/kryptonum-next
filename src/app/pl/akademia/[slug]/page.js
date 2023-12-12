@@ -1,10 +1,10 @@
 import Breadcrumbs from "@/components/global/Breadcrumbs";
 import SEO from "@/components/global/Seo";
-import ConsultationForm from "@/components/sections/ConsultationForm";
 import EntryHero from "@/components/sections/EntryHero";
 import ImageAndStandout from "@/components/sections/ImageAndStandout";
 import LargeList from "@/components/sections/LargeList";
 import LatestCuriosityEntries from "@/components/sections/LatestCuriosityEntries";
+import QuickForm from "@/components/sections/QuickForm";
 import ColumnText from "@/components/sections/academyEntry/ColumnText";
 import ExtendedList from "@/components/sections/academyEntry/ExtendedList";
 import Highlight from "@/components/sections/academyEntry/Highlight";
@@ -130,7 +130,7 @@ export default async function AcademySlugPage({ params }) {
 						);
 					case "quickForm":
 						return (
-							<ConsultationForm
+							<QuickForm
 								key={i}
 								data={component}
 							/>
