@@ -188,6 +188,7 @@ const Faq = async ({ heading }) => {
 				{faqs.map((faq, i) => (
 					<details key={i}>
 						<summary>
+							<p className={styles.counter}>{`/0${i+1}`}</p>
 							<p>{faq.question}</p>
 							<div className={styles.plusIcon}>
 								<span></span>

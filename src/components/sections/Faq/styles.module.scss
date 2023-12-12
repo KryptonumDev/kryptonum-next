@@ -20,17 +20,8 @@
       gap: 24px;
     }
   }
-  
-  .wrapper {
-    counter-reset: counter;
-  }
 
   details {
-    counter-increment: counter;
-
-    &:nth-child(-n+10) summary p::before {
-      content: "/0" counter(counter);
-    }
 
     summary {
 
@@ -70,16 +61,11 @@
       p {
         display: grid;
         grid-template-columns: auto 1fr;
-
-        &::before {
-          content: "/" counter(counter);
-          display: inline-block;
-          width: 2rem;
-          font-size: 1rem;
-          margin-top: 2px;
-
-          margin-right: clamp(8px, calc(16vw/7.68), 16px);
-        }
+      }
+      .counter {
+        font-size: 1rem;
+        margin-top: 2px;
+        margin-right: clamp(8px, calc(16vw/7.68), 16px);
       }
 
       .plusIcon {
