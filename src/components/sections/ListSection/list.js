@@ -15,7 +15,7 @@ const List = ({
 	const wrapperRef = useRef(null);
 
 	const animateItems = async () => {
-		const items = await wrapperRef.current.querySelectorAll(`div[class*=".item"]`);
+		const items = await wrapperRef.current?.querySelectorAll(`div[class*=".item"]`);
 		items.forEach((item) => {
 			const { top } = item.getBoundingClientRect();
 			if (top <= window.innerHeight * 0.66) {

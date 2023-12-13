@@ -19,7 +19,7 @@ const ContactUs = ({ data: { contact_Email, contact_Tel, contact_Address, contac
 				<Img
 					data={contact_Img}
 					className={styles.img}
-					sizes="(max-width: 1249px) 500px, 50vw"
+					sizes="(max-width: 1249px) 500px, (min-width: 1250px) 50vw"
 				/>
 		</section>
 	);
