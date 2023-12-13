@@ -13,7 +13,7 @@ const Img = ({ src, alt = '', data, width, height, sizes, loading, priority, ...
 		loading={loading}
 		priority={priority}
 		blurDataURL={data?.asset.metadata?.lqip || defaultPlaceholder}
-		placeholder="blur"
+		placeholder={(width > 40 || data?.asset.metadata.dimensions?.width > 40 || height > 40 || data?.asset.metadata.dimensions?.height > 40) ? "blur" : "empty"}
 		{...props}
 	/>
 );
