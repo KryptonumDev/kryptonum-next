@@ -1,12 +1,19 @@
+import { Suspense } from "react";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import { Quote } from "../../atoms/Icons";
 import TestimonialsSection from "./testimonialsSection";
+import SwiperSkeleton from "./swiperSkeleton";
 
 const Testimonials = ({ heading, testimonials }) => {
 	const quote = <Quote />;
 
 	const arrowLeft = (
-		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			fill="none"
+		>
 			<path
 				stroke="#EFF0F3"
 				strokeLinecap="round"
@@ -18,7 +25,12 @@ const Testimonials = ({ heading, testimonials }) => {
 	);
 
 	const arrowRight = (
-		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			fill="none"
+		>
 			<path
 				stroke="#EFF0F3"
 				strokeLinecap="round"
@@ -30,14 +42,16 @@ const Testimonials = ({ heading, testimonials }) => {
 	);
 
 	return (
-		<TestimonialsSection
-			testimonials={testimonials}
-			quote={quote}
-			arrowLeft={arrowLeft}
-			arrowRight={arrowRight}
-		>
-			<DecorativeHeading type="h3">{heading || "Zobacz, co mówią **klienci**"}</DecorativeHeading>
-		</TestimonialsSection>
+		<Suspense fallback={<SwiperSkeleton />}>
+			<TestimonialsSection
+				testimonials={testimonials}
+				quote={quote}
+				arrowLeft={arrowLeft}
+				arrowRight={arrowRight}
+			>
+				<DecorativeHeading type="h3">{heading || "Zobacz, co mówią **klienci**"}</DecorativeHeading>
+			</TestimonialsSection>
+		</Suspense>
 	);
 };
 

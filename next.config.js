@@ -14,6 +14,9 @@ const nextConfig = {
 			},
 		],
 	},
+	experimental: {
+		ppr: true,
+	},
 	async redirects() {
 		return [
 			{
