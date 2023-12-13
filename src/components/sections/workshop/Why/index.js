@@ -17,7 +17,6 @@ const Why = ({
 		<section className={styles.section}>
 			<DecorativeHeading
 				type="h2"
-				className={styles.heading}
 			>
 				{why_Heading}
 			</DecorativeHeading>
