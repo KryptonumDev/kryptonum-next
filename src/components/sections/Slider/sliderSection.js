@@ -1,11 +1,11 @@
 'use client'
 
-import Markdown from "@/utils/markdown";
-import { Swiper, SwiperSlide } from "swiper/react";
 import Img from "@/utils/Img";
-import styles from "./styles.module.scss";
-import { useState, useRef, useEffect, Suspense } from "react";
+import Markdown from "@/utils/markdown";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { A11y } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import styles from "./styles.module.scss";
 
 const Card = ({ className = '', data: { title, description, img } }) => {
   return (

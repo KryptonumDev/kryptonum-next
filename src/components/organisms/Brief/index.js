@@ -1,11 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Hero from "../../sections/extendedContact/Hero";
-import Contact from "../../sections/extendedContact/Contact";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Loader from "../../atoms/Loader";
+import Contact from "../../sections/extendedContact/Contact";
 import ErrorSend from "../../sections/extendedContact/Error";
+import Hero from "../../sections/extendedContact/Hero";
 import Summary from "../../sections/extendedContact/Summary";
 
 const Brief = ({ data }) => {

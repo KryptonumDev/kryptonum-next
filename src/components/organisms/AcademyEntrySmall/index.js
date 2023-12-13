@@ -1,7 +1,7 @@
 import Img from "@/utils/Img";
+import { removeMarkdown } from "@/utils/functions";
 import Link from "next/link";
 import styles from "./styles.module.scss";
-import { removeMarkdown } from "@/utils/functions";
 
 const AcademyEntrySmall = ({ data }) => {
 	return (

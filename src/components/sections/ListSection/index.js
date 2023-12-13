@@ -1,7 +1,7 @@
+import Markdown from "@/utils/markdown";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import List from "./list";
 import styles from "./styles.module.scss";
-import Markdown from "@/utils/markdown";
 
 const ListSection = ({ heading, list, paragraph, secondParagraph, title }) => {
 	const decorativeHeading = <DecorativeHeading type="h2">{heading}</DecorativeHeading>;

@@ -1,9 +1,9 @@
-import styles from "./styles.module.scss";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import Markdown from "@/utils/markdown";
+import Form from "@/components/organisms/forms/QuickForm";
 import Img from "@/utils/Img";
 import fetchData from "@/utils/fetchData";
-import Form from "@/components/organisms/forms/QuickForm";
+import Markdown from "@/utils/markdown";
+import styles from "./styles.module.scss";
 
 const QuickForm = async ({ data: { heading, subheading, cta }, isPortableContent = false }) => {
 	const {

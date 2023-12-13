@@ -1,8 +1,8 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import TableOfContent from "../../molecules/TableOfContent";
 import styles from "./styles.module.scss";
-import { useEffect, useRef } from "react";
 
 const ContentSection = ({ share, shareIcon, link, content, children }) => {
 	const ref = useRef(null);

@@ -1,7 +1,7 @@
-import Link from "next/link";
-import styles from "./styles.module.scss";
 import Img from "@/utils/Img";
 import { removeMarkdown } from "@/utils/functions";
+import Link from "next/link";
+import styles from "./styles.module.scss";
 
 const EntryCard = ({ data }) => {
 	return (

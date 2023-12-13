@@ -3,11 +3,11 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import Img from "@/utils/Img";
 import { removeMarkdown } from "@/utils/functions";
+import Markdown from "@/utils/markdown";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import styles from "./styles.module.scss";
-import Markdown from "@/utils/markdown";
 
 const options = {
 	damping: 50,

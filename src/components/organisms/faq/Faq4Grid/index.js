@@ -1,6 +1,6 @@
+import Button from '@/atoms/Button';
 import Markdown from '@/utils/markdown';
 import styles from './styles.module.scss';
-import Button from '@/atoms/Button';
 
 const Faq4Grid = ({
   data: {

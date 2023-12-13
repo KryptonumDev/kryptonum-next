@@ -1,6 +1,6 @@
-import styles from "./styles.module.scss";
 import Img from "@/utils/Img";
 import Markdown from "@/utils/markdown";
+import styles from "./styles.module.scss";
 
 const IconTitleDescription = ({
 	data: { 

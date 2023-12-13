@@ -1,5 +1,6 @@
 'use server'
 
+import QuickForm from "@/components/sections/QuickForm";
 import Img from "@/utils/Img";
 import { portableTextToMarkdown, slugify } from "@/utils/functions";
 import { PortableText, toPlainText } from "@portabletext/react";
@@ -15,7 +16,6 @@ import DetailedGrid from "../portableText/DetailedGrid";
 import OrderedList from "../portableText/OrderedList";
 import UnorderedList from "../portableText/UnorderedList";
 import styles from './styles.module.scss';
-import QuickForm from "@/components/sections/QuickForm";
 
 
 export const ImageRenderer = ({ value: { asset: { _ref }, altText }, sizes }) => {

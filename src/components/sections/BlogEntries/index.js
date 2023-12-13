@@ -1,8 +1,8 @@
+import { formatDateToPolishLocale } from "@/utils/functions";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
-import styles from "./styles.module.scss";
 import BlogEntry from "../../organisms/BlogEntry";
 import Pagination from "../../organisms/Pagination";
-import { formatDateToPolishLocale } from "@/utils/functions";
+import styles from "./styles.module.scss";
 
 const BlogEntries = ({ 
 	urlBasis, 

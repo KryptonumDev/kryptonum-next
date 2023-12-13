@@ -1,6 +1,6 @@
 import Markdown from '@/utils/markdown';
 import DecorativeHeading from '../../atoms/DecorativeHeading';
-import styles from './styles.module.scss'
+import styles from './styles.module.scss';
 
 const MasonryList = ({ 
   heading,

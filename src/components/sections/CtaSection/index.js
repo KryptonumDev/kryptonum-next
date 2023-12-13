@@ -1,7 +1,7 @@
-import styles from './styles.module.scss'
-import DecorativeHeading from "../../atoms/DecorativeHeading";
-import Button from '../../atoms/Button';
 import Img from '@/utils/Img';
+import Button from '../../atoms/Button';
+import DecorativeHeading from "../../atoms/DecorativeHeading";
+import styles from './styles.module.scss';
 
 const CtaSection = ({ data: { 
 	img,

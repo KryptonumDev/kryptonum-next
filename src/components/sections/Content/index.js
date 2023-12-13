@@ -1,11 +1,11 @@
 import Img from "@/utils/Img";
 import { generateTableOfContent } from "@/utils/functions";
 import Link from "next/link";
+import { Share } from "../../atoms/Icons";
 import ReadingTime from "../../atoms/ReadingTime";
 import PortableContent from "../../organisms/PortableContent";
-import styles from "./styles.module.scss";
-import { Share } from "../../atoms/Icons";
 import ContentSection from "./contentSection";
+import styles from "./styles.module.scss";
 
 const Content = ({ contentRaw, author, share }) => {
 	author = author[0];

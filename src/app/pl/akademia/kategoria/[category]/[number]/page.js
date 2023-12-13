@@ -7,8 +7,8 @@ import Faq from "@/components/sections/Faq";
 import Hero from "@/components/sections/Hero";
 import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
 import fetchData from "@/utils/fetchData";
-import { academyItemsPerPage } from "../../../page";
 import { notFound } from "next/navigation";
+import { academyItemsPerPage } from "../../../page";
 
 export async function generateStaticParams() {
 	const { allCuriosityEntries } = await paramsQuery();

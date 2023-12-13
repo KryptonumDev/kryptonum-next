@@ -1,11 +1,11 @@
-import Link from "next/link";
-import styles from "./styles.module.scss";
-import EntryCard from "../../organisms/SitemapEntryCard";
 import Img from "@/utils/Img";
-import AcademyEntrySmall from "../../organisms/AcademyEntrySmall";
-import { useMemo } from "react";
-import CaseStudy from "../../organisms/CaseStudy";
 import { formatDateToPolishLocale } from "@/utils/functions";
+import Link from "next/link";
+import { useMemo } from "react";
+import AcademyEntrySmall from "../../organisms/AcademyEntrySmall";
+import CaseStudy from "../../organisms/CaseStudy";
+import EntryCard from "../../organisms/SitemapEntryCard";
+import styles from "./styles.module.scss";
 
 export default function Grid({
 	team,

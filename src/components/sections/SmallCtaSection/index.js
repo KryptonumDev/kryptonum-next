@@ -1,6 +1,6 @@
 import Markdown from '@/utils/markdown';
-import styles from './styles.module.scss'
 import Button from '../../atoms/Button';
+import styles from './styles.module.scss';
 
 const SmallCtaSection = ({
   data: {

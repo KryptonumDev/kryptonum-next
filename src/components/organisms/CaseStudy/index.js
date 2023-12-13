@@ -1,6 +1,6 @@
 import Img from "@/utils/Img";
 import Link from "next/link";
-import styles from './styles.module.scss'
+import styles from './styles.module.scss';
 
 export default function CaseStudy({ data: { img, name, slug } }) {
 	return (

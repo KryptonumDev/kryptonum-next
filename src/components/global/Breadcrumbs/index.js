@@ -1,8 +1,8 @@
 import { removeMarkdown } from "@/utils/functions";
+import Link from "next/link";
 import Script from "next/script";
 import { Fragment } from "react";
 import styles from "./styles.module.scss";
-import Link from "next/link";
 
 const Icon = () => (
   <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">

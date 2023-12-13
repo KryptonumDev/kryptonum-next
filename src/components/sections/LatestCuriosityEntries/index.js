@@ -1,7 +1,7 @@
-import DecorativeHeading from "../../atoms/DecorativeHeading";
-import styles from "./styles.module.scss";
 import fetchData from "@/utils/fetchData";
+import DecorativeHeading from "../../atoms/DecorativeHeading";
 import CuriosityEntry from "../../organisms/CuriosityEntry";
+import styles from "./styles.module.scss";
 
 const LatestCuriosityEntries = async ({ heading, exclude = null }) => {
 	let { curiosityEntries } = await query();

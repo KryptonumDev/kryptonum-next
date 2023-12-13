@@ -1,8 +1,8 @@
 import Button from "@/components/atoms/Button";
 import Img from "@/utils/Img";
 import fetchData from "@/utils/fetchData";
-import styles from "./styles.module.scss";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
+import styles from "./styles.module.scss";
 
 const CaseStudies = async ({ data, heading, cta, eagerLoading=false }) => {
 	let body = await query();

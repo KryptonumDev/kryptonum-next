@@ -1,8 +1,8 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import Img from "@/utils/Img";
 import Markdown from "@/utils/markdown";
-import styles from "./styles.module.scss";
 import FeaturesSection from "./featuresSection";
+import styles from "./styles.module.scss";
 
 const Features = ({ data: { heading, feautures } }) => {
   const features = feautures;

@@ -2,8 +2,8 @@ import Img from "@/utils/Img";
 import Markdown from "@/utils/markdown";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import { ArrowDown, ScrollDown } from "../../atoms/Icons";
-import styles from "./styles.module.scss";
 import ScrollToNextSection from "./scrollToNextSection";
+import styles from "./styles.module.scss";
 
 const ScrollToNext = ({ data: { heading, paragraph, title, link } }) => {
 	const markdown = <Markdown>{title}</Markdown>;

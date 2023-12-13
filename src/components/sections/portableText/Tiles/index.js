@@ -1,5 +1,5 @@
-import styles from './styles.module.scss';
 import Markdown from '@/utils/markdown';
+import styles from './styles.module.scss';
 
 const Tiles = ({ data }) => {
   return (

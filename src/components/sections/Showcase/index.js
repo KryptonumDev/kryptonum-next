@@ -1,8 +1,8 @@
 import Markdown from "@/utils/markdown";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import { Logo1, Logo2, Logo3, Logo4, Logo5 } from "./logos";
-import styles from "./styles.module.scss";
 import ShowcaseSection from "./showcaseSection";
+import styles from "./styles.module.scss";
 
 const Showcase = ({
 	data: {

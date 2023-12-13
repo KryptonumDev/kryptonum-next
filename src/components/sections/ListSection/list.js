@@ -1,7 +1,7 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import styles from "./styles.module.scss";
-import { useRef, useEffect } from "react";
 
 const List = ({
 	decorativeHeading,

@@ -15,8 +15,8 @@ import Skills from "@/components/sections/teamMember/Skills";
 import Tools from "@/components/sections/teamMember/Tools";
 import fetchData from "@/utils/fetchData";
 import { removeMarkdown } from "@/utils/functions";
-import styles from "./styles.module.scss";
 import { notFound } from "next/navigation";
+import styles from "./styles.module.scss";
 
 export async function generateStaticParams() {
 	const { allTeamMember } = await paramsQuery();

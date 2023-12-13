@@ -1,9 +1,9 @@
 import Img from "@/utils/Img";
-import DecorativeHeading from "../../atoms/DecorativeHeading";
-import Markdown from "@/utils/markdown";
-import styles from "./styles.module.scss";
-import Link from "next/link";
 import { formatDateToPolishLocale } from "@/utils/functions";
+import Markdown from "@/utils/markdown";
+import Link from "next/link";
+import DecorativeHeading from "../../atoms/DecorativeHeading";
+import styles from "./styles.module.scss";
 
 const EntryHero = ({ 
   title, 

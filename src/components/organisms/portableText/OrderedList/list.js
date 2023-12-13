@@ -1,8 +1,8 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 import styles from "./styles.module.scss";
-import { usePathname } from "next/navigation";
 
 const List = ({ array, children }) => {
 	const locationPath = usePathname();

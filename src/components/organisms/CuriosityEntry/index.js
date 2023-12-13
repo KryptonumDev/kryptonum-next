@@ -1,8 +1,8 @@
 import Img from "@/utils/Img";
-import Link from "next/link";
-import styles from "./styles.module.scss";
 import { removeMarkdown } from "@/utils/functions";
+import Link from "next/link";
 import Button from "../../atoms/Button";
+import styles from "./styles.module.scss";
 
 const CuriosityEntry = ({ data }) => {
 	return (

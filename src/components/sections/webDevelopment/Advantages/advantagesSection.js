@@ -1,9 +1,9 @@
 "use client";
 
-import styles from "./styles.module.scss";
 import Img from "@/utils/Img";
 import Markdown from "@/utils/markdown";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import styles from "./styles.module.scss";
 
 const AdvantagesSection = ({ advantages, simpleCtaSection, children }) => {
 	const [scales, setScales] = useState({ scale1: 0, scale2: 0, scale3: 0, scale4: 0 });

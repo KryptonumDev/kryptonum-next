@@ -1,6 +1,6 @@
+import { emailRegex } from "@/constants/regex";
 import sgMail from "@sendgrid/mail";
 import { NextResponse } from "next/server";
-import { emailRegex } from "@/constants/regex";
 
 const isValidEmail = (email) => {
 	return emailRegex.test(email.toLowerCase());

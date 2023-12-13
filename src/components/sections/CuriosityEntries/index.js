@@ -1,7 +1,7 @@
 import DecorativeHeading from "../../atoms/DecorativeHeading";
+import CuriosityEntry from "../../organisms/CuriosityEntry";
 import Pagination from "../../organisms/Pagination";
 import styles from "./styles.module.scss";
-import CuriosityEntry from "../../organisms/CuriosityEntry";
 
 const CuriosityEntries = ({ 
 	page,

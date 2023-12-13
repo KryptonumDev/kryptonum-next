@@ -1,6 +1,6 @@
-import styles from "./styles.module.scss";
-import { ImageRenderer } from "../../PortableContent";
 import Markdown from "@/utils/markdown";
+import { ImageRenderer } from "../../PortableContent";
+import styles from "./styles.module.scss";
 
 const DetailedGrid = ({ blocks }) => {
 	return (
