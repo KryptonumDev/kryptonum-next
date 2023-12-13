@@ -22,24 +22,26 @@ const ShowcaseSection = ({
 	const handleScroll = () => {
 		const list = listRef.current;
 		const windowHeight = window.innerHeight;
-		const { top, bottom } = list?.getBoundingClientRect();
-		const distance = bottom - top;
-		const scrollPosition = windowHeight / 2 - top;
-		const value = scrollPosition / distance;
-		let animValue = 0;
+		if (list) {
+			const { top, bottom } = list?.getBoundingClientRect();
+			const distance = bottom - top;
+			const scrollPosition = windowHeight / 2 - top;
+			const value = scrollPosition / distance;
+			let animValue = 0;
 
-		if (top < windowHeight / 2 && bottom > windowHeight / 2) {
-			animValue = easeInOut(value);
-		} else if (bottom < windowHeight * 1.5) {
-			animValue = 1;
-		} else if (top > windowHeight * 0.5) {
-			animValue = 0;
+			if (top < windowHeight / 2 && bottom > windowHeight / 2) {
+				animValue = easeInOut(value);
+			} else if (bottom < windowHeight * 1.5) {
+				animValue = 1;
+			} else if (top > windowHeight * 0.5) {
+				animValue = 0;
+			}
+			animValue =
+				window.innerWidth >= 3000
+					? `-${animValue * 200}%`
+					: `-${animValue * (3000 + window.innerWidth)}px`;
+			setAnimationValue(animValue);
 		}
-		animValue =
-			window.innerWidth >= 3000
-				? `-${animValue * 200}%`
-				: `-${animValue * (3000 + window.innerWidth)}px`;
-		setAnimationValue(animValue);
 	};
 
 	useEffect(() => {
