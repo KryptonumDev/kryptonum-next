@@ -1,4 +1,4 @@
-import { domain } from "../components/global/Seo";
+import { domain } from "../global/Seo";
 
 const staticPages = [
 	"/pl",

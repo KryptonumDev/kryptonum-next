@@ -1,5 +1,3 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import BrandbookTypes from "@/components/sections/BrandbookTypes";
 import CaseStudies from "@/components/sections/CaseStudies";
 import CtaSection from "@/components/sections/CtaSection";
@@ -10,6 +8,8 @@ import MasonryList from "@/components/sections/MasonryList";
 import QuickForm from "@/components/sections/QuickForm";
 import ScrollToNext from "@/components/sections/ScrollToNext";
 import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function graphicsAndDesignVisualIdentityPage() {

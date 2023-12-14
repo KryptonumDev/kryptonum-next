@@ -1,4 +1,3 @@
-import SEO from "@/components/global/Seo";
 import TextComponent from "@/components/molecules/TextComponent";
 import CtaSection from "@/components/sections/CtaSection";
 import ImageComponent from "@/components/sections/ImageComponent";
@@ -10,6 +9,7 @@ import Participated from "@/components/sections/portfolioCase/Participated";
 import Slider from "@/components/sections/portfolioCase/Slider";
 import Stylescape from "@/components/sections/portfolioCase/Stylescape";
 import Testimonial from "@/components/sections/portfolioCase/Testimonial";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export async function generateStaticParams() {

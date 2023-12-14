@@ -1,5 +1,3 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import CentralizedHeadingSection from "@/components/sections/CentralizedHeadingSection";
 import CtaSection from "@/components/sections/CtaSection";
 import Hero from "@/components/sections/Hero";
@@ -9,6 +7,8 @@ import Team from "@/components/sections/Team";
 import Testimonials from "@/components/sections/Testimonials";
 import TextSection from "@/components/sections/TextSection";
 import TilesWithOverflowIcon from "@/components/sections/TilesWithOverflowIcon";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function BraindingPage() {

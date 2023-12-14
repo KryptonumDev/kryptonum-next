@@ -1,11 +1,11 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import Categories from "@/components/sections/Categories";
 import CtaSection from "@/components/sections/CtaSection";
 import CuriosityEntries from "@/components/sections/CuriosityEntries";
 import Faq from "@/components/sections/Faq";
 import Hero from "@/components/sections/Hero";
 import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function AcademyPage() {

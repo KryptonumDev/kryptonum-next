@@ -1,11 +1,11 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import BlogEntries from "@/components/sections/BlogEntries";
 import Categories from "@/components/sections/Categories";
 import CtaSection from "@/components/sections/CtaSection";
 import Faq from "@/components/sections/Faq";
 import Hero from "@/components/sections/Hero";
 import LatestCuriosityEntries from "@/components/sections/LatestCuriosityEntries";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 import { notFound } from "next/navigation";
 import { blogItemsPerPage } from "../../../page";
