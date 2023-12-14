@@ -25,7 +25,6 @@ const Hero = ({
 					<Img
 						data={sideImage}
 						className={styles.sideImg}
-						sizes="(max-width: 1299px) 100vw, 50vw"
 						priority={true}
 					/>
 				)}
