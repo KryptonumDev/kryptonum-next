@@ -1,6 +1,9 @@
 import fetchData from "@/utils/fetchData";
 
-const SEO = async ({ pagination, author, date, title, description, url, ogImage, children }) => {
+const domain = "https://kryptonum.eu";
+const locale = "pl_PL";
+
+const SEO = async ({ pagination, author, date, title, description, url, ogImage, children, ...props }) => {
 	const {
 		body: {
 			data: {
@@ -11,8 +14,6 @@ const SEO = async ({ pagination, author, date, title, description, url, ogImage,
 		},
 	} = await getData();
 
-	const domain = "https://kryptonum.eu";
-	const locale = "pl_PL";
 	const seo = {
 		title: title || "Kryptonum - Agencja dla tych, którym zależy",
 		description: description || "",
@@ -45,6 +46,7 @@ const SEO = async ({ pagination, author, date, title, description, url, ogImage,
 			locale: locale,
 			type: "website",
 		},
+		...props
 	};
 	return metadata;
 };
