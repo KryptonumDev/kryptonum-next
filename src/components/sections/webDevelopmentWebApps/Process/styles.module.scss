@@ -1,7 +1,7 @@
 .section {
   header {
     h2 {
-      max-width: clam(900rem / 16);
+      max-width: calc(900rem / 16);
       grid-column: 3/1;
       margin-bottom: clamp(28px, calc(48vw/7.68), 48px);
     }
