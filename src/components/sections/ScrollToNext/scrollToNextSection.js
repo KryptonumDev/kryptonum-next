@@ -10,13 +10,19 @@ const easeOut = (t) => {
 
 const scrollHeight = 800;
 
-const ScrollToNextSection = ({ link, decorativeHeading, scrollDown, markdown, image, children }) => {
-	const router = useRouter();
-
+const ScrollToNextSection = ({
+	link,
+	decorativeHeading,
+	scrollDown,
+	markdown,
+	image,
+	children,
+}) => {
 	const scrollToNext = useRef(null);
 	const [scaleY, setScaleY] = useState(0);
 	const locationPath = usePathname();
 	useEffect(() => {
+		const router = useRouter();
 		const handleScroll = () => {
 			const scrollPosition = window.scrollY;
 			const windowHeight = window.innerHeight;

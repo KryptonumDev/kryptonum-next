@@ -2,9 +2,9 @@ import DecorativeHeading from '@/components/atoms/DecorativeHeading';
 import Img from '@/components/atoms/Img';
 import Markdown from '@/components/atoms/markdown';
 import { Fragment } from 'react';
-import ConsultationForm from '../../ConsultationForm';
 import Roadmap from '../../homepage/Roadmap';
 import styles from './styles.module.scss';
+import QuickForm from '../../QuickForm';
 
 const Process = ({
   data: {
@@ -41,7 +41,7 @@ const Process = ({
                   list={roadmap_List}
                   cta={roadmap_Cta}
                 />
-                <ConsultationForm
+                <QuickForm
                   data={quickForm}
                 />
               </>

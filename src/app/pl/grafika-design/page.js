@@ -38,64 +38,64 @@ export default async function graphicsAndDesignPage() {
 			caseStudies_Heading,
 			ctaSection,
 			blogEntries_Heading,
-      scrollToNext
+			scrollToNext,
 		},
 		blogEntries,
 	} = await query();
 
-  const breadcrumbs = [
-    {
-      name: "Grafika & design",
-      link: "/pl/grafika-design"
-    }
-  ];
+	const breadcrumbs = [
+		{
+			name: "Grafika & design",
+			link: "/pl/grafika-design",
+		},
+	];
 
 	return (
 		<>
-    <main id="main">
-    <Breadcrumbs breadcrumbs={breadcrumbs}/>
-			<HeroServices
-				data={{
-					hero_Heading,
-					hero_Annotation,
-					hero_Paragraph,
-					hero_SecondParagraph,
-					hero_Img,
-					hero_Nav,
-				}}
-			/>
-			<Audit
-				data={{
-					audit_Paragraph,
-					audit_Paragraph2,
-					audit_Paragraph3,
-					audit_Cta,
-					audit_Img,
-				}}
-			/>
-			<SimpleCtaSection data={simpleCtaSection} />
-			<MasonryList
-				heading={digital_Heading}
-				paragraph={digital_Paragraph}
-				paragraph2={digital_Paragraph2}
-				list={digital_List}
-			/>
-			<SimpleCtaSection data={simpleCtaSection2} />
-			<MasonryList
-				heading={phisical_Heading}
-				paragraph={phisical_Paragraph}
-				paragraph2={phisical_Paragraph2}
-				list={phisical_List}
-			/>
-			<SimpleCtaSection data={simpleCtaSection3} />
-			<CaseStudies heading={caseStudies_Heading} />
-			<CtaSection data={ctaSection} />
-			<LatestBlogEntries
-				heading={blogEntries_Heading}
-				data={blogEntries}
-			/>
-      </main>
-      <ScrollToNext data={scrollToNext}/>
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<HeroServices
+					data={{
+						hero_Heading,
+						hero_Annotation,
+						hero_Paragraph,
+						hero_SecondParagraph,
+						hero_Img,
+						hero_Nav,
+					}}
+				/>
+				<Audit
+					data={{
+						audit_Paragraph,
+						audit_Paragraph2,
+						audit_Paragraph3,
+						audit_Cta,
+						audit_Img,
+					}}
+				/>
+				<SimpleCtaSection data={simpleCtaSection} />
+				<MasonryList
+					heading={digital_Heading}
+					paragraph={digital_Paragraph}
+					paragraph2={digital_Paragraph2}
+					list={digital_List}
+				/>
+				<SimpleCtaSection data={simpleCtaSection2} />
+				<MasonryList
+					heading={phisical_Heading}
+					paragraph={phisical_Paragraph}
+					paragraph2={phisical_Paragraph2}
+					list={phisical_List}
+				/>
+				<SimpleCtaSection data={simpleCtaSection3} />
+				<CaseStudies heading={caseStudies_Heading} />
+				<CtaSection data={ctaSection} />
+				<LatestBlogEntries
+					heading={blogEntries_Heading}
+					data={blogEntries}
+				/>
+			</main>
+			<ScrollToNext data={scrollToNext} />
 		</>
 	);
 }

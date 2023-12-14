@@ -21,7 +21,7 @@ const Audit = ({
 				<Img
 					data={audit_Img}
 					className={styles.img}
-					sizes="(max-width: 1099px) 50vw, 100vw"
+					sizes="(max-width: 1099px) 100vw, 50vw"
 				/>
         </div>
 			</div>
