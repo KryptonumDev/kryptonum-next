@@ -20,9 +20,8 @@ const ScrollToNextSection = ({
 }) => {
 	const scrollToNext = useRef(null);
 	const [scaleY, setScaleY] = useState(0);
-	const locationPath = usePathname();
+	const router = useRouter();
 	useEffect(() => {
-		const router = useRouter();
 		const handleScroll = () => {
 			const scrollPosition = window.scrollY;
 			const windowHeight = window.innerHeight;
@@ -42,7 +41,7 @@ const ScrollToNextSection = ({
 		return () => {
 			window.removeEventListener("scroll", handleScroll);
 		};
-	}, [locationPath]);
+	}, []);
 	return (
 		<section
 			className={`${styles.maxWidth} maxWidth`}
