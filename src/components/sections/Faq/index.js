@@ -188,14 +188,8 @@ const Faq = async ({ heading }) => {
 				{faqs.map((faq, i) => (
 					<details key={i}>
 						<summary>
-							<div>
-								<span className={styles.counter}>{`/0${i+1}`}</span>
-								<span>{faq.question}</span>
-							</div>
-							<div className={styles.plusIcon}>
-								<span></span>
-								<span></span>
-							</div>
+							<p>{faq.question}</p>
+							<div className={styles.plusIcon}><span></span><span></span></div>
 						</summary>
 						{faq.answer}
 					</details>
@@ -398,4 +392,5 @@ const query = async () => {
   `);
 	return data;
 };
+
 export default Faq;
