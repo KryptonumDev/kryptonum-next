@@ -10,20 +10,22 @@ const List = ({
 	markdown2,
 	markdown3,
 	secondParagraph,
-  children
+	children,
 }) => {
 	const wrapperRef = useRef(null);
 
 	const animateItems = async () => {
 		const items = await wrapperRef.current?.querySelectorAll(`div[class*=".item"]`);
-		items.forEach((item) => {
-			const { top } = item.getBoundingClientRect();
-			if (top <= window.innerHeight * 0.66) {
-				item.classList.add(styles.active);
-			} else {
-				item.classList.remove(styles.active);
-			}
-		});
+		if (items) {
+			items.forEach((item) => {
+				const { top } = item.getBoundingClientRect();
+				if (top <= window.innerHeight * 0.66) {
+					item.classList.add(styles.active);
+				} else {
+					item.classList.remove(styles.active);
+				}
+			});
+		}
 	};
 
 	const handleScroll = () => {
