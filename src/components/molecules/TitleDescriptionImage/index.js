@@ -27,7 +27,7 @@ const TitleDescriptionImage = ({
 				<Img
 					data={img}
 					className={styles.image}
-					sizes="(max-width: 1199px) 70vw, (min-width: 1200px) 50vw"
+					sizes="(max-width: 1199px) 70vw, 50vw"
 				></Img>
 			</div>
 		</div>

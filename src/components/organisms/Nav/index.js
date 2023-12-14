@@ -111,7 +111,7 @@ const Nav = ({
 							<Img
 								data={caseStudy.img}
 								className={styles.img}
-								sizes="(max-width: 1149px) 50vw, (min-width: 1150px) 25vw"
+								sizes="(max-width: 1149px) 50vw, 25vw"
 							/>
 						</div>
 						<p>{caseStudy.name}</p>

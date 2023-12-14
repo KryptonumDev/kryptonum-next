@@ -49,7 +49,7 @@ const EntryHero = ({
 				data={img}
 				className={styles.img}
 				priority={true}
-				sizes="(max-width: 1199px) 40vw, min(600px, 100vw)"
+				sizes="(max-width: 1199px) 40vw, 100vw"
 			/>
 		</section>
 	);
