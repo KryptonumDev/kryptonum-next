@@ -21,10 +21,13 @@
     }
   }
 
+  counter-reset: counter;
   details {
-
+    counter-increment: counter;
+    &:nth-child(-n+9) summary p::before {
+      content: "/0" counter(counter);
+    }
     summary {
-
       &::marker,
       &::-webkit-details-marker {
         display: none;
@@ -38,6 +41,16 @@
       padding: 34px 0;
       position: relative;
 
+      p {
+        &::before {
+          content: "/" counter(counter);
+          display: inline-block;
+          width: 2rem;
+          font-size: 1rem;
+          margin-top: 2px;
+          margin-right: clamp(8px, calc(8vw/7.68), 16px);
+        }
+      }
       &::before,
       &::after {
         content: '';
@@ -48,7 +61,6 @@
         height: 1px;
         background-color: var(--neutral-800);
       }
-
       &::after {
         transform: scaleX(0);
         transform-origin: right;
