@@ -1,7 +1,7 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import Hero from "@/components/sections/Hero";
 import Grid from "@/components/sections/SitemapGrid";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function SitemapPage() {

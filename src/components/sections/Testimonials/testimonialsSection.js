@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/components/atoms/Button";
-import Img from "@/utils/Img";
+import Img from "@/components/atoms/Img";
 import { useRef, useState } from "react";
 import "swiper/css";
 import { A11y } from "swiper/modules";

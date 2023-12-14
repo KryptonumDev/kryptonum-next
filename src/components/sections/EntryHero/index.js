@@ -1,6 +1,6 @@
-import Img from "@/utils/Img";
+import Img from "@/components/atoms/Img";
+import Markdown from "@/components/atoms/markdown";
 import { formatDateToPolishLocale } from "@/utils/functions";
-import Markdown from "@/utils/markdown";
 import Link from "next/link";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import styles from "./styles.module.scss";

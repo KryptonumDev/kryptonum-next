@@ -1,5 +1,3 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import Attitude from "@/components/sections/Attitude";
 import CtaSection from "@/components/sections/CtaSection";
 import LatestCuriosityEntries from "@/components/sections/LatestCuriosityEntries";
@@ -7,6 +5,8 @@ import SmallCtaSection from "@/components/sections/SmallCtaSection";
 import Team from "@/components/sections/Team";
 import Hero from "@/components/sections/teamSections/Hero";
 import Testimonials from "@/components/sections/teamSections/Testimonials";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function TeamPage() {

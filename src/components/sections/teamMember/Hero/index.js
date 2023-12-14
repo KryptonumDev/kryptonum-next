@@ -1,5 +1,5 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import Img from "@/utils/Img";
+import Img from "@/components/atoms/Img";
 import styles from "./styles.module.scss";
 
 const Hero = ({ name, cryptonym, img }) => {

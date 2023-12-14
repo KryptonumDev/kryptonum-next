@@ -1,10 +1,10 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import Content from "@/components/sections/Content";
 import EntryHero from "@/components/sections/EntryHero";
 import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
 import LatestCuriosityEntries from "@/components/sections/LatestCuriosityEntries";
 import ScrollToNext from "@/components/sections/ScrollToNext";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 import { removeMarkdown } from "@/utils/functions";
 import { notFound } from "next/navigation";

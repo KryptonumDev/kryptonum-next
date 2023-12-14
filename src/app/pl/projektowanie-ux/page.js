@@ -1,5 +1,3 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import CardWithOverflowIcon from "@/components/sections/CardWithOverflowIcon";
 import CentralizedHeadingWithCardGrid from "@/components/sections/CentralizedHeadingWithCardGrid";
 import ConsultationForm from "@/components/sections/ConsultationForm";
@@ -15,6 +13,8 @@ import TextSection from "@/components/sections/TextSection";
 import TitleDescriptionImageList from "@/components/sections/TitleDescriptionImageList";
 import HeadingBlocksCardGrid from "@/components/sections/UxDesign/HeadingBlocksCardGrid";
 import HeadingImageTextList from "@/components/sections/UxDesign/HeadingImageTextList";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function UxDesignPage() {

@@ -1,4 +1,4 @@
-import Markdown from "@/utils/markdown";
+import Markdown from "@/components/atoms/markdown";
 import List from "./list";
 
 const OrderedList = ({ paragraph, array }) => {

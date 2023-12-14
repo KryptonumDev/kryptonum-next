@@ -1,5 +1,3 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import CaseStudies from "@/components/sections/CaseStudies";
 import CtaSection from "@/components/sections/CtaSection";
 import HeroServices from "@/components/sections/HeroServices";
@@ -8,6 +6,8 @@ import ScrollToNext from "@/components/sections/ScrollToNext";
 import Testimonials from "@/components/sections/Testimonials";
 import Advantages from "@/components/sections/webDevelopment/Advantages";
 import Flexibility from "@/components/sections/webDevelopment/Flexibility";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function webDevelopmentPage() {

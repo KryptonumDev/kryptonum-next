@@ -1,10 +1,10 @@
 import { Cursor } from "@/atoms/Icons";
+import Img from "@/components/atoms/Img";
+import Markdown from "@/components/atoms/markdown";
 import Faq4Grid from "@/organisms/faq/Faq4Grid";
 import FaqPayment from "@/organisms/faq/FaqPayment";
 import FaqContact from "@/organisms/forms/FaqContact";
-import Img from "@/utils/Img";
 import fetchData from "@/utils/fetchData";
-import Markdown from "@/utils/markdown";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import FaqCopy from "../../organisms/faq/FaqCopy";
 import FaqInfo from "../../organisms/faq/FaqInfo";

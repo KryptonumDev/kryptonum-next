@@ -1,11 +1,11 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import HeroServices from "@/components/sections/HeroServices";
 import ListSection from "@/components/sections/ListSection";
 import ScrollToNext from "@/components/sections/ScrollToNext";
 import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
 import Document from "@/components/sections/workshop/Document";
 import Why from "@/components/sections/workshop/Why";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function discoveryWorkshopsPage() {

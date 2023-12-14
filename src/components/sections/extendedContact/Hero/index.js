@@ -2,7 +2,7 @@
 
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import { ScrollDown } from "@/components/atoms/Icons";
-import Markdown from "@/utils/markdown";
+import Markdown from "@/components/atoms/markdown";
 import { useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 import styles from './styles.module.scss';

@@ -1,4 +1,4 @@
-import Markdown from '@/utils/markdown';
+import Markdown from '@/components/atoms/markdown';
 import DecorativeHeading from '../../../atoms/DecorativeHeading';
 import { Star } from '../../../atoms/Icons';
 import MasonryList from '../../MasonryList';

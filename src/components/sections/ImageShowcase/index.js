@@ -1,4 +1,4 @@
-import Img from '@/utils/Img';
+import Img from '@/components/atoms/Img';
 import Button from '../../atoms/Button';
 import styles from './styles.module.scss';
 

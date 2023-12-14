@@ -1,8 +1,8 @@
 import Button from "@/components/atoms/Button";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import Img from "@/utils/Img";
+import Img from "@/components/atoms/Img";
+import Markdown from "@/components/atoms/markdown";
 import fetchData from "@/utils/fetchData";
-import Markdown from "@/utils/markdown";
 import Link from "next/link";
 import styles from "./styles.module.scss";
 

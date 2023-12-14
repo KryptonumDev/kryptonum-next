@@ -1,7 +1,7 @@
 'use server'
 
+import Img from "@/components/atoms/Img";
 import QuickForm from "@/components/sections/QuickForm";
-import Img from "@/utils/Img";
 import { portableTextToMarkdown, slugify } from "@/utils/functions";
 import { PortableText, toPlainText } from "@portabletext/react";
 import { getImageDimensions } from "@sanity/asset-utils";

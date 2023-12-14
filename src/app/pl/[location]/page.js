@@ -1,4 +1,3 @@
-import SEO from "@/components/global/Seo";
 import CentralizedHeading from "@/components/molecules/CentralizedHeading";
 import TextComponent from "@/components/molecules/TextComponent";
 import ListWithOverflowIcon from "@/components/organisms/ListWithOverflowIcon";
@@ -16,6 +15,7 @@ import Team from "@/components/sections/Team";
 import Testimonials from "@/components/sections/Testimonials";
 import TextColumnComponent from "@/components/sections/TextColumnComponent";
 import TilesComponent from "@/components/sections/TilesComponent";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 import { notFound } from "next/navigation";
 

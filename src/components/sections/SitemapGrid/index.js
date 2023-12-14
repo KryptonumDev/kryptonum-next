@@ -1,4 +1,4 @@
-import Img from "@/utils/Img";
+import Img from "@/components/atoms/Img";
 import { formatDateToPolishLocale } from "@/utils/functions";
 import Link from "next/link";
 import { useMemo } from "react";

@@ -1,8 +1,8 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
+import Img from "@/components/atoms/Img";
+import Markdown from "@/components/atoms/markdown";
 import ConsultationCtaForm from "@/components/organisms/forms/ConsultationCtaForm";
-import Img from "@/utils/Img";
 import fetchData from "@/utils/fetchData";
-import Markdown from "@/utils/markdown";
 import styles from "./styles.module.scss";
 
 const ConsultationForm = async ({

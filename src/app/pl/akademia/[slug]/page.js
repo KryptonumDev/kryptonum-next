@@ -1,5 +1,3 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import EntryHero from "@/components/sections/EntryHero";
 import ImageAndStandout from "@/components/sections/ImageAndStandout";
 import LargeList from "@/components/sections/LargeList";
@@ -13,6 +11,8 @@ import Note from "@/components/sections/academyEntry/Note";
 import Share from "@/components/sections/academyEntry/Share";
 import Sources from "@/components/sections/academyEntry/Sources";
 import Tiles from "@/components/sections/academyEntry/Tiles";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 import { notFound } from "next/navigation";
 
