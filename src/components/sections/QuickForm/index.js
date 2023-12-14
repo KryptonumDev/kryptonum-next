@@ -21,7 +21,7 @@ const QuickForm = async ({ data: { heading, subheading, cta }, isPortableContent
 			<div className={styles.info}>
 				<p>{quickForm_Paragraph}</p>
 				<div className={styles.person}>
-					<p className={styles.strong}>{quickForm_Person.name}</p>
+					<p className={`${styles.strong} strong`}>{quickForm_Person.name}</p>
 					<Img
 						data={quickForm_Person.img}
 						className={`${styles.img} personBorder`}
