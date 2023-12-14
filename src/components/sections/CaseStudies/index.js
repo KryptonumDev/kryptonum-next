@@ -1,5 +1,5 @@
 import Button from "@/components/atoms/Button";
-import Img from "@/utils/Img";
+import Img from "@/components/atoms/Img";
 import fetchData from "@/utils/fetchData";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import styles from "./styles.module.scss";

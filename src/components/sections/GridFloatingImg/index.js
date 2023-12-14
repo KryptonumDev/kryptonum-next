@@ -1,9 +1,9 @@
 "use client";
 
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import Img from "@/utils/Img";
+import Img from "@/components/atoms/Img";
+import Markdown from "@/components/atoms/markdown";
 import { removeMarkdown } from "@/utils/functions";
-import Markdown from "@/utils/markdown";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef } from "react";

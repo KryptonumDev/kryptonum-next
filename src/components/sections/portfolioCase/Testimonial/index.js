@@ -1,7 +1,7 @@
 import Button from "@/components/atoms/Button";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import { Quote } from "@/components/atoms/Icons";
-import Img from "@/utils/Img";
+import Img from "@/components/atoms/Img";
 import styles from "./styles.module.scss";
 
 const Testimonial = ({ data: { name, text, cta, img } }) => {

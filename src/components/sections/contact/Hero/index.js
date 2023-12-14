@@ -1,7 +1,7 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
+import Img from "@/components/atoms/Img";
+import Markdown from "@/components/atoms/markdown";
 import Form from "@/components/organisms/forms/FastContact";
-import Img from "@/utils/Img";
-import Markdown from "@/utils/markdown";
 import Link from "next/link";
 import styles from "./styles.module.scss";
 

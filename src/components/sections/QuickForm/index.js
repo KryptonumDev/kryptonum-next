@@ -1,8 +1,8 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
+import Img from "@/components/atoms/Img";
+import Markdown from "@/components/atoms/markdown";
 import Form from "@/components/organisms/forms/QuickForm";
-import Img from "@/utils/Img";
 import fetchData from "@/utils/fetchData";
-import Markdown from "@/utils/markdown";
 import styles from "./styles.module.scss";
 
 const QuickForm = async ({ data: { heading, subheading, cta }, isPortableContent = false }) => {

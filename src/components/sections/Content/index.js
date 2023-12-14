@@ -1,4 +1,4 @@
-import Img from "@/utils/Img";
+import Img from "@/components/atoms/Img";
 import { generateTableOfContent } from "@/utils/functions";
 import Link from "next/link";
 import { Share } from "../../atoms/Icons";

@@ -1,5 +1,5 @@
 import Button from '@/atoms/Button';
-import Markdown from '@/utils/markdown';
+import Markdown from '@/components/atoms/markdown';
 import styles from './styles.module.scss';
 
 const Faq4Grid = ({

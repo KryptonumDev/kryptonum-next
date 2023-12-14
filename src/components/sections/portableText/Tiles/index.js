@@ -1,4 +1,4 @@
-import Markdown from '@/utils/markdown';
+import Markdown from '@/components/atoms/markdown';
 import styles from './styles.module.scss';
 
 const Tiles = ({ data }) => {

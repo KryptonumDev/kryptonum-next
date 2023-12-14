@@ -1,6 +1,6 @@
 import DecorativeHeading from '@/components/atoms/DecorativeHeading';
 import { Error } from '@/components/atoms/Icons';
-import Markdown from '@/utils/markdown';
+import Markdown from '@/components/atoms/markdown';
 import styles from './styles.module.scss';
 
 const Hero = ({

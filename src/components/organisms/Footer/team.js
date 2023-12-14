@@ -1,6 +1,6 @@
 "use client";
 
-import Img from "@/utils/Img";
+import Img from "@/components/atoms/Img";
 import Link from "next/link";
 import { useState } from "react";
 import styles from "./styles.module.scss";

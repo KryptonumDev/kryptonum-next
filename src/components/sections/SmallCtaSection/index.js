@@ -1,4 +1,4 @@
-import Markdown from '@/utils/markdown';
+import Markdown from '@/components/atoms/markdown';
 import Button from '../../atoms/Button';
 import styles from './styles.module.scss';
 

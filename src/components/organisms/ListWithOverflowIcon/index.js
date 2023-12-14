@@ -1,5 +1,5 @@
-import Img from "@/utils/Img";
-import Markdown from "@/utils/markdown";
+import Img from "@/components/atoms/Img";
+import Markdown from "@/components/atoms/markdown";
 import styles from "./styles.module.scss";
 
 const ListWithOverflowIcon = ({ data: { blocks }, className, itemClassName }) => {

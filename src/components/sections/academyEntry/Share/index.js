@@ -1,6 +1,6 @@
 import DecorativeHeading from '@/components/atoms/DecorativeHeading';
 import { Facebook, Linkedin, Pinterest } from '@/components/atoms/Icons';
-import Img from '@/utils/Img';
+import Img from '@/components/atoms/Img';
 import styles from './styles.module.scss';
 
 const share = {
