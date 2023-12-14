@@ -16,11 +16,13 @@ const ContactUs = ({ data: { contact_Email, contact_Tel, contact_Address, contac
 				</Markdown>
 				<Markdown className={styles.address}>{contact_Address}</Markdown>
 			</header>
+			<div className={styles.imageWrapper}>
 				<Img
 					data={contact_Img}
 					className={styles.img}
 					sizes="(max-width: 1249px) 500px, 50vw"
 				/>
+			</div>
 		</section>
 	);
 };
