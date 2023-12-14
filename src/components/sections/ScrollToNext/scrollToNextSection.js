@@ -1,14 +1,8 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
-
-const easeOut = (t) => {
-	return 1 - Math.pow(1 - t, 3);
-};
-
-const scrollHeight = 800;
+import { redirect } from "next/navigation";
 
 const ScrollToNextSection = ({
 	link,
@@ -18,9 +12,17 @@ const ScrollToNextSection = ({
 	image,
 	children,
 }) => {
+
+	const easeOut = (t) => {
+		return 1 - Math.pow(1 - t, 3);
+	};
+	
+	const scrollHeight = 800;
+
 	const scrollToNext = useRef(null);
+
 	const [scaleY, setScaleY] = useState(0);
-	const router = useRouter();
+
 	useEffect(() => {
 		const handleScroll = () => {
 			const scrollPosition = window.scrollY;
@@ -33,7 +35,7 @@ const ScrollToNextSection = ({
 			setScaleY(progress);
 			if (remainingScroll <= 0) {
 				window.scrollTo({ top: scrollPosition - scrollHeight });
-				router.push(link.href);
+				redirect(link.href);
 			}
 		};
 		handleScroll();
