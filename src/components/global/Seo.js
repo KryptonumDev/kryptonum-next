@@ -1,7 +1,7 @@
 import fetchData from "@/utils/fetchData";
 
-const domain = "https://kryptonum.eu";
-const locale = "pl_PL";
+export const domain = "https://kryptonum.eu";
+export const locale = "pl_PL";
 
 const SEO = async ({ pagination, author, date, title, description, url, ogImage, children, ...props }) => {
 	const {
