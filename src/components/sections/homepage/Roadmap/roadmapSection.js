@@ -1,13 +1,9 @@
 "use client";
-import Button from "@/components/atoms/Button";
-import { useEffect, useRef, useState } from "react";
-import styles from './styles.module.scss';
 
-const RoadmapSection = ({
-	list,
-	cta,
-	children
-}) => {
+import { useEffect, useRef, useState } from "react";
+import styles from "./styles.module.scss";
+
+const RoadmapSection = ({ children }) => {
 	const roadmapRef = useRef();
 	const [scrollable, setScrollable] = useState(0);
 	useEffect(() => {
@@ -43,22 +39,7 @@ const RoadmapSection = ({
 			style={{ minHeight: `calc(100vh + ${scrollable}px` }}
 			ref={roadmapRef}
 		>
-			<div className={`${styles.sticky} sticky`}>
-				{children}
-				<div className={`${styles.line} line`}></div>
-				<div className={`${styles.roadmap} roadmap`}>
-					{list.map((item, i) => (
-						<div className={`${styles.roadmapItem} roadmapItem`} key={i}>
-							<h3>{item.title}</h3>
-							<p>{item.description}</p>
-							{i + 1 === list.length && cta?.text && (
-								<Button data={cta} className={`${styles.cta} cta`}/>
-							)}
-						</div>
-					))}
-					<div className={`${styles.roadmapItem} ${styles.active} roadmapItem active`}></div>
-				</div>
-			</div>
+			{children}
 		</section>
 	);
 };
