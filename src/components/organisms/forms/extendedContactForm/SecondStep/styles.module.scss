@@ -1,0 +1,57 @@
+.form{
+  h2{
+    font-size: 2rem;
+    margin-bottom: 24px;
+
+    &.area{
+      margin-bottom: 42px;
+    }
+  }
+
+  button{
+    max-width: 400px;
+  }
+
+  .radioGroup {
+    display: grid;
+    gap: 12px clamp(12px, calc(20vw/7.68), 20px);
+    @media (min-width: 500px){
+      grid-template-columns: 1fr 1fr;
+    }
+    max-width: 740px;
+    width: 100%;
+    margin-bottom: 32px;
+    position: relative;
+
+    .error{
+      position: absolute;
+      right: 0;
+      top: -6px;
+      transform: translateY(-100%);
+      color: #EE6470; 
+      font-size: 1rem;
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+  }
+
+  .divider{
+    border-color: #212123;
+    margin-top: 28px;
+    margin-bottom: 40px;
+  }
+
+  .submit{
+    margin-top: 40px;
+  }
+  .button {
+    margin-top: 12px;
+    gap: 6px;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    align-items: center;
+    width: fit-content;
+    cursor: pointer;
+  }
+}

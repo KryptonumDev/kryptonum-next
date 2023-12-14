@@ -1,16 +1,15 @@
-"use server";
-
-import IconTitleDescriptionListSection from "@/app/components/sections/IconTitleDescriptionListSection";
-import CentralizedHeadingSection from "@/app/components/sections/CentralizedHeadingSection";
-import CtaSection from "@/app/components/sections/CtaSection";
-import Hero from "@/app/components/sections/Hero";
-import TextSection from "@/app/components/sections/TextSection";
+import Breadcrumbs from "@/components/global/Breadcrumbs";
+import SEO from "@/components/global/Seo";
+import CentralizedHeadingSection from "@/components/sections/CentralizedHeadingSection";
+import CtaSection from "@/components/sections/CtaSection";
+import Hero from "@/components/sections/Hero";
+import IconTitleDescriptionGrid from "@/components/sections/IconTitleDescriptionGrid";
+import IconTitleDescriptionListSection from "@/components/sections/IconTitleDescriptionListSection";
+import Team from "@/components/sections/Team";
+import Testimonials from "@/components/sections/Testimonials";
+import TextSection from "@/components/sections/TextSection";
+import TilesWithOverflowIcon from "@/components/sections/TilesWithOverflowIcon";
 import fetchData from "@/utils/fetchData";
-import Testimonials from "@/app/components/sections/Testimonials";
-import Team from "@/app/components/sections/Team";
-import TilesWithOverflowIcon from "@/app/components/sections/TilesWithOverflowIcon";
-import IconTitleDescriptionGrid from "@/app/components/sections/IconTitleDescriptionGrid";
-import SEO from "@/app/components/global/Seo";
 
 export default async function BraindingPage() {
 	const {
@@ -23,38 +22,53 @@ export default async function BraindingPage() {
 			ctaSection,
 			tiles,
 			textSection2,
-      iconTitleBlocksList,
+			iconTitleBlocksList,
 			centralizedHeading,
-      iconTitleBlocksList2,
-      centralizedHeading2,
-      textSection3,
-      headerTitleDescriptionList,
-      ctaSection2
+			iconTitleBlocksList2,
+			centralizedHeading2,
+			textSection3,
+			headerTitleDescriptionList,
+			ctaSection2,
 		},
 		testimonials,
 	} = await query();
 
-  const breadcrumbs = [{
-    name: "Branding",
-    link: "/branding"
-  }];
+	const breadcrumbs = [
+		{
+			name: "Branding",
+			link: "/branding",
+		},
+	];
 
 	return (
 		<>
-			<Hero data={hero} breadcrumbs={breadcrumbs}/>
-			<TextSection data={textSection} />
-			<CtaSection data={ctaSection} />
-			<TilesWithOverflowIcon data={tiles} />
-			<TextSection data={textSection2} />
-			<IconTitleDescriptionGrid data={iconTitleBlocksList} />
-			<CentralizedHeadingSection data={centralizedHeading} decoration={false} />
-			<IconTitleDescriptionGrid data={iconTitleBlocksList2} />
-			<CentralizedHeadingSection data={centralizedHeading2} decoration={false} />
-			<TextSection data={textSection3} />
-			<IconTitleDescriptionListSection data={headerTitleDescriptionList} />
-			<CtaSection data={ctaSection2} />
-			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
-			<Testimonials testimonials={testimonials} />
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<Hero data={hero} />
+				<TextSection data={textSection} />
+				<CtaSection data={ctaSection} />
+				<TilesWithOverflowIcon data={tiles} />
+				<TextSection data={textSection2} />
+				<IconTitleDescriptionGrid data={iconTitleBlocksList} />
+				<CentralizedHeadingSection
+					data={centralizedHeading}
+					decoration={false}
+				/>
+				<IconTitleDescriptionGrid data={iconTitleBlocksList2} />
+				<CentralizedHeadingSection
+					data={centralizedHeading2}
+					decoration={false}
+				/>
+				<TextSection data={textSection3} />
+				<IconTitleDescriptionListSection data={headerTitleDescriptionList} />
+				<CtaSection data={ctaSection2} />
+				<Team
+					heading={team_Heading}
+					paragraph={team_Text}
+					cta={team_Cta}
+				/>
+				<Testimonials testimonials={testimonials} />
+			</main>
 		</>
 	);
 }
@@ -66,15 +80,15 @@ export async function generateMetadata() {
 	return SEO({
 		title: seo?.title,
 		description: seo?.description,
-		url: "",
+		url: "/pl/branding",
 	});
 }
-
 
 const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
     page: BrandingPage(id: "brandingPage") {
       #Hero
       hero {
@@ -245,6 +259,11 @@ const query = async () => {
         text
         href
       }
+      #SEO
+      seo {
+        title
+        description
+      }
     }
     testimonials: allTestimonials(limit: 3, sort: { _createdAt: ASC }) {
       name
@@ -268,7 +287,7 @@ const query = async () => {
         }
       }
     }
-  
+  }
 		`);
 	return data;
 };

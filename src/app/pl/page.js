@@ -1,13 +1,13 @@
-import Team from "@/app/components/sections/Team";
 import SEO from "@/components/global/Seo";
-import Creativity from "@/components/sections/Homepage/Creativity";
-import FourGrid from "@/components/sections/Homepage/FourGrid";
-import Hero from "@/components/sections/Homepage/Hero";
-import LatestBlogEntries from "@/components/sections/Homepage/LatestBlogEntries";
-import Roadmap from "@/components/sections/Homepage/Roadmap";
+import GridFloatingImg from "@/components/sections/GridFloatingImg";
+import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
+import Team from "@/components/sections/Team";
+import Testimonials from "@/components/sections/Testimonials";
+import Creativity from "@/components/sections/homepage/Creativity";
+import FourGrid from "@/components/sections/homepage/FourGrid";
+import Hero from "@/components/sections/homepage/Hero";
+import Roadmap from "@/components/sections/homepage/Roadmap";
 import fetchData from "@/utils/fetchData";
-import DecorativeHeading from "../components/atoms/DecorativeHeading";
-import Testimonials from "../components/sections/Testimonials";
 
 export async function generateMetadata() {
 	const {
@@ -16,7 +16,7 @@ export async function generateMetadata() {
 	return SEO({
 		title: seo?.title,
 		description: seo?.description,
-		url: "",
+		url: "/pl",
 	});
 }
 
@@ -52,43 +52,55 @@ const PolishIndexPage = async () => {
 		agency,
 		graphicsAndDesign,
 		testimonials,
+		blogEntries,
 	} = await query();
 
 	return (
 		<>
-			<Hero
-				data={{
-					hero_Heading,
-					hero_Subheading,
-					hero_Cta,
-				}}
-			/>
-			{/* <GridFloatingImg data={services} /> */}
-			<FourGrid
-				heading={conquest_Heading}
-				claim={conquest_Claim}
-				paragraph={conquest_Paragraph}
-				secondClaim={conquest_SecondClaim}
-				cta={conquest_Cta}
-			/>
-			<FourGrid
-				heading={challenge_Heading}
-				claim={challenge_Claim}
-				paragraph={challenge_Paragraph}
-				secondClaim={challenge_SecondClaim}
-				cta={challenge_Cta}
-			/>
-			<Creativity
-				data={{
-					creativity_Heading,
-					creativity_Paragraph,
-					creativity_SecondParagraph,
-				}}
-			/>
-			<Roadmap heading={roadmap_Heading} list={roadmap_Process} cta={roadmap_Cta}/>
-			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
-			<Testimonials testimonials={testimonials}/>
-			<LatestBlogEntries />
+			<main id="main">
+				<Hero
+					data={{
+						hero_Heading,
+						hero_Subheading,
+						hero_Cta,
+					}}
+					eagerLoading={true}
+				/>
+				<GridFloatingImg data={services} />
+				<FourGrid
+					heading={conquest_Heading}
+					claim={conquest_Claim}
+					paragraph={conquest_Paragraph}
+					secondClaim={conquest_SecondClaim}
+					cta={conquest_Cta}
+				/>
+				<FourGrid
+					heading={challenge_Heading}
+					claim={challenge_Claim}
+					paragraph={challenge_Paragraph}
+					secondClaim={challenge_SecondClaim}
+					cta={challenge_Cta}
+				/>
+				<Creativity
+					data={{
+						creativity_Heading,
+						creativity_Paragraph,
+						creativity_SecondParagraph,
+					}}
+				/>
+				<Roadmap
+					heading={roadmap_Heading}
+					list={roadmap_Process}
+					cta={roadmap_Cta}
+				/>
+				<Team
+					heading={team_Heading}
+					paragraph={team_Text}
+					cta={team_Cta}
+				/>
+				<Testimonials testimonials={testimonials} />
+				<LatestBlogEntries data={blogEntries} />
+			</main>
 		</>
 	);
 };
@@ -97,6 +109,7 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
     page: Homepage(id: "homepage") {
       # Hero
       hero_Heading
@@ -259,6 +272,54 @@ const query = async () => {
         }
       }
     }
+    blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+      title
+      subtitle
+      slug {
+        current
+      }
+      author {
+        name
+        slug {
+          current
+        }
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+      }
+      categories {
+        name
+        slug {
+          current
+        }
+      }
+      _createdAt
+      contentRaw
+      img {
+        asset {
+          altText
+          url
+          metadata {
+            lqip
+            dimensions {
+              height
+              width
+            }
+          }
+        }
+      }
+    }
+  }
   `);
 	return data;
 };

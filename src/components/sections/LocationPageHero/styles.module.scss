@@ -1,0 +1,49 @@
+.section {
+  h1 {
+    font-size: clamp(calc(22rem/16), calc(36vw/7.68), calc(36rem/16));
+  }
+
+  h2 {
+    font-size: clamp(18px, calc(28vw/7.68), 28px);
+    margin-bottom: clamp(24px, calc(24vw/7.68), 72px);
+  }
+
+  display: grid;
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  gap: clamp(48px, calc(72vw/7.68), 72px) clamp(72px, calc(72vw/7.68), 144px);
+
+  ol {
+    font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+    counter-reset: counter;
+
+    li {
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+
+      counter-increment: counter;
+      list-style-type: none;
+      display: grid;
+      align-items: flex-end;
+      grid-template-columns: 32px 1fr;
+      gap: clamp(8px, calc(32vw/7.68), 32px);
+
+      &::before {
+        content: "/" counter(counter);
+        display: block;
+      }
+
+      &:nth-child(-n+10)::before {
+        content: "/0" counter(counter);
+      }
+    }
+  }
+
+  .cta {
+    margin-top: clamp(24px, calc(24vw/7.68), 32px);
+  }
+}

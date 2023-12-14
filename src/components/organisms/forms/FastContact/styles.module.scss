@@ -1,0 +1,38 @@
+.form {
+  position: relative;
+  display: grid;
+  gap: 32px;
+
+  button {
+    max-width: 400px;
+  }
+
+  .overlay {
+    position: absolute;
+    z-index: 2;
+    inset: -2px;
+    /* pointer-events: none;
+  opacity: 0; */
+    border-radius: 4px;
+    background: var(--neutral-900, #101012);
+    padding: 8px 64px;
+    display: grid;
+    align-items: center;
+
+    .grid {
+      display: grid;
+      gap: 32px;
+      height: fit-content;
+
+      p {
+        font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(32rem/16));
+      }
+    }
+
+    button {
+      margin-top: 64px;
+      margin-left: 0;
+      width: fit-content;
+    }
+  }
+}

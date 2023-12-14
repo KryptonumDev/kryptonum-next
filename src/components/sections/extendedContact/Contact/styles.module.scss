@@ -1,0 +1,46 @@
+.section {
+  display: grid;
+  gap: 40px 32px;
+  grid-template-columns: clamp(240px, calc(240vw/10.24), 300px) 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas: 
+  'nav nav'
+  'left right';
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 40px;
+
+  @media (max-width: 920px) {
+    gap: 24px;
+    grid-template-areas: 
+    'nav right'
+    'left right';
+  }
+
+  @media (max-width: 680px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    'left'
+    'nav'
+    'right';
+  }
+
+  button{
+    max-width: unset;
+    width: fit-content;
+  }
+  label{
+    max-width: 520px;
+  }
+
+  .nav{
+    grid-area: nav;
+  }
+  .leftWrap{
+    grid-area: left;
+  }
+  .rightWrap{
+    grid-area: right;
+  }    
+}

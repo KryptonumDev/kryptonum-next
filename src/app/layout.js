@@ -5,13 +5,19 @@ import { formatDateToPolishLocale } from "@/utils/functions";
 import localFont from "next/font/local";
 import "../styles/global.scss";
 
-const font = localFont({ src: "../resources/fonts/Poppins-Light.woff2" });
 
-const changeBlogEntriesLocale = (blogEntries) => {
-	blogEntries.map((entry) => {
-		entry._createdAt = formatDateToPolishLocale(entry._createdAt);
-	});
-};
+const font = localFont({ 
+  src: [
+    {
+      path: "../resources/fonts/Poppins-Light.woff2",
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  display: 'swap',
+  fallback: ['sans-serif']
+});
+
 
 const RootLayout = async ({ children }) => {
 	let {
@@ -26,11 +32,13 @@ const RootLayout = async ({ children }) => {
 		global,
 	} = await query();
 
-	changeBlogEntriesLocale(blogEntries);
+  blogEntries.map((entry) => {
+		entry._createdAt = formatDateToPolishLocale(entry._createdAt);
+	});
 
 	return (
 		<html lang="en">
-			<body className={font.className}>
+			<body className={`${font.className} body`}>
 				<Nav
 					caseStudies={caseStudies}
 					team={team}
@@ -41,7 +49,7 @@ const RootLayout = async ({ children }) => {
 					blogAuthors={blogAuthors}
 					academyAuthors={academyAuthors}
 				/>
-				<main id="main">{children}</main>
+				{children}
 				<Footer caseStudies={caseStudies} team={team} blogEntries={blogEntries} global={global} />
 			</body>
 		</html>
@@ -53,6 +61,7 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
     caseStudies: allCaseStudyEntries(limit: 4, sort: { _createdAt: DESC }) {
       name
       slug {
@@ -217,6 +226,7 @@ const query = async () => {
         href
       }
     }
+  }
   `);
 	return data;
 };

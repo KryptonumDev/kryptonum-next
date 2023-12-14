@@ -1,18 +1,18 @@
-import CentralizedHeadingSection from "@/app/components/sections/CentralizedHeadingSection";
-import CtaSection from "@/app/components/sections/CtaSection";
-import FullWidthImageComponent from "@/app/components/sections/FullWidthImageComponent";
-import Hero from "@/app/components/sections/Hero";
-import IconTitleDescriptionListSection from "@/app/components/sections/IconTitleDescriptionListSection";
-import Team from "@/app/components/sections/Team";
-import Testimonials from "@/app/components/sections/Testimonials";
-import TextSection from "@/app/components/sections/TextSection";
-import TilesComponentWithHeading from "@/app/components/sections/TilesComponentWithHeading";
+import Breadcrumbs from "@/components/global/Breadcrumbs";
+import SEO from "@/components/global/Seo";
+import CaseStudies from "@/components/sections/CaseStudies";
+import CentralizedHeadingSection from "@/components/sections/CentralizedHeadingSection";
+import CtaSection from "@/components/sections/CtaSection";
+import FullWidthImageComponent from "@/components/sections/FullWidthImageComponent";
+import Hero from "@/components/sections/Hero";
+import IconTitleDescriptionListSection from "@/components/sections/IconTitleDescriptionListSection";
+import Process from "@/components/sections/Process";
+import Slider from "@/components/sections/Slider";
+import Team from "@/components/sections/Team";
+import Testimonials from "@/components/sections/Testimonials";
+import TextSection from "@/components/sections/TextSection";
+import TilesComponentWithHeading from "@/components/sections/TilesComponentWithHeading";
 import fetchData from "@/utils/fetchData";
-import styles from "./styles.module.scss";
-import CaseStudies from "@/app/components/sections/CaseStudies";
-import Process from "@/app/components/sections/Process";
-import Slider from "@/app/components/sections/Slider";
-import SEO from "@/app/components/global/Seo";
 
 export default async function UiDesignPage() {
 	const {
@@ -27,46 +27,64 @@ export default async function UiDesignPage() {
 			tilesWithHeading,
 			image,
 			slider,
-      textSection2,
-      headerTitleDescriptionList,
-      image2,
-      textSection3,
-      ctaSection2,
-      textSection4,
-      process,
-      centralizedHeading2,
-      caseStudies,
-      ctaSection3
+			textSection2,
+			headerTitleDescriptionList,
+			image2,
+			textSection3,
+			ctaSection2,
+			textSection4,
+			blocks,
+			centralizedHeading2,
+			caseStudies,
+			ctaSection3,
 		},
 		testimonials,
 	} = await query();
 
-  const breadcrumbs = [{
-    name: "Projektowanie UI",
-    link: "/projektowanie-ui"
-  }];
-  
+	const breadcrumbs = [
+		{
+			name: "Projektowanie UI",
+			link: "/projektowanie-ui",
+		},
+	];
+
 	return (
 		<>
-			<Hero data={hero} breadcrumbs={breadcrumbs}/>
-			<TextSection data={textSection} />
-			<CentralizedHeadingSection data={centralizedHeading} decoration={false} />
-			<CtaSection data={ctaSection} />
-			<TilesComponentWithHeading data={tilesWithHeading} additionalStyles={styles} />
-			<FullWidthImageComponent image={image} additionalStyles={styles} />
-			<Slider data={slider} />
-			<TextSection data={textSection2} />
-			<IconTitleDescriptionListSection data={headerTitleDescriptionList} />
-			<FullWidthImageComponent image={image2} />
-			<TextSection data={textSection3} additionalStyles={styles} />
-			<CtaSection data={ctaSection2} />
-			<TextSection data={textSection4} />
-			<Process data={process}/>
-			<CentralizedHeadingSection data={centralizedHeading2}/>
-			<CaseStudies cta={caseStudies}/>
-			<CtaSection data={ctaSection3} />
-			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
-			<Testimonials testimonials={testimonials} />
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<Hero data={hero} />
+				<TextSection data={textSection} />
+				<CentralizedHeadingSection
+					data={centralizedHeading}
+					decoration={false}
+				/>
+				<CtaSection data={ctaSection} />
+				<TilesComponentWithHeading data={tilesWithHeading} />
+				<FullWidthImageComponent
+					image={image}
+					withBorder={true}
+				/>
+				<Slider data={slider} />
+				<TextSection data={textSection2} />
+				<IconTitleDescriptionListSection data={headerTitleDescriptionList} />
+				<FullWidthImageComponent image={image2} />
+				<TextSection
+					data={textSection3}
+					breakLine={true}
+				/>
+				<CtaSection data={ctaSection2} />
+				<TextSection data={textSection4} />
+				<Process data={{blocks}} />
+				<CentralizedHeadingSection data={centralizedHeading2} />
+				<CaseStudies cta={caseStudies} />
+				<CtaSection data={ctaSection3} />
+				<Team
+					heading={team_Heading}
+					paragraph={team_Text}
+					cta={team_Cta}
+				/>
+				<Testimonials testimonials={testimonials} />
+			</main>
 		</>
 	);
 }
@@ -78,15 +96,15 @@ export async function generateMetadata() {
 	return SEO({
 		title: seo?.title,
 		description: seo?.description,
-		url: "",
+		url: "/pl/projektowanie-ui",
 	});
 }
-
 
 const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
     page: UiDesignPage(id: "uiDesignPage") {
       #Hero
       hero {
@@ -254,7 +272,7 @@ const query = async () => {
         }
       }
       #Process
-      process {
+      blocks {
         title
         description
       }
@@ -298,6 +316,11 @@ const query = async () => {
         text
         href
       }
+      #SEO
+      seo {
+        title
+        description
+      }
     }
     testimonials: allTestimonials(limit: 3, sort: { _createdAt: ASC }) {
       name
@@ -321,7 +344,7 @@ const query = async () => {
         }
       }
     }
-  
+  }
 		`);
 	return data;
 };

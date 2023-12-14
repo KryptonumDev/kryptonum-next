@@ -1,20 +1,21 @@
-import CardWithOverflowIcon from "@/app/components/sections/CardWithOverflowIcon";
-import CentralizedHeadingWithCardGrid from "@/app/components/sections/CentralizedHeadingWithCardGrid";
-import ConsultationForm from "@/app/components/sections/ConsultationForm";
-import CtaSection from "@/app/components/sections/CtaSection";
-import FullWidthImageComponent from "@/app/components/sections/FullWidthImageComponent";
-import HeadingWithIconTitleDescriptionList from "@/app/components/sections/HeadingWithIconTitleDescriptionList";
-import HeadingWithMaxWidth from "@/app/components/sections/HeadingWithMaxWidth";
-import Hero from "@/app/components/sections/Hero";
-import ImageDisplayedOnTablet from "@/app/components/sections/ImageDisplayedOnTablet";
-import Team from "@/app/components/sections/Team";
-import Testimonials from "@/app/components/sections/Testimonials";
-import TextSection from "@/app/components/sections/TextSection";
-import TitleDescriptionImageList from "@/app/components/sections/TitleDescriptionImageList";
-import HeadingImageTextList from "@/app/components/sections/UxDesign/HeadingImageTextList";
-import SustainableDevelopment from "@/app/components/sections/UxDesign/SustainableDevelopment";
+import Breadcrumbs from "@/components/global/Breadcrumbs";
+import SEO from "@/components/global/Seo";
+import CardWithOverflowIcon from "@/components/sections/CardWithOverflowIcon";
+import CentralizedHeadingWithCardGrid from "@/components/sections/CentralizedHeadingWithCardGrid";
+import ConsultationForm from "@/components/sections/ConsultationForm";
+import CtaSection from "@/components/sections/CtaSection";
+import FullWidthImageComponent from "@/components/sections/FullWidthImageComponent";
+import HeadingWithIconTitleDescriptionList from "@/components/sections/HeadingWithIconTitleDescriptionList";
+import HeadingWithMaxWidth from "@/components/sections/HeadingWithMaxWidth";
+import Hero from "@/components/sections/Hero";
+import ImageDisplayedOnTablet from "@/components/sections/ImageDisplayedOnTablet";
+import Team from "@/components/sections/Team";
+import Testimonials from "@/components/sections/Testimonials";
+import TextSection from "@/components/sections/TextSection";
+import TitleDescriptionImageList from "@/components/sections/TitleDescriptionImageList";
+import HeadingBlocksCardGrid from "@/components/sections/UxDesign/HeadingBlocksCardGrid";
+import HeadingImageTextList from "@/components/sections/UxDesign/HeadingImageTextList";
 import fetchData from "@/utils/fetchData";
-import SEO from "@/app/components/global/Seo";
 
 export default async function UxDesignPage() {
 	const {
@@ -34,44 +35,58 @@ export default async function UxDesignPage() {
 			cardWithOverflowIcon,
 			cardGridWithCentralizedHeading,
 			ctaSection3,
-			development,
+			headingBlocksCardGrid,
 			consultationCta,
 			headingWithIconTitleDescriptionList,
 			imageDisplayedOnTablet,
 			headingWithIconDescriptionList2,
 			headingWithMaxWidth,
-			ctaSection4
+			ctaSection4,
 		},
 		testimonials,
 	} = await query();
-	const breadcrumbs = [{
-    name: "Projektowanie UX",
-    link: "/projektowanie-ux"
-  }];
+	const breadcrumbs = [
+		{
+			name: "Projektowanie UX",
+			link: "/projektowanie-ux",
+		},
+	];
 	return (
 		<>
-			<Hero data={hero} breadcrumbs={breadcrumbs}/>
-			<TextSection data={textSection} />
-			<CtaSection data={ctaSection} />
-			<TitleDescriptionImageList data={titleDescriptionImageList} />
-			<HeadingImageTextList data={headingImageBlocksList} />
-			<CtaSection data={ctaSection2} />
-			<TextSection data={textSection2} />
-			<FullWidthImageComponent image={imageSection} />
-			<TextSection data={textSection3} />
-			<CardWithOverflowIcon cardData={cardWithOverflowIcon} />
-			<CentralizedHeadingWithCardGrid data={cardGridWithCentralizedHeading} decoration={true} />
-			<CtaSection data={ctaSection3} />
-			<SustainableDevelopment data={development}
-			/>
-			<ConsultationForm data={consultationCta} />
-			<HeadingWithIconTitleDescriptionList data={headingWithIconTitleDescriptionList} />
-			<ImageDisplayedOnTablet image={imageDisplayedOnTablet} />
-			<HeadingWithIconTitleDescriptionList data={headingWithIconDescriptionList2} />
-			<HeadingWithMaxWidth heading={headingWithMaxWidth} decoration={false} />
-			<CtaSection data={ctaSection4} />
-			<Team heading={team_Heading} paragraph={team_Text} cta={team_Cta} />
-			<Testimonials testimonials={testimonials} />
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<Hero data={hero} />
+				<TextSection data={textSection} />
+				<CtaSection data={ctaSection} />
+				<TitleDescriptionImageList data={titleDescriptionImageList} />
+				<HeadingImageTextList data={headingImageBlocksList} />
+				<CtaSection data={ctaSection2} />
+				<TextSection data={textSection2} />
+				<FullWidthImageComponent image={imageSection} />
+				<TextSection data={textSection3} />
+				<CardWithOverflowIcon cardData={cardWithOverflowIcon} />
+				<CentralizedHeadingWithCardGrid
+					data={cardGridWithCentralizedHeading}
+					decoration={true}
+				/>
+				<CtaSection data={ctaSection3} />
+				<HeadingBlocksCardGrid data={headingBlocksCardGrid} />
+				<ConsultationForm data={consultationCta} />
+				<HeadingWithIconTitleDescriptionList data={headingWithIconTitleDescriptionList} />
+				<ImageDisplayedOnTablet image={imageDisplayedOnTablet} />
+				<HeadingWithIconTitleDescriptionList data={headingWithIconDescriptionList2} />
+				<HeadingWithMaxWidth
+					heading={headingWithMaxWidth}
+					decoration={false}
+				/>
+				<CtaSection data={ctaSection4} />
+				<Team
+					heading={team_Heading}
+					paragraph={team_Text}
+					cta={team_Cta}
+				/>
+				<Testimonials testimonials={testimonials} />
+			</main>
 		</>
 	);
 }
@@ -83,7 +98,7 @@ export async function generateMetadata() {
 	return SEO({
 		title: seo?.title,
 		description: seo?.description,
-		url: "",
+		url: "/pl/projektowanie-ux",
 	});
 }
 
@@ -91,6 +106,7 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
+  query {
 	page: UxDesignPage(id: "uxDesignPage") {
     #Hero
     hero {
@@ -294,8 +310,8 @@ const query = async () => {
         }
       }
     }
-    #Development
-    development {
+    #HeadingBlocksCardGrid
+    headingBlocksCardGrid {
       heading
       blocks {
         title
@@ -398,6 +414,11 @@ const query = async () => {
       text
       href
     }
+    #SEO
+    seo {
+      title
+      description
+    }
   }
   testimonials: allTestimonials(limit: 3, sort: { _createdAt: ASC }) {
     name
@@ -421,6 +442,7 @@ const query = async () => {
       }
     }
   }
+}
 	`);
 	return data;
 };

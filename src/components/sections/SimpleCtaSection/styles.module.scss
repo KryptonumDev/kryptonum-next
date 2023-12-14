@@ -1,0 +1,9 @@
+.simpleCtaSection{ 
+  h2 {
+    max-width: calc(800rem/16);
+    margin: 0 auto clamp(32px, calc(40vw/7.68), 48px);
+    font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28rem/16));
+  }
+  text-align: center;
+  justify-content: center;
+}

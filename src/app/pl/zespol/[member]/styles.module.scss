@@ -1,0 +1,19 @@
+.wrapper {
+  display: grid;
+  row-gap: clamp(96px, calc(144vw/7.68), 172px);
+  justify-self: center;
+
+  @media(max-width: 1250px) {
+    row-gap: clamp(96px, calc(128vw/7.68), 128px);
+  }
+
+  max-width: calc(768rem/16);
+
+  h2 {
+    margin: 0 auto clamp(28px, calc(48vw/7.68), 48px);
+  }
+  .contact p {
+    font-size: clamp(calc(22rem/16), calc(50vw/7.68), calc(48rem/16));
+    text-align: center;
+  }
+}
