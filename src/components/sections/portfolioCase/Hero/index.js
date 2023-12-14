@@ -14,12 +14,14 @@ const Hero = ({
 }) => {
   return (
     <section className={`${styles.section}`}>
+      <div className={styles.imageWrapper}>
       <Img
         data={img}
         className={styles.img}
         priority={true}
         sizes="100vw"
       />
+      </div>
       <Breadcrumbs portfolio={true} breadcrumbs={breadcrumbs} />
       <header>
         <DecorativeHeading>{heading}</DecorativeHeading>
