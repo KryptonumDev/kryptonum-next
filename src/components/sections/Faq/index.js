@@ -175,6 +175,7 @@ const Faq = async ({ heading }) => {
 			),
 		},
 	];
+	
 	return (
 		<section className={styles.section}>
 			<header>
@@ -185,13 +186,13 @@ const Faq = async ({ heading }) => {
 				</p>
 			</header>
 			<div className={styles.wrapper}>
-				{faqs.map((faq, i) => (
+				{faqs.map(({ question, answer }, i) => (
 					<details key={i}>
 						<summary>
-							<p>{faq.question}</p>
+							<p>{question}</p>
 							<div className={styles.plusIcon}><span></span><span></span></div>
 						</summary>
-						{faq.answer}
+						{answer}
 					</details>
 				))}
 			</div>
