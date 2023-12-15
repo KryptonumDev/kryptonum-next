@@ -28,7 +28,7 @@ const TextComponent = ({
 								<div className={styles.imageWrapper}>
 									<Img
 										data={item.icon}
-										className={`${styles.icon} person-border`}
+										className={`${styles.icon} personBorder`}
 										sizes="200px"
 									/>
 								</div>
