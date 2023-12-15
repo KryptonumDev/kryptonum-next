@@ -15,6 +15,7 @@ import Team from "@/components/sections/Team";
 import Testimonials from "@/components/sections/Testimonials";
 import TextColumnComponent from "@/components/sections/TextColumnComponent";
 import TilesComponent from "@/components/sections/TilesComponent";
+import Breadcrumbs from "@/global/Breadcrumbs";
 import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 import { notFound } from "next/navigation";
@@ -24,7 +25,9 @@ export async function generateStaticParams() {
 	return allLocationPage.map((location) => ({ location: location.slug.current }));
 }
 
+
 export default async function LocationPage({ params: { location } }) {
+
 	const mappedComponents = (component, i) => ({
 		CaseStudies: (
 			<CaseStudies
@@ -129,13 +132,21 @@ export default async function LocationPage({ params: { location } }) {
 	});
 
 	const {
-		page: { hero_Heading, hero_Subheading, hero_List, hero_Cta, content },
+		page: { hero_Heading, hero_Subheading, hero_List, hero_Cta, content, name },
 		testimonials,
 	} = await query(location);
+
+  const breadcrumbs =[
+    {
+      name: `Strony internetowe ${name}`,
+      link: `/pl/${location}`
+    }
+  ];
 
 	return (
 		<>
 			<main id="main">
+        <Breadcrumbs breadcrumbs={breadcrumbs}/>
 				<Hero
 					data={{
 						hero_Heading,
@@ -174,6 +185,7 @@ const query = async (location) => {
       hero_Heading
       hero_Subheading
       hero_List
+      name
       hero_Cta {
         theme
         text
