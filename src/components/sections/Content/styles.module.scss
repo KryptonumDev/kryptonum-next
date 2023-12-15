@@ -98,7 +98,7 @@
 
       nav {
         position: sticky;
-        top: 204px;
+        top: 100px;
         max-height: calc(100vh - 204px);
         max-height: calc(100dvh - 204px);
 
@@ -134,6 +134,6 @@
 }
 .transform {
   nav {
-    transform: translateY(-94px);
+    transform: translateY(94px);
   }
 }
