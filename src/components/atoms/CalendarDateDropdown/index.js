@@ -140,7 +140,7 @@ const CalendarDateDropdown = ({ setOpenedPopup, setChosenDate, chosenDate }) => 
 									<li
 										className={
 											chosenDate?.format("DD-MM-YYYY") === day.date.format("DD-MM-YYYY")
-												? "active"
+												? styles.active
 												: ""
 										}
 										key={day.date.format("DD-MM-YYYY")}
