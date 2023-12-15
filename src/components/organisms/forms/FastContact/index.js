@@ -4,7 +4,7 @@ import Button from "@/components/atoms/Button";
 import { Checkbox } from "@/components/atoms/Checkbox";
 import { Label } from "@/components/atoms/Label";
 import { emailRegex, phoneRegex } from "@/constants/regex";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
@@ -15,7 +15,7 @@ const Form = () => {
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm({ mode: "onBlur" });
+	} = useForm({ mode: "onTouched" });
 
 	const [isEmailSent, setIsEmailSent] = useState(false);
 	const [submitProccessing, setSubmitProccessing] = useState(false);
@@ -31,7 +31,7 @@ const Form = () => {
         if (response.success) {
           reset();
           setIsEmailSent("success");
-          setIsEmailSent(false);
+          setSubmitProccessing(false);
         } else {
           setIsEmailSent("failed");
 					setSubmitProccessing(false);
@@ -39,7 +39,7 @@ const Form = () => {
 			})
 			.catch(() => {
 				setIsEmailSent("failed");
-				setIsEmailSent(false);
+				setSubmitProccessing(false);
 			});
 	};
 	return (

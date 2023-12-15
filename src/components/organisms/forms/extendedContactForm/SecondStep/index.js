@@ -13,7 +13,7 @@ const SecondStep = ({ prevData, setData, setStep }) => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm({
-		mode: "onBlur",
+		mode: "onTouched",
 		defaultValues: { ...prevData?.Brand },
 	});
 

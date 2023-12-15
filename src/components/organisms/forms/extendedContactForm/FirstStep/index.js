@@ -13,7 +13,7 @@ const FirstStep = ({ prevData, setData, setStep }) => {
 		watch,
 		formState: { errors },
 	} = useForm({
-		mode: "onBlur",
+		mode: "onTouched",
 		defaultValues: {
 			name: prevData?.Client?.name || "",
 			"e-mail": prevData?.Client?.["e-mail"] || "",

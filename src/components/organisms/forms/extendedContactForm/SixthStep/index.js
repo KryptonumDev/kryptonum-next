@@ -12,7 +12,7 @@ const SixthStep = ({ prevData, setData, setStep, setIsEmailSent }) => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: 'onBlur',
+    mode: 'onTouched',
     defaultValues: { ...prevData?.Date }
   })
 

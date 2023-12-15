@@ -15,7 +15,7 @@ const FaqContact = ({ cta }) => {
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm({ mode: "onBlur" });
+	} = useForm({ mode: "onTouched" });
 
 	const [isEmailSent, setIsEmailSent] = useState(false);
 	const [submitProccessing, setSubmitProccessing] = useState(false);
@@ -39,6 +39,7 @@ const FaqContact = ({ cta }) => {
 			})
 			.catch(() => {
 				setIsEmailSent("failed");
+				setSubmitProccessing(false);
 			});
 	};
 

@@ -14,7 +14,7 @@ const ThirdStep = ({ prevData, setData, setStep }) => {
 		watch,
 		formState: { errors },
 	} = useForm({
-		mode: "onBlur",
+		mode: "onTouched",
 		defaultValues: {
 			"Need website": !!prevData?.Needed?.["Need website"],
 			"e-commerce": !!prevData?.Needed?.["Need website"]?.["e-commerce"],

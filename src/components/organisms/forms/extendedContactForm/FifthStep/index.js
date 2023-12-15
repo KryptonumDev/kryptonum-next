@@ -9,7 +9,7 @@ const FifthStep = ({ prevData, setData, setStep }) => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm({
-		mode: "onBlur",
+		mode: "onTouched",
 		defaultValues: { ...prevData?.Additional },
 	});
 
