@@ -1,4 +1,4 @@
-import { emailRegex } from "@/constants/regex";
+import { emailRegex } from "@/global/constants";
 import sgMail from "@sendgrid/mail";
 import { NextResponse } from "next/server";
 

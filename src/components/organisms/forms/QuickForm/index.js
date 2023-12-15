@@ -2,7 +2,7 @@
 import Button from "@/components/atoms/Button";
 import { Checkbox } from "@/components/atoms/Checkbox";
 import { Label } from "@/components/atoms/Label";
-import { emailRegex, phoneRegex } from "@/constants/regex";
+import { emailRegex, phoneRegex } from "@/global/constants";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useForm } from "react-hook-form";

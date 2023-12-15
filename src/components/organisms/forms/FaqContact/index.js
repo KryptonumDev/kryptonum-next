@@ -3,7 +3,7 @@
 import Button from "@/components/atoms/Button";
 import { Checkbox } from "@/components/atoms/Checkbox";
 import { Label } from "@/components/atoms/Label";
-import { emailRegex } from "@/constants/regex";
+import { emailRegex } from "@/global/constants";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useForm } from "react-hook-form";

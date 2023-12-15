@@ -2,7 +2,7 @@
 
 import Button from "@/components/atoms/Button";
 import { Label } from "@/components/atoms/Label";
-import { emailRegex } from "@/constants/regex";
+import { emailRegex } from "@/global/constants";
 import { useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
 
