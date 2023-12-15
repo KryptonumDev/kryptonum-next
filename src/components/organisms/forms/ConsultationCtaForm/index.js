@@ -60,6 +60,7 @@ const ConsultationCtaForm = ({ cta }) => {
 			<Button
 				theme="primary"
 				className={styles.button}
+				disabled={submitProccessing}
 			>
 				{cta || "Wyślij wiadomość"}
 			</Button>

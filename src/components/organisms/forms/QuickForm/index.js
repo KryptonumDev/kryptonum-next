@@ -69,6 +69,7 @@ const Form = ({ cta, applyAdditionalStyles=false }) => {
 			<Button
 				theme="primary"
 				className={styles.button}
+				disabled={submitProccessing}
 			>
 				{cta || "Wyślij wiadomość"}
 			</Button>

@@ -72,7 +72,7 @@ const Form = () => {
 				register={register("check", { required: true })}
 				errors={errors}
 			/>
-			<Button theme="primary">Wyślij wiadomość</Button>
+			<Button theme="primary" disabled={submitProccessing}>Wyślij wiadomość</Button>
 			<AnimatePresence>
 				{isEmailSent === "success" && (
 					<motion.div className={styles.overlay}

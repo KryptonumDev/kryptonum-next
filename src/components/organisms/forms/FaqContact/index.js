@@ -67,7 +67,7 @@ const FaqContact = ({ cta }) => {
 				register={register("check", { required: true })}
 				errors={errors}
 			/>
-			<Button theme="primary">{cta || "Wyślij wiadomość"}</Button>
+			<Button theme="primary" disabled={submitProccessing}>{cta || "Wyślij wiadomość"}</Button>
 			<AnimatePresence>
 				{isEmailSent === "success" && (
 					<motion.div
