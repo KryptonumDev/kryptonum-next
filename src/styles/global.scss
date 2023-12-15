@@ -210,8 +210,8 @@ li strong {
   padding-top: clamp(16px, calc(24vw/7.68), 24px);
 }
 
-@media (max-width: 500px) {
-  .hero {
-    padding-top: unset;
-  }
-}
+// @media (max-width: 500px) {
+//   .hero {
+//     padding-top: unset;
+//   }
+// }
