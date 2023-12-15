@@ -41,7 +41,7 @@ const components = {
     image: (data) => (
       <ImageRenderer
         {...data}
-        sizes="(max-width: 1099px) 66vw, 100vw"
+        sizes="(max-width: 1099px) 100vw, 66vw"
       />
     ),
     quickForm: ({ value: { heading, subheading, cta} }) => <QuickForm data={{heading,subheading, cta}} isPortableContent={true} />,
