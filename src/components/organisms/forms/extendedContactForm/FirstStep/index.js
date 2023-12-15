@@ -40,12 +40,14 @@ const FirstStep = ({ prevData, setData, setStep }) => {
 				name="name"
 				register={register("name", { required: true, minLength: 3 })}
 				errors={errors}
+				type="text"
 			/>
 			<Label
 				title="Email"
 				name="e-mail"
 				register={register("e-mail", { required: true, pattern: emailRegex })}
 				errors={errors}
+				type="email"
 			/>
 			<Button className="nav-cta">{`Cześć${name ? `, ${name}` : ""}! Lecimy dalej!`}</Button>
 		</form>

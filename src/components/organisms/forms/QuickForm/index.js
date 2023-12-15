@@ -46,6 +46,7 @@ const Form = ({ cta, applyAdditionalStyles=false }) => {
 				register={register("name", { required: true, minLength: 3 })}
 				errors={errors}
         applyAdditionalStyles={applyAdditionalStyles}
+				type="text"
 			/>
 			<Label
 				title="Email"
@@ -53,6 +54,7 @@ const Form = ({ cta, applyAdditionalStyles=false }) => {
 				register={register("mail", { required: true, pattern: emailRegex })}
 				errors={errors}
         applyAdditionalStyles={applyAdditionalStyles}
+				type="email"
 			/>
 			<Label
 				title="Telefon"
@@ -60,6 +62,7 @@ const Form = ({ cta, applyAdditionalStyles=false }) => {
 				register={register("phone", { pattern: phoneRegex })}
 				errors={errors}
         applyAdditionalStyles={applyAdditionalStyles}
+				type="tel"
 			/>
 			<Checkbox
 				name="check"

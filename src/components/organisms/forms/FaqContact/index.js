@@ -53,6 +53,7 @@ const FaqContact = ({ cta }) => {
 				name="mail"
 				register={register("mail", { required: true, pattern: emailRegex })}
 				errors={errors}
+				type="email"
 			/>
 			<Label
 				title="Temat rozmowy"
@@ -61,6 +62,7 @@ const FaqContact = ({ cta }) => {
 				errors={errors}
 				placeholder="Daj znać, o czym chcesz pogadać :)"
 				rows={3}
+				type="text"
 			/>
 			<Checkbox
 				name="check"

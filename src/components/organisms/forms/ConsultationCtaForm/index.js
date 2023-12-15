@@ -45,12 +45,14 @@ const ConsultationCtaForm = ({ cta }) => {
 				name="name"
 				register={register("name", { required: true, minLength: 3 })}
 				errors={errors}
+				type="text"
 			/>
 			<Label
 				title="Email"
 				name="mail"
 				register={register("mail", { required: true, pattern: emailRegex })}
 				errors={errors}
+				type="email"
 			/>
 			<Checkbox
 				name="check"

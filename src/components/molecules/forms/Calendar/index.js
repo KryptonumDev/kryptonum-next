@@ -16,6 +16,7 @@ export const Calendar = ({ chosenDate, setChosenDate, chosenTime, setChosenTime,
           onClick={() => { setOpenedPopup('date') }}
           className={styles.input}
           placeholder="26/01/2023  |  Godzina"
+          type='date'
         />
         <CalendarIcon />
         <span className={styles.border} />

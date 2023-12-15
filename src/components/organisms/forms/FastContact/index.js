@@ -52,12 +52,14 @@ const Form = () => {
 				name="phone"
 				register={register("phone", { pattern: phoneRegex })}
 				errors={errors}
+				type="tel"
 			/>
 			<Label
 				title="Email"
 				name="mail"
 				register={register("mail", { required: true, pattern: emailRegex })}
 				errors={errors}
+				type="email"
 			/>
 			<Label
 				title="Temat rozmowy"
@@ -66,6 +68,7 @@ const Form = () => {
 				errors={errors}
 				placeholder="Daj znać, o czym chcesz pogadać :)"
 				rows={3}
+				type="text"
 			/>
 			<Checkbox
 				name="check"

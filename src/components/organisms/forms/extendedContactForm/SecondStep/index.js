@@ -80,6 +80,7 @@ const SecondStep = ({ prevData, setData, setStep }) => {
 				name={"additional link № 1"}
 				register={register("additional link № 1")}
 				errors={errors}
+				type="text"
 			/>
 			<AnimatePresence mode="wait">
 				{links?.slice(1)?.map((_, index) => (
@@ -93,6 +94,7 @@ const SecondStep = ({ prevData, setData, setStep }) => {
 							name={"additional link №" + (2 + index)}
 							register={register("additional link №" + (2 + index))}
 							errors={errors}
+							type="text"
 						/>
 					</motion.div>
 				))}
@@ -120,6 +122,7 @@ const SecondStep = ({ prevData, setData, setStep }) => {
 				errors={errors}
 				placeholder="Daj znać, o czym chcesz pogadać :)"
 				rows={3}
+				type="text"
 			/>
 			<Button className={styles.submit}>Czas na konkrety!</Button>
 		</form>

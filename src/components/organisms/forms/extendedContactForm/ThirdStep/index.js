@@ -205,6 +205,7 @@ const ThirdStep = ({ prevData, setData, setStep }) => {
 												register={register("Logo additional inform")}
 												errors={errors}
 												rows={3}
+												type="text"
 											/>
 										</motion.div>
 									)}

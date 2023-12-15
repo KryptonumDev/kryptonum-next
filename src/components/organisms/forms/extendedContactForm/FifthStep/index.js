@@ -32,6 +32,7 @@ const FifthStep = ({ prevData, setData, setStep }) => {
 				name="Additional information"
 				register={register("Additional information")}
 				errors={errors}
+				type="text"
 				readOnly
 			/>
 			<Button>Uwierzysz, że to prawie koniec?</Button>
