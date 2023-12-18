@@ -65,7 +65,7 @@ export default async function sitemap() {
     url: `${domain}/pl/zespol/${slug}`,
     lastModified: currentDate,
   }));
-  staticPages = staticPages.map(({ slug: { current: slug }}) => ({
+  staticPages = staticPages.map(slug => ({
     url: `${domain}${slug}`,
     lastModified: currentDate,
   }));
