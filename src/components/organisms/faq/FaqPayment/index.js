@@ -7,7 +7,7 @@ const FaqPayment = ({
 }) => {
   return (
     <section className={`${styles.answer} ${additionalStyles}`}>
-      <DecorativeHeading type="h3" className={styles.heading} decoration={false}>
+      <DecorativeHeading type="h3" decoration={false}>
         {heading}
       </DecorativeHeading>
       <Markdown className={styles.paragraph}>{paragraph}</Markdown>
