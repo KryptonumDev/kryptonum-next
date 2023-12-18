@@ -36,6 +36,7 @@
       pointer-events: none;
     }
     .item {
+      display:grid;
       counter-increment: counter;
       width: 66.6%;
       flex-shrink: 0;
@@ -55,7 +56,7 @@
     .img {
       height: 100%;
       width: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
   @media (max-width: 999px){
