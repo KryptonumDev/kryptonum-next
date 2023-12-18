@@ -12,11 +12,31 @@ export const scrollLock = (boolean) => {
 	}
 };
 
-export const Clamp = (minSize, vw, maxSize, unit = "rem") => {
-	return unit === "rem"
-		? `clamp(${minSize / 16}rem, ${vw / 7.68}vw, ${maxSize / 16}rem)`
-		: `clamp(${minSize}px, ${vw / 7.68}vw, ${maxSize}px)`;
-};
+export const phoneValidation = (e) => {
+  if (
+    (e.metaKey || e.ctrlKey) && e.key === 'a' ||
+    (e.metaKey || e.ctrlKey) && e.key === 'a' ||
+    (e.metaKey || e.ctrlKey) && e.key === 'c' ||
+    (e.metaKey || e.ctrlKey) && e.key === 'x' ||
+    (e.metaKey || e.ctrlKey) && e.key === 'v' ||
+    (e.metaKey || e.ctrlKey) && e.key === 'z' ||
+    e.key === 'ArrowLeft' ||
+    e.key === 'ArrowRight' ||
+    e.key === 'Home' ||
+    e.key === 'End' ||
+    e.key === 'Backspace' ||
+    e.key === 'Delete' ||
+    e.key === 'Enter' ||
+    e.key === 'Tab'
+  ) return
+  
+  const allowedCharactersPattern = /[0-9()_+\-\s]/;
+  !allowedCharactersPattern.test(e.key) && e.preventDefault()
+}
+
+export const removeHtmlTags = (data) => {
+  return data.replace(/<[^>]*>/g, '');
+}
 
 export const removeMarkdown = (markdown) => {
 	return markdown?.replace(/\*\*(.*?)\*\*/g, "$1");

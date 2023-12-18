@@ -1,8 +1,7 @@
 "use client";
-
 import Button from "@/components/atoms/Button";
 import { Label } from "@/components/atoms/Label";
-import { emailRegex } from "@/global/constants";
+import { regex } from "@/global/constants";
 import { useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
 
@@ -45,7 +44,7 @@ const FirstStep = ({ prevData, setData, setStep }) => {
 			<Label
 				title="Email"
 				name="e-mail"
-				register={register("e-mail", { required: true, pattern: emailRegex })}
+				register={register("e-mail", { required: true, pattern: regex.email })}
 				errors={errors}
 				type="email"
 			/>

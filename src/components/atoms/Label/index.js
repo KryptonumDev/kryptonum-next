@@ -12,6 +12,7 @@ export const Label = ({
   errors,
   error = "To pole jest wymagane",
   type = "text",
+  ...props
 }) => (
   <label className={styles.label}>
     <span
@@ -31,6 +32,7 @@ export const Label = ({
           errors[name] ? `${styles.errored} ${styles.input}` : `${styles.input}`
         }
         {...register}
+        {...props}
       />
     ) : (
       <input
@@ -40,6 +42,7 @@ export const Label = ({
         }
         type={type}
         {...register}
+        {...props}
       />
     )}
     <span

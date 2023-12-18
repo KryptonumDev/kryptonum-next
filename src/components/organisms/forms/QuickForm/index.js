@@ -2,7 +2,7 @@
 import Button from "@/components/atoms/Button";
 import { Checkbox } from "@/components/atoms/Checkbox";
 import { Label } from "@/components/atoms/Label";
-import { emailRegex, phoneRegex } from "@/global/constants";
+import { regex } from "@/global/constants";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -51,7 +51,7 @@ const Form = ({ cta, applyAdditionalStyles=false }) => {
 			<Label
 				title="Email"
 				name="mail"
-				register={register("mail", { required: true, pattern: emailRegex })}
+				register={register("mail", { required: true, pattern: regex.email })}
 				errors={errors}
         applyAdditionalStyles={applyAdditionalStyles}
 				type="email"
@@ -59,7 +59,7 @@ const Form = ({ cta, applyAdditionalStyles=false }) => {
 			<Label
 				title="Telefon"
 				name="phone"
-				register={register("phone", { pattern: phoneRegex })}
+				register={register("phone", { pattern: regex.phone })}
 				errors={errors}
         applyAdditionalStyles={applyAdditionalStyles}
 				type="tel"
