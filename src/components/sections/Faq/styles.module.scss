@@ -4,11 +4,11 @@
     grid-template-columns: auto auto;
     align-items: flex-end;
     justify-content: space-between;
-    margin-bottom: clamp(24px, calc(32vw/7.68), 72px);
+    margin-bottom: clamp(24px, calc(32vw / 7.68), 72px);
     .hint {
       display: flex;
       gap: 8px;
-      font-size: clamp(calc(16rem/16), calc(22vw/7.68), calc(22rem/16));
+      font-size: clamp(calc(16rem / 16), calc(22vw / 7.68), calc(22rem / 16));
     }
     @media (max-width: 999px) {
       grid-template-columns: 1fr;
@@ -17,11 +17,11 @@
   }
 
   .wrapper {
-    counter-reset: faqCounter;
+    counter-reset: counter 0;
     details {
-      counter-increment: faqCounter;
-      &:nth-child(-n+9) summary p::before {
-        content: "/0" counter(faqCounter);
+      counter-increment: counter 1;
+      &:nth-child(-n + 9) summary p::before {
+        content: "/0" counter(counter);
       }
       summary {
         &::marker,
@@ -37,16 +37,17 @@
         position: relative;
         p {
           &::before {
-            content: "/" counter(faqCounter);
+            content: "/" counter(counter);
             display: inline-block;
             width: 2rem;
             font-size: 1rem;
             margin-top: 2px;
-            margin-right: clamp(8px, calc(8vw/7.68), 16px);
+            margin-right: clamp(8px, calc(8vw / 7.68), 16px);
           }
         }
-        &::before, &::after {
-          content: '';
+        &::before,
+        &::after {
+          content: "";
           position: absolute;
           left: 0;
           bottom: 0;
@@ -58,7 +59,7 @@
           transform: scaleX(0);
           transform-origin: right;
           background-image: var(--gradient);
-          transition: transform .8s var(--easing);
+          transition: transform 0.8s var(--easing);
         }
         cursor: pointer;
         .plusIcon {
@@ -70,7 +71,7 @@
             border-radius: 4px;
             &:nth-child(2) {
               transform: translateY(-2px) rotate(90deg);
-              transition: transform .3s;
+              transition: transform 0.3s;
             }
           }
         }
@@ -89,7 +90,7 @@
           }
         }
         .answer {
-          animation: details-show .3s;
+          animation: details-show 0.3s;
         }
       }
       @keyframes details-show {
@@ -97,14 +98,13 @@
           opacity: 0;
           transform: translateY(-13px);
         }
-  
+
         to {
           opacity: 1;
           transform: translateY(0);
         }
       }
     }
-    
   }
 
   .faqForm {
@@ -131,12 +131,12 @@
     }
 
     .heading {
-      font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(30rem/16));
+      font-size: clamp(calc(20rem / 16), calc(32vw / 7.68), calc(30rem / 16));
       margin-bottom: 16px;
     }
 
     .subheading {
-      font-size: clamp(calc(16rem/16), calc(22vw/7.68), calc(22rem/16));
+      font-size: clamp(calc(16rem / 16), calc(22vw / 7.68), calc(22rem / 16));
       margin-bottom: 24px;
     }
 
@@ -146,19 +146,19 @@
       align-items: center;
       gap: 8px;
       a {
-        font-size: clamp(calc(20rem/16), calc(22vw/7.68), calc(22rem/16));
+        font-size: clamp(calc(20rem / 16), calc(22vw / 7.68), calc(22rem / 16));
       }
       @media (max-width: 399px) {
         grid-template-columns: 48px auto;
       }
       .paragraph {
         grid-column: 3/1;
-        font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(30rem/16));
+        font-size: clamp(calc(20rem / 16), calc(32vw / 7.68), calc(30rem / 16));
       }
       .img {
-        height:auto;
-        width:100%;
-        display:flex;
+        height: auto;
+        width: 100%;
+        display: flex;
         object-fit: cover;
       }
     }

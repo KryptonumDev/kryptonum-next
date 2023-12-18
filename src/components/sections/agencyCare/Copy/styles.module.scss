@@ -11,19 +11,19 @@
   }
 
   h2 {
-    margin-bottom: clamp(28px, calc(48vw/7.68), 48px);
+    margin-bottom: clamp(28px, calc(48vw / 7.68), 48px);
   }
 
   .paragraph,
   .wrapper,
   .text p:first-child,
   .headline {
-    font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(30rem/16));
+    font-size: clamp(calc(20rem / 16), calc(32vw / 7.68), calc(30rem / 16));
   }
 
   .paragraph2,
   .text {
-    font-size: clamp(calc(16rem/16), calc(22vw/7.68), calc(22rem/16));
+    font-size: clamp(calc(16rem / 16), calc(22vw / 7.68), calc(22rem / 16));
   }
 
   .imageWrapper {
@@ -42,7 +42,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 32px;
 
-    margin: clamp(32px, calc(48vw/7.68), 96px) 0 64px;
+    margin: clamp(32px, calc(48vw / 7.68), 96px) 0 64px;
 
     .text {
       p:not(:last-child) {
@@ -56,11 +56,11 @@
   }
 
   .headline {
-    margin-bottom: clamp(28px, calc(48vw/7.68), 72px);
+    margin-bottom: clamp(28px, calc(48vw / 7.68), 72px);
   }
 
   .wrapper {
-    counter-reset: counter;
+    counter-reset: counter 0;
 
     .item {
       display: grid;
@@ -68,10 +68,10 @@
       gap: 32px;
 
       &:not(:last-of-type) {
-        margin-bottom: clamp(32px, calc(64vw/7.68), 96px);
+        margin-bottom: clamp(32px, calc(64vw / 7.68), 96px);
       }
 
-      counter-increment: counter;
+      counter-increment: counter 1;
 
       p {
         display: flex;
@@ -81,13 +81,13 @@
         &::before {
           content: "/" counter(counter);
 
-          font-size: clamp(calc(16rem/16), calc(22vw/7.68), calc(22rem/16));
+          font-size: clamp(calc(16rem / 16), calc(22vw / 7.68), calc(22rem / 16));
           margin-bottom: 16px;
           display: block;
         }
       }
 
-      &:nth-child(-n+10) p::before {
+      &:nth-child(-n + 9) p::before {
         content: "/0" counter(counter);
       }
 
@@ -134,6 +134,5 @@
         }
       }
     }
-
   }
 }

@@ -1,50 +1,49 @@
 .section {
   .title {
-    margin: clamp(32px, calc(64vw/7.68), 96px) auto clamp(28px, calc(48vw/7.68), 64px);
-    
+    margin: clamp(32px, calc(64vw / 7.68), 96px) auto clamp(28px, calc(48vw / 7.68), 64px);
 
     &:not(.heading) {
       text-align: center;
 
-      font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(30rem/16));
+      font-size: clamp(calc(20rem / 16), calc(32vw / 7.68), calc(30rem / 16));
     }
   }
 
   .wrapper {
-    counter-reset: counter;
+    counter-reset: counter 0;
 
-    margin-bottom: clamp(28px, calc(48vw/7.68), 64px);
+    margin-bottom: clamp(28px, calc(48vw / 7.68), 64px);
 
     .item {
-      font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(30rem/16));
+      font-size: clamp(calc(20rem / 16), calc(32vw / 7.68), calc(30rem / 16));
       list-style-type: none;
       border-top: 1px solid var(--neutral-800);
       border-bottom: 1px solid var(--neutral-800);
 
-      padding: clamp(24px, calc(40vw/7.68), 48px) 0;
+      padding: clamp(24px, calc(40vw / 7.68), 48px) 0;
 
       &:not(:last-child) {
-        margin-bottom: clamp(32px, calc(48vw/7.68), 64px);
+        margin-bottom: clamp(32px, calc(48vw / 7.68), 64px);
       }
 
-      counter-increment: counter;
+      counter-increment: counter 1;
       display: grid;
 
       span {
         display: grid;
-        max-width: calc(840rem/16);
+        max-width: calc(840rem / 16);
         margin: 0 auto;
         grid-template-columns: auto 1fr;
 
-        column-gap: clamp(8px, calc(16vw/7.68), 32px);
+        column-gap: clamp(8px, calc(16vw / 7.68), 32px);
 
         &::before {
           content: "/" counter(counter);
           display: inline-block;
 
-          width: clamp(55px, calc(90vw/7.68), 160px);
+          width: clamp(55px, calc(90vw / 7.68), 160px);
 
-          font-size: clamp(calc(28rem/16), calc(46vw/7.68), calc(60rem/16));
+          font-size: clamp(calc(28rem / 16), calc(46vw / 7.68), calc(60rem / 16));
           color: var(--primary-400);
           background-image: var(--gradient);
           -webkit-background-clip: text;
@@ -57,7 +56,7 @@
         order: 1;
       }
 
-      &:nth-child(-n+10) span::before {
+      &:nth-child(-n + 9) span::before {
         content: "/0" counter(counter);
       }
     }
@@ -77,15 +76,14 @@
   }
 
   .paragraph {
-    font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(30rem/16));
+    font-size: clamp(calc(20rem / 16), calc(32vw / 7.68), calc(30rem / 16));
     &.singleParagraph {
-      max-width: calc(840rem/16);
+      max-width: calc(840rem / 16);
       margin: 0 auto;
     }
   }
 
   .paragraph2 {
-    font-size: clamp(calc(16rem/16), calc(22vw/7.68), calc(22rem/16));
-    
+    font-size: clamp(calc(16rem / 16), calc(22vw / 7.68), calc(22rem / 16));
   }
 }
