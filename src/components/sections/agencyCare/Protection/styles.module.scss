@@ -28,13 +28,13 @@
   }
 
   .wrapper {
-    counter-reset: counter;
+    counter-reset: counter 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: clamp(16px, calc(24vw / 7.68), 48px);
 
     li {
-      counter-increment: counter;
+      counter-increment: counter 1;
       list-style-type: none;
       border: 1px solid var(--neutral-800);
       padding: clamp(20px, calc(32vw / 7.68), 32px);

@@ -17,13 +17,13 @@
 }
 
 .elements {
-  counter-reset: counter;
+  counter-reset: counter 0;
 
   .item {
     display: grid;
     grid-template-columns: 78px 2fr 1fr;
     align-items: flex-start;
-    counter-increment: counter;
+    counter-increment: counter 1;
 
     &:not(:last-child) {
       border-bottom: 1px solid var(--neutral-700);

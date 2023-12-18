@@ -21,7 +21,7 @@
       overflow-x: auto;
       overflow-y: hidden;
       gap: 32px;
-      counter-reset: counter;
+      counter-reset: counter 0;
     }
     position: relative;
     &::before {
@@ -37,7 +37,7 @@
     }
     .item {
       display: grid;
-      counter-increment: counter;
+      counter-increment: counter 1;
       width: 66.6%;
       flex-shrink: 0;
       &:last-child {

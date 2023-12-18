@@ -41,9 +41,9 @@
         margin-bottom: 24px;
       }
       ol {
-        counter-reset: counter;
+        counter-reset: counter 0;
         li {
-          counter-increment: counter;
+          counter-increment: counter 1;
           list-style-type: none;
           display: grid;
           grid-template-columns: 32px auto;

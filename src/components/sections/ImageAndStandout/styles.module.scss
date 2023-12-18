@@ -12,13 +12,13 @@
     font-size: clamp(calc(16rem / 16), calc(22vw / 7.68), calc(22rem / 16));
 
     ol {
-      counter-reset: counter;
+      counter-reset: counter 0;
       display: grid;
       gap: 16px;
 
       li {
         list-style-type: none;
-        counter-increment: counter;
+        counter-increment: counter 1;
         display: grid;
         grid-template-columns: auto 1fr;
         gap: 16px;

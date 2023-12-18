@@ -2,13 +2,13 @@
   border: 1px solid var(--neutral-800);
   padding: 32px clamp(16px, calc(32vw / 7.68), 32px);
   .orderedList {
-    counter-reset: counter;
+    counter-reset: counter 0;
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 24px !important;
 
     li {
-      counter-increment: counter;
+      counter-increment: counter 1;
       font-size: clamp(calc(16rem / 16), calc(22vw / 7.68), calc(22rem / 16));
 
       .title {

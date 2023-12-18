@@ -15,10 +15,10 @@
 
     list-style-type: none;
     font-size: clamp(calc(16rem / 16), calc(22vw / 7.68), calc(22rem / 16));
-    counter-reset: counter;
+    counter-reset: counter 0;
 
     li {
-      counter-increment: counter;
+      counter-increment: counter 1;
 
       &::before {
         content: "/" counter(counter);

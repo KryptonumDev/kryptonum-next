@@ -14,7 +14,7 @@
   }
 
   .wrapper {
-    counter-reset: counter;
+    counter-reset: counter 0;
 
     .item {
       overflow: hidden;
@@ -51,7 +51,7 @@
 
       align-items: start;
       gap: clamp(24px, calc(32vw / 7.68), 32px) 32px;
-      counter-increment: counter;
+      counter-increment: counter 1;
 
       h3 {
         font-size: clamp(calc(18rem / 16), calc(22vw / 7.68), calc(22rem / 16));

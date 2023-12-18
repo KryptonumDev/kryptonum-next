@@ -81,13 +81,13 @@
   }
 
   ol.portableList {
-    counter-reset: counter;
+    counter-reset: counter 0;
 
     li {
       display: grid;
       column-gap: 16px;
       grid-template-columns: 32px 1fr;
-      counter-increment: counter;
+      counter-increment: counter 1;
 
       &::before {
         content: counter(counter) ".";

@@ -10,7 +10,7 @@
   }
 
   .wrapper {
-    counter-reset: counter;
+    counter-reset: counter 0;
 
     margin-bottom: clamp(28px, calc(48vw / 7.68), 64px);
 
@@ -26,7 +26,7 @@
         margin-bottom: clamp(32px, calc(48vw / 7.68), 64px);
       }
 
-      counter-increment: counter;
+      counter-increment: counter 1;
       display: grid;
 
       span {

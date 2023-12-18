@@ -21,7 +21,7 @@
   }
 
   .wrapper {
-    counter-reset: counter;
+    counter-reset: counter 0;
   }
 
   .paragraph {
@@ -70,7 +70,7 @@
     grid-template-columns: 1fr 1fr;
     align-items: start;
     gap: 32px;
-    counter-increment: counter;
+    counter-increment: counter 1;
 
     .title {
       font-size: clamp(calc(20rem / 16), calc(32vw / 7.68), calc(30rem / 16));
