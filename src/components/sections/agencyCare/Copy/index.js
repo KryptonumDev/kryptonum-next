@@ -33,7 +33,7 @@ const Copy = ({
 					<Img
 						data={copy_Img}
 						className={styles.img}
-						sizes="(max-width: 999px) 50vw, 100vw"
+						sizes="(max-width: 999px) 100vw, 50vw"
 					/>
 				</div>
 			</div>
@@ -48,7 +48,7 @@ const Copy = ({
 						<Img
 							data={item.img}
 							className={styles.img}
-							sizes="(max-width: 999px) 50vw, 100vw"
+							sizes="(max-width: 999px) 100vw, 50vw"
 						/>
 					</div>
 				))}

@@ -20,7 +20,7 @@ const Attitude = ({
 			<Img
 				data={attitude_Img}
 				className={styles.img}
-				sizes="(max-width: 899px) 40vw, 100vw"
+				sizes="(max-width: 899px) 100vw, 40vw"
 			/>
 			<Markdown className={styles.claim}>{attitude_Claim}</Markdown>
 		</section>
