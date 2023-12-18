@@ -7,10 +7,10 @@
     max-width: 500px;
     font-size: clamp(calc(20rem/16), calc(28vw/7.68), calc(28rem/16));
   }
-  .swiper-slide {
-    transition: transform .5s var(--easing);
+  .active {
+    transition: transform 0.5s var(--easing);
   }
-  .swiper-slide:not(.swiper-slide-active) {
+  .slide:not(.active) {
     transform: scale(.95);
   }
   .slider {

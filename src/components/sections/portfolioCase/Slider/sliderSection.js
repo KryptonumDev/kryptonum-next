@@ -37,7 +37,7 @@ const SliderSection = ({ arrowLeft, arrowRight, slides, children }) => {
         onSlideChange={(slider) => setActiveIndex(slider.activeIndex)}
       >
         {slides.map((slide, i) => (
-          <SwiperSlide className={styles.slide} key={i}>
+          <SwiperSlide className={ i==activeIndex ?  `${styles.slide} ${styles.active}` : styles.slide} key={i}>
             <div>
               <Img data={slide.img} className={styles.img} sizes="40px" />
               <Markdown className={styles.title}>{slide.title}</Markdown>
