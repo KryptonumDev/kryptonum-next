@@ -2,7 +2,7 @@
 import Button from "@/components/atoms/Button";
 import { Checkbox } from "@/components/atoms/Checkbox";
 import { Label } from "@/components/atoms/Label";
-import { emailRegex } from "@/global/constants";
+import { regex } from "@/global/constants";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -50,7 +50,7 @@ const ConsultationCtaForm = ({ cta }) => {
 			<Label
 				title="Email"
 				name="mail"
-				register={register("mail", { required: true, pattern: emailRegex })}
+				register={register("mail", { required: true, pattern: regex.email })}
 				errors={errors}
 				type="email"
 			/>
