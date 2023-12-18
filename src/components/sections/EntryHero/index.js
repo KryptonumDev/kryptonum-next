@@ -14,7 +14,6 @@ const EntryHero = ({
   img, 
   author 
 }) => {
-  _createdAt = formatDateToPolishLocale(_createdAt);
 	return (
 		<section className={`${styles.wrapper} hero`}>
 			<header className={author ? styles.hasAuthor : ""}>
@@ -43,13 +42,13 @@ const EntryHero = ({
 						</Link>
 					))}
 				</div>
-				<p className={styles.createdAt}>{_createdAt}</p>
+				<p className={styles.createdAt}>{formatDateToPolishLocale(_createdAt)}</p>
 			</header>
 			<Img
 				data={img}
 				className={styles.img}
 				priority={true}
-				sizes="(max-width: 1199px) 40vw, 100vw"
+				sizes="(max-width: 1199px) 100vw, 40vw"
 			/>
 		</section>
 	);
