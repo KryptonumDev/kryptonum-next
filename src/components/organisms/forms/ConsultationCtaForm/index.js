@@ -2,7 +2,7 @@
 import Button from "@/components/atoms/Button";
 import { Checkbox } from "@/components/atoms/Checkbox";
 import { Label } from "@/components/atoms/Label";
-import { emailRegex } from "@/constants/regex";
+import { emailRegex } from "@/global/constants";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -14,7 +14,7 @@ const ConsultationCtaForm = ({ cta }) => {
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm({ mode: "onBlur" });
+	} = useForm({ mode: "onTouched" });
 
 	const [isEmailSent, setIsEmailSent] = useState(false);
 	const [submitProccessing, setSubmitProccessing] = useState(false);
@@ -45,12 +45,14 @@ const ConsultationCtaForm = ({ cta }) => {
 				name="name"
 				register={register("name", { required: true, minLength: 3 })}
 				errors={errors}
+				type="text"
 			/>
 			<Label
 				title="Email"
 				name="mail"
 				register={register("mail", { required: true, pattern: emailRegex })}
 				errors={errors}
+				type="email"
 			/>
 			<Checkbox
 				name="check"
@@ -60,6 +62,7 @@ const ConsultationCtaForm = ({ cta }) => {
 			<Button
 				theme="primary"
 				className={styles.button}
+				disabled={submitProccessing}
 			>
 				{cta || "Wyślij wiadomość"}
 			</Button>

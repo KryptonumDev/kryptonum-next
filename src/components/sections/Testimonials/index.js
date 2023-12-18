@@ -12,7 +12,7 @@ const Testimonials = ({ heading, testimonials }) => {
 			arrowLeft={ArrowLeft}
 			arrowRight={ArrowRight}
 		>
-			<DecorativeHeading type="h3">{heading || "Zobacz, co mówią **klienci**"}</DecorativeHeading>
+			<DecorativeHeading type="h3">{heading || "Zobacz, co mówią o&nbsp;nas **klienci**:"}</DecorativeHeading>
 		</TestimonialsSection>
 	);
 };

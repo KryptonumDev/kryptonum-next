@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 
 const FourthStep = ({ prevData, setData, setStep }) => {
 	const { register, handleSubmit } = useForm({
-		mode: "onBlur",
+		mode: "onTouched",
 		defaultValues: { ...prevData["Deadline & Budget"] },
 	});
 

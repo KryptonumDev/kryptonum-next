@@ -14,7 +14,7 @@ const ThirdStep = ({ prevData, setData, setStep }) => {
 		watch,
 		formState: { errors },
 	} = useForm({
-		mode: "onBlur",
+		mode: "onTouched",
 		defaultValues: {
 			"Need website": !!prevData?.Needed?.["Need website"],
 			"e-commerce": !!prevData?.Needed?.["Need website"]?.["e-commerce"],
@@ -205,6 +205,7 @@ const ThirdStep = ({ prevData, setData, setStep }) => {
 												register={register("Logo additional inform")}
 												errors={errors}
 												rows={3}
+												type="text"
 											/>
 										</motion.div>
 									)}

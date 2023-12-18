@@ -2,7 +2,7 @@
 
 import Button from "@/components/atoms/Button";
 import { Label } from "@/components/atoms/Label";
-import { emailRegex } from "@/constants/regex";
+import { emailRegex } from "@/global/constants";
 import { useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
 
@@ -13,7 +13,7 @@ const FirstStep = ({ prevData, setData, setStep }) => {
 		watch,
 		formState: { errors },
 	} = useForm({
-		mode: "onBlur",
+		mode: "onTouched",
 		defaultValues: {
 			name: prevData?.Client?.name || "",
 			"e-mail": prevData?.Client?.["e-mail"] || "",
@@ -40,12 +40,14 @@ const FirstStep = ({ prevData, setData, setStep }) => {
 				name="name"
 				register={register("name", { required: true, minLength: 3 })}
 				errors={errors}
+				type="text"
 			/>
 			<Label
 				title="Email"
 				name="e-mail"
 				register={register("e-mail", { required: true, pattern: emailRegex })}
 				errors={errors}
+				type="email"
 			/>
 			<Button className="nav-cta">{`Cześć${name ? `, ${name}` : ""}! Lecimy dalej!`}</Button>
 		</form>

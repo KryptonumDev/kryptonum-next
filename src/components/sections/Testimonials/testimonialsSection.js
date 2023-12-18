@@ -42,7 +42,7 @@ const TestimonialsSection = ({ testimonials, quote, arrowLeft, arrowRight, child
 								<Button data={cta} />
 							</div>
 						</div>
-						<div className={styles.context}>
+						<div className={styles.content}>
 							{quote}
 							<p>{text}</p>
 						</div>

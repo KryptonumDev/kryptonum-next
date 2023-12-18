@@ -11,6 +11,7 @@ export const Label = ({
 	register,
 	errors,
 	error = "To pole jest wymagane",
+	type = "text"
 }) => (
 	<label className={styles.label}>
 		<span className={applyAdditionalStyles ? `${styles.legend} ${styles.additionalStyles}` : styles.legend}>{title}</span>
@@ -25,6 +26,7 @@ export const Label = ({
 			<input
 				placeholder={placeholder}
 				className={errors[name] ? `${styles.errored} ${styles.input}` : `${styles.input}`}
+				type={type}
 				{...register}
 			/>
 		)}

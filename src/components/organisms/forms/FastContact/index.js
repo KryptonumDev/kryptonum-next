@@ -3,8 +3,8 @@
 import Button from "@/components/atoms/Button";
 import { Checkbox } from "@/components/atoms/Checkbox";
 import { Label } from "@/components/atoms/Label";
-import { emailRegex, phoneRegex } from "@/constants/regex";
-import { AnimatePresence } from "framer-motion";
+import { emailRegex, phoneRegex } from "@/global/constants";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
@@ -15,7 +15,7 @@ const Form = () => {
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm({ mode: "onBlur" });
+	} = useForm({ mode: "onTouched" });
 
 	const [isEmailSent, setIsEmailSent] = useState(false);
 	const [submitProccessing, setSubmitProccessing] = useState(false);
@@ -31,7 +31,7 @@ const Form = () => {
         if (response.success) {
           reset();
           setIsEmailSent("success");
-          setIsEmailSent(false);
+          setSubmitProccessing(false);
         } else {
           setIsEmailSent("failed");
 					setSubmitProccessing(false);
@@ -39,7 +39,7 @@ const Form = () => {
 			})
 			.catch(() => {
 				setIsEmailSent("failed");
-				setIsEmailSent(false);
+				setSubmitProccessing(false);
 			});
 	};
 	return (
@@ -52,12 +52,14 @@ const Form = () => {
 				name="phone"
 				register={register("phone", { pattern: phoneRegex })}
 				errors={errors}
+				type="tel"
 			/>
 			<Label
 				title="Email"
 				name="mail"
 				register={register("mail", { required: true, pattern: emailRegex })}
 				errors={errors}
+				type="email"
 			/>
 			<Label
 				title="Temat rozmowy"
@@ -66,13 +68,14 @@ const Form = () => {
 				errors={errors}
 				placeholder="Daj znać, o czym chcesz pogadać :)"
 				rows={3}
+				type="text"
 			/>
 			<Checkbox
 				name="check"
 				register={register("check", { required: true })}
 				errors={errors}
 			/>
-			<Button theme="primary">Wyślij wiadomość</Button>
+			<Button theme="primary" disabled={submitProccessing}>Wyślij wiadomość</Button>
 			<AnimatePresence>
 				{isEmailSent === "success" && (
 					<motion.div className={styles.overlay}

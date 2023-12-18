@@ -14,9 +14,9 @@ const ContentSection = ({ share, shareIcon, link, content, children }) => {
 				const navElement = document.querySelector("nav.nav:not(.fixed)");
 				const section = ref.current;
 				if (navElement) {
-					section.classList.add(styles.transform);
-				} else {
 					section.classList.remove(styles.transform);
+				} else {
+					section.classList.add(styles.transform);
 				}
 			}
 		};

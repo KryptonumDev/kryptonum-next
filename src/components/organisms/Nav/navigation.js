@@ -116,10 +116,10 @@ const Navigation = ({
             <span></span>
             <span></span>
           </button>
-          <div className={styles.navList}>
+          <div className={`${styles.navList} navList`}>
             <ul>
-              <li className={styles.navCtaMobile}>
-                <Button href="/pl/kontakt" onClick={(e) => handleNavLinks(e)}>
+              <li className={`${styles.navCtaMobile} navCtaMobile`}>
+                <Button href="/pl/kontakt" onClick={() => handleOverlay()}>
                   Darmowa konsultacja
                 </Button>
               </li>

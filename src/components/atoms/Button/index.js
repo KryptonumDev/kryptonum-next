@@ -5,9 +5,9 @@ import styles from "./styles.module.scss";
 const Button = ({
   data,
   theme = "secondary",
-  children,
   href, 
   className, 
+  children,
   ...props }) => {
   if (data) {
     theme = data.theme;

@@ -2,7 +2,7 @@
 import Button from "@/components/atoms/Button";
 import { Checkbox } from "@/components/atoms/Checkbox";
 import { Label } from "@/components/atoms/Label";
-import { emailRegex, phoneRegex } from "@/constants/regex";
+import { emailRegex, phoneRegex } from "@/global/constants";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -14,7 +14,7 @@ const Form = ({ cta, applyAdditionalStyles=false }) => {
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm({ mode: "onBlur" });
+	} = useForm({ mode: "onTouched" });
 
 	const [isEmailSent, setIsEmailSent] = useState(false);
 	const [submitProccessing, setSubmitProccessing] = useState(false);
@@ -46,6 +46,7 @@ const Form = ({ cta, applyAdditionalStyles=false }) => {
 				register={register("name", { required: true, minLength: 3 })}
 				errors={errors}
         applyAdditionalStyles={applyAdditionalStyles}
+				type="text"
 			/>
 			<Label
 				title="Email"
@@ -53,6 +54,7 @@ const Form = ({ cta, applyAdditionalStyles=false }) => {
 				register={register("mail", { required: true, pattern: emailRegex })}
 				errors={errors}
         applyAdditionalStyles={applyAdditionalStyles}
+				type="email"
 			/>
 			<Label
 				title="Telefon"
@@ -60,6 +62,7 @@ const Form = ({ cta, applyAdditionalStyles=false }) => {
 				register={register("phone", { pattern: phoneRegex })}
 				errors={errors}
         applyAdditionalStyles={applyAdditionalStyles}
+				type="tel"
 			/>
 			<Checkbox
 				name="check"
@@ -69,6 +72,7 @@ const Form = ({ cta, applyAdditionalStyles=false }) => {
 			<Button
 				theme="primary"
 				className={styles.button}
+				disabled={submitProccessing}
 			>
 				{cta || "Wyślij wiadomość"}
 			</Button>

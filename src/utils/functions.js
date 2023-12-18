@@ -76,12 +76,12 @@ export const slugify = (text) => {
 		.replace(/-+$/, "");
 };
 
-export const smoothScroll = (e) => {
+export const smoothScroll = (e, slug) => {
 	e.preventDefault();
-	const targetId = e.target.getAttribute("href");
-	const targetElement = document.querySelector(targetId);
+	const targetElement = document.querySelector(`#${slug}`);
+	console.log(targetElement);
 	targetElement.scrollIntoView({ behavior: "smooth" });
-	history.pushState(null, "", targetId);
+	history.pushState(null, "", `#${slug}`);
 };
 
 export const formatDateToPolishLocale = (date) => {
