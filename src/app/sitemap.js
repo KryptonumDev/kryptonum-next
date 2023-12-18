@@ -1,3 +1,4 @@
+import fetchData from "@/utils/fetchData";
 import { domain } from "../global/Seo";
 
 const currentDate = new Date();
