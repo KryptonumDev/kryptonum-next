@@ -1,6 +1,6 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import Img from "@/components/atoms/Img";
-import Markdown from "@/components/atoms/markdown";
+import Markdown from "@/components/atoms/Markdown";
 import { Fragment } from "react";
 import Roadmap from "../../homepage/Roadmap";
 import styles from "./styles.module.scss";

@@ -1,4 +1,4 @@
-import Markdown from "@/components/atoms/markdown";
+import Markdown from "@/components/atoms/Markdown";
 import styles from "./styles.module.scss";
 
 const Develop = ({ data: { develop_Paragraph1, develop_Paragraph2, develop_Paragraph3, develop_Paragraph4 } }) => {

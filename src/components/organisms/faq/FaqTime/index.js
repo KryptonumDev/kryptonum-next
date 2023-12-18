@@ -1,6 +1,6 @@
 import Button from "@/components/atoms/Button";
 import Img from "@/components/atoms/Img";
-import Markdown from "@/components/atoms/markdown";
+import Markdown from "@/components/atoms/Markdown";
 import styles from "./styles.module.scss";
 
 const FaqTime = ({ data: { img, heading, paragraph, cta, listHeading, list, additionalStyles } }) => {

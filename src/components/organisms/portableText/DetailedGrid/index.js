@@ -1,4 +1,4 @@
-import Markdown from "@/components/atoms/markdown";
+import Markdown from "@/components/atoms/Markdown";
 import { ImageRenderer } from "../../PortableContent";
 import styles from "./styles.module.scss";
 

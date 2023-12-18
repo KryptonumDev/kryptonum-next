@@ -1,5 +1,5 @@
 import Button from "@/components/atoms/Button";
-import Markdown from "@/components/atoms/markdown";
+import Markdown from "@/components/atoms/Markdown";
 import styles from "./styles.module.scss";
 
 const Pricing = ({ data: { pricing_Paragraph, pricing_Paragraph2, pricing_Cta } }) => {

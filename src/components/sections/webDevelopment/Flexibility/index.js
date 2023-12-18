@@ -1,6 +1,6 @@
 import Button from "@/components/atoms/Button";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import Markdown from "@/components/atoms/markdown";
+import Markdown from "@/components/atoms/Markdown";
 import styles from "./styles.module.scss";
 
 const Flexibility = ({

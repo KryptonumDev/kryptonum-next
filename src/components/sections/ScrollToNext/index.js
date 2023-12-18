@@ -1,5 +1,5 @@
 import Img from "@/components/atoms/Img";
-import Markdown from "@/components/atoms/markdown";
+import Markdown from "@/components/atoms/Markdown";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import { ArrowDown, ScrollDown } from "../../atoms/Icons";
 import ScrollToNextSection from "./scrollToNextSection";

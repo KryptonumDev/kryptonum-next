@@ -1,7 +1,7 @@
 "use client";
 
 import Img from "@/components/atoms/Img";
-import Markdown from "@/components/atoms/markdown";
+import Markdown from "@/components/atoms/Markdown";
 import { useRef, useState } from "react";
 import "swiper/css";
 import { A11y } from "swiper/modules";

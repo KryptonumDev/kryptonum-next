@@ -1,5 +1,5 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import Markdown from "@/components/atoms/markdown";
+import Markdown from "@/components/atoms/Markdown";
 import styles from "./styles.module.scss";
 
 const Creativity = ({ data: { creativity_Heading, creativity_Paragraph, creativity_SecondParagraph } }) => {

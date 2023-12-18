@@ -1,4 +1,4 @@
-import Markdown from "@/components/atoms/markdown";
+import Markdown from "@/components/atoms/Markdown";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import styles from "./styles.module.scss";
 

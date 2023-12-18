@@ -1,5 +1,5 @@
 import Img from "@/components/atoms/Img";
-import Markdown from "@/components/atoms/markdown";
+import Markdown from "@/components/atoms/Markdown";
 import Link from "next/link";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import SimpleCtaSection from "../SimpleCtaSection";
