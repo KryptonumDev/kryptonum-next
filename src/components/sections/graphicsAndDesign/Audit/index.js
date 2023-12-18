@@ -1,6 +1,6 @@
 import Button from "@/components/atoms/Button";
 import Img from "@/components/atoms/Img";
-import Markdown from "@/components/atoms/Markdown";
+import Markdown from "@/components/atoms/markdown";
 import styles from "./styles.module.scss";
 
 const Audit = ({ data: { audit_Paragraph, audit_Paragraph2, audit_Paragraph3, audit_Cta, audit_Img } }) => {

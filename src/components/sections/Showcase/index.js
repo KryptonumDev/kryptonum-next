@@ -1,4 +1,4 @@
-import Markdown from "@/components/atoms/Markdown";
+import Markdown from "@/components/atoms/markdown";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import { Logo1, Logo2, Logo3, Logo4, Logo5 } from "./logos";
 import ShowcaseSection from "./showcaseSection";

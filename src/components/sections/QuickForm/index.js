@@ -1,6 +1,6 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import Img from "@/components/atoms/Img";
-import Markdown from "@/components/atoms/Markdown";
+import Markdown from "@/components/atoms/markdown";
 import Form from "@/components/organisms/forms/QuickForm";
 import fetchData from "@/utils/fetchData";
 import styles from "./styles.module.scss";

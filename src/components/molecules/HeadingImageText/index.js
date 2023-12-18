@@ -1,7 +1,7 @@
 import Button from "@/components/atoms/Button";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import Img from "@/components/atoms/Img";
-import Markdown from "@/components/atoms/Markdown";
+import Markdown from "@/components/atoms/markdown";
 import Link from "next/link";
 import { isExternal } from "util/types";
 import styles from "./styles.module.scss";

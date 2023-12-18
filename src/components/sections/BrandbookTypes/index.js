@@ -1,4 +1,4 @@
-import Markdown from "@/components/atoms/Markdown";
+import Markdown from "@/components/atoms/markdown";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import { Star } from "../../atoms/Icons";
 import styles from "./styles.module.scss";

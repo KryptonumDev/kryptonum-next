@@ -1,5 +1,5 @@
 import { Error } from "@/components/atoms/Icons";
-import Markdown from "@/components/atoms/Markdown";
+import Markdown from "@/components/atoms/markdown";
 import styles from "./styles.module.scss";
 
 const Note = ({ heading, paragraph, attention }) => {

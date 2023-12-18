@@ -1,7 +1,7 @@
 "use client";
 
 import Img from "@/components/atoms/Img";
-import Markdown from "@/components/atoms/Markdown";
+import Markdown from "@/components/atoms/markdown";
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 

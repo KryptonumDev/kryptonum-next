@@ -2,7 +2,7 @@
 
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import Img from "@/components/atoms/Img";
-import Markdown from "@/components/atoms/Markdown";
+import Markdown from "@/components/atoms/markdown";
 import { removeMarkdown } from "@/utils/functions";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";

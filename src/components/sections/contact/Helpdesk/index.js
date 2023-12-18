@@ -1,5 +1,5 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import Markdown from "@/components/atoms/Markdown";
+import Markdown from "@/components/atoms/markdown";
 import Form from "@/components/organisms/forms/FastContact";
 import styles from "./styles.module.scss";
 

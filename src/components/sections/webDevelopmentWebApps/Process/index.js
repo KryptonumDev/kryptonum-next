@@ -1,6 +1,6 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import Img from "@/components/atoms/Img";
-import Markdown from "@/components/atoms/Markdown";
+import Markdown from "@/components/atoms/markdown";
 import styles from "./styles.module.scss";
 
 const Process = ({ data: { process_Heading, process_Paragraph, process_SecondParagraph, process_List } }) => {

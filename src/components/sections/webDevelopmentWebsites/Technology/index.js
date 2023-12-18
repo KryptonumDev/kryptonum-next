@@ -1,7 +1,7 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import { ArrowDown } from "@/components/atoms/Icons";
 import Img from "@/components/atoms/Img";
-import Markdown from "@/components/atoms/Markdown";
+import Markdown from "@/components/atoms/markdown";
 import styles from "./styles.module.scss";
 import TechnologySection from "./technologySection";
 
