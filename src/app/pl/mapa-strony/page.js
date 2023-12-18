@@ -18,7 +18,7 @@ export default async function SitemapPage() {
     GraphicsDesign,
     Workshop,
     caseStudies,
-    akademiaEntries
+    curiosityEntries
   } = await query();
 
   const breadcrumbs = [
@@ -47,7 +47,7 @@ export default async function SitemapPage() {
         GraphicsDesign={GraphicsDesign}
         Workshop={Workshop}
         caseStudies={caseStudies}
-        academyEntries={akademiaEntries}
+        curiosityEntries={curiosityEntries}
       />
       </main>
     </>
@@ -168,7 +168,7 @@ const query = async () => {
           }
         }
       }
-      akademiaEntries: allCuriosityEntries {
+      curiosityEntries: allCuriosityEntries {
         title
         slug {
           current
