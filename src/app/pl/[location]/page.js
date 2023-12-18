@@ -22,7 +22,9 @@ import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
 	const { allLocationPage } = await paramsQuery();
-	return allLocationPage.map((location) => ({ location: location.slug.current }));
+	return allLocationPage.map(({ slug: { current: slug }}) => (
+    { location: slug }
+  ));
 }
 
 
@@ -156,8 +158,7 @@ export default async function LocationPage({ params: { location } }) {
 					}}
 				/>
 				{content.map((component, i) => {
-					const Component = mappedComponents(component, i)[component._type];
-					return Component ? Component : null;
+					return mappedComponents(component, i)[component._type];
 				})}
 			</main>
 		</>

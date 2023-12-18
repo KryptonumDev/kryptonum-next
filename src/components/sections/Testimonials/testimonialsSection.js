@@ -1,5 +1,4 @@
 "use client";
-
 import Button from "@/components/atoms/Button";
 import Img from "@/components/atoms/Img";
 import { useRef, useState } from "react";
@@ -11,9 +10,9 @@ import styles from "./styles.module.scss";
 const TestimonialsSection = ({ testimonials, quote, arrowLeft, arrowRight, children }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const swiperRef = useRef(null);
-
 	const handlePrev = () => swiperRef?.current.swiper.slidePrev();
 	const handleNext = () => swiperRef?.current.swiper.slideNext();
+
 	return (
 		<section className={styles.wrapper}>
 			{children}
@@ -73,4 +72,5 @@ const TestimonialsSection = ({ testimonials, quote, arrowLeft, arrowRight, child
 		</section>
 	);
 };
+
 export default TestimonialsSection;

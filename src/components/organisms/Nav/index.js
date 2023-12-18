@@ -195,7 +195,7 @@ const Nav = ({
 									</div>
 									<span>{entry.author[0]?.name}</span>
 								</NavLink>
-								<span>{entry._createdAt}</span>
+								<span>{formatDateToPolishLocale(entry._createdAt)}</span>
 							</div>
 							<p>{removeMarkdown(entry.title)}</p>
 						</div>

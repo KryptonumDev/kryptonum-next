@@ -90,7 +90,8 @@ export const formatDateToPolishLocale = (date) => {
 		month: "long",
 		day: "numeric",
 	};
-	return (date = new Date(date).toLocaleDateString("pl-PL", options));
+	const data = new Date(date).toLocaleDateString("pl-PL", options);
+	return data;
 };
 
 export const generateTableOfContent = (ast) => {

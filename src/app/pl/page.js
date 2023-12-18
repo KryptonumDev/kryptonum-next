@@ -47,10 +47,6 @@ const PolishIndexPage = async () => {
 			team_Text,
 			team_Cta,
 		},
-		webDevelopment,
-		workshop,
-		agency,
-		graphicsAndDesign,
 		testimonials,
 		blogEntries,
 	} = await query();
@@ -188,66 +184,6 @@ const query = async () => {
       seo {
         title
         description
-      }
-    }
-    webDevelopment: WebDevelopment(id: "webDevelopment") {
-      hero_Img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    workshop: Workshop(id: "workshop") {
-      hero_Img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    agency: Agency(id:"agency") {
-      hero_Img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    graphicsAndDesign: GraphicsDesign(id:"graphics-design") {
-      hero_Img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
       }
     }
     testimonials: allTestimonials(limit: 3, sort: {_createdAt:ASC}) {

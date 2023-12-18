@@ -4,25 +4,29 @@ import LatestCuriosityEntries from "@/components/sections/LatestCuriosityEntries
 import fetchData from "@/utils/fetchData";
 
 export default async function notFound() {
-	const {
-		page: { hero_Heading, hero_Subheading, hero_Cta, hero_Img, curiosities_Heading, ctaSection },
-	} = await query();
+	const { page: {
+    hero_Heading,
+    hero_Subheading,
+    hero_Cta,
+    hero_Img,
+    curiosities_Heading,
+    ctaSection
+  }} = await query();
+
 	return (
-		<>
-			<main id="main">
-				<Hero
-					data={{
-						sideImage: hero_Img,
-						heading: hero_Heading,
-						paragraph: hero_Subheading,
-						cta: hero_Cta,
-					}}
-					isBlogHero={true}
-				/>
-				<LatestCuriosityEntries heading={curiosities_Heading} />
-				<CtaSection data={ctaSection} />
-			</main>
-		</>
+    <main id="main">
+      <Hero
+        data={{
+          sideImage: hero_Img,
+          heading: hero_Heading,
+          paragraph: hero_Subheading,
+          cta: hero_Cta,
+        }}
+        isBlogHero={true}
+      />
+      <LatestCuriosityEntries heading={curiosities_Heading} />
+      <CtaSection data={ctaSection} />
+    </main>
 	);
 }
 

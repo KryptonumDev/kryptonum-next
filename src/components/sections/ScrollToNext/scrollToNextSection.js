@@ -1,8 +1,10 @@
 "use client";
-
 import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 import { redirect } from "next/navigation";
+
+const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+const scrollHeight = 800;
 
 const ScrollToNextSection = ({
 	link,
@@ -12,15 +14,7 @@ const ScrollToNextSection = ({
 	image,
 	children,
 }) => {
-
-	const easeOut = (t) => {
-		return 1 - Math.pow(1 - t, 3);
-	};
-	
-	const scrollHeight = 800;
-
 	const scrollToNext = useRef(null);
-
 	const [scaleY, setScaleY] = useState(0);
 
 	useEffect(() => {
@@ -44,6 +38,7 @@ const ScrollToNextSection = ({
 			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
+	
 	return (
 		<section
 			className={`${styles.maxWidth} maxWidth`}
