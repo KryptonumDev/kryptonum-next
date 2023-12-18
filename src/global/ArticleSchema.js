@@ -26,7 +26,7 @@ export default function Article({ canonical, title, description, ogImage, date, 
             "name": "Kryptonum",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://kryptonum.eu/kryptonum-logo.webp",
+              "url": "https://kryptonum.eu/kryptonum-logo.png",
               "width": 60,
               "height": 60
             }
