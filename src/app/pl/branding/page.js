@@ -11,6 +11,14 @@ import Breadcrumbs from "@/global/Breadcrumbs";
 import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
+
+const breadcrumbs = [
+  {
+    name: "Branding",
+    link: "/pl/branding",
+  },
+];
+
 export default async function BraindingPage() {
 	const {
 		page: {
@@ -33,12 +41,6 @@ export default async function BraindingPage() {
 		testimonials,
 	} = await query();
 
-	const breadcrumbs = [
-		{
-			name: "Branding",
-			link: "/branding",
-		},
-	];
 
 	return (
 		<>

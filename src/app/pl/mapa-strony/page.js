@@ -47,7 +47,7 @@ export default async function SitemapPage() {
         GraphicsDesign={GraphicsDesign}
         Workshop={Workshop}
         caseStudies={caseStudies}
-        akademiaEntries={akademiaEntries}
+        academyEntries={akademiaEntries}
       />
       </main>
     </>
@@ -66,135 +66,199 @@ export async function generateMetadata() {
 }
 
 const query = async () => {
- const {
-    body: { data },
-  } = await fetchData(`
-  query {
-    page: Sitemap(id: "sitemap") {
-      hero_Heading
-      hero_Subheading
-      hero_Img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+ const { body: { data } } = await fetchData(`
+    query {
+      page: Sitemap(id: "sitemap") {
+        hero_Heading
+        hero_Subheading
+        hero_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+        seo {
+          title
+          description
+        }
+      }
+      caseStudies: allCaseStudyEntries {
+        name
+        slug {
+          current
+        }
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
         }
       }
-      seo {
+      Workshop(id: "workshop") {
+        hero_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+      }
+      GraphicsDesign(id: "graphics-design") {
+        hero_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+      }
+      Agency(id: "agency") {
+        hero_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+      }
+      WebDevelopment(id: "webDevelopment") {
+        hero_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+      }
+      akademiaEntries: allCuriosityEntries {
         title
-        description
-      }
-    }
-    caseStudies: allCaseStudyEntries {
-      name
-      slug {
-        current
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    Workshop(id: "workshop") {
-      hero_Img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    GraphicsDesign(id: "graphics-design") {
-      hero_Img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    Agency(id: "agency") {
-      hero_Img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    WebDevelopment(id: "webDevelopment") {
-      hero_Img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    akademiaEntries: allCuriosityEntries {
-      title
-      slug {
-        current
-      }
-      categories {
-        name
         slug {
           current
         }
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+        categories {
+          name
+          slug {
+            current
+          }
+        }
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
         }
+        author {
+          name
+          slug {
+            current
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        _createdAt
       }
-      author {
+      blogEntries: allBlogEntries(sort: { _createdAt: DESC }) {
+        title
+        slug {
+          current
+        }
+        author {
+          name
+          slug {
+            current
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        categories {
+          name
+          slug {
+            current
+          }
+        }
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+        _createdAt
+      }
+      team: allTeamMember {
         name
         slug {
           current
@@ -213,74 +277,8 @@ const query = async () => {
           }
         }
       }
-      _createdAt
     }
-    blogEntries: allBlogEntries(sort: { _createdAt: DESC }) {
-      title
-      slug {
-        current
-      }
-      author {
-        name
-        slug {
-          current
-        }
-        img {
-          asset {
-            altText
-            url
-            metadata {
-              lqip
-              dimensions {
-                height
-                width
-              }
-            }
-          }
-        }
-      }
-      categories {
-        name
-        slug {
-          current
-        }
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-      _createdAt
-    }
-    team: allTeamMember {
-      name
-      slug {
-        current
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-  }
   `
-);
-return data;
+  );
+  return data;
 };

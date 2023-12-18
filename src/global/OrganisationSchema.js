@@ -7,10 +7,12 @@ export default function Organization() {
 				name: "Kryptonum",
 				url: "https://kryptonum.eu/pl",
 				telephone: "+48 793 272 020",
-				email: ["kuba@kryptonum.eu", "michal@kryptonum.eu"],
+				email: [
+					"kuba@kryptonum.eu",
+					"michal@kryptonum.eu"
+				],
 				logo: "https://kryptonum.eu/kryptonum-logo.webp",
-				description:
-					"Kryptonum, to agencja interaktywna kompleksowo wspierająca Twój biznes online. Partner technologiczny na każdym etapie obecności firmy w internecie.",
+				description: "Kryptonum, to agencja interaktywna kompleksowo wspierająca Twój biznes online. Partner technologiczny na każdym etapie obecności firmy w internecie.",
 				address: {
 					"@type": "PostalAddress",
 					streetAddress: "Aleja Komisji Edukacji Narodowej 103/61",
