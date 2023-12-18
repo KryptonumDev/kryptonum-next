@@ -155,7 +155,7 @@ export default async function OrganizationSchema() {
 const query = async () => {
   const { body: { data } } = await fetchData(/* GraphQL */`
     query {
-      page: IndexPage(id: "IndexPage") {
+      page: Homepage(id: "homepage") {
         seo {
           description
         }

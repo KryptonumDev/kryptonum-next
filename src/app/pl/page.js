@@ -105,119 +105,94 @@ const query = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
-  query {
-    page: Homepage(id: "homepage") {
-      # Hero
-      hero_Heading
-      hero_Subheading
-      hero_Cta {
-        theme
-        text
-        href
-      }
-      # Services
-      services: GridFloatingImg {
-        heading
-        list {
-          title
-          description
-          img {
-            asset {
-              altText
-              url
-              metadata {
-                lqip
-                dimensions {
-                  height
-                  width
+    query {
+      page: Homepage(id: "homepage") {
+        # Hero
+        hero_Heading
+        hero_Subheading
+        hero_Cta {
+          theme
+          text
+          href
+        }
+        # Services
+        services: GridFloatingImg {
+          heading
+          list {
+            title
+            description
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
                 }
               }
             }
+            href
           }
+        }
+        # Conquest
+        conquest_Heading
+        conquest_Claim
+        conquest_Paragraph
+        conquest_SecondClaim
+        conquest_Cta {
+          theme
+          text
           href
         }
-      }
-      # Conquest
-      conquest_Heading
-      conquest_Claim
-      conquest_Paragraph
-      conquest_SecondClaim
-      conquest_Cta {
-        theme
-        text
-        href
-      }
-      # Challange
-      challenge_Heading
-      challenge_Claim
-      challenge_Paragraph
-      challenge_SecondClaim
-      challenge_Cta {
-        theme
-        text
-        href
-      }
-      # Creativity
-      creativity_Heading
-      creativity_Paragraph
-      creativity_SecondParagraph
-      # Roadmap
-      roadmap_Heading
-      roadmap_Process {
-        title
-        description
-      }
-      roadmap_Cta {
-        theme
-        text
-        href
-      }
-      # Team
-      team_Heading
-      team_Text
-      team_Cta {
-        theme
-        text
-        href
-      }
-      # SEO
-      seo {
-        title
-        description
-      }
-    }
-    testimonials: allTestimonials(limit: 3, sort: {_createdAt:ASC}) {
-      name
-      text
-      cta {
-        theme
-        text
-        href
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
+        # Challange
+        challenge_Heading
+        challenge_Claim
+        challenge_Paragraph
+        challenge_SecondClaim
+        challenge_Cta {
+          theme
+          text
+          href
+        }
+        # Creativity
+        creativity_Heading
+        creativity_Paragraph
+        creativity_SecondParagraph
+        # Roadmap
+        roadmap_Heading
+        roadmap_Process {
+          title
+          description
+        }
+        roadmap_Cta {
+          theme
+          text
+          href
+        }
+        # Team
+        team_Heading
+        team_Text
+        team_Cta {
+          theme
+          text
+          href
+        }
+        # SEO
+        seo {
+          title
+          description
         }
       }
-    }
-    blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
-      title
-      subtitle
-      slug {
-        current
-      }
-      author {
+      testimonials: allTestimonials(limit: 3, sort: {_createdAt:ASC}) {
         name
-        slug {
-          current
+        text
+        cta {
+          theme
+          text
+          href
         }
         img {
           asset {
@@ -233,29 +208,54 @@ const query = async () => {
           }
         }
       }
-      categories {
-        name
+      blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+        title
+        subtitle
         slug {
           current
         }
-      }
-      _createdAt
-      contentRaw
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+        author {
+          name
+          slug {
+            current
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        categories {
+          name
+          slug {
+            current
+          }
+        }
+        _createdAt
+        contentRaw
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
         }
       }
     }
-  }
   `);
 	return data;
 };
