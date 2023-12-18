@@ -9,7 +9,7 @@ const FifthStep = ({ prevData, setData, setStep }) => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm({
-		mode: "onBlur",
+		mode: "onTouched",
 		defaultValues: { ...prevData?.Additional },
 	});
 
@@ -32,7 +32,7 @@ const FifthStep = ({ prevData, setData, setStep }) => {
 				name="Additional information"
 				register={register("Additional information")}
 				errors={errors}
-				readOnly
+				type="text"
 			/>
 			<Button>Uwierzysz, że to prawie koniec?</Button>
 		</form>

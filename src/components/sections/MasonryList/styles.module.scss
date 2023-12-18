@@ -41,7 +41,7 @@
         margin-bottom: clamp(16px, calc(32vw/7.68), 32px);
         display: block;
       }
-      &:nth-child(-n+10)::before {
+      &:nth-child(-n+9)::before {
         content: "/0" counter(counter);
       }
     }

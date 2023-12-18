@@ -1,5 +1,5 @@
 .label {
-  padding: 16px clamp(8px, calc(16vw/7.68), 20px);
+  padding: 16px clamp(8px, calc(16vw / 7.68), 20px);
   background: var(--neutral-900);
   border: 1px solid var(--neutral-800);
   border-radius: 2px;
@@ -8,11 +8,11 @@
   gap: 12px;
   position: relative;
   align-items: center;
-  transition: border-color .3s var(--easing);
+  transition: border-color 0.3s var(--easing);
   cursor: pointer;
 
   &.errored {
-    border-color: #EE6470;
+    border-color: #ee6470;
   }
 
   input {
@@ -22,24 +22,20 @@
     opacity: 0;
   }
 
-  &:focus-within {
-    background: linear-gradient(var(--neutral-900), var(--neutral-900)) padding-box,
-    var(--gradient) border-box;
-    border: 1px solid transparent;
-    border-radius: 2px;
+  &:has(input:focus-visible) .radio {
+    outline: 2px solid #26D9C3;
+    outline-offset: 5px;
   }
-
-  input:checked~.radio::after {
+  input:checked ~ .radio::after {
     transform: translate(-50%, -50%) scale(1);
   }
 
   .radio {
-    width: clamp(24px, calc(24vw/7.68), 34px);
-    height: clamp(24px, calc(24vw/7.68), 34px);
-    border: 2px solid #EFF0F3;
+    width: clamp(24px, calc(24vw / 7.68), 34px);
+    height: clamp(24px, calc(24vw / 7.68), 34px);
+    border: 2px solid #eff0f3;
     border-radius: 50%;
     position: relative;
-
     &::after {
       content: "";
       position: absolute;
@@ -49,8 +45,8 @@
       width: 62%;
       height: 62%;
       border-radius: 50%;
-      background: #EFF0F3;
-      transition: transform .3s var(--easing);
+      background: #eff0f3;
+      transition: transform 0.3s var(--easing);
     }
   }
 }

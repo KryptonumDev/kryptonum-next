@@ -1,21 +1,22 @@
 "use client";
-
-import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
+import { redirect } from "next/navigation";
 
-const easeOut = (t) => {
-	return 1 - Math.pow(1 - t, 3);
-};
-
+const easeOut = (t) => 1 - Math.pow(1 - t, 3);
 const scrollHeight = 800;
 
-const ScrollToNextSection = ({ link, decorativeHeading, scrollDown, markdown, image, children }) => {
-	const router = useRouter();
-
+const ScrollToNextSection = ({
+	link,
+	decorativeHeading,
+	scrollDown,
+	markdown,
+	image,
+	children,
+}) => {
 	const scrollToNext = useRef(null);
 	const [scaleY, setScaleY] = useState(0);
-	const locationPath = usePathname();
+
 	useEffect(() => {
 		const handleScroll = () => {
 			const scrollPosition = window.scrollY;
@@ -28,7 +29,7 @@ const ScrollToNextSection = ({ link, decorativeHeading, scrollDown, markdown, im
 			setScaleY(progress);
 			if (remainingScroll <= 0) {
 				window.scrollTo({ top: scrollPosition - scrollHeight });
-				router.push(link.href);
+				redirect(link.href);
 			}
 		};
 		handleScroll();
@@ -36,7 +37,8 @@ const ScrollToNextSection = ({ link, decorativeHeading, scrollDown, markdown, im
 		return () => {
 			window.removeEventListener("scroll", handleScroll);
 		};
-	}, [locationPath]);
+	}, []);
+	
 	return (
 		<section
 			className={`${styles.maxWidth} maxWidth`}

@@ -1,6 +1,6 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import Brief from "@/components/organisms/Brief";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function BriefPage() {
@@ -14,12 +14,10 @@ export default async function BriefPage() {
 	];
 
 	return (
-		<>
-			<main id="main">
-				<Breadcrumbs breadcrumbs={breadcrumbs} />
-				<Brief data={data} />
-			</main>
-		</>
+    <main id="main">
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <Brief data={data} />
+    </main>
 	);
 }
 

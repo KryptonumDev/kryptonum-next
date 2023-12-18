@@ -1,15 +1,22 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
-import Hero from "@/components/sections/Hero";
+import HeroTwoColumns from "@/components/sections/HeroTwoColumns";
 import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
 import QuickForm from "@/components/sections/QuickForm";
 import ScrollToNext from "@/components/sections/ScrollToNext";
 import CaseStudies from "@/components/sections/portfolio/CaseStudies";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function PortfolioPage() {
 	const {
-		page: { hero_Heading, hero_Paragraph, caseStudies, quickForm, blogEntries_Heading, scrollToNext },
+		page: {
+			hero_Heading,
+			hero_Paragraph,
+			caseStudies,
+			quickForm,
+			blogEntries_Heading,
+			scrollToNext,
+		},
 		blogEntries,
 	} = await query();
 
@@ -24,7 +31,7 @@ export default async function PortfolioPage() {
 		<>
 			<main id="main">
 				<Breadcrumbs breadcrumbs={breadcrumbs} />
-				<Hero data={{ heading: hero_Heading, paragraph: hero_Paragraph }} />
+				<HeroTwoColumns heading={hero_Heading} paragraph={hero_Paragraph} />
 				<CaseStudies data={caseStudies} />
 				<QuickForm data={quickForm} />
 				<LatestBlogEntries
@@ -32,7 +39,7 @@ export default async function PortfolioPage() {
 					data={blogEntries}
 				/>
 			</main>
-      <ScrollToNext data={scrollToNext}/>
+			<ScrollToNext data={scrollToNext} />
 		</>
 	);
 }

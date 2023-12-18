@@ -1,11 +1,11 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import BlogEntries from "@/components/sections/BlogEntries";
 import Categories from "@/components/sections/Categories";
 import CtaSection from "@/components/sections/CtaSection";
 import Faq from "@/components/sections/Faq";
 import Hero from "@/components/sections/Hero";
 import LatestCuriosityEntries from "@/components/sections/LatestCuriosityEntries";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 import { notFound } from "next/navigation";
 import { blogItemsPerPage } from "../../../page";
@@ -54,31 +54,29 @@ export default async function BlogCategoryPaginationPage({ params: { category, n
 	];
 
 	return (
-		<>
-			<main id="main">
-				<Breadcrumbs breadcrumbs={breadcrumbs} />
-				<Hero
-					data={{ heading: hero_Heading, paragraph: hero_Paragraph, sideImage: hero_Img }}
-					isBlogHero
-				/>
-				<Categories
-					categorySlug="/pl/blog/"
-					categories={blogCategories}
-					currentSlug={slug.current}
-				/>
-				<BlogEntries
-					urlBasis={`/pl/blog/kategoria/${category}`}
-					totalCount={allBlogEntries.length}
-					blogEntries={blogEntries}
-					page={parseInt(number)}
-					itemsPerPage={blogItemsPerPage}
-					isCategoryPagination={true}
-				/>
-				<CtaSection data={ctaSection} />
-				<LatestCuriosityEntries />
-				<Faq />
-			</main>
-		</>
+    <main id="main">
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <Hero
+        data={{ heading: hero_Heading, paragraph: hero_Paragraph, sideImage: hero_Img }}
+        isBlogHero
+      />
+      <Categories
+        categorySlug="/pl/blog/"
+        categories={blogCategories}
+        currentSlug={slug.current}
+      />
+      <BlogEntries
+        urlBasis={`/pl/blog/kategoria/${category}`}
+        totalCount={allBlogEntries.length}
+        blogEntries={blogEntries}
+        page={parseInt(number)}
+        itemsPerPage={blogItemsPerPage}
+        isCategoryPagination={true}
+      />
+      <CtaSection data={ctaSection} />
+      <LatestCuriosityEntries />
+      <Faq />
+    </main>
 	);
 }
 
@@ -240,14 +238,15 @@ const paramsQuery = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
-  query {
-    allBlogEntries {
-      categories {
-        slug {
-          current
+    query {
+      allBlogEntries {
+        categories {
+          slug {
+            current
+          }
         }
       }
     }
-  }`);
+  `);
 	return data;
 };

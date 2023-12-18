@@ -1,6 +1,6 @@
-import DecorativeHeading from '@/components/atoms/DecorativeHeading';
-import Markdown from '@/utils/markdown';
-import styles from './styles.module.scss';
+import DecorativeHeading from "@/components/atoms/DecorativeHeading";
+import Markdown from "@/components/atoms/Markdown";
+import styles from "./styles.module.scss";
 
 const Customer = ({
   data: {
@@ -12,7 +12,7 @@ const Customer = ({
     customer_WhoHeading,
     customer_WhoList,
     customer_WhoAnnotation,
-  }
+  },
 }) => {
   return (
     <section className={styles.section}>
@@ -40,5 +40,5 @@ const Customer = ({
       <Markdown className={styles.whoAnnotation}>{customer_WhoAnnotation}</Markdown>
     </section>
   );
-}
+};
 export default Customer;

@@ -2,7 +2,7 @@
 import Button from "@/components/atoms/Button";
 import { Checkbox } from "@/components/atoms/Checkbox";
 import { Label } from "@/components/atoms/Label";
-import { emailRegex } from "@/constants/regex";
+import { regex } from "@/global/constants";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -14,27 +14,35 @@ const ConsultationCtaForm = ({ cta }) => {
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm({ mode: "onBlur" });
+	} = useForm({ mode: "onTouched" });
 
 	const [isEmailSent, setIsEmailSent] = useState(false);
 	const [submitProccessing, setSubmitProccessing] = useState(false);
 
 	const onSubmit = (data) => {
 		setSubmitProccessing(true);
-		fetch("/api/consultation-contact", {
+		fetch("/api/quick-contact", {
 			method: "POST",
+			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(data),
 		})
-			.then(() => {
-				reset();
-				setIsEmailSent("success");
-				setSubmitProccessing(false);
+			.then((response) => response.json())
+      .then((response) => {
+        if (response.success) {
+					setIsEmailSent("success");
+          setSubmitProccessing(false);
+          reset();
+        } else {
+          setIsEmailSent("failed");
+					setSubmitProccessing(false);
+        }
 			})
 			.catch(() => {
 				setIsEmailSent("failed");
 				setSubmitProccessing(false);
 			});
 	};
+	
 	return (
 		<form
 			className={styles.form}
@@ -45,21 +53,24 @@ const ConsultationCtaForm = ({ cta }) => {
 				name="name"
 				register={register("name", { required: true, minLength: 3 })}
 				errors={errors}
+				type="text"
 			/>
 			<Label
 				title="Email"
-				name="mail"
-				register={register("mail", { required: true, pattern: emailRegex })}
+				name="email"
+				register={register("email", { required: true, pattern: regex.email })}
 				errors={errors}
+				type="email"
 			/>
 			<Checkbox
-				name="check"
-				register={register("check", { required: true })}
+				name="legal"
+				register={register("legal", { required: true })}
 				errors={errors}
 			/>
 			<Button
 				theme="primary"
 				className={styles.button}
+				disabled={submitProccessing}
 			>
 				{cta || "Wyślij wiadomość"}
 			</Button>

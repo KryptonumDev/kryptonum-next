@@ -1,7 +1,6 @@
 "use client";
-
 import Button from "@/components/atoms/Button";
-import Img from "@/utils/Img";
+import Img from "@/components/atoms/Img";
 import { useRef, useState } from "react";
 import "swiper/css";
 import { A11y } from "swiper/modules";
@@ -11,9 +10,9 @@ import styles from "./styles.module.scss";
 const TestimonialsSection = ({ testimonials, quote, arrowLeft, arrowRight, children }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const swiperRef = useRef(null);
-
 	const handlePrev = () => swiperRef?.current.swiper.slidePrev();
 	const handleNext = () => swiperRef?.current.swiper.slideNext();
+
 	return (
 		<section className={styles.wrapper}>
 			{children}
@@ -43,7 +42,7 @@ const TestimonialsSection = ({ testimonials, quote, arrowLeft, arrowRight, child
 								<Button data={cta} />
 							</div>
 						</div>
-						<div className={styles.context}>
+						<div className={styles.content}>
 							{quote}
 							<p>{text}</p>
 						</div>
@@ -73,4 +72,5 @@ const TestimonialsSection = ({ testimonials, quote, arrowLeft, arrowRight, child
 		</section>
 	);
 };
+
 export default TestimonialsSection;

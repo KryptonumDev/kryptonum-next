@@ -1,13 +1,13 @@
 "use client";
-
 import Button from "@/components/atoms/Button";
 import { Checkbox } from "@/components/atoms/Checkbox";
 import { Label } from "@/components/atoms/Label";
-import { emailRegex, phoneRegex } from "@/constants/regex";
-import { AnimatePresence } from "framer-motion";
+import { regex } from "@/global/constants";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
+import { phoneValidation } from "@/utils/functions";
 
 const Form = () => {
 	const {
@@ -15,15 +15,16 @@ const Form = () => {
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm({ mode: "onBlur" });
+	} = useForm({ mode: "onTouched" });
 
 	const [isEmailSent, setIsEmailSent] = useState(false);
 	const [submitProccessing, setSubmitProccessing] = useState(false);
 
 	const onSubmit = (data) => {
 		setSubmitProccessing(true);
-		fetch("/api/fast-contact", {
+		fetch("/api/quick-contact", {
 			method: "POST",
+			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(data),
 		})
 			.then((response) => response.json())
@@ -31,7 +32,7 @@ const Form = () => {
         if (response.success) {
           reset();
           setIsEmailSent("success");
-          setIsEmailSent(false);
+          setSubmitProccessing(false);
         } else {
           setIsEmailSent("failed");
 					setSubmitProccessing(false);
@@ -39,9 +40,10 @@ const Form = () => {
 			})
 			.catch(() => {
 				setIsEmailSent("failed");
-				setIsEmailSent(false);
+				setSubmitProccessing(false);
 			});
 	};
+
 	return (
 		<form
 			className={styles.form}
@@ -50,14 +52,17 @@ const Form = () => {
 			<Label
 				title="Telefon"
 				name="phone"
-				register={register("phone", { pattern: phoneRegex })}
+				register={register("phone", { pattern: regex.phone })}
 				errors={errors}
+				type="tel"
+        onKeyDown={(e) => phoneValidation(e)}
 			/>
 			<Label
 				title="Email"
-				name="mail"
-				register={register("mail", { required: true, pattern: emailRegex })}
+				name="email"
+				register={register("email", { required: true, pattern: regex.email })}
 				errors={errors}
+				type="email"
 			/>
 			<Label
 				title="Temat rozmowy"
@@ -66,13 +71,14 @@ const Form = () => {
 				errors={errors}
 				placeholder="Daj znać, o czym chcesz pogadać :)"
 				rows={3}
+				type="text"
 			/>
 			<Checkbox
-				name="check"
-				register={register("check", { required: true })}
+				name="legal"
+				register={register("legal", { required: true })}
 				errors={errors}
 			/>
-			<Button theme="primary">Wyślij wiadomość</Button>
+			<Button theme="primary" disabled={submitProccessing}>Wyślij wiadomość</Button>
 			<AnimatePresence>
 				{isEmailSent === "success" && (
 					<motion.div className={styles.overlay}

@@ -1,11 +1,11 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import BlogEntries from "@/components/sections/BlogEntries";
 import Categories from "@/components/sections/Categories";
 import CtaSection from "@/components/sections/CtaSection";
 import Faq from "@/components/sections/Faq";
 import Hero from "@/components/sections/Hero";
 import LatestCuriosityEntries from "@/components/sections/LatestCuriosityEntries";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function BlogPage() {
@@ -24,33 +24,31 @@ export default async function BlogPage() {
 	];
 
 	return (
-		<>
-			<main id="main">
-				<Breadcrumbs breadcrumbs={breadcrumbs} />
-				<Hero
-					data={{
-						heading: hero_Heading,
-						paragraph: hero_Paragraph,
-						sideImage: hero_Img,
-					}}
-					isBlogHero={true}
-				/>
-				<Categories
-					categorySlug="/pl/blog/"
-					categories={blogCategories}
-				/>
-				<BlogEntries
-					urlBasis={"/pl/blog"}
-					totalCount={blogEntriesCount.length}
-					blogEntries={blogEntries}
-					page={1}
-					itemsPerPage={blogItemsPerPage}
-				/>
-				<CtaSection data={ctaSection} />
-				<LatestCuriosityEntries />
-				<Faq />
-			</main>
-		</>
+    <main id="main">
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <Hero
+        data={{
+          heading: hero_Heading,
+          paragraph: hero_Paragraph,
+          sideImage: hero_Img,
+        }}
+        isBlogHero={true}
+      />
+      <Categories
+        categorySlug="/pl/blog/"
+        categories={blogCategories}
+      />
+      <BlogEntries
+        urlBasis={"/pl/blog"}
+        totalCount={blogEntriesCount.length}
+        blogEntries={blogEntries}
+        page={1}
+        itemsPerPage={blogItemsPerPage}
+      />
+      <CtaSection data={ctaSection} />
+      <LatestCuriosityEntries />
+      <Faq />
+    </main>
 	);
 }
 

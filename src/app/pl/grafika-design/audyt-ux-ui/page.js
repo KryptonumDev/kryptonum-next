@@ -1,5 +1,3 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import CaseStudies from "@/components/sections/CaseStudies";
 import CtaSection from "@/components/sections/CtaSection";
 import HeroServices from "@/components/sections/HeroServices";
@@ -9,6 +7,8 @@ import QuickForm from "@/components/sections/QuickForm";
 import ScrollToNext from "@/components/sections/ScrollToNext";
 import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
 import UxAudit from "@/components/sections/graphicsAndDesign/UxAudit";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function graphicsAndDesignAuditPage() {

@@ -23,14 +23,21 @@
   gap: 32px;
   background-color: var(--neutral-900);
   margin-top: 48px;
-  .img {
+
+  .imageWrapper {
+    display: block;
     margin-top: -48px;
     height: calc(100% + 48px);
     margin-right: calc(var(--pageMargin) * -1);
-    width:100%;
-    object-fit: cover;
-    object-position: left;
-}
+
+    .img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: left;
+      display:block;
+    }
+  }
 
   @media (max-width: 1249px) {
     header {
@@ -45,11 +52,11 @@
     background-color: unset;
     margin-top: unset;
 
-    .img {
-      max-width: 500px;
-      height: auto;
-      margin: 0 auto;
+    .imageWrapper {
       order: -1;
+      margin: 0 auto;
+      height: auto;
+      width:500px;
     }
   }
 

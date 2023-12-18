@@ -1,5 +1,5 @@
-import Markdown from '@/utils/markdown';
-import styles from './styles.module.scss';
+import Markdown from "@/components/atoms/Markdown";
+import styles from "./styles.module.scss";
 
 const SimpleGridList2Columns = ({ list }) => {
   return (
@@ -11,5 +11,5 @@ const SimpleGridList2Columns = ({ list }) => {
       ))}
     </ul>
   );
-}
+};
 export default SimpleGridList2Columns;

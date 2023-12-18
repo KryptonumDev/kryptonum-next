@@ -1,5 +1,3 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import CaseStudies from "@/components/sections/CaseStudies";
 import CtaSection from "@/components/sections/CtaSection";
 import Faq from "@/components/sections/Faq";
@@ -10,6 +8,8 @@ import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
 import Pricing from "@/components/sections/webDevelopmentWebsites/Pricing";
 import Process from "@/components/sections/webDevelopmentWebsites/Process";
 import Technology from "@/components/sections/webDevelopmentWebsites/Technology";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function WebDevelopmentWebsitesPage() {

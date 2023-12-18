@@ -4,6 +4,7 @@ import fetchData from "@/utils/fetchData";
 import { formatDateToPolishLocale } from "@/utils/functions";
 import localFont from "next/font/local";
 import "../styles/global.scss";
+import OrganizationSchema from "@/global/OrganizationSchema";
 
 
 const font = localFont({ 
@@ -38,6 +39,9 @@ const RootLayout = async ({ children }) => {
 
 	return (
 		<html lang="en">
+      <head>
+        <OrganizationSchema />
+      </head>
 			<body className={`${font.className} body`}>
 				<Nav
 					caseStudies={caseStudies}

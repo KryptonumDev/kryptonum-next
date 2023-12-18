@@ -1,12 +1,14 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import Markdown from "@/utils/markdown";
-import styles from './styles.module.scss';
+import Markdown from "@/components/atoms/Markdown";
+import styles from "./styles.module.scss";
 
 const LargeList = ({ isHeading, title, list, paragraph, paragraph2 }) => {
   return (
     <section className={styles.section}>
       {isHeading ? (
-        <DecorativeHeading type="h3" className={`${styles.title} ${styles.heading}`}>{title}</DecorativeHeading>
+        <DecorativeHeading type="h3" className={`${styles.title} ${styles.heading}`}>
+          {title}
+        </DecorativeHeading>
       ) : (
         <Markdown className={`${styles.title} ${styles.titleParagraph}`}>{title}</Markdown>
       )}
@@ -27,5 +29,5 @@ const LargeList = ({ isHeading, title, list, paragraph, paragraph2 }) => {
       )}
     </section>
   );
-}
+};
 export default LargeList;

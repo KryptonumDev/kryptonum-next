@@ -12,7 +12,7 @@ const SixthStep = ({ prevData, setData, setStep, setIsEmailSent }) => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: 'onBlur',
+    mode: 'onTouched',
     defaultValues: { ...prevData?.Date }
   })
 
@@ -36,6 +36,7 @@ const SixthStep = ({ prevData, setData, setStep, setIsEmailSent }) => {
     setStep((step) => step + 1);
     fetch("/api/brief-contact", {
       method: "POST",
+			headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
     })
       .then((response) => response.json())
@@ -54,7 +55,6 @@ const SixthStep = ({ prevData, setData, setStep, setIsEmailSent }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       <h2>To kiedy się <strong>widzimy</strong>? Umów termin calla</h2>
-
       <Calendar
         chosenDate={chosenDate}
         setChosenDate={setChosenDate}

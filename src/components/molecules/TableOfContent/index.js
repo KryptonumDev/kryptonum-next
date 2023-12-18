@@ -1,5 +1,7 @@
-import Link from "next/link";
+"use client";
+import { smoothScroll } from "@/utils/functions";
 import styles from "./styles.module.scss";
+import Link from "next/link";
 
 const TableOfContent = ({ content }) => {
 	return (
@@ -8,6 +10,7 @@ const TableOfContent = ({ content }) => {
 				<li key={index}>
 					<Link
 						href={`#${slug}`}
+						onClick={(e) => smoothScroll(e, slug)}
 					>
 						<span>{text}</span>
 					</Link>
@@ -17,6 +20,7 @@ const TableOfContent = ({ content }) => {
 								<li key={subIndex}>
 									<Link
 										href={`#${slug}`}
+										onClick={(e) => smoothScroll(e, slug)}
 									>
 										<span>{text}</span>
 									</Link>

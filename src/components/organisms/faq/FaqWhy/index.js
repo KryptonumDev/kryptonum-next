@@ -1,16 +1,8 @@
 import { Star } from "@/components/atoms/Icons";
-import Markdown from "@/utils/markdown";
-import styles from './styles.module.scss';
+import Markdown from "@/components/atoms/Markdown";
+import styles from "./styles.module.scss";
 
-const FaqWhy = ({
-  data: {
-    heading,
-    paragraph,
-    list,
-    summary,
-    additionalStyles
-  }
-}) => {
+const FaqWhy = ({ data: { heading, paragraph, list, summary, additionalStyles } }) => {
   return (
     <section className={`${styles.answer} ${additionalStyles}`}>
       <div className={styles.copy}>
@@ -28,5 +20,5 @@ const FaqWhy = ({
       <Markdown className={styles.summary}>{summary}</Markdown>
     </section>
   );
-}
+};
 export default FaqWhy;

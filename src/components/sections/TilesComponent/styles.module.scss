@@ -44,17 +44,21 @@
 
       padding: clamp(24px, calc(32vw/7.68), 32px) clamp(16px, calc(24vw/7.68), 24px);
 
-      .img {
+      .imgWrapper {
         width: 48px;
         height: 48px;
-        padding: 12px;
-        object-fit: contain;
-
+        padding:12px;
         margin-bottom: clamp(16px, calc(24vw/7.68), 32px);
         border-radius: 50%;
         border: 1px solid var(--neutral-700);
         background-color: var(--neutral-900);
+      .img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display:block;
       }
+    }
 
       .title {
         font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28rem/16));

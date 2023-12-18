@@ -1,53 +1,59 @@
 .wrapper {
-  border: 1px solid var(--neutral-700, #5B5F67);
+  border: 1px solid var(--neutral-700, #5b5f67);
   background-color: var(--neutral-950);
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
-  a {
-    width:70%;
+  padding: clamp(24px, calc(72vw / 7.68), 72px) clamp(16px, calc(72vw / 7.68), 72px);
+  @media (max-width: 499px) {
+    padding-left: var(--pageMargin);
+    padding-right: var(--pageMargin);
   }
-  h3 {
-    width:70%;
-  }
-  padding: clamp(24px, calc(72vw/7.68), 72px) clamp(16px, calc(72vw/7.68), 72px);
   border-radius: 2px;
-  h3 {
-    font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28rem/16));
+  h2 {
+    font-size: clamp(18px, calc(28vw / 7.68), 28px);
     margin-bottom: 32px;
   }
   position: relative;
-  margin-top: 120px;
+  margin-top: 55px;
   .img {
     position: absolute;
     right: 0;
     bottom: 0;
     width: 50%;
-    height: calc(100% + 120px);
-    object-fit:contain;
-    object-position: bottom;
+    height: calc(100% + 55px);
+    object-fit: contain;
   }
-  @media (max-width: 1199px){
+  @media (max-width: 1199px) {
     grid-template-columns: 1fr;
-    margin-top: min(80vw, 300px);
+    gap: unset;
+    border: unset;
+    padding: unset;
+    border-radius: unset;
+    margin-top: unset;
+    header {
+      border: 1px solid var(--neutral-700, #5b5f67);
+      background-color: var(--neutral-950);
+      padding: clamp(24px, calc(72vw / 7.68), 72px) clamp(16px, calc(72vw / 7.68), 72px);
+    }
     .img {
-      right: 50%;
-      top: -1px;
-      transform: translate(50%, -100%);
+      position: relative;
       bottom: unset;
       max-width: 80%;
       width: 100%;
-      height: unset;
       max-height: 300px;
+      height: 100%;
+      order: -1;
+      object-position: bottom;
+      display: block;
+      margin: auto;
     }
   }
-  @media (max-width: 499px){
-    padding-left: var(--pageMargin);
-    padding-right: var(--pageMargin);
-    margin-top: min(210px,60vw);
-    h3 {
-      width:100%;
+  @media (max-width: 599px){
+    header {
+      padding: clamp(24px, calc(72vw / 7.68), 72px) var(--pageMargin);
     }
+    margin: 0 calc(var(--pageMargin) * -1);
   }
 }

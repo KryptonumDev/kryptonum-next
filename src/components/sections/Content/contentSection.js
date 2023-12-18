@@ -14,17 +14,14 @@ const ContentSection = ({ share, shareIcon, link, content, children }) => {
 				const navElement = document.querySelector("nav.nav:not(.fixed)");
 				const section = ref.current;
 				if (navElement) {
-					section.classList.add(styles.transform);
-				} else {
 					section.classList.remove(styles.transform);
+				} else {
+					section.classList.add(styles.transform);
 				}
 			}
 		};
-
 		handleResize();
-
 		window.addEventListener("scroll", handleResize);
-
 		return () => {
 			window.removeEventListener("scroll", handleResize);
 		};
@@ -86,4 +83,5 @@ const ContentSection = ({ share, shareIcon, link, content, children }) => {
 		</section>
 	);
 };
+
 export default ContentSection;

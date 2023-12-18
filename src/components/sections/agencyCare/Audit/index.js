@@ -1,7 +1,7 @@
-import DecorativeHeading from '@/components/atoms/DecorativeHeading';
-import Markdown from '@/utils/markdown';
-import LargeList from '../../LargeList';
-import styles from './styles.module.scss';
+import DecorativeHeading from "@/components/atoms/DecorativeHeading";
+import Markdown from "@/components/atoms/Markdown";
+import LargeList from "../../LargeList";
+import styles from "./styles.module.scss";
 
 const Audit = ({
   data: {
@@ -12,7 +12,7 @@ const Audit = ({
     audit_List,
     audit_Paragraph3,
     audit_Paragraph4,
-  }
+  },
 }) => {
   return (
     <section className={styles.section}>
@@ -21,13 +21,8 @@ const Audit = ({
         <Markdown className={styles.paragraph}>{audit_Paragraph}</Markdown>
         <Markdown className={styles.paragraph2}>{audit_Paragraph2}</Markdown>
       </div>
-      <LargeList
-        title={audit_Title}
-        list={audit_List}
-        paragraph={audit_Paragraph3}
-        paragraph2={audit_Paragraph4}
-      />
+      <LargeList title={audit_Title} list={audit_List} paragraph={audit_Paragraph3} paragraph2={audit_Paragraph4} />
     </section>
   );
-}
+};
 export default Audit;

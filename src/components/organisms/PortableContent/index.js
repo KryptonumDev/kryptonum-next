@@ -1,7 +1,7 @@
 'use server'
 
+import Img from "@/components/atoms/Img";
 import QuickForm from "@/components/sections/QuickForm";
-import Img from "@/utils/Img";
 import { portableTextToMarkdown, slugify } from "@/utils/functions";
 import { PortableText, toPlainText } from "@portabletext/react";
 import { getImageDimensions } from "@sanity/asset-utils";
@@ -41,7 +41,7 @@ const components = {
     image: (data) => (
       <ImageRenderer
         {...data}
-        sizes="(max-width: 1099px) 66vw, 100vw"
+        sizes="(max-width: 1099px) 100vw, 66vw"
       />
     ),
     quickForm: ({ value: { heading, subheading, cta} }) => <QuickForm data={{heading,subheading, cta}} isPortableContent={true} />,
@@ -65,7 +65,7 @@ const components = {
   },
   listItem : {
     bullet: ({ children }) => <li><Star /><span>{children}</span></li>,
-    number: ({ children }) => <ol className={styles.portableList}>{children}</ol>
+    number: ({ children }) => <li className={styles.portableList}>{children}</li>
   },
   list: {
     bullet: ({ children }) => <ul className={styles.portableList}>{children}</ul>,

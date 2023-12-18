@@ -1,5 +1,3 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import CaseStudies from "@/components/sections/CaseStudies";
 import CtaSection from "@/components/sections/CtaSection";
 import HeroServices from "@/components/sections/HeroServices";
@@ -8,6 +6,8 @@ import MasonryList from "@/components/sections/MasonryList";
 import ScrollToNext from "@/components/sections/ScrollToNext";
 import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
 import Audit from "@/components/sections/graphicsAndDesign/Audit";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function graphicsAndDesignPage() {
@@ -38,64 +38,64 @@ export default async function graphicsAndDesignPage() {
 			caseStudies_Heading,
 			ctaSection,
 			blogEntries_Heading,
-      scrollToNext
+			scrollToNext,
 		},
 		blogEntries,
 	} = await query();
 
-  const breadcrumbs = [
-    {
-      name: "Grafika & design",
-      link: "/pl/grafika-design"
-    }
-  ];
+	const breadcrumbs = [
+		{
+			name: "Grafika & design",
+			link: "/pl/grafika-design",
+		},
+	];
 
 	return (
 		<>
-    <main id="main">
-    <Breadcrumbs breadcrumbs={breadcrumbs}/>
-			<HeroServices
-				data={{
-					hero_Heading,
-					hero_Annotation,
-					hero_Paragraph,
-					hero_SecondParagraph,
-					hero_Img,
-					hero_Nav,
-				}}
-			/>
-			<Audit
-				data={{
-					audit_Paragraph,
-					audit_Paragraph2,
-					audit_Paragraph3,
-					audit_Cta,
-					audit_Img,
-				}}
-			/>
-			<SimpleCtaSection data={simpleCtaSection} />
-			<MasonryList
-				heading={digital_Heading}
-				paragraph={digital_Paragraph}
-				paragraph2={digital_Paragraph2}
-				list={digital_List}
-			/>
-			<SimpleCtaSection data={simpleCtaSection2} />
-			<MasonryList
-				heading={phisical_Heading}
-				paragraph={phisical_Paragraph}
-				paragraph2={phisical_Paragraph2}
-				list={phisical_List}
-			/>
-			<SimpleCtaSection data={simpleCtaSection3} />
-			<CaseStudies heading={caseStudies_Heading} />
-			<CtaSection data={ctaSection} />
-			<LatestBlogEntries
-				heading={blogEntries_Heading}
-				data={blogEntries}
-			/>
-      </main>
-      <ScrollToNext data={scrollToNext}/>
+			<main id="main">
+				<Breadcrumbs breadcrumbs={breadcrumbs} />
+				<HeroServices
+					data={{
+						hero_Heading,
+						hero_Annotation,
+						hero_Paragraph,
+						hero_SecondParagraph,
+						hero_Img,
+						hero_Nav,
+					}}
+				/>
+				<Audit
+					data={{
+						audit_Paragraph,
+						audit_Paragraph2,
+						audit_Paragraph3,
+						audit_Cta,
+						audit_Img,
+					}}
+				/>
+				<SimpleCtaSection data={simpleCtaSection} />
+				<MasonryList
+					heading={digital_Heading}
+					paragraph={digital_Paragraph}
+					paragraph2={digital_Paragraph2}
+					list={digital_List}
+				/>
+				<SimpleCtaSection data={simpleCtaSection2} />
+				<MasonryList
+					heading={phisical_Heading}
+					paragraph={phisical_Paragraph}
+					paragraph2={phisical_Paragraph2}
+					list={phisical_List}
+				/>
+				<SimpleCtaSection data={simpleCtaSection3} />
+				<CaseStudies heading={caseStudies_Heading} />
+				<CtaSection data={ctaSection} />
+				<LatestBlogEntries
+					heading={blogEntries_Heading}
+					data={blogEntries}
+				/>
+			</main>
+			<ScrollToNext data={scrollToNext} />
 		</>
 	);
 }

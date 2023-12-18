@@ -1,4 +1,3 @@
-import SEO from "@/components/global/Seo";
 import GridFloatingImg from "@/components/sections/GridFloatingImg";
 import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
 import Team from "@/components/sections/Team";
@@ -7,6 +6,7 @@ import Creativity from "@/components/sections/homepage/Creativity";
 import FourGrid from "@/components/sections/homepage/FourGrid";
 import Hero from "@/components/sections/homepage/Hero";
 import Roadmap from "@/components/sections/homepage/Roadmap";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export async function generateMetadata() {
@@ -47,10 +47,6 @@ const PolishIndexPage = async () => {
 			team_Text,
 			team_Cta,
 		},
-		webDevelopment,
-		workshop,
-		agency,
-		graphicsAndDesign,
 		testimonials,
 		blogEntries,
 	} = await query();
@@ -188,66 +184,6 @@ const query = async () => {
       seo {
         title
         description
-      }
-    }
-    webDevelopment: WebDevelopment(id: "webDevelopment") {
-      hero_Img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    workshop: Workshop(id: "workshop") {
-      hero_Img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    agency: Agency(id:"agency") {
-      hero_Img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    graphicsAndDesign: GraphicsDesign(id:"graphics-design") {
-      hero_Img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
       }
     }
     testimonials: allTestimonials(limit: 3, sort: {_createdAt:ASC}) {

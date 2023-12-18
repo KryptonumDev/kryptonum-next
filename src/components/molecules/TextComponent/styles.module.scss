@@ -21,10 +21,12 @@
         width: 100%;
 
         .icon {
-          height: 100%;
-          width: 100%;
+          width: clamp(48px, calc(64vw/7.68), 64px);
+          height: clamp(48px, calc(64vw/7.68), 64px);
+          margin-left: auto;
           object-fit: cover;
-          display:block;
+          display: block;
+          padding: 4px;
         }
       }
 
@@ -32,15 +34,7 @@
         margin-bottom: clamp(28px, calc(40vw/7.68), 40px);
       }
 
-      .icon {
-        width: clamp(48px, calc(64vw/7.68), 64px);
-        height: clamp(48px, calc(64vw/7.68), 64px);
-        margin-left: auto;
 
-        img {
-          padding: 4px;
-        }
-      }
 
       .title {
         margin-left: auto;

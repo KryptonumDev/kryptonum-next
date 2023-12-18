@@ -1,5 +1,3 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import CaseStudies from "@/components/sections/CaseStudies";
 import CtaSection from "@/components/sections/CtaSection";
 import HeroServices from "@/components/sections/HeroServices";
@@ -10,6 +8,8 @@ import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
 import Audit from "@/components/sections/agencyCare/Audit";
 import Copy from "@/components/sections/agencyCare/Copy";
 import Protection from "@/components/sections/agencyCare/Protection";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function AgencyCarePage() {

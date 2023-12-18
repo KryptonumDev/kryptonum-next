@@ -1,5 +1,5 @@
 import ReadingTime from "@/atoms/ReadingTime";
-import Img from "@/utils/Img";
+import Img from "@/components/atoms/Img";
 import { removeMarkdown } from "@/utils/functions";
 import Link from "next/link";
 import styles from "./styles.module.scss";

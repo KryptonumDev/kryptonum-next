@@ -1,9 +1,9 @@
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import Hero from "@/components/sections/Hero";
 import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
 import Content from "@/components/sections/privacyPolicy/Content";
 import KeyElements from "@/components/sections/privacyPolicy/KeyElements";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
 export default async function PrivacyPolicyPage() {

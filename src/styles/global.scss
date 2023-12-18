@@ -15,6 +15,7 @@
   --neutral-400: #BFC1CA;
   --neutral-500: #A4A8B5;
   --neutral-600: #9699A3;
+  --neutral-650: #717680;
   --neutral-700: #5B5F67;
   --neutral-800: #212123;
   --neutral-900: #161618;
@@ -23,11 +24,15 @@
   --error-400: #EE6470;
   --gradient: linear-gradient(90deg, #90F4E8, #2DD282);
   --easing: cubic-bezier(0.23, 1, 0.32, 1);
+  --nav-height: 94px;
 }
 
 body.scrollLock {
   overflow: hidden;
   touch-action: none;
+}
+html {
+  scroll-padding-top: var(--nav-height);
 }
 
 body {
@@ -208,9 +213,12 @@ li strong {
 .hero {
   padding-top: clamp(16px, calc(24vw/7.68), 24px);
 }
-
-@media (max-width: 500px) {
-  .hero {
-    padding-top: unset;
-  }
+.portfolio {
+  padding-top: unset;
 }
+
+// @media (max-width: 500px) {
+//   .hero {
+//     padding-top: unset;
+//   }
+// }

@@ -3,7 +3,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 48px 32px;
 
-  .heading {
+  h3 {
     grid-column: 3/1;
     font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(30rem/16));
   }
@@ -49,7 +49,7 @@
     grid-template-columns: 1fr;
     gap: unset;
 
-    .heading {
+    h3 {
       grid-column: unset;
       margin-bottom: clamp(24px, calc(32vw/7.68), 48px);
     }

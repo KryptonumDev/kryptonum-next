@@ -11,7 +11,7 @@ const Hero = ({
   }
 }) => {
   return (
-    <section className={styles.section}>
+    <section className={`${styles.section} hero`}>
       <DecorativeHeading type="h1">{hero_Heading}</DecorativeHeading>
       <div>
         <DecorativeHeading type="h2">{hero_Subheading}</DecorativeHeading>

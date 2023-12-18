@@ -1,9 +1,8 @@
 "use client";
-
 import Button from "@/components/atoms/Button";
 import { Checkbox } from "@/components/atoms/Checkbox";
 import { Label } from "@/components/atoms/Label";
-import { emailRegex } from "@/constants/regex";
+import { regex } from "@/global/constants";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -15,30 +14,32 @@ const FaqContact = ({ cta }) => {
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm({ mode: "onBlur" });
+	} = useForm({ mode: "onTouched" });
 
 	const [isEmailSent, setIsEmailSent] = useState(false);
 	const [submitProccessing, setSubmitProccessing] = useState(false);
 
 	const onSubmit = (data) => {
 		setSubmitProccessing(true);
-		fetch("/api/faq-contact", {
+		fetch("/api/quick-contact", {
 			method: "POST",
+			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(data),
 		})
 			.then((response) => response.json())
-			.then((response) => {
-				if (response.success) {
-					reset();
+      .then((response) => {
+        if (response.success) {
 					setIsEmailSent("success");
+          setSubmitProccessing(false);
+          reset();
+        } else {
+          setIsEmailSent("failed");
 					setSubmitProccessing(false);
-				} else {
-					setIsEmailSent("failed");
-					setSubmitProccessing(false);
-				}
+        }
 			})
 			.catch(() => {
 				setIsEmailSent("failed");
+				setSubmitProccessing(false);
 			});
 	};
 
@@ -49,9 +50,10 @@ const FaqContact = ({ cta }) => {
 		>
 			<Label
 				title="Email"
-				name="mail"
-				register={register("mail", { required: true, pattern: emailRegex })}
+				name="email"
+				register={register("email", { required: true, pattern: regex.email })}
 				errors={errors}
+				type="email"
 			/>
 			<Label
 				title="Temat rozmowy"
@@ -60,13 +62,14 @@ const FaqContact = ({ cta }) => {
 				errors={errors}
 				placeholder="Daj znać, o czym chcesz pogadać :)"
 				rows={3}
+				type="text"
 			/>
 			<Checkbox
-				name="check"
-				register={register("check", { required: true })}
+				name="legal"
+				register={register("legal", { required: true })}
 				errors={errors}
 			/>
-			<Button theme="primary">{cta || "Wyślij wiadomość"}</Button>
+			<Button theme="primary" disabled={submitProccessing}>{cta || "Wyślij wiadomość"}</Button>
 			<AnimatePresence>
 				{isEmailSent === "success" && (
 					<motion.div

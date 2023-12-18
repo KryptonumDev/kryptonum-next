@@ -1,4 +1,4 @@
-import Img from "@/utils/Img";
+import Img from "@/components/atoms/Img";
 import { formatDateToPolishLocale } from "@/utils/functions";
 import Link from "next/link";
 import { useMemo } from "react";
@@ -15,7 +15,7 @@ export default function Grid({
 	GraphicsDesign,
 	Workshop,
 	caseStudies,
-	akademiaEntries,
+	curiosityEntries,
 }) {
 	const postsByCategory = useMemo(() => {
 		const arr = [];
@@ -40,13 +40,10 @@ export default function Grid({
 		return arr;
 	}, [blogEntries]);
 
-	const akademiaByCategory = useMemo(() => {
+	const curiositiesByCategories = useMemo(() => {
 		const arr = [];
-
-		akademiaEntries.forEach((post) => {
-
+		curiosityEntries.forEach((post) => {
 			post._createdAt = formatDateToPolishLocale(post._createdAt);
-
 			post.categories.forEach((category) => {
 				const categoryIndex = arr.findIndex((item) => item.category.name === category.name);
 				if (categoryIndex === -1) {
@@ -59,9 +56,8 @@ export default function Grid({
 				}
 			});
 		});
-
 		return arr;
-	}, [akademiaEntries]);
+	}, [curiosityEntries]);
 
 	return (
 		<section className={styles.section}>
@@ -242,7 +238,7 @@ export default function Grid({
 				>
 					Akademia
 				</Link>
-				{akademiaByCategory.map((el, i) => (
+				{curiositiesByCategories.map((el, i) => (
 					<div key={i}>
 						<Link
 							className={styles.medLink}

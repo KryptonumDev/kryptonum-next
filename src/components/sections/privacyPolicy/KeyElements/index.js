@@ -1,6 +1,6 @@
-import DecorativeHeading from '@/components/atoms/DecorativeHeading';
-import Markdown from '@/utils/markdown';
-import styles from './styles.module.scss';
+import DecorativeHeading from "@/components/atoms/DecorativeHeading";
+import Markdown from "@/components/atoms/Markdown";
+import styles from "./styles.module.scss";
 
 const KeyElements = ({ heading, list }) => {
   return (
@@ -15,5 +15,5 @@ const KeyElements = ({ heading, list }) => {
       </ol>
     </section>
   );
-}
+};
 export default KeyElements;

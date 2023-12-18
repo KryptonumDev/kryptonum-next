@@ -1,9 +1,9 @@
-import Button from '@/components/atoms/Button';
-import { Error, Mail, Tel } from '@/components/atoms/Icons';
-import Markdown from '@/utils/markdown';
-import styles from './styles.module.scss';
+import Button from "@/components/atoms/Button";
+import { Error, Mail, Tel } from "@/components/atoms/Icons";
+import Markdown from "@/components/atoms/Markdown";
+import styles from "./styles.module.scss";
 
-const ErrorSend =({ resend }) => {
+const ErrorSend = ({ resend }) => {
   return (
     <section className={styles.wrapper}>
       <div className={styles.textPart}>
@@ -11,16 +11,12 @@ const ErrorSend =({ resend }) => {
           <Error /> Jakiś serwer ma czkawkę
         </h2>
         <Markdown>
-          Już go **namierzamy**, a Ciebie prosimy:
-          wyślij formularz jeszcze raz lub
-          spróbuj za jakiś czas
+          Już go **namierzamy**, a Ciebie prosimy: wyślij formularz jeszcze raz lub spróbuj za jakiś czas
         </Markdown>
         <Button onClick={resend} theme="primary">
           Spróbuj ponownie
         </Button>
-        <Markdown>
-          Problem się **powtarza**? Skontaktuj się z nami telefonicznie lub mailowo
-        </Markdown>
+        <Markdown>Problem się **powtarza**? Skontaktuj się z nami telefonicznie lub mailowo</Markdown>
         <div className={styles.flex}>
           <div>
             <Tel /> <span>+48 793 272 020</span>
@@ -31,6 +27,6 @@ const ErrorSend =({ resend }) => {
         </div>
       </div>
     </section>
-  )
-}
-export default ErrorSend
+  );
+};
+export default ErrorSend;

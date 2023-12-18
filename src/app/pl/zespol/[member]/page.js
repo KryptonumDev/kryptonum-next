@@ -1,6 +1,4 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import SEO from "@/components/global/Seo";
 import CaseStudies from "@/components/sections/CaseStudies";
 import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
 import ScrollToNext from "@/components/sections/ScrollToNext";
@@ -13,6 +11,8 @@ import Inspirations from "@/components/sections/teamMember/Inspitations";
 import Links from "@/components/sections/teamMember/Links";
 import Skills from "@/components/sections/teamMember/Skills";
 import Tools from "@/components/sections/teamMember/Tools";
+import Breadcrumbs from "@/global/Breadcrumbs";
+import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 import { removeMarkdown } from "@/utils/functions";
 import { notFound } from "next/navigation";

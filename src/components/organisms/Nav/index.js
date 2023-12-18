@@ -1,7 +1,7 @@
 import { ChevronDown, ChevronLeft, KryptonumLogo } from "@/atoms/Icons";
+import Img from "@/components/atoms/Img";
 import NavLink from "@/components/atoms/NavLink";
-import Img from "@/utils/Img";
-import { removeMarkdown } from "@/utils/functions";
+import { formatDateToPolishLocale, removeMarkdown } from "@/utils/functions";
 import Navigation from "./navigation";
 import styles from "./styles.module.scss";
 
@@ -195,7 +195,7 @@ const Nav = ({
 									</div>
 									<span>{entry.author[0]?.name}</span>
 								</NavLink>
-								<span>{entry._createdAt}</span>
+								<span>{formatDateToPolishLocale(entry._createdAt)}</span>
 							</div>
 							<p>{removeMarkdown(entry.title)}</p>
 						</div>

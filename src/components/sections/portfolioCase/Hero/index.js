@@ -1,6 +1,6 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import Breadcrumbs from "@/components/global/Breadcrumbs";
-import Img from "@/utils/Img";
+import Img from "@/components/atoms/Img";
+import Breadcrumbs from "@/global/Breadcrumbs";
 import styles from './styles.module.scss';
 
 const Hero = ({

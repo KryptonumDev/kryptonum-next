@@ -7,7 +7,11 @@ const Slider = ({ data }) => {
 	const arrowRight = <SliderArrowRight />;
 
 	return (
-		<SliderSection data={data} arrowLeft={arrowLeft} arrowRight={arrowRight}>
+		<SliderSection
+			data={data}
+			arrowLeft={arrowLeft}
+			arrowRight={arrowRight}
+		>
 			<DecorativeHeading type="h3">{data.heading}</DecorativeHeading>
 		</SliderSection>
 	);
