@@ -1,17 +1,8 @@
-import Button from '@/atoms/Button';
-import Markdown from '@/components/atoms/markdown';
-import styles from './styles.module.scss';
+import Button from "@/atoms/Button";
+import Markdown from "@/components/atoms/Markdown";
+import styles from "./styles.module.scss";
 
-const Faq4Grid = ({
-  data: {
-    heading,
-    paragraph,
-    secondParagraph,
-    subheading,
-    cta,
-    additionalStyles
-  }
-}) => {
+const Faq4Grid = ({ data: { heading, paragraph, secondParagraph, subheading, cta, additionalStyles } }) => {
   return (
     <section className={`${styles.answer} ${additionalStyles}`}>
       <Markdown className={styles.heading}>{heading}</Markdown>
@@ -19,11 +10,9 @@ const Faq4Grid = ({
       <Markdown className={styles.subheading}>{subheading}</Markdown>
       <div className={styles.secondParagraph}>
         <Markdown>{secondParagraph}</Markdown>
-        {cta?.text && (
-          <Button data={cta}className={styles.cta}/>
-        )}
+        {cta?.text && <Button data={cta} className={styles.cta} />}
       </div>
     </section>
   );
-}
-export default Faq4Grid
+};
+export default Faq4Grid;

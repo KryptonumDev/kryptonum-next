@@ -1,7 +1,7 @@
-import Img from '@/components/atoms/Img';
-import Markdown from '@/components/atoms/markdown';
-import DecorativeHeading from '../../atoms/DecorativeHeading';
-import styles from './styles.module.scss';
+import Img from "@/components/atoms/Img";
+import Markdown from "@/components/atoms/Markdown";
+import DecorativeHeading from "../../atoms/DecorativeHeading";
+import styles from "./styles.module.scss";
 
 const LogoShowcase = ({ data: { heading, paragraph, proposals } }) => {
   return (
@@ -14,15 +14,9 @@ const LogoShowcase = ({ data: { heading, paragraph, proposals } }) => {
         {proposals.map(({ title, img }, i) => (
           <div className={styles.item} key={i}>
             <div className={styles.img}>
-              <Img
-                data={img}
-                className={styles.logo}
-                sizes="(max-width: 949px) 100vw, 50vw"
-              />
+              <Img data={img} className={styles.logo} sizes="(max-width: 949px) 100vw, 50vw" />
             </div>
-            {title && (
-              <Markdown className={styles.title}>{title}</Markdown>
-            )}
+            {title && <Markdown className={styles.title}>{title}</Markdown>}
           </div>
         ))}
       </div>

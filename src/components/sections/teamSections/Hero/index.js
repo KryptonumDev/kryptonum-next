@@ -1,15 +1,9 @@
-import DecorativeHeading from '@/components/atoms/DecorativeHeading';
-import { Error } from '@/components/atoms/Icons';
-import Markdown from '@/components/atoms/markdown';
-import styles from './styles.module.scss';
+import DecorativeHeading from "@/components/atoms/DecorativeHeading";
+import { Error } from "@/components/atoms/Icons";
+import Markdown from "@/components/atoms/Markdown";
+import styles from "./styles.module.scss";
 
-const Hero = ({
-  data: {
-    hero_Heading,
-    hero_Paragraph,
-    hero_Column,
-  }
-}) => {
+const Hero = ({ data: { hero_Heading, hero_Paragraph, hero_Column } }) => {
   return (
     <section className={`${styles.section} hero`}>
       <header>
@@ -29,5 +23,5 @@ const Hero = ({
       </div>
     </section>
   );
-}
+};
 export default Hero;

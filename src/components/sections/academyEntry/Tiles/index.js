@@ -1,6 +1,6 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import Markdown from "@/components/atoms/markdown";
-import styles from './styles.module.scss';
+import Markdown from "@/components/atoms/Markdown";
+import styles from "./styles.module.scss";
 
 const Tiles = ({ heading, list, annotation }) => {
   return (
@@ -13,10 +13,8 @@ const Tiles = ({ heading, list, annotation }) => {
           </li>
         ))}
       </ul>
-      {annotation && (
-        <Markdown className={styles.annotation}>{annotation}</Markdown>
-      )}
+      {annotation && <Markdown className={styles.annotation}>{annotation}</Markdown>}
     </section>
   );
-}
+};
 export default Tiles;

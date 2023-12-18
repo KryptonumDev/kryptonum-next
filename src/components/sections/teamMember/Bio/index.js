@@ -1,5 +1,5 @@
-import Markdown from '@/components/atoms/markdown';
-import styles from './styles.module.scss';
+import Markdown from "@/components/atoms/Markdown";
+import styles from "./styles.module.scss";
 
 const Bio = ({ data }) => {
   return (
@@ -7,5 +7,5 @@ const Bio = ({ data }) => {
       <Markdown>{data}</Markdown>
     </section>
   );
-}
+};
 export default Bio;

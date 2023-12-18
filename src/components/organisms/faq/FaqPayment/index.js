@@ -1,21 +1,15 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import Markdown from "@/components/atoms/markdown";
-import styles from './styles.module.scss';
+import Markdown from "@/components/atoms/Markdown";
+import styles from "./styles.module.scss";
 
 const FaqPayment = ({
-  data: {
-    heading,
-    paragraph,
-    secondParagraph,
-    thirdParagraph,
-    text,
-    list,
-    additionalStyles
-  }
+  data: { heading, paragraph, secondParagraph, thirdParagraph, text, list, additionalStyles },
 }) => {
   return (
     <section className={`${styles.answer} ${additionalStyles}`}>
-      <DecorativeHeading type="h3" className={styles.heading} decoration={false}>{heading}</DecorativeHeading>
+      <DecorativeHeading type="h3" className={styles.heading} decoration={false}>
+        {heading}
+      </DecorativeHeading>
       <Markdown className={styles.paragraph}>{paragraph}</Markdown>
       <Markdown className={styles.secondParagraph}>{secondParagraph}</Markdown>
       <Markdown className={styles.thirdParagraph}>{thirdParagraph}</Markdown>
@@ -27,5 +21,5 @@ const FaqPayment = ({
       </ul>
     </section>
   );
-}
-export default FaqPayment
+};
+export default FaqPayment;

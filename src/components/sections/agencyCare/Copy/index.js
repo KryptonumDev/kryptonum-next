@@ -1,20 +1,20 @@
 import Button from "@/components/atoms/Button";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import Img from "@/components/atoms/Img";
-import Markdown from "@/components/atoms/markdown";
+import Markdown from "@/components/atoms/Markdown";
 import styles from "./styles.module.scss";
 
 const Copy = ({
-	data: {
-		copy_Heading,
-		copy_Paragraph,
-		copy_Paragraph2,
-		copy_Paragraph3,
-		copy_Img,
-		copy_Cta,
-		copy_Headline,
-		copy_List,
-	},
+  data: {
+    copy_Heading,
+    copy_Paragraph,
+    copy_Paragraph2,
+    copy_Paragraph3,
+    copy_Img,
+    copy_Cta,
+    copy_Headline,
+    copy_List,
+  },
 }) => {
 	return (
 		<section className={styles.section}>
