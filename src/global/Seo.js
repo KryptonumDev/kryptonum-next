@@ -28,7 +28,7 @@ const SEO = async ({
     title: title || "Kryptonum - Agencja dla tych, którym zależy",
     description: description || "",
     url: url ? url + (pagination ? `/${pagination}` : "") : "",
-    ogImage: og_Img.asset.url,
+    ogImage: ogImage || og_Img.asset.url,
   };
 
   const metadata = {

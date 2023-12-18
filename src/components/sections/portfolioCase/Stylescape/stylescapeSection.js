@@ -42,6 +42,7 @@ const StylescapeSection = ({ header, stylescapes, children }) => {
 			};
 		}
 	}, []);
+	
 	return (
 		<section className={styles.section}>
 			{header}
