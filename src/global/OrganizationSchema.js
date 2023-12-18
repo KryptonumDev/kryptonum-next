@@ -4,8 +4,8 @@ import { domain } from "./Seo";
 export default async function OrganizationSchema() {
 	const { page: { seo } } = await query();
 	return (
-		<script type="application/ld+json">
-			{JSON.stringify({
+		<script type="application/ld+json" dangerouslySetInnerHTML={{ __html:
+			JSON.stringify({
 				"@context": "https://schema.org",
 				"@type": "Organization",
 				name: "Kryptonum",
@@ -147,8 +147,8 @@ export default async function OrganizationSchema() {
 					"https://linkin.bio/kryptonum_pl",
 					"https://clutch.co/profile/kryptonum",
 				],
-			})}
-		</script>
+			})
+		}} />
 	);
 }
 
