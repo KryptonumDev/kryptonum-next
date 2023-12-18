@@ -37,36 +37,36 @@ export default async function sitemap() {
     caseStudyEntries,
     teamMembers,
   } = await query();
-  locationPages = locationPages.map((route) => ({
-    url: `${domain}/pl/${route}`,
+  locationPages = locationPages.map(({ slug: { current: slug }}) => ({
+    url: `${domain}/pl/${slug}`,
     lastModified: currentDate,
   }));
-  blogEntries = blogEntries.map((route) => ({
-    url: `${domain}/pl/blog/${route}`,
+  blogEntries = blogEntries.map(({ slug: { current: slug }}) => ({
+    url: `${domain}/pl/blog/${slug}`,
     lastModified: currentDate,
   }));
-  blogCategories = blogCategories.map((route) => ({
-    url: `${domain}/pl/blog/kategoria/${route}`,
+  blogCategories = blogCategories.map(({ slug: { current: slug }}) => ({
+    url: `${domain}/pl/blog/kategoria/${slug}`,
     lastModified: currentDate,
   }));
-  curiosityEntries = curiosityEntries.map((route) => ({
-    url: `${domain}/pl/akademia/${route}`,
+  curiosityEntries = curiosityEntries.map(({ slug: { current: slug }}) => ({
+    url: `${domain}/pl/akademia/${slug}`,
     lastModified: currentDate,
   }));
-  curiosityCategories = curiosityCategories.map((route) => ({
-    url: `${domain}/pl/akademia/kategoria/${route}`,
+  curiosityCategories = curiosityCategories.map(({ slug: { current: slug }}) => ({
+    url: `${domain}/pl/akademia/kategoria/${slug}`,
     lastModified: currentDate,
   }));
-  caseStudyEntries = caseStudyEntries.map((route) => ({
-    url: `${domain}/pl/portfolio/${route}`,
+  caseStudyEntries = caseStudyEntries.map(({ slug: { current: slug }}) => ({
+    url: `${domain}/pl/portfolio/${slug}`,
     lastModified: currentDate,
   }));
-  teamMembers = teamMembers.map((route) => ({
-    url: `${domain}/pl/zespol/${route}`,
+  teamMembers = teamMembers.map(({ slug: { current: slug }}) => ({
+    url: `${domain}/pl/zespol/${slug}`,
     lastModified: currentDate,
   }));
-  staticPages = staticPages.map((route) => ({
-    url: `${domain}${route}`,
+  staticPages = staticPages.map(({ slug: { current: slug }}) => ({
+    url: `${domain}${slug}`,
     lastModified: currentDate,
   }));
 
