@@ -33,11 +33,7 @@
         border: 1px solid var(--neutral-200);
         border-radius: 50%;
         object-fit: contain;
-
-        img {
-          padding: 4px;
-          border-radius: inherit;
-        }
+        padding: 4px;
       }
 
       text-align: center;
