@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const easeOut = (t) => 1 - Math.pow(1 - t, 3);
 const scrollHeight = 800;
@@ -16,6 +16,7 @@ const ScrollToNextSection = ({
 }) => {
 	const scrollToNext = useRef(null);
 	const [scaleY, setScaleY] = useState(0);
+  const router = useRouter();
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -29,7 +30,7 @@ const ScrollToNextSection = ({
 			setScaleY(progress);
 			if (remainingScroll <= 0) {
 				window.scrollTo({ top: scrollPosition - scrollHeight });
-				redirect(link.href);
+				router.push(link.href);
 			}
 		};
 		handleScroll();
