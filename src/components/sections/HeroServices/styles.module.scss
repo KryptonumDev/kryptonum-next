@@ -2,7 +2,8 @@
   h1 {
     margin-bottom: 32px;
   }
-  h1, .annotation {
+  h1,
+  .annotation {
     sup {
       color: var(--primary-400);
       background-image: var(--gradient);
@@ -12,29 +13,30 @@
     }
   }
   .img {
-    height:auto;
-    width:100%;
+    height: auto;
+    width: 100%;
     object-fit: contain;
   }
   .copy {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 72px 32px;
-    margin-top: clamp(calc(28rem/16), calc(32vw/7.68), calc(64rem/16));
+    margin-top: clamp(calc(28rem / 16), calc(32vw / 7.68), calc(64rem / 16));
     .annotation {
       grid-column: 3/-2;
     }
-    .annotation, .secondParagraph {
-      font-size: clamp(calc(16rem/16), calc(22vw/7.68), calc(22rem/16));
+    .annotation,
+    .secondParagraph {
+      font-size: clamp(calc(16rem / 16), calc(22vw / 7.68), calc(22rem / 16));
     }
     .paragraph {
-      font-size: clamp(calc(22rem/16), calc(32vw/7.68), calc(30rem/16));
+      font-size: clamp(calc(22rem / 16), calc(32vw / 7.68), calc(30rem / 16));
       h2 {
         font-size: inherit;
       }
     }
     .secondParagraph {
-      font-size: clamp(calc(16rem/16), calc(22vw/7.68), calc(22rem/16));
+      font-size: clamp(calc(16rem / 16), calc(22vw / 7.68), calc(22rem / 16));
       > *:not(:last-child) {
         margin-bottom: 24px;
       }
@@ -45,16 +47,16 @@
           list-style-type: none;
           display: grid;
           grid-template-columns: 32px auto;
-          column-gap: clamp(12px, calc(16vw/7.68), 32px);
+          column-gap: clamp(12px, calc(16vw / 7.68), 32px);
           align-items: baseline;
-          &:not(:last-child){
+          &:not(:last-child) {
             margin-bottom: 12px;
           }
           &::before {
             content: "/" counter(counter);
             display: inline-block;
           }
-          &:nth-child(-n+10)::before {
+          &:nth-child(-n + 9)::before {
             content: "/0" counter(counter);
           }
         }
@@ -62,7 +64,7 @@
     }
   }
   .nav {
-    margin-top: clamp(24px, calc(32vw/7.68), 48px);
+    margin-top: clamp(24px, calc(32vw / 7.68), 48px);
     display: grid;
     gap: 32px;
     grid-template-columns: 1fr 1fr 1fr;
@@ -73,41 +75,36 @@
       flex-direction: column;
       justify-content: flex-end;
       h3 {
-        font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(32rem/16));
+        font-size: clamp(calc(20rem / 16), calc(32vw / 7.68), calc(32rem / 16));
         margin-bottom: 16px;
         text-decoration: underline;
       }
       p {
-        font-size: clamp(calc(16rem/16), calc(22vw/7.68), calc(22rem/16));
+        font-size: clamp(calc(16rem / 16), calc(22vw / 7.68), calc(22rem / 16));
       }
       position: relative;
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         inset: 0;
-        box-shadow: 0px 0px 2px #fff,
-                    0px 0px 5px #fff,
-                    0px 0px 25px rgba(255, 255, 255, 0.5);
+        box-shadow: 0px 0px 2px #fff, 0px 0px 5px #fff, 0px 0px 25px rgba(255, 255, 255, 0.5);
         opacity: 0;
-        transition: opacity .5s;
+        transition: opacity 0.5s;
       }
       &:hover::before {
         opacity: 1;
       }
       &:first-child {
-        background: linear-gradient(var(--neutral-950), var(--neutral-950)) padding-box,
-        var(--gradient) border-box;
+        background: linear-gradient(var(--neutral-950), var(--neutral-950)) padding-box, var(--gradient) border-box;
         border: 1px solid transparent;
         grid-row: 3/1;
         &::before {
-          content: '';
+          content: "";
           position: absolute;
           inset: 0;
-          box-shadow: 0px 0px 2px #E1FFFA,
-                      0px 0px 5px #6DF1DD,
-                      0px 0px 25px rgba(55, 193, 131, 0.75);
+          box-shadow: 0px 0px 2px #e1fffa, 0px 0px 5px #6df1dd, 0px 0px 25px rgba(55, 193, 131, 0.75);
           opacity: 0;
-          transition: opacity .5s;
+          transition: opacity 0.5s;
         }
         &:hover::before {
           opacity: 1;
@@ -117,7 +114,7 @@
     &.three {
       grid-template-columns: 1fr 1fr;
     }
-    @media (max-width: 1099px){
+    @media (max-width: 1099px) {
       grid-template-columns: 1fr 1fr;
       .item {
         padding: 32px 24px;
@@ -128,7 +125,7 @@
         }
       }
     }
-    @media (max-width: 549px){
+    @media (max-width: 549px) {
       &,
       &.three {
         grid-template-columns: 1fr;
@@ -144,9 +141,9 @@
     }
   }
   .simpleCtaSection {
-    margin-top: clamp(80px, calc(144vw/7.68), 144px);
+    margin-top: clamp(80px, calc(144vw / 7.68), 144px);
   }
-  @media (max-width: 1199px){
+  @media (max-width: 1199px) {
     display: flex;
     flex-direction: column;
     h1 {
@@ -154,7 +151,7 @@
     }
     .img {
       order: -1;
-      margin-bottom: clamp(24px, calc(48vw/7.68), 48px);
+      margin-bottom: clamp(24px, calc(48vw / 7.68), 48px);
     }
     .copy {
       grid-template-columns: 1fr;
