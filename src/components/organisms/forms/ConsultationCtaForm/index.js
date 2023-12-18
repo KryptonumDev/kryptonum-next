@@ -1,11 +1,11 @@
 "use client";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { AnimatePresence, motion } from "framer-motion";
 import Button from "@/components/atoms/Button";
 import { Checkbox } from "@/components/atoms/Checkbox";
 import { Label } from "@/components/atoms/Label";
 import { regex } from "@/global/constants";
-import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
 
 const ConsultationCtaForm = ({ cta }) => {

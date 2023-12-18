@@ -1,29 +1,30 @@
+import fetchData from "@/utils/fetchData";
 import { domain } from "../global/Seo";
 
 const currentDate = new Date();
 let staticPages = [
   "/pl",
-  "/pl/akademia",
-  "/pl/blog",
-  "/pl/branding",
-  "/pl/brief-z-kryptonum",
-  "/pl/grafika-design",
-  "/pl/grafika-design/audyt-ux-ui",
-  "/pl/grafika-design/identyfikacja-wizualna-marki",
-  "/pl/grafika-design/projektowanie-logo",
-  "/pl/kontakt",
-  "/pl/mapa-strony",
-  "/pl/opieka-agencyjna-www-serwis-utrzymanie-zabezpieczenie",
-  "/pl/polityka-prywatnosci",
-  "/pl/portfolio",
-  "/pl/projektowanie-ui",
-  "/pl/projektowanie-ux",
-  "/pl/warsztaty-discovery",
   "/pl/web-development",
+  "/pl/web-development/strony-internetowe",
   "/pl/web-development/aplikacje-internetowe",
   "/pl/web-development/sklepy-internetowe",
-  "/pl/web-development/strony-internetowe",
+  "/pl/grafika-design",
+  "/pl/grafika-design/projektowanie-logo",
+  "/pl/grafika-design/audyt-ux-ui",
+  "/pl/grafika-design/identyfikacja-wizualna-marki",
+  "/pl/opieka-agencyjna-www-serwis-utrzymanie-zabezpieczenie",
+  "/pl/warsztaty-discovery",
+  "/pl/portfolio",
   "/pl/zespol",
+  "/pl/blog",
+  "/pl/akademia",
+  "/pl/kontakt",
+  "/pl/brief-z-kryptonum",
+  "/pl/mapa-strony",
+  "/pl/polityka-prywatnosci",
+  "/pl/branding",
+  "/pl/projektowanie-ui",
+  "/pl/projektowanie-ux",
 ];
 
 export default async function sitemap() {
@@ -36,48 +37,48 @@ export default async function sitemap() {
     caseStudyEntries,
     teamMembers,
   } = await query();
-  locationPages = locationPages.map((route) => ({
-    url: `${domain}/pl/${route}`,
+  locationPages = locationPages.map(({ slug: { current: slug }}) => ({
+    url: `${domain}/pl/${slug}`,
     lastModified: currentDate,
   }));
-  blogEntries = blogEntries.map((route) => ({
-    url: `${domain}/pl/blog/${route}`,
+  blogEntries = blogEntries.map(({ slug: { current: slug }}) => ({
+    url: `${domain}/pl/blog/${slug}`,
     lastModified: currentDate,
   }));
-  blogCategories = blogCategories.map((route) => ({
-    url: `${domain}/pl/blog/kategoria/${route}`,
+  blogCategories = blogCategories.map(({ slug: { current: slug }}) => ({
+    url: `${domain}/pl/blog/kategoria/${slug}`,
     lastModified: currentDate,
   }));
-  curiosityEntries = curiosityEntries.map((route) => ({
-    url: `${domain}/pl/akademia/${route}`,
+  curiosityEntries = curiosityEntries.map(({ slug: { current: slug }}) => ({
+    url: `${domain}/pl/akademia/${slug}`,
     lastModified: currentDate,
   }));
-  curiosityCategories = curiosityCategories.map((route) => ({
-    url: `${domain}/pl/akademia/kategoria/${route}`,
+  curiosityCategories = curiosityCategories.map(({ slug: { current: slug }}) => ({
+    url: `${domain}/pl/akademia/kategoria/${slug}`,
     lastModified: currentDate,
   }));
-  caseStudyEntries = caseStudyEntries.map((route) => ({
-    url: `${domain}/pl/portfolio/${route}`,
+  caseStudyEntries = caseStudyEntries.map(({ slug: { current: slug }}) => ({
+    url: `${domain}/pl/portfolio/${slug}`,
     lastModified: currentDate,
   }));
-  teamMembers = teamMembers.map((route) => ({
-    url: `${domain}/pl/zespol/${route}`,
+  teamMembers = teamMembers.map(({ slug: { current: slug }}) => ({
+    url: `${domain}/pl/zespol/${slug}`,
     lastModified: currentDate,
   }));
-  staticPages = staticPages.map((route) => ({
-    url: `${domain}${route}`,
+  staticPages = staticPages.map(slug => ({
+    url: `${domain}${slug}`,
     lastModified: currentDate,
   }));
 
   return [
-    locationPages,
-    blogEntries,
-    blogCategories,
-    curiosityEntries,
-    curiosityCategories,
-    caseStudyEntries,
-    teamMembers,
-    staticPages,
+    ...locationPages,
+    ...blogEntries,
+    ...blogCategories,
+    ...curiosityEntries,
+    ...curiosityCategories,
+    ...caseStudyEntries,
+    ...teamMembers,
+    ...staticPages,
   ];
 }
 

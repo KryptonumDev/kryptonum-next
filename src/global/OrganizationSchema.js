@@ -1,9 +1,11 @@
+import fetchData from "@/utils/fetchData";
 import { domain } from "./Seo";
 
-export default function OrganizationSchema() {
+export default async function OrganizationSchema() {
+	const { page: { seo } } = await query();
 	return (
-		<script type="application/ld+json">
-			{JSON.stringify({
+		<script type="application/ld+json" dangerouslySetInnerHTML={{ __html:
+			JSON.stringify({
 				"@context": "https://schema.org",
 				"@type": "Organization",
 				name: "Kryptonum",
@@ -14,7 +16,7 @@ export default function OrganizationSchema() {
 					"michal@kryptonum.eu"
 				],
 				logo: `${domain}/kryptonum-logo.png`,
-				description: "Kryptonum, to agencja interaktywna kompleksowo wspierająca Twój biznes online. Partner technologiczny na każdym etapie obecności firmy w internecie.",
+        description: seo?.description,
 				address: {
 					"@type": "PostalAddress",
 					streetAddress: "Aleja Komisji Edukacji Narodowej 103/61",
@@ -145,7 +147,20 @@ export default function OrganizationSchema() {
 					"https://linkin.bio/kryptonum_pl",
 					"https://clutch.co/profile/kryptonum",
 				],
-			})}
-		</script>
+			})
+		}} />
 	);
+}
+
+const query = async () => {
+  const { body: { data } } = await fetchData(/* GraphQL */`
+    query {
+      page: Homepage(id: "homepage") {
+        seo {
+          description
+        }
+      }
+    }
+  `)
+  return data;
 }

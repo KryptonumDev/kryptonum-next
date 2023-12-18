@@ -6,29 +6,29 @@
 
 .header {
   max-width: 630px;
-  margin: 0 auto clamp(32px, calc(42vw/7.68), 64px);
+  margin: 0 auto clamp(32px, calc(42vw / 7.68), 64px);
   h2 {
-    margin-bottom: clamp(16px, calc(24vw/7.68), 32px);
-    font-size: clamp(calc(20rem/16), calc(28vw/7.68), calc(28rem/16));
+    margin-bottom: clamp(16px, calc(24vw / 7.68), 32px);
+    font-size: clamp(calc(20rem / 16), calc(28vw / 7.68), calc(28rem / 16));
   }
   .paragraph {
-    font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+    font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
   }
 }
 
 .elements {
-  counter-reset: counter;
+  counter-reset: counter 0;
 
   .item {
     display: grid;
     grid-template-columns: 78px 2fr 1fr;
     align-items: flex-start;
-    counter-increment: counter;
+    counter-increment: counter 1;
 
     &:not(:last-child) {
       border-bottom: 1px solid var(--neutral-700);
-      margin-bottom: clamp(24px, calc(32vw/7.68), 48px);
-      padding-bottom: clamp(32px, calc(48vw/7.68), 64px);
+      margin-bottom: clamp(24px, calc(32vw / 7.68), 48px);
+      padding-bottom: clamp(32px, calc(48vw / 7.68), 64px);
     }
 
     &::before {
@@ -36,25 +36,25 @@
       margin-right: 32px;
     }
 
-    &:nth-child(-n+10)::before {
+    &:nth-child(-n + 9)::before {
       content: "0" counter(counter);
     }
 
     .title {
-      font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+      font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
       margin-right: 142px;
     }
     .img {
       object-position: left top;
       object-fit: contain;
-      width:80%;
+      width: 80%;
     }
   }
 
   @media (max-width: 999px) {
     .item {
       grid-template-columns: 1fr 1fr;
-      gap: clamp(16px, calc(24vw/7.68), 32px) 32px;
+      gap: clamp(16px, calc(24vw / 7.68), 32px) 32px;
 
       &::before {
         margin-right: 0;
@@ -70,7 +70,7 @@
   @media (max-width: 599px) {
     .item {
       grid-template-columns: 1fr;
-      gap: clamp(16px, calc(24vw/7.68), 32px) 32px;
+      gap: clamp(16px, calc(24vw / 7.68), 32px) 32px;
 
       &::before {
         grid-column: unset;
@@ -88,14 +88,14 @@
   margin: 0 calc(var(--pageMargin) * -1);
   .stylescapes {
     img {
-      margin-bottom: clamp(48px, calc(64vw/7.68), 82px);
+      margin-bottom: clamp(48px, calc(64vw / 7.68), 82px);
       width: 200%;
       will-change: transform;
-      &:nth-child(odd){
+      &:nth-child(odd) {
         transform: rotate(-2deg);
         transform-origin: left center;
       }
-      &:nth-child(even){
+      &:nth-child(even) {
         transform: rotate(2deg);
         margin-left: -100%;
         transform-origin: right center;

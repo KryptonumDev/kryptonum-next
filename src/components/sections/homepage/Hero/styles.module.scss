@@ -6,29 +6,29 @@
     margin-bottom: 172px;
 
     .copy {
-      max-width: calc(740/16)*1rem;
+      max-width: calc(740 / 16) * 1rem;
 
       h1 {
-        margin-bottom: clamp(28px, calc(40vw/7.68), 72px);
+        margin-bottom: clamp(28px, calc(40vw / 7.68), 72px);
       }
 
       ol {
-        margin-left: calc(clamp(24px, calc(40vw/7.68), 48px) + 8px);
-        counter-reset: counter;
+        margin-left: calc(clamp(24px, calc(40vw / 7.68), 48px) + 8px);
+        counter-reset: counter 0;
 
         li {
-          counter-increment: counter;
+          counter-increment: counter 1;
           list-style-type: none;
 
-          font-size: clamp(calc(20rem/16), calc(32vw/7.68), calc(28rem/16));
+          font-size: clamp(calc(20rem / 16), calc(32vw / 7.68), calc(28rem / 16));
           display: grid;
           grid-template-columns: 32px auto;
 
-          column-gap: clamp(12px, calc(16vw/7.68), 32px);
+          column-gap: clamp(12px, calc(16vw / 7.68), 32px);
           align-items: baseline;
 
           &:not(:last-child) {
-            margin-bottom: .5rem;
+            margin-bottom: 0.5rem;
           }
 
           &::before {
@@ -47,13 +47,13 @@
 
   @media (max-width: 1189px) {
     header {
-      margin-bottom: clamp(96px, calc(144vw/7.68), 144px);
+      margin-bottom: clamp(96px, calc(144vw / 7.68), 144px);
       grid-template-columns: 1fr;
 
       .ctaWrapper {
-        margin-top: clamp(64px, calc(96vw/7.68), 96px);
+        margin-top: clamp(64px, calc(96vw / 7.68), 96px);
 
-        margin-left: calc(clamp(24px, calc(40vw/7.68), 48px) + 8px);
+        margin-left: calc(clamp(24px, calc(40vw / 7.68), 48px) + 8px);
         align-items: flex-start;
         flex-direction: column-reverse;
       }

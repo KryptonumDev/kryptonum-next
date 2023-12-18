@@ -6,7 +6,7 @@ import Img from "@/components/atoms/Img";
 
 const HeroTwoColumns = ({ heading, paragraph, cta, img }) => {
   return (
-    <section className={styles.heroTwoColumns}>
+    <section className={`${styles.heroTwoColumns} hero`}>
       <header>
         <DecorativeHeading>{heading}</DecorativeHeading>
         {paragraph && <Markdown className={styles.paragraph}>{paragraph}</Markdown>}

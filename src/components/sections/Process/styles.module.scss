@@ -1,21 +1,21 @@
 .section {
   header {
-    max-width: calc(380rem/16);
+    max-width: calc(380rem / 16);
     text-align: center;
     margin: 0 auto 34px;
     h2 {
-      font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28rem/16));
+      font-size: clamp(calc(18rem / 16), calc(28vw / 7.68), calc(28rem / 16));
     }
   }
   .wrapper {
     display: grid;
-    gap: clamp(24px, calc(24vw/7.68), 32px);
-    @media (min-width: 900px){
+    gap: clamp(24px, calc(24vw / 7.68), 32px);
+    @media (min-width: 900px) {
       grid-template-columns: 1fr 1fr;
     }
-    counter-reset: counter;
+    counter-reset: counter 0;
     .item {
-      counter-increment: counter;
+      counter-increment: counter 1;
       margin-top: 25px;
       &::before {
         content: counter(counter);
@@ -24,21 +24,21 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: calc(18rem/16);
+        font-size: calc(18rem / 16);
         border-radius: 50%;
         border: 1px solid var(--neutral-700);
         background: var(--neutral-950);
         margin: -57px auto 16px;
       }
       border: 1px solid var(--neutral-700);
-      padding: 32px clamp(24px, calc(32vw/7.68), 48px) 48px;
+      padding: 32px clamp(24px, calc(32vw / 7.68), 48px) 48px;
       h3 {
-        font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28em/16));
-        margin-bottom: clamp(32px, calc(32vw/7.68), 64px);
+        font-size: clamp(calc(18rem / 16), calc(28vw / 7.68), calc(28em / 16));
+        margin-bottom: clamp(32px, calc(32vw / 7.68), 64px);
       }
       .description {
-        p:not(:last-child){
-          margin-bottom: clamp(16px, calc(24vw/7.68), 24px);
+        p:not(:last-child) {
+          margin-bottom: clamp(16px, calc(24vw / 7.68), 24px);
         }
       }
     }
