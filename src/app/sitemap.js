@@ -71,14 +71,14 @@ export default async function sitemap() {
   }));
 
   return [
-    locationPages,
-    blogEntries,
-    blogCategories,
-    curiosityEntries,
-    curiosityCategories,
-    caseStudyEntries,
-    teamMembers,
-    staticPages,
+    ...locationPages,
+    ...blogEntries,
+    ...blogCategories,
+    ...curiosityEntries,
+    ...curiosityCategories,
+    ...caseStudyEntries,
+    ...teamMembers,
+    ...staticPages,
   ];
 }
 
