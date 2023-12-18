@@ -54,31 +54,29 @@ export default async function BlogCategoryPaginationPage({ params: { category, n
 	];
 
 	return (
-		<>
-			<main id="main">
-				<Breadcrumbs breadcrumbs={breadcrumbs} />
-				<Hero
-					data={{ heading: hero_Heading, paragraph: hero_Paragraph, sideImage: hero_Img }}
-					isBlogHero
-				/>
-				<Categories
-					categorySlug="/pl/blog/"
-					categories={blogCategories}
-					currentSlug={slug.current}
-				/>
-				<BlogEntries
-					urlBasis={`/pl/blog/kategoria/${category}`}
-					totalCount={allBlogEntries.length}
-					blogEntries={blogEntries}
-					page={parseInt(number)}
-					itemsPerPage={blogItemsPerPage}
-					isCategoryPagination={true}
-				/>
-				<CtaSection data={ctaSection} />
-				<LatestCuriosityEntries />
-				<Faq />
-			</main>
-		</>
+    <main id="main">
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <Hero
+        data={{ heading: hero_Heading, paragraph: hero_Paragraph, sideImage: hero_Img }}
+        isBlogHero
+      />
+      <Categories
+        categorySlug="/pl/blog/"
+        categories={blogCategories}
+        currentSlug={slug.current}
+      />
+      <BlogEntries
+        urlBasis={`/pl/blog/kategoria/${category}`}
+        totalCount={allBlogEntries.length}
+        blogEntries={blogEntries}
+        page={parseInt(number)}
+        itemsPerPage={blogItemsPerPage}
+        isCategoryPagination={true}
+      />
+      <CtaSection data={ctaSection} />
+      <LatestCuriosityEntries />
+      <Faq />
+    </main>
 	);
 }
 
@@ -240,14 +238,15 @@ const paramsQuery = async () => {
 	const {
 		body: { data },
 	} = await fetchData(`
-  query {
-    allBlogEntries {
-      categories {
-        slug {
-          current
+    query {
+      allBlogEntries {
+        categories {
+          slug {
+            current
+          }
         }
       }
     }
-  }`);
+  `);
 	return data;
 };

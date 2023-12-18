@@ -1,94 +1,127 @@
 import { domain } from "../global/Seo";
 
-const staticPages = [
-	"/pl",
-	"/pl/strony-internetowe-poznan",
-	"/pl/strony-internetowe-gdansk",
-	"/pl/strony-internetowe-warszawa",
-	"/pl/strony-internetowe-krakow",
-	"/pl/strony-internetowe-wroclaw",
-	"/pl/akademia",
-	"/pl/akademia/tlumaczenie-stron-internetowych",
-	"/pl/akademia/efekt-czystej-ekspozycji",
-	"/pl/akademia/czego-pragna-kobiety",
-	"/pl/akademia/co-wplywa-na-dobor-technologii-tworzenia-stron-internetowych",
-	"/pl/akademia/cala-prawda-o-mezczyznach",
-	"/pl/akademia/kategoria/biznes",
-	"/pl/akademia/kategoria/design",
-	"/pl/akademia/kategoria/ui-ux",
-	"/pl/akademia/kategoria/programowanie",
-	"/pl/blog/wymiary-zdjec-i-grafik-na-social-media-w-2023-roku",
-	"/pl/blog/o-czym-pamietac-podczas-tworzenia-stron-internetowych",
-	"/pl/blog/agencja-interaktywna-kreatywna-reklamowa-marketingowa-czym-sie-roznia",
-	"/pl/blog/ile-kosztuje-identyfikacja-wizualna-firmy",
-	"/pl/blog/czym-jest-system-zarzadzania-trescia-strony-www",
-	"/pl/blog/zrobic-samemu-czy-zlecic-agencji",
-	"/pl/blog/co-sklada-sie-na-wizerunek-marki-w-sieci",
-	"/pl/blog/najwazniejsze-trendy-technologiczne",
-	"/pl/blog/o-czym-warto-pamietac-przed-uruchomieniem-strony-www",
-	"/pl/blog/jak-wybrac-agencje",
-	"/pl/blog/o-czym-pamietac-podczas-implementacji-strony-www",
-	"/pl/blog/kim-jest-web-developer-czym-sie-zajmuje",
-	"/pl/blog/czym-sa-warsztaty-produktowe-product-design-workshop",
-	"/pl/blog/tworzenie-aplikacji-low-code-i-no-code",
-	"/pl/blog/jakie-sa-etapy-tworzenia-strony-internetowej",
-	"/pl/blog/czym-jest-q-commerce-m-commerce-re-commerce-rodzaje-e-commerce",
-	"/pl/blog/rozwoj-technologii-blockchain-nft-i-kryptowalut",
-	"/pl/blog/cyberataki-przyklady-i-rodzaje-atakow-hakerskich-cyberbezpieczenstwo",
-	"/pl/blog/czym-jest-identyfikacja-wizualna-firmy",
-	"/pl/blog/jak-wyglada-wspolpraca-z-agencja-interaktywna",
-	"/pl/blog/kto-powinien-zlecic-prace-agencji-interaktywnej",
-	"/pl/blog/wspolpraca-z-agencja-interaktywna",
-	"/pl/blog/mvp-maximum-i-minimum-viable-product-and-mmf",
-	"/pl/blog/user-flow-design",
-	"/pl/blog/kategoria/kultura",
-	"/pl/blog/kategoria/technologia",
-	"/pl/blog/kategoria/news",
-	"/pl/blog/kategoria/biznes",
-	"/pl/blog/strona/2",
-	"/pl/blog/strona/3",
-	"/pl/branding",
-	"/pl/brief-z-kryptonum",
-	"/pl/grafika-design",
-	"/pl/grafika-design/audyt-ux-ui",
-	"/pl/grafika-design/identyfikacja-wizualna-marki",
-	"/pl/grafika-design/projektowanie-logo",
-	"/pl/kontakt",
-	"/pl/mapa-strony",
-	"/pl/opieka-agencyjna-www-serwis-utrzymanie-zabezpieczenie",
-	"/pl/polityka-prywatnosci",
-	"/pl/portfolio",
-	"/pl/portfolio/kancelaria-nowakowski",
-	"/pl/portfolio/iza-trzeciak",
-	"/pl/portfolio/psychodietmed",
-	"/pl/portfolio/splata-pozyczek",
-	"/pl/portfolio/baldur",
-	"/pl/portfolio/auto-welt",
-	"/pl/portfolio/sits-nowoczesna-strona-internetowa-branza-meblarska",
-	"/pl/projektowanie-ui",
-	"/pl/projektowanie-ux",
-	"/pl/warsztaty-discovery",
-	"/pl/web-development",
-	"/pl/web-development/aplikacje-internetowe",
-	"/pl/web-development/sklepy-internetowe",
-	"/pl/web-development/strony-internetowe",
-	"/pl/zespol",
-	"/pl/zespol/aneta",
-	"/pl/zespol/maciek",
-	"/pl/zespol/bogumil",
-	"/pl/zespol/patrycja",
-	"/pl/zespol/bogdan",
-	"/pl/zespol/michal",
-	"/pl/zespol/damian",
-	"/pl/zespol/oliwia",
-	"/pl/zespol/kuba",
+const currentDate = new Date();
+let staticPages = [
+  "/pl",
+  "/pl/akademia",
+  "/pl/blog",
+  "/pl/branding",
+  "/pl/brief-z-kryptonum",
+  "/pl/grafika-design",
+  "/pl/grafika-design/audyt-ux-ui",
+  "/pl/grafika-design/identyfikacja-wizualna-marki",
+  "/pl/grafika-design/projektowanie-logo",
+  "/pl/kontakt",
+  "/pl/mapa-strony",
+  "/pl/opieka-agencyjna-www-serwis-utrzymanie-zabezpieczenie",
+  "/pl/polityka-prywatnosci",
+  "/pl/portfolio",
+  "/pl/projektowanie-ui",
+  "/pl/projektowanie-ux",
+  "/pl/warsztaty-discovery",
+  "/pl/web-development",
+  "/pl/web-development/aplikacje-internetowe",
+  "/pl/web-development/sklepy-internetowe",
+  "/pl/web-development/strony-internetowe",
+  "/pl/zespol",
 ];
 
-export default function sitemap() {
-	const currentDate = new Date();
-	const sitemap = staticPages.map((route) => ({
-		url: `${domain}${route}`,
-		lastModified: currentDate,
-	}));
-	return sitemap;
+export default async function sitemap() {
+  let {
+    locationPages,
+    blogEntries,
+    blogCategories,
+    curiosityEntries,
+    curiosityCategories,
+    caseStudyEntries,
+    teamMembers,
+  } = await query();
+  locationPages = locationPages.map((route) => ({
+    url: `${domain}/pl/${route}`,
+    lastModified: currentDate,
+  }));
+  blogEntries = blogEntries.map((route) => ({
+    url: `${domain}/pl/blog/${route}`,
+    lastModified: currentDate,
+  }));
+  blogCategories = blogCategories.map((route) => ({
+    url: `${domain}/pl/blog/kategoria/${route}`,
+    lastModified: currentDate,
+  }));
+  curiosityEntries = curiosityEntries.map((route) => ({
+    url: `${domain}/pl/akademia/${route}`,
+    lastModified: currentDate,
+  }));
+  curiosityCategories = curiosityCategories.map((route) => ({
+    url: `${domain}/pl/akademia/kategoria/${route}`,
+    lastModified: currentDate,
+  }));
+  caseStudyEntries = caseStudyEntries.map((route) => ({
+    url: `${domain}/pl/portfolio/${route}`,
+    lastModified: currentDate,
+  }));
+  teamMembers = teamMembers.map((route) => ({
+    url: `${domain}/pl/zespol/${route}`,
+    lastModified: currentDate,
+  }));
+  staticPages = staticPages.map((route) => ({
+    url: `${domain}${route}`,
+    lastModified: currentDate,
+  }));
+
+  return [
+    locationPages,
+    blogEntries,
+    blogCategories,
+    curiosityEntries,
+    curiosityCategories,
+    caseStudyEntries,
+    teamMembers,
+    staticPages,
+  ];
 }
+
+const query = async () => {
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
+      locationPages: allLocationPage {
+        slug {
+          current
+        }
+      }
+      blogEntries: allBlogEntries {
+        slug {
+          current
+        }
+      }
+      blogCategories: allBlogCategories {
+        slug {
+          current
+        }
+      }
+      curiosityEntries: allCuriosityEntries {
+        slug {
+          current
+        }
+      }
+      curiosityCategories: allCuriosityCategories {
+        slug {
+          current
+        }
+      }
+      caseStudyEntries: allCaseStudyEntries {
+        slug {
+          current
+        }
+      }
+      teamMembers: allTeamMember {
+        slug {
+          current
+        }
+      }
+    }
+  `);
+  return data;
+};
