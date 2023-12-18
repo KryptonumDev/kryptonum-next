@@ -65,7 +65,7 @@ const components = {
   },
   listItem : {
     bullet: ({ children }) => <li><Star /><span>{children}</span></li>,
-    number: ({ children }) => <ol className={styles.portableList}>{children}</ol>
+    number: ({ children }) => <li className={styles.portableList}>{children}</li>
   },
   list: {
     bullet: ({ children }) => <ul className={styles.portableList}>{children}</ul>,
