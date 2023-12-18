@@ -1,5 +1,5 @@
-import Markdown from "@/components/atoms/Markdown";
 import { HeadingDecoration, HeadingLineFlexibility } from "../Icons";
+import Markdown from "@/components/atoms/Markdown";
 import styles from "./styles.module.scss";
 
 const DecorativeHeading = ({ type = "h1", children, decoration = true, components, ...props }) => {
