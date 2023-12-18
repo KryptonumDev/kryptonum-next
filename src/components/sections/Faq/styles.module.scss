@@ -15,9 +15,8 @@
       gap: 24px;
     }
   }
-
+  counter-reset: counter 0;
   .wrapper {
-    counter-reset: counter 0;
     details {
       counter-increment: counter 1;
       &:nth-child(-n + 9) summary p::before {
