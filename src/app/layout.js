@@ -5,7 +5,7 @@ import { formatDateToPolishLocale } from "@/utils/functions";
 import localFont from "next/font/local";
 import "../styles/global.scss";
 import OrganizationSchema from "@/global/OrganizationSchema";
-
+import Fathom from "@/utils/Fathom";
 
 const font = localFont({ 
   src: [
@@ -55,6 +55,7 @@ const RootLayout = async ({ children }) => {
 				/>
 				{children}
 				<Footer caseStudies={caseStudies} team={team} blogEntries={blogEntries} global={global} />
+        <Fathom />
 			</body>
 		</html>
 	);
