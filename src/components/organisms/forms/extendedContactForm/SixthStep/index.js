@@ -55,7 +55,6 @@ const SixthStep = ({ prevData, setData, setStep, setIsEmailSent }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       <h2>To kiedy się <strong>widzimy</strong>? Umów termin calla</h2>
-
       <Calendar
         chosenDate={chosenDate}
         setChosenDate={setChosenDate}

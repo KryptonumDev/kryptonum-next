@@ -20,11 +20,8 @@ const ContentSection = ({ share, shareIcon, link, content, children }) => {
 				}
 			}
 		};
-
 		handleResize();
-
 		window.addEventListener("scroll", handleResize);
-
 		return () => {
 			window.removeEventListener("scroll", handleResize);
 		};
@@ -86,4 +83,5 @@ const ContentSection = ({ share, shareIcon, link, content, children }) => {
 		</section>
 	);
 };
+
 export default ContentSection;
