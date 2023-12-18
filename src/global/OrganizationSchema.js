@@ -1,17 +1,19 @@
-export default function Organization() {
+import { domain } from "./Seo";
+
+export default function OrganizationSchema() {
 	return (
 		<script type="application/ld+json">
 			{JSON.stringify({
 				"@context": "https://schema.org",
 				"@type": "Organization",
 				name: "Kryptonum",
-				url: "https://kryptonum.eu/pl",
+				url: `${domain}/pl`,
 				telephone: "+48 793 272 020",
 				email: [
 					"kuba@kryptonum.eu",
 					"michal@kryptonum.eu"
 				],
-				logo: "https://kryptonum.eu/kryptonum-logo.webp",
+				logo: `${domain}/kryptonum-logo.png`,
 				description: "Kryptonum, to agencja interaktywna kompleksowo wspierająca Twój biznes online. Partner technologiczny na każdym etapie obecności firmy w internecie.",
 				address: {
 					"@type": "PostalAddress",
