@@ -11,7 +11,7 @@ const CtaSection = ({ data: {
 }) => {
 	return (
 		<section className={styles.wrapper}>
-			<header>
+			<header className={styles.grid}>
 				<DecorativeHeading type="h3">{heading}</DecorativeHeading>
 				<Button data={cta}/>
 			</header>
