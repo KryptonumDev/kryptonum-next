@@ -91,10 +91,15 @@
       .item {
         grid-template-columns: 1fr;
 
-        .icon,
         .title {
           margin-left: 0;
           text-align: left;
+        }
+        .imageWrapper {
+          .icon {
+            margin-left: 0;
+            text-align: left;
+          }
         }
       }
     }
