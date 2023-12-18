@@ -2,11 +2,16 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 
 const LinkRenderer = ({ href, children }) => {
-  return (
+  const isExternal = href && (href.startsWith("https://") || href.startsWith("mailto:") || href.startsWith("tel:"));
+  return isExternal ? (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="link">
+      {children}
+    </a>
+  ) : (
     <Link href={href} className="link">
       {children}
     </Link>
-    )
+  );
 };
 
 const ListRenderer = ({ children, ordered }) => (

@@ -1,6 +1,6 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import Markdown from "@/components/atoms/markdown";
-import styles from './styles.module.scss';
+import Markdown from "@/components/atoms/Markdown";
+import styles from "./styles.module.scss";
 
 const Highlight = ({ heading, paragraph }) => {
   return (
@@ -9,6 +9,6 @@ const Highlight = ({ heading, paragraph }) => {
       <Markdown className={styles.paragraph}>{paragraph}</Markdown>
     </section>
   );
-}
+};
 
 export default Highlight;

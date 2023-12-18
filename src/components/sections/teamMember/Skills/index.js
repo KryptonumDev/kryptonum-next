@@ -1,7 +1,6 @@
-
-import DecorativeHeading from '@/components/atoms/DecorativeHeading';
-import Markdown from '@/components/atoms/markdown';
-import styles from './styles.module.scss';
+import DecorativeHeading from "@/components/atoms/DecorativeHeading";
+import Markdown from "@/components/atoms/Markdown";
+import styles from "./styles.module.scss";
 
 const Skills = ({ data }) => {
   return (
@@ -10,5 +9,5 @@ const Skills = ({ data }) => {
       <Markdown>{data}</Markdown>
     </section>
   );
-}
+};
 export default Skills;

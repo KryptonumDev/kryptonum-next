@@ -1,7 +1,6 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import Markdown from "@/components/atoms/markdown";
-import styles from './styles.module.scss';
-
+import Markdown from "@/components/atoms/Markdown";
+import styles from "./styles.module.scss";
 
 const KeyElements = ({ heading, list, paragraph }) => {
   return (
@@ -10,17 +9,23 @@ const KeyElements = ({ heading, list, paragraph }) => {
       <ol>
         {list.map((item, i) => (
           <li key={i}>
-            <Markdown components={{
-              a: ({ href, children }) => <a href={href} target="_blank" rel="noreferrer">{children}</a>
-            }}>{item}</Markdown>
+            <Markdown
+              components={{
+                a: ({ href, children }) => (
+                  <a href={href} target="_blank" rel="noreferrer">
+                    {children}
+                  </a>
+                ),
+              }}
+            >
+              {item}
+            </Markdown>
           </li>
         ))}
       </ol>
-      {paragraph && (
-        <Markdown className={styles.paragraph}>{paragraph}</Markdown>
-      )}
+      {paragraph && <Markdown className={styles.paragraph}>{paragraph}</Markdown>}
     </section>
   );
-}
+};
 
-export default KeyElements
+export default KeyElements;

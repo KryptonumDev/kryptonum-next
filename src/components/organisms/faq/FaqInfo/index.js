@@ -1,6 +1,6 @@
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import Markdown from '@/components/atoms/markdown';
-import styles from './styles.module.scss';
+import Markdown from "@/components/atoms/Markdown";
+import styles from "./styles.module.scss";
 
 const FaqInfo = ({
   data: {
@@ -12,8 +12,8 @@ const FaqInfo = ({
     thirdHeading,
     thirdList,
     summary,
-    additionalStyles
-  }
+    additionalStyles,
+  },
 }) => {
   return (
     <section className={`${styles.answer} ${additionalStyles}`}>
@@ -39,5 +39,5 @@ const FaqInfo = ({
       <Markdown className={styles.summary}>{summary}</Markdown>
     </section>
   );
-}
-export default FaqInfo
+};
+export default FaqInfo;
