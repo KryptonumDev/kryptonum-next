@@ -24,6 +24,7 @@
     width: 50%;
     height: calc(100% + 55px);
     object-fit: contain;
+    object-position: bottom;
   }
   @media (max-width: 1199px) {
     grid-template-columns: 1fr;
@@ -45,7 +46,6 @@
       max-height: 300px;
       height: 100%;
       order: -1;
-      object-position: bottom;
       display: block;
       margin: auto;
     }
