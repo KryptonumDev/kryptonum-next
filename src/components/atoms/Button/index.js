@@ -8,7 +8,8 @@ const Button = ({
   href, 
   className, 
   children,
-  ...props }) => {
+  ...props
+}) => {
   if (data) {
     theme = data.theme;
     href = data.href;
