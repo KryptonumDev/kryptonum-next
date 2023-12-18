@@ -7,7 +7,7 @@ export default function Fathom() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   useEffect(() => {
-    load('XXXXXXXX', {
+    load('PUUZZITA', {
       includedDomains: ['kryptonum.eu'],
       spa: 'auto',
     })
