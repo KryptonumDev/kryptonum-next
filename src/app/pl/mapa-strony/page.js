@@ -1,8 +1,8 @@
-import Hero from "@/components/sections/Hero";
 import Grid from "@/components/sections/SitemapGrid";
 import Breadcrumbs from "@/global/Breadcrumbs";
 import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
+import HeroTwoColumns from "../../../components/sections/HeroTwoColumns";
 
 export default async function SitemapPage() {
   const {
@@ -32,12 +32,10 @@ export default async function SitemapPage() {
     <>
     <main id="main">
       <Breadcrumbs breadcrumbs={breadcrumbs}/>
-      <Hero data={{
-        heading: hero_Heading,
-        paragraph: hero_Subheading,
-        sideImage: hero_Img
-      }}
-      isBlogHero={true}
+      <HeroTwoColumns 
+        heading= {hero_Heading}
+        paragraph={hero_Subheading}
+        img={hero_Img}
       />
       <Grid
         team={team}
