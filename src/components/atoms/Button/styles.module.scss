@@ -108,4 +108,8 @@
       transform: translate(3px, -3px);
     }
   }
+  &:disabled {
+    opacity: .62;
+    pointer-events: none;
+  }
 }

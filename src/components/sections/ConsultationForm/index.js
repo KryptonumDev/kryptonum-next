@@ -9,6 +9,7 @@ const ConsultationForm = async ({ data: { heading, subheading, cta }, isPortable
   const {
     global: { quickForm_Paragraph, quickForm_Person },
   } = await query();
+  
   return (
     <section className={isPortableContent ? `${styles.section} ${styles.portable}` : styles.section}>
       <header>
