@@ -12,13 +12,11 @@ const Img = ({ src, alt = "", data, width, height, sizes, loading, priority, ...
     loading={loading}
     priority={priority}
     sizes={sizes}
-    {...(
-      width || data?.asset.metadata.dimensions?.width > 40 ||
-      height || data?.asset.metadata.dimensions?.height > 40 && {
-        placeholder: "blur",
-        blurDataURL: data?.asset.metadata?.lqip || defaultPlaceholder,
-      }
-    )}
+    {...(((width || data?.asset.metadata.dimensions?.width) > 40 ||
+      (height || data?.asset.metadata.dimensions?.height) > 40) && {
+      placeholder: "blur",
+      blurDataURL: data?.asset.metadata?.lqip || defaultPlaceholder,
+    })}
     {...props}
   />
 );
