@@ -209,6 +209,9 @@ li strong {
 .hero {
   padding-top: clamp(16px, calc(24vw/7.68), 24px);
 }
+.portfolio {
+  padding-top: unset;
+}
 
 // @media (max-width: 500px) {
 //   .hero {

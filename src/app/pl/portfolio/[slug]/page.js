@@ -48,7 +48,7 @@ export default async function PortfolioSlugPage({ params: { slug } }) {
 
 	return (
 		<>
-			<main id="main">
+			<main id="main" className={"portfolio"}>
 				<Hero
 					data={{
 						heading,
