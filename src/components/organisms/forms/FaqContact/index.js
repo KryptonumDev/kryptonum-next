@@ -1,5 +1,4 @@
 "use client";
-
 import Button from "@/components/atoms/Button";
 import { Checkbox } from "@/components/atoms/Checkbox";
 import { Label } from "@/components/atoms/Label";
@@ -22,20 +21,21 @@ const FaqContact = ({ cta }) => {
 
 	const onSubmit = (data) => {
 		setSubmitProccessing(true);
-		fetch("/api/faq-contact", {
+		fetch("/api/quick-contact", {
 			method: "POST",
+			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(data),
 		})
 			.then((response) => response.json())
-			.then((response) => {
-				if (response.success) {
-					reset();
+      .then((response) => {
+        if (response.success) {
 					setIsEmailSent("success");
+          setSubmitProccessing(false);
+          reset();
+        } else {
+          setIsEmailSent("failed");
 					setSubmitProccessing(false);
-				} else {
-					setIsEmailSent("failed");
-					setSubmitProccessing(false);
-				}
+        }
 			})
 			.catch(() => {
 				setIsEmailSent("failed");
@@ -50,8 +50,8 @@ const FaqContact = ({ cta }) => {
 		>
 			<Label
 				title="Email"
-				name="mail"
-				register={register("mail", { required: true, pattern: regex.email })}
+				name="email"
+				register={register("email", { required: true, pattern: regex.email })}
 				errors={errors}
 				type="email"
 			/>
@@ -65,8 +65,8 @@ const FaqContact = ({ cta }) => {
 				type="text"
 			/>
 			<Checkbox
-				name="check"
-				register={register("check", { required: true })}
+				name="legal"
+				register={register("legal", { required: true })}
 				errors={errors}
 			/>
 			<Button theme="primary" disabled={submitProccessing}>{cta || "Wyślij wiadomość"}</Button>

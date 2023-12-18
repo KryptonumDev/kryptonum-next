@@ -21,20 +21,28 @@ const ConsultationCtaForm = ({ cta }) => {
 
 	const onSubmit = (data) => {
 		setSubmitProccessing(true);
-		fetch("/api/consultation-contact", {
+		fetch("/api/quick-contact", {
 			method: "POST",
+			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(data),
 		})
-			.then(() => {
-				reset();
-				setIsEmailSent("success");
-				setSubmitProccessing(false);
+			.then((response) => response.json())
+      .then((response) => {
+        if (response.success) {
+					setIsEmailSent("success");
+          setSubmitProccessing(false);
+          reset();
+        } else {
+          setIsEmailSent("failed");
+					setSubmitProccessing(false);
+        }
 			})
 			.catch(() => {
 				setIsEmailSent("failed");
 				setSubmitProccessing(false);
 			});
 	};
+	
 	return (
 		<form
 			className={styles.form}
@@ -49,14 +57,14 @@ const ConsultationCtaForm = ({ cta }) => {
 			/>
 			<Label
 				title="Email"
-				name="mail"
-				register={register("mail", { required: true, pattern: regex.email })}
+				name="email"
+				register={register("email", { required: true, pattern: regex.email })}
 				errors={errors}
 				type="email"
 			/>
 			<Checkbox
-				name="check"
-				register={register("check", { required: true })}
+				name="legal"
+				register={register("legal", { required: true })}
 				errors={errors}
 			/>
 			<Button

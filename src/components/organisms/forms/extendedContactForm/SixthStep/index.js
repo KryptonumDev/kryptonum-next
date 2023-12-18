@@ -36,6 +36,7 @@ const SixthStep = ({ prevData, setData, setStep, setIsEmailSent }) => {
     setStep((step) => step + 1);
     fetch("/api/brief-contact", {
       method: "POST",
+			headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
     })
       .then((response) => response.json())

@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
+import { phoneValidation } from "@/utils/functions";
 
 const Form = ({ cta, applyAdditionalStyles=false }) => {
 	const {
@@ -23,18 +24,26 @@ const Form = ({ cta, applyAdditionalStyles=false }) => {
 		setSubmitProccessing(true);
 		fetch("/api/quick-contact", {
 			method: "POST",
+			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(data),
 		})
-			.then(() => {
-				reset();
-				setIsEmailSent("success");
-				setSubmitProccessing(false);
+			.then((response) => response.json())
+      .then((response) => {
+        if (response.success) {
+					setIsEmailSent("success");
+          setSubmitProccessing(false);
+          reset();
+        } else {
+          setIsEmailSent("failed");
+					setSubmitProccessing(false);
+        }
 			})
 			.catch(() => {
 				setIsEmailSent("failed");
 				setSubmitProccessing(false);
 			});
 	};
+
 	return (
 		<form
 			className={styles.form}
@@ -50,8 +59,8 @@ const Form = ({ cta, applyAdditionalStyles=false }) => {
 			/>
 			<Label
 				title="Email"
-				name="mail"
-				register={register("mail", { required: true, pattern: regex.email })}
+				name="email"
+				register={register("email", { required: true, pattern: regex.email })}
 				errors={errors}
         applyAdditionalStyles={applyAdditionalStyles}
 				type="email"
@@ -63,10 +72,11 @@ const Form = ({ cta, applyAdditionalStyles=false }) => {
 				errors={errors}
         applyAdditionalStyles={applyAdditionalStyles}
 				type="tel"
+        onKeyDown={(e) => phoneValidation(e)}
 			/>
 			<Checkbox
-				name="check"
-				register={register("check", { required: true })}
+				name="legal"
+				register={register("legal", { required: true })}
 				errors={errors}
 			/>
 			<Button

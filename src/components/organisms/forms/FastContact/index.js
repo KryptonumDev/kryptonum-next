@@ -22,7 +22,7 @@ const Form = () => {
 
 	const onSubmit = (data) => {
 		setSubmitProccessing(true);
-		fetch("/api/fast-contact", {
+		fetch("/api/quick-contact", {
 			method: "POST",
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(data),
@@ -43,6 +43,7 @@ const Form = () => {
 				setSubmitProccessing(false);
 			});
 	};
+
 	return (
 		<form
 			className={styles.form}

@@ -1,11 +1,5 @@
-node_modules/
-.cache/
-.DS_Store
-Thumbs.db
-.env
-/.next/
-/out/
-/build
+# dependencies
+/node_modules
 /.pnp
 .pnp.js
 
@@ -37,9 +31,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+node_modules/
+.cache/
+.DS_Store
+Thumbs.db
+.env*
+
+# lock files
+yarn.lock
 package-lock.json
-.prettierignore
-prettier.config.js
-pnpm-lock.yaml
-# bundle analyzer
-analyze
+!/yarn.lock
+
+# IDE specific
+.vscode/
