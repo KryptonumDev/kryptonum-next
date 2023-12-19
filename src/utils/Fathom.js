@@ -1,11 +1,10 @@
 'use client'
-import { load, trackPageview } from 'fathom-client'
 import { useEffect } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { load, trackPageview } from 'fathom-client'
+import { usePathname } from 'next/navigation'
 
 export default function Fathom() {
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
+  const pathname = usePathname();
   useEffect(() => {
     load('PUUZZITA', {
       includedDomains: ['kryptonum.eu'],
@@ -13,5 +12,5 @@ export default function Fathom() {
     })
     trackPageview()
   }, [pathname, searchParams])
-  return null
+  return null;
 }

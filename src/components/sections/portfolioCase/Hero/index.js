@@ -28,7 +28,7 @@ const Hero = ({
         <div className={styles.categories}>
           <p>{categories_Paragraph}</p>
           <ul>
-            {categories.map((category, i) => (
+            {categories?.map((category, i) => (
               <li key={i}>{category.name}</li>
             ))}
           </ul>
