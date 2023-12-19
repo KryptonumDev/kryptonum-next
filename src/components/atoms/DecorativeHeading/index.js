@@ -2,7 +2,7 @@ import { HeadingDecoration, HeadingLineFlexibility } from "../Icons";
 import Markdown from "@/components/atoms/Markdown";
 import styles from "./styles.module.scss";
 
-const DecorativeHeading = ({ type = "h1", children, decoration = true, components, ...props }) => {
+const DecorativeHeading = ({ type = "h1", children, decoration = true, components, className, ...props }) => {
   const renderParagraph = ({ children }) => {
     const renderedChildren = [];
     children.forEach((child) => {
@@ -26,9 +26,15 @@ const DecorativeHeading = ({ type = "h1", children, decoration = true, component
 
   const Heading = type;
 
+  const headingClassName = [
+    children?.includes("\n\n") ? styles.has2Spans : '',
+    styles.wrapper,
+    className || '',
+  ].join(' ');
+
   return (
     <Heading
-      className={children?.includes("\n\n") ? `${styles.has2Spans} ${styles.wrapper}` : `${styles.wrapper}`}
+      className={headingClassName}
       {...props}
     >
       {decoration && <HeadingDecoration />}
