@@ -11,6 +11,6 @@ export default function Fathom() {
       spa: 'auto',
     })
     trackPageview()
-  }, [pathname, searchParams])
+  }, [pathname])
   return null;
 }
