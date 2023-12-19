@@ -8,7 +8,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 const emailData = {
   from: "Michał z Kryptonum <michal@kryptonum.eu>",
-  to: "Bogumił <bogumil@kryptonum.eu>",
+  to: "Michał <michal@kryptonum.eu>",
 };
 
 const headers = {

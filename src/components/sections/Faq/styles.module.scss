@@ -18,8 +18,8 @@
   counter-reset: counter 0;
   .wrapper {
     details {
-      counter-increment: counter 1;
       &:nth-child(-n + 9) summary p::before {
+        counter-increment: counter 1;
         content: "/0" counter(counter);
       }
       summary {
@@ -36,6 +36,7 @@
         position: relative;
         p {
           &::before {
+            counter-increment: counter 1;
             content: "/" counter(counter);
             display: inline-block;
             width: 2rem;
