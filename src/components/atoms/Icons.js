@@ -153,6 +153,44 @@ export const ArrowTopRight = () => {
   );
 };
 
+export const ArrowRight = () => {
+  const id = React.useId();
+  const arrowRid = `arrowR_${id}`;
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+    >
+      <path
+        d="M3.33594 10H16.6693M16.6693 10L11.6693 5M16.6693 10L11.6693 15"
+        stroke={`url(#${arrowRid})`}
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <defs>
+        <linearGradient
+          id={arrowRid}
+          x1="16.4193"
+          y1="5"
+          x2="2.58645"
+          y2="6.17476"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#2DD282" />
+          <stop
+            offset="1"
+            stop-color="#90F4E8"
+          />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+};
+
 export const ChevronDown = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

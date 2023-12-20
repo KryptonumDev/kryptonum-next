@@ -4,6 +4,8 @@ import Hero from "@/sections/marketing/Hero";
 import CaseStudies from "@/components/sections/CaseStudies";
 import CtaSection from "@/components/sections/CtaSection";
 import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
+import CtaSectionPill from "@/components/sections/CtaSectionPill";
+import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
 
 const breadcrumbs = [
   {
@@ -34,6 +36,18 @@ export default async function MarketingPage() {
         heading={component?.heading}
       />
     ),
+    ctaSectionPill: (
+      <CtaSectionPill
+      key={i}
+      data={component}
+      />
+    ),
+    simpleCtaSection: (
+      <SimpleCtaSection
+      key={i}
+      data={component}
+      />
+    )
   });
 
   const {

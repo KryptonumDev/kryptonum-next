@@ -1,0 +1,76 @@
+.ctaSectionPill {
+  display:grid;
+  justify-items: center;
+  .img {
+    height:auto;
+    width:100%;
+    object-fit: contain;
+    border: 1px solid var(--neutral-700, #4A4A57);
+    border-radius: 1000px;
+  }
+  .ctaWrapper {
+    position:relative;
+    max-width:calc(2/3) *100%;
+    column-gap:48px;
+    display:grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-areas: "icon icon" "heading cta";
+    grid-template-columns: 2fr 1fr;
+    border: 1px solid var(--neutral-700, #4A4A57);
+    padding:48px 64px;
+    border-radius: 1000px;
+    margin-top: -170px;
+    margin-bottom: 170px;
+    background: var(--neutral-950);
+    .iconWrapper {
+      grid-area: icon;
+      width:64px;
+      height:64px;
+      padding: 11px 19px;
+      margin: 0 auto;
+      margin-top: -96px;
+      border: 1px solid var(--neutral-700, #4A4A57);
+      border-radius: 50%;
+      background: var(--neutral-950);
+    }
+    .icon {
+      height:100%;
+      width:100%;
+      object-fit: contain;
+      display: block;
+    }
+    .heading {
+      grid-area: heading;
+      font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(26rem/16));
+    }
+    .cta {
+      grid-area: cta;
+    }
+  }
+  @media (max-width: 1349px) {
+    .ctaWrapper {
+      max-width:unset;
+      margin-top: -50px;
+      margin-bottom: 50px;
+      grid-template-areas: 'icon' 'heading' 'cta';
+      grid-template-columns: 1fr;
+      width:100%;
+      padding: 32px 32px 24px 32px;
+      .iconWrapper {
+        margin-top: -64px;
+      }
+    }
+  }
+  @media (max-width: 499px) {
+    .ctaWrapper {
+      margin: -10px 0 10px;
+      border-radius: 4px;
+      padding: 32px 16px 16px 16px;
+      .cta {
+        max-width: min-content;
+        justify-self: flex-start;
+      }
+    }
+  }
+}

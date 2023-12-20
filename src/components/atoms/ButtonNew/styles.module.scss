@@ -1,0 +1,82 @@
+.wrapper {
+  font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  position: relative;
+  gap: 8px;
+
+  svg {
+    flex-shrink: 0;
+    transition: transform .3s;
+  }
+
+  &.primary {
+    padding: 9px 14px 9px 16px;
+
+    @media (max-width: 499px) {
+      width: 100%;
+      padding: 12px 24px;
+    }
+
+    @media (max-width: 349px) {
+      padding: 12px 12px;
+      font-size: 14px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    &:hover::before,
+    &:active::after {
+      opacity: 1;
+    }
+
+    &:active::before {
+      opacity: 0;
+    }
+  }
+
+  &.secondary {
+    text-decoration: underline;
+
+    span {
+      position: relative;
+
+      &::before,
+      &::after {
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        opacity: 0;
+        transition: opacity .3s;
+      }
+    }
+
+    &:hover span::before,
+    &:active span:after {
+      opacity: 1;
+    }
+
+    &:active span::before {
+      opacity: 0;
+    }
+  }
+
+  &:hover {
+    svg {
+      transform: translate(3px, 0px);
+    }
+  }
+  &:disabled {
+    opacity: .62;
+    pointer-events: none;
+  }
+}
