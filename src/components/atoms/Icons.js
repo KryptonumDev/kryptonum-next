@@ -180,10 +180,10 @@ export const ArrowRight = () => {
           y2="6.17476"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#2DD282" />
+          <stop stopColor="#2DD282" />
           <stop
             offset="1"
-            stop-color="#90F4E8"
+            stopColor="#90F4E8"
           />
         </linearGradient>
       </defs>

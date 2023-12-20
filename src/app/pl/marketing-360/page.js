@@ -6,6 +6,7 @@ import CtaSection from "@/components/sections/CtaSection";
 import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
 import CtaSectionPill from "@/components/sections/CtaSectionPill";
 import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
+import HeadingBlocksSideImg from "@/components/sections/HeadingBlocksSideImg";
 
 const breadcrumbs = [
   {
@@ -44,6 +45,12 @@ export default async function MarketingPage() {
     ),
     simpleCtaSection: (
       <SimpleCtaSection
+      key={i}
+      data={component}
+      />
+    ),
+    HeadingImageBlocks: (
+      <HeadingBlocksSideImg
       key={i}
       data={component}
       />
