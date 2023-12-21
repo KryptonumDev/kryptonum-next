@@ -11,17 +11,6 @@ import ProcessList from "@/components/sections/ProcessList";
 import SEO from "@/global/Seo";
 import ScrollToNext from "@/components/sections/ScrollToNext";
 
-export async function generateMetadata() {
-  const {
-    page: { seo },
-  } = await query();
-  return SEO({
-    title: seo?.title,
-    description: seo?.description,
-    url: "/pl/marketing-360",
-  });
-}
-
 const breadcrumbs = [
   {
     name: "Marketing 360",
