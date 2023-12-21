@@ -21,7 +21,7 @@
     padding:48px 64px;
     border-radius: 1000px;
     margin-top: -170px;
-    margin-bottom: 170px;
+    margin-bottom: 40px;
     background: var(--neutral-950);
     .iconWrapper {
       grid-area: icon;
@@ -52,7 +52,7 @@
     .ctaWrapper {
       max-width:unset;
       margin-top: -50px;
-      margin-bottom: 50px;
+      margin-bottom: unset;
       grid-template-areas: 'icon' 'heading' 'cta';
       grid-template-columns: 1fr;
       width:100%;
