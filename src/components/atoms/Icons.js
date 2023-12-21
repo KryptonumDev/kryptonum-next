@@ -124,35 +124,6 @@ export const HeadingLineFlexibility = () => (
   </svg>
 );
 
-export const ArrowTopRight = () => {
-  const id = React.useId();
-  const arrowTRid = `arrowTR_${id}`;
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
-      <path
-        stroke={`url(#${arrowTRid})`}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M7.926 17l10-10m0 0h-10m10 0v10"
-      ></path>
-      <defs>
-        <linearGradient
-          id={arrowTRid}
-          x1="17.738"
-          x2="7.331"
-          y1="7"
-          y2="7.663"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#2DD282"></stop>
-          <stop offset="1" stopColor="#90F4E8"></stop>
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-};
-
 export const ArrowRight = () => {
   const id = React.useId();
   const arrowRid = `arrowR_${id}`;

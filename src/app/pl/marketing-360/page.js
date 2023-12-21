@@ -10,21 +10,10 @@ import HeadingBlocksSideImg from "@/components/sections/HeadingBlocksSideImg";
 import ProcessList from "@/components/sections/ProcessList";
 import SEO from "@/global/Seo";
 
-export async function generateMetadata() {
-  const {
-    page: { seo },
-  } = await query();
-  return SEO ({
-    title: seo?.title,
-    description: seo?.description,
-    url: "/pl/marketing-360",
-  })
-}
-
 const breadcrumbs = [
   {
     name: "Marketing 360",
-    link: "/pl/grafika-design/marketing-360",
+    link: "/pl/marketing-360",
   },
 ];
 
@@ -92,109 +81,30 @@ export default async function MarketingPage() {
   );
 }
 
+export async function generateMetadata() {
+  const { page: { seo } } = await query();
+  return SEO ({
+    title: seo?.title,
+    description: seo?.description,
+    url: "/pl/marketing-360",
+  })
+}
+
+
 const query = async () => {
   const {
     body: { data },
   } = await fetchData(`
-  query {
-    page: Marketing360Page(id: "marketing360Page") {
-      hero {
-        cta {
-          theme
-          text
-          href
-        }
-        subheading
-        heading
-        image {
-          asset {
-            altText
-            url
-            metadata {
-              lqip
-              dimensions {
-                height
-                width
-              }
-            }
-          }
-        }
-        imageDescription
-        textComponent {
-          heading
-          blocks {
-            description
-          }
-        }
-      }
-      content {
-        ... on CaseStudies {
-          _type
-          heading
-        }
-        ... on CtaSection {
-          _type
-          heading
+    query {
+      page: Marketing360Page(id: "marketing360Page") {
+        hero {
           cta {
             theme
             text
             href
           }
-          img {
-            asset {
-              altText
-              url
-              metadata {
-                lqip
-                dimensions {
-                  height
-                  width
-                }
-              }
-            }
-          }
-        }
-        ... on CtaSectionPill {
-          _type
+          subheading
           heading
-          cta {
-            theme
-            text
-            href
-          }
-          img {
-            asset {
-              altText
-              url
-              metadata {
-                lqip
-                dimensions {
-                  height
-                  width
-                }
-              }
-            }
-          }
-          icon {
-            asset {
-              altText
-              url
-              metadata {
-                lqip
-                dimensions {
-                  height
-                  width
-                }
-              }
-            }
-          }
-        }
-        ... on HeadingImageBlocks {
-          _type
-          heading
-          blocks {
-            description
-          }
           image {
             asset {
               altText
@@ -208,12 +118,27 @@ const query = async () => {
               }
             }
           }
-        }
-        ... on ProcessList {
-          _type
-          ProcessList {
+          imageDescription
+          textComponent {
             heading
-            subheading
+            blocks {
+              description
+            }
+          }
+        }
+        content {
+          ... on CaseStudies {
+            _type
+            heading
+          }
+          ... on CtaSection {
+            _type
+            heading
+            cta {
+              theme
+              text
+              href
+            }
             img {
               asset {
                 altText
@@ -227,39 +152,135 @@ const query = async () => {
                 }
               }
             }
-            paragraph
+          }
+          ... on CtaSectionPill {
+            _type
+            heading
+            cta {
+              theme
+              text
+              href
+            }
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+            icon {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+          }
+          ... on HeadingImageBlocks {
+            _type
+            heading
+            blocks {
+              description
+            }
+            image {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+          }
+          ... on ProcessList {
+            _type
+            ProcessList {
+              heading
+              subheading
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+              paragraph
+            }
+          }
+          ... on SimpleCtaSection {
+            _type
+            heading
+            cta {
+              theme
+              text
+              href
+            }
+          }
+          ... on LatestBlogEntries {
+            _type
+            heading
           }
         }
-        ... on SimpleCtaSection {
-          _type
-          heading
-          cta {
-            theme
-            text
-            href
-          }
-        }
-        ... on LatestBlogEntries {
-          _type
-          heading
+        seo {
+          title
+          description
         }
       }
-      seo {
+      blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
         title
-        description
-      }
-    }
-    blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
-      title
-      subtitle
-      slug {
-        current
-      }
-      author {
-        name
+        subtitle
         slug {
           current
         }
+        author {
+          name
+          slug {
+            current
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        categories {
+          name
+          slug {
+            current
+          }
+        }
+        _createdAt
+        contentRaw
         img {
           asset {
             altText
@@ -274,29 +295,7 @@ const query = async () => {
           }
         }
       }
-      categories {
-        name
-        slug {
-          current
-        }
-      }
-      _createdAt
-      contentRaw
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
     }
-  }
   `);
   return data;
 };
