@@ -24,7 +24,7 @@ const Hero = ({
       </div>
       <Breadcrumbs portfolio={true} breadcrumbs={breadcrumbs} />
       <header>
-        <DecorativeHeading>{heading}</DecorativeHeading>
+        <DecorativeHeading type="h1">{heading}</DecorativeHeading>
         <div className={styles.categories}>
           <p>{categories_Paragraph}</p>
           <ul>

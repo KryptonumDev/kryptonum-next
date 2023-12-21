@@ -9,7 +9,7 @@ const Hero = ({ heading, subheading, contact }) => {
   return (
     <section className={`${styles.section} hero`}>
       <div>
-        <DecorativeHeading>{heading}</DecorativeHeading>
+        <DecorativeHeading type="h1">{heading}</DecorativeHeading>
         <Markdown className={styles.subheading}>{subheading}</Markdown>
         <Form />
       </div>

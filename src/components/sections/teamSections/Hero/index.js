@@ -7,7 +7,7 @@ const Hero = ({ data: { hero_Heading, hero_Paragraph, hero_Column } }) => {
   return (
     <section className={`${styles.section} hero`}>
       <header>
-        <DecorativeHeading>{hero_Heading}</DecorativeHeading>
+        <DecorativeHeading type="h1">{hero_Heading}</DecorativeHeading>
         <div className={styles.paragraph}>
           <Error />
           <Markdown>{hero_Paragraph}</Markdown>

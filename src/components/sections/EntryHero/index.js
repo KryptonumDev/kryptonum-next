@@ -9,7 +9,7 @@ const EntryHero = ({ title, subtitle, categories, categorySlug, _createdAt, img,
   return (
     <section className={`${styles.wrapper} hero`}>
       <header className={author ? styles.hasAuthor : ""}>
-        <DecorativeHeading>{title}</DecorativeHeading>
+        <DecorativeHeading type="h1">{title}</DecorativeHeading>
         <Markdown className={styles.subtitle}>{subtitle}</Markdown>
         {author && (
           <Link href={`/pl/zespol/${author[0].slug.current}`} className={styles.author}>

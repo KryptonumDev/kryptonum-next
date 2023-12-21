@@ -8,7 +8,7 @@ const HeroTwoColumns = ({ heading, paragraph, cta, img }) => {
   return (
     <section className={`${styles.heroTwoColumns} hero`}>
       <header>
-        <DecorativeHeading>{heading}</DecorativeHeading>
+        <DecorativeHeading type="h1">{heading}</DecorativeHeading>
         {paragraph && <Markdown className={styles.paragraph}>{paragraph}</Markdown>}
         {cta?.text && <Button data={cta} />}
       </header>
