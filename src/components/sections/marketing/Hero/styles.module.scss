@@ -93,6 +93,25 @@
 
     .textComponent {
       grid-template-columns: 1fr;
+      gap: 16px;
+
+      .blocks {
+        row-gap: 16px;
+      }
+    }
+  }
+
+  @media(max-width: 499px) {
+    .imageDescription {
+      padding-bottom: 32px;
+    }
+
+    .textComponent {
+      .blocks {
+        .button {
+          margin-top: 16px;
+        }
+      }
     }
   }
 
