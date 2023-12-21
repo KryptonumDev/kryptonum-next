@@ -30,7 +30,7 @@ export default async function MarketingPage() {
   });
 
   const {
-    page: { hero, content },
+    page: { hero, content, scrollToNext },
     blogEntries,
   } = await query();
 
