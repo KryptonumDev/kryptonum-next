@@ -9,16 +9,17 @@ import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
 import HeadingBlocksSideImg from "@/components/sections/HeadingBlocksSideImg";
 import ProcessList from "@/components/sections/ProcessList";
 import SEO from "@/global/Seo";
+import ScrollToNext from "@/components/sections/ScrollToNext";
 
 export async function generateMetadata() {
   const {
     page: { seo },
   } = await query();
-  return SEO ({
+  return SEO({
     title: seo?.title,
     description: seo?.description,
     url: "/pl/marketing-360",
-  })
+  });
 }
 
 const breadcrumbs = [
@@ -45,50 +46,53 @@ export default async function MarketingPage() {
     ),
     LatestBlogEntries: (
       <LatestBlogEntries
-      key={i}
+        key={i}
         data={blogEntries}
         heading={component?.heading}
       />
     ),
     ctaSectionPill: (
       <CtaSectionPill
-      key={i}
-      data={component}
+        key={i}
+        data={component}
       />
     ),
     simpleCtaSection: (
       <SimpleCtaSection
-      key={i}
-      data={component}
+        key={i}
+        data={component}
       />
     ),
     HeadingImageBlocks: (
       <HeadingBlocksSideImg
-      key={i}
-      data={component}
+        key={i}
+        data={component}
       />
     ),
     ProcessList: (
       <ProcessList
-      key={i}
-      data={component}
+        key={i}
+        data={component}
       />
     ),
   });
 
   const {
-    page: { hero, content, seo },
+    page: { hero, content, scrollToNext },
     blogEntries,
   } = await query();
 
   return (
-    <main id="main">
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <Hero data={hero} />
-      {content.map((component, i) => {
-        return mappedComponents(component, i)[component._type];
-      })}
-    </main>
+    <>
+      <main id="main">
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
+        <Hero data={hero} />
+        {content.map((component, i) => {
+          return mappedComponents(component, i)[component._type];
+        })}
+      </main>
+      <ScrollToNext data={scrollToNext} />
+    </>
   );
 }
 
@@ -247,6 +251,15 @@ const query = async () => {
       seo {
         title
         description
+      }
+      scrollToNext {
+        heading
+        paragraph
+        title
+        link {
+          text
+          href
+        }
       }
     }
     blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
