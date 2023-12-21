@@ -8,6 +8,18 @@ import CtaSectionPill from "@/components/sections/CtaSectionPill";
 import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
 import HeadingBlocksSideImg from "@/components/sections/HeadingBlocksSideImg";
 import ProcessList from "@/components/sections/ProcessList";
+import SEO from "@/global/Seo";
+
+export async function generateMetadata() {
+  const {
+    page: { seo },
+  } = await query();
+  return SEO ({
+    title: seo?.title,
+    description: seo?.description,
+    url: "/pl/marketing-360",
+  })
+}
 
 const breadcrumbs = [
   {
@@ -278,6 +290,10 @@ const query = async () => {
             }
           }
         }
+      }
+      seo {
+        title
+        description
       }
     }
   }
