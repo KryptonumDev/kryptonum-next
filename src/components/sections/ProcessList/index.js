@@ -25,4 +25,5 @@ const ProcessList = ({ data: { ProcessList } }) => {
     </section>
   );
 };
+
 export default ProcessList;

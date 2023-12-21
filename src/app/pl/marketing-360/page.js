@@ -20,54 +20,17 @@ const breadcrumbs = [
 
 export default async function MarketingPage() {
   const mappedComponents = (component, i) => ({
-    CaseStudies: (
-      <CaseStudies
-        key={i}
-        heading={component?.heading}
-        eagerLoading={true}
-      />
-    ),
-    ctaSection: (
-      <CtaSection
-        key={i}
-        data={component}
-      />
-    ),
-    LatestBlogEntries: (
-      <LatestBlogEntries
-        key={i}
-        data={blogEntries}
-        heading={component?.heading}
-      />
-    ),
-    ctaSectionPill: (
-      <CtaSectionPill
-        key={i}
-        data={component}
-      />
-    ),
-    simpleCtaSection: (
-      <SimpleCtaSection
-        key={i}
-        data={component}
-      />
-    ),
-    HeadingImageBlocks: (
-      <HeadingBlocksSideImg
-        key={i}
-        data={component}
-      />
-    ),
-    ProcessList: (
-      <ProcessList
-        key={i}
-        data={component}
-      />
-    ),
+    CaseStudies: <CaseStudies key={i} heading={component?.heading} />,
+    ctaSection: <CtaSection key={i} data={component} />,
+    LatestBlogEntries: <LatestBlogEntries key={i} data={blogEntries} heading={component?.heading} />,
+    ctaSectionPill: <CtaSectionPill key={i} data={component} />,
+    simpleCtaSection: <SimpleCtaSection key={i} data={component} />,
+    HeadingImageBlocks: <HeadingBlocksSideImg key={i} data={component} />,
+    ProcessList: <ProcessList key={i} data={component} />,
   });
 
   const {
-    page: { hero, content, scrollToNext },
+    page: { hero, content },
     blogEntries,
   } = await query();
 
@@ -87,117 +50,27 @@ export default async function MarketingPage() {
 
 export async function generateMetadata() {
   const { page: { seo } } = await query();
-  return SEO ({
+  return SEO({
     title: seo?.title,
     description: seo?.description,
     url: "/pl/marketing-360",
-  })
+  });
 }
-
 
 const query = async () => {
   const {
     body: { data },
   } = await fetchData(`
-  query {
-    page: Marketing360Page(id: "marketing360Page") {
-      hero {
-        cta {
-          theme
-          text
-          href
-        }
-        subheading
-        heading
-        image {
-          asset {
-            altText
-            url
-            metadata {
-              lqip
-              dimensions {
-                height
-                width
-              }
-            }
-          }
-        }
-        imageDescription
-        textComponent {
-          heading
-          blocks {
-            description
-          }
-        }
-      }
-      content {
-        ... on CaseStudies {
-          _type
-          heading
-        }
-        ... on CtaSection {
-          _type
-          heading
+    query {
+      page: Marketing360Page(id: "marketing360Page") {
+        hero {
           cta {
             theme
             text
             href
           }
-          img {
-            asset {
-              altText
-              url
-              metadata {
-                lqip
-                dimensions {
-                  height
-                  width
-                }
-              }
-            }
-          }
-        }
-        ... on CtaSectionPill {
-          _type
+          subheading
           heading
-          cta {
-            theme
-            text
-            href
-          }
-          img {
-            asset {
-              altText
-              url
-              metadata {
-                lqip
-                dimensions {
-                  height
-                  width
-                }
-              }
-            }
-          }
-          icon {
-            asset {
-              altText
-              url
-              metadata {
-                lqip
-                dimensions {
-                  height
-                  width
-                }
-              }
-            }
-          }
-        }
-        ... on HeadingImageBlocks {
-          _type
-          heading
-          blocks {
-            description
-          }
           image {
             asset {
               altText
@@ -211,12 +84,27 @@ const query = async () => {
               }
             }
           }
-        }
-        ... on ProcessList {
-          _type
-          ProcessList {
+          imageDescription
+          textComponent {
             heading
-            subheading
+            blocks {
+              description
+            }
+          }
+        }
+        content {
+          ... on CaseStudies {
+            _type
+            heading
+          }
+          ... on CtaSection {
+            _type
+            heading
+            cta {
+              theme
+              text
+              href
+            }
             img {
               asset {
                 altText
@@ -230,48 +118,144 @@ const query = async () => {
                 }
               }
             }
-            paragraph
+          }
+          ... on CtaSectionPill {
+            _type
+            heading
+            cta {
+              theme
+              text
+              href
+            }
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+            icon {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+          }
+          ... on HeadingImageBlocks {
+            _type
+            heading
+            blocks {
+              description
+            }
+            image {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+          }
+          ... on ProcessList {
+            _type
+            ProcessList {
+              heading
+              subheading
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+              paragraph
+            }
+          }
+          ... on SimpleCtaSection {
+            _type
+            heading
+            cta {
+              theme
+              text
+              href
+            }
+          }
+          ... on LatestBlogEntries {
+            _type
+            heading
           }
         }
-        ... on SimpleCtaSection {
-          _type
+        seo {
+          title
+          description
+        }
+        scrollToNext {
           heading
-          cta {
-            theme
+          paragraph
+          title
+          link {
             text
             href
           }
         }
-        ... on LatestBlogEntries {
-          _type
-          heading
-        }
       }
-      seo {
+      blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
         title
-        description
-      }
-      scrollToNext {
-        heading
-        paragraph
-        title
-        link {
-          text
-          href
-        }
-      }
-    }
-    blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
-      title
-      subtitle
-      slug {
-        current
-      }
-      author {
-        name
+        subtitle
         slug {
           current
         }
+        author {
+          name
+          slug {
+            current
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        categories {
+          name
+          slug {
+            current
+          }
+        }
+        _createdAt
+        contentRaw
         img {
           asset {
             altText
@@ -286,29 +270,7 @@ const query = async () => {
           }
         }
       }
-      categories {
-        name
-        slug {
-          current
-        }
-      }
-      _createdAt
-      contentRaw
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
     }
-  }
   `);
   return data;
 };
