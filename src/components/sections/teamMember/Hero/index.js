@@ -6,7 +6,7 @@ const Hero = ({ name, cryptonym, img }) => {
 	return (
 		<section className={`${styles.section} hero`}>
 			<header>
-				<DecorativeHeading>{name}</DecorativeHeading>
+				<DecorativeHeading type="h1">{name}</DecorativeHeading>
 				<h2 className="strong">{cryptonym}</h2>
 			</header>
 			<Img

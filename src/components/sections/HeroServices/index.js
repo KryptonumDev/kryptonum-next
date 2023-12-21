@@ -18,7 +18,7 @@ const HeroServices = ({
 }) => {
   return (
     <section className={`${styles.section} hero`}>
-      <DecorativeHeading components={{ em: ({ ...props }) => <sup {...props} /> }}>{hero_Heading}</DecorativeHeading>
+      <DecorativeHeading components={{ em: ({ ...props }) => <sup {...props} /> }} type="h1">{hero_Heading}</DecorativeHeading>
       <Img data={hero_Img} className={styles.img} sizes="100vw" priority={true} />
       <div className={styles.copy}>
         {hero_Annotation && (
