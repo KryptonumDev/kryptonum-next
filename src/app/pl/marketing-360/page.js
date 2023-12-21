@@ -25,7 +25,7 @@ export async function generateMetadata() {
 const breadcrumbs = [
   {
     name: "Marketing 360",
-    link: "/pl/grafika-design/marketing-360",
+    link: "/pl/marketing-360",
   },
 ];
 
@@ -95,6 +95,16 @@ export default async function MarketingPage() {
     </>
   );
 }
+
+export async function generateMetadata() {
+  const { page: { seo } } = await query();
+  return SEO ({
+    title: seo?.title,
+    description: seo?.description,
+    url: "/pl/marketing-360",
+  })
+}
+
 
 const query = async () => {
   const {

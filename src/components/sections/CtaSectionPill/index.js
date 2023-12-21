@@ -1,26 +1,22 @@
 import Img from "@/components/atoms/Img";
 import styles from "./styles.module.scss";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import ButtonNew from "@/components/atoms/ButtonNew";
+import Button from "@/components/atoms/Button";
 
 const CtaSectionPill = ({ data: { img, heading, cta, icon } }) => {
   return (
-    <section className={styles.ctaSectionPill}>
-      <Img
-        data={img}
-        className={styles.img}
-      />
-      <div className={styles.ctaWrapper}>
+    <section className={styles.CtaSectionPill}>
+      <Img data={img} className={styles.img} />
+      <div className={styles.copy}>
         <div className={styles.iconWrapper}>
-        <Img
-          data={icon}
-          className={styles.icon}
-        />
+          <Img data={icon} className={styles.icon} />
         </div>
-        <DecorativeHeading className={styles.heading}>{heading}</DecorativeHeading>
-        <ButtonNew data={cta} className={styles.cta}/>
+        <DecorativeHeading type='h2'>{heading}</DecorativeHeading>
+        <Button data={cta} className={styles.cta} />
+        <div className={styles.glow}></div>
       </div>
     </section>
   );
 };
+
 export default CtaSectionPill;
