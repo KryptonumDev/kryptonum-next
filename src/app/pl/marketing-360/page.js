@@ -9,6 +9,18 @@ import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
 import HeadingBlocksSideImg from "@/components/sections/HeadingBlocksSideImg";
 import ProcessList from "@/components/sections/ProcessList";
 import SEO from "@/global/Seo";
+import ScrollToNext from "@/components/sections/ScrollToNext";
+
+export async function generateMetadata() {
+  const {
+    page: { seo },
+  } = await query();
+  return SEO({
+    title: seo?.title,
+    description: seo?.description,
+    url: "/pl/marketing-360",
+  });
+}
 
 const breadcrumbs = [
   {
@@ -34,13 +46,16 @@ export default async function MarketingPage() {
   } = await query();
 
   return (
-    <main id="main">
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <Hero data={hero} />
-      {content.map((component, i) => {
-        return mappedComponents(component, i)[component._type];
-      })}
-    </main>
+    <>
+      <main id="main">
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
+        <Hero data={hero} />
+        {content.map((component, i) => {
+          return mappedComponents(component, i)[component._type];
+        })}
+      </main>
+      <ScrollToNext data={scrollToNext} />
+    </>
   );
 }
 
@@ -208,6 +223,15 @@ const query = async () => {
         seo {
           title
           description
+        }
+        scrollToNext {
+          heading
+          paragraph
+          title
+          link {
+            text
+            href
+          }
         }
       }
       blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {

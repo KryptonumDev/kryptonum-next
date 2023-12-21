@@ -34,7 +34,10 @@ export const KryptonumLogo = () => (
         gradientUnits="userSpaceOnUse"
       >
         <stop stopColor="#2DD282"></stop>
-        <stop offset="1" stopColor="#90F4E8"></stop>
+        <stop
+          offset="1"
+          stopColor="#90F4E8"
+        ></stop>
       </linearGradient>
       <linearGradient
         id="paint1_linear_5178_20267"
@@ -45,7 +48,10 @@ export const KryptonumLogo = () => (
         gradientUnits="userSpaceOnUse"
       >
         <stop stopColor="#2DD282"></stop>
-        <stop offset="1" stopColor="#90F4E8"></stop>
+        <stop
+          offset="1"
+          stopColor="#90F4E8"
+        ></stop>
       </linearGradient>
       <linearGradient
         id="paint2_linear_5178_20267"
@@ -56,7 +62,10 @@ export const KryptonumLogo = () => (
         gradientUnits="userSpaceOnUse"
       >
         <stop stopColor="#2DD282"></stop>
-        <stop offset="1" stopColor="#90F4E8"></stop>
+        <stop
+          offset="1"
+          stopColor="#90F4E8"
+        ></stop>
       </linearGradient>
     </defs>
   </svg>
@@ -118,11 +127,51 @@ export const HeadingLineFlexibility = () => (
         gradientUnits="userSpaceOnUse"
       >
         <stop stopColor="#2DD282"></stop>
-        <stop offset="1" stopColor="#90F4E8"></stop>
+        <stop
+          offset="1"
+          stopColor="#90F4E8"
+        ></stop>
       </linearGradient>
     </defs>
   </svg>
 );
+
+export const ArrowTopRight = () => {
+  const id = React.useId();
+  const arrowTRid = `arrowTR_${id}`;
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="none"
+    >
+      <path
+        stroke={`url(#${arrowTRid})`}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M7.926 17l10-10m0 0h-10m10 0v10"
+      ></path>
+      <defs>
+        <linearGradient
+          id={arrowTRid}
+          x1="17.738"
+          x2="7.331"
+          y1="7"
+          y2="7.663"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#2DD282"></stop>
+          <stop
+            offset="1"
+            stopColor="#90F4E8"
+          ></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+};
 
 export const ArrowRight = () => {
   const id = React.useId();
@@ -187,7 +236,10 @@ export const ChevronDown = () => (
         gradientUnits="userSpaceOnUse"
       >
         <stop stopColor="#2DD282"></stop>
-        <stop offset="1" stopColor="#90F4E8"></stop>
+        <stop
+          offset="1"
+          stopColor="#90F4E8"
+        ></stop>
       </linearGradient>
     </defs>
   </svg>
@@ -230,7 +282,10 @@ export const Quote = () => (
         gradientUnits="userSpaceOnUse"
       >
         <stop stopColor="#2DD282"></stop>
-        <stop offset="1" stopColor="#90F4E8"></stop>
+        <stop
+          offset="1"
+          stopColor="#90F4E8"
+        ></stop>
       </linearGradient>
     </defs>
   </svg>
@@ -249,7 +304,10 @@ export const Youtube = () => (
         fill="#EFF0F3"
         d="M31.72 7.963a4.388 4.388 0 00-1.04-1.92 3.97 3.97 0 00-1.793-1.113c-2.483-.725-12.477-.725-12.477-.725s-9.995.022-12.478.747a3.97 3.97 0 00-1.794 1.113A4.387 4.387 0 001.1 7.985c-.752 4.726-1.043 11.926.02 16.462a4.387 4.387 0 001.039 1.92 3.97 3.97 0 001.793 1.113c2.483.725 12.478.725 12.478.725s9.994 0 12.477-.725a3.969 3.969 0 001.794-1.112 4.388 4.388 0 001.039-1.921c.792-4.732 1.036-11.928-.02-16.484z"
       ></path>
-      <path fill="#010104" d="M12.426 20.205l8-4-8-4v8z"></path>
+      <path
+        fill="#010104"
+        d="M12.426 20.205l8-4-8-4v8z"
+      ></path>
     </g>
   </svg>
 );
@@ -282,9 +340,21 @@ export const Facebook = () => (
       d="M18.52 30.205V17.454h4.147l.616-4.993H18.52v-3.18c0-1.44.387-2.427 2.38-2.427h2.526V2.403a32.304 32.304 0 00-3.7-.198c-3.665 0-6.182 2.322-6.182 6.583v3.664h-4.12v4.992h4.129v12.761h4.967z"
     />
     <defs>
-      <linearGradient id="facebook" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="#30BB78" />
-        <stop offset="100%" stopColor="#73F5E6" />
+      <linearGradient
+        id="facebook"
+        x1="0"
+        y1="0"
+        x2="1"
+        y2="1"
+      >
+        <stop
+          offset="0%"
+          stopColor="#30BB78"
+        />
+        <stop
+          offset="100%"
+          stopColor="#73F5E6"
+        />
       </linearGradient>
     </defs>
   </svg>
@@ -514,7 +584,10 @@ export const Tick = () => (
         gradientUnits="userSpaceOnUse"
       >
         <stop stopColor="#2DD282"></stop>
-        <stop offset="1" stopColor="#90F4E8"></stop>
+        <stop
+          offset="1"
+          stopColor="#90F4E8"
+        ></stop>
       </linearGradient>
     </defs>
   </svg>
@@ -581,7 +654,10 @@ export const Plus = () => (
     fill="none"
     viewBox="0 0 41 40"
   >
-    <path stroke="#EFF0F3" d="M20.725 8.333v23.334M9.06 20h23.333"></path>
+    <path
+      stroke="#EFF0F3"
+      d="M20.725 8.333v23.334M9.06 20h23.333"
+    ></path>
   </svg>
 );
 
@@ -602,7 +678,10 @@ export const Cart = () => (
     ></path>
     <defs>
       <clipPath id="clip0_4410_30088">
-        <path fill="#fff" d="M.727 0h32v32h-32z"></path>
+        <path
+          fill="#fff"
+          d="M.727 0h32v32h-32z"
+        ></path>
       </clipPath>
     </defs>
   </svg>
@@ -723,32 +802,63 @@ export const Heart = () => (
         gradientUnits="userSpaceOnUse"
       >
         <stop stopColor="#2DD282"></stop>
-        <stop offset="1" stopColor="#90F4E8"></stop>
+        <stop
+          offset="1"
+          stopColor="#90F4E8"
+        ></stop>
       </linearGradient>
     </defs>
   </svg>
 );
 
 export const SliderArrowLeft = () => (
-	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
-		<path
-			stroke="#EFF0F3"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-			strokeWidth="2"
-			d="M19 12H5m0 0l7 7m-7-7l7-7"
-		></path>
-	</svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="none"
+  >
+    <path
+      stroke="#EFF0F3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M19 12H5m0 0l7 7m-7-7l7-7"
+    ></path>
+  </svg>
 );
 
 export const SliderArrowRight = () => (
-	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
-		<path
-			stroke="#EFF0F3"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-			strokeWidth="2"
-			d="M5 12h14m0 0l-7-7m7 7l-7 7"
-		></path>
-	</svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="none"
+  >
+    <path
+      stroke="#EFF0F3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M5 12h14m0 0l-7-7m7 7l-7 7"
+    ></path>
+  </svg>
+);
+
+export const ScrollToNextArrowRight = () => (
+  <svg
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.66406 16.0003H25.3307M25.3307 16.0003L15.9974 6.66699M25.3307 16.0003L15.9974 25.3337"
+      stroke="#EFF0F3"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
 );
