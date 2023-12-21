@@ -10,11 +10,7 @@ const HeadingBlocksSideImg = ({ data: { heading, image, blocks } }) => {
         <DecorativeHeading type="h3">{heading}</DecorativeHeading>
       </div>
       <div className={`${styles.imageWrapper}`}>
-        <Img
-          className={styles.image}
-          data={image}
-          sizes="(max-width: 1199px) 100vw, 50vw"
-        />
+        <Img className={styles.image} data={image} sizes="(max-width: 1199px) 100vw, 50vw" />
       </div>
       <div className={styles.descriptionWrapper}>
         {blocks.map(({ description }, index) => {
@@ -24,4 +20,5 @@ const HeadingBlocksSideImg = ({ data: { heading, image, blocks } }) => {
     </section>
   );
 };
+
 export default HeadingBlocksSideImg;

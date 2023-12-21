@@ -9,7 +9,7 @@ const CtaSectionPill = ({ data: { img, heading, cta, icon } }) => {
       <Img data={img} className={styles.img} />
       <div className={styles.copy}>
         <div className={styles.iconWrapper}>
-          <Img data={icon} className={styles.icon} />
+          <Img data={icon} className={styles.icon} sizes='100vw' />
         </div>
         <DecorativeHeading type='h2'>{heading}</DecorativeHeading>
         <Button data={cta} className={styles.cta} />
