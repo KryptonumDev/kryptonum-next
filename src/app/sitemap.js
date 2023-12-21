@@ -25,6 +25,7 @@ let staticPages = [
   "/pl/branding",
   "/pl/projektowanie-ui",
   "/pl/projektowanie-ux",
+  "/pl/marketing-360",
 ];
 
 export default async function sitemap() {

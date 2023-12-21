@@ -1,0 +1,127 @@
+.hero {
+  header {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+    grid-template-areas: "heading subheading" "img img";
+    gap: clamp(24px, calc(48vw/7.68), 32px);
+    padding-bottom: clamp(32px, calc(64vw/7.68), 64px);
+
+    .heading {
+      grid-area: heading;
+      font-size: clamp(calc(22rem/16), calc(36vw/7.68), calc(36rem/16));
+    }
+
+    .subheading {
+      grid-area: subheading;
+      padding-top: 48px;
+      font-size: 18px;
+      flex-direction: row-reverse;
+      display: inline-flex;
+      align-self: stretch;
+    }
+
+    .img {
+      grid-area: img;
+      height: 100%;
+      width: 100%;
+    }
+
+  }
+
+  .imageDescription {
+    font-size: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: ". paragraph";
+    padding-top: 72px;
+    padding-bottom: 64px;
+    gap: 32px;
+
+    >p {
+      grid-area: paragraph;
+
+      &::before {
+        font-weight: 400;
+        color: var(--primary-400);
+        background-image: var(--gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        white-space: pre;
+        content: '*';
+      }
+    }
+  }
+
+  .textComponent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+
+    .descriptionHeading {
+      font-size: clamp(calc(20rem/16), calc(28vw/7.68), calc(28rem/16));
+    }
+
+    .blocks {
+      display: grid;
+      row-gap: 24px;
+      font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+
+      .button {
+        margin-top: 24px;
+        max-width: fit-content;
+      }
+    }
+  }
+
+  @media(max-width: 999px) {
+    header {
+      grid-template-areas: "img" "heading";
+      grid-template-columns: 1fr;
+
+      .subheading {
+        display: none;
+      }
+    }
+
+    .imageDescription {
+      padding-top: unset;
+      grid-template-columns: 1fr;
+      grid-template-areas: "paragraph";
+      justify-items: start;
+    }
+
+    .textComponent {
+      grid-template-columns: 1fr;
+      gap: 16px;
+
+      .blocks {
+        row-gap: 16px;
+      }
+    }
+  }
+
+  @media(max-width: 499px) {
+    .imageDescription {
+      padding-bottom: 32px;
+    }
+
+    .textComponent {
+      .blocks {
+        .button {
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 399px) {
+    .textComponent {
+      .blocks {
+        .button {
+          max-width: unset;
+        }
+      }
+    }
+  }
+}
