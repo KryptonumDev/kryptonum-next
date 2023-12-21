@@ -7,6 +7,7 @@ import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
 import CtaSectionPill from "@/components/sections/CtaSectionPill";
 import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
 import HeadingBlocksSideImg from "@/components/sections/HeadingBlocksSideImg";
+import ProcessList from "@/components/sections/ProcessList";
 
 const breadcrumbs = [
   {
@@ -54,7 +55,13 @@ export default async function MarketingPage() {
       key={i}
       data={component}
       />
-    )
+    ),
+    ProcessList: (
+      <ProcessList
+      key={i}
+      data={component}
+      />
+    ),
   });
 
   const {
