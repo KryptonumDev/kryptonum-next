@@ -19,54 +19,17 @@ const breadcrumbs = [
 
 export default async function MarketingPage() {
   const mappedComponents = (component, i) => ({
-    CaseStudies: (
-      <CaseStudies
-        key={i}
-        heading={component?.heading}
-        eagerLoading={true}
-      />
-    ),
-    ctaSection: (
-      <CtaSection
-        key={i}
-        data={component}
-      />
-    ),
-    LatestBlogEntries: (
-      <LatestBlogEntries
-      key={i}
-        data={blogEntries}
-        heading={component?.heading}
-      />
-    ),
-    ctaSectionPill: (
-      <CtaSectionPill
-      key={i}
-      data={component}
-      />
-    ),
-    simpleCtaSection: (
-      <SimpleCtaSection
-      key={i}
-      data={component}
-      />
-    ),
-    HeadingImageBlocks: (
-      <HeadingBlocksSideImg
-      key={i}
-      data={component}
-      />
-    ),
-    ProcessList: (
-      <ProcessList
-      key={i}
-      data={component}
-      />
-    ),
+    CaseStudies: <CaseStudies key={i} heading={component?.heading} />,
+    ctaSection: <CtaSection key={i} data={component} />,
+    LatestBlogEntries: <LatestBlogEntries key={i} data={blogEntries} heading={component?.heading} />,
+    ctaSectionPill: <CtaSectionPill key={i} data={component} />,
+    simpleCtaSection: <SimpleCtaSection key={i} data={component} />,
+    HeadingImageBlocks: <HeadingBlocksSideImg key={i} data={component} />,
+    ProcessList: <ProcessList key={i} data={component} />,
   });
 
   const {
-    page: { hero, content, seo },
+    page: { hero, content },
     blogEntries,
   } = await query();
 
@@ -83,13 +46,12 @@ export default async function MarketingPage() {
 
 export async function generateMetadata() {
   const { page: { seo } } = await query();
-  return SEO ({
+  return SEO({
     title: seo?.title,
     description: seo?.description,
     url: "/pl/marketing-360",
-  })
+  });
 }
-
 
 const query = async () => {
   const {
