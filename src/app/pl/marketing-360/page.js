@@ -77,7 +77,7 @@ export default async function MarketingPage() {
   });
 
   const {
-    page: { hero, content },
+    page: { hero, content, seo },
     blogEntries,
   } = await query();
 
@@ -244,6 +244,10 @@ const query = async () => {
           heading
         }
       }
+      seo {
+        title
+        description
+      }
     }
     blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
       title
@@ -290,10 +294,6 @@ const query = async () => {
             }
           }
         }
-      }
-      seo {
-        title
-        description
       }
     }
   }
