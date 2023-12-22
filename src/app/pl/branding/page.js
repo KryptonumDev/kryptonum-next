@@ -43,35 +43,33 @@ export default async function BraindingPage() {
 
 
 	return (
-		<>
-			<main id="main">
-				<Breadcrumbs breadcrumbs={breadcrumbs} />
-				<Hero data={hero} />
-				<TextSection data={textSection} />
-				<CtaSection data={ctaSection} />
-				<TilesWithOverflowIcon data={tiles} />
-				<TextSection data={textSection2} />
-				<IconTitleDescriptionGrid data={iconTitleBlocksList} />
-				<CentralizedHeadingSection
-					data={centralizedHeading}
-					decoration={false}
-				/>
-				<IconTitleDescriptionGrid data={iconTitleBlocksList2} />
-				<CentralizedHeadingSection
-					data={centralizedHeading2}
-					decoration={false}
-				/>
-				<TextSection data={textSection3} />
-				<IconTitleDescriptionListSection data={headerTitleDescriptionList} />
-				<CtaSection data={ctaSection2} />
-				<Team
-					heading={team_Heading}
-					paragraph={team_Text}
-					cta={team_Cta}
-				/>
-				<Testimonials testimonials={testimonials} />
-			</main>
-		</>
+    <main id="main">
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <Hero data={hero} />
+      <TextSection data={textSection} />
+      <CtaSection data={ctaSection} />
+      <TilesWithOverflowIcon data={tiles} />
+      <TextSection data={textSection2} />
+      <IconTitleDescriptionGrid data={iconTitleBlocksList} />
+      <CentralizedHeadingSection
+        data={centralizedHeading}
+        decoration={false}
+      />
+      <IconTitleDescriptionGrid data={iconTitleBlocksList2} />
+      <CentralizedHeadingSection
+        data={centralizedHeading2}
+        decoration={false}
+      />
+      <TextSection data={textSection3} />
+      <IconTitleDescriptionListSection data={headerTitleDescriptionList} />
+      <CtaSection data={ctaSection2} />
+      <Team
+        heading={team_Heading}
+        paragraph={team_Text}
+        cta={team_Cta}
+      />
+      <Testimonials testimonials={testimonials} />
+    </main>
 	);
 }
 

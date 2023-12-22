@@ -50,114 +50,112 @@ export default async function AcademySlugPage({ params }) {
   ];
 
 	return (
-		<>
-    <main id="main">
-      <Breadcrumbs breadcrumbs={breadcrumbs}/>
-			<EntryHero
-				title={title}
-				subtitle={subtitle}
-				categories={categories}
-				categorySlug="/pl/akademia/kategoria/"
-				_createdAt={_createdAt}
-				author={author}
-				img={img}
-			/>
-			{content.map((component, i) => {
-				switch (component._type) {
-					case "standout":
-						return (
-							<ImageAndStandout
-								key={i}
-								heading={component.heading}
-								paragraph={component.paragraph}
-								standout={component.standout}
-								img={component.img}
-								reversed={component.reversed}
-							/>
-						);
-					case "curiosity_KeyElements":
-						return (
-							<KeyElements
-								key={i}
-								heading={component.heading}
-								list={component.list}
-								paragraph={component.paragraph}
-							/>
-						);
-					case "curiosity_Highlight":
-						return (
-							<Highlight
-								key={i}
-								heading={component.heading}
-								paragraph={component.paragraph}
-							/>
-						);
-					case "curiosity_Note":
-						return (
-							<Note
-								key={i}
-								heading={component.heading}
-								paragraph={component.paragraph}
-								attention={component.attention}
-							/>
-						);
-					case "curiosity_Tiles":
-						return (
-							<Tiles
-								key={i}
-								heading={component.heading}
-								list={component.list}
-								annotation={component.annotation}
-							/>
-						);
-					case "curiosity_LargeList":
-						return (
-							<LargeList
-								key={i}
-								isHeading={true}
-								title={component.heading}
-								list={component.list}
-								paragraph={component.paragraph}
-							/>
-						);
-					case "curiosity_ColumnText":
-						return (
-							<ColumnText
-								key={i}
-								heading={component.heading}
-								paragraph={component.paragraph}
-							/>
-						);
-					case "quickForm":
-						return (
-							<QuickForm
-								key={i}
-								data={component}
-							/>
-						);
-					case "curiosity_ExtendedList":
-						return (
-							<ExtendedList
-								key={i}
-								data={component}
-							/>
-						);
-					default:
-						break;
-				}
-			})}
-			<Share
-				heading={share.heading}
-				img={share.img}
-				url={params.slug}
-			/>
-			<Sources data={sources} />
-			<LatestCuriosityEntries
-				heading={latestCuriosities_Heading}
-				exclude={slug.current}
-			/>
-      </main>
-		</>
+  <main id="main">
+    <Breadcrumbs breadcrumbs={breadcrumbs}/>
+    <EntryHero
+      title={title}
+      subtitle={subtitle}
+      categories={categories}
+      categorySlug="/pl/akademia/kategoria/"
+      _createdAt={_createdAt}
+      author={author}
+      img={img}
+    />
+    {content.map((component, i) => {
+      switch (component._type) {
+        case "standout":
+          return (
+            <ImageAndStandout
+              key={i}
+              heading={component.heading}
+              paragraph={component.paragraph}
+              standout={component.standout}
+              img={component.img}
+              reversed={component.reversed}
+            />
+          );
+        case "curiosity_KeyElements":
+          return (
+            <KeyElements
+              key={i}
+              heading={component.heading}
+              list={component.list}
+              paragraph={component.paragraph}
+            />
+          );
+        case "curiosity_Highlight":
+          return (
+            <Highlight
+              key={i}
+              heading={component.heading}
+              paragraph={component.paragraph}
+            />
+          );
+        case "curiosity_Note":
+          return (
+            <Note
+              key={i}
+              heading={component.heading}
+              paragraph={component.paragraph}
+              attention={component.attention}
+            />
+          );
+        case "curiosity_Tiles":
+          return (
+            <Tiles
+              key={i}
+              heading={component.heading}
+              list={component.list}
+              annotation={component.annotation}
+            />
+          );
+        case "curiosity_LargeList":
+          return (
+            <LargeList
+              key={i}
+              isHeading={true}
+              title={component.heading}
+              list={component.list}
+              paragraph={component.paragraph}
+            />
+          );
+        case "curiosity_ColumnText":
+          return (
+            <ColumnText
+              key={i}
+              heading={component.heading}
+              paragraph={component.paragraph}
+            />
+          );
+        case "quickForm":
+          return (
+            <QuickForm
+              key={i}
+              data={component}
+            />
+          );
+        case "curiosity_ExtendedList":
+          return (
+            <ExtendedList
+              key={i}
+              data={component}
+            />
+          );
+        default:
+          break;
+      }
+    })}
+    <Share
+      heading={share.heading}
+      img={share.img}
+      url={params.slug}
+    />
+    <Sources data={sources} />
+    <LatestCuriosityEntries
+      heading={latestCuriosities_Heading}
+      exclude={slug.current}
+    />
+    </main>
 	);
 }
 

@@ -1,4 +1,3 @@
-import { formatDateToPolishLocale } from "@/utils/functions";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import BlogEntry from "../../organisms/BlogEntry";
 import Pagination from "../../organisms/Pagination";
@@ -13,9 +12,6 @@ const BlogEntries = ({
 	itemsPerPage,
 	isCategoryPagination = false
 }) => {
-	blogEntries.map((entry) => {
-		entry._createdAt = formatDateToPolishLocale(entry._createdAt);
-	});
 	return (
 		<section
 			className={styles.section}

@@ -43,51 +43,49 @@ export default async function TeamPage() {
 	];
 
 	return (
-		<>
-			<main id="main">
-				<Breadcrumbs breadcrumbs={breadcrumbs} />
-				<Hero
-					data={{
-						hero_Heading,
-						hero_Paragraph,
-						hero_Column,
-					}}
-				/>
-				{/* <Decode data={{
-        decode_Heading,
-        decode_Hint,
-        decode_List,
-      }} /> */}
-				<SmallCtaSection
-					data={{
-						smallCta_Heading,
-						smallCta_Cta,
-						smallCta_Heading2,
-						smallCta_Cta2,
-					}}
-				/>
-				<Testimonials
-					data={{
-						testimonials_Heading,
-						testimonials_List,
-					}}
-				/>
-				<Team
-					heading={team_Heading}
-					paragraph={team_Paragraph}
-				/>
-				<Attitude
-					data={{
-						attitude_Heading,
-						attitude_Paragraph,
-						attitude_Claim,
-						attitude_Img,
-					}}
-				/>
-				<CtaSection data={ctaSection} />
-				<LatestCuriosityEntries heading={curiosityEntries_Heading} />
-			</main>
-		</>
+    <main id="main">
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <Hero
+        data={{
+          hero_Heading,
+          hero_Paragraph,
+          hero_Column,
+        }}
+      />
+      {/* <Decode data={{
+      decode_Heading,
+      decode_Hint,
+      decode_List,
+    }} /> */}
+      <SmallCtaSection
+        data={{
+          smallCta_Heading,
+          smallCta_Cta,
+          smallCta_Heading2,
+          smallCta_Cta2,
+        }}
+      />
+      <Testimonials
+        data={{
+          testimonials_Heading,
+          testimonials_List,
+        }}
+      />
+      <Team
+        heading={team_Heading}
+        paragraph={team_Paragraph}
+      />
+      <Attitude
+        data={{
+          attitude_Heading,
+          attitude_Paragraph,
+          attitude_Claim,
+          attitude_Img,
+        }}
+      />
+      <CtaSection data={ctaSection} />
+      <LatestCuriosityEntries heading={curiosityEntries_Heading} />
+    </main>
 	);
 }
 

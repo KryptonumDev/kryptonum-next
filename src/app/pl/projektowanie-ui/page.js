@@ -49,43 +49,41 @@ export default async function UiDesignPage() {
 	];
 
 	return (
-		<>
-			<main id="main">
-				<Breadcrumbs breadcrumbs={breadcrumbs} />
-				<Hero data={hero} />
-				<TextSection data={textSection} />
-				<CentralizedHeadingSection
-					data={centralizedHeading}
-					decoration={false}
-				/>
-				<CtaSection data={ctaSection} />
-				<TilesComponentWithHeading data={tilesWithHeading} />
-				<FullWidthImageComponent
-					image={image}
-					withBorder={true}
-				/>
-				<Slider data={slider} />
-				<TextSection data={textSection2} />
-				<IconTitleDescriptionListSection data={headerTitleDescriptionList} />
-				<FullWidthImageComponent image={image2} />
-				<TextSection
-					data={textSection3}
-					breakLine={true}
-				/>
-				<CtaSection data={ctaSection2} />
-				<TextSection data={textSection4} />
-				<Process data={{blocks}} />
-				<CentralizedHeadingSection data={centralizedHeading2} />
-				<CaseStudies cta={caseStudies} />
-				<CtaSection data={ctaSection3} />
-				<Team
-					heading={team_Heading}
-					paragraph={team_Text}
-					cta={team_Cta}
-				/>
-				<Testimonials testimonials={testimonials} />
-			</main>
-		</>
+    <main id="main">
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <Hero data={hero} />
+      <TextSection data={textSection} />
+      <CentralizedHeadingSection
+        data={centralizedHeading}
+        decoration={false}
+      />
+      <CtaSection data={ctaSection} />
+      <TilesComponentWithHeading data={tilesWithHeading} />
+      <FullWidthImageComponent
+        image={image}
+        withBorder={true}
+      />
+      <Slider data={slider} />
+      <TextSection data={textSection2} />
+      <IconTitleDescriptionListSection data={headerTitleDescriptionList} />
+      <FullWidthImageComponent image={image2} />
+      <TextSection
+        data={textSection3}
+        breakLine={true}
+      />
+      <CtaSection data={ctaSection2} />
+      <TextSection data={textSection4} />
+      <Process data={{blocks}} />
+      <CentralizedHeadingSection data={centralizedHeading2} />
+      <CaseStudies cta={caseStudies} />
+      <CtaSection data={ctaSection3} />
+      <Team
+        heading={team_Heading}
+        paragraph={team_Text}
+        cta={team_Cta}
+      />
+      <Testimonials testimonials={testimonials} />
+    </main>
 	);
 }
 

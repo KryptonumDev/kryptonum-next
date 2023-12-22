@@ -35,33 +35,31 @@ export default async function academyPaginationPage({ params: { number } }) {
 	];
 
 	return (
-		<>
-			<main id="main">
-				<Breadcrumbs breadcrumbs={breadcrumbs} />
-				<Hero
-					data={{
-						heading: `**Akademia** - strona ${number}`,
-						paragraph: hero_Paragraph,
-						sideImage: hero_Img,
-					}}
-					isBlogHero={true}
-				/>
-				<Categories
-					categorySlug="/pl/akademia/"
-					categories={curiosityCategories}
-				/>
-				<CuriosityEntries
-					urlBasis="/pl/akademia"
-					totalCount={allCuriosityEntries.length}
-					page={parseInt(number)}
-					curiosityEntries={curiosityEntries}
-					itemsPerPage={academyItemsPerPage}
-				/>
-				<CtaSection data={ctaSection} />
-				<LatestBlogEntries data={blogEntries} />
-				<Faq />
-			</main>
-		</>
+    <main id="main">
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <Hero
+        data={{
+          heading: `**Akademia** - strona ${number}`,
+          paragraph: hero_Paragraph,
+          sideImage: hero_Img,
+        }}
+        isBlogHero={true}
+      />
+      <Categories
+        categorySlug="/pl/akademia/"
+        categories={curiosityCategories}
+      />
+      <CuriosityEntries
+        urlBasis="/pl/akademia"
+        totalCount={allCuriosityEntries.length}
+        page={parseInt(number)}
+        curiosityEntries={curiosityEntries}
+        itemsPerPage={academyItemsPerPage}
+      />
+      <CtaSection data={ctaSection} />
+      <LatestBlogEntries data={blogEntries} />
+      <Faq />
+    </main>
 	);
 }
 

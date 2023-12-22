@@ -37,35 +37,33 @@ export default async function AcademyCategoryPage({ params: { category } }) {
 	];
 
 	return (
-		<>
-    <main id="main">
-			<Breadcrumbs breadcrumbs={breadcrumbs} />
-			<Hero
-				data={{
-					heading: hero_Heading,
-					paragraph: hero_Paragraph,
-					sideImage: hero_Img,
-				}}
-				isBlogHero={true}
-			/>
-			<Categories
-				categorySlug="/pl/akademia/"
-				currentSlug={slug.current}
-				categories={curiosityCategories}
-			/>
-			<CuriosityEntries
-				urlBasis={`/pl/akademia/kategoria/${category}`}
-				totalCount={allCuriosityEntries.length}
-				curiosityEntries={curiosityEntries}
-				page={1}
-				itemsPerPage={academyItemsPerPage}
-				isCategoryPagination={true}
-			/>
-			<CtaSection data={ctaSection} />
-			<LatestBlogEntries data={blogEntries} />
-			<Faq />
-      </main>
-		</>
+  <main id="main">
+    <Breadcrumbs breadcrumbs={breadcrumbs} />
+    <Hero
+      data={{
+        heading: hero_Heading,
+        paragraph: hero_Paragraph,
+        sideImage: hero_Img,
+      }}
+      isBlogHero={true}
+    />
+    <Categories
+      categorySlug="/pl/akademia/"
+      currentSlug={slug.current}
+      categories={curiosityCategories}
+    />
+    <CuriosityEntries
+      urlBasis={`/pl/akademia/kategoria/${category}`}
+      totalCount={allCuriosityEntries.length}
+      curiosityEntries={curiosityEntries}
+      page={1}
+      itemsPerPage={academyItemsPerPage}
+      isCategoryPagination={true}
+    />
+    <CtaSection data={ctaSection} />
+    <LatestBlogEntries data={blogEntries} />
+    <Faq />
+    </main>
 	);
 }
 

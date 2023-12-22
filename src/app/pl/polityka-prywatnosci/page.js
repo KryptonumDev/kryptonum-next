@@ -28,28 +28,26 @@ export default async function PrivacyPolicyPage() {
 	];
 
 	return (
-		<>
-			<main id="main">
-				<Breadcrumbs breadcrumbs={breadcrumbs} />
-				<Hero
-					data={{
-						heading: hero_Heading,
-						paragraph: hero_Paragraph,
-						sideImage: hero_Img,
-					}}
-					isBlogHero={true}
-				/>
-				<KeyElements
-					heading={keyInfo_Heading}
-					list={keyInfo_List}
-				/>
-				<Content
-					heading={content_Heading}
-					_rawContent={contentRaw}
-				/>
-				<SimpleCtaSection data={simpleCtaSection} />
-			</main>
-		</>
+		<main id="main">
+			<Breadcrumbs breadcrumbs={breadcrumbs} />
+			<Hero
+				data={{
+					heading: hero_Heading,
+					paragraph: hero_Paragraph,
+					sideImage: hero_Img,
+				}}
+				isBlogHero={true}
+			/>
+			<KeyElements
+				heading={keyInfo_Heading}
+				list={keyInfo_List}
+			/>
+			<Content
+				heading={content_Heading}
+				_rawContent={contentRaw}
+			/>
+			<SimpleCtaSection data={simpleCtaSection} />
+		</main>
 	);
 }
 

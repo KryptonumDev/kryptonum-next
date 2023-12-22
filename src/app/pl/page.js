@@ -52,52 +52,50 @@ const PolishIndexPage = async () => {
 	} = await query();
 
 	return (
-		<>
-			<main id="main">
-				<Hero
-					data={{
-						hero_Heading,
-						hero_Subheading,
-						hero_Cta,
-					}}
-					eagerLoading={true}
-				/>
-				<GridFloatingImg data={services} />
-				<FourGrid
-					heading={conquest_Heading}
-					claim={conquest_Claim}
-					paragraph={conquest_Paragraph}
-					secondClaim={conquest_SecondClaim}
-					cta={conquest_Cta}
-				/>
-				<FourGrid
-					heading={challenge_Heading}
-					claim={challenge_Claim}
-					paragraph={challenge_Paragraph}
-					secondClaim={challenge_SecondClaim}
-					cta={challenge_Cta}
-				/>
-				<Creativity
-					data={{
-						creativity_Heading,
-						creativity_Paragraph,
-						creativity_SecondParagraph,
-					}}
-				/>
-				<Roadmap
-					heading={roadmap_Heading}
-					list={roadmap_Process}
-					cta={roadmap_Cta}
-				/>
-				<Team
-					heading={team_Heading}
-					paragraph={team_Text}
-					cta={team_Cta}
-				/>
-				<Testimonials testimonials={testimonials} />
-				<LatestBlogEntries data={blogEntries} />
-			</main>
-		</>
+    <main id="main">
+      <Hero
+        data={{
+          hero_Heading,
+          hero_Subheading,
+          hero_Cta,
+        }}
+        eagerLoading={true}
+      />
+      <GridFloatingImg data={services} />
+      <FourGrid
+        heading={conquest_Heading}
+        claim={conquest_Claim}
+        paragraph={conquest_Paragraph}
+        secondClaim={conquest_SecondClaim}
+        cta={conquest_Cta}
+      />
+      <FourGrid
+        heading={challenge_Heading}
+        claim={challenge_Claim}
+        paragraph={challenge_Paragraph}
+        secondClaim={challenge_SecondClaim}
+        cta={challenge_Cta}
+      />
+      <Creativity
+        data={{
+          creativity_Heading,
+          creativity_Paragraph,
+          creativity_SecondParagraph,
+        }}
+      />
+      <Roadmap
+        heading={roadmap_Heading}
+        list={roadmap_Process}
+        cta={roadmap_Cta}
+      />
+      <Team
+        heading={team_Heading}
+        paragraph={team_Text}
+        cta={team_Cta}
+      />
+      <Testimonials testimonials={testimonials} />
+      <LatestBlogEntries data={blogEntries} />
+    </main>
 	);
 };
 

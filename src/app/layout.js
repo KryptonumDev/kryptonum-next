@@ -1,7 +1,6 @@
 import Footer from "@/components/organisms/Footer";
 import Nav from "@/components/organisms/Nav";
 import fetchData from "@/utils/fetchData";
-import { formatDateToPolishLocale } from "@/utils/functions";
 import localFont from "next/font/local";
 import "../styles/global.scss";
 import OrganizationSchema from "@/global/OrganizationSchema";
@@ -32,10 +31,6 @@ const RootLayout = async ({ children }) => {
 		academyAuthors,
 		global,
 	} = await query();
-
-  blogEntries.map((entry) => {
-		entry._createdAt = formatDateToPolishLocale(entry._createdAt);
-	});
 
 	return (
 		<html lang="en">

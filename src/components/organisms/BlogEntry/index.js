@@ -1,6 +1,6 @@
 import ReadingTime from "@/atoms/ReadingTime";
 import Img from "@/components/atoms/Img";
-import { removeMarkdown } from "@/utils/functions";
+import { formatDateToPolishLocale, removeMarkdown } from "@/utils/functions";
 import Link from "next/link";
 import styles from "./styles.module.scss";
 
@@ -44,7 +44,7 @@ const BlogEntry = ({ data, smallEntry }) => {
         ))}
       </div>
       <ReadingTime content={data.contentRaw} />
-      <span className={styles.createdAt}>{data._createdAt}</span>
+      <span className={styles.createdAt}>{formatDateToPolishLocale(data._createdAt)}</span>
     </div>
   );
 };

@@ -29,26 +29,24 @@ export default async function SitemapPage() {
   ];
 
   return (
-    <>
-    <main id="main">
-      <Breadcrumbs breadcrumbs={breadcrumbs}/>
-      <HeroTwoColumns 
-        heading= {hero_Heading}
-        paragraph={hero_Subheading}
-        img={hero_Img}
-      />
-      <Grid
-        team={team}
-        blogEntries={blogEntries}
-        WebDevelopment={WebDevelopment}
-        Agency={Agency}
-        GraphicsDesign={GraphicsDesign}
-        Workshop={Workshop}
-        caseStudies={caseStudies}
-        curiosityEntries={curiosityEntries}
-      />
-      </main>
-    </>
+  <main id="main">
+    <Breadcrumbs breadcrumbs={breadcrumbs}/>
+    <HeroTwoColumns 
+      heading= {hero_Heading}
+      paragraph={hero_Subheading}
+      img={hero_Img}
+    />
+    <Grid
+      team={team}
+      blogEntries={blogEntries}
+      WebDevelopment={WebDevelopment}
+      Agency={Agency}
+      GraphicsDesign={GraphicsDesign}
+      Workshop={Workshop}
+      caseStudies={caseStudies}
+      curiosityEntries={curiosityEntries}
+    />
+    </main>
   )
 }
 

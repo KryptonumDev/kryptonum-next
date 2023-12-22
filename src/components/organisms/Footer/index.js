@@ -9,7 +9,7 @@ import {
   Youtube,
 } from "@/atoms/Icons";
 import Img from "@/components/atoms/Img";
-import { removeMarkdown } from "@/utils/functions";
+import { formatDateToPolishLocale, removeMarkdown } from "@/utils/functions";
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import Team from "./team";
@@ -125,7 +125,7 @@ const Footer = ({
 									</div>
 									<span>{entry.author[0]?.name}</span>
 								</Link>
-								<span>{entry._createdAt}</span>
+								<span>{formatDateToPolishLocale(entry._createdAt)}</span>
 								<p>{removeMarkdown(entry.title)}</p>
 							</div>
 						</div>

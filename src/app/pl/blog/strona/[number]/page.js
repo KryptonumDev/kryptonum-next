@@ -34,33 +34,31 @@ export default async function BlogPaginationPage({ params: { number } }) {
 	];
 
 	return (
-		<>
-			<main id="main">
-				<Breadcrumbs breadcrumbs={breadcrumbs} />
-				<Hero
-					data={{
-						heading: `**Blog** - strona ${number}`,
-						paragraph: hero_Paragraph,
-						sideImage: hero_Img,
-					}}
-					isBlogHero={true}
-				/>
-				<Categories
-					categorySlug="/pl/blog/"
-					categories={blogCategories}
-				/>
-				<BlogEntries
-					urlBasis={"/pl/blog"}
-					totalCount={allBlogEntries.length}
-					blogEntries={blogEntries}
-					page={parseInt(number)}
-					itemsPerPage={blogItemsPerPage}
-				/>
-				<CtaSection data={ctaSection} />
-				<LatestCuriosityEntries />
-				<Faq />
-			</main>
-		</>
+    <main id="main">
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <Hero
+        data={{
+          heading: `**Blog** - strona ${number}`,
+          paragraph: hero_Paragraph,
+          sideImage: hero_Img,
+        }}
+        isBlogHero={true}
+      />
+      <Categories
+        categorySlug="/pl/blog/"
+        categories={blogCategories}
+      />
+      <BlogEntries
+        urlBasis={"/pl/blog"}
+        totalCount={allBlogEntries.length}
+        blogEntries={blogEntries}
+        page={parseInt(number)}
+        itemsPerPage={blogItemsPerPage}
+      />
+      <CtaSection data={ctaSection} />
+      <LatestCuriosityEntries />
+      <Faq />
+    </main>
 	);
 }
 
