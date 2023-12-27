@@ -5,7 +5,7 @@ import DecorativeHeading from "../../atoms/DecorativeHeading";
 import styles from "./styles.module.scss";
 
 const CaseStudies = async ({ data, heading, cta, eagerLoading = false }) => {
-  let body = await query();
+  const body = await query();
   if (data) {
     body.data.caseStudies = data;
   }

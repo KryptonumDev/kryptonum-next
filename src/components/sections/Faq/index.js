@@ -212,9 +212,8 @@ const Faq = async ({ heading }) => {
             <Markdown className={styles.paragraph}>{faq.form.paragraph}</Markdown>
             <Img
               data={faq.form.person.img}
-              height={96}
-              width={96}
-              sizes="96px"
+              sizes="120px"
+              quality={100}
               className={`personBorder ${styles.img}`}
             />
             <a href={`tel:${faq.form.person.tel.replace(/\s/g, "")}`}>{faq.form.person.tel}</a>

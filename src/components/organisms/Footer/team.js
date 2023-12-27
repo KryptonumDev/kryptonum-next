@@ -24,6 +24,7 @@ const Team = ({ team }) => {
 							data={person.img}
 							className={`${styles.personBorder}`}
               sizes="30px"
+							quality={100}
 						/>
 					</div>
 					<span>{person.name}</span>

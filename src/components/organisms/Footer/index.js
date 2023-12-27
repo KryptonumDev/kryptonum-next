@@ -103,10 +103,9 @@ const Footer = ({
 							<div className={styles.thumbnailWrapper}>
 								<Img
 									data={entry.img}
-									width={200}
-									height={200}
 									className={styles.thumbnail}
                   sizes="200px"
+									quality={100}
 								/>
 							</div>
 							<div className={styles.copy}>
@@ -117,10 +116,9 @@ const Footer = ({
 									<div className={`${styles.blogPersonBorder} personBorder`}>
 										<Img
 											data={entry.author[0]?.img}
-											width={32}
-											height={32}
 											className={styles.blogImg}
                       sizes="32px"
+											quality={100}
 										/>
 									</div>
 									<span>{entry.author[0]?.name}</span>

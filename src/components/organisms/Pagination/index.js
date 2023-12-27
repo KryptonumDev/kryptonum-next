@@ -15,7 +15,7 @@ export default async function Pagination({
 	}, [itemCount]);
 
 	const buttons = useMemo(() => {
-		let arr = [];
+		const arr = [];
 		for (let i = 0; i < pagesCount; i++) {
 			arr.push(i + 1);
 		}

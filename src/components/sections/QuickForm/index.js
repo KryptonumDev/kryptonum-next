@@ -20,7 +20,7 @@ const QuickForm = async ({ data: { heading, subheading, cta }, isPortableContent
         <p>{quickForm_Paragraph}</p>
         <div className={styles.person}>
           <p className={`${styles.strong} strong`}>{quickForm_Person.name}</p>
-          <Img data={quickForm_Person.img} className={`${styles.img} personBorder`} />
+          <Img data={quickForm_Person.img} className={`${styles.img} personBorder`} quality={100} sizes="120px"/>
           {quickForm_Person.tel && (
             <a href={`tel:${quickForm_Person.tel.replace(/\s/g, "")}`}>{quickForm_Person.tel}</a>
           )}

@@ -281,9 +281,11 @@
                   z-index: 2;
 
                   .personBorder {
-                    width: 32px;
-                    height: 32px;
                     overflow: hidden;
+                    .img {
+                      width: 32px;
+                      height: 32px;
+                    }
 
                     &:hover {
                       ~.img {
@@ -356,6 +358,10 @@
               .personBorder {
                 display: block;
                 transition: transform .3s;
+                .img {
+                  height:100%;
+                  width:100%;
+                }
               }
             }
 
@@ -475,6 +481,10 @@
               .personBorder {
                 display: block;
                 transition: transform .3s;
+                .img {
+                  height:100%;
+                  width:100%;
+                }
               }
             }
 
@@ -513,6 +523,8 @@
               display: block;
               object-fit: cover;
               transition: transform .3s;
+              width:96px;
+              height:96px;
             }
           }
 
@@ -797,6 +809,8 @@
               .img {
                 display: block;
                 object-fit: cover;
+                width:100%;
+                height:100%;
               }
             }
           }
@@ -823,8 +837,10 @@
               }
 
               .personBorder {
-                width: 96px;
-                height: 96px;
+                .img {
+                  width: 96px;
+                  height: 96px;
+                }
               }
             }
           }
@@ -861,8 +877,10 @@
               }
 
               .personBorder {
-                width: 96px;
-                height: 96px;
+                .img {
+                  width: 96px;
+                  height: 96px;
+                }
               }
             }
           }

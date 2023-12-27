@@ -1,6 +1,7 @@
 import Markdown from "@/components/atoms/Markdown";
 import DecorativeHeading from "../../atoms/DecorativeHeading";
 import styles from "./styles.module.scss";
+import Img from "@/components/atoms/Img";
 
 const HeadingWithDescriptionTitle = ({ data: { heading, blocks } }) => {
   return (
@@ -13,7 +14,7 @@ const HeadingWithDescriptionTitle = ({ data: { heading, blocks } }) => {
             <div className={styles.item} key={i}>
               {item.icon ? (
                 <div className={styles.imageWrapper}>
-                  <Img data={item.icon} className={`${styles.icon} person-border`} sizes="60px" />
+                  <Img data={item.icon} className={`${styles.icon} person-border`} sizes="60px" quality={100}/>
                 </div>
               ) : (
                 <Markdown className={styles.title}>{item.title}</Markdown>

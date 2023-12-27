@@ -57,7 +57,8 @@ export const portableTextToMarkdown = (node) => {
 };
 
 export const slugify = (text) => {
-	text = text.toString().toLowerCase().trim();
+	text = text.toString().toLowerCase()
+.trim();
 	const sets = [
 		{ to: "a", from: "[ÀÁÂÃÄÅÆĀĂĄẠẢẤẦẨẪẬẮẰẲẴẶἀ]" },
 		{ to: "c", from: "[ÇĆĈČ]" },
@@ -99,7 +100,6 @@ export const slugify = (text) => {
 export const smoothScroll = (e, slug) => {
 	e.preventDefault();
 	const targetElement = document.querySelector(`#${slug}`);
-	console.log(targetElement);
 	targetElement.scrollIntoView({ behavior: "smooth" });
 	history.pushState(null, "", `#${slug}`);
 };

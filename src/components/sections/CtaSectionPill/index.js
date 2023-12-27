@@ -6,10 +6,10 @@ import Button from "@/components/atoms/Button";
 const CtaSectionPill = ({ data: { img, heading, cta, icon } }) => {
   return (
     <section className={styles.CtaSectionPill}>
-      <Img data={img} className={styles.img} sizes='100vw' quality="100"/>
+      <Img data={img} className={styles.img} sizes='100vw' quality={100}/>
       <div className={styles.copy}>
         <div className={styles.iconWrapper}>
-          <Img data={icon} className={styles.icon} sizes='64px' />
+          <Img data={icon} className={styles.icon} sizes='64px' quality={100}/>
         </div>
         <DecorativeHeading type='h2'>{heading}</DecorativeHeading>
         <Button data={cta} className={styles.cta} />

@@ -15,7 +15,7 @@ const TextComponent = ({ data: { heading, blocks }, breakLine }) => {
             <div className={styles.item} key={i}>
               {item.icon ? (
                 <div className={styles.imageWrapper}>
-                  <Img data={item.icon} className={`${styles.icon} personBorder`} sizes="200px" />
+                  <Img data={item.icon} className={`${styles.icon} personBorder`} sizes="200px" quality={100}/>
                 </div>
               ) : (
                 <Markdown className={styles.title}>{item.title}</Markdown>

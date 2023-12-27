@@ -13,6 +13,7 @@ const Hero = ({ name, cryptonym, img }) => {
 				data={img}
 				className={`${styles.img} personBorder`}
 				sizes="300px"
+				quality={100}
 			/>
 		</section>
 	);

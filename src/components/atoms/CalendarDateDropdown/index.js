@@ -7,7 +7,8 @@ import styles from "./styles.module.scss";
 
 const CalendarDateDropdown = ({ setOpenedPopup, setChosenDate, chosenDate }) => {
 	const [currentDate, setCurrentDate] = useState(() => {
-		return dayjs().locale("pl").set("date", 1);
+		return dayjs().locale("pl")
+.set("date", 1);
 	});
 
 	function handlePreviousMonth() {

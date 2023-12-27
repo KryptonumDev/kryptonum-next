@@ -13,7 +13,7 @@ const FeaturesSection = ({ header, children }) => {
 			animationFrameId = requestAnimationFrame(() => {
 				let itemsMaxHeight = 0;
 				items.forEach((item) => {
-					let itemHeight = item.getBoundingClientRect().height;
+					const itemHeight = item.getBoundingClientRect().height;
 					itemsMaxHeight = Math.max(itemsMaxHeight, itemHeight);
 				});
 				items[items.length - 1].style.height = itemsMaxHeight + "px";

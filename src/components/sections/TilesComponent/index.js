@@ -16,7 +16,7 @@ const TilesComponent = ({ data: { heading, list } }) => {
               <Markdown className={styles.title}>{title}</Markdown>
             ) : (
               <div className={styles.imgWrapper}>
-                <Img data={icon} className={styles.img} sizes="48px" />
+                <Img data={icon} className={styles.img} sizes="48px" quality={100}/>
               </div>
             )}
             <Markdown className={styles.description}>{description}</Markdown>
