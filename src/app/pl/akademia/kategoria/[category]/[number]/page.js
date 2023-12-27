@@ -10,31 +10,32 @@ import fetchData from "@/utils/fetchData";
 import { notFound } from "next/navigation";
 import { academyItemsPerPage } from "../../../page";
 
+
 export async function generateStaticParams() {
-	const { allCuriosityEntries } = await paramsQuery();
+  const { allCuriosityEntries } = await paramsQuery();
 	return allCuriosityEntries
-		.flatMap((entry) =>
-			entry.categories.map((category) => {
-				const categorySlug = category.slug.current;
-				return { category: categorySlug };
-			}),
+  .flatMap((entry) =>
+  entry.categories.map((category) => {
+    const categorySlug = category.slug.current;
+    return { category: categorySlug };
+  }),
 		)
 		.map((obj, index, array) => ({
-			...obj,
+      ...obj,
 			number: Math.ceil(
-				(array.filter((o) => o.category === obj.category).indexOf(obj) + 1) / academyItemsPerPage,
-			).toString(),
-		}))
-		.filter(
-			(value, index, self) =>
+        (array.filter((o) => o.category === obj.category).indexOf(obj) + 1) / academyItemsPerPage,
+        ).toString(),
+      }))
+      .filter(
+        (value, index, self) =>
 				index ===
-					self.findIndex((v) => v.number === value.number && v.category === value.category) &&
+        self.findIndex((v) => v.number === value.number && v.category === value.category) &&
 				value.number !== "1",
-		);
-}
-
-export default async function AcademyCategoryPaginationPage({ params: { category, number } }) {
-	const {
+        );
+      }
+      
+      export default async function AcademyCategoryPaginationPage({ params: { category, number } }) {
+        const {
 		page: { ctaSection },
 		curiosityEntries,
 		curiosityCategory: { slug, hero_Heading, hero_Paragraph, hero_Img, name },
@@ -42,18 +43,18 @@ export default async function AcademyCategoryPaginationPage({ params: { category
 		allCuriosityEntries,
 		blogEntries,
 	} = await query(category, number);
-
-	const breadcrumbs = [
-		{
-			name: "Akademia",
-			link: "/pl/akademia",
-		},
-		{
-			name: name,
-			link: slug,
-		},
-	];
-
+  
+  const breadcrumbs = [
+    {
+      name: "Akademia",
+      link: "/pl/akademia",
+    },
+    {
+      name: name,
+      link: slug,
+    },
+  ];
+  
 	return (
     <main id="main">
       <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -97,10 +98,10 @@ export async function generateMetadata({ params: { category, number } }) {
 }
 
 const query = async (category, number) => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  query {
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
       page: Academy(id: "academy") {
         # Call To Action
         ctaSection {
@@ -114,20 +115,18 @@ const query = async (category, number) => {
             asset {
               altText
               url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
             }
           }
         }
       }
-      curiosityEntries: allCuriosityEntries(
-        sort: { _createdAt: DESC }
-      ) {
+      curiosityEntries: allCuriosityEntries(sort: { _createdAt: DESC }) {
         title
         subtitle
         slug {
@@ -143,13 +142,13 @@ const query = async (category, number) => {
           asset {
             altText
             url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
             }
-          }
           }
         }
         _createdAt
@@ -172,13 +171,13 @@ const query = async (category, number) => {
           asset {
             altText
             url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
             }
-          }
           }
         }
         # SEO
@@ -187,103 +186,110 @@ const query = async (category, number) => {
           description
         }
       }
-  allCuriosityCategories {
-    _id
-    name
-    slug {
-      current
-    }
-  }
+      allCuriosityCategories {
+        _id
+        name
+        slug {
+          current
+        }
+      }
 
-  allCuriosityEntries {
-    categories {
-      slug {
-        current
+      allCuriosityEntries {
+        categories {
+          slug {
+            current
+          }
+        }
       }
-    }
-  }
-  blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
-    title
-    subtitle
-    slug {
-      current
-    }
-    author {
-      name
-      slug {
-        current
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+      blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+        title
+        subtitle
+        slug {
+          current
+        }
+        author {
+          name
+          slug {
+            current
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        categories {
+          name
+          slug {
+            current
+          }
+        }
+        _createdAt
+        contentRaw
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
         }
       }
     }
-    categories {
-      name
-      slug {
-        current
-      }
+  `);
+
+  if (category) {
+    data.curiosityCategory = data.curiosityCategory.filter(
+      (curiosityCategory) => curiosityCategory.slug.current == category
+    )[0];
+    data.curiosityEntries = data.curiosityEntries
+      .filter((curiosityEntry) =>
+        curiosityEntry.categories
+          .map((text) => text.slug.current)
+          .includes(category)
+      )
+      .slice((number - 1) * academyItemsPerPage, number * academyItemsPerPage);
+
+    if (data.curiosityEntries.length == 0 || number == 1) {
+      return notFound();
     }
-    _createdAt
-    contentRaw
-    img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
+
+    data.allCuriosityEntries = data.allCuriosityEntries.filter(
+      (curiosityEntry) =>
+        curiosityEntry.categories
+          .map((text) => text.slug.current)
+          .includes(category)
+    );
+  }
+  return data;
+};
+
+const paramsQuery = async () => {
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
+      allCuriosityEntries {
+        categories {
+          slug {
+            current
           }
         }
       }
     }
-  }
-}`);
-
-	if (category) {
-		data.curiosityCategory = data.curiosityCategory.filter(
-			(curiosityCategory) => curiosityCategory.slug.current == category,
-		)[0];
-		data.curiosityEntries = data.curiosityEntries
-			.filter((curiosityEntry) =>
-				curiosityEntry.categories.map((text) => text.slug.current).includes(category),
-			)
-			.slice((number - 1) * academyItemsPerPage, number * academyItemsPerPage);
-
-		if (data.curiosityEntries.length == 0 || number == 1) {
-			return notFound();
-		}
-
-		data.allCuriosityEntries = data.allCuriosityEntries.filter((curiosityEntry) =>
-			curiosityEntry.categories.map((text) => text.slug.current).includes(category),
-		);
-	}
-	return data;
-};
-
-const paramsQuery = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  query {
-    allCuriosityEntries {
-      categories {
-        slug {
-          current
-        }
-      }
-    }
-  }`);
-	return data;
+  `);
+  return data;
 };

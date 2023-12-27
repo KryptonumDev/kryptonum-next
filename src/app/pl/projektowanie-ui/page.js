@@ -14,6 +14,13 @@ import Breadcrumbs from "@/global/Breadcrumbs";
 import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
+const breadcrumbs = [
+  {
+    name: "Projektowanie UI",
+    link: "/projektowanie-ui",
+  },
+];
+
 export default async function UiDesignPage() {
 	const {
 		page: {
@@ -40,13 +47,6 @@ export default async function UiDesignPage() {
 		},
 		testimonials,
 	} = await query();
-
-	const breadcrumbs = [
-		{
-			name: "Projektowanie UI",
-			link: "/projektowanie-ui",
-		},
-	];
 
 	return (
     <main id="main">
@@ -99,14 +99,88 @@ export async function generateMetadata() {
 }
 
 const query = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  query {
-    page: UiDesignPage(id: "uiDesignPage") {
-      #Hero
-      hero {
-        heading
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
+      page: UiDesignPage(id: "uiDesignPage") {
+        #Hero
+        hero {
+          heading
+          image {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        #TextSection
+        textSection {
+          heading
+          blocks {
+            description
+            title
+          }
+        }
+        #CentralizedHeading
+        centralizedHeading {
+          heading
+          paragraph
+        }
+        #CtaSection
+        ctaSection {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        #Tiles component with heading
+        tilesWithHeading {
+          heading
+          tiles {
+            heading
+            list {
+              title
+              description
+              icon {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        #ImageSection
         image {
           asset {
             altText
@@ -120,29 +194,31 @@ const query = async () => {
             }
           }
         }
-      }
-      #TextSection
-      textSection {
-        heading
-        blocks {
-          description
+        #Slider
+        slider {
+          heading
+          slides {
+            title
+            description
+            href
+          }
+        }
+        #TextSection2
+        textSection2 {
+          heading
+          blocks {
+            title
+            description
+          }
+        }
+        #Header with title description list
+        headerTitleDescriptionList {
+          header
           title
+          description
         }
-      }
-      #CentralizedHeading
-      centralizedHeading {
-        heading
-        paragraph
-      }
-      #CtaSection
-      ctaSection {
-        heading
-        cta {
-          theme
-          text
-          href
-        }
-        img {
+        #Image2
+        image2 {
           asset {
             altText
             url
@@ -155,93 +231,98 @@ const query = async () => {
             }
           }
         }
-      }
-      #Tiles component with heading
-      tilesWithHeading {
-        heading
-        tiles {
+        #TextSection3
+        textSection3 {
           heading
-          list {
+          blocks {
             title
             description
-            icon {
-              asset {
-                altText
-                url
-                metadata {
-                  lqip
-                  dimensions {
-                    height
-                    width
-                  }
+          }
+        }
+        #CtaSection2
+        ctaSection2 {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
                 }
               }
             }
           }
         }
-      }
-      #ImageSection
-      image {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
+        #TextSection4
+        textSection4 {
+          heading
+          blocks {
+            title
+            description
           }
         }
-      }
-      #Slider
-      slider {
-        heading
-        slides {
+        #Process
+        blocks {
           title
           description
+        }
+        #CentralizedHeading
+        centralizedHeading2 {
+          heading
+        }
+        #Case studies
+        caseStudies {
+          theme
+          text
           href
         }
-      }
-      #TextSection2
-      textSection2 {
-        heading
-        blocks {
-          title
-          description
-        }
-      }
-      #Header with title description list
-      headerTitleDescriptionList {
-        header
-        title
-        description
-      }
-      #Image2
-      image2 {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+        #CtaSection3
+        ctaSection3 {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
             }
           }
         }
-      }
-      #TextSection3
-      textSection3 {
-        heading
-        blocks {
+        #Team
+        team_Heading
+        team_Text
+        team_Cta {
+          theme
+          text
+          href
+        }
+        #SEO
+        seo {
           title
           description
         }
       }
-      #CtaSection2
-      ctaSection2 {
-        heading
+      testimonials: allTestimonials(limit: 3, sort: { _createdAt: ASC }) {
+        name
+        text
         cta {
           theme
           text
@@ -261,88 +342,7 @@ const query = async () => {
           }
         }
       }
-      #TextSection4
-      textSection4 {
-        heading
-        blocks {
-          title
-          description
-        }
-      }
-      #Process
-      blocks {
-        title
-        description
-      }
-      #CentralizedHeading
-      centralizedHeading2 {
-        heading
-      }
-      #Case studies
-      caseStudies {
-        theme
-        text
-        href
-      }
-      #CtaSection3
-      ctaSection3 {
-        heading
-        cta {
-          theme
-          text
-          href
-        }
-        img {
-          asset {
-            altText
-            url
-            metadata {
-              lqip
-              dimensions {
-                height
-                width
-              }
-            }
-          }
-        }
-      }
-      #Team
-      team_Heading
-      team_Text
-      team_Cta {
-        theme
-        text
-        href
-      }
-      #SEO
-      seo {
-        title
-        description
-      }
     }
-    testimonials: allTestimonials(limit: 3, sort: { _createdAt: ASC }) {
-      name
-      text
-      cta {
-        theme
-        text
-        href
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-  }
-		`);
-	return data;
+  `);
+  return data;
 };

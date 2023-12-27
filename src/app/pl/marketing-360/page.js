@@ -60,7 +60,7 @@ export async function generateMetadata() {
 const query = async () => {
   const {
     body: { data },
-  } = await fetchData(`
+  } = await fetchData(/* GraphQL */ `
     query {
       page: Marketing360Page(id: "marketing360Page") {
         hero {

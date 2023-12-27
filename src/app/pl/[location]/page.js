@@ -475,9 +475,9 @@ const query = async (location) => {
 };
 
 const paramsQuery = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
     query {
       allLocationPage {
         slug {
@@ -486,5 +486,5 @@ const paramsQuery = async () => {
       }
     }
   `);
-	return data;
+  return data;
 };

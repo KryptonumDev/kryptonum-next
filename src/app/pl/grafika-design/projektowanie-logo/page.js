@@ -11,6 +11,17 @@ import Breadcrumbs from "@/global/Breadcrumbs";
 import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
+const breadcrumbs = [
+  {
+    name: "Grafika & design",
+    link: "/pl/grafika-design"
+  },
+  {
+    name: "Projektowanie logo",
+    link: "/pl/grafika-design/projektowanie-logo"
+  }
+];
+
 export default async function graphicsAndDesignDesigningLogoPage() {
 	const {
 		page: {
@@ -37,17 +48,6 @@ export default async function graphicsAndDesignDesigningLogoPage() {
 		},
 		blogEntries,
 	} = await query();
-
-  const breadcrumbs = [
-    {
-      name: "Grafika & design",
-      link: "/pl/grafika-design"
-    },
-    {
-      name: "Projektowanie logo",
-      link: "/pl/grafika-design/projektowanie-logo"
-    }
-  ];
 
 	return (
 		<>
@@ -103,150 +103,151 @@ export async function generateMetadata() {
 }
 
 const query = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  query {
-  page: GraphicsDesignLogo(id: "graphicsDesign_Logo") {
-    # Hero
-    hero_Heading
-    hero_Annotation
-    hero_Paragraph
-    hero_SecondParagraph
-    hero_Img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
+      page: GraphicsDesignLogo(id: "graphicsDesign_Logo") {
+        # Hero
+        hero_Heading
+        hero_Annotation
+        hero_Paragraph
+        hero_SecondParagraph
+        hero_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
           }
         }
+        # Simple CTA Section
+        simpleCtaSection {
+          heading
+          cta {
+            theme
+            href
+            text
+          }
+        }
+        # Showcase
+        showcase_Heading
+        showcase_Paragraph
+        showcase_List {
+          title
+          description
+        }
+        showcase_SummaryLeft
+        showcase_SummaryRight
+        # Quick Form
+        quickForm {
+          heading
+          subheading
+          cta
+        }
+        # Process
+        process_Heading
+        process_Paragraph
+        process_Title
+        process_List {
+          title
+          description
+        }
+        # Case Studies
+        caseStudies_Heading
+        # CTA Section
+        ctaSection {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        # Blog entries
+        blogEntries_Heading
+        # Scroll To Next
+        scrollToNext {
+          heading
+          paragraph
+          title
+          link {
+            text
+            href
+          }
+        }
+        # SEO
+        seo {
+          title
+          description
+        }
       }
-    }
-    # Simple CTA Section
-    simpleCtaSection {
-      heading
-      cta {
-        theme
-        href
-        text
-      }
-    }
-    # Showcase
-    showcase_Heading
-    showcase_Paragraph
-    showcase_List {
-      title
-      description
-    }
-    showcase_SummaryLeft
-    showcase_SummaryRight
-    # Quick Form
-    quickForm {
-      heading
-      subheading
-      cta
-    }
-    # Process
-    process_Heading
-    process_Paragraph
-    process_Title
-    process_List {
-      title
-      description
-    }
-    # Case Studies
-    caseStudies_Heading
-    # CTA Section
-    ctaSection {
-      heading
-      cta {
-        theme
-        text
-        href
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+      blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+        title
+        subtitle
+        slug {
+          current
+        }
+        author {
+          name
+          slug {
+            current
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        categories {
+          name
+          slug {
+            current
+          }
+        }
+        _createdAt
+        contentRaw
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
         }
       }
     }
-    # Blog entries
-    blogEntries_Heading
-    # Scroll To Next
-    scrollToNext {
-      heading
-      paragraph
-      title
-      link {
-        text
-        href
-      }
-    }
-    # SEO
-    seo {
-      title
-      description
-    }
-  }
-  blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
-    title
-    subtitle
-    slug {
-      current
-    }
-    author {
-      name
-      slug {
-        current
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    categories {
-      name
-      slug {
-        current
-      }
-    }
-    _createdAt
-    contentRaw
-    img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
-          }
-        }
-      }
-    }
-  }
-}`);
-	return data;
+  `);
+  return data;
 };

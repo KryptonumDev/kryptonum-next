@@ -4,7 +4,7 @@ import CuriosityEntry from "../../organisms/CuriosityEntry";
 import styles from "./styles.module.scss";
 
 const LatestCuriosityEntries = async ({ heading, exclude = null }) => {
-	let { curiosityEntries } = await query();
+	const { curiosityEntries } = await query();
 
 	return (
 		<section className={styles.section}>
@@ -32,39 +32,43 @@ const LatestCuriosityEntries = async ({ heading, exclude = null }) => {
 };
 
 const query = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  query {
-  curiosityEntries: allCuriosityEntries(limit: 4, sort: {_createdAt: DESC}) {
-      title
-      subtitle
-      slug {
-        current
-      }
-      categories {
-        name
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
+      curiosityEntries: allCuriosityEntries(
+        limit: 4
+        sort: { _createdAt: DESC }
+      ) {
+        title
+        subtitle
         slug {
           current
         }
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+        categories {
+          name
+          slug {
+            current
+          }
+        }
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
         }
+        _createdAt
       }
-      _createdAt
-  }
-}`);
-	return data;
+    }
+  `);
+  return data;
 };
 
 export default LatestCuriosityEntries;

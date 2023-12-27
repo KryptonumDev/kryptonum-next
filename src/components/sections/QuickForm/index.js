@@ -34,28 +34,28 @@ export default QuickForm;
 const query = async () => {
   const {
     body: { data },
-  } = await fetchData(`
-	query {
-  global: Global(id: "global") {
-    quickForm_Paragraph
-    quickForm_Person {
-      name
-      img {
-        asset {
-          altText
-					url
-					metadata {
-						dimensions {
-							height
-							width
-						}
-					}
+  } = await fetchData(/* GraphQL */ `
+    query {
+      global: Global(id: "global") {
+        quickForm_Paragraph
+        quickForm_Person {
+          name
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+          tel
         }
       }
-			tel
     }
-  } 
-}
   `);
   return data;
 };

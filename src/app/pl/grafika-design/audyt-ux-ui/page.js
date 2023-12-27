@@ -11,6 +11,17 @@ import Breadcrumbs from "@/global/Breadcrumbs";
 import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
+const breadcrumbs = [
+  {
+    name: "Grafika & design",
+    link: "/pl/grafika-design",
+  },
+  {
+    name: "Audyt UX/UI",
+    link: "/pl/grafika-design/audyt-ux-ui",
+  },
+];
+
 export default async function graphicsAndDesignAuditPage() {
 	const {
 		page: {
@@ -54,17 +65,6 @@ export default async function graphicsAndDesignAuditPage() {
 		},
 		blogEntries,
 	} = await query();
-
-	const breadcrumbs = [
-		{
-			name: "Grafika & design",
-			link: "/pl/grafika-design",
-		},
-		{
-			name: "Audyt UX/UI",
-			link: "/pl/grafika-design/audyt-ux-ui",
-		},
-	];
 
 	return (
 		<>
@@ -147,176 +147,176 @@ export async function generateMetadata() {
 }
 
 const query = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  query {
-  page: Audits(id: "audits") {
-    # Hero
-    hero_Heading
-    hero_Annotation
-    hero_Paragraph
-    hero_SecondParagraph
-    hero_Img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
+      page: Audits(id: "audits") {
+        # Hero
+        hero_Heading
+        hero_Annotation
+        hero_Paragraph
+        hero_SecondParagraph
+        hero_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
           }
         }
-      }
-    }
-    # Simple CTA Section
-    simpleCtaSection {
-      heading
-      cta {
-        theme
-        href
-        text
-      }
-    }
-    # Digital Audit
-    digitalAudit_Heading
-    digitalAudit_Headline
-    digitalAudit_Paragraph
-    digitalAudit_Paragraph2
-    digitalAudit_ListHeading
-    digitalAudit_List
-    # UX Audit
-    uxAudit_Heading
-    uxAudit_Headline
-    uxAudit_Title
-    uxAudit_Paragraph
-    uxAudit_Paragraph2
-    uxAudit_Question
-    uxAudit_Answer
-    uxAudit_When
-    uxAudit_WhenList
-    uxAudit_ListHeading
-    uxAudit_List
-    # Quick Form
-    quickForm {
-      heading
-      subheading
-      cta
-    }
-    # Combo Audit
-    comboAudit_Heading
-    comboAudit_Paragraph
-    comboAudit_Paragraph2
-    comboAudit_ListHeading
-    comboAudit_List
-    # Benefits
-    benefits_Heading
-    benefits_Paragraph
-    benefits_Standout
-    benefits_Img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
+        # Simple CTA Section
+        simpleCtaSection {
+          heading
+          cta {
+            theme
+            href
+            text
           }
         }
+        # Digital Audit
+        digitalAudit_Heading
+        digitalAudit_Headline
+        digitalAudit_Paragraph
+        digitalAudit_Paragraph2
+        digitalAudit_ListHeading
+        digitalAudit_List
+        # UX Audit
+        uxAudit_Heading
+        uxAudit_Headline
+        uxAudit_Title
+        uxAudit_Paragraph
+        uxAudit_Paragraph2
+        uxAudit_Question
+        uxAudit_Answer
+        uxAudit_When
+        uxAudit_WhenList
+        uxAudit_ListHeading
+        uxAudit_List
+        # Quick Form
+        quickForm {
+          heading
+          subheading
+          cta
+        }
+        # Combo Audit
+        comboAudit_Heading
+        comboAudit_Paragraph
+        comboAudit_Paragraph2
+        comboAudit_ListHeading
+        comboAudit_List
+        # Benefits
+        benefits_Heading
+        benefits_Paragraph
+        benefits_Standout
+        benefits_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+        # Case Studies
+        caseStudies_Heading
+        # CTA Section
+        ctaSection {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        # Blog entries
+        blogEntries_Heading
+        # Scroll To Next
+        scrollToNext {
+          heading
+          paragraph
+          title
+          link {
+            text
+            href
+          }
+        }
+        # SEO
+        seo {
+          title
+          description
+        }
       }
-    }
-    # Case Studies
-    caseStudies_Heading
-    # CTA Section
-    ctaSection {
-      heading
-      cta {
-        theme
-        text
-        href
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+      blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+        title
+        subtitle
+        slug {
+          current
+        }
+        author {
+          name
+          slug {
+            current
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        categories {
+          name
+          slug {
+            current
+          }
+        }
+        _createdAt
+        contentRaw
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
         }
       }
     }
-    # Blog entries
-    blogEntries_Heading
-    # Scroll To Next
-    scrollToNext {
-      heading
-      paragraph
-      title
-      link {
-        text
-        href
-      }
-    }
-    # SEO
-    seo {
-      title
-      description
-    }
-  }
-  blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
-    title
-    subtitle
-    slug {
-      current
-    }
-    author {
-      name
-      slug {
-        current
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    categories {
-      name
-      slug {
-        current
-      }
-    }
-    _createdAt
-    contentRaw
-    img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
-          }
-        }
-      }
-    }
-  }
-}
   `);
-	return data;
+  return data;
 };

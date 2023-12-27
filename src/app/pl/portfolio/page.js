@@ -7,6 +7,13 @@ import Breadcrumbs from "@/global/Breadcrumbs";
 import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
+const breadcrumbs = [
+  {
+    name: "Portfolio",
+    link: "/pl/portfolio",
+  },
+];
+
 export default async function PortfolioPage() {
 	const {
 		page: {
@@ -19,13 +26,6 @@ export default async function PortfolioPage() {
 		},
 		blogEntries,
 	} = await query();
-
-	const breadcrumbs = [
-		{
-			name: "Portfolio",
-			link: "/pl/portfolio",
-		},
-	];
 
 	return (
 		<>
@@ -56,24 +56,95 @@ export async function generateMetadata() {
 }
 
 const query = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  query {
-    page: Portfolio(id: "portfolio") {
-      # Hero
-      hero_Heading
-      hero_Paragraph
-      # Case Studies
-      caseStudies {
-        name
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
+      page: Portfolio(id: "portfolio") {
+        # Hero
+        hero_Heading
+        hero_Paragraph
+        # Case Studies
+        caseStudies {
+          name
+          slug {
+            current
+          }
+          heading
+          categories {
+            name
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        # Quick Form
+        quickForm {
+          heading
+          subheading
+          cta
+        }
+        # Blog Entries
+        blogEntries_Heading
+        # Scroll To Next
+        scrollToNext {
+          heading
+          paragraph
+          title
+          link {
+            text
+            href
+          }
+        }
+        # SEO
+        seo {
+          title
+          description
+        }
+      }
+      blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+        title
+        subtitle
         slug {
           current
         }
-        heading
+        author {
+          name
+          slug {
+            current
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
         categories {
           name
+          slug {
+            current
+          }
         }
+        _createdAt
+        contentRaw
         img {
           asset {
             altText
@@ -88,77 +159,7 @@ const query = async () => {
           }
         }
       }
-      # Quick Form
-      quickForm {
-        heading
-        subheading
-        cta
-      }
-      # Blog Entries
-      blogEntries_Heading
-      # Scroll To Next
-      scrollToNext {
-        heading
-        paragraph
-        title
-        link {
-          text
-          href
-        }
-      }
-      # SEO
-      seo {
-        title
-        description
-      }
     }
-    blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
-      title
-      subtitle
-      slug {
-        current
-      }
-      author {
-        name
-        slug {
-          current
-        }
-        img {
-          asset {
-            altText
-            url
-            metadata {
-              lqip
-              dimensions {
-                height
-                width
-              }
-            }
-          }
-        }
-      }
-      categories {
-        name
-        slug {
-          current
-        }
-      }
-      _createdAt
-      contentRaw
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-  }`);
-	return data;
+  `);
+  return data;
 };

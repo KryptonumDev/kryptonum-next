@@ -7,7 +7,7 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 
 const Team = async ({ heading, paragraph, cta }) => {
-  let data = await query();
+  const data = await query();
 
   return (
     <section className={styles.section}>
@@ -36,29 +36,29 @@ const Team = async ({ heading, paragraph, cta }) => {
 const query = async () => {
   const {
     body: { data },
-  } = await fetchData(`
-	query {
-    team: allTeamMember(sort: { _createdAt: ASC }) {
-      name
-      slug {
-        current
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+  } = await fetchData(/* GraphQL */ `
+    query {
+      team: allTeamMember(sort: { _createdAt: ASC }) {
+        name
+        slug {
+          current
+        }
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
         }
+        cryptonym
       }
-      cryptonym
     }
-	}
   `);
   return data;
 };

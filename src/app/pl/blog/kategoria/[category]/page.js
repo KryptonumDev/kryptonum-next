@@ -78,161 +78,159 @@ export async function generateMetadata({ params: { category } }) {
 }
 
 const query = async (category) => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  query {
-  page: Blog(id: "blog") {
-    
-    # Call To Action
-    ctaSection {
-      heading
-      cta {
-        theme
-        text
-        href
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
+      page: Blog(id: "blog") {
+        # Call To Action
+        ctaSection {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
             }
           }
         }
       }
-    }
-  }
-  
-  blogEntries: allBlogEntries(
-    sort: { _createdAt: DESC }
-  ) {
-    categories{
-      name
-      slug {
-        current
-      }
-    }
-    title
-    subtitle
-    slug {
-      current
-    }
-    author {
-      name
-      slug {
-        current
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    
-    img {
-      asset {
-        altText
-        url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-      }
-    }
-    _createdAt
-    contentRaw
-  }
-  allBlogEntries {
-    categories {
-      slug {
-        current
-      }
-    }
-  }
-  blogCategory: allBlogCategories {
-    _id
-    name
-    slug {
-      current
-    }
-    hero_Heading
-    hero_Paragraph
-    hero_Img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
-          }
-        }
-      }
-    }
-    # SEO
-    seo {
-      title
-      description
-    }
-  }
 
-  blogCategories: allBlogCategories {
-    name
-    slug {
-      current
+      blogEntries: allBlogEntries(sort: { _createdAt: DESC }) {
+        categories {
+          name
+          slug {
+            current
+          }
+        }
+        title
+        subtitle
+        slug {
+          current
+        }
+        author {
+          name
+          slug {
+            current
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+        _createdAt
+        contentRaw
+      }
+      allBlogEntries {
+        categories {
+          slug {
+            current
+          }
+        }
+      }
+      blogCategory: allBlogCategories {
+        _id
+        name
+        slug {
+          current
+        }
+        hero_Heading
+        hero_Paragraph
+        hero_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+        # SEO
+        seo {
+          title
+          description
+        }
+      }
+
+      blogCategories: allBlogCategories {
+        name
+        slug {
+          current
+        }
+      }
     }
-  }
-}
   `);
-	if (category) {
-		data.blogCategory = data.blogCategory.filter(
-			(blogCategory) => blogCategory.slug.current == category,
-		)[0];
-		data.blogEntries = data.blogEntries
-			.filter((blogEntry) =>
-				blogEntry.categories.map((text) => text.slug.current).includes(category),
-			)
-			.slice(0, blogItemsPerPage);
+  if (category) {
+    data.blogCategory = data.blogCategory.filter(
+      (blogCategory) => blogCategory.slug.current == category
+    )[0];
+    data.blogEntries = data.blogEntries
+      .filter((blogEntry) =>
+        blogEntry.categories.map((text) => text.slug.current).includes(category)
+      )
+      .slice(0, blogItemsPerPage);
 
-		if (data.blogEntries.length == 0) {
-			return notFound();
-		}
+    if (data.blogEntries.length == 0) {
+      return notFound();
+    }
 
-		data.allBlogEntries = data.allBlogEntries.filter((blogEntry) =>
-			blogEntry.categories.map((text) => text.slug.current).includes(category),
-		);
-	}
-	return data;
+    data.allBlogEntries = data.allBlogEntries.filter((blogEntry) =>
+      blogEntry.categories.map((text) => text.slug.current).includes(category)
+    );
+  }
+  return data;
 };
 
 const paramsQuery = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  query {
-    blogCategories: allBlogCategories {
-      name
-      slug {
-        current
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
+      blogCategories: allBlogCategories {
+        name
+        slug {
+          current
+        }
       }
     }
-  }`);
-	return data;
+  `);
+  return data;
 };

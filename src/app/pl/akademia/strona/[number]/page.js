@@ -10,6 +10,13 @@ import fetchData from "@/utils/fetchData";
 import { notFound, redirect } from "next/navigation";
 import { academyItemsPerPage } from "../../page";
 
+const breadcrumbs = [
+  {
+    name: "Akademia",
+    link: "/pl/akademia",
+  },
+];
+
 export async function generateStaticParams() {
 	const { allCuriosityEntries } = await paramsQuery();
 	return Array.from(
@@ -26,13 +33,6 @@ export default async function academyPaginationPage({ params: { number } }) {
 		allCuriosityEntries,
 		blogEntries,
 	} = await query(number, academyItemsPerPage, (parseInt(number) - 1) * academyItemsPerPage);
-
-	const breadcrumbs = [
-		{
-			name: "Akademia",
-			link: "/pl/akademia",
-		},
-	];
 
 	return (
     <main id="main">
@@ -75,174 +75,175 @@ export async function generateMetadata({ params: { number } }) {
 }
 
 const query = async (number, academyItemsPerPage, offset) => {
-	if (number && !parseInt(number)) {
-		return notFound();
-	} else if (number == 1) {
-		redirect("/pl/akademia");
-	}
-	const {
-		body: { data },
-	} = await fetchData(
-		`
-  query($academyItemsPerPage: Int!, $offset: Int!) {
-  curiosityEntries: allCuriosityEntries(
-    limit: $academyItemsPerPage
-    offset: $offset
-    sort: { _createdAt: DESC }
-  ) {
-    title
-    subtitle
-    slug {
-      current
-    }
-    categories {
-      name
-      slug {
-        current
-      }
-    }
-    img {
-      asset {
-        altText
-        url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-      }
-    }
-    _createdAt
+  if (number && !parseInt(number)) {
+    return notFound();
+  } else if (number == 1) {
+    redirect('/pl/akademia');
   }
-  page: Academy(id: "academy") {
-    # Hero
-    hero_Paragraph
-    hero_Img {
-      asset {
-        altText
-        url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+  const {
+    body: { data },
+  } = await fetchData(
+    /* GraphQL */ `
+      query ($academyItemsPerPage: Int!, $offset: Int!) {
+        curiosityEntries: allCuriosityEntries(
+          limit: $academyItemsPerPage
+          offset: $offset
+          sort: { _createdAt: DESC }
+        ) {
+          title
+          subtitle
+          slug {
+            current
+          }
+          categories {
+            name
+            slug {
+              current
             }
           }
-      }
-    }
-    # Call To Action
-    ctaSection {
-      heading
-      cta {
-        theme
-        text
-        href
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
             }
+          }
+          _createdAt
+        }
+        page: Academy(id: "academy") {
+          # Hero
+          hero_Paragraph
+          hero_Img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+          # Call To Action
+          ctaSection {
+            heading
+            cta {
+              theme
+              text
+              href
+            }
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+          }
+          # SEO
+          seo {
+            title
+            description
           }
         }
-      }
-    }
-    # SEO
-    seo {
-      title
-      description
-    }
-  }
-  curiosityCategories: allCuriosityCategories {
-    name
-    slug {
-      current
-    }
-	}
-    allCuriosityEntries {
-      slug {
-        current
-      }
-    }
-    blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
-      title
-      subtitle
-      slug {
-        current
-      }
-      author {
-        name
-        slug {
-          current
+        curiosityCategories: allCuriosityCategories {
+          name
+          slug {
+            current
+          }
         }
-        img {
-          asset {
-            altText
-            url
-            metadata {
-              lqip
-              dimensions {
-                height
-                width
+        allCuriosityEntries {
+          slug {
+            current
+          }
+        }
+        blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+          title
+          subtitle
+          slug {
+            current
+          }
+          author {
+            name
+            slug {
+              current
+            }
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+          }
+          categories {
+            name
+            slug {
+              current
+            }
+          }
+          _createdAt
+          contentRaw
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
               }
             }
           }
         }
       }
-      categories {
-        name
-        slug {
-          current
-        }
-      }
-      _createdAt
-      contentRaw
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
+    `,
+    {
+      academyItemsPerPage,
+      offset,
+    }
+  );
+  if (data.curiosityEntries?.length == 0) {
+    notFound();
+  }
+  return data;
+};
+
+const paramsQuery = async () => {
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
+      allCuriosityEntries {
+        categories {
+          slug {
+            current
           }
         }
       }
     }
-  }
-    `,
-		{
-			academyItemsPerPage,
-			offset,
-		},
-	);
-	if (data.curiosityEntries?.length == 0) {
-		notFound();
-	}
-	return data;
-};
-
-const paramsQuery = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  query {
-    allCuriosityEntries {
-      categories {
-        slug {
-          current
-        }
-      }
-    }
-  }`);
-	return data;
+  `);
+  return data;
 };

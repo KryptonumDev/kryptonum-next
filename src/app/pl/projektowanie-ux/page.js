@@ -92,20 +92,20 @@ export default async function UxDesignPage() {
 }
 
 export async function generateMetadata() {
-	const {
-		page: { seo },
-	} = await query();
-	return SEO({
-		title: seo?.title,
-		description: seo?.description,
-		url: "/pl/projektowanie-ux",
-	});
+  const {
+    page: { seo },
+  } = await query();
+  return SEO({
+    title: seo?.title,
+    description: seo?.description,
+    url: '/pl/projektowanie-ux',
+  });
 }
 
 const query = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
     query {
       page: UxDesignPage(id: "uxDesignPage") {
         #Hero
@@ -443,6 +443,6 @@ const query = async () => {
         }
       }
     }
-	`);
-	return data;
+  `);
+  return data;
 };

@@ -12,6 +12,17 @@ import Breadcrumbs from "@/global/Breadcrumbs";
 import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
+const breadcrumbs =[
+  {
+    name: "Web Development",
+    link: "/pl/web-development"
+  },
+  {
+    name: "Strony internetowe",
+    link: "/pl/web-development/strony-internetowe"
+  }
+];
+
 export default async function WebDevelopmentWebsitesPage() {
 	const {
 		page: {
@@ -41,17 +52,6 @@ export default async function WebDevelopmentWebsitesPage() {
 		},
 		blogEntries,
 	} = await query();
-
-  const breadcrumbs =[
-    {
-      name: "Web Development",
-      link: "/pl/web-development"
-    },
-    {
-      name: "Strony internetowe",
-      link: "/pl/strony-internetowe"
-    }
-  ];
 
 	return (
 		<>
@@ -117,210 +117,210 @@ export async function generateMetadata() {
 }
 
 const query = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  query {
-  page: WebDevelopmentSite(id: "webDevelopment_Site") {
-    # Hero
-    hero_Heading
-    hero_Annotation
-    hero_Paragraph
-    hero_SecondParagraph
-    hero_Img {
-      asset {
-        altText
-        url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
+      page: WebDevelopmentSite(id: "webDevelopment_Site") {
+        # Hero
+        hero_Heading
+        hero_Annotation
+        hero_Paragraph
+        hero_SecondParagraph
+        hero_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
+        }
+        hero_simpleCtaSection {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+        }
+        # Pricing
+        pricing_Heading
+        pricing_Plans {
+          title
+          description
+          subpages
+          price
+          cta {
+            theme
+            text
+            href
+          }
+          benefits {
+            name
+            highlighted
+          }
+          hint
+          mostPopular
+        }
+        # Process
+        process_Heading
+        process_List {
+          claim
+          heading
+          subheading
+          paragraph
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        # Roadmap
+        roadmap_Heading
+        roadmap_List {
+          title
+          description
+        }
+        roadmap_Cta {
+          theme
+          text
+          href
+        }
+        # Quick Form
+        quickForm {
+          heading
+          subheading
+          cta
+        }
+        # Technology
+        technology_Heading
+        technology_Paragraph
+        technology_Content
+        technology_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+        # Case Studies
+        caseStudies_Heading
+        # Call To Action
+        ctaSection {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        # Simple CTA Section
+        simpleCtaSection {
+          heading
+          cta {
+            text
+            theme
+            href
+          }
+        }
+        # Blog Entries
+        blogEntries_Heading
+        # Scroll To Next
+        scrollToNext {
+          heading
+          paragraph
+          title
+          link {
+            text
+            href
+          }
+        }
+        # SEO
+        seo {
+          title
+          description
+        }
       }
-    }
-    hero_simpleCtaSection {
-      heading
-      cta {
-        theme
-        text
-        href
-      }
-    }
-    # Pricing
-    pricing_Heading
-    pricing_Plans {
-      title
-      description
-      subpages
-      price
-      cta {
-        theme
-        text
-        href
-      }
-      benefits {
-        name
-        highlighted
-      }
-      hint
-      mostPopular
-    }
-    # Process
-    process_Heading
-    process_List {
-      claim
-      heading
-      subheading
-      paragraph
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+      blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+        title
+        subtitle
+        slug {
+          current
+        }
+        author {
+          name
+          slug {
+            current
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        categories {
+          name
+          slug {
+            current
+          }
+        }
+        _createdAt
+        contentRaw
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
         }
       }
     }
-    # Roadmap
-    roadmap_Heading
-    roadmap_List {
-      title
-      description
-    }
-    roadmap_Cta {
-      theme
-      text
-      href
-    }
-    # Quick Form
-    quickForm {
-      heading
-      subheading
-      cta
-    }
-    # Technology
-    technology_Heading
-    technology_Paragraph
-    technology_Content
-    technology_Img {
-      asset {
-        altText
-        url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-      }
-    }
-    # Case Studies
-    caseStudies_Heading
-    # Call To Action
-    ctaSection {
-      heading
-      cta {
-        theme
-        text
-        href
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    # Simple CTA Section
-    simpleCtaSection {
-      heading
-      cta {
-        text
-        theme
-        href
-      }
-    }
-    # Blog Entries
-    blogEntries_Heading
-    # Scroll To Next
-    scrollToNext {
-      heading
-      paragraph
-      title
-      link {
-        text
-        href
-      }
-    }
-    # SEO
-    seo {
-      title
-      description
-    }
-  }
-  blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
-    title
-    subtitle
-    slug {
-      current
-    }
-    author {
-      name
-      slug {
-        current
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    categories {
-      name
-      slug {
-        current
-      }
-    }
-    _createdAt
-    contentRaw
-    img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
-          }
-        }
-      }
-    }
-  }
-}
   `);
-	return data;
+  return data;
 };

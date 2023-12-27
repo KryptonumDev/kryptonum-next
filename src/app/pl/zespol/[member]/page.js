@@ -126,209 +126,215 @@ export async function generateMetadata({ params: { member } }) {
 }
 
 const query = async (member) => {
-	const {
-		body: { data },
-	} = await fetchData(
-		`
-  query($member: String!) {
-    page: allTeamMember(where: { slug: { current: { eq: $member } } }) {
-      _id
-      name
-      cryptonym
-      slug {
-        current
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+  const {
+    body: { data },
+  } = await fetchData(
+    /* GraphQL */ `
+      query ($member: String!) {
+        page: allTeamMember(where: { slug: { current: { eq: $member } } }) {
+          _id
+          name
+          cryptonym
+          slug {
+            current
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+          bio
+          skills
+          tools {
+            name
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+          }
+          benefits
+          links {
+            href
+            text
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+          }
+          afterWork
+          hobbies
+          inspirations
+          email
+        }
+        allCaseStudies: allCaseStudyEntries {
+          name
+          slug {
+            current
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+          content {
+            ... on CaseStudyParticipated {
+              people {
+                _id
+              }
             }
           }
         }
-      }
-      bio
-      skills
-      tools {
-        name
-        img {
-          asset {
-            altText
-            url
-            metadata {
-              lqip
-              dimensions {
-                height
-                width
+        blogEntries: allBlogEntries {
+          title
+          subtitle
+          slug {
+            current
+          }
+          author {
+            name
+            slug {
+              current
+            }
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+          }
+          categories {
+            name
+            slug {
+              current
+            }
+          }
+          contentRaw
+          _createdAt
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        scrollToNext_TeamPerson: allTeamMember(sort: { _createdAt: ASC }) {
+          name
+          cryptonym
+          slug {
+            current
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
               }
             }
           }
         }
       }
-      benefits
-      links {
-        href
-        text
-        img {
-          asset {
-            altText
-            url
-            metadata {
-              lqip
-              dimensions {
-                height
-                width
-              }
-            }
-          }
-        }
-      }
-      afterWork
-      hobbies
-      inspirations
-      email
+    `,
+    {
+      member,
     }
-    allCaseStudies: allCaseStudyEntries {
-      name
-      slug {
-        current
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-      content {
-        ... on CaseStudyParticipated {
-          people {
-            _id
-          }
-        }
-      }
-    }
-    blogEntries: allBlogEntries {
-      title
-      subtitle
-      slug {
-        current
-      }
-      author {
-        name
-        slug {
-          current
-        }
-        img {
-          asset {
-            altText
-            url
-            metadata {
-              lqip
-              dimensions {
-                height
-                width
-              }
-            }
-          }
-        }
-      }
-      categories {
-        name
-        slug {
-          current
-        }
-      }
-      contentRaw
-      _createdAt
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    scrollToNext_TeamPerson: allTeamMember(sort: { _createdAt: ASC }) {
-      name
-      cryptonym
-      slug {
-        current
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-  }`,
-		{
-			member,
-		},
-	);
-	data.page = data.page[0];
-	if (!data.page) {
-		notFound();
-	}
-	data.blogEntries = data.blogEntries.filter((entry) => {
-		return entry.author.some((author) => author.slug.current == member);
-	});
+  );
+  data.page = data.page[0];
+  if (!data.page) {
+    notFound();
+  }
+  data.blogEntries = data.blogEntries.filter((entry) => {
+    return entry.author.some((author) => author.slug.current == member);
+  });
 
-	const people = data?.scrollToNext_TeamPerson;
-	const currentIndex = people.findIndex((item) => item.slug.current === data.page.slug.current);
-	const nextPerson =
-		currentIndex !== -1 && currentIndex < people.length - 1 ? people[currentIndex + 1] : people[0];
-	if (nextPerson) {
-		data.page.scrollToNext = {
-			paragraph: "**Scrolluj**, by przejść do następnej osoby",
-			title: "Następna osoba:",
-			link: {
-				person: {
-					name: nextPerson.name,
-					cryptonym: nextPerson.cryptonym,
-					img: nextPerson.img,
-				},
-				href: `/pl/zespol/${nextPerson.slug.current}`,
-			},
-		};
-	}
-	return data;
+  const people = data?.scrollToNext_TeamPerson;
+  const currentIndex = people.findIndex(
+    (item) => item.slug.current === data.page.slug.current
+  );
+  const nextPerson =
+    currentIndex !== -1 && currentIndex < people.length - 1
+      ? people[currentIndex + 1]
+      : people[0];
+  if (nextPerson) {
+    data.page.scrollToNext = {
+      paragraph: '**Scrolluj**, by przejść do następnej osoby',
+      title: 'Następna osoba:',
+      link: {
+        person: {
+          name: nextPerson.name,
+          cryptonym: nextPerson.cryptonym,
+          img: nextPerson.img,
+        },
+        href: `/pl/zespol/${nextPerson.slug.current}`,
+      },
+    };
+  }
+  return data;
 };
 
 const paramsQuery = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  query {
-    allTeamMember {
-      slug {
-        current
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
+      allTeamMember {
+        slug {
+          current
+        }
       }
     }
-  }`);
-	return data;
+  `);
+  return data;
 };

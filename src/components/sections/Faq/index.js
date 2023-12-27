@@ -228,168 +228,168 @@ const Faq = async ({ heading }) => {
 const query = async () => {
   const {
     body: { data },
-  } = await fetchData(`
-	query {
-  global: Global(id: "global") {
-    faq {
-      heading
-      hint
-      price {
-        question
-        heading
-        paragraph
-        secondParagraph
-        subheading
-        cta {
-          theme
-          text
-          href
-        }
-      }
-      payment {
-        question
-        heading
-        paragraph
-        secondParagraph
-        thirdParagraph
-        text
-        list
-      }
-      time {
-        question
-        img {
-          asset {
-            altText
-            url
-            metadata {
-              lqip
-              dimensions {
-                height
-                width
-              }
+  } = await fetchData(/* GraphQL */ `
+    query {
+      global: Global(id: "global") {
+        faq {
+          heading
+          hint
+          price {
+            question
+            heading
+            paragraph
+            secondParagraph
+            subheading
+            cta {
+              theme
+              text
+              href
             }
           }
-        }
-        heading
-        paragraph
-        cta {
-          theme
-          href
-          text
-        }
-        listHeading
-        list
-      }
-      info {
-        question
-        paragraph
-        firstHeading
-        firstList
-        secondHeading
-        secondList
-        thirdHeading
-        thirdList
-        summary
-      }
-      why {
-        question
-        heading
-        paragraph
-        list
-        summary
-      }
-      cooperation {
-        question
-        heading
-        paragraph
-        secondParagraph
-        subheading
-        cta {
-          theme
-          text
-          href
-        }
-      }
-      logo {
-        question
-        heading
-        paragraph
-        secondParagraph
-        subheading
-        cta {
-          theme
-          text
-          href
-        }
-      }
-      seo {
-        question
-        heading
-        paragraph
-        secondParagraph
-        subheading
-      }
-      copy {
-        question
-        img {
-          asset {
-            altText
-            url
-            metadata {
-              lqip
-              dimensions {
-                height
-                width
-              }
-            }
+          payment {
+            question
+            heading
+            paragraph
+            secondParagraph
+            thirdParagraph
+            text
+            list
           }
-        }
-        heading
-        paragraph
-        summary
-      }
-      wordpress {
-        question
-        heading
-        paragraph
-        subheading
-        secondParagraph
-        cta {
-          theme
-          href
-          text
-        }
-        summary
-        summaryCta {
-          theme
-          href
-          text
-        }
-      }
-      form {
-        heading
-        subheading
-        paragraph
-        person {
-          img {
-            asset {
-              altText
-              url
-              metadata {
-                lqip
-                dimensions {
-                  height
-                  width
+          time {
+            question
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
                 }
               }
             }
+            heading
+            paragraph
+            cta {
+              theme
+              href
+              text
+            }
+            listHeading
+            list
           }
-          tel
+          info {
+            question
+            paragraph
+            firstHeading
+            firstList
+            secondHeading
+            secondList
+            thirdHeading
+            thirdList
+            summary
+          }
+          why {
+            question
+            heading
+            paragraph
+            list
+            summary
+          }
+          cooperation {
+            question
+            heading
+            paragraph
+            secondParagraph
+            subheading
+            cta {
+              theme
+              text
+              href
+            }
+          }
+          logo {
+            question
+            heading
+            paragraph
+            secondParagraph
+            subheading
+            cta {
+              theme
+              text
+              href
+            }
+          }
+          seo {
+            question
+            heading
+            paragraph
+            secondParagraph
+            subheading
+          }
+          copy {
+            question
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+            heading
+            paragraph
+            summary
+          }
+          wordpress {
+            question
+            heading
+            paragraph
+            subheading
+            secondParagraph
+            cta {
+              theme
+              href
+              text
+            }
+            summary
+            summaryCta {
+              theme
+              href
+              text
+            }
+          }
+          form {
+            heading
+            subheading
+            paragraph
+            person {
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+              tel
+            }
+          }
         }
       }
     }
-  }
-}
   `);
   return data;
 };
