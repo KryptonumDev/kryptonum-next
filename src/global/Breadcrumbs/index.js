@@ -42,7 +42,7 @@ const Breadcrumbs = ({portfolio, breadcrumbs}) => {
   return (
     <nav className={portfolio ? `${styles.portfolio} ${styles.wrapper} breadcrumb` : `${styles.wrapper} breadcrumb`}>
     {breadCrumbsItems.length > 1 && (
-      <Script type="application/ld+json">
+      <Script type="application/ld+json" id="breadcrumbsScript">
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

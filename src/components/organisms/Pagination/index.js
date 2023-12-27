@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useMemo } from "react";
 import styles from "./styles.module.scss";
 
-export default async function Pagination({
+export default function Pagination({
 	currentPage,
 	itemCount,
 	urlBasis,
