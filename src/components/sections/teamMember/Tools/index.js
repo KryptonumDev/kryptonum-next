@@ -9,7 +9,7 @@ const Tools = ({ data }) => {
       <div className={styles.wrapper}>
         {data.map((tool, i) => (
           <div className={styles.item} key={i}>
-              <Img data={tool.img} className={styles.img} sizes="152px" />
+              <Img data={tool.img} className={styles.img} sizes="152px" quality={100} />
               <p>{tool.name}</p>
           </div>
         ))}

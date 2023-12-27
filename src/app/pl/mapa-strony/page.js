@@ -4,6 +4,13 @@ import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 import HeroTwoColumns from "../../../components/sections/HeroTwoColumns";
 
+const breadcrumbs = [
+  {
+    name: "Mapa strony",
+    link: "/pl/mapa-strony"
+  },
+];
+
 export default async function SitemapPage() {
   const {
     page: {
@@ -21,34 +28,25 @@ export default async function SitemapPage() {
     curiosityEntries
   } = await query();
 
-  const breadcrumbs = [
-    {
-      name: "Mapa strony",
-      link: "/pl/mapa-strony"
-    },
-  ];
-
   return (
-    <>
-    <main id="main">
-      <Breadcrumbs breadcrumbs={breadcrumbs}/>
-      <HeroTwoColumns 
-        heading= {hero_Heading}
-        paragraph={hero_Subheading}
-        img={hero_Img}
-      />
-      <Grid
-        team={team}
-        blogEntries={blogEntries}
-        WebDevelopment={WebDevelopment}
-        Agency={Agency}
-        GraphicsDesign={GraphicsDesign}
-        Workshop={Workshop}
-        caseStudies={caseStudies}
-        curiosityEntries={curiosityEntries}
-      />
-      </main>
-    </>
+  <main id="main">
+    <Breadcrumbs breadcrumbs={breadcrumbs}/>
+    <HeroTwoColumns 
+      heading= {hero_Heading}
+      paragraph={hero_Subheading}
+      img={hero_Img}
+    />
+    <Grid
+      team={team}
+      blogEntries={blogEntries}
+      WebDevelopment={WebDevelopment}
+      Agency={Agency}
+      GraphicsDesign={GraphicsDesign}
+      Workshop={Workshop}
+      caseStudies={caseStudies}
+      curiosityEntries={curiosityEntries}
+    />
+    </main>
   )
 }
 
@@ -64,7 +62,9 @@ export async function generateMetadata() {
 }
 
 const query = async () => {
- const { body: { data } } = await fetchData(`
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
     query {
       page: Sitemap(id: "sitemap") {
         hero_Heading
@@ -276,7 +276,6 @@ const query = async () => {
         }
       }
     }
-  `
-  );
+  `);
   return data;
 };

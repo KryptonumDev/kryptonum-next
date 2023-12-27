@@ -5,13 +5,10 @@ export const locale = "pl_PL";
 
 const SEO = async ({
   pagination,
-  author,
-  date,
   title,
   description,
   url,
   ogImage,
-  children,
   ...props
 }) => {
   const {
@@ -59,18 +56,18 @@ const SEO = async ({
 };
 
 const getData = async () => {
-  return await fetchData(`
-		query {
-			global: Global(id: "global") {
-				globalSeo {
-					og_Img {
-						asset {
-							url
-						}
-					}
-				}
-			}
-		}
+  return await fetchData(/* GraphQL */ `
+    query {
+      global: Global(id: "global") {
+        globalSeo {
+          og_Img {
+            asset {
+              url
+            }
+          }
+        }
+      }
+    }
   `);
 };
 

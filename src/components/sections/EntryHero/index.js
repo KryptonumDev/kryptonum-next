@@ -13,7 +13,7 @@ const EntryHero = ({ title, subtitle, categories, categorySlug, _createdAt, img,
         <Markdown className={styles.subtitle}>{subtitle}</Markdown>
         {author && (
           <Link href={`/pl/zespol/${author[0].slug.current}`} className={styles.author}>
-            <Img data={author[0].img} className={`personBorder ${styles.authorImg}`} sizes="64px" />
+            <Img data={author[0].img} className={`personBorder ${styles.authorImg}`} sizes="64px" quality={100}/>
             <span>{author[0].name}</span>
           </Link>
         )}

@@ -9,7 +9,7 @@ import {
   Youtube,
 } from "@/atoms/Icons";
 import Img from "@/components/atoms/Img";
-import { removeMarkdown } from "@/utils/functions";
+import { formatDateToPolishLocale, removeMarkdown } from "@/utils/functions";
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import Team from "./team";
@@ -103,10 +103,9 @@ const Footer = ({
 							<div className={styles.thumbnailWrapper}>
 								<Img
 									data={entry.img}
-									width={200}
-									height={200}
 									className={styles.thumbnail}
                   sizes="200px"
+									quality={100}
 								/>
 							</div>
 							<div className={styles.copy}>
@@ -117,15 +116,14 @@ const Footer = ({
 									<div className={`${styles.blogPersonBorder} personBorder`}>
 										<Img
 											data={entry.author[0]?.img}
-											width={32}
-											height={32}
 											className={styles.blogImg}
                       sizes="32px"
+											quality={100}
 										/>
 									</div>
 									<span>{entry.author[0]?.name}</span>
 								</Link>
-								<span>{entry._createdAt}</span>
+								<span>{formatDateToPolishLocale(entry._createdAt)}</span>
 								<p>{removeMarkdown(entry.title)}</p>
 							</div>
 						</div>

@@ -22,7 +22,7 @@ const SecondStep = ({ prevData, setData, setStep }) => {
       ...prevData,
       Brand: (() => {
         // iterate over data and remove empty values
-        let a = {};
+        const a = {};
         Object.keys(data).forEach((el) => {
           if (data[el]) a[el] = data[el];
         });
@@ -33,7 +33,7 @@ const SecondStep = ({ prevData, setData, setStep }) => {
   };
 
   const [links, setLinks] = useState(() => {
-    let a = [{}];
+    const a = [{}];
     // open link for each link in prevData
     if (prevData?.Brand) {
       Object.keys(prevData?.Brand).forEach((el, index) => {

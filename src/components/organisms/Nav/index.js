@@ -140,10 +140,9 @@ const Nav = ({
 						<div className={`${styles.personBorder} personBorder`}>
 							<Img
 								data={person.img}
-								width={96}
-								height={96}
 								className={`${styles.img}`}
 								sizes="96px"
+								quality={100}
 							/>
 						</div>
 						<p>{person.name}</p>
@@ -173,9 +172,8 @@ const Nav = ({
 							<Img
 								data={entry.img}
 								className={styles.img}
-								height={200}
-								width={200}
 								sizes="200px"
+								quality={100}
 							/>
 						</div>
 						<div className={styles.copy}>
@@ -187,10 +185,9 @@ const Nav = ({
 									<div className={`${styles.img} ${styles.personBorder} personBorder`}>
 										<Img
 											data={entry.author[0]?.img}
-											height={32}
-											width={32}
 											className={styles.img}
 											sizes="32px"
+											quality={100}
 										/>
 									</div>
 									<span>{entry.author[0]?.name}</span>
@@ -227,10 +224,9 @@ const Nav = ({
 							<div className={`${styles.imageWrapper} personBorder`}>
 								<Img
 									data={person.img}
-									width={96}
-									height={96}
 									className={`${styles.personBorder} ${styles.img}`}
 									sizes="96px"
+									quality={100}
 								/>
 							</div>
 							<p>{person.name}</p>
@@ -265,10 +261,9 @@ const Nav = ({
 							<div className={`${styles.imgWrapper}`}>
 								<Img
 									data={curiosity.img}
-									height={188}
-									width={188}
 									className={styles.img}
-									sizes="188px"
+									sizes="200px"
+									quality={100}
 								/>
 							</div>
 							<p>{removeMarkdown(curiosity.title)}</p>
@@ -300,10 +295,9 @@ const Nav = ({
 								<div className={`${styles.imageWrapper} personBorder`}>
 									<Img
 										data={person.img}
-										width={96}
-										height={96}
 										className={`${styles.personBorder} ${styles.img}`}
-										sizes="96px"
+										sizes="120px"
+										quality={100}
 									/>
 								</div>
 								<p>{person.name}</p>

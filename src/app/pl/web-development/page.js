@@ -10,6 +10,13 @@ import Breadcrumbs from "@/global/Breadcrumbs";
 import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
+const breadcrumbs = [
+  {
+    name: "Web Development",
+    link: "/pl/web-development",
+  },
+];
+
 export default async function webDevelopmentPage() {
 	const {
 		page: {
@@ -37,13 +44,6 @@ export default async function webDevelopmentPage() {
 		},
 		testimonials,
 	} = await query();
-
-	const breadcrumbs = [
-		{
-			name: "Web Development",
-			link: "/pl/web-development",
-		},
-	];
 
 	return (
 		<>
@@ -100,143 +100,143 @@ export async function generateMetadata() {
 }
 
 const query = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  query {
-  page: WebDevelopment(id: "webDevelopment") {
-    # Hero
-    hero_Heading
-    hero_Annotation
-    hero_Paragraph
-    hero_SecondParagraph
-    hero_Img {
-      asset {
-        altText
-        url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
+      page: WebDevelopment(id: "webDevelopment") {
+        # Hero
+        hero_Heading
+        hero_Annotation
+        hero_Paragraph
+        hero_SecondParagraph
+        hero_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
+        }
+        hero_Nav {
+          title
+          description
+          href
+        }
+        # Advantages
+        advantages_Heading
+        advantages_Array {
+          title
+          description
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        # Simple Cta Section
+        simpleCtaSection {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+        }
+        # Flexibility
+        flexibility_Heading
+        flexibility_Claim
+        flexibility_Paragraph
+        flexibility_SecondParagraph
+        flexibility_Cta {
+          theme
+          text
+          href
+        }
+        # Process
+        process_Heading
+        process_Claim
+        process_Paragraph
+        process_List {
+          title
+          description
+        }
+        # Case Studies
+        caseStudies_Heading
+        # Call To Action
+        ctaSection {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        # Scroll To Next
+        scrollToNext {
+          heading
+          paragraph
+          title
+          link {
+            text
+            href
+          }
+        }
+        # SEO
+        seo {
+          title
+          description
+        }
       }
-    }
-    hero_Nav {
-      title
-      description
-      href
-    }
-    # Advantages
-    advantages_Heading
-    advantages_Array {
-      title
-      description
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+      testimonials: allTestimonials(limit: 3, sort: { _createdAt: ASC }) {
+        name
+        text
+        cta {
+          theme
+          text
+          href
+        }
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
         }
       }
     }
-    # Simple Cta Section
-    simpleCtaSection {
-      heading
-      cta {
-        theme
-        text
-        href
-      }
-    }
-    # Flexibility
-    flexibility_Heading
-    flexibility_Claim
-    flexibility_Paragraph
-    flexibility_SecondParagraph
-    flexibility_Cta {
-      theme
-      text
-      href
-    }
-    # Process
-    process_Heading
-    process_Claim
-    process_Paragraph
-    process_List {
-      title
-      description
-    }
-    # Case Studies
-    caseStudies_Heading
-    # Call To Action
-    ctaSection {
-      heading
-      cta {
-        theme
-        text
-        href
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    # Scroll To Next
-    scrollToNext {
-      heading
-      paragraph
-      title
-      link {
-        text
-        href
-      }
-    }
-    # SEO
-    seo {
-      title
-      description
-    }
-  }
-  testimonials: allTestimonials(limit: 3, sort: { _createdAt: ASC }) {
-    name
-    text
-    cta {
-      theme
-      text
-      href
-    }
-    img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
-          }
-        }
-      }
-    }
-  }
-}
   `);
-	return data;
+  return data;
 };

@@ -20,7 +20,7 @@ const QuickForm = async ({ data: { heading, subheading, cta }, isPortableContent
         <p>{quickForm_Paragraph}</p>
         <div className={styles.person}>
           <p className={`${styles.strong} strong`}>{quickForm_Person.name}</p>
-          <Img data={quickForm_Person.img} className={`${styles.img} personBorder`} />
+          <Img data={quickForm_Person.img} className={`${styles.img} personBorder`} quality={100} sizes="120px"/>
           {quickForm_Person.tel && (
             <a href={`tel:${quickForm_Person.tel.replace(/\s/g, "")}`}>{quickForm_Person.tel}</a>
           )}
@@ -34,28 +34,28 @@ export default QuickForm;
 const query = async () => {
   const {
     body: { data },
-  } = await fetchData(`
-	query {
-  global: Global(id: "global") {
-    quickForm_Paragraph
-    quickForm_Person {
-      name
-      img {
-        asset {
-          altText
-					url
-					metadata {
-						dimensions {
-							height
-							width
-						}
-					}
+  } = await fetchData(/* GraphQL */ `
+    query {
+      global: Global(id: "global") {
+        quickForm_Paragraph
+        quickForm_Person {
+          name
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+          tel
         }
       }
-			tel
     }
-  } 
-}
   `);
   return data;
 };

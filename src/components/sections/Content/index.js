@@ -12,7 +12,7 @@ const Content = ({ contentRaw, author, share }) => {
 
   const link = (
     <Link href={`/pl/zespol/${author.slug.current}`} className={styles.author}>
-      <Img data={author.img} className={`${styles.img} personBorder`} sizes="156px" />
+      <Img data={author.img} className={`${styles.img} personBorder`} sizes="156px" quality={100}/>
       <p>Autor: {author.name}</p>
     </Link>
   );

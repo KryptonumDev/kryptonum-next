@@ -97,6 +97,7 @@ export default function Grid({
               data={person.img}
 								className={`${styles.img} personBorder`}
 								sizes="156px"
+								quality={100}
 							/>
 							<p>{person.name}</p>
 						</Link>

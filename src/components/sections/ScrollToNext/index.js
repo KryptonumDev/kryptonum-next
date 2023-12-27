@@ -12,7 +12,7 @@ const ScrollToNext = ({ data: { heading, paragraph, title, link } }) => {
 
   const scrollDown = <ScrollDown />;
 
-  const image = <Img data={link.person?.img} className={`personBorder ${styles.personBorder}`} sizes="180px" />;
+  const image = <Img data={link.person?.img} className={`personBorder ${styles.personBorder}`} sizes="180px" quality={100}/>;
 
   return (
     <ScrollToNextSection

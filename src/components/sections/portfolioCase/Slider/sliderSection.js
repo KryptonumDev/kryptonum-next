@@ -39,7 +39,7 @@ const SliderSection = ({ arrowLeft, arrowRight, slides, children }) => {
         {slides.map((slide, i) => (
           <SwiperSlide className={ i==activeIndex ?  `${styles.slide} ${styles.active}` : styles.slide} key={i}>
             <div>
-              <Img data={slide.img} className={styles.img} sizes="40px" />
+              <Img data={slide.img} className={styles.img} sizes="40px" quality={100}/>
               <Markdown className={styles.title}>{slide.title}</Markdown>
             </div>
             <Markdown className={styles.description}>{slide.description}</Markdown>

@@ -13,8 +13,7 @@ const ShowcaseSection = ({
 	logos,
 	showcase_SummaryLeft,
 	showcase_SummaryRight,
-	children,
-	...props
+	children
 }) => {
 	const listRef = useRef();
 	const [animationValue, setAnimationValue] = useState(0);
@@ -23,7 +22,7 @@ const ShowcaseSection = ({
 		const list = listRef.current;
 		const windowHeight = window.innerHeight;
 		if (list) {
-			const { top, bottom } = list?.getBoundingClientRect();
+			const { top, bottom } = list.getBoundingClientRect();
 			const distance = bottom - top;
 			const scrollPosition = windowHeight / 2 - top;
 			const value = scrollPosition / distance;

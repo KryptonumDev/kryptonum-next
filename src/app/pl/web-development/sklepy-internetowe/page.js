@@ -10,6 +10,17 @@ import Breadcrumbs from "@/global/Breadcrumbs";
 import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
+const breadcrumbs =[
+  {
+    name: "Web Development",
+    link: "/pl/web-development"
+  },
+  {
+    name: "Sklepy internetowe",
+    link: "/pl/web-development/sklepy-internetowe"
+  }
+];
+
 export default async function webDevelopmentShoppingSitesPage() {
 	const {
 		page: {
@@ -35,17 +46,6 @@ export default async function webDevelopmentShoppingSitesPage() {
 		},
 		blogEntries,
 	} = await query();
-
-  const breadcrumbs =[
-    {
-      name: "Web Development",
-      link: "/pl/web-development"
-    },
-    {
-      name: "Sklepy internetowe",
-      link: "/pl/sklepy-internetowe"
-    }
-  ];
 
 	return (
 		<>
@@ -102,151 +102,151 @@ export async function generateMetadata() {
 }
 
 const query = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  query {
-  page: WebDevelopmentEcom(id: "webDevelopment_Ecom") {
-    # Hero
-    hero_Heading
-    hero_Annotation
-    hero_Paragraph
-    hero_SecondParagraph
-    hero_Img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
+      page: WebDevelopmentEcom(id: "webDevelopment_Ecom") {
+        # Hero
+        hero_Heading
+        hero_Annotation
+        hero_Paragraph
+        hero_SecondParagraph
+        hero_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
           }
         }
+        hero_CtaHeading
+        hero_Cta {
+          theme
+          text
+          href
+        }
+        # Process
+        process_Heading
+        process_Claim
+        process_List {
+          heading
+          subheading
+          paragraph
+          secondParagraph
+          secondHeading
+          cta {
+            theme
+            text
+            href
+          }
+        }
+        # Quick Form
+        quickForm {
+          heading
+          subheading
+          cta
+        }
+        # Case Studies
+        caseStudies_Heading
+        # Develop
+        develop_Paragraph1
+        develop_Paragraph2
+        develop_Paragraph3
+        develop_Paragraph4
+        # Call To Action
+        ctaSection {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        # Blog Entries
+        blogEntries_Heading
+        # Scroll To Next
+        scrollToNext {
+          heading
+          paragraph
+          title
+          link {
+            text
+            href
+          }
+        }
+        # SEO
+        seo {
+          title
+          description
+        }
       }
-    }
-    hero_CtaHeading
-    hero_Cta {
-      theme
-      text
-      href
-    }
-    # Process
-    process_Heading
-    process_Claim
-    process_List {
-      heading
-      subheading
-      paragraph
-      secondParagraph
-      secondHeading
-      cta {
-        theme
-        text
-        href
-      }
-    }
-    # Quick Form
-    quickForm {
-      heading
-      subheading
-      cta
-    }
-    # Case Studies
-    caseStudies_Heading
-    # Develop
-    develop_Paragraph1
-    develop_Paragraph2
-    develop_Paragraph3
-    develop_Paragraph4
-    # Call To Action
-    ctaSection {
-      heading
-      cta {
-        theme
-        text
-        href
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+      blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+        title
+        subtitle
+        slug {
+          current
+        }
+        author {
+          name
+          slug {
+            current
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        categories {
+          name
+          slug {
+            current
+          }
+        }
+        _createdAt
+        contentRaw
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
         }
       }
     }
-    # Blog Entries
-    blogEntries_Heading
-    # Scroll To Next
-    scrollToNext {
-      heading
-      paragraph
-      title
-      link {
-        text
-        href
-      }
-    }
-    # SEO
-    seo {
-      title
-      description
-    }
-  }
-  blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
-    title
-    subtitle
-    slug {
-      current
-    }
-    author {
-      name
-      slug {
-        current
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    categories {
-      name
-      slug {
-        current
-      }
-    }
-    _createdAt
-    contentRaw
-    img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
-          }
-        }
-      }
-    }
-  }
-}
   `);
-	return data;
+  return data;
 };

@@ -17,7 +17,7 @@ const Features = ({ data: { heading, feautures } }) => {
     <FeaturesSection header={header}>
       {features.map((feature, i) => (
         <div className={`${styles.item} item`} key={i}>
-          <Img data={feature.img} className={styles.img} sizes="48px" />
+          <Img data={feature.img} className={styles.img} sizes="48px" quality={100}/>
           <Markdown className={styles.title}>{feature.title}</Markdown>
         </div>
       ))}

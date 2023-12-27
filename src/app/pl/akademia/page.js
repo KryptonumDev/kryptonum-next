@@ -26,33 +26,31 @@ export default async function AcademyPage() {
 	} = await query();
 
 	return (
-		<>
-			<main id="main">
-				<Breadcrumbs breadcrumbs={breadcrumbs} />
-				<Hero
-					data={{
-						heading: hero_Heading,
-						paragraph: hero_Paragraph,
-						sideImage: hero_Img,
-					}}
-					isBlogHero={true}
-				/>
-				<Categories
-					categorySlug="/pl/akademia/"
-					categories={curiosityCategories}
-				/>
-				<CuriosityEntries
-					urlBasis="/pl/akademia"
-					totalCount={curiosityEntriesCount.length}
-					page={1}
-					curiosityEntries={curiosityEntries}
-					itemsPerPage={academyItemsPerPage}
-				/>
-				<CtaSection data={ctaSection} />
-				<LatestBlogEntries data={blogEntries} />
-				<Faq />
-			</main>
-		</>
+    <main id="main">
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <Hero
+        data={{
+          heading: hero_Heading,
+          paragraph: hero_Paragraph,
+          sideImage: hero_Img,
+        }}
+        isBlogHero={true}
+      />
+      <Categories
+        categorySlug="/pl/akademia/"
+        categories={curiosityCategories}
+      />
+      <CuriosityEntries
+        urlBasis="/pl/akademia"
+        totalCount={curiosityEntriesCount.length}
+        page={1}
+        curiosityEntries={curiosityEntries}
+        itemsPerPage={academyItemsPerPage}
+      />
+      <CtaSection data={ctaSection} />
+      <LatestBlogEntries data={blogEntries} />
+      <Faq />
+    </main>
 	);
 }
 

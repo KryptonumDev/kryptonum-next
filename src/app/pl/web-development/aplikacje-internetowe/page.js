@@ -10,6 +10,17 @@ import Breadcrumbs from "@/global/Breadcrumbs";
 import SEO from "@/global/Seo";
 import fetchData from "@/utils/fetchData";
 
+const breadcrumbs =[
+  {
+    name: "Web Development",
+    link: "/pl/web-development"
+  },
+  {
+    name: "Aplikacje internetowe",
+    link: "/pl/web-development/aplikacje-internetowe"
+  }
+];
+
 export default async function webDevelopmentWebAppsPage() {
 	const {
 		page: {
@@ -40,17 +51,6 @@ export default async function webDevelopmentWebAppsPage() {
 		},
 		blogEntries,
 	} = await query();
-
-  const breadcrumbs =[
-    {
-      name: "Web Development",
-      link: "/pl/web-development"
-    },
-    {
-      name: "Aplikacje internetowe",
-      link: "/pl/aplikacje-internetowe"
-    }
-  ];
 
 	return (
 		<>
@@ -112,166 +112,167 @@ export async function generateMetadata() {
 }
 
 const query = async () => {
-	const {
-		body: { data },
-	} = await fetchData(`
-  query {
-page: WebDevelopmentPwa(id: "webDevelopment_Pwa") {
-  # Hero
-  hero_Heading
-  hero_Annotation
-  hero_Paragraph
-  hero_SecondParagraph
-  hero_Img {
-    asset {
-      altText
-      url
-      metadata {
-        lqip
-        dimensions {
-          height
-          width
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
+      page: WebDevelopmentPwa(id: "webDevelopment_Pwa") {
+        # Hero
+        hero_Heading
+        hero_Annotation
+        hero_Paragraph
+        hero_SecondParagraph
+        hero_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+        hero_CtaHeading
+        hero_Cta {
+          theme
+          text
+          href
+        }
+        # Process
+        process_Heading
+        process_Paragraph
+        process_SecondParagraph
+        process_List {
+          heading
+          subheading
+          paragraph
+          secondParagraph
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        # Quick Form
+        quickForm {
+          heading
+          subheading
+          cta
+        }
+        # Customer
+        customer_Heading
+        customer_WhatHeading
+        customer_WhatList {
+          title
+        }
+        customer_WhatParagraph
+        customer_WhatSecondParagraph
+        customer_WhoHeading
+        customer_WhoList {
+          title
+        }
+        customer_WhoAnnotation
+        # Call To Action
+        ctaSection {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        # Case Studies
+        caseStudies_Heading
+        # Blog Entries
+        blogEntries_Heading
+        # Scroll To Next
+        scrollToNext {
+          heading
+          paragraph
+          title
+          link {
+            text
+            href
+          }
+        }
+        # SEO
+        seo {
+          title
+          description
         }
       }
-    }
-  }
-  hero_CtaHeading
-  hero_Cta {
-    theme
-    text
-    href
-  }
-  # Process
-  process_Heading
-  process_Paragraph
-  process_SecondParagraph
-  process_List {
-    heading
-    subheading
-    paragraph
-    secondParagraph
-    img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
+      blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+        title
+        subtitle
+        slug {
+          current
+        }
+        author {
+          name
+          slug {
+            current
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        categories {
+          name
+          slug {
+            current
+          }
+        }
+        _createdAt
+        contentRaw
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
           }
         }
       }
     }
-  }
-  # Quick Form
-  quickForm {
-    heading
-    subheading
-    cta
-  }
-  # Customer
-  customer_Heading
-  customer_WhatHeading
-  customer_WhatList {
-    title
-  }
-  customer_WhatParagraph
-  customer_WhatSecondParagraph
-  customer_WhoHeading
-  customer_WhoList {
-    title
-  }
-  customer_WhoAnnotation
-  # Call To Action
-  ctaSection {
-    heading
-    cta {
-      theme
-      text
-      href
-    }
-    img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
-          }
-        }
-      }
-    }
-  }
-  # Case Studies
-  caseStudies_Heading
-  # Blog Entries
-  blogEntries_Heading
-  # Scroll To Next
-  scrollToNext {
-    heading
-    paragraph
-    title
-    link {
-      text
-      href
-    }
-  }
-  # SEO
-  seo {
-    title
-    description
-  }
-}
-blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
-  title
-  subtitle
-  slug {
-    current
-  }
-  author {
-    name
-    slug {
-      current
-    }
-    img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
-          }
-        }
-      }
-    }
-  }
-  categories {
-    name
-    slug {
-      current
-    }
-  }
-  _createdAt
-  contentRaw
-  img {
-    asset {
-      altText
-      url
-      metadata {
-        lqip
-        dimensions {
-          height
-          width
-        }
-      }
-    }
-  }
-}
-}`);
-	return data;
+  `);
+  return data;
 };

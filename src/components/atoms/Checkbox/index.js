@@ -1,4 +1,5 @@
 import styles from './styles.module.scss';
+import { Error } from '../Icons';
 
 export const Checkbox = ({ 
   icon, 

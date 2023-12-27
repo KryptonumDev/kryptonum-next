@@ -2,6 +2,10 @@
   border: 1px solid var(--neutral-800);
   border-left: none;
   border-right: none;
+  img {
+    width:230px;
+    height:230px;
+  }
 
   &:not(:last-child) {
     margin-bottom: clamp(24px, calc(32vw/7.68), 32px);
@@ -123,6 +127,8 @@
   img {
     display:block;
     object-fit: cover;
+    width:48px;
+    height:48px;
   }
 
   span {

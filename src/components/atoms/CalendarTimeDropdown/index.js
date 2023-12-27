@@ -63,7 +63,7 @@ const availability = [
 	},
 ];
 
-const CalendarTimeDropdown = ({ setOpenedPopup, setChosenTime, chosenTime, chosenDate }) => {
+const CalendarTimeDropdown = ({ setOpenedPopup, setChosenTime, chosenTime }) => {
 	// const selectedDateWithoutTime = chosenDate
 	//   ? dayjs(chosenDate).format('YYYY-MM-DD')
 	//   : null

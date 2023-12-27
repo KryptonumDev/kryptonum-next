@@ -24,9 +24,8 @@ const ConsultationForm = async ({ data: { heading, subheading, cta }, isPortable
           <Img
             data={quickForm_Person.img}
             className={`${styles.img} personBorder`}
-            width={120}
-            height={120}
-            sizes="120px"
+            sizes="150px"
+            quality={100}
           />
           {quickForm_Person.tel && (
             <a href={`tel:${quickForm_Person.tel.replace(/\s/g, "")}`}>{quickForm_Person.tel}</a>
@@ -41,28 +40,28 @@ export default ConsultationForm;
 const query = async () => {
   const {
     body: { data },
-  } = await fetchData(`
-	query {
-  global: Global(id: "global") {
-    quickForm_Paragraph
-    quickForm_Person {
-      name
-      img {
-        asset {
-          altText
-					url
-					metadata {
-						dimensions {
-							height
-							width
-						}
-					}
+  } = await fetchData(/* GraphQL */ `
+    query {
+      global: Global(id: "global") {
+        quickForm_Paragraph
+        quickForm_Person {
+          name
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+          tel
         }
       }
-			tel
     }
-  } 
-}
   `);
   return data;
 };

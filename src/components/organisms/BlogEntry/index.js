@@ -1,6 +1,6 @@
 import ReadingTime from "@/atoms/ReadingTime";
 import Img from "@/components/atoms/Img";
-import { removeMarkdown } from "@/utils/functions";
+import { formatDateToPolishLocale, removeMarkdown } from "@/utils/functions";
 import Link from "next/link";
 import styles from "./styles.module.scss";
 
@@ -12,9 +12,8 @@ const BlogEntry = ({ data, smallEntry }) => {
       <Img
         data={data.img}
         className={styles.img}
-        width={230}
-        height={230}
         sizes="230px"
+        quality={100}
       />
       <Link
         href={`/pl/blog/${data.slug.current}`}
@@ -30,9 +29,8 @@ const BlogEntry = ({ data, smallEntry }) => {
         <Img
           data={data.author[0].img}
           className={`personBorder`}
-          height={48}
-          width={48}
           sizes="48px"
+          quality={100}
         />
         <span>{data.author[0].name}</span>
       </Link>
@@ -44,7 +42,7 @@ const BlogEntry = ({ data, smallEntry }) => {
         ))}
       </div>
       <ReadingTime content={data.contentRaw} />
-      <span className={styles.createdAt}>{data._createdAt}</span>
+      <span className={styles.createdAt}>{formatDateToPolishLocale(data._createdAt)}</span>
     </div>
   );
 };

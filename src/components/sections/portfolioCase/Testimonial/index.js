@@ -14,6 +14,7 @@ const Testimonial = ({ data: { name, text, cta, img } }) => {
 					data={img}
 					className={styles.img}
 					sizes="156px"
+					quality={100}
 				/>
 				<div>
 					<h3>{name}</h3>

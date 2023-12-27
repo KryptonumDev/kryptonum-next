@@ -33,9 +33,8 @@ const TestimonialsSection = ({ testimonials, quote, arrowLeft, arrowRight, child
 							<Img
 								data={img}
 								className={styles.img}
-								width={158}
-								height={158}
 								sizes="158px"
+								quality={100}
 							/>
 							<div>
 								<h3>{name}</h3>

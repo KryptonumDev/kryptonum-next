@@ -1,7 +1,6 @@
 import Button from "@/components/atoms/Button";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import BlogEntry from "@/components/organisms/BlogEntry";
-import { formatDateToPolishLocale } from "@/utils/functions";
 import styles from "./styles.module.scss";
 
 const LatestBlogEntries = ({
@@ -11,9 +10,6 @@ const LatestBlogEntries = ({
   smallEntry = false,
 }) => {
 
-  data.map((entry) => {
-    entry._createdAt = formatDateToPolishLocale(entry._createdAt);
-  })
 
   return (
     <section className={styles.section}>

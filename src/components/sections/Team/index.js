@@ -7,7 +7,7 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 
 const Team = async ({ heading, paragraph, cta }) => {
-  let data = await query();
+  const data = await query();
 
   return (
     <section className={styles.section}>
@@ -16,7 +16,7 @@ const Team = async ({ heading, paragraph, cta }) => {
         {data.team.map((person, i) => (
           <Link href={`/pl/zespol/${person.slug.current}`} key={i}>
             <div className={`${styles.img} personBorder`}>
-              <Img data={person.img} className={styles.img} width={128} height={128} sizes="128px" />
+              <Img data={person.img} className={styles.img} sizes="150px" quality={100}/>
             </div>
             <div className={styles.info}>
               <h3>{person.name}</h3>
@@ -36,29 +36,29 @@ const Team = async ({ heading, paragraph, cta }) => {
 const query = async () => {
   const {
     body: { data },
-  } = await fetchData(`
-	query {
-    team: allTeamMember(sort: { _createdAt: ASC }) {
-      name
-      slug {
-        current
-      }
-      img {
-        asset {
-          altText
-          url
-          metadata {
-            lqip
-            dimensions {
-              height
-              width
+  } = await fetchData(/* GraphQL */ `
+    query {
+      team: allTeamMember(sort: { _createdAt: ASC }) {
+        name
+        slug {
+          current
+        }
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
             }
           }
         }
+        cryptonym
       }
-      cryptonym
     }
-	}
   `);
   return data;
 };
