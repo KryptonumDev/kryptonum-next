@@ -78,8 +78,9 @@
           display: flex;
           align-items: center;
           gap: 16px;
-
-          .img {
+          .imgWrapper {
+            display:flex;
+            align-items: center;
             margin: 0;
             flex-shrink: 0;
           }
