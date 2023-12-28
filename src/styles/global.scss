@@ -216,6 +216,39 @@ li strong {
 .portfolio {
   padding-top: unset;
 }
+.orderedList, .unorderedList {
+  list-style-type: none;
+  margin: 24px 0;
+}
+.unorderedList {
+  li {
+    display: grid;
+    column-gap: 8px;
+    grid-template-columns: 24px 1fr;
+    svg {
+      margin-top: 0.1em;
+    }
+  }
+}
+.orderedList {
+  counter-reset: counter 0;
+
+  li {
+    display: grid;
+    column-gap: 16px;
+    grid-template-columns: 32px 1fr;
+    counter-increment: counter 1;
+
+    &::before {
+      content: counter(counter) ".";
+      display: inline-block;
+    }
+
+    &:nth-child(-n + 9)::before {
+      content: "0" counter(counter) ".";
+    }
+  }
+}
 
 // @media (max-width: 500px) {
 //   .hero {
