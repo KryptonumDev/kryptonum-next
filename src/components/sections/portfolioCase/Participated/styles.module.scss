@@ -4,7 +4,7 @@
   margin: 0 calc(var(--pageMargin) * -1);
   padding: clamp((54px), calc(78vw/7.68), 98px) var(--pageMargin);
   .img {
-    height:100%;
+    height:auto;
     width:100%;
     object-fit: contain;
   }

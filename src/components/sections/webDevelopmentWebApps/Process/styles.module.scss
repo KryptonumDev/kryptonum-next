@@ -75,7 +75,7 @@
           margin-right: clamp(-64px, calc(-48vw / 7.68), -16px);
         }
         .img {
-          height: 100%;
+          height: auto;
           width: 100%;
           display: block;
           object-fit: contain;

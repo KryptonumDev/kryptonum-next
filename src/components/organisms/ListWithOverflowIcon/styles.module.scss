@@ -38,7 +38,7 @@
     }
 
     .icon {
-      height: 100%;
+      height: auto;
       width: 100%;
       object-fit: contain;
       display: block;
@@ -70,7 +70,7 @@
 
     .img {
       width: 100%;
-      height: 100%;
+      height: auto;
       object-position: top;
       object-fit: contain;
       grid-area: img;
