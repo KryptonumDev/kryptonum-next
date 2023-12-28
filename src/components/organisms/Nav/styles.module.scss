@@ -510,7 +510,7 @@
       &.blog .navList2,
       &.academy .navList2 {
         .person {
-
+          display:grid;
           p,
           span {
             transition: opacity .3s;
@@ -518,6 +518,9 @@
 
           .personBorder {
             overflow: hidden;
+            width:96px;
+            height:96px;
+            justify-self: center;
 
             .img {
               display: block;
