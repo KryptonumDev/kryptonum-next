@@ -50,7 +50,7 @@ const CaseStudies = async ({ data, heading, cta, eagerLoading = false }) => {
 const query = async () => {
   const { body } = await fetchData(/* GraphQL */`
     query {
-      caseStudies: allCaseStudyEntries(limit: 3, sort: { _updatedAt: DESC }) {
+      caseStudies: allCaseStudyEntries(limit: 3, sort: { _updatedAt: ASC }) {
         name
         slug {
           current
