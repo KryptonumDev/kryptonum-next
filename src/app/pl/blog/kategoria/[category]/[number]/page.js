@@ -58,7 +58,6 @@ export default async function BlogCategoryPaginationPage({ params: { category, n
       <Breadcrumbs breadcrumbs={breadcrumbs} />
       <Hero
         data={{ heading: hero_Heading, paragraph: hero_Paragraph, sideImage: hero_Img }}
-        isBlogHero
       />
       <Categories
         categorySlug="/pl/blog/"

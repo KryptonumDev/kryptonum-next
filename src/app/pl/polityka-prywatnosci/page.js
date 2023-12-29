@@ -36,7 +36,6 @@ export default async function PrivacyPolicyPage() {
 					paragraph: hero_Paragraph,
 					sideImage: hero_Img,
 				}}
-				isBlogHero={true}
 			/>
 			<KeyElements
 				heading={keyInfo_Heading}

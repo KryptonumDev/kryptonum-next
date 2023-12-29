@@ -4,9 +4,9 @@ import Markdown from "@/components/atoms/Markdown";
 import Button from "../../atoms/Button";
 import styles from "./styles.module.scss";
 
-const Hero = ({ data: { heading, subheading, image, sideImage, paragraph, cta }, isBlogHero = false }) => {
+const Hero = ({ data: { heading, subheading, image, sideImage, paragraph, cta }, hasBorder = false }) => {
   return (
-    <section className={isBlogHero ? `${styles.section} ${styles.blogSection} hero` : `${styles.section} hero`}>
+    <section className={hasBorder ? `${styles.section} hero` : `${styles.section} ${styles.blogSection} hero`}>
       <header>
         <div className={styles.copy}>
           <DecorativeHeading type="h1">{heading}</DecorativeHeading>

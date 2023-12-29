@@ -85,7 +85,9 @@ body {
 main,
 .maxWidth {
   --pageMargin: 40px;
-
+  @media (max-width: 1199px) {
+    --pageMargin: 80px;
+  }
   @media (max-width: 699px) {
     --pageMargin: 16px;
   }

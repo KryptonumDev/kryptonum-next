@@ -42,7 +42,6 @@ export default async function BlogPaginationPage({ params: { number } }) {
           paragraph: hero_Paragraph,
           sideImage: hero_Img,
         }}
-        isBlogHero={true}
       />
       <Categories
         categorySlug="/pl/blog/"

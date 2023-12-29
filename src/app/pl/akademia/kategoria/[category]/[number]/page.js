@@ -64,7 +64,6 @@ export async function generateStaticParams() {
           paragraph: hero_Paragraph,
           sideImage: hero_Img,
         }}
-        isBlogHero={true}
       />
       <Categories
         categorySlug="/pl/akademia/"

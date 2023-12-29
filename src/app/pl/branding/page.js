@@ -43,7 +43,7 @@ export default async function BrandingPage() {
   return (
     <main id='main'>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <Hero data={hero} />
+      <Hero data={hero} hasBorder={true}/>
       <TextSection data={textSection} />
       <CtaSection data={ctaSection} />
       <TilesWithOverflowIcon data={tiles} />
