@@ -1,5 +1,6 @@
 import CaseStudies from '@/components/sections/CaseStudies';
 import CentralizedHeadingSection from '@/components/sections/CentralizedHeadingSection';
+import HeadingWithTitleAndImgList from '@/components/sections/HeadingWIthTitleAndImgList';
 import ProsAndConsShowcase from '@/components/sections/ProsAndConsShowcase';
 import TextSection from '@/components/sections/TextSection';
 import WindowsShowcase from '@/components/sections/WindowsShowcase';
@@ -42,6 +43,12 @@ export default async function LandingPage({ params: { slug } }) {
     ),
     ProsAndConsShowcase: (
       <ProsAndConsShowcase
+        key={i}
+        data={component}
+      />
+    ),
+    HeadingWithTitleAndImgList: (
+      <HeadingWithTitleAndImgList
         key={i}
         data={component}
       />
@@ -168,6 +175,26 @@ const query = async (slug) => {
                 ProsAndCons {
                   isPros
                   content
+                }
+              }
+            }
+            ... on HeadingWithTitleAndImgList {
+              _type
+              heading
+              TitleAndImage {
+                title
+                img {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
+                    }
+                  }
                 }
               }
             }
