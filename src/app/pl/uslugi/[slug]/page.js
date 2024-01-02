@@ -2,6 +2,7 @@ import Hero from '@/components/sections/landingPage/Hero';
 import Breadcrumbs from '@/global/Breadcrumbs';
 import fetchData from '@/utils/fetchData';
 import Slider from '@/components/sections/services/Slider';
+import CentralizedHeadingSection from '@/components/sections/CentralizedHeadingSection';
 
 export default async function LandingPage({ params: { slug } }) {
   const mappedComponents = (component, i) => ({
@@ -11,6 +12,12 @@ export default async function LandingPage({ params: { slug } }) {
         data={component}
       />
     ),
+    CenteredHeading: (
+      <CentralizedHeadingSection
+        key={i}
+        data={component}
+      />
+    )
   });
 
   const {
@@ -73,6 +80,10 @@ const query = async (slug) => {
                 description
               }
             }
+            ... on CenteredHeading {
+              _type
+              heading
+            }
           }
         }
       }
@@ -82,5 +93,6 @@ const query = async (slug) => {
     }
   );
   data.page = data.page[0];
+  console.log(data.page.content);
   return data;
 };
