@@ -3,6 +3,7 @@ import Breadcrumbs from '@/global/Breadcrumbs';
 import fetchData from '@/utils/fetchData';
 import Slider from '@/components/sections/services/Slider';
 import CentralizedHeadingSection from '@/components/sections/CentralizedHeadingSection';
+import WindowsShowcase from '@/components/sections/WindowsShowcase';
 
 export default async function LandingPage({ params: { slug } }) {
   const mappedComponents = (component, i) => ({
@@ -17,7 +18,13 @@ export default async function LandingPage({ params: { slug } }) {
         key={i}
         data={component}
       />
-    )
+    ),
+    WindowsShowcase: (
+      <WindowsShowcase
+        key={i}
+        data={component}
+      />
+    ),
   });
 
   const {
@@ -84,6 +91,43 @@ const query = async (slug) => {
               _type
               heading
             }
+            ... on WindowsShowcase {
+              _type
+              heading
+              description
+              icons {
+                icon {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
+                description
+              }
+              windows {
+                title
+                img {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -93,6 +137,5 @@ const query = async (slug) => {
     }
   );
   data.page = data.page[0];
-  console.log(data.page.content);
   return data;
 };

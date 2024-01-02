@@ -20,6 +20,7 @@ const Hero = ({ hero_Img, hero_Heading, hero_Paragraph }) => {
           data={hero_Img}
           className={styles.img}
           sizes='(max-width: 1199px) 100vw, 50vw'
+          priority={true}
         />
       </div>
     </section>
