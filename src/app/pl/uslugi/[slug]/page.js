@@ -1,9 +1,11 @@
+import CaseStudies from '@/components/sections/CaseStudies';
+import CentralizedHeadingSection from '@/components/sections/CentralizedHeadingSection';
+import TextSection from '@/components/sections/TextSection';
+import WindowsShowcase from '@/components/sections/WindowsShowcase';
 import Hero from '@/components/sections/landingPage/Hero';
+import Slider from '@/components/sections/services/Slider';
 import Breadcrumbs from '@/global/Breadcrumbs';
 import fetchData from '@/utils/fetchData';
-import Slider from '@/components/sections/services/Slider';
-import CentralizedHeadingSection from '@/components/sections/CentralizedHeadingSection';
-import WindowsShowcase from '@/components/sections/WindowsShowcase';
 
 export default async function LandingPage({ params: { slug } }) {
   const mappedComponents = (component, i) => ({
@@ -23,6 +25,18 @@ export default async function LandingPage({ params: { slug } }) {
       <WindowsShowcase
         key={i}
         data={component}
+      />
+    ),
+    TextComponent: (
+      <TextSection
+        key={i}
+        data={component}
+      />
+    ),
+    CaseStudies: (
+      <CaseStudies
+        key={i}
+        heading={component.heading}
       />
     ),
   });
@@ -127,6 +141,17 @@ const query = async (slug) => {
                   }
                 }
               }
+            }
+            ... on TextComponent {
+              _type
+              heading
+              blocks {
+                description
+              }
+            }
+            ... on CaseStudies {
+              _type
+              heading
             }
           }
         }
