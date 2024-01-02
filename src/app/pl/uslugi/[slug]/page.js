@@ -1,5 +1,6 @@
 import CaseStudies from '@/components/sections/CaseStudies';
 import CentralizedHeadingSection from '@/components/sections/CentralizedHeadingSection';
+import ProsAndConsShowcase from '@/components/sections/ProsAndConsShowcase';
 import TextSection from '@/components/sections/TextSection';
 import WindowsShowcase from '@/components/sections/WindowsShowcase';
 import Hero from '@/components/sections/landingPage/Hero';
@@ -37,6 +38,12 @@ export default async function LandingPage({ params: { slug } }) {
       <CaseStudies
         key={i}
         heading={component.heading}
+      />
+    ),
+    ProsAndConsShowcase: (
+      <ProsAndConsShowcase
+        key={i}
+        data={component}
       />
     ),
   });
@@ -152,6 +159,17 @@ const query = async (slug) => {
             ... on CaseStudies {
               _type
               heading
+            }
+            ... on ProsAndConsShowcase {
+              _type
+              heading
+              ProsAndConsList {
+                title
+                ProsAndCons {
+                  isPros
+                  content
+                }
+              }
             }
           }
         }
