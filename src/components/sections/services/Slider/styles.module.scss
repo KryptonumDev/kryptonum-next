@@ -22,6 +22,7 @@
   .slider {
     position: relative;
     grid-area: slides;
+    padding-right: 80px;
 
     &::before,
     &::after {
@@ -60,7 +61,12 @@
       >p {
         padding: clamp(16px, calc(32vw/7.68), 32px) clamp(12px, calc(24vw/7.68), 24px) clamp(16px, calc(48vw/7.68), 48px);
       }
+
+      &:hover {
+        cursor: pointer;
+      }
     }
+
   }
 
   .additions {
@@ -77,12 +83,13 @@
       position: relative;
       background-color: var(--neutral-800);
       align-self: center;
+
       .bar {
         position: absolute;
         left: 0;
         top: 0;
         height: 100%;
-        width:calc(var(--currentIndex) / var(--slidesCount) * 100%);
+        width: calc(var(--currentIndex) / var(--slidesCount) * 100%);
         background: linear-gradient(266deg, #2DD282, #90F4E8 100%);
         transition: width 0.5s ease-out;
       }
@@ -150,7 +157,9 @@
 
   @media (max-width: 699px) {
     .slider {
+      padding-right: unset;
       width: 100%;
+
       &:before {
         width: 150px;
       }
