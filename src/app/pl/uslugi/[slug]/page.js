@@ -1,6 +1,7 @@
 import CaseStudies from '@/components/sections/CaseStudies';
 import CentralizedHeadingSection from '@/components/sections/CentralizedHeadingSection';
 import HeadingWithTitleAndImgList from '@/components/sections/HeadingWIthTitleAndImgList';
+import HeadingWithIconDescriptionList from '@/components/sections/HeadingWithIconDescriptionList';
 import ProsAndConsShowcase from '@/components/sections/ProsAndConsShowcase';
 import TextSection from '@/components/sections/TextSection';
 import WindowsShowcase from '@/components/sections/WindowsShowcase';
@@ -53,6 +54,12 @@ export default async function LandingPage({ params: { slug } }) {
         data={component}
       />
     ),
+    HeadingWithIconDescriptionList: (
+      <HeadingWithIconDescriptionList
+        key={i}
+        data={component}
+      />
+    ),
   });
 
   const {
@@ -62,7 +69,7 @@ export default async function LandingPage({ params: { slug } }) {
   const breadcrumbs = [
     {
       name: `${name}`,
-      link: `/pl/${slug}`,
+      link: `/pl/uslugi/${slug}`,
     },
   ];
 
@@ -184,6 +191,26 @@ const query = async (slug) => {
               TitleAndImage {
                 title
                 img {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            ... on HeadingWithIconDescriptionList {
+              _type
+              heading
+              IconDescriptionList {
+                description
+                icon {
                   asset {
                     altText
                     url
