@@ -1,12 +1,14 @@
 import BlocksShowcase from '@/components/sections/BlocksShowcase';
 import CaseStudies from '@/components/sections/CaseStudies';
 import CentralizedHeadingSection from '@/components/sections/CentralizedHeadingSection';
+import ConsultationForm from '@/components/sections/ConsultationForm';
 import HeadingDescriptionWithBlocksList from '@/components/sections/HeadingDescriptionWithBlocksList';
 import HeadingWithTitleAndImgList from '@/components/sections/HeadingWIthTitleAndImgList';
 import HeadingWithIconDescriptionList from '@/components/sections/HeadingWithIconDescriptionList';
 import HeadingWithIconTitleGrid from '@/components/sections/HeadingWithIconTitleGrid';
 import ImageComponent from '@/components/sections/ImageComponent';
 import ImageShowcase from '@/components/sections/ImageShowcase';
+import LatestBlogEntries from '@/components/sections/LatestBlogEntries';
 import ProsAndConsShowcase from '@/components/sections/ProsAndConsShowcase';
 import TextSection from '@/components/sections/TextSection';
 import WindowsShowcase from '@/components/sections/WindowsShowcase';
@@ -102,10 +104,17 @@ export default async function LandingPage({ params: { slug } }) {
         data={component}
       />
     ),
+    quickForm: (
+      <ConsultationForm
+        key={i}
+        data={component}
+      />
+    ),
   });
 
   const {
     page: { hero_Img, hero_Heading, hero_Paragraph, name, content },
+    blogEntries
   } = await query(slug);
 
   const breadcrumbs = [
@@ -126,6 +135,7 @@ export default async function LandingPage({ params: { slug } }) {
       {content.map((component, i) => {
         return mappedComponents(component, i)[component._type];
       })}
+      <LatestBlogEntries data={blogEntries} />
     </main>
   );
 }
@@ -382,6 +392,59 @@ const query = async (slug) => {
                       }
                     }
                   }
+                }
+              }
+            }
+            ... on QuickForm {
+              _type
+              heading
+              subheading
+              cta
+            }
+          }
+        }
+        blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+          title
+          subtitle
+          slug {
+            current
+          }
+          author {
+            name
+            slug {
+              current
+            }
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+          }
+          categories {
+            name
+            slug {
+              current
+            }
+          }
+          _createdAt
+          contentRaw
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
                 }
               }
             }
