@@ -4,6 +4,7 @@ import HeadingDescriptionWithBlocksList from '@/components/sections/HeadingDescr
 import HeadingWithTitleAndImgList from '@/components/sections/HeadingWIthTitleAndImgList';
 import HeadingWithIconDescriptionList from '@/components/sections/HeadingWithIconDescriptionList';
 import HeadingWithIconTitleGrid from '@/components/sections/HeadingWithIconTitleGrid';
+import ImageComponent from '@/components/sections/ImageComponent';
 import ImageShowcase from '@/components/sections/ImageShowcase';
 import ProsAndConsShowcase from '@/components/sections/ProsAndConsShowcase';
 import TextSection from '@/components/sections/TextSection';
@@ -77,6 +78,12 @@ export default async function LandingPage({ params: { slug } }) {
     ),
     HeadingWithIconTitleGrid: (
       <HeadingWithIconTitleGrid
+        key={i}
+        data={component}
+      />
+    ),
+    ImageComponent: (
+      <ImageComponent
         key={i}
         data={component}
       />
@@ -300,6 +307,23 @@ const query = async (slug) => {
                         height
                         width
                       }
+                    }
+                  }
+                }
+              }
+            }
+            ... on ImageComponent {
+              _type
+              isMockup
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
                     }
                   }
                 }
