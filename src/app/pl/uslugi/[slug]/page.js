@@ -3,6 +3,7 @@ import CentralizedHeadingSection from '@/components/sections/CentralizedHeadingS
 import HeadingDescriptionWithBlocksList from '@/components/sections/HeadingDescriptionWithBlocksList';
 import HeadingWithTitleAndImgList from '@/components/sections/HeadingWIthTitleAndImgList';
 import HeadingWithIconDescriptionList from '@/components/sections/HeadingWithIconDescriptionList';
+import HeadingWithIconTitleGrid from '@/components/sections/HeadingWithIconTitleGrid';
 import ImageShowcase from '@/components/sections/ImageShowcase';
 import ProsAndConsShowcase from '@/components/sections/ProsAndConsShowcase';
 import TextSection from '@/components/sections/TextSection';
@@ -70,6 +71,12 @@ export default async function LandingPage({ params: { slug } }) {
     ),
     HeadingDescriptionWithBlocksList: (
       <HeadingDescriptionWithBlocksList
+        key={i}
+        data={component}
+      />
+    ),
+    HeadingWithIconTitleGrid: (
+      <HeadingWithIconTitleGrid
         key={i}
         data={component}
       />
@@ -262,6 +269,26 @@ const query = async (slug) => {
               blocks {
                 title
                 description
+                img {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            ... on HeadingWithIconTitleGrid {
+              _type
+              heading
+              titleAndImageGrid {
+                title
                 img {
                   asset {
                     altText

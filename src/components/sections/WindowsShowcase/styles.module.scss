@@ -8,7 +8,7 @@
     display: grid;
     gap: 32px;
     align-items: start;
-    align-self: start;
+    align-self: center;
 
     .heading {
       font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(26rem/16));
