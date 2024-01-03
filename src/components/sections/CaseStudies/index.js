@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 import Markdown from '@/components/atoms/Markdown';
 import Link from 'next/link';
 
-const CaseStudies = async ({ data, heading, cta }) => {
+const CaseStudies = async ({ data, heading, cta, isTeamCaseStudies = false  }) => {
   const body = await query();
   if (data) {
     body.data.caseStudies = data;
@@ -19,7 +19,7 @@ const CaseStudies = async ({ data, heading, cta }) => {
           <DecorativeHeading type='h3'>{heading}</DecorativeHeading>
         </header>
       )}
-      <div className={styles.caseStudies}>
+      <div className={isTeamCaseStudies ? `${styles.caseStudies} ${styles.caseStudiesSmall}` : `${styles.caseStudies}`}>
         {body.data.caseStudies.map((caseStudy, i) => (
           <div
             className={styles.caseStudy}
