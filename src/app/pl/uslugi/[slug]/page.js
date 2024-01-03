@@ -11,6 +11,7 @@ import ProsAndConsShowcase from '@/components/sections/ProsAndConsShowcase';
 import TextSection from '@/components/sections/TextSection';
 import WindowsShowcase from '@/components/sections/WindowsShowcase';
 import Hero from '@/components/sections/landingPage/Hero';
+import ProcessList from '@/components/sections/services/ProcessList';
 import Slider from '@/components/sections/services/Slider';
 import Breadcrumbs from '@/global/Breadcrumbs';
 import fetchData from '@/utils/fetchData';
@@ -91,6 +92,12 @@ export default async function LandingPage({ params: { slug } }) {
     ),
     BlocksShowcase: (
       <BlocksShowcase
+        key={i}
+        data={component}
+      />
+    ),
+    ProcessList: (
+      <ProcessList
         key={i}
         data={component}
       />
@@ -342,6 +349,27 @@ const query = async (slug) => {
               description
               blocks {
                 title
+                img {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            ... on ProcessList {
+              _type
+              ProcessList {
+                heading
+                subheading
+                paragraph
                 img {
                   asset {
                     altText
