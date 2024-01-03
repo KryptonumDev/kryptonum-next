@@ -2,6 +2,7 @@ import CaseStudies from '@/components/sections/CaseStudies';
 import CentralizedHeadingSection from '@/components/sections/CentralizedHeadingSection';
 import HeadingWithTitleAndImgList from '@/components/sections/HeadingWIthTitleAndImgList';
 import HeadingWithIconDescriptionList from '@/components/sections/HeadingWithIconDescriptionList';
+import ImageShowcase from '@/components/sections/ImageShowcase';
 import ProsAndConsShowcase from '@/components/sections/ProsAndConsShowcase';
 import TextSection from '@/components/sections/TextSection';
 import WindowsShowcase from '@/components/sections/WindowsShowcase';
@@ -56,6 +57,12 @@ export default async function LandingPage({ params: { slug } }) {
     ),
     HeadingWithIconDescriptionList: (
       <HeadingWithIconDescriptionList
+        key={i}
+        data={component}
+      />
+    ),
+    ImageShowcase: (
+      <ImageShowcase
         key={i}
         data={component}
       />
@@ -220,6 +227,22 @@ const query = async (slug) => {
                         height
                         width
                       }
+                    }
+                  }
+                }
+              }
+            }
+            ... on ImageShowcase {
+              _type
+              images {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
                     }
                   }
                 }
