@@ -151,6 +151,7 @@ const query = async (slug) => {
               _type
               heading
               description
+              isSign
               icons {
                 icon {
                   asset {

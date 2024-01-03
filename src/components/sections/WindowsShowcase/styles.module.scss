@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 32px;
   margin: clamp(32px, calc(64vw/7.68), 40px) 110px;
+  align-items: flex-start;
 
   .windowsDescription {
     display: grid;
@@ -70,6 +71,16 @@
         justify-self: end;
       }
 
+      .signImg {
+        height: auto;
+        width: 70%;
+        object-fit: contain;
+        display: block;
+        padding-left: 16px;
+        padding-top: 22px;
+        padding-right: 22px;
+      }
+
       .windowDescription {
         align-self: end;
         padding: 0px 28px 20px 28px;
@@ -97,12 +108,33 @@
     .windows {
       width: 100%;
       height: 520px;
+      .windowWrapper {
+        .signImg {
+          width: min-content;
+          min-width: 200px;
+        }
+      }
+    }
+    .windowsDescription {
+      .signDescription {
+        width:75%;
+        justify-self: end;
+      }
     }
   }
 
   @media (max-width: 499px) {
     .windows {
       grid-template-columns: 1fr;
+      .windowWrapper {
+        align-items: flex-start;
+      }
+    }
+    .signWidnows {
+      height: auto;
+      .windowWrapper {
+        row-gap: 132px;
+      }
     }
 
     .windowsDescription {
