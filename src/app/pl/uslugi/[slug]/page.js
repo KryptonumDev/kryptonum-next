@@ -16,7 +16,14 @@ import Hero from '@/components/sections/landingPage/Hero';
 import ProcessList from '@/components/sections/services/ProcessList';
 import Slider from '@/components/sections/services/Slider';
 import Breadcrumbs from '@/global/Breadcrumbs';
+import SEO from '@/global/Seo';
 import fetchData from '@/utils/fetchData';
+import { notFound } from 'next/navigation';
+
+export async function generateStaticParams() {
+  const { allLandingPage } = await paramsQuery();
+  return allLandingPage.map((entry) => ({ slug: entry.slug.current }));
+}
 
 export default async function LandingPage({ params: { slug } }) {
   const mappedComponents = (component, i) => ({
@@ -114,7 +121,7 @@ export default async function LandingPage({ params: { slug } }) {
 
   const {
     page: { hero_Img, hero_Heading, hero_Paragraph, name, content },
-    blogEntries
+    blogEntries,
   } = await query(slug);
 
   const breadcrumbs = [
@@ -140,6 +147,17 @@ export default async function LandingPage({ params: { slug } }) {
   );
 }
 
+export async function generateMetadata({ params: { slug } }) {
+  const {
+    page: { seo },
+  } = await query(slug);
+  return SEO({
+    title: seo?.title,
+    description: seo?.description,
+    url: `/pl/uslugi/${slug}`,
+  });
+}
+
 const query = async (slug) => {
   const {
     body: { data },
@@ -148,6 +166,9 @@ const query = async (slug) => {
       query ($slug: String!) {
         page: allLandingPage(where: { slug: { current: { eq: $slug } } }) {
           name
+          slug {
+            current
+          }
           #Hero
           hero_Img {
             asset {
@@ -402,6 +423,11 @@ const query = async (slug) => {
               cta
             }
           }
+          #SEO
+          seo {
+            title
+            description
+          }
         }
         blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
           title
@@ -456,6 +482,24 @@ const query = async (slug) => {
       slug,
     }
   );
-  data.page = data.page[0];
+  if (slug) {
+    data.page ? (data.page = data.page[0]) : notFound();
+    slug !== data.page?.slug.current && notFound();
+  }
+  return data;
+};
+
+const paramsQuery = async () => {
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
+    query {
+      allLandingPage {
+        slug {
+          current
+        }
+      }
+    }
+  `);
   return data;
 };
