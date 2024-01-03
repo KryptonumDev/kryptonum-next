@@ -1,5 +1,6 @@
 import CaseStudies from '@/components/sections/CaseStudies';
 import CentralizedHeadingSection from '@/components/sections/CentralizedHeadingSection';
+import HeadingDescriptionWithBlocksList from '@/components/sections/HeadingDescriptionWithBlocksList';
 import HeadingWithTitleAndImgList from '@/components/sections/HeadingWIthTitleAndImgList';
 import HeadingWithIconDescriptionList from '@/components/sections/HeadingWithIconDescriptionList';
 import ImageShowcase from '@/components/sections/ImageShowcase';
@@ -63,6 +64,12 @@ export default async function LandingPage({ params: { slug } }) {
     ),
     ImageShowcase: (
       <ImageShowcase
+        key={i}
+        data={component}
+      />
+    ),
+    HeadingDescriptionWithBlocksList: (
+      <HeadingDescriptionWithBlocksList
         key={i}
         data={component}
       />
@@ -243,6 +250,28 @@ const query = async (slug) => {
                     dimensions {
                       height
                       width
+                    }
+                  }
+                }
+              }
+            }
+            ... on HeadingDescriptionWithBlocksList {
+              _type
+              heading
+              description
+              blocks {
+                title
+                description
+                img {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
                     }
                   }
                 }
