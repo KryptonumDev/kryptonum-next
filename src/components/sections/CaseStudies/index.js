@@ -41,7 +41,7 @@ const CaseStudies = async ({ data, heading, cta }) => {
             <Markdown className={styles.imageDescription}>{caseStudy.name}</Markdown>
           </div>
         ))}
-        <div className={styles.caseStudy}>
+        <div className={`${styles.caseStudy} ${styles.lastTile}`}>
           <div className={styles.buttonWrapper}>
             <Button
               theme='secondary'
