@@ -17,6 +17,7 @@
 
   .slide:not(.active) {
     transform: scale(.95);
+    transition: transform 0.5s var(--easing);
   }
 
   .slider {
