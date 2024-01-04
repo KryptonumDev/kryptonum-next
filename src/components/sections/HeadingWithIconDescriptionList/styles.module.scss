@@ -3,41 +3,55 @@
   grid-template-columns: 1fr 1.2fr;
   column-gap: 142px;
   row-gap: 32px;
+
   header {
     .heading {
       font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(26rem/16));
     }
   }
+
   .content {
     display: grid;
     row-gap: 72px;
+
     .item {
       display: grid;
       row-gap: 16px;
+
       .description {
         font-size: 16px;
       }
-      .icon {
+
+      .iconWrapper {
+        display: grid;
         width: 48px;
         height: 48px;
-        padding: 8px;
         border-radius: 50%;
         border: 1px solid var(--neutral-700-new);
-        align-self: center;
-        display: block;
+
+        .icon {
+          width: 66%;
+          height: 66%;
+          align-self: center;
+          justify-self: center;
+          display: block;
+        }
       }
     }
   }
+
   @media (max-width: 1199px) {
     grid-template-columns: 1fr;
+
     .content {
-      width:75%;
+      width: 75%;
       justify-self: end;
     }
   }
+
   @media (max-width: 499px) {
     .content {
-      width:100%;
+      width: 100%;
       justify-self: start;
     }
   }

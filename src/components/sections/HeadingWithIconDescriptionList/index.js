@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import Img from '@/components/atoms/Img';
 import Markdown from '@/components/atoms/Markdown';
 
-const HeadingWithIconDescriptionList = ({ data: { IconDescriptionList, heading }}) => {
+const HeadingWithIconDescriptionList = ({ data: { IconDescriptionList, heading } }) => {
   return (
     <section className={styles.headingWithIconDescriptionList}>
       <header>
@@ -20,10 +20,12 @@ const HeadingWithIconDescriptionList = ({ data: { IconDescriptionList, heading }
             className={styles.item}
             key={index}
           >
-            <Img
-              data={item.icon}
-              className={styles.icon}
-            />
+            <div className={styles.iconWrapper}>
+              <Img
+                data={item.icon}
+                className={styles.icon}
+              />
+            </div>
             <Markdown className={styles.description}>{item.description}</Markdown>
           </div>
         ))}
