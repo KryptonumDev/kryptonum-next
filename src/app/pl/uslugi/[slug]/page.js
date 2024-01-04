@@ -1,7 +1,6 @@
 import BlocksShowcase from '@/components/sections/BlocksShowcase';
 import CaseStudies from '@/components/sections/CaseStudies';
 import CentralizedHeadingSection from '@/components/sections/CentralizedHeadingSection';
-import ConsultationForm from '@/components/sections/ConsultationForm';
 import HeadingDescriptionWithBlocksList from '@/components/sections/HeadingDescriptionWithBlocksList';
 import HeadingWithTitleAndImgList from '@/components/sections/HeadingWIthTitleAndImgList';
 import HeadingWithIconDescriptionList from '@/components/sections/HeadingWithIconDescriptionList';
@@ -12,6 +11,7 @@ import LatestBlogEntries from '@/components/sections/LatestBlogEntries';
 import ProsAndConsShowcase from '@/components/sections/ProsAndConsShowcase';
 import TextSection from '@/components/sections/TextSection';
 import WindowsShowcase from '@/components/sections/WindowsShowcase';
+import Contact from '@/components/sections/ContactSection';
 import Hero from '@/components/sections/landingPage/Hero';
 import ProcessList from '@/components/sections/services/ProcessList';
 import Slider from '@/components/sections/services/Slider';
@@ -112,7 +112,7 @@ export default async function LandingPage({ params: { slug } }) {
       />
     ),
     quickForm: (
-      <ConsultationForm
+      <Contact
         key={i}
         data={component}
       />
