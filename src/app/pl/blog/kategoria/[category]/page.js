@@ -44,7 +44,6 @@ export default async function BlogCategoryPage({ params: { category } }) {
           paragraph: hero_Paragraph,
           sideImage: hero_Img,
         }}
-        isBlogHero={true}
       />
       <Categories
         categorySlug="/pl/blog/"

@@ -1,0 +1,110 @@
+.headingWithTitleAndImgList {
+  display: grid;
+  gap: 24px;
+
+  header {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(32px, calc(40vw/7.68), 40px) 0px;
+
+    .heading {
+      font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(26rem/16));
+    }
+  }
+
+  .titleAndImagesList {
+    display: grid;
+    grid-template-areas: "item1 item2 item2" "item3 item3 item4";
+    grid-template-columns: 3fr 1fr 3fr;
+    gap: 32px;
+  }
+
+  .item {
+    border: 1px solid var(--neutral-700-new);
+    border-radius: 4px;
+    display: grid;
+    align-items: center;
+    max-height: 300px;
+    overflow: hidden;
+
+    .title {
+      padding: 24px 16px 24px 27px;
+      font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+    }
+
+    .image {
+      width: auto;
+      height: 300px;
+      object-fit: cover;
+      justify-self: center;
+      object-position: bottom;
+    }
+  }
+
+  .item-1 {
+    grid-area: item1;
+  }
+
+  .item-2 {
+    grid-area: item2;
+
+    .title {
+      display: grid;
+      row-gap: 24px;
+
+      p:first-child {
+        display: none;
+      }
+    }
+  }
+
+  .item-3 {
+    grid-area: item3;
+  }
+
+  .item-4 {
+    grid-area: item4;
+  }
+
+  @media (max-width: 1099px) {
+    .titleAndImagesList {
+      grid-template-areas: "item1 item2" "item3 item3" "item4 item4";
+      grid-template-columns: 1fr 2.5fr;
+    }
+
+    .item {
+      max-height: unset;
+    }
+
+    .item-1 {
+      .image {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .item-2 {
+      .title {
+        p:first-child {
+          display: unset;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 849px) {
+    .titleAndImagesList {
+      grid-template-columns: 1fr;
+      grid-template-areas: "item1" "item2" "item3" "item4";
+    }
+    .item-1 {
+      .image {
+        height: auto;
+        width: 100%;
+        max-width: 500px;
+      }
+    }
+  }
+}

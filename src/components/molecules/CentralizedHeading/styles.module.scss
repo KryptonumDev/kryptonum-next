@@ -7,6 +7,7 @@
   text-align: center;
 
   .decorativeHeading {
+    font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(26rem/16));
     >svg {
       width: 0.86em;
       height: 0.86em;
@@ -30,5 +31,8 @@
     >span {
       display:inline-block;
     }
+  }
+  @media (max-width: 499px) {
+    text-align: start;
   }
 }

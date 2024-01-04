@@ -90,6 +90,7 @@ export default async function TeamMemberPage({ params: { member } }) {
 						<CaseStudies
 							heading="Mam swój **udział** w…"
 							data={filteredCaseStudiesByPerson}
+              isTeamCaseStudies={true}
 						/>
 					)}
 					{blogEntries?.length >= 1 && (

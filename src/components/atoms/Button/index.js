@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import styles from "./styles.module.scss";
 
-const Button = ({ data, theme = "secondary", href, className, children, ...props }) => {
+const Button = ({ data, theme = "secondary", href, className, svg, children, ...props }) => {
   if (data) {
     theme = data.theme;
     href = data.href;
@@ -21,18 +21,18 @@ const Button = ({ data, theme = "secondary", href, className, children, ...props
         isExternal ? (
           <a className={linkClassName} href={href} target="_blank" rel="noreferrer" {...props}>
             <span data-text={theme === "secondary" ? children : undefined}>{children}</span>
-            <ArrowRight />
+            {svg ? svg : <ArrowRight />}
           </a>
         ) : (
           <Link className={linkClassName} href={href} {...props}>
             <span data-text={theme === "secondary" ? children : undefined}>{children}</span>
-            <ArrowRight />
+            {svg ? svg : <ArrowRight />}
           </Link>
         )
       ) : (
         <button className={linkClassName} type="submit" {...props}>
           <span data-text={theme === "secondary" ? children : undefined}>{children}</span>
-          <ArrowRight />
+          {svg ? svg : <ArrowRight />}
         </button>
       )}
     </>

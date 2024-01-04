@@ -43,7 +43,6 @@ export default async function academyPaginationPage({ params: { number } }) {
           paragraph: hero_Paragraph,
           sideImage: hero_Img,
         }}
-        isBlogHero={true}
       />
       <Categories
         categorySlug="/pl/akademia/"

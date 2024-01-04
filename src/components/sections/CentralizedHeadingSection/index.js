@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 
 const CentralizedHeadingSection = ({
   data,
-  decoration,
+  decoration = false,
   additionalStyles
 }) => {
   return (

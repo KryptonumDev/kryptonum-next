@@ -1,0 +1,53 @@
+.headingWithIconTitleGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 142px;
+
+  header {
+    .heading {
+      font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(26rem/16));
+    }
+  }
+
+  .items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: clamp(32px, calc(72vw/7.68), 72px);
+    column-gap: 32px;
+
+    .item {
+      display: grid;
+      gap: 16px;
+      .imageWrapper {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 1px solid var(--neutral-700-new);
+        display: grid;
+        .img {
+          height: 66%;
+          width: 66%;
+          align-self: center;
+          justify-self: center;
+          object-fit: contain;
+          object-position: center;
+          display: block;
+        }
+      }
+    }
+  }
+  @media (max-width: 1099px) {
+    grid-template-columns: 1fr;
+    row-gap: 72px;
+  }
+  @media (max-width: 499px) {
+    .items {
+      grid-template-columns: 1fr;
+      .item {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+      }
+    }
+  }
+}

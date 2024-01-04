@@ -25,6 +25,7 @@
   --gradient: linear-gradient(90deg, #90F4E8, #2DD282);
   --easing: cubic-bezier(0.23, 1, 0.32, 1);
   --nav-height: 94px;
+  --neutral-700-new: #4A4A57;
 }
 
 body.scrollLock {
@@ -85,7 +86,9 @@ body {
 main,
 .maxWidth {
   --pageMargin: 40px;
-
+  @media (max-width: 1199px) {
+    --pageMargin: 80px;
+  }
   @media (max-width: 699px) {
     --pageMargin: 16px;
   }

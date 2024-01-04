@@ -1,0 +1,38 @@
+.prosAndConsShowcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 33px;
+  header {
+    display: grid;
+    align-items: center;
+    .heading {
+      font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(26rem/16));
+    }
+  }
+
+  .prosAndConsItem {
+    display: grid;
+    padding: 24px;
+    font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(26rem/16));
+    border-radius: 4px;
+    border: 1px solid var(--neutral-700-new);
+    align-content: space-between;
+    gap: 30px;
+
+    .prosAndConsWrapper {
+      display: grid;
+      row-gap: 20px;
+
+      >div {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 8px;
+        font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+        align-items: center;
+      }
+    }
+  }
+  @media (max-width: 1299px) {
+    grid-template-columns: 1fr;
+  }
+}

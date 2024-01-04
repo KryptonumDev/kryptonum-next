@@ -1,0 +1,147 @@
+.windowsShowcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin: clamp(32px, calc(64vw/7.68), 40px) 110px;
+  align-items: flex-start;
+
+  .windowsDescription {
+    display: grid;
+    gap: 32px;
+    align-items: start;
+    align-self: center;
+
+    .heading {
+      font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(26rem/16));
+    }
+
+    .description {
+      font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+    }
+
+    .logoShowcase {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(100px, 1fr));
+      row-gap: 16px;
+
+      .logoWrapper {
+        display: grid;
+        grid-template-columns: 56px auto;
+        gap: 12px;
+
+        .icon {
+          border-radius: 50%;
+          border: 1px solid var(--neutral-700-new);
+          padding: 8px;
+          width: clamp(48px, calc(56vw/7.68), 56px);
+          height: clamp(48px, calc(56vw/7.68), 56px);
+          display: block;
+          align-self: center;
+          justify-content: center;
+        }
+
+        .iconDescription {
+          align-self: center;
+          font-size: clamp(calc(14rem/16), calc(16vw/7.68), calc(16rem/16));
+        }
+      }
+    }
+  }
+
+  .windows {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 40vw;
+    width: 40vw;
+
+    .windowWrapper {
+      border: 1px solid var(--neutral-700-new);
+      border-radius: 4px;
+      display: grid;
+      position: relative;
+
+      .windowImg {
+        height: 90%;
+        width: auto;
+        top: 0;
+        right: 0;
+        object-fit: contain;
+        display: block;
+        position: absolute;
+        justify-self: end;
+      }
+
+      .signImg {
+        height: auto;
+        width: 70%;
+        object-fit: contain;
+        display: block;
+        padding-left: 16px;
+        padding-top: 22px;
+        padding-right: 22px;
+      }
+
+      .windowDescription {
+        align-self: end;
+        padding: 0px 28px 20px 28px;
+      }
+    }
+
+    .windowWrapper:nth-child(n) {
+      margin-right: -1px;
+    }
+
+    .windowWrapper:nth-child(n+2) {
+      margin-top: -1px;
+    }
+
+    .windowWrapper:first-child {
+      margin-top: -1px;
+    }
+  }
+
+  @media (max-width: 1349px) {
+    grid-template-columns: 1fr;
+    margin-left: unset;
+    margin-right: unset;
+
+    .windows {
+      width: 100%;
+      height: 520px;
+      .windowWrapper {
+        .signImg {
+          width: min-content;
+          min-width: 200px;
+        }
+      }
+    }
+    .windowsDescription {
+      .signDescription {
+        width:75%;
+        justify-self: end;
+      }
+    }
+  }
+
+  @media (max-width: 599px) {
+    .windows {
+      grid-template-columns: 1fr;
+      .windowWrapper {
+        align-items: flex-start;
+      }
+    }
+    .signWidnows {
+      height: auto;
+      row-gap: 12px;
+      .windowWrapper {
+        row-gap: 132px;
+      }
+    }
+
+    .windowsDescription {
+      .logoShowcase {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}

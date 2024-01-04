@@ -24,7 +24,6 @@ export default async function notFound() {
           paragraph: hero_Subheading,
           cta: hero_Cta,
         }}
-        isBlogHero={true}
       />
       <LatestCuriosityEntries heading={curiosities_Heading} />
       <CtaSection data={ctaSection} />

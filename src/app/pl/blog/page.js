@@ -36,7 +36,6 @@ export default async function BlogPage() {
           paragraph: hero_Paragraph,
           sideImage: hero_Img,
         }}
-        isBlogHero={true}
       />
       <Categories
         categorySlug="/pl/blog/"

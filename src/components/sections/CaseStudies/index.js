@@ -1,56 +1,69 @@
-import Button from "@/components/atoms/Button";
-import Img from "@/components/atoms/Img";
-import fetchData from "@/utils/fetchData";
-import DecorativeHeading from "../../atoms/DecorativeHeading";
-import styles from "./styles.module.scss";
+import Button from '@/components/atoms/Button';
+import Img from '@/components/atoms/Img';
+import fetchData from '@/utils/fetchData';
+import DecorativeHeading from '../../atoms/DecorativeHeading';
+import styles from './styles.module.scss';
+import Markdown from '@/components/atoms/Markdown';
+import Link from 'next/link';
 
-const CaseStudies = async ({ data, heading, cta, eagerLoading = false }) => {
+const CaseStudies = async ({ data, heading, cta, isTeamCaseStudies = false }) => {
   const body = await query();
   if (data) {
     body.data.caseStudies = data;
   }
 
   return (
-		<section className={styles.wrapper}>
+    <section className={styles.wrapper}>
       {heading && (
         <header>
-          <DecorativeHeading type="h3">{heading}</DecorativeHeading>
+          <DecorativeHeading type='h3'>{heading}</DecorativeHeading>
         </header>
       )}
-      <div>
+      <div className={isTeamCaseStudies ? `${styles.caseStudies} ${styles.caseStudiesSmall}` : `${styles.caseStudies}`}>
         {body.data.caseStudies.map((caseStudy, i) => (
-          <div className={styles.caseStudy} key={i}>
-            <Img
-              data={caseStudy.img}
+          <Link
+            key={i}
+            href={`/pl/portfolio/${caseStudy.slug.current}`}
+            className={styles.link}
+          >
+            <div
+              className={styles.caseStudy}
               key={i}
-              className={styles.img}
-              priority={eagerLoading && i == 0 ? true : false}
-              sizes="100vw"
-            />
-            <Button
-              href={`/pl/portfolio/${caseStudy.slug.current}`}
-              aria-label={`Sprawdź projekt ${caseStudy.name}`}
-              theme="primary"
-              className={styles.cta}
             >
-              Sprawdź projekt
+              <div className={styles.imageWrapper}>
+                <Img
+                  data={caseStudy.img}
+                  key={i}
+                  className={styles.img}
+                  sizes='(max-width: 1200px) 25vw, 50vw'
+                />
+              </div>
+              <Markdown className={styles.imageDescription}>{caseStudy.name}</Markdown>
+            </div>
+          </Link>
+        ))}
+        <div className={`${styles.caseStudy} ${styles.lastTile}`}>
+          <div className={styles.buttonWrapper}>
+            <Button
+              theme='secondary'
+              href='/pl/portfolio'
+              data={cta}
+              className={styles.button}
+            >
+              {cta || 'Przejdź do projektów'}
             </Button>
           </div>
-        ))}
+          <div></div>
+        </div>
       </div>
-      {
-        <Button theme="secondary" href="/pl/portfolio" data={cta}>
-          {cta || "Wszystkie projekty"}
-        </Button>
-      }
     </section>
   );
 };
 
 const query = async () => {
-  const { body } = await fetchData(/* GraphQL */`
+  const { body } = await fetchData(/* GraphQL */ `
     query {
-      caseStudies: allCaseStudyEntries(limit: 3, sort: { _updatedAt: ASC }) {
+      caseStudies: allCaseStudyEntries(limit: 7, sort: { _updatedAt: ASC }) {
         name
         slug {
           current
