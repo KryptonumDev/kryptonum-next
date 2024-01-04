@@ -3,14 +3,14 @@ import styles from './styles.module.scss';
 import Markdown from '@/components/atoms/Markdown';
 import Img from '@/components/atoms/Img';
 
-const WindowsShowcase = ({ data: { heading, description, icons, windows, isSign } }) => {
+const CooperationGrid = ({ data: { heading, description, icons, grid } }) => {
   return (
     <section className={styles.windowsShowcase}>
       <div className={styles.windowsDescription}>
         <header>
           <DecorativeHeading type='h3' className={styles.heading}>{heading}</DecorativeHeading>
         </header>
-        <Markdown className={isSign ? `${styles.description} ${styles.signDescription}` : styles.description}>{description}</Markdown>
+        <Markdown className={`${styles.description} ${styles.signDescription}`}>{description}</Markdown>
         <div className={styles.logoShowcase}>
           {icons && icons.map((icon, index) => (
             <div
@@ -26,23 +26,23 @@ const WindowsShowcase = ({ data: { heading, description, icons, windows, isSign 
           ))}
         </div>
       </div>
-      <div className={isSign ? `${styles.windows} ${styles.signWidnows}` : styles.windows}>
-        {windows.map((window, index) => (
+      <div className={`${styles.windows} ${styles.signWidnows}`}>
+        {grid.map((grid, index) => (
           <div
             className={styles.windowWrapper}
             key={index}
           >
-            {window.img && (
+            {grid.img && (
               <Img
-                data={window.img}
-                className={isSign ? styles.signImg : styles.windowImg}
+                data={grid.img}
+                className={styles.signImg}
               />
             )}
-            <p className={styles.windowDescription}>{window.title}</p>
+            <p className={styles.windowDescription}>{grid.title}</p>
           </div>
         ))}
       </div>
     </section>
   );
 };
-export default WindowsShowcase;
+export default CooperationGrid;

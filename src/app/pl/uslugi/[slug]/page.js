@@ -10,7 +10,7 @@ import ImageShowcase from '@/components/sections/ImageShowcase';
 import LatestBlogEntries from '@/components/sections/LatestBlogEntries';
 import ProsAndConsShowcase from '@/components/sections/ProsAndConsShowcase';
 import TextSection from '@/components/sections/TextSection';
-import WindowsShowcase from '@/components/sections/WindowsShowcase';
+import RevealableGrid from '@/components/sections/RevealableGrid';
 import Hero from '@/components/sections/landingPage/Hero';
 import ProcessList from '@/components/sections/services/ProcessList';
 import Slider from '@/components/sections/services/Slider';
@@ -19,6 +19,7 @@ import SEO from '@/global/Seo';
 import fetchData from '@/utils/fetchData';
 import { notFound } from 'next/navigation';
 import ConsultationForm from '@/components/sections/ConsultationForm';
+import CooperationGrid from '@/components/sections/CooperationGrid';
 
 export async function generateStaticParams() {
   const { allLandingPage } = await paramsQuery();
@@ -39,8 +40,14 @@ export default async function LandingPage({ params: { slug } }) {
         data={component}
       />
     ),
-    WindowsShowcase: (
-      <WindowsShowcase
+    RevealableGrid: (
+      <RevealableGrid
+        key={i}
+        data={component}
+      />
+    ),
+    CooperationGrid: (
+      <CooperationGrid
         key={i}
         data={component}
       />
@@ -199,11 +206,10 @@ const query = async (slug) => {
               _type
               heading
             }
-            ... on WindowsShowcase {
+            ... on RevealableGrid {
               _type
               heading
               description
-              isSign
               icons {
                 icon {
                   asset {
@@ -220,7 +226,44 @@ const query = async (slug) => {
                 }
                 description
               }
-              windows {
+              grid {
+                title
+                img {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            ... on CooperationGrid {
+              _type
+              heading
+              description
+              icons {
+                icon {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
+                description
+              }
+              grid {
                 title
                 img {
                   asset {
