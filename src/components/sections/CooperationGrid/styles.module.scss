@@ -111,8 +111,8 @@
 
       .windowWrapper {
         .signImg {
-          width: min-content;
-          min-width: 170px;
+          width: 100%;
+          max-width: 250px;
         }
       }
     }
