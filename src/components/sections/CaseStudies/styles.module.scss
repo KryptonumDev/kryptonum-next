@@ -22,22 +22,28 @@
       grid-template-rows: 1fr 70px;
     }
 
-    .imageWrapper {
-      overflow: hidden;
-      border: 1px solid var(--neutral-700-new);
-      border-radius: 4px;
-      width: 100%;
-      height: auto;
-
-      .img {
+    .link {
+      .imageWrapper {
+        overflow: hidden;
+        border: 1px solid var(--neutral-700-new);
+        border-radius: 4px;
         width: 100%;
-        display: block;
         height: auto;
-        object-fit: cover;
-        transition: transform 0.3s;
 
-        &:hover {
-          transform: scale(1.05);
+        .img {
+          width: 100%;
+          display: block;
+          height: auto;
+          object-fit: cover;
+          transition: transform 0.3s;
+        }
+      }
+
+      &:hover {
+        .imageWrapper {
+          .img {
+            transform: scale(1.05);
+          }
         }
       }
     }

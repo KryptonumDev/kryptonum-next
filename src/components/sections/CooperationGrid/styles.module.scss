@@ -112,7 +112,7 @@
       .windowWrapper {
         .signImg {
           width: min-content;
-          min-width: 200px;
+          min-width: 170px;
         }
       }
     }
@@ -125,7 +125,7 @@
     }
   }
 
-  @media (max-width: 499px) {
+  @media (max-width: 599px) {
     .windows {
       grid-template-columns: 1fr;
 

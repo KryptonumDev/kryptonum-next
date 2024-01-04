@@ -39,7 +39,7 @@
   }
   @media (max-width: 699px) {
     .imageWrapper {
-      width: calc(100% + var(--pageMargin) * 2);
+      width: calc(100% + var(--pageMargin) * 1);
       margin: 0 calc(var(--pageMargin) * -1);
     }
   }

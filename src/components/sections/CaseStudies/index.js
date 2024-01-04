@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 import Markdown from '@/components/atoms/Markdown';
 import Link from 'next/link';
 
-const CaseStudies = async ({ data, heading, cta, isTeamCaseStudies = false  }) => {
+const CaseStudies = async ({ data, heading, cta, isTeamCaseStudies = false }) => {
   const body = await query();
   if (data) {
     body.data.caseStudies = data;
@@ -21,25 +21,26 @@ const CaseStudies = async ({ data, heading, cta, isTeamCaseStudies = false  }) =
       )}
       <div className={isTeamCaseStudies ? `${styles.caseStudies} ${styles.caseStudiesSmall}` : `${styles.caseStudies}`}>
         {body.data.caseStudies.map((caseStudy, i) => (
-          <div
-            className={styles.caseStudy}
+          <Link
             key={i}
+            href={`/pl/portfolio/${caseStudy.slug.current}`}
+            className={styles.link}
           >
-            <div className={styles.imageWrapper}>
-              <Link
-                key={i}
-                href={`/pl/portfolio/${caseStudy.slug.current}`}
-              >
+            <div
+              className={styles.caseStudy}
+              key={i}
+            >
+              <div className={styles.imageWrapper}>
                 <Img
                   data={caseStudy.img}
                   key={i}
                   className={styles.img}
                   sizes='(max-width: 1200px) 25vw, 50vw'
                 />
-              </Link>
+              </div>
+              <Markdown className={styles.imageDescription}>{caseStudy.name}</Markdown>
             </div>
-            <Markdown className={styles.imageDescription}>{caseStudy.name}</Markdown>
-          </div>
+          </Link>
         ))}
         <div className={`${styles.caseStudy} ${styles.lastTile}`}>
           <div className={styles.buttonWrapper}>
