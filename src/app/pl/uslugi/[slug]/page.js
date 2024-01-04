@@ -11,7 +11,6 @@ import LatestBlogEntries from '@/components/sections/LatestBlogEntries';
 import ProsAndConsShowcase from '@/components/sections/ProsAndConsShowcase';
 import TextSection from '@/components/sections/TextSection';
 import WindowsShowcase from '@/components/sections/WindowsShowcase';
-import Contact from '@/components/sections/ContactSection';
 import Hero from '@/components/sections/landingPage/Hero';
 import ProcessList from '@/components/sections/services/ProcessList';
 import Slider from '@/components/sections/services/Slider';
@@ -19,6 +18,7 @@ import Breadcrumbs from '@/global/Breadcrumbs';
 import SEO from '@/global/Seo';
 import fetchData from '@/utils/fetchData';
 import { notFound } from 'next/navigation';
+import ConsultationForm from '@/components/sections/ConsultationForm';
 
 export async function generateStaticParams() {
   const { allLandingPage } = await paramsQuery();
@@ -112,7 +112,7 @@ export default async function LandingPage({ params: { slug } }) {
       />
     ),
     quickForm: (
-      <Contact
+      <ConsultationForm
         key={i}
         data={component}
       />
