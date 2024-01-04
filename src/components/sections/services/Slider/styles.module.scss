@@ -164,6 +164,12 @@
       &:before {
         width: 150px;
       }
+
+      &::before,
+      &::after {
+        display: none;
+      }
     }
+
   }
 }
