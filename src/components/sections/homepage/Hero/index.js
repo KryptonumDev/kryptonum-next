@@ -17,7 +17,7 @@ const Hero = ({ data: { hero_Heading, hero_Subheading, hero_Cta, caseStudies }, 
         </div>
       </header>
       <CaseStudies
-        data={caseStudies.caseStudies}
+        data={caseStudies?.caseStudies}
         eagerLoading={eagerLoading}
       />
     </section>

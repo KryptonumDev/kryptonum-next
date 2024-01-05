@@ -94,8 +94,8 @@ export default async function WebDevelopmentWebsitesPage() {
           }}
         />
         <CaseStudies
-          heading={caseStudies.heading}
-          data={caseStudies.caseStudies}
+          heading={caseStudies?.heading}
+          data={caseStudies?.caseStudies}
         />
         <SimpleCtaSection data={simpleCtaSection} />
         <LatestBlogEntries

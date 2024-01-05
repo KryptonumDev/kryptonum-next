@@ -23,8 +23,8 @@ export default async function MarketingPage() {
     CaseStudies: (
       <CaseStudies
         key={i}
-        data={component.caseStudies}
-        heading={component.heading}
+        data={component?.caseStudies}
+        heading={component?.heading}
       />
     ),
     ctaSection: (
