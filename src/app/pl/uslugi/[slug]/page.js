@@ -61,8 +61,8 @@ export default async function LandingPage({ params: { slug } }) {
     CaseStudies: (
       <CaseStudies
         key={i}
-        data={component.caseStudies}
-        heading={component.heading}
+        data={component?.caseStudies}
+        heading={component?.heading}
       />
     ),
     ProsAndConsShowcase: (

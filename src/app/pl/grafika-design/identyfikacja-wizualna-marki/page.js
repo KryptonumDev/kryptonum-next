@@ -91,8 +91,8 @@ export default async function graphicsAndDesignVisualIdentityPage() {
           list={who_List}
         />
         <CaseStudies
-          heading={caseStudies.heading}
-          data={caseStudies.caseStudies}
+          heading={caseStudies?.heading}
+          data={caseStudies?.caseStudies}
         />
         <CtaSection data={ctaSection} />
         <LatestBlogEntries

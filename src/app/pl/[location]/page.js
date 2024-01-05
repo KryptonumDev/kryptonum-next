@@ -31,7 +31,7 @@ export default async function LocationPage({ params: { location } }) {
       <CaseStudies
         key={i}
         heading={component?.heading}
-        data={component.caseStudies}
+        data={component?.caseStudies}
         eagerLoading={true}
       />
     ),

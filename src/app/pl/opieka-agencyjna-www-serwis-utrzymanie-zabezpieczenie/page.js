@@ -95,8 +95,8 @@ export default async function AgencyCarePage() {
         />
         <QuickForm data={quickForm} />
         <CaseStudies
-          heading={caseStudies.heading}
-          data={caseStudies.caseStudies}
+          heading={caseStudies?.heading}
+          data={caseStudies?.caseStudies}
         />
         <CtaSection data={ctaSection} />
         <Protection

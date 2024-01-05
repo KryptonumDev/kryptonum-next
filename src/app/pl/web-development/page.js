@@ -81,8 +81,8 @@ export default async function webDevelopmentPage() {
         />
         <Testimonials testimonials={testimonials} />
         <CaseStudies
-          heading={caseStudies.heading}
-          data={caseStudies.caseStudies}
+          heading={caseStudies?.heading}
+          data={caseStudies?.caseStudies}
         />
         <CtaSection data={ctaSection} />
       </main>

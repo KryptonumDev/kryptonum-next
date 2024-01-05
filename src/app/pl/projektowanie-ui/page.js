@@ -76,8 +76,8 @@ export default async function UiDesignPage() {
       <Process data={{ blocks }} />
       <CentralizedHeadingSection data={centralizedHeading2} />
       <CaseStudies
-        cta={caseStudies.cta}
-        data={caseStudies.caseStudies}
+        cta={caseStudies?.cta}
+        data={caseStudies?.caseStudies}
       />
       <CtaSection data={ctaSection3} />
       <Team

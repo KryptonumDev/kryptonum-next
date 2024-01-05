@@ -124,8 +124,8 @@ export default async function graphicsAndDesignAuditPage() {
           img={benefits_Img}
         />
         <CaseStudies
-          heading={caseStudies.Heading}
-          data={caseStudies.caseStudies}
+          heading={caseStudies?.Heading}
+          data={caseStudies?.caseStudies}
         />
         <CtaSection data={ctaSection} />
         <LatestBlogEntries

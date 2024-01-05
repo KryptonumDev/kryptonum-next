@@ -90,8 +90,8 @@ export default async function webDevelopmentWebAppsPage() {
         />
         <CtaSection data={ctaSection} />
         <CaseStudies
-          heading={caseStudies.heading}
-          data={caseStudies.caseStudies}
+          heading={caseStudies?.heading}
+          data={caseStudies?.caseStudies}
         />
         <LatestBlogEntries
           heading={blogEntries_Heading}

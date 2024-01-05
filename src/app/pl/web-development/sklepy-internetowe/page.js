@@ -71,8 +71,8 @@ export default async function webDevelopmentShoppingSitesPage() {
         />
         <QuickForm data={quickForm} />
         <CaseStudies
-          heading={caseStudies.heading}
-          data={caseStudies.caseStudies}
+          heading={caseStudies?.heading}
+          data={caseStudies?.caseStudies}
         />
         <Develop
           data={{
