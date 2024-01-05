@@ -70,6 +70,7 @@
       &::after {
         filter: drop-shadow(0px 0px 2px #ffffff) drop-shadow(0px 0px 6px #e1fffa) drop-shadow(0px 0px 25px #6df1dd)
           drop-shadow(0px 0px 35px rgba(55, 193, 131, 0.75));
+          top: 0;
       }
     }
     &:hover span::before,

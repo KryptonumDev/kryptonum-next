@@ -61,6 +61,7 @@ export default async function LandingPage({ params: { slug } }) {
     CaseStudies: (
       <CaseStudies
         key={i}
+        data={component.caseStudies}
         heading={component.heading}
       />
     ),
@@ -290,6 +291,25 @@ const query = async (slug) => {
             ... on CaseStudies {
               _type
               heading
+              caseStudies {
+                name
+                slug {
+                  current
+                }
+                img {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
+              }
             }
             ... on ProsAndConsShowcase {
               _type

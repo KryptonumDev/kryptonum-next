@@ -46,6 +46,7 @@ const PolishIndexPage = async () => {
       team_Heading,
       team_Text,
       team_Cta,
+      caseStudies,
     },
     testimonials,
     blogEntries,
@@ -58,6 +59,7 @@ const PolishIndexPage = async () => {
           hero_Heading,
           hero_Subheading,
           hero_Cta,
+          caseStudies,
         }}
         eagerLoading={true}
       />
@@ -112,6 +114,29 @@ const query = async () => {
           theme
           text
           href
+        }
+        # Case Studies
+        caseStudies {
+          heading
+          caseStudies {
+            name
+            slug {
+              current
+            }
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+          }
         }
         # Services
         services: GridFloatingImg {

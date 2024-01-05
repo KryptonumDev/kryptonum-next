@@ -1,55 +1,55 @@
-import CaseStudies from "@/components/sections/CaseStudies";
-import CentralizedHeadingSection from "@/components/sections/CentralizedHeadingSection";
-import CtaSection from "@/components/sections/CtaSection";
-import FullWidthImageComponent from "@/components/sections/FullWidthImageComponent";
-import Hero from "@/components/sections/Hero";
-import IconTitleDescriptionListSection from "@/components/sections/IconTitleDescriptionListSection";
-import Process from "@/components/sections/Process";
-import Slider from "@/components/sections/Slider";
-import Team from "@/components/sections/Team";
-import Testimonials from "@/components/sections/Testimonials";
-import TextSection from "@/components/sections/TextSection";
-import TilesComponentWithHeading from "@/components/sections/TilesComponentWithHeading";
-import Breadcrumbs from "@/global/Breadcrumbs";
-import SEO from "@/global/Seo";
-import fetchData from "@/utils/fetchData";
+import CaseStudies from '@/components/sections/CaseStudies';
+import CentralizedHeadingSection from '@/components/sections/CentralizedHeadingSection';
+import CtaSection from '@/components/sections/CtaSection';
+import FullWidthImageComponent from '@/components/sections/FullWidthImageComponent';
+import Hero from '@/components/sections/Hero';
+import IconTitleDescriptionListSection from '@/components/sections/IconTitleDescriptionListSection';
+import Process from '@/components/sections/Process';
+import Slider from '@/components/sections/Slider';
+import Team from '@/components/sections/Team';
+import Testimonials from '@/components/sections/Testimonials';
+import TextSection from '@/components/sections/TextSection';
+import TilesComponentWithHeading from '@/components/sections/TilesComponentWithHeading';
+import Breadcrumbs from '@/global/Breadcrumbs';
+import SEO from '@/global/Seo';
+import fetchData from '@/utils/fetchData';
 
 const breadcrumbs = [
   {
-    name: "Projektowanie UI",
-    link: "/projektowanie-ui",
+    name: 'Projektowanie UI',
+    link: '/projektowanie-ui',
   },
 ];
 
 export default async function UiDesignPage() {
-	const {
-		page: {
-			team_Cta,
-			team_Heading,
-			team_Text,
-			hero,
-			textSection,
-			centralizedHeading,
-			ctaSection,
-			tilesWithHeading,
-			image,
-			slider,
-			textSection2,
-			headerTitleDescriptionList,
-			image2,
-			textSection3,
-			ctaSection2,
-			textSection4,
-			blocks,
-			centralizedHeading2,
-			caseStudies,
-			ctaSection3,
-		},
-		testimonials,
-	} = await query();
+  const {
+    page: {
+      team_Cta,
+      team_Heading,
+      team_Text,
+      hero,
+      textSection,
+      centralizedHeading,
+      ctaSection,
+      tilesWithHeading,
+      image,
+      slider,
+      textSection2,
+      headerTitleDescriptionList,
+      image2,
+      textSection3,
+      ctaSection2,
+      textSection4,
+      blocks,
+      centralizedHeading2,
+      caseStudies,
+      ctaSection3,
+    },
+    testimonials,
+  } = await query();
 
-	return (
-    <main id="main">
+  return (
+    <main id='main'>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
       <Hero data={hero} />
       <TextSection data={textSection} />
@@ -73,9 +73,12 @@ export default async function UiDesignPage() {
       />
       <CtaSection data={ctaSection2} />
       <TextSection data={textSection4} />
-      <Process data={{blocks}} />
+      <Process data={{ blocks }} />
       <CentralizedHeadingSection data={centralizedHeading2} />
-      <CaseStudies cta={caseStudies} />
+      <CaseStudies
+        cta={caseStudies.cta}
+        data={caseStudies.caseStudies}
+      />
       <CtaSection data={ctaSection3} />
       <Team
         heading={team_Heading}
@@ -84,18 +87,18 @@ export default async function UiDesignPage() {
       />
       <Testimonials testimonials={testimonials} />
     </main>
-	);
+  );
 }
 
 export async function generateMetadata() {
-	const {
-		page: { seo },
-	} = await query();
-	return SEO({
-		title: seo?.title,
-		description: seo?.description,
-		url: "/pl/projektowanie-ui",
-	});
+  const {
+    page: { seo },
+  } = await query();
+  return SEO({
+    title: seo?.title,
+    description: seo?.description,
+    url: '/pl/projektowanie-ui',
+  });
 }
 
 const query = async () => {
@@ -280,9 +283,31 @@ const query = async () => {
         }
         #Case studies
         caseStudies {
-          theme
-          text
-          href
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+          caseStudies {
+            name
+            slug {
+              current
+            }
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+          }
         }
         #CtaSection3
         ctaSection3 {
