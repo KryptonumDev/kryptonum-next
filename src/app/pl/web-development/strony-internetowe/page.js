@@ -1,119 +1,122 @@
-import CaseStudies from "@/components/sections/CaseStudies";
-import CtaSection from "@/components/sections/CtaSection";
-import Faq from "@/components/sections/Faq";
-import HeroServices from "@/components/sections/HeroServices";
-import LatestBlogEntries from "@/components/sections/LatestBlogEntries";
-import ScrollToNext from "@/components/sections/ScrollToNext";
-import SimpleCtaSection from "@/components/sections/SimpleCtaSection";
-import Pricing from "@/components/sections/webDevelopmentWebsites/Pricing";
-import Process from "@/components/sections/webDevelopmentWebsites/Process";
-import Technology from "@/components/sections/webDevelopmentWebsites/Technology";
-import Breadcrumbs from "@/global/Breadcrumbs";
-import SEO from "@/global/Seo";
-import fetchData from "@/utils/fetchData";
+import CaseStudies from '@/components/sections/CaseStudies';
+import CtaSection from '@/components/sections/CtaSection';
+import Faq from '@/components/sections/Faq';
+import HeroServices from '@/components/sections/HeroServices';
+import LatestBlogEntries from '@/components/sections/LatestBlogEntries';
+import ScrollToNext from '@/components/sections/ScrollToNext';
+import SimpleCtaSection from '@/components/sections/SimpleCtaSection';
+import Pricing from '@/components/sections/webDevelopmentWebsites/Pricing';
+import Process from '@/components/sections/webDevelopmentWebsites/Process';
+import Technology from '@/components/sections/webDevelopmentWebsites/Technology';
+import Breadcrumbs from '@/global/Breadcrumbs';
+import SEO from '@/global/Seo';
+import fetchData from '@/utils/fetchData';
 
-const breadcrumbs =[
+const breadcrumbs = [
   {
-    name: "Web Development",
-    link: "/pl/web-development"
+    name: 'Web Development',
+    link: '/pl/web-development',
   },
   {
-    name: "Strony internetowe",
-    link: "/pl/web-development/strony-internetowe"
-  }
+    name: 'Strony internetowe',
+    link: '/pl/web-development/strony-internetowe',
+  },
 ];
 
 export default async function WebDevelopmentWebsitesPage() {
-	const {
-		page: {
-			hero_Heading,
-			hero_Annotation,
-			hero_Paragraph,
-			hero_SecondParagraph,
-			hero_Img,
-			hero_simpleCtaSection,
-			pricing_Heading,
-			pricing_Plans,
-			process_Heading,
-			process_List,
-			roadmap_Heading,
-			roadmap_List,
-			roadmap_Cta,
-			quickForm,
-			technology_Heading,
-			technology_Paragraph,
-			technology_Content,
-			technology_Img,
-			caseStudies_Heading,
-			ctaSection,
-			simpleCtaSection,
-			blogEntries_Heading,
-      scrollToNext
-		},
-		blogEntries,
-	} = await query();
+  const {
+    page: {
+      hero_Heading,
+      hero_Annotation,
+      hero_Paragraph,
+      hero_SecondParagraph,
+      hero_Img,
+      hero_simpleCtaSection,
+      pricing_Heading,
+      pricing_Plans,
+      process_Heading,
+      process_List,
+      roadmap_Heading,
+      roadmap_List,
+      roadmap_Cta,
+      quickForm,
+      technology_Heading,
+      technology_Paragraph,
+      technology_Content,
+      technology_Img,
+      caseStudies,
+      ctaSection,
+      simpleCtaSection,
+      blogEntries_Heading,
+      scrollToNext,
+    },
+    blogEntries,
+  } = await query();
 
-	return (
-		<>
-      <main id="main">
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
-			<HeroServices
-				data={{
-					hero_Heading,
-					hero_Annotation,
-					hero_Paragraph,
-					hero_SecondParagraph,
-					hero_Img,
-					hero_simpleCtaSection,
-				}}
-			/>
-			<Pricing
-				data={{
-					pricing_Heading,
-					pricing_Plans,
-				}}
-			/>
-			<Faq />
-			<CtaSection data={ctaSection} />
-			<Process
-				data={{
-					process_Heading,
-					process_List,
-					roadmap_Heading,
-					roadmap_List,
-					roadmap_Cta,
-					quickForm,
-				}}
-			/>
-			<Technology
-				data={{
-					technology_Heading,
-					technology_Paragraph,
-					technology_Content,
-					technology_Img,
-				}}
-			/>
-			<CaseStudies heading={caseStudies_Heading} />
-			<SimpleCtaSection data={simpleCtaSection} />
-			<LatestBlogEntries
-				heading={blogEntries_Heading}
-				data={blogEntries}
-			/>
+  return (
+    <>
+      <main id='main'>
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
+        <HeroServices
+          data={{
+            hero_Heading,
+            hero_Annotation,
+            hero_Paragraph,
+            hero_SecondParagraph,
+            hero_Img,
+            hero_simpleCtaSection,
+          }}
+        />
+        <Pricing
+          data={{
+            pricing_Heading,
+            pricing_Plans,
+          }}
+        />
+        <Faq />
+        <CtaSection data={ctaSection} />
+        <Process
+          data={{
+            process_Heading,
+            process_List,
+            roadmap_Heading,
+            roadmap_List,
+            roadmap_Cta,
+            quickForm,
+          }}
+        />
+        <Technology
+          data={{
+            technology_Heading,
+            technology_Paragraph,
+            technology_Content,
+            technology_Img,
+          }}
+        />
+        <CaseStudies
+          heading={caseStudies.heading}
+          data={caseStudies.caseStudies}
+        />
+        <SimpleCtaSection data={simpleCtaSection} />
+        <LatestBlogEntries
+          heading={blogEntries_Heading}
+          data={blogEntries}
+        />
       </main>
-      <ScrollToNext data={scrollToNext}/>
-		</>
-	);
+      <ScrollToNext data={scrollToNext} />
+    </>
+  );
 }
 
 export async function generateMetadata() {
-	const {
-		page: { seo },
-	} = await query();
-	return SEO({
-		title: seo?.title,
-		description: seo?.description,
-		url: "/pl/web-development/strony-internetowe",
-	});
+  const {
+    page: { seo },
+  } = await query();
+  return SEO({
+    title: seo?.title,
+    description: seo?.description,
+    url: '/pl/web-development/strony-internetowe',
+  });
 }
 
 const query = async () => {
@@ -223,7 +226,28 @@ const query = async () => {
           }
         }
         # Case Studies
-        caseStudies_Heading
+        caseStudies {
+          heading
+          caseStudies {
+            name
+            slug {
+              current
+            }
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+          }
+        }
         # Call To Action
         ctaSection {
           heading
