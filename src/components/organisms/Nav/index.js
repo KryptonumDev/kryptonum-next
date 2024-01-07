@@ -75,9 +75,16 @@ const Nav = ({
 						<NavLink href="/pl/grafika-design-audyt-ux-ui">Audyty</NavLink>
 					</li>
 					<li>
-						<NavLink href="/pl/grafika-design-identyfikacja-wizualna-marki">
-							Identyfikacja wizualna i branding
-						</NavLink>
+						<NavLink href="/pl/grafika-design-identyfikacja-wizualna-marki">Identyfikacja wizualna i branding</NavLink>
+					</li>
+					<li>
+						<NavLink href="/pl/branding">Branding</NavLink>
+					</li>
+					<li>
+						<NavLink href="/pl/projektowanie-ui">UI</NavLink>
+					</li>
+					<li>
+						<NavLink href="/pl/projektowanie-ux">UX</NavLink>
 					</li>
 				</ul>
 			</li>
@@ -91,6 +98,11 @@ const Nav = ({
 			<li>
 				<h3>
 					<NavLink href="/pl/warsztaty-discovery">Warsztat strategiczny</NavLink>
+				</h3>
+			</li>
+			<li>
+				<h3>
+					<NavLink href="/pl/marketing-360">Marketing 360°</NavLink>
 				</h3>
 			</li>
 		</>
