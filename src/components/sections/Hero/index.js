@@ -23,9 +23,7 @@ const Hero = ({ data: { heading, subheading, image, sideImage, paragraph, cta },
         )}
       </header>
       {image && (
-        <div className={styles.imageWrapper}>
-          <Img data={image} className={styles.img} sizes="100vw" priority={true} />
-        </div>
+        <Img data={image} className={styles.img} sizes="100vw" priority={true} />
       )}
     </section>
   );

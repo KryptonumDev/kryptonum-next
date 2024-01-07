@@ -66,6 +66,7 @@ const Footer = ({
 						Opieka agencyjna
 					</Link>
 					<Link href="/pl/grafika-design">Grafika & design</Link>
+					<Link href="/pl/marketing-360">Marketing 360°</Link>
 				</li>
 				<li className={styles.caseStudies}>
 					<h3>
