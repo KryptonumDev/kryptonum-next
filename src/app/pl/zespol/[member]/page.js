@@ -230,19 +230,6 @@ const query = async (member) => {
             slug {
               current
             }
-            img {
-              asset {
-                altText
-                url
-                metadata {
-                  lqip
-                  dimensions {
-                    height
-                    width
-                  }
-                }
-              }
-            }
           }
           categories {
             name
@@ -251,7 +238,6 @@ const query = async (member) => {
             }
           }
           contentRaw
-          _createdAt
           img {
             asset {
               altText

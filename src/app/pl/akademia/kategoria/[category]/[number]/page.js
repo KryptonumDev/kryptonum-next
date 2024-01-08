@@ -206,32 +206,6 @@ const query = async (category, number) => {
         slug {
           current
         }
-        author {
-          name
-          slug {
-            current
-          }
-          img {
-            asset {
-              altText
-              url
-              metadata {
-                lqip
-                dimensions {
-                  height
-                  width
-                }
-              }
-            }
-          }
-        }
-        categories {
-          name
-          slug {
-            current
-          }
-        }
-        _createdAt
         contentRaw
         img {
           asset {
