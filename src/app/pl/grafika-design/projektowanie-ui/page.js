@@ -1,24 +1,31 @@
+import CaseStudies from '@/components/sections/CaseStudies';
 import CentralizedHeadingSection from '@/components/sections/CentralizedHeadingSection';
 import CtaSection from '@/components/sections/CtaSection';
+import FullWidthImageComponent from '@/components/sections/FullWidthImageComponent';
 import Hero from '@/components/sections/Hero';
-import IconTitleDescriptionGrid from '@/components/sections/IconTitleDescriptionGrid';
 import IconTitleDescriptionListSection from '@/components/sections/IconTitleDescriptionListSection';
+import Process from '@/components/sections/Process';
+import Slider from '@/components/sections/Slider';
 import Team from '@/components/sections/Team';
 import Testimonials from '@/components/sections/Testimonials';
 import TextSection from '@/components/sections/TextSection';
-import TilesWithOverflowIcon from '@/components/sections/TilesWithOverflowIcon';
+import TilesComponentWithHeading from '@/components/sections/TilesComponentWithHeading';
 import Breadcrumbs from '@/global/Breadcrumbs';
 import SEO from '@/global/Seo';
 import fetchData from '@/utils/fetchData';
 
 const breadcrumbs = [
   {
-    name: 'Branding',
-    link: '/pl/branding',
+    name: 'Grafika & design',
+    link: '/pl/grafika-design',
+  },
+  {
+    name: 'Projektowanie UI',
+    link: '/projektowanie-ui',
   },
 ];
 
-export default async function BrandingPage() {
+export default async function UiDesignPage() {
   const {
     page: {
       team_Cta,
@@ -26,16 +33,21 @@ export default async function BrandingPage() {
       team_Text,
       hero,
       textSection,
-      ctaSection,
-      tiles,
-      textSection2,
-      iconTitleBlocksList,
       centralizedHeading,
-      iconTitleBlocksList2,
-      centralizedHeading2,
-      textSection3,
+      ctaSection,
+      tilesWithHeading,
+      image,
+      slider,
+      textSection2,
       headerTitleDescriptionList,
+      image2,
+      textSection3,
       ctaSection2,
+      textSection4,
+      blocks,
+      centralizedHeading2,
+      caseStudies,
+      ctaSection3,
     },
     testimonials,
   } = await query();
@@ -43,24 +55,35 @@ export default async function BrandingPage() {
   return (
     <main id='main'>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <Hero data={hero} hasBorder={true}/>
+      <Hero data={hero} />
       <TextSection data={textSection} />
-      <CtaSection data={ctaSection} />
-      <TilesWithOverflowIcon data={tiles} />
-      <TextSection data={textSection2} />
-      <IconTitleDescriptionGrid data={iconTitleBlocksList} />
       <CentralizedHeadingSection
         data={centralizedHeading}
         decoration={false}
       />
-      <IconTitleDescriptionGrid data={iconTitleBlocksList2} />
-      <CentralizedHeadingSection
-        data={centralizedHeading2}
-        decoration={false}
+      <CtaSection data={ctaSection} />
+      <TilesComponentWithHeading data={tilesWithHeading} />
+      <FullWidthImageComponent
+        image={image}
+        withBorder={true}
       />
-      <TextSection data={textSection3} />
+      <Slider data={slider} />
+      <TextSection data={textSection2} />
       <IconTitleDescriptionListSection data={headerTitleDescriptionList} />
+      <FullWidthImageComponent image={image2} />
+      <TextSection
+        data={textSection3}
+        breakLine={true}
+      />
       <CtaSection data={ctaSection2} />
+      <TextSection data={textSection4} />
+      <Process data={{ blocks }} />
+      <CentralizedHeadingSection data={centralizedHeading2} />
+      <CaseStudies
+        cta={caseStudies?.cta}
+        data={caseStudies?.caseStudies}
+      />
+      <CtaSection data={ctaSection3} />
       <Team
         heading={team_Heading}
         paragraph={team_Text}
@@ -78,7 +101,7 @@ export async function generateMetadata() {
   return SEO({
     title: seo?.title,
     description: seo?.description,
-    url: '/pl/branding',
+    url: '/pl/projektowanie-ui',
   });
 }
 
@@ -87,11 +110,11 @@ const query = async () => {
     body: { data },
   } = await fetchData(/* GraphQL */ `
     query {
-      page: BrandingPage(id: "brandingPage") {
+      page: UiDesignPage(id: "uiDesignPage") {
         #Hero
         hero {
           heading
-          sideImage {
+          image {
             asset {
               altText
               url
@@ -105,13 +128,18 @@ const query = async () => {
             }
           }
         }
-        #Text section
+        #TextSection
         textSection {
           heading
           blocks {
-            title
             description
+            title
           }
+        }
+        #CentralizedHeading
+        centralizedHeading {
+          heading
+          paragraph
         }
         #CtaSection
         ctaSection {
@@ -135,16 +163,54 @@ const query = async () => {
             }
           }
         }
-        #Tiles
-        tiles {
+        #Tiles component with heading
+        tilesWithHeading {
           heading
-          list {
-            overflowContent
-            title
-            description
+          tiles {
+            heading
+            list {
+              title
+              description
+              icon {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+            }
           }
         }
-        #Text section 2
+        #ImageSection
+        image {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+        #Slider
+        slider {
+          heading
+          slides {
+            title
+            description
+            href
+          }
+        }
+        #TextSection2
         textSection2 {
           heading
           blocks {
@@ -152,79 +218,33 @@ const query = async () => {
             description
           }
         }
-        #Icon Title Blocks List
-        iconTitleBlocksList {
+        #Header with title description list
+        headerTitleDescriptionList {
+          header
           title
-          blocks {
-            description
-            title
-          }
-          icon {
-            asset {
-              altText
-              url
-              metadata {
-                lqip
-                dimensions {
-                  height
-                  width
-                }
+          description
+        }
+        #Image2
+        image2 {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
               }
             }
           }
         }
-        #Centralized heading
-        centralizedHeading {
-          heading
-          cta {
-            theme
-            text
-            href
-          }
-        }
-        #IconTitleBlocksList
-        iconTitleBlocksList2 {
-          title
-          blocks {
-            description
-            title
-          }
-          icon {
-            asset {
-              altText
-              url
-              metadata {
-                lqip
-                dimensions {
-                  height
-                  width
-                }
-              }
-            }
-          }
-        }
-        #Centralized Heading 2
-        centralizedHeading2 {
-          heading
-          cta {
-            theme
-            text
-            href
-          }
-        }
-        #Text section 3
+        #TextSection3
         textSection3 {
           heading
           blocks {
             title
             description
           }
-        }
-        #Header Title Description List
-        headerTitleDescriptionList {
-          header
-          title
-          description
         }
         #CtaSection2
         ctaSection2 {
@@ -248,8 +268,74 @@ const query = async () => {
             }
           }
         }
-
-        # Team
+        #TextSection4
+        textSection4 {
+          heading
+          blocks {
+            title
+            description
+          }
+        }
+        #Process
+        blocks {
+          title
+          description
+        }
+        #CentralizedHeading
+        centralizedHeading2 {
+          heading
+        }
+        #Case studies
+        caseStudies {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+          caseStudies {
+            name
+            slug {
+              current
+            }
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+          }
+        }
+        #CtaSection3
+        ctaSection3 {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        #Team
         team_Heading
         team_Text
         team_Cta {

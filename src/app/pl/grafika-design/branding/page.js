@@ -1,27 +1,28 @@
-import CaseStudies from '@/components/sections/CaseStudies';
 import CentralizedHeadingSection from '@/components/sections/CentralizedHeadingSection';
 import CtaSection from '@/components/sections/CtaSection';
-import FullWidthImageComponent from '@/components/sections/FullWidthImageComponent';
 import Hero from '@/components/sections/Hero';
+import IconTitleDescriptionGrid from '@/components/sections/IconTitleDescriptionGrid';
 import IconTitleDescriptionListSection from '@/components/sections/IconTitleDescriptionListSection';
-import Process from '@/components/sections/Process';
-import Slider from '@/components/sections/Slider';
 import Team from '@/components/sections/Team';
 import Testimonials from '@/components/sections/Testimonials';
 import TextSection from '@/components/sections/TextSection';
-import TilesComponentWithHeading from '@/components/sections/TilesComponentWithHeading';
+import TilesWithOverflowIcon from '@/components/sections/TilesWithOverflowIcon';
 import Breadcrumbs from '@/global/Breadcrumbs';
 import SEO from '@/global/Seo';
 import fetchData from '@/utils/fetchData';
 
 const breadcrumbs = [
   {
-    name: 'Projektowanie UI',
-    link: '/projektowanie-ui',
+    name: 'Grafika & design',
+    link: '/pl/grafika-design',
+  },
+  {
+    name: 'Branding',
+    link: '/pl/branding',
   },
 ];
 
-export default async function UiDesignPage() {
+export default async function BrandingPage() {
   const {
     page: {
       team_Cta,
@@ -29,21 +30,16 @@ export default async function UiDesignPage() {
       team_Text,
       hero,
       textSection,
-      centralizedHeading,
       ctaSection,
-      tilesWithHeading,
-      image,
-      slider,
+      tiles,
       textSection2,
-      headerTitleDescriptionList,
-      image2,
-      textSection3,
-      ctaSection2,
-      textSection4,
-      blocks,
+      iconTitleBlocksList,
+      centralizedHeading,
+      iconTitleBlocksList2,
       centralizedHeading2,
-      caseStudies,
-      ctaSection3,
+      textSection3,
+      headerTitleDescriptionList,
+      ctaSection2,
     },
     testimonials,
   } = await query();
@@ -51,35 +47,24 @@ export default async function UiDesignPage() {
   return (
     <main id='main'>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <Hero data={hero} />
+      <Hero data={hero} hasBorder={true}/>
       <TextSection data={textSection} />
+      <CtaSection data={ctaSection} />
+      <TilesWithOverflowIcon data={tiles} />
+      <TextSection data={textSection2} />
+      <IconTitleDescriptionGrid data={iconTitleBlocksList} />
       <CentralizedHeadingSection
         data={centralizedHeading}
         decoration={false}
       />
-      <CtaSection data={ctaSection} />
-      <TilesComponentWithHeading data={tilesWithHeading} />
-      <FullWidthImageComponent
-        image={image}
-        withBorder={true}
+      <IconTitleDescriptionGrid data={iconTitleBlocksList2} />
+      <CentralizedHeadingSection
+        data={centralizedHeading2}
+        decoration={false}
       />
-      <Slider data={slider} />
-      <TextSection data={textSection2} />
+      <TextSection data={textSection3} />
       <IconTitleDescriptionListSection data={headerTitleDescriptionList} />
-      <FullWidthImageComponent image={image2} />
-      <TextSection
-        data={textSection3}
-        breakLine={true}
-      />
       <CtaSection data={ctaSection2} />
-      <TextSection data={textSection4} />
-      <Process data={{ blocks }} />
-      <CentralizedHeadingSection data={centralizedHeading2} />
-      <CaseStudies
-        cta={caseStudies?.cta}
-        data={caseStudies?.caseStudies}
-      />
-      <CtaSection data={ctaSection3} />
       <Team
         heading={team_Heading}
         paragraph={team_Text}
@@ -97,7 +82,7 @@ export async function generateMetadata() {
   return SEO({
     title: seo?.title,
     description: seo?.description,
-    url: '/pl/projektowanie-ui',
+    url: '/pl/branding',
   });
 }
 
@@ -106,11 +91,11 @@ const query = async () => {
     body: { data },
   } = await fetchData(/* GraphQL */ `
     query {
-      page: UiDesignPage(id: "uiDesignPage") {
+      page: BrandingPage(id: "brandingPage") {
         #Hero
         hero {
           heading
-          image {
+          sideImage {
             asset {
               altText
               url
@@ -124,18 +109,13 @@ const query = async () => {
             }
           }
         }
-        #TextSection
+        #Text section
         textSection {
           heading
           blocks {
-            description
             title
+            description
           }
-        }
-        #CentralizedHeading
-        centralizedHeading {
-          heading
-          paragraph
         }
         #CtaSection
         ctaSection {
@@ -159,54 +139,16 @@ const query = async () => {
             }
           }
         }
-        #Tiles component with heading
-        tilesWithHeading {
+        #Tiles
+        tiles {
           heading
-          tiles {
-            heading
-            list {
-              title
-              description
-              icon {
-                asset {
-                  altText
-                  url
-                  metadata {
-                    lqip
-                    dimensions {
-                      height
-                      width
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-        #ImageSection
-        image {
-          asset {
-            altText
-            url
-            metadata {
-              lqip
-              dimensions {
-                height
-                width
-              }
-            }
-          }
-        }
-        #Slider
-        slider {
-          heading
-          slides {
+          list {
+            overflowContent
             title
             description
-            href
           }
         }
-        #TextSection2
+        #Text section 2
         textSection2 {
           heading
           blocks {
@@ -214,33 +156,79 @@ const query = async () => {
             description
           }
         }
-        #Header with title description list
-        headerTitleDescriptionList {
-          header
+        #Icon Title Blocks List
+        iconTitleBlocksList {
           title
-          description
-        }
-        #Image2
-        image2 {
-          asset {
-            altText
-            url
-            metadata {
-              lqip
-              dimensions {
-                height
-                width
+          blocks {
+            description
+            title
+          }
+          icon {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
               }
             }
           }
         }
-        #TextSection3
+        #Centralized heading
+        centralizedHeading {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+        }
+        #IconTitleBlocksList
+        iconTitleBlocksList2 {
+          title
+          blocks {
+            description
+            title
+          }
+          icon {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
+        }
+        #Centralized Heading 2
+        centralizedHeading2 {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+        }
+        #Text section 3
         textSection3 {
           heading
           blocks {
             title
             description
           }
+        }
+        #Header Title Description List
+        headerTitleDescriptionList {
+          header
+          title
+          description
         }
         #CtaSection2
         ctaSection2 {
@@ -264,74 +252,8 @@ const query = async () => {
             }
           }
         }
-        #TextSection4
-        textSection4 {
-          heading
-          blocks {
-            title
-            description
-          }
-        }
-        #Process
-        blocks {
-          title
-          description
-        }
-        #CentralizedHeading
-        centralizedHeading2 {
-          heading
-        }
-        #Case studies
-        caseStudies {
-          heading
-          cta {
-            theme
-            text
-            href
-          }
-          caseStudies {
-            name
-            slug {
-              current
-            }
-            img {
-              asset {
-                altText
-                url
-                metadata {
-                  lqip
-                  dimensions {
-                    height
-                    width
-                  }
-                }
-              }
-            }
-          }
-        }
-        #CtaSection3
-        ctaSection3 {
-          heading
-          cta {
-            theme
-            text
-            href
-          }
-          img {
-            asset {
-              altText
-              url
-              metadata {
-                lqip
-                dimensions {
-                  height
-                  width
-                }
-              }
-            }
-          }
-        }
-        #Team
+
+        # Team
         team_Heading
         team_Text
         team_Cta {

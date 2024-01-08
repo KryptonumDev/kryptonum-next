@@ -379,6 +379,24 @@ const nextConfig = {
         destination: "/pl/akademia",
         permanent: true,
       },
+      {
+        source:
+          "/pl/branding",
+        destination: "/pl/grafika-design/branding",
+        permanent: true,
+      },
+      {
+        source:
+          "/pl/projektowanie-ux",
+        destination: "/pl/grafika-design/projektowanie-ux",
+        permanent: true,
+      },
+      {
+        source:
+          "/pl/projektowanie-ui",
+        destination: "/pl//grafika-design/projektowanie-ui",
+        permanent: true,
+      },
     ];
   },
 };

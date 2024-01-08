@@ -78,13 +78,13 @@ const Nav = ({
 						<NavLink href="/pl/grafika-design-identyfikacja-wizualna-marki">Identyfikacja wizualna i branding</NavLink>
 					</li>
 					<li>
-						<NavLink href="/pl/branding">Branding</NavLink>
+						<NavLink href="/pl/grafika-design/branding">Branding</NavLink>
 					</li>
 					<li>
-						<NavLink href="/pl/projektowanie-ui">UI</NavLink>
+						<NavLink href="/pl/grafika-design/projektowanie-ui">UI</NavLink>
 					</li>
 					<li>
-						<NavLink href="/pl/projektowanie-ux">UX</NavLink>
+						<NavLink href="/pl/grafika-design/projektowanie-ux">UX</NavLink>
 					</li>
 				</ul>
 			</li>
