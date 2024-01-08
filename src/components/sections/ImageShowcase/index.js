@@ -14,7 +14,7 @@ const ImageShowcase = ({ data: { images, cta } }) => {
         />
       ))}
       {cta?.href && (
-        <Button data={cta} />
+        <Button data={cta} className={styles.cta}/>
       )}
     </section>
   );

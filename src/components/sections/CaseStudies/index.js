@@ -47,8 +47,8 @@ const CaseStudies = async ({ data, heading, cta, isTeamCaseStudies = false }) =>
             <Button
               theme='secondary'
               href='/pl/portfolio'
-              data={cta}
               className={styles.button}
+              data={cta}
             >
               {cta || 'Przejdź do projektów'}
             </Button>

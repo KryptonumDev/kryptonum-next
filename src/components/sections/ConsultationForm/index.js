@@ -5,7 +5,7 @@ import ConsultationCtaForm from "@/components/organisms/forms/ConsultationCtaFor
 import fetchData from "@/utils/fetchData";
 import styles from "./styles.module.scss";
 
-const ConsultationForm = async ({ data: { heading, subheading, cta }, isPortableContent = false }) => {
+const ConsultationForm = async ({ data: { heading, subheading, cta, buttonContents }, isPortableContent = false }) => {
   const {
     global: { quickForm_Paragraph, quickForm_Person },
   } = await query();
@@ -16,7 +16,7 @@ const ConsultationForm = async ({ data: { heading, subheading, cta }, isPortable
         <DecorativeHeading type="h3">{heading}</DecorativeHeading>
         <Markdown className={styles.subheading}>{subheading}</Markdown>
       </header>
-      <ConsultationCtaForm cta={cta} />
+      <ConsultationCtaForm cta={cta ? cta : buttonContents} />
       <div className={styles.info}>
         <p>{quickForm_Paragraph}</p>
         <div className={styles.person}>
