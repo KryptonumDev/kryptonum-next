@@ -159,7 +159,12 @@
   @media (max-width: 699px) {
     .slider {
       padding-right: unset;
-      width: 100%;
+      margin-left: calc(var(--pageMargin)*-1);
+      padding-left: var(--pageMargin);
+      padding-right: var(--pageMargin);
+      margin-right: calc(var(--pageMargin)*-1);
+      width: calc(100% + 2*var(--pageMargin));
+      height: 99%;
 
       &:before {
         width: 150px;
