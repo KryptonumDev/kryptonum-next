@@ -1,6 +1,7 @@
 .processList {
   display: grid;
   gap: clamp(80px, calc(128vw / 7.68), 96px);
+
   .process {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -8,14 +9,17 @@
     row-gap: 48px;
     align-items: center;
     font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
+
     .heading {
       display: grid;
       gap: clamp(6px, calc(16vw / 7.68), 16px);
       grid-template-columns: auto 1fr;
       align-items: center;
+
       h2 {
         font-size: clamp(calc(18rem / 16), calc(28vw / 7.68), calc(28rem / 16));
       }
+
       .numerator {
         display: grid;
         font-size: clamp(calc(16rem / 16), calc(28vw / 7.68), calc(28rem / 16));
@@ -25,15 +29,22 @@
         justify-items: center;
       }
     }
+    .ctaSectionPill {
+      grid-column: 1 / -1;
+    }
+
     .blocks {
       align-self: end;
+
       p:not(:first-child) {
         margin-top: 32px;
       }
+
       .button {
         margin-top: clamp(16px, 6.25vw, 48px);
       }
     }
+
     .img {
       width: 100%;
       height: auto;
@@ -41,31 +52,40 @@
       border: 1px solid var(--neutral-700, #4f4f52);
       border-radius: 2px;
     }
+
     @media (max-width: 1199px) {
       grid-template-columns: 1fr;
       grid-row-gap: 16px;
+
       .subheading {
         padding-bottom: 16px;
       }
+
       .blocks {
         padding-top: 8px;
+
         p:not(:first-child) {
           margin-top: 16px;
         }
       }
     }
+
     @media (max-width: 499px) {
       grid-row-gap: 12px;
+
       .heading {
         margin-bottom: 4px;
+
         .numerator {
           height: 40px;
           width: 40px;
         }
       }
+
       .subheading {
         padding-top: unset;
       }
+
       .blocks {
         padding-top: 8px;
       }

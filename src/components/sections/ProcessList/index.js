@@ -36,12 +36,16 @@ const ProcessList = ({ data: { ProcessList } }) => {
               </div>
             </>
           )}
-          {callToActionSectionPill?.heading && (
-            <>
-              <CtaSectionPill data={callToActionSectionPill} />
-              {ctaSectionPillCounter++}
-            </>
-          )}
+          {callToActionSectionPill?.heading &&
+            (() => {
+              ctaSectionPillCounter++;
+              return (
+                <CtaSectionPill
+                  data={callToActionSectionPill}
+                  className={styles.ctaSectionPill}
+                />
+              );
+            })()}
         </div>
       ))}
     </section>
