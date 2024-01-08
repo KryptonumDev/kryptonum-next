@@ -35,4 +35,9 @@
   @media (max-width: 499px) {
     text-align: start;
   }
+  .cta {
+    width: min-content;
+    justify-self: center;
+    text-wrap: nowrap;
+  }
 }

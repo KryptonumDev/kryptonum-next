@@ -63,6 +63,7 @@ export default async function LandingPage({ params: { slug } }) {
         key={i}
         data={component?.caseStudies}
         heading={component?.heading}
+        cta={component?.cta}
       />
     ),
     ProsAndConsShowcase: (
@@ -119,7 +120,7 @@ export default async function LandingPage({ params: { slug } }) {
         data={component}
       />
     ),
-    quickForm: (
+    consultationForm: (
       <ConsultationForm
         key={i}
         data={component}
@@ -206,6 +207,12 @@ const query = async (slug) => {
             ... on CenteredHeading {
               _type
               heading
+              paragraph
+              cta {
+                theme
+                text
+                href
+              }
             }
             ... on RevealableGrid {
               _type
@@ -291,6 +298,11 @@ const query = async (slug) => {
             ... on CaseStudies {
               _type
               heading
+              cta {
+                theme
+                text
+                href
+              }
               caseStudies {
                 name
                 slug {
@@ -376,6 +388,11 @@ const query = async (slug) => {
                     }
                   }
                 }
+              }
+              cta {
+                theme
+                text
+                href
               }
             }
             ... on HeadingDescriptionWithBlocksList {
@@ -479,11 +496,11 @@ const query = async (slug) => {
                 }
               }
             }
-            ... on QuickForm {
+            ... on ConsultationForm {
               _type
               heading
               subheading
-              cta
+              buttonContents
             }
           }
           #SEO

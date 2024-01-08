@@ -30,5 +30,7 @@
   text-align: center;
   .cta {
     margin-top: clamp(32px, calc(48vw/7.68), 48px);
+    justify-self: center;
+    width: min-content;
   }
 }

@@ -12,7 +12,7 @@ const CentralizedHeading = ({ data: { heading, paragraph, cta }, decoration, add
         {heading}
       </DecorativeHeading>
       {paragraph && <Markdown className={styles.subheading}>{paragraph}</Markdown>}
-      {cta && <Button data={cta} />}
+      {cta && <Button data={cta} className={styles.cta} />}
     </header>
   );
 };
