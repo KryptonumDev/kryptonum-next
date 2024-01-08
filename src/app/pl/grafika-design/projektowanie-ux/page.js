@@ -19,6 +19,10 @@ import fetchData from "@/utils/fetchData";
 
 const breadcrumbs = [
   {
+    name: 'Grafika & design',
+    link: '/pl/grafika-design',
+  },
+  {
     name: "Projektowanie UX",
     link: "/projektowanie-ux",
   },
