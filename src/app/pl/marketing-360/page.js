@@ -134,6 +134,11 @@ const query = async () => {
         content {
           ... on CaseStudies {
             _type
+            cta {
+              theme
+              text
+              href
+            }
             heading
             caseStudies {
               name
