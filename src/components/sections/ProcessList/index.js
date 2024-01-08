@@ -14,7 +14,7 @@ const ProcessList = ({ data: { ProcessList } }) => {
           className={styles.process}
           key={i}
         >
-          {heading && (
+          {(heading && subheading && img && paragraph) && (
             <>
               <div className={styles.heading}>
                 <p className={`${styles.numerator} personBorder`}>{i + 1 - ctaSectionPillCounter}</p>
