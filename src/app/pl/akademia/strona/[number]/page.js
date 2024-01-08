@@ -176,32 +176,6 @@ const query = async (number, academyItemsPerPage, offset) => {
           slug {
             current
           }
-          author {
-            name
-            slug {
-              current
-            }
-            img {
-              asset {
-                altText
-                url
-                metadata {
-                  lqip
-                  dimensions {
-                    height
-                    width
-                  }
-                }
-              }
-            }
-          }
-          categories {
-            name
-            slug {
-              current
-            }
-          }
-          _createdAt
           contentRaw
           img {
             asset {

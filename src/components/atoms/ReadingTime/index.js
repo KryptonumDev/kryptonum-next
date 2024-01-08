@@ -1,11 +1,11 @@
-import { toPlainText } from "@portabletext/react";
-import { Clock } from "../Icons";
-import styles from "./styles.module.scss";
+import { toPlainText } from '@portabletext/react';
+import { Clock } from '../Icons';
+import styles from './styles.module.scss';
 
 const readingTime = (text) => {
   const countWords = (text) => {
     const trimmedText = text.trim();
-    if (trimmedText === "") {
+    if (trimmedText === '') {
       return 0;
     }
     const words = trimmedText.split(/\s+/);
@@ -18,9 +18,12 @@ const readingTime = (text) => {
   return readingTime;
 };
 
-const ReadingTime = ({ content }) => {
+const ReadingTime = ({ content, ...props }) => {
   return (
-    <p className={styles.readingTime}>
+    <p
+      className={styles.readingTime}
+      {...props}
+    >
       <Clock />
       <span>{readingTime(content)} min czytania</span>
     </p>
