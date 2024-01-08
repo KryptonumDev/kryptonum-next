@@ -256,6 +256,45 @@ const query = async () => {
                 }
               }
               paragraph
+              callToAction {
+                theme
+                text
+                href
+              }
+              callToActionSectionPill {
+                heading
+                cta {
+                  theme
+                  text
+                  href
+                }
+                img {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
+                icon {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
           ... on SimpleCtaSection {
