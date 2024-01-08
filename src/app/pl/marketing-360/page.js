@@ -256,6 +256,11 @@ const query = async () => {
                 }
               }
               paragraph
+              callToAction {
+                theme
+                text
+                href
+              }
             }
           }
           ... on SimpleCtaSection {

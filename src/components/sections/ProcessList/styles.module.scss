@@ -30,6 +30,9 @@
       p:not(:first-child) {
         margin-top: 32px;
       }
+      .button {
+        margin-top: clamp(16px, 6.25vw, 48px);
+      }
     }
     .img {
       width: 100%;

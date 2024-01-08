@@ -1,11 +1,12 @@
 import Markdown from '@/components/atoms/Markdown';
 import styles from './styles.module.scss';
 import Img from '@/components/atoms/Img';
+import Button from '@/components/atoms/Button';
 
 const ProcessList = ({ data: { ProcessList } }) => {
   return (
     <section className={styles.processList}>
-      {ProcessList.map(({ heading, subheading, img, paragraph }, i) => (
+      {ProcessList.map(({ heading, subheading, img, paragraph, callToAction }, i) => (
         <div
           className={styles.process}
           key={i}
@@ -21,6 +22,7 @@ const ProcessList = ({ data: { ProcessList } }) => {
           />
           <div className={styles.blocks}>
             <Markdown>{paragraph}</Markdown>
+            { callToAction?.text && <Button data={callToAction} className={styles.button}/>}
           </div>
         </div>
       ))}
