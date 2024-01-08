@@ -28,6 +28,7 @@ const BlocksShowcase = ({ data: { heading, description, blocks } }) => {
                 <Img
                   data={item.img}
                   className={styles.blockImg}
+                  sizes="200px"
                 />
               </div>
             )}
