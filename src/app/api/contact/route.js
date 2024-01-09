@@ -1,15 +1,15 @@
 import { NextResponse } from 'next/server';
-// import { Resend } from 'resend';
-// import { removeHtmlTags } from '@/utils/functions';
+import { Resend } from 'resend';
+import { removeHtmlTags } from '@/utils/functions';
 import { domain } from '@/global/Seo';
 import { regex } from '@/global/constants';
 
-// const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-// const emailData = {
-//   from: 'Michał z Kryptonum <michal@kryptonum.eu>',
-//   to: 'Michał <michal@kryptonum.eu>',
-// };
+const emailData = {
+  from: 'Michał z Kryptonum <michal@kryptonum.eu>',
+  to: 'Michał <michal@kryptonum.eu>',
+};
 
 const headers = {
   'Access-Control-Allow-Origin': domain,
@@ -34,18 +34,16 @@ export async function POST(request) {
 	`;
 
   try {
-    // await resend.emails.send({
-    //   from: emailData.from,
-    //   reply_to: email,
-    //   to: emailData.to,
-    //   subject: `Wiadomość z Kryptonum.eu marketing dla administracji publicznej`,
-    //   html: body,
-    //   text: removeHtmlTags(body),
-    // });
-    console.log(body);
+    await resend.emails.send({
+      from: emailData.from,
+      reply_to: email,
+      to: emailData.to,
+      subject: `Wiadomość z Kryptonum.eu marketing dla administracji publicznej`,
+      html: body,
+      text: removeHtmlTags(body),
+    });
     return NextResponse.json({ success: true }, { status: 200 }, { headers });
   } catch {
-    console.log(body);
-    //return NextResponse.json({ success: false }, { status: 500 }, { headers });
+    return NextResponse.json({ success: false }, { status: 500 }, { headers });
   }
 }
