@@ -19,7 +19,7 @@ const headers = {
 
 export async function POST(request) {
   const req = await request.json();
-  const { email = '' } = req;
+  const { email = '', question = '' } = req;
 
   if (!regex.email.test(email.toLowerCase())) {
     return NextResponse.json({ success: false }, { status: 422, headers });
@@ -27,22 +27,25 @@ export async function POST(request) {
 
   const body = `
     <p>E-mail: <b>${email}</b></p>
+    <p>Pytanie: <b>${question}</b></p>
     <br />
     <br />
     <p><em>Wyrażono zgodę na politykę prywatności</em></p>
 	`;
 
   try {
-    await resend.emails.send({
-      from: emailData.from,
-      reply_to: email,
-      to: emailData.to,
-      subject: `Wiadomość z Kryptonum.eu marketing dla administracji publicznej`,
-      html: body,
-      text: removeHtmlTags(body),
-    });
+    // await resend.emails.send({
+    //   from: emailData.from,
+    //   reply_to: email,
+    //   to: emailData.to,
+    //   subject: `Wiadomość z Kryptonum.eu marketing dla administracji publicznej`,
+    //   html: body,
+    //   text: removeHtmlTags(body),
+    // });
+    console.log(body);
     return NextResponse.json({ success: true }, { status: 200 }, { headers });
   } catch {
-    return NextResponse.json({ success: false }, { status: 500 }, { headers });
+    console.log(body);
+    //return NextResponse.json({ success: false }, { status: 500 }, { headers });
   }
 }

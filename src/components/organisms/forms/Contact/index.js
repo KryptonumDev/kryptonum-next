@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -8,8 +9,13 @@ import { regex } from '@/global/constants';
 import styles from './styles.module.scss';
 
 const ContactForm = ({ cta }) => {
+  const plain = <Plain />;
 
-	const plain = <Plain />;
+  const error = <Error />;
+
+  const success = <Success />;
+
+  const retry = <Retry />;
 
   const {
     register,
@@ -19,9 +25,14 @@ const ContactForm = ({ cta }) => {
   } = useForm({ mode: 'onTouched' });
 
   const [isEmailSent, setIsEmailSent] = useState(false);
+  const [isNextStep, setIsNextStep] = useState(false);
   const [submitProccessing, setSubmitProccessing] = useState(false);
 
   const onSubmit = (data) => {
+    if (!isNextStep) {
+      setIsNextStep(true);
+      return;
+    }
     setSubmitProccessing(true);
     fetch('/api/contact', {
       method: 'POST',
@@ -50,43 +61,61 @@ const ContactForm = ({ cta }) => {
       className={styles.form}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Label
-        title='Email'
-        name='email'
-        register={register('email', { required: true, pattern: regex.email })}
-        errors={errors}
-        type='email'
-      />
-      <Button
-        theme='primary'
-        className={styles.button}
-        disabled={submitProccessing}
-        svg={plain}
-      >
-        {cta || 'Wyślij wiadomość'}
-      </Button>
+      {!isNextStep && (
+        <>
+          <Label
+            title='Email'
+            name='email'
+            register={register('email', { required: true, pattern: regex.email })}
+            errors={errors}
+            type='email'
+          />
+          <Button
+            theme='primary'
+            className={styles.button}
+          >
+            {cta || 'Przejdź dalej'}
+          </Button>
+        </>
+      )}
+      {isNextStep && (
+        <>
+          <Label
+            title='Twoje pytanie'
+            name='question'
+            register={register('question', { required: false })}
+            errors={errors}
+            type='textarea'
+            rows={4}
+          />
+          <Button
+            theme='primary'
+            className={styles.button}
+            disabled={submitProccessing}
+            svg={plain}
+          >
+            {cta || 'Wyślij wiadomość'}
+          </Button>
+        </>
+      )}
       <AnimatePresence>
         {isEmailSent === 'success' && (
           <motion.div
-            className={styles.overlay}
+            className={`${styles.overlay} ${styles.success}`}
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -10 }}
           >
             <div className={styles.grid}>
-              <h2>
-                Formularz został <strong>wysłany</strong>!
-              </h2>
+              <div className={styles.header}>
+                {success}
+                <h2>
+                  Formularz został <strong>pomyślnie</strong> wysłany!
+                </h2>
+              </div>
               <p>
-                Spodziewaj się od nas odpowiedzi do <strong>24 h!</strong>
+                Odpowiedzi spodziewaj się na <strong>podanego maila</strong>
               </p>
-              <Button
-                type='button'
-                theme='secondary'
-                onClick={() => setIsEmailSent(false)}
-              >
-                Wypełnij ponownie
-              </Button>
             </div>
           </motion.div>
         )}
@@ -94,23 +123,26 @@ const ContactForm = ({ cta }) => {
       <AnimatePresence>
         {isEmailSent === 'failed' && (
           <motion.div
-            className={styles.overlay}
+            className={`${styles.overlay} ${styles.failed}`}
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -10 }}
           >
             <div className={styles.grid}>
-              <h2>
-                <strong>Błąd</strong> serwera!
-              </h2>
-              <p>
-                Spróbuj ponownie później lub skontaktuj się z nami <strong>telefonicznie</strong>.
-              </p>
+              <div className={styles.header}>
+                {error}
+                <h2>Jakiś serwer ma czkawkę</h2>
+              </div>
+              <p>Wyślij formularz jeszcze raz lub spróbuj za jakiś czas</p>
               <Button
                 disabled={submitProccessing}
                 type='button'
                 theme='secondary'
-                onClick={() => setIsEmailSent(false)}
+                onClick={() => {
+                  setIsEmailSent(false);
+                  setIsNextStep(false);
+                }}
+                svg={retry}
               >
                 Spróbuj ponownie
               </Button>
@@ -165,6 +197,191 @@ const Plain = () => (
         <stop
           offset='1'
           stopColor='#90F4E8'
+        />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+const Error = () => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    width='32'
+    height='32'
+    viewBox='0 0 32 32'
+    fill='none'
+  >
+    <path
+      d='M7.08358 14.3487C10.9747 7.44955 12.9203 4 16.0013 4C19.0823 4 21.0279 7.44955 24.919 14.3486L25.4039 15.2084C28.6374 20.9415 30.2542 23.808 28.793 25.904C27.3317 28 23.7166 28 16.4862 28H15.5164C8.28605 28 4.67086 28 3.20964 25.904C1.74843 23.808 3.36518 20.9415 6.5987 15.2084L7.08358 14.3487Z'
+      stroke='url(#paint0_linear_930_46944)'
+      stroke-width='1.5'
+    />
+    <path
+      d='M16 10.6667V17.3334'
+      stroke='url(#paint1_linear_930_46944)'
+      stroke-width='1.5'
+      stroke-linecap='round'
+    />
+    <circle
+      cx='16.0013'
+      cy='21.3333'
+      r='1.33333'
+      fill='url(#paint2_linear_930_46944)'
+    />
+    <defs>
+      <linearGradient
+        id='paint0_linear_930_46944'
+        x1='28.8346'
+        y1='4.00001'
+        x2='1.10833'
+        y2='5.96224'
+        gradientUnits='userSpaceOnUse'
+      >
+        <stop stop-color='#D43477' />
+        <stop
+          offset='0.520833'
+          stop-color='#DA2B53'
+        />
+        <stop
+          offset='1'
+          stop-color='#B43636'
+        />
+        <stop
+          offset='1'
+          stop-color='#B43636'
+        />
+      </linearGradient>
+      <linearGradient
+        id='paint1_linear_930_46944'
+        x1='16.9812'
+        y1='10.6667'
+        x2='15.9364'
+        y2='10.6767'
+        gradientUnits='userSpaceOnUse'
+      >
+        <stop stop-color='#D43477' />
+        <stop
+          offset='0.520833'
+          stop-color='#DA2B53'
+        />
+        <stop
+          offset='1'
+          stop-color='#B43636'
+        />
+        <stop
+          offset='1'
+          stop-color='#B43636'
+        />
+      </linearGradient>
+      <linearGradient
+        id='paint2_linear_930_46944'
+        x1='17.2846'
+        y1='20'
+        x2='14.5094'
+        y2='20.1768'
+        gradientUnits='userSpaceOnUse'
+      >
+        <stop stop-color='#D43477' />
+        <stop
+          offset='0.520833'
+          stop-color='#DA2B53'
+        />
+        <stop
+          offset='1'
+          stop-color='#B43636'
+        />
+        <stop
+          offset='1'
+          stop-color='#B43636'
+        />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+const Success = () => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    width='32'
+    height='32'
+    viewBox='0 0 32 32'
+    fill='none'
+  >
+    <circle
+      cx='16.0013'
+      cy='15.9998'
+      r='13.3333'
+      stroke='url(#paint0_linear_930_46909)'
+      stroke-width='1.5'
+    />
+    <path
+      d='M11.332 16.6665L13.9987 19.3332L20.6654 12.6665'
+      stroke='url(#paint1_linear_930_46909)'
+      stroke-width='1.5'
+      stroke-linecap='round'
+      stroke-linejoin='round'
+    />
+    <defs>
+      <linearGradient
+        id='paint0_linear_930_46909'
+        x1='28.8346'
+        y1='2.66651'
+        x2='1.08205'
+        y2='4.43419'
+        gradientUnits='userSpaceOnUse'
+      >
+        <stop stop-color='#2DD282' />
+        <stop
+          offset='1'
+          stop-color='#90F4E8'
+        />
+      </linearGradient>
+      <linearGradient
+        id='paint1_linear_930_46909'
+        x1='20.4904'
+        y1='12.6665'
+        x2='10.8145'
+        y2='13.5293'
+        gradientUnits='userSpaceOnUse'
+      >
+        <stop stop-color='#2DD282' />
+        <stop
+          offset='1'
+          stop-color='#90F4E8'
+        />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+const Retry = () => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    width='20'
+    height='20'
+    viewBox='0 0 20 20'
+    fill='none'
+  >
+    <path
+      d='M15.302 6.70863L14.7127 6.11937C12.1092 3.51588 7.88815 3.51588 5.28465 6.11937C2.68116 8.72287 2.68116 12.944 5.28465 15.5475C7.88815 18.151 12.1092 18.151 14.7127 15.5475C16.2268 14.0334 16.8603 11.9724 16.6134 10.0005M15.302 6.70863H11.7665M15.302 6.70863V3.1731'
+      stroke='url(#paint0_linear_1162_37315)'
+      stroke-width='1.5'
+      stroke-linecap='round'
+      stroke-linejoin='round'
+    />
+    <defs>
+      <linearGradient
+        id='paint0_linear_1162_37315'
+        x1='16.4154'
+        y1='3.1731'
+        x2='2.53156'
+        y2='3.99609'
+        gradientUnits='userSpaceOnUse'
+      >
+        <stop stop-color='#2DD282' />
+        <stop
+          offset='1'
+          stop-color='#90F4E8'
         />
       </linearGradient>
     </defs>

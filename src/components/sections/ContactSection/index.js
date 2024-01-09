@@ -3,7 +3,7 @@ import Markdown from '@/components/atoms/Markdown';
 import fetchData from '@/utils/fetchData';
 import styles from './styles.module.scss';
 import ContactForm from '@/components/organisms/forms/Contact';
-import Copy from '@/components/atoms/Copy';
+import Snackbar from '@/components/atoms/Snackbar';
 
 const Contact = async ({ data: { heading, subheading, cta } }) => {
   const {
@@ -29,12 +29,14 @@ const Contact = async ({ data: { heading, subheading, cta } }) => {
             quality={100}
           />
           {quickForm_Person.tel && <p>{quickForm_Person.tel}</p>}
-          <Copy
-            href={`tel:${quickForm_Person.tel.replace(/\s/g, '')}`}
+          <Snackbar
+            href={`${quickForm_Person.tel.replace(/\s/g, '')}`}
             className={`${styles.copy} personBorder`}
+            status='success'
+            message="Tekst został skopiowany"
           >
             Skopiuj
-          </Copy>
+          </Snackbar>
         </div>
       </div>
     </section>

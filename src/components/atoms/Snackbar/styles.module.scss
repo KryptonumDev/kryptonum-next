@@ -1,0 +1,82 @@
+.snackbars {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 12px;
+  position: fixed;
+  top: 120px;
+  right: 40px;
+
+  .item {
+    padding: 8px 16px 12px 12px;
+    display: grid;
+    border: 1px solid var(--neutral-700);
+    border-radius: 4px;
+    column-gap: 12px;
+    background-color: var(--neutral-950);
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+    transform: translateX(100%);
+    animation: slideIn 5s ease-in-out forwards;
+
+    @keyframes slideIn {
+      0% {
+        transform: translateX(150%);
+      }
+      8% {
+        transform: translateX(0);
+      }
+      92% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(150%);
+      }
+    }
+
+
+    svg {
+      height: 17px;
+      width: 17px;
+    }
+
+    .message {
+      font-size: 16px;
+      padding-right: 12px;
+    }
+
+    .exit {
+      cursor: pointer;
+      display: grid;
+      align-items: center;
+      justify-self: flex-end;
+    }
+
+    .indicator {
+      position: absolute;
+      margin-left: -12px;
+      margin-right: -16px;
+      z-index: 2;
+      animation: snackBar 5s linear both;
+      transform-origin: left;
+      background: var(--gradient);
+      grid-column: 1/-1;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      width: calc(100% + 28px);
+    }
+
+    @keyframes snackBar {
+      0% {
+        transform: scaleX(0);
+      }
+
+      100% {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
