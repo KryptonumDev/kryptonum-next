@@ -36,6 +36,7 @@ const CooperationGrid = ({ data: { heading, description, icons, grid } }) => {
               <Img
                 data={grid.img}
                 className={styles.signImg}
+                sizes="(max-width: 1349px) 250px, 20vw"
               />
             )}
             <p className={styles.windowDescription}>{grid.title}</p>

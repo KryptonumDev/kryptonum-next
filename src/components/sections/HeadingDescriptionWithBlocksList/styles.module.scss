@@ -41,6 +41,11 @@
       .item {
         row-gap: 8px;
         align-self: start;
+        .img {
+          height: auto;
+          width: 17px;
+          object-fit: contain;
+        }
 
 
         .blockDescription {

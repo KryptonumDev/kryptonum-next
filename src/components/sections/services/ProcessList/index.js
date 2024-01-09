@@ -15,6 +15,7 @@ const ProcessList = ({ data: { ProcessList } }) => {
             <Img
               data={item.img}
               className={styles.img}
+              sizes="(max-width: 1199px) 100vw, 50vw)"
             />
             <Markdown.h3 className={styles.heading}>{item.heading}</Markdown.h3>
           </div>
