@@ -76,6 +76,7 @@
 
   @media (max-width: 1329px) {
     grid-template-columns: 1fr;
+    grid-template-areas: "heading" "form" "info";
     gap: 32px;
     padding-left: unset;
     padding-right: unset;
