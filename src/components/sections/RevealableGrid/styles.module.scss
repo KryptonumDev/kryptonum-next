@@ -81,22 +81,42 @@
         padding-right: 22px;
       }
 
-      .windowDescription {
+      .windowTitle {
         align-self: end;
         padding: 0px 28px 20px 28px;
       }
-    }
 
-    .windowWrapper:nth-child(n) {
-      margin-right: -1px;
-    }
+      .windowDescription {
+        position: absolute;
+        display: grid;
+        width: 100%;
+        height: 100%;
+        padding: 0px 28px 20px 28px;
+        align-items: end;
+        font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+        opacity: 0;
+      }
 
-    .windowWrapper:nth-child(n+2) {
-      margin-top: -1px;
-    }
+      &:nth-child(n) {
+        margin-right: -1px;
+      }
 
-    .windowWrapper:first-child {
-      margin-top: -1px;
+      &:nth-child(n+2) {
+        margin-top: -1px;
+      }
+
+      &:first-child {
+        margin-top: -1px;
+      }
+
+      &:hover {
+        border: 1px solid var(--primary-400);
+        .windowDescription {
+          opacity: 1;
+          z-index: 3;
+          background-color: var(--);
+        }
+      }
     }
   }
 
@@ -108,6 +128,7 @@
     .windows {
       width: 100%;
       height: 520px;
+
       .windowWrapper {
         .signImg {
           width: min-content;
@@ -115,9 +136,10 @@
         }
       }
     }
+
     .windowsDescription {
       .signDescription {
-        width:75%;
+        width: 75%;
         justify-self: end;
       }
     }
@@ -126,13 +148,16 @@
   @media (max-width: 599px) {
     .windows {
       grid-template-columns: 1fr;
+
       .windowWrapper {
         align-items: flex-start;
       }
     }
+
     .signWidnows {
       height: auto;
       row-gap: 12px;
+
       .windowWrapper {
         row-gap: 132px;
       }

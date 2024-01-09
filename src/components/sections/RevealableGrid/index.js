@@ -8,22 +8,30 @@ const RevealableGrid = ({ data: { heading, description, icons, grid, isSign } })
     <section className={styles.windowsShowcase}>
       <div className={styles.windowsDescription}>
         <header>
-          <DecorativeHeading type='h3' className={styles.heading}>{heading}</DecorativeHeading>
+          <DecorativeHeading
+            type='h3'
+            className={styles.heading}
+          >
+            {heading}
+          </DecorativeHeading>
         </header>
-        <Markdown className={isSign ? `${styles.description} ${styles.signDescription}` : styles.description}>{description}</Markdown>
+        <Markdown className={isSign ? `${styles.description} ${styles.signDescription}` : styles.description}>
+          {description}
+        </Markdown>
         <div className={styles.logoShowcase}>
-          {icons && icons.map((icon, index) => (
-            <div
-              className={styles.logoWrapper}
-              key={index}
-            >
-              <Img
-                data={icon.icon}
-                className={styles.icon}
-              />
-              <p className={styles.iconDescription}>{icon.description}</p>
-            </div>
-          ))}
+          {icons &&
+            icons.map((icon, index) => (
+              <div
+                className={styles.logoWrapper}
+                key={index}
+              >
+                <Img
+                  data={icon.icon}
+                  className={styles.icon}
+                />
+                <p className={styles.iconDescription}>{icon.description}</p>
+              </div>
+            ))}
         </div>
       </div>
       <div className={isSign ? `${styles.windows} ${styles.signWidnows}` : styles.windows}>
@@ -36,10 +44,11 @@ const RevealableGrid = ({ data: { heading, description, icons, grid, isSign } })
               <Img
                 data={grid.img}
                 className={isSign ? styles.signImg : styles.windowImg}
-                sizes="250px"
+                sizes='250px'
               />
             )}
-            <p className={styles.windowDescription}>{grid.title}</p>
+            <Markdown className={styles.windowTitle}>{grid.title}</Markdown>
+            <Markdown className={styles.windowDescription}>{grid.description}</Markdown>
           </div>
         ))}
       </div>
