@@ -19,7 +19,7 @@ const headers = {
 
 export async function POST(request) {
   const req = await request.json();
-  const { email = '' } = req;
+  const { email = '', question = '' } = req;
 
   if (!regex.email.test(email.toLowerCase())) {
     return NextResponse.json({ success: false }, { status: 422, headers });
@@ -27,6 +27,7 @@ export async function POST(request) {
 
   const body = `
     <p>E-mail: <b>${email}</b></p>
+    <p>Pytanie: <b>${question}</b></p>
     <br />
     <br />
     <p><em>Wyrażono zgodę na politykę prywatności</em></p>
