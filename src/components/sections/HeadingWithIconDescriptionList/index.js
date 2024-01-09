@@ -24,6 +24,7 @@ const HeadingWithIconDescriptionList = ({ data: { IconDescriptionList, heading }
               <Img
                 data={item.icon}
                 className={styles.icon}
+                sizes="48px"
               />
             </div>
             <Markdown className={styles.description}>{item.description}</Markdown>

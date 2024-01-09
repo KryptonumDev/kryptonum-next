@@ -24,6 +24,7 @@ const HeadingWithIconTitleGrid = ({ data: { heading, titleAndImageGrid } }) => {
               <Img
                 className={styles.img}
                 data={item.img}
+                sizes="48px"
               />
             </div>
             <Markdown className={styles.title}>{item.title}</Markdown>

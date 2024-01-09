@@ -28,6 +28,7 @@ const HeadingWithTitleAndImgList = ({ data: { heading, TitleAndImage } }) => {
                 key={index}
                 data={item.img}
                 className={styles.image}
+                sizes="(max-width: 1099px) 100vw, 40vw"
               />
             )}
           </div>

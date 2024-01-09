@@ -36,6 +36,7 @@ const RevealableGrid = ({ data: { heading, description, icons, grid, isSign } })
               <Img
                 data={grid.img}
                 className={isSign ? styles.signImg : styles.windowImg}
+                sizes="250px"
               />
             )}
             <p className={styles.windowDescription}>{grid.title}</p>

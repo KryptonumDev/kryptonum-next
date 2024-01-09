@@ -25,6 +25,8 @@ const HeadingDescriptionWithBlocksList = ({ data: { heading, description, blocks
               <Img
                 data={block.img}
                 className={styles.img}
+                sizes="20px"
+                quality={100}
               />
               <Markdown className={styles.blockDescription}>{block.description}</Markdown>
             </div>
