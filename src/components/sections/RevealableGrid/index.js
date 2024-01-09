@@ -3,34 +3,36 @@ import styles from './styles.module.scss';
 import Markdown from '@/components/atoms/Markdown';
 import Img from '@/components/atoms/Img';
 
-const RevealableGrid = ({ data: { heading, description, icons, grid, isSign } }) => {
+const RevealableGrid = ({ data: { heading, description, icons, grid } }) => {
   return (
-    <section className={styles.windowsShowcase}>
-      <div className={styles.windowsDescription}>
-        <header>
-          <DecorativeHeading type='h3' className={styles.heading}>
-            {heading}
-          </DecorativeHeading>
-        </header>
-        <Markdown className={isSign ? `${styles.description} ${styles.signDescription}` : styles.description}>
+    <section className={styles.revealableGrid}>
+      <header>
+        <DecorativeHeading
+          type='h3'
+          className={styles.heading}
+        >
+          {heading}
+        </DecorativeHeading>
+
+        <Markdown className={styles.description}>
           {description}
         </Markdown>
         <div className={styles.logoShowcase}>
           {icons &&
-            icons.map((icon, index) => (
+            icons.map(({icon, description}, index) => (
               <div
-                className={styles.logoWrapper}
+                className={styles.item}
                 key={index}
               >
                 <Img
-                  data={icon.icon}
+                  data={icon}
                   className={styles.icon}
                 />
-                <p className={styles.iconDescription}>{icon.description}</p>
+                <p className={styles.iconDescription}>{description}</p>
               </div>
             ))}
         </div>
-      </div>
+      </header>
       <div className={styles.grid}>
         {grid.map(({ img, title, description }, i) => (
           <div
