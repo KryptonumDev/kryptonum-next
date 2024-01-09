@@ -1,15 +1,15 @@
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
-import { removeHtmlTags } from '@/utils/functions';
+// import { Resend } from 'resend';
+// import { removeHtmlTags } from '@/utils/functions';
 import { domain } from '@/global/Seo';
 import { regex } from '@/global/constants';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// const resend = new Resend(process.env.RESEND_API_KEY);
 
-const emailData = {
-  from: 'Michał z Kryptonum <michal@kryptonum.eu>',
-  to: 'Michał <michal@kryptonum.eu>',
-};
+// const emailData = {
+//   from: 'Michał z Kryptonum <michal@kryptonum.eu>',
+//   to: 'Michał <michal@kryptonum.eu>',
+// };
 
 const headers = {
   'Access-Control-Allow-Origin': domain,
