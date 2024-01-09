@@ -6,12 +6,12 @@ import ReadingTime from '@/components/atoms/ReadingTime';
 
 const LatestBlogEntry = ({ data }) => {
   return (
-    <div className={styles.latestBlogEntry}>
-      <Link
-        className={styles.entryWrapper}
-        href={`/pl/blog/${data.slug.current}`}
-        aria-label={removeMarkdown(data.title)}
-      >
+    <Link
+      className={styles.entryWrapper}
+      href={`/pl/blog/${data.slug.current}`}
+      aria-label={removeMarkdown(data.title)}
+    >
+      <div className={styles.latestBlogEntry}>
         <Img
           data={data.img}
           className={styles.img}
@@ -24,8 +24,8 @@ const LatestBlogEntry = ({ data }) => {
           />
           <p className={styles.title}>{removeMarkdown(data.title)}</p>
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 export default LatestBlogEntry;

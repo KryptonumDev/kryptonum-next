@@ -95,7 +95,7 @@
       border-radius: 4px;
       display: grid;
       position: relative;
-      &:hover {
+      &:hover,&:focus-visible {
         .description {
           opacity: 1;
         }

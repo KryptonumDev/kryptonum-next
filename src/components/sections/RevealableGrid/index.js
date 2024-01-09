@@ -35,6 +35,7 @@ const RevealableGrid = ({ data: { heading, description, icons, grid, isSign } })
         {grid.map(({ img, title, description }, i) => (
           <div
             className={styles.item}
+            tabIndex={0}
             key={i}
           >
             {img && (
