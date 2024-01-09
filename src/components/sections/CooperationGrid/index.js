@@ -5,41 +5,45 @@ import Img from '@/components/atoms/Img';
 
 const CooperationGrid = ({ data: { heading, description, icons, grid } }) => {
   return (
-    <section className={styles.windowsShowcase}>
-      <div className={styles.windowsDescription}>
-        <header>
-          <DecorativeHeading type='h3' className={styles.heading}>{heading}</DecorativeHeading>
-        </header>
-        <Markdown className={`${styles.description} ${styles.signDescription}`}>{description}</Markdown>
+    <section className={styles.cooperatioGrid}>
+      <header>
+        <DecorativeHeading
+          type='h3'
+          className={styles.heading}
+        >
+          {heading}
+        </DecorativeHeading>
+        <Markdown className={styles.description}>{description}</Markdown>
         <div className={styles.logoShowcase}>
-          {icons && icons.map((icon, index) => (
-            <div
-              className={styles.logoWrapper}
-              key={index}
-            >
-              <Img
-                data={icon.icon}
-                className={styles.icon}
-              />
-              <p className={styles.iconDescription}>{icon.description}</p>
-            </div>
-          ))}
+          {icons &&
+            icons.map(({icon, description}, index) => (
+              <div
+                className={styles.item}
+                key={index}
+              >
+                <Img
+                  data={icon}
+                  className={styles.icon}
+                />
+                <p className={styles.iconDescription}>{description}</p>
+              </div>
+            ))}
         </div>
-      </div>
-      <div className={`${styles.windows} ${styles.signWidnows}`}>
-        {grid.map((grid, index) => (
+      </header>
+      <div className={styles.grid}>
+        {grid.map(({img, title} , index) => (
           <div
-            className={styles.windowWrapper}
+            className={styles.item}
             key={index}
           >
-            {grid.img && (
+            {img && (
               <Img
-                data={grid.img}
-                className={styles.signImg}
-                sizes="(max-width: 1349px) 250px, 20vw"
+                data={img}
+                className={styles.img}
+                sizes='(max-width: 1349px) 250px, 20vw'
               />
             )}
-            <p className={styles.windowDescription}>{grid.title}</p>
+            <p className={styles.description}>{title}</p>
           </div>
         ))}
       </div>

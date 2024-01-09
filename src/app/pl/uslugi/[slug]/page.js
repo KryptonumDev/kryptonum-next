@@ -236,6 +236,7 @@ const query = async (slug) => {
               }
               grid {
                 title
+                description
                 img {
                   asset {
                     altText
