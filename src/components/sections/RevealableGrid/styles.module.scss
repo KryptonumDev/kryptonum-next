@@ -1,10 +1,12 @@
 .windowsShowcase {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  margin: clamp(32px, calc(64vw/7.68), 40px) 0;
   gap: 32px;
-  margin: clamp(32px, calc(64vw/7.68), 40px) 110px;
+  @media (min-width: 1350px){
+    grid-template-columns: 1fr 1fr;
+    margin-left: clamp(82px, calc(82vw/7.68), 110px);
+  }
   align-items: flex-start;
-
   .windowsDescription {
     display: grid;
     gap: 32px;
@@ -48,19 +50,13 @@
     }
   }
 
-  .windows {
+  .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 40vw;
-    width: 40vw;
-
-    .windowWrapper {
-      border: 1px solid var(--neutral-700-new);
-      border-radius: 4px;
-      display: grid;
-      position: relative;
-
-      .windowImg {
+    aspect-ratio: 1/1;
+    .item {
+      margin: -.5px;
+      .img {
         height: 90%;
         width: auto;
         top: 0;
@@ -70,65 +66,47 @@
         position: absolute;
         justify-self: end;
       }
-
-      .signImg {
-        height: auto;
-        width: 70%;
-        object-fit: contain;
-        display: block;
-        padding-left: 16px;
-        padding-top: 22px;
-        padding-right: 22px;
-      }
-
-      .windowTitle {
+      .title {
         align-self: end;
         padding: 0px 28px 20px 28px;
       }
-
-      .windowDescription {
+      .description {
         position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
         display: grid;
-        width: 100%;
-        height: 100%;
-        padding: 0px 28px 20px 28px;
         align-items: end;
+        padding: 20px 28px 20px 28px;
+        max-height: 100%;
+        overflow: auto;
         font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+        z-index: 3;
+        background: linear-gradient(var(--neutral-950), var(--neutral-950)) padding-box,
+                    var(--gradient) border-box;
+        border: 1px solid rgba(255,255,255,0);
+        border-radius: inherit;
+        margin: -1px;
+        transition: opacity .5s var(--easing);
         opacity: 0;
       }
-
-      &:nth-child(n) {
-        margin-right: -1px;
-      }
-
-      &:nth-child(n+2) {
-        margin-top: -1px;
-      }
-
-      &:first-child {
-        margin-top: -1px;
-      }
-
+      border: 1px solid var(--neutral-700-new);
+      border-radius: 4px;
+      display: grid;
+      position: relative;
       &:hover {
-        border: 1px solid var(--primary-400);
-        .windowDescription {
+        .description {
           opacity: 1;
-          z-index: 3;
-          background-color: var(--);
         }
       }
     }
   }
 
   @media (max-width: 1349px) {
-    grid-template-columns: 1fr;
-    margin-left: unset;
-    margin-right: unset;
-
     .windows {
       width: 100%;
       height: 520px;
-
       .windowWrapper {
         .signImg {
           width: min-content;
@@ -136,7 +114,6 @@
         }
       }
     }
-
     .windowsDescription {
       .signDescription {
         width: 75%;

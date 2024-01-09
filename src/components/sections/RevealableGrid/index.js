@@ -8,10 +8,7 @@ const RevealableGrid = ({ data: { heading, description, icons, grid, isSign } })
     <section className={styles.windowsShowcase}>
       <div className={styles.windowsDescription}>
         <header>
-          <DecorativeHeading
-            type='h3'
-            className={styles.heading}
-          >
+          <DecorativeHeading type='h3' className={styles.heading}>
             {heading}
           </DecorativeHeading>
         </header>
@@ -34,21 +31,21 @@ const RevealableGrid = ({ data: { heading, description, icons, grid, isSign } })
             ))}
         </div>
       </div>
-      <div className={isSign ? `${styles.windows} ${styles.signWidnows}` : styles.windows}>
-        {grid.map((grid, index) => (
+      <div className={styles.grid}>
+        {grid.map(({ img, title, description }, i) => (
           <div
-            className={styles.windowWrapper}
-            key={index}
+            className={styles.item}
+            key={i}
           >
-            {grid.img && (
+            {img && (
               <Img
-                data={grid.img}
-                className={isSign ? styles.signImg : styles.windowImg}
+                data={img}
+                className={styles.img}
                 sizes='250px'
               />
             )}
-            <Markdown className={styles.windowTitle}>{grid.title}</Markdown>
-            <Markdown className={styles.windowDescription}>{grid.description}</Markdown>
+            <Markdown className={styles.title}>{title}</Markdown>
+            <Markdown className={styles.description}>{description}</Markdown>
           </div>
         ))}
       </div>
