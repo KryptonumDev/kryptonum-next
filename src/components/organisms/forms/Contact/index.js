@@ -7,6 +7,7 @@ import Button from '@/components/atoms/Button';
 import { Label } from '@/components/atoms/Label';
 import { regex } from '@/global/constants';
 import styles from './styles.module.scss';
+import { Checkbox } from '@/components/atoms/Checkbox';
 
 const ContactForm = ({ cta }) => {
   const plain = <Plain />;
@@ -87,6 +88,12 @@ const ContactForm = ({ cta }) => {
             errors={errors}
             type='textarea'
             rows={4}
+          />
+          <Checkbox
+            name='legal'
+            register={register('legal', { required: true })}
+            errors={errors}
+            className={styles.checkbox}
           />
           <Button
             theme='primary'
