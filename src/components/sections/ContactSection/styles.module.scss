@@ -94,9 +94,9 @@
     }
 
     form {
-      max-width: 450px;
+      max-width: 470px;
 
-      label {
+      label:first-child {
         width: 90%;
       }
     }
@@ -107,8 +107,9 @@
     form {
       max-width: unset;
 
-      label {
+      label:first-child {
         width: 100%;
+        max-width: unset;
       }
     }
 

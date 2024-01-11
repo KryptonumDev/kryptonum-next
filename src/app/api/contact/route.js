@@ -19,9 +19,9 @@ const headers = {
 
 export async function POST(request) {
   const req = await request.json();
-  const { email = '', question = '' } = req;
+  const { email = '', question = '', legal = '' } = req;
 
-  if (!regex.email.test(email.toLowerCase())) {
+  if (!regex.email.test(email.toLowerCase()) || legal == false) {
     return NextResponse.json({ success: false }, { status: 422, headers });
   }
 
@@ -33,7 +33,7 @@ export async function POST(request) {
     <p><em>Wyrażono zgodę na politykę prywatności</em></p>
 	`;
 
-  try {
+   try {
     await resend.emails.send({
       from: emailData.from,
       reply_to: email,
