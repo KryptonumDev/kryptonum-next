@@ -1,7 +1,5 @@
 "use client"
-
 import Button from "@/atoms/Button";
-import { scrollLock } from "@/utils/functions";
 import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 
@@ -44,7 +42,6 @@ const Navigation = ({
       }
     };
     setNavOpened(false);
-    scrollLock(false);
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleScroll);
@@ -61,7 +58,6 @@ const Navigation = ({
     if (e.key === "Escape") {
       nav.removeAttribute("data-tab");
       setNavOpened(false);
-      scrollLock(false);
     }
   };
 
@@ -75,7 +71,6 @@ const Navigation = ({
 
     if (e.currentTarget.getAttribute("aria-current") === "page") {
       setNavOpened(false);
-      scrollLock(false);
     }
   };
 
@@ -83,7 +78,6 @@ const Navigation = ({
     const nav = navRef.current;
     nav.removeAttribute("data-tab");
     setNavOpened(false);
-    scrollLock(false);
   };
 
   const handleNavToggle = () => {
@@ -92,7 +86,6 @@ const Navigation = ({
       window.scrollTo({ top: 0 });
     }
     setNavOpened(!navOpened);
-    scrollLock(!navOpened);
     nav.removeAttribute("data-tab");
   };
 

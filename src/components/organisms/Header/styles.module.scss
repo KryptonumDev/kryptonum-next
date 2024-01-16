@@ -1,6 +1,8 @@
 .mainWrapper {
   --nav-height: 94px;
 
+  background: linear-gradient(180deg, #020303 0%, rgba(2, 3, 3, 0.00) 96.35%);
+  backdrop-filter: blur(10px);
   .skipToMainContent {
     background-color: var(--neutral-900);
     opacity: 0;
@@ -16,7 +18,6 @@
     }
   }
 
-  background-color: var(--neutral-900);
   position: relative;
   z-index: 999;
   border-bottom: 1px solid var(--neutral-800);

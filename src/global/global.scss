@@ -112,10 +112,6 @@ img {
 }
 
 
-body.scrollLock {
-  overflow: hidden;
-  touch-action: none;
-}
 html {
   scroll-padding-top: var(--nav-height);
 }

@@ -1,5 +1,4 @@
 import DecorativeHeading from '@/components/atoms/DecorativeHeading';
-import { ArrowDown } from '@/components/atoms/Icons';
 import Img from '@/components/atoms/Img';
 import Markdown from '@/components/atoms/Markdown';
 import styles from './styles.module.scss';
@@ -57,4 +56,23 @@ const Technology = ({
     </TechnologySection>
   );
 };
+
 export default Technology;
+
+const ArrowDown = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="33"
+    fill="none"
+    viewBox="0 0 32 33"
+  >
+    <path
+      stroke="#EFF0F3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M16 7.662V26.33m0 0l9.333-9.334m-9.334 9.334l-9.333-9.334"
+    ></path>
+  </svg>
+);

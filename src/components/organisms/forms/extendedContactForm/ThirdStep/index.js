@@ -1,6 +1,6 @@
 import Button from '@/components/atoms/Button';
 import { Checkbox } from '@/components/atoms/Checkbox';
-import { Book, Cart, Desktop } from '@/components/atoms/Icons';
+import { Desktop } from '@/components/atoms/Icons';
 import { Label } from '@/components/atoms/Label';
 import Range from '@/components/molecules/forms/Range';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -237,4 +237,49 @@ const ThirdStep = ({ prevData, setData, setStep }) => {
 		</form>
 	);
 };
+
 export default ThirdStep;
+
+const Cart = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="33"
+    height="32"
+    fill="none"
+    viewBox="0 0 33 32"
+  >
+    <path
+      stroke="#EFF0F3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M2.06 1.333h5.334l3.573 17.854a2.667 2.667 0 002.667 2.146h12.96a2.667 2.667 0 002.666-2.146L31.395 8H8.727m20 20a1.333 1.333 0 11-2.666 0 1.333 1.333 0 012.666 0zM14.06 28a1.333 1.333 0 11-2.666 0 1.333 1.333 0 012.666 0z"
+    ></path>
+    <defs>
+      <clipPath id="clip0_4410_30088">
+        <path
+          fill="#fff"
+          d="M.727 0h32v32h-32z"
+        ></path>
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+const Book = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="33"
+    height="32"
+    fill="none"
+    viewBox="0 0 33 32"
+  >
+    <path
+      stroke="#EFF0F3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M16.726 9.333A5.333 5.333 0 0122.059 4h8v20h-9.333a4 4 0 00-4 4m0-18.667V28m0-18.667A5.333 5.333 0 0011.393 4h-8v20h9.333a4 4 0 014 4"
+    ></path>
+  </svg>
+);

@@ -2,7 +2,7 @@ import { getWeekDays } from "@/utils/getWeekDays";
 import dayjs from "dayjs";
 import "dayjs/locale/pl";
 import { useMemo, useState } from "react";
-import { Next, Prev } from "../Icons";
+import { Prev } from "../Icons";
 import styles from "./styles.module.scss";
 
 const CalendarDateDropdown = ({ setOpenedPopup, setChosenDate, chosenDate }) => {
@@ -184,4 +184,23 @@ const CalendarDateDropdown = ({ setOpenedPopup, setChosenDate, chosenDate }) => 
 		</div>
 	);
 };
+
 export default CalendarDateDropdown;
+
+const Next = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="25"
+    height="24"
+    fill="none"
+    viewBox="0 0 25 24"
+  >
+    <path
+      stroke="#EFF0F3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M9.725 18l6-6-6-6"
+    ></path>
+  </svg>
+);

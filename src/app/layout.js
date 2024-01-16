@@ -1,6 +1,6 @@
 import '@/global/global.scss'
 import Footer from '@/components/organisms/Footer';
-import Nav from '@/components/organisms/Nav';
+import Nav from '@/components/organisms/Header';
 import fetchData from '@/utils/fetchData';
 import localFont from 'next/font/local';
 import OrganizationSchema from '@/global/OrganizationSchema';
