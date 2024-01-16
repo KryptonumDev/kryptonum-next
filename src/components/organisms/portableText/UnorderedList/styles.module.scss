@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 24px !important;
-  font-size: clamp(calc(16rem/16), calc(22vw/7.68), calc(22rem/16));
+  font-size: clamp(calc(16rem / 16), calc(22vw / 7.68), calc(22rem / 16));
 
   img {
     width: 48px;
@@ -13,13 +13,12 @@
     }
 
     border-radius: 50%;
-    background: linear-gradient(var(--neutral-950), var(--neutral-950)) padding-box,
-    var(--gradient) border-box;
+    background: linear-gradient(var(--neutral-900), var(--neutral-900)) padding-box, var(--gradient) border-box;
     border: 1px solid transparent;
   }
 
   li {
-    >div {
+    > div {
       display: grid;
       grid-template-columns: 48px 1fr;
       gap: 16px;

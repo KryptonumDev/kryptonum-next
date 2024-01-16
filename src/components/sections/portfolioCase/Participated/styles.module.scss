@@ -2,15 +2,15 @@
   position: relative;
   overflow: hidden;
   margin: 0 calc(var(--pageMargin) * -1);
-  padding: clamp((54px), calc(78vw/7.68), 98px) var(--pageMargin);
+  padding: clamp((54px), calc(78vw / 7.68), 98px) var(--pageMargin);
   .img {
-    height:auto;
-    width:100%;
+    height: auto;
+    width: 100%;
     object-fit: contain;
   }
 
   header {
-    margin-bottom: clamp(24px, calc(32vw/7.68), 48px);
+    margin-bottom: clamp(24px, calc(32vw / 7.68), 48px);
 
     @media (min-width: 950px) {
       position: absolute;
@@ -29,12 +29,12 @@
     max-width: 620px;
 
     h2 {
-      margin-bottom: clamp(24px, calc(24vw/7.68), 34px);
-      font-size: clamp(calc(20rem/16), calc(28vw/7.68), calc(28rem/16));
+      margin-bottom: clamp(24px, calc(24vw / 7.68), 34px);
+      font-size: clamp(calc(20rem / 16), calc(28vw / 7.68), calc(28rem / 16));
     }
 
     .paragraph {
-      font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+      font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
     }
   }
 
@@ -56,12 +56,12 @@
 
     &::before {
       top: -106px;
-      background: linear-gradient(var(--neutral-950), rgba(0, 0, 0, 0));
+      background: linear-gradient(var(--neutral-900), rgba(0, 0, 0, 0));
     }
 
     &::after {
       bottom: -106px;
-      background: linear-gradient(rgba(0, 0, 0, 0), var(--neutral-950));
+      background: linear-gradient(rgba(0, 0, 0, 0), var(--neutral-900));
     }
 
     .item {
@@ -70,7 +70,7 @@
       top: 50%;
       transform: translate(-50%, -50%);
       aspect-ratio: 1/1;
-      border: 1px solid var(--neutral-700, #5B5F67);
+      border: 1px solid var(--neutral-700, #5b5f67);
       border-radius: 50%;
       display: flex;
       justify-content: center;
@@ -81,15 +81,15 @@
       .avatar {
         z-index: 5;
         animation: rotatePerson 25s infinite linear;
-        width: clamp(48px, calc(72vw/7.68), 106px);
-        height: clamp(48px, calc(72vw/7.68), 106px);
-        margin-top: calc(clamp(48px, calc(72vw/7.68), 106px) * -0.5);
+        width: clamp(48px, calc(72vw / 7.68), 106px);
+        height: clamp(48px, calc(72vw / 7.68), 106px);
+        margin-top: calc(clamp(48px, calc(72vw / 7.68), 106px) * -0.5);
         border-radius: 50%;
         pointer-events: all;
 
         &:last-child {
           align-self: flex-end;
-          margin-bottom: calc(clamp(48px, calc(72vw/7.68), 106px) * -0.5);
+          margin-bottom: calc(clamp(48px, calc(72vw / 7.68), 106px) * -0.5);
         }
 
         .name {
@@ -97,8 +97,8 @@
           position: relative;
           left: 50%;
           text-align: center;
-          font-size: clamp(calc(13rem/16), calc(16vw/7.68), calc(18rem/16));
-          padding: clamp(4px, calc(8vw/7.68), 8px) clamp(8px, calc(16vw/7.68), 16px);
+          font-size: clamp(calc(13rem / 16), calc(16vw / 7.68), calc(18rem / 16));
+          padding: clamp(4px, calc(8vw / 7.68), 8px) clamp(8px, calc(16vw / 7.68), 16px);
           border-radius: 2px;
           border: 1px solid var(--neutral-700);
           background-color: var(--neutral-900);
@@ -117,7 +117,6 @@
       }
 
       &:nth-child(odd) {
-
         &,
         .avatar {
           animation-direction: reverse;
@@ -134,7 +133,7 @@
       }
 
       &:nth-child(2) {
-        width: calc(100% - (clamp(48px, calc(72vw/7.68), 106px) * 2));
+        width: calc(100% - (clamp(48px, calc(72vw / 7.68), 106px) * 2));
 
         &,
         .avatar {
@@ -143,7 +142,7 @@
       }
 
       &:nth-child(3) {
-        width: calc(100% - (clamp(48px, calc(72vw/7.68), 106px) * 4));
+        width: calc(100% - (clamp(48px, calc(72vw / 7.68), 106px) * 4));
       }
 
       @keyframes rotate {

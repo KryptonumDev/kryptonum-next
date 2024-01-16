@@ -1,9 +1,8 @@
-import NextImage from "next/image";
+import NextImage from 'next/image';
 
-const defaultPlaceholder =
-  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkEBL6DwABYwElBoU80gAAAABJRU5ErkJggg==";
+const defaultPlaceholder = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkEBL6DwABYwElBoU80gAAAABJRU5ErkJggg==';
 
-const Img = ({ src, alt = "", data, width, height, sizes, loading, priority, ...props }) => (
+const Img = ({ src, alt = '', data, width, height, sizes, loading, priority, ...props }) => (
   <NextImage
     src={data?.asset.url || src}
     alt={data?.asset.altText || alt}
@@ -14,7 +13,7 @@ const Img = ({ src, alt = "", data, width, height, sizes, loading, priority, ...
     sizes={sizes}
     {...(((width || data?.asset.metadata.dimensions?.width) > 40 ||
       (height || data?.asset.metadata.dimensions?.height) > 40) && {
-      placeholder: "blur",
+      placeholder: 'blur',
       blurDataURL: data?.asset.metadata?.lqip || defaultPlaceholder,
     })}
     {...props}

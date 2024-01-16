@@ -53,11 +53,11 @@
             margin-bottom: 12px;
           }
           &::before {
-            content: "/" counter(counter);
+            content: '/' counter(counter);
             display: inline-block;
           }
           &:nth-child(-n + 9)::before {
-            content: "/0" counter(counter);
+            content: '/0' counter(counter);
           }
         }
       }
@@ -84,7 +84,7 @@
       }
       position: relative;
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         inset: 0;
         box-shadow: 0px 0px 2px #fff, 0px 0px 5px #fff, 0px 0px 25px rgba(255, 255, 255, 0.5);
@@ -95,11 +95,11 @@
         opacity: 1;
       }
       &:first-child {
-        background: linear-gradient(var(--neutral-950), var(--neutral-950)) padding-box, var(--gradient) border-box;
+        background: linear-gradient(var(--neutral-900), var(--neutral-900)) padding-box, var(--gradient) border-box;
         border: 1px solid transparent;
         grid-row: 3/1;
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           inset: 0;
           box-shadow: 0px 0px 2px #e1fffa, 0px 0px 5px #6df1dd, 0px 0px 25px rgba(55, 193, 131, 0.75);

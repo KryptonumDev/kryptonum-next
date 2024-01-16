@@ -14,7 +14,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 1000px;
-    @media (max-width: 599px){
+    @media (max-width: 599px) {
       border-radius: 4px;
       a {
         justify-content: flex-start;
@@ -22,14 +22,14 @@
       }
     }
     h2 {
-      max-width: calc(420rem/16);
+      max-width: calc(420rem / 16);
       font-size: clamp(calc(22rem / 16), calc(26vw / 7.68), calc(26rem / 16));
     }
     border: 1px solid var(--neutral-700);
-    padding: clamp(32px, calc(32vw/7.68), 48px) clamp(16px, calc(32vw/7.68), 64px);
-    background-color: var(--neutral-950);
+    padding: clamp(32px, calc(32vw / 7.68), 48px) clamp(16px, calc(32vw / 7.68), 64px);
+    background-color: var(--neutral-900);
     width: 100%;
-    max-width: calc(868rem/16);
+    max-width: calc(868rem / 16);
     margin: 0 auto;
     .glow {
       pointer-events: none;
@@ -46,9 +46,9 @@
         left: 50%;
         transform: translate(-50%, -25%);
         border-radius: 50%;
-        width: clamp(192px, calc(256vw/7.68), 358px);
-        height: clamp(192px, calc(256vw/7.68), 358px);
-        background: linear-gradient(266deg, #0B0F0D, #011310 53.44%, #001F1B);
+        width: clamp(192px, calc(256vw / 7.68), 358px);
+        height: clamp(192px, calc(256vw / 7.68), 358px);
+        background: linear-gradient(266deg, #0b0f0d, #011310 53.44%, #001f1b);
         mix-blend-mode: plus-lighter;
         filter: blur(64px);
       }
@@ -58,11 +58,11 @@
       left: 50%;
       top: 0;
       transform: translate(-50%, -50%);
-      width: clamp(48px, calc(56vw/7.68), 64px);
-      height: clamp(48px, calc(56vw/7.68), 64px);
+      width: clamp(48px, calc(56vw / 7.68), 64px);
+      height: clamp(48px, calc(56vw / 7.68), 64px);
       border: 1px solid var(--neutral-700);
       border-radius: 50%;
-      background-color: var(--neutral-950);
+      background-color: var(--neutral-900);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -73,9 +73,9 @@
       }
     }
   }
-  @media (min-width: 1000px){
+  @media (min-width: 1000px) {
     grid-template-rows: 1fr;
-    grid-template-areas: "row";
+    grid-template-areas: 'row';
     .img {
       grid-area: row;
     }
@@ -87,7 +87,7 @@
       justify-content: space-between;
     }
   }
-  @media (max-width: 999px){
+  @media (max-width: 999px) {
     .copy {
       margin-top: -12px;
     }

@@ -12,11 +12,11 @@
     align-self: center;
 
     .heading {
-      font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(26rem/16));
+      font-size: clamp(calc(22rem / 16), calc(26vw / 7.68), calc(26rem / 16));
     }
 
     .description {
-      font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+      font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
     }
   }
 
@@ -26,7 +26,7 @@
     row-gap: 20px;
 
     .blocksWrapper {
-      border: 1px solid var(--neutral-700-new);
+      border: 1px solid var(--neutral-700);
       border-radius: 4px;
       display: grid;
       position: relative;
@@ -36,7 +36,7 @@
       .imageWrapper {
         width: 100%;
         height: auto;
-        border-right: 1px solid var(--neutral-700-new);
+        border-right: 1px solid var(--neutral-700);
         padding-right: 10px;
 
         .blockImg {
@@ -73,7 +73,6 @@
   }
 
   @media (max-width: 599px) {
-
     .blocksDescription {
       .description {
         width: 100%;

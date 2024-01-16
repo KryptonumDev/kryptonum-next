@@ -23,13 +23,11 @@
 
   .roadmap {
     width: 100vw;
-    max-width: calc(1680px + (var(--pageMargin) * 2));
+    max-width: calc(1280px + var(--pageMargin) * 2);
     pointer-events: none;
-
     ::-webkit-scrollbar {
       display: none;
     }
-
     display: flex;
     column-gap: 32px;
     overflow-x: hidden;
@@ -50,7 +48,7 @@
       &:not(:last-child) {
         &::before,
         &::after {
-          content: "";
+          content: '';
           position: absolute;
           left: 0;
           top: 0;
@@ -60,7 +58,7 @@
         }
 
         &::before {
-          background: linear-gradient(var(--neutral-950), var(--neutral-950)) padding-box, var(--gradient) border-box;
+          background: linear-gradient(var(--neutral-900), var(--neutral-900)) padding-box, var(--gradient) border-box;
           border: 1px solid transparent;
         }
 
@@ -91,7 +89,7 @@
         align-items: baseline;
 
         &::before {
-          content: "/" counter(counter);
+          content: '/' counter(counter);
           display: inline-block;
           font-size: 1rem;
           margin-top: 0.2em;
@@ -99,7 +97,7 @@
       }
 
       &:nth-child(-n + 9) .title::before {
-        content: "/0" counter(counter);
+        content: '/0' counter(counter);
       }
 
       .description {

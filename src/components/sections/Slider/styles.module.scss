@@ -17,20 +17,20 @@
       border: solid 1px gray;
       display: grid;
       gap: 32px;
-      padding: clamp(24px, calc(40vw/7.68), 48px) clamp(16px, calc(24vw/7.68), 28px);
+      padding: clamp(24px, calc(40vw / 7.68), 48px) clamp(16px, calc(24vw / 7.68), 28px);
 
-      .title>h3 {
-        font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+      .title > h3 {
+        font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
       }
     }
   }
 
   .swiper-slide {
-    transition: transform .5s var(--easing);
+    transition: transform 0.5s var(--easing);
   }
 
   .swiper-slide:not(.swiper-slide-active) {
-    transform: scale(.95);
+    transform: scale(0.95);
   }
 
   .slider {
@@ -45,7 +45,7 @@
       height: auto;
       pointer-events: none;
       z-index: 2;
-      background: linear-gradient(90deg, var(--neutral-950), rgba(0, 0, 0, 0));
+      background: linear-gradient(90deg, var(--neutral-900), rgba(0, 0, 0, 0));
     }
 
     &::before {
@@ -63,27 +63,25 @@
     width: calc(100% + var(--pageMargin));
 
     .slide {
-      padding: clamp(24px, calc(40vw/7.68), 48px) clamp(16px, calc(24vw/7.68), 28px);
+      padding: clamp(24px, calc(40vw / 7.68), 48px) clamp(16px, calc(24vw / 7.68), 28px);
 
       border: 1px solid var(--neutral-700);
 
-      font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+      font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
 
-
-      >div>div {
+      > div > div {
         display: grid;
         grid-template-columns: auto 1fr;
 
-        gap: clamp(4px, calc(12vw/7.68), 12px);
+        gap: clamp(4px, calc(12vw / 7.68), 12px);
 
         align-items: center;
 
         margin-bottom: 32px;
-
       }
 
-      .title>h3 {
-        font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+      .title > h3 {
+        font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
       }
 
       .img {
@@ -106,10 +104,10 @@
       height: 48px;
       border: 1px solid var(--neutral-700);
       border-radius: 50%;
-      transition: background-color .4s, opacity .4s;
+      transition: background-color 0.4s, opacity 0.4s;
 
       &[disabled] {
-        opacity: .4;
+        opacity: 0.4;
         pointer-events: none;
       }
 
@@ -119,12 +117,12 @@
 
       &:active {
         svg {
-          transform: scale(.95);
+          transform: scale(0.95);
         }
       }
 
       svg {
-        transition: transform .4s var(--easing);
+        transition: transform 0.4s var(--easing);
       }
     }
   }

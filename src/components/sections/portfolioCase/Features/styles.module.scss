@@ -3,12 +3,12 @@
   top: 144px;
   max-width: 610px;
   h2 {
-    font-size: clamp(calc(20rem/16), calc(28vw/7.68), calc(28rem/16));
+    font-size: clamp(calc(20rem / 16), calc(28vw / 7.68), calc(28rem / 16));
   }
 }
 
 .item {
-  background-color: var(--neutral-950);
+  background-color: var(--neutral-900);
   position: sticky;
   border: 1px solid var(--neutral-700);
 
@@ -44,22 +44,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: clamp(24px, calc(32vw/7.68), 32px) clamp(16px, calc(24vw/7.68), 24px);
+  padding: clamp(24px, calc(32vw / 7.68), 32px) clamp(16px, calc(24vw / 7.68), 24px);
 
   .img {
     width: 48px;
     height: 48px;
-    object-fit:contain;
+    object-fit: contain;
     padding: 12px;
 
-    margin-bottom: clamp(16px, calc(24vw/7.68), 32px);
+    margin-bottom: clamp(16px, calc(24vw / 7.68), 32px);
     border-radius: 50%;
     border: 1px solid var(--neutral-700);
     background-color: var(--neutral-900);
   }
 
   .title {
-    font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+    font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
   }
 }
 
@@ -71,22 +71,22 @@
 }
 .section {
   --offset: 21px;
-  --gap: clamp(16px, calc(24vw/7.68), 32px);
+  --gap: clamp(16px, calc(24vw / 7.68), 32px);
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: flex-start;
-  gap: clamp(32px, calc(64vw/7.68), 64px) clamp(64px, calc(82vw/7.68), 102px);
+  gap: clamp(32px, calc(64vw / 7.68), 64px) clamp(64px, calc(82vw / 7.68), 102px);
   .wrapper {
     max-width: 610px;
     margin-left: auto;
-    transition: transform .5s, margin-bottom .5s;
+    transition: transform 0.5s, margin-bottom 0.5s;
     display: grid;
     gap: var(--gap);
   }
-  @media( max-width: 949px) {
+  @media (max-width: 949px) {
     grid-template-columns: 1fr;
     .wrapper {
       max-width: unset;
     }
-  } 
+  }
 }

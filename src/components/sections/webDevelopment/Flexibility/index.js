@@ -12,7 +12,7 @@ const Flexibility = ({
       <Markdown className={styles.claim}>{flexibility_Claim}</Markdown>
       <Markdown className={styles.paragraph}>{flexibility_Paragraph}</Markdown>
       <Markdown className={styles.secondParagraph}>{flexibility_SecondParagraph}</Markdown>
-      <div className={`${styles.ctaWrapper} ctaWrapper`}>
+      <div className={`${styles.ctaWrapper} cta-wrapper`}>
         {flexibility_Cta.map((cta, i) => (
           <Button data={cta} key={i} />
         ))}

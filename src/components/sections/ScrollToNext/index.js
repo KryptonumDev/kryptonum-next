@@ -7,12 +7,9 @@ import styles from "./styles.module.scss";
 
 const ScrollToNext = ({ data: { heading, paragraph, title, link } }) => {
   const markdown = <Markdown>{title}</Markdown>;
-
   const decorativeHeading = heading ? <DecorativeHeading type="h2" className={styles.heading}>{heading}</DecorativeHeading> : null;
-
   const scrollDown = <ScrollDown />;
-
-  const image = <Img data={link.person?.img} className={`personBorder ${styles.personBorder}`} sizes="180px" quality={100}/>;
+  const image = <Img data={link.person?.img} className={`personBorder ${styles.personBorder}`} sizes="180px" quality={100} />;
 
   return (
     <ScrollToNextSection

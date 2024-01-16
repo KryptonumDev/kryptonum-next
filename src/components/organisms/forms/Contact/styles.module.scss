@@ -1,14 +1,13 @@
 .form {
   display: grid;
   gap: 32px;
-  
 
   &.relative {
     position: relative;
   }
 
   .checkbox {
-    background: var(--neutral-950);
+    background: var(--neutral-900);
   }
 
   label:nth-child(2n) {
@@ -16,15 +15,14 @@
   }
 
   label:first-child {
-    max-width: calc(500rem/16);
+    max-width: calc(500rem / 16);
   }
-
 }
 
-@media(min-width:1330px) {
+@media (min-width: 1330px) {
   .form {
     button {
-      max-width: calc(500rem/16);
+      max-width: calc(500rem / 16);
     }
   }
 }
@@ -39,11 +37,11 @@
 
   &.success {
     border: 1px solid var(--primary-400);
-    background: linear-gradient(266deg, #0B0F0D 1.76%, #011310 53.44%, #001F1B 100%);
+    background: linear-gradient(266deg, #0b0f0d 1.76%, #011310 53.44%, #001f1b 100%);
   }
 
   &.failed {
-    background: linear-gradient(266deg, #0F0B0B 1.76%, #130501 53.44%, #290005 100%);
+    background: linear-gradient(266deg, #0f0b0b 1.76%, #130501 53.44%, #290005 100%);
     border: 1px solid var(--error-400);
   }
 
@@ -66,11 +64,11 @@
     }
 
     p {
-      font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+      font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
       margin-bottom: 8px;
     }
   }
   @media (max-width: 699px) {
-    width:100%;
+    width: 100%;
   }
 }

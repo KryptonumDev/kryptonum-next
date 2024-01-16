@@ -15,58 +15,58 @@
   }
 
   align-items: flex-start;
-  gap: 48px clamp(82px, calc(124vw/7.68), 252px);
+  gap: 48px clamp(82px, calc(124vw / 7.68), 252px);
 
   header {
-    max-width: calc(517rem/16);
+    max-width: calc(517rem / 16);
 
     h2 {
-      font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28rem/16));
+      font-size: clamp(calc(18rem / 16), calc(28vw / 7.68), calc(28rem / 16));
     }
   }
 
   .wrapper {
     display: grid;
-    gap: clamp(16px, calc(24vw/7.68), 32px) clamp(24px, calc(24vw/7.68), 32px);
+    gap: clamp(16px, calc(24vw / 7.68), 32px) clamp(24px, calc(24vw / 7.68), 32px);
 
     @media (min-width: 550px) and (max-width: 949px) {
       grid-template-columns: 1fr 1fr;
     }
 
     .item {
-      background-color: var(--neutral-950);
+      background-color: var(--neutral-900);
       border: 1px solid var(--neutral-700);
 
       &:first-child {
         border: 1px solid var(--primary-400);
-        background: linear-gradient(266deg, #0B0F0D, #12211F);
+        background: linear-gradient(266deg, #0b0f0d, #12211f);
       }
 
-      padding: clamp(24px, calc(32vw/7.68), 32px) clamp(16px, calc(24vw/7.68), 24px);
+      padding: clamp(24px, calc(32vw / 7.68), 32px) clamp(16px, calc(24vw / 7.68), 24px);
 
       .imgWrapper {
         width: 48px;
         height: 48px;
-        padding:12px;
-        margin-bottom: clamp(16px, calc(24vw/7.68), 32px);
+        padding: 12px;
+        margin-bottom: clamp(16px, calc(24vw / 7.68), 32px);
         border-radius: 50%;
         border: 1px solid var(--neutral-700);
         background-color: var(--neutral-900);
-      .img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-        display:block;
+        .img {
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+          display: block;
+        }
       }
-    }
 
       .title {
-        font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28rem/16));
-        margin-bottom: clamp(24px, calc(24vw/7.68), 32px);
+        font-size: clamp(calc(18rem / 16), calc(28vw / 7.68), calc(28rem / 16));
+        margin-bottom: clamp(24px, calc(24vw / 7.68), 32px);
       }
 
       .description {
-        font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+        font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
 
         p:not(:last-child) {
           margin-bottom: 12px;
@@ -79,7 +79,7 @@
           align-items: center;
           gap: 16px;
           .imgWrapper {
-            display:flex;
+            display: flex;
             align-items: center;
             margin: 0;
             flex-shrink: 0;

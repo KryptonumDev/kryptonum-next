@@ -1,17 +1,17 @@
-.section{
+.section {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 32px;
   h2 {
     align-self: center;
     max-width: 500px;
-    font-size: clamp(calc(20rem/16), calc(28vw/7.68), calc(28rem/16));
+    font-size: clamp(calc(20rem / 16), calc(28vw / 7.68), calc(28rem / 16));
   }
   .active {
     transition: transform 0.5s var(--easing);
   }
   .slide:not(.active) {
-    transform: scale(.95);
+    transform: scale(0.95);
   }
   .slider {
     position: relative;
@@ -24,7 +24,7 @@
       height: auto;
       pointer-events: none;
       z-index: 2;
-      background: linear-gradient(90deg, var(--neutral-950), rgba(0,0,0,0));
+      background: linear-gradient(90deg, var(--neutral-900), rgba(0, 0, 0, 0));
     }
     &::before {
       left: 0;
@@ -38,15 +38,15 @@
     margin-right: calc(var(--pageMargin) * -1);
     width: calc(100% + var(--pageMargin));
     .slide {
-      padding: clamp(24px, calc(40vw/7.68), 48px) clamp(16px, calc(24vw/7.68), 28px); 
+      padding: clamp(24px, calc(40vw / 7.68), 48px) clamp(16px, calc(24vw / 7.68), 28px);
       border: 1px solid var(--neutral-700);
-      font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+      font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
       > div {
         display: grid;
         grid-template-columns: auto 1fr;
-        gap: clamp(4px, calc(12vw/7.68), 12px);
+        gap: clamp(4px, calc(12vw / 7.68), 12px);
         align-items: center;
-        margin-bottom: clamp(8px, calc(24vw/7.68), 64px);
+        margin-bottom: clamp(8px, calc(24vw / 7.68), 64px);
       }
       .img {
         width: 40px;
@@ -67,9 +67,9 @@
       height: 48px;
       border: 1px solid var(--neutral-700);
       border-radius: 50%;
-      transition: background-color .4s, opacity .4s;
+      transition: background-color 0.4s, opacity 0.4s;
       &[disabled] {
-        opacity: .4;
+        opacity: 0.4;
         pointer-events: none;
       }
       &:hover {
@@ -77,15 +77,15 @@
       }
       &:active {
         svg {
-          transform: scale(.95);
+          transform: scale(0.95);
         }
       }
       svg {
-        transition: transform .4s var(--easing);
+        transition: transform 0.4s var(--easing);
       }
     }
   }
-  @media (max-width: 1049px){
+  @media (max-width: 1049px) {
     grid-template-columns: 1fr;
     .slider {
       margin-left: calc(var(--pageMargin) * -1);

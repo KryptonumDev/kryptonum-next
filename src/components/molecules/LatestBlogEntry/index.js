@@ -11,19 +11,17 @@ const LatestBlogEntry = ({ data }) => {
       href={`/pl/blog/${data.slug.current}`}
       aria-label={removeMarkdown(data.title)}
     >
-      <div className={styles.latestBlogEntry}>
-        <Img
-          data={data.img}
-          className={styles.img}
-          sizes='(max-width: 599px) 100vw, (max-width: 1199px) 50vw, 33vw'
+      <Img
+        data={data.img}
+        className={styles.img}
+        sizes='(max-width: 599px) 100vw, (max-width: 1199px) 50vw, 33vw'
+      />
+      <div className={styles.descriptionWrapper}>
+        <ReadingTime
+          content={data.contentRaw}
+          className={styles.readingTime}
         />
-        <div className={styles.descriptionWrapper}>
-          <ReadingTime
-            content={data.contentRaw}
-            className={styles.readingTime}
-          />
-          <p className={styles.title}>{removeMarkdown(data.title)}</p>
-        </div>
+        <p className={styles.title}>{removeMarkdown(data.title)}</p>
       </div>
     </Link>
   );

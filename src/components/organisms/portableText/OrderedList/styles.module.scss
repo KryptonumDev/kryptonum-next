@@ -20,7 +20,7 @@
 
         &::before {
           content: counter(counter);
-          background: linear-gradient(var(--neutral-950), var(--neutral-950)) padding-box, var(--gradient) border-box;
+          background: linear-gradient(var(--neutral-900), var(--neutral-900)) padding-box, var(--gradient) border-box;
           border: 1px solid var(--neutral-800);
           transition: border-color 0.2s 0.1s;
           border-radius: 50%;
@@ -38,7 +38,7 @@
       }
 
       &:nth-child(-n + 9) .title::before {
-        content: "0" counter(counter);
+        content: '0' counter(counter);
       }
 
       position: relative;
@@ -46,7 +46,7 @@
       &:not(:last-child) {
         &::before,
         &::after {
-          content: "";
+          content: '';
           width: 4px;
           height: calc(100% + 51px);
           position: absolute;

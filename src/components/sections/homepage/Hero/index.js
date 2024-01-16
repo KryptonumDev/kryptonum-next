@@ -12,7 +12,7 @@ const Hero = ({ data: { hero_Heading, hero_Subheading, hero_Cta, caseStudies }, 
           <DecorativeHeading type='h1'>{hero_Heading}</DecorativeHeading>
           <HeroSubheading>{hero_Subheading}</HeroSubheading>
         </div>
-        <div className={`${styles.ctaWrapper} ctaWrapper`}>
+        <div className={`${styles.ctaWrapper} cta-wrapper`}>
           <Button data={hero_Cta} />
         </div>
       </header>
