@@ -1,6 +1,6 @@
 .wrapper {
   border: 1px solid var(--neutral-700, #5b5f67);
-  background-color: var(--neutral-950);
+  background-color: var(--neutral-900);
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 1fr;
@@ -35,7 +35,7 @@
     margin-top: unset;
     header {
       border: 1px solid var(--neutral-700, #5b5f67);
-      background-color: var(--neutral-950);
+      background-color: var(--neutral-900);
       padding: clamp(24px, calc(72vw / 7.68), 72px) clamp(16px, calc(72vw / 7.68), 72px);
     }
     .img {
@@ -50,7 +50,7 @@
       margin: auto;
     }
   }
-  @media (max-width: 599px){
+  @media (max-width: 599px) {
     header {
       padding: clamp(24px, calc(72vw / 7.68), 72px) var(--pageMargin);
     }

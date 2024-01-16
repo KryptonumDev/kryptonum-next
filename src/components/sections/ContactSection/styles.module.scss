@@ -4,11 +4,11 @@
   grid-template-columns: 1fr 1fr;
   column-gap: 142px;
   align-items: flex-start;
-  border-top: 1px solid var(--neutral-700-new);
-  border-bottom: 1px solid var(--neutral-700-new);
+  border-top: 1px solid var(--neutral-700);
+  border-bottom: 1px solid var(--neutral-700);
   padding: 84px 110px 80px 110px;
   justify-content: flex-start;
-  grid-template-areas: "heading form" "info form";
+  grid-template-areas: 'heading form' 'info form';
 
   form {
     grid-area: form;
@@ -22,12 +22,12 @@
   }
 
   h3 {
-    font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(28rem/16));
+    font-size: clamp(calc(22rem / 16), calc(26vw / 7.68), calc(28rem / 16));
   }
 
   .subheading {
-    font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
-    border-bottom: 1px solid var(--neutral-700-new);
+    font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
+    border-bottom: 1px solid var(--neutral-700);
     padding-bottom: 24px;
   }
 
@@ -39,27 +39,17 @@
     grid-template-columns: 1fr;
     row-gap: 16px;
     column-gap: 8px;
-    font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+    font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
 
     .person {
       display: flex;
       column-gap: 8px;
       align-items: center;
       justify-items: flex-start;
-
       .img {
         width: 64px;
         height: 64px;
         object-fit: cover;
-      }
-
-      .copy {
-        padding: 8px 12px;
-        border-radius: 10000000000px;
-
-        &:hover {
-          cursor: pointer;
-        }
       }
     }
   }
@@ -76,7 +66,7 @@
 
   @media (max-width: 1329px) {
     grid-template-columns: 1fr;
-    grid-template-areas: "heading" "form" "info";
+    grid-template-areas: 'heading' 'form' 'info';
     gap: 32px;
     padding-left: unset;
     padding-right: unset;
@@ -86,7 +76,6 @@
       grid-template-columns: auto;
       justify-content: flex-start;
       gap: 4px 0;
-
     }
 
     .subheading {
@@ -103,7 +92,6 @@
   }
 
   @media (max-width: 699px) {
-
     form {
       max-width: unset;
 

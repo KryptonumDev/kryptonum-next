@@ -200,7 +200,7 @@ const Faq = async ({ heading }) => {
         ))}
       </div>
       <div className={styles.faqForm}>
-        <div className={`${styles.maxWidth} maxWidth`}>
+        <div className={`${styles.maxWidth} max-width`}>
           <div className={styles.copy}>
             <Markdown className={styles.heading} components={{ p: "h3" }}>
               {faq.form.heading}

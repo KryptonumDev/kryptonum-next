@@ -1,6 +1,6 @@
 .headingDescriptionWithBlocksList {
   display: grid;
-  grid-template-areas: "heading description" "pill pill";
+  grid-template-areas: 'heading description' 'pill pill';
   grid-template-columns: 1fr 1fr;
   column-gap: 28px;
   row-gap: 48px;
@@ -9,29 +9,30 @@
     grid-area: heading;
 
     .heading {
-      font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(26rem/16));
+      font-size: clamp(calc(22rem / 16), calc(26vw / 7.68), calc(26rem / 16));
     }
   }
 
   .description {
     grid-area: description;
-    font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+    font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
   }
 
   .pill {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    border: 1px solid var(--neutral-700-new);
+    border: 1px solid var(--neutral-700);
     border-radius: 100000000px;
     grid-area: pill;
-    column-gap: clamp(12px, calc(12vw/7.68), 32px);
-    padding: clamp(24px, calc(30vw/7.68), 30px) clamp(16px, calc(0vw/7.68), 103px) 32px clamp(16px, calc(64vw/7.68), 103px);
+    column-gap: clamp(12px, calc(12vw / 7.68), 32px);
+    padding: clamp(24px, calc(30vw / 7.68), 30px) clamp(16px, calc(0vw / 7.68), 103px) 32px
+      clamp(16px, calc(64vw / 7.68), 103px);
     row-gap: 12px;
 
     .itemWrapper {
       display: grid;
-      border-left: 1px solid var(--neutral-700-new);
-      padding-left: clamp(12px, calc(12vw/7.68), 32px);
+      border-left: 1px solid var(--neutral-700);
+      padding-left: clamp(12px, calc(12vw / 7.68), 32px);
 
       &:first-child {
         border-left: none;
@@ -47,7 +48,6 @@
           object-fit: contain;
         }
 
-
         .blockDescription {
           font-size: 16px;
         }
@@ -57,7 +57,7 @@
 
   @media (max-width: 1299px) {
     grid-template-columns: 1fr;
-    grid-template-areas: "heading" "description" "pill";
+    grid-template-areas: 'heading' 'description' 'pill';
 
     .description {
       width: 75%;
@@ -77,10 +77,9 @@
       padding-left: 16px;
       .itemWrapper {
         border-left: unset;
-        border-bottom: 1px solid var(--neutral-700-new);
+        border-bottom: 1px solid var(--neutral-700);
         padding-bottom: 12px;
         padding-left: unset;
-
 
         &:last-child {
           border-bottom: none;

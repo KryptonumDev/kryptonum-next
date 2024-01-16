@@ -6,7 +6,7 @@
 
   header {
     .heading {
-      font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(26rem/16));
+      font-size: clamp(calc(22rem / 16), calc(26vw / 7.68), calc(26rem / 16));
     }
   }
 
@@ -27,7 +27,7 @@
         width: 48px;
         height: 48px;
         border-radius: 50%;
-        border: 1px solid var(--neutral-700-new);
+        border: 1px solid var(--neutral-700);
         padding: 14px;
 
         .icon {

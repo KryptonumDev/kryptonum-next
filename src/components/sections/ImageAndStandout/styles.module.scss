@@ -39,7 +39,7 @@
         }
 
         &:nth-child(-n + 9)::before {
-          content: "0" counter(counter);
+          content: '0' counter(counter);
         }
       }
     }
@@ -50,7 +50,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 32px;
-    grid-template-areas: "paragraph img" "standout img";
+    grid-template-areas: 'paragraph img' 'standout img';
 
     .paragraph {
       grid-area: paragraph;
@@ -70,7 +70,7 @@
       align-self: end;
 
       padding: clamp(24px, calc(32vw / 7.68), 32px) 0;
-      background: linear-gradient(var(--neutral-950), var(--neutral-950)) padding-box, var(--gradient) border-box;
+      background: linear-gradient(var(--neutral-900), var(--neutral-900)) padding-box, var(--gradient) border-box;
       border-top: 1px solid transparent;
       border-bottom: 1px solid transparent;
     }
@@ -86,7 +86,7 @@
 
   &.reversed {
     .column {
-      grid-template-areas: "img paragraph" "img standout";
+      grid-template-areas: 'img paragraph' 'img standout';
     }
 
     .img {
@@ -99,7 +99,7 @@
     .column {
       grid-template-columns: 1fr;
       gap: 0;
-      grid-template-areas: "img" "paragraph" "standout";
+      grid-template-areas: 'img' 'paragraph' 'standout';
 
       .img {
         margin-inline: 0;
@@ -110,7 +110,7 @@
 
     &.reversed {
       .column {
-        grid-template-areas: "img" "paragraph" "standout";
+        grid-template-areas: 'img' 'paragraph' 'standout';
       }
     }
   }

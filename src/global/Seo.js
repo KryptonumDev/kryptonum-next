@@ -15,7 +15,7 @@ const SEO = async ({
     body: {
       data: {
         global: {
-          globalSeo: { og_Img },
+          seo: { og_Img },
         },
       },
     },
@@ -59,7 +59,7 @@ const getData = async () => {
   return await fetchData(/* GraphQL */ `
     query {
       global: Global(id: "global") {
-        globalSeo {
+        seo {
           og_Img {
             asset {
               url

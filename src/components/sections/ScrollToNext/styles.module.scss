@@ -13,7 +13,7 @@
   width: clamp(120px, calc(144vw/7.68), 180px);
   height: clamp(120px, calc(144vw/7.68), 180px);
 }
-.maxWidth {
+.ScrollToNext {
   order: 2;
   margin-top: clamp(64px, calc(128vw/7.68), 172px);
   .heading {
@@ -25,13 +25,11 @@
       max-width: unset;
     }
   }
-
   .sticky {
     position: sticky;
     bottom: 0;
     padding-bottom: 64px;
   }
-
   .indicator {
     width: 4px;
     height: 100px;
@@ -59,7 +57,6 @@
 
     .page {
       text-align: center;
-
       .person {
         width: fit-content;
         margin: 0 auto;

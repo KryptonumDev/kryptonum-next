@@ -19,9 +19,9 @@ export default async function OrganizationSchema() {
         description: seo?.description,
 				address: {
 					"@type": "PostalAddress",
-					streetAddress: "Aleja Komisji Edukacji Narodowej 103/61",
+					streetAddress: "Żwirki i Wigury 15/9",
 					addressLocality: "Warszawa",
-					postalCode: "02-722",
+					postalCode: "02-143",
 					addressCountry: "PL",
 				},
 				contactPoint: [

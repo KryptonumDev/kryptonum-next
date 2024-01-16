@@ -21,13 +21,13 @@
       position: relative;
 
       &::before {
-        content: "";
+        content: '';
         width: 100%;
         height: auto;
         position: absolute;
         left: 0;
         top: 0;
-        background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8), var(--neutral-950));
+        background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8), var(--neutral-900));
         transition: transform 0.6s;
         pointer-events: none;
       }
@@ -64,13 +64,13 @@
         }
 
         &::before {
-          content: "/" counter(counter);
+          content: '/' counter(counter);
           font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
         }
       }
 
       &:nth-child(-n + 9) h3::before {
-        content: "/0" counter(counter);
+        content: '/0' counter(counter);
       }
 
       .description {

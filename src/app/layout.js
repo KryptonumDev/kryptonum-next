@@ -1,15 +1,15 @@
+import '@/global/global.scss'
 import Footer from '@/components/organisms/Footer';
 import Nav from '@/components/organisms/Nav';
 import fetchData from '@/utils/fetchData';
 import localFont from 'next/font/local';
-import '../styles/global.scss';
 import OrganizationSchema from '@/global/OrganizationSchema';
 import Fathom from '@/utils/Fathom';
 
 const font = localFont({
   src: [
     {
-      path: '../resources/fonts/Poppins-Light.woff2',
+      path: '../assets/fonts/Poppins-Light.woff2',
       weight: '400',
       style: 'normal',
     },
@@ -28,7 +28,6 @@ const RootLayout = async ({ children }) => {
     curiosityCategories,
     blogAuthors,
     academyAuthors,
-    global,
   } = await query();
 
   return (
@@ -48,12 +47,7 @@ const RootLayout = async ({ children }) => {
           academyAuthors={academyAuthors}
         />
         {children}
-        <Footer
-          caseStudies={caseStudies}
-          team={team}
-          blogEntries={blogEntries}
-          global={global}
-        />
+        <Footer />
         <Fathom />
       </body>
     </html>
@@ -219,21 +213,6 @@ const query = async () => {
               }
             }
           }
-        }
-      }
-      global: Global(id: "global") {
-        footer_OfficeCity
-        footer_OfficeStreet
-        footer_ContactName
-        footer_ContactTel
-        footer_ContactEmail
-        footer_LegalLinks {
-          text
-          href
-        }
-        footer_Socials {
-          text
-          href
         }
       }
     }

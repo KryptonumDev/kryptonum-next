@@ -7,7 +7,7 @@
   margin-top: -78px;
 
   p {
-    font-size: calc(22rem/16);
+    font-size: calc(22rem / 16);
   }
 }
 
@@ -27,7 +27,7 @@
     }
 
     nav {
-      transition: transform .5s;
+      transition: transform 0.5s;
       border: 1px solid var(--neutral-800);
       margin-top: 78px;
       display: flex;
@@ -46,7 +46,7 @@
         margin-top: -78px;
 
         p {
-          font-size: calc(22rem/16);
+          font-size: calc(22rem / 16);
         }
       }
 
@@ -55,20 +55,20 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        font-size: clamp(calc(16rem/16), calc(22vw/7.68), calc(22rem/16));
+        font-size: clamp(calc(16rem / 16), calc(22vw / 7.68), calc(22rem / 16));
         margin: 16px auto;
       }
 
       .like {
         &[disabled] span {
-          opacity: .4;
+          opacity: 0.4;
         }
 
         margin-bottom: 0;
 
         &.liked {
           svg {
-            animation: .6s likeAnimation forwards;
+            animation: 0.6s likeAnimation forwards;
             fill: url(#heart);
           }
         }
@@ -120,12 +120,12 @@
           }
 
           &::before {
-            background: linear-gradient(var(--neutral-950), rgba(0, 0, 0, 0));
+            background: linear-gradient(var(--neutral-900), rgba(0, 0, 0, 0));
           }
 
           &::after {
             bottom: 0;
-            background: linear-gradient(rgba(0, 0, 0, 0), var(--neutral-950));
+            background: linear-gradient(rgba(0, 0, 0, 0), var(--neutral-900));
           }
         }
       }

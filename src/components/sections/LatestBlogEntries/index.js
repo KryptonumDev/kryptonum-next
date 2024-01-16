@@ -21,17 +21,14 @@ const LatestBlogEntries = ({ data, heading, exclude = null, smallEntry = false }
           Przejdź do bloga
         </Button>
       </div>
-      {data
-        .filter((entry) => entry.slug.current !== exclude)
-        .map(
-          (entry, i) =>
-            i < 2 && (
-              <LatestBlogEntry
-                data={entry}
-                key={i}
-              />
-            )
-        )}
+      {data.filter((entry) => entry.slug.current !== exclude).map((entry, i) =>
+        i < 2 && (
+          <LatestBlogEntry
+            data={entry}
+            key={i}
+          />
+        )
+      )}
     </section>
   );
 };

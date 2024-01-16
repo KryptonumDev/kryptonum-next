@@ -1,37 +1,30 @@
 .entryWrapper {
-  border: 1px solid var(--neutral-700-new);
+  border: 1px solid var(--neutral-700);
   border-radius: 4px;
   overflow: hidden;
   display: block;
-
-  .latestBlogEntry {
-    .img {
-      transition: transform 0.3s;
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-      border-radius: 4px 4px 0 0;
+  .img {
+    transition: transform 0.3s;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: 4px 4px 0 0;
+  }
+  .descriptionWrapper {
+    display: grid;
+    justify-self: stretch;
+    padding: 24px;
+    grid-gap: 20px;
+    .readingTime {
+      display: flex;
+      gap: clamp(6px, calc(8vw / 7.68), 8px);
+      font-size: clamp(calc(14rem / 16), calc(16vw / 7.68), calc(16rem / 16));
     }
-
-    .descriptionWrapper {
-      display: grid;
-      justify-self: stretch;
-      padding: 24px;
-      grid-gap: 20px;
-
-      .readingTime {
-        display: flex;
-        gap: clamp(6px, calc(8vw/7.68), 8px);
-        font-size: clamp(calc(14rem/16), calc(16vw/7.68), calc(16rem/16));
-      }
-
-      .title {
-        font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
-      }
+    .title {
+      font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
     }
   }
-
   &:hover {
     cursor: pointer;
     .img {

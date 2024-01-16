@@ -106,7 +106,7 @@ const Navigation = ({
         <a href="#main" className={styles.skipToMainContent}>
           Przejdź do głównego kontentu
         </a>
-        <div className={`${styles.maxWidth} maxWidth`}>
+        <div className={`${styles.maxWidth} max-width`}>
           {kryptonumLogo}
           <button
             className={styles.navToggle}
@@ -129,7 +129,7 @@ const Navigation = ({
                   {chevronDown}
                 </button>
                 <ul className={styles.navList2}>
-                  <div className={`${styles.maxWidth} maxWidth`}>
+                  <div className={`${styles.maxWidth} max-width`}>
                     <div className={styles.backBtn}>
                       <button onClick={(e) => handleNavLinks(e)}>
                         {chevronLeft}
@@ -146,7 +146,7 @@ const Navigation = ({
                   {chevronDown}
                 </button>
                 <ul className={styles.navList2}>
-                  <div className={`${styles.maxWidth} maxWidth`}>
+                  <div className={`${styles.maxWidth} max-width`}>
                     <div className={styles.backBtn}>
                       <button onClick={(e) => handleNavLinks(e)}>
                         {chevronLeft}
@@ -163,7 +163,7 @@ const Navigation = ({
                   {chevronDown}
                 </button>
                 <ul className={styles.navList2}>
-                  <div className={`${styles.maxWidth} maxWidth`}>
+                  <div className={`${styles.maxWidth} max-width`}>
                     <div className={styles.backBtn}>
                       <button onClick={(e) => handleNavLinks(e)}>
                         {chevronLeft}
@@ -180,7 +180,7 @@ const Navigation = ({
                   {chevronDown}
                 </button>
                 <ul className={styles.navList2}>
-                  <div className={`${styles.maxWidth} maxWidth`}>
+                  <div className={`${styles.maxWidth} max-width`}>
                     <div className={styles.backBtn}>
                       <button onClick={(e) => handleNavLinks(e)}>
                         {chevronLeft}
@@ -197,7 +197,7 @@ const Navigation = ({
                   {chevronDown}
                 </button>
                 <ul className={styles.navList2}>
-                  <div className={`${styles.maxWidth} maxWidth`}>
+                  <div className={`${styles.maxWidth} max-width`}>
                     <div className={styles.backBtn}>
                       <button onClick={(e) => handleNavLinks(e)}>
                         {chevronLeft}

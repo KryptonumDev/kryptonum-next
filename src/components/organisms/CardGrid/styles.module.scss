@@ -1,6 +1,6 @@
 .wrapper {
   display: grid;
-  gap: clamp(24px, calc(24vw/7.68), 32px);
+  gap: clamp(24px, calc(24vw / 7.68), 32px);
 
   @media (min-width: 650px) {
     grid-template-columns: 1fr 1fr;
@@ -15,40 +15,40 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: calc(18rem/16);
+      font-size: calc(18rem / 16);
       border-radius: 50%;
       border: 1px solid var(--neutral-700);
-      background: var(--neutral-950);
+      background: var(--neutral-900);
       margin: -77px auto 16px;
       padding: 8px;
       h3 {
-        padding-bottom:unset;
+        padding-bottom: unset;
         margin-bottom: unset;
       }
     }
 
     border: 1px solid var(--neutral-700);
-    padding: 42px 20px clamp(24px, calc(24vw/7.68), 42px) 20px;
+    padding: 42px 20px clamp(24px, calc(24vw / 7.68), 42px) 20px;
 
     h3 {
-      font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28rem/16));
-      margin-bottom: clamp(32px, calc(32vw/7.68), 64px);
+      font-size: clamp(calc(18rem / 16), calc(28vw / 7.68), calc(28rem / 16));
+      margin-bottom: clamp(32px, calc(32vw / 7.68), 64px);
     }
 
     .description {
       p:not(:last-child) {
-        margin-bottom: clamp(16px, calc(24vw/7.68), 24px);
+        margin-bottom: clamp(16px, calc(24vw / 7.68), 24px);
       }
     }
 
-    @media(max-width: 1200px) {
+    @media (max-width: 1200px) {
       .icon {
         position: absolute;
       }
     }
-    @media(max-width: 650px) {
+    @media (max-width: 650px) {
       .icon {
-        position:absolute;
+        position: absolute;
         transform: translate(-21.5px, 5px);
       }
     }

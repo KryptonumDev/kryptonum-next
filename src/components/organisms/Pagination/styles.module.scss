@@ -27,13 +27,13 @@
     &.arrow {
       padding: 6px;
       border-radius: 2px;
-      border: 1px solid var(--neutral-200, #EFF0F3);
+      border: 1px solid var(--neutral-200, #eff0f3);
     }
   }
   .active {
     border-radius: 2px;
-    background: var(--neutral-200, #EFF0F3);
-    color: var(--neutral-950, #010104);
+    background: var(--neutral-200, #eff0f3);
+    color: var(--neutral-900, #010104);
   }
   .disabled {
     pointer-events: none;

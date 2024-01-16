@@ -42,7 +42,7 @@ const ScrollToNextSection = ({
 	
 	return (
 		<section
-			className={`${styles.maxWidth} maxWidth`}
+			className={`${styles.ScrollToNext} max-width`}
 			ref={scrollToNext}
 		>
 			<div

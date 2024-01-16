@@ -40,7 +40,7 @@
         gap: 12px;
         &::before {
           content: counter(counter);
-          background: linear-gradient(var(--neutral-950), var(--neutral-950)) padding-box, var(--gradient) border-box;
+          background: linear-gradient(var(--neutral-900), var(--neutral-900)) padding-box, var(--gradient) border-box;
           border: 1px solid transparent;
           border-radius: 50%;
           width: clamp(40px, calc(64vw / 7.68), 64px);
@@ -68,7 +68,7 @@
             gap: 16px;
           }
           strong {
-            background: linear-gradient(var(--neutral-950), var(--neutral-950)) padding-box, var(--gradient) border-box;
+            background: linear-gradient(var(--neutral-900), var(--neutral-900)) padding-box, var(--gradient) border-box;
             color: var(--neutral-200);
             -webkit-text-fill-color: unset;
             border: 1px solid transparent;

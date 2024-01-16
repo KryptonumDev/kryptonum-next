@@ -40,7 +40,7 @@
 
       &:disabled {
         cursor: not-allowed;
-        color: var(--neutral-500);
+        opacity: .6;
       }
     }
   }
@@ -77,7 +77,7 @@
         color: var(--neutral-200);
 
         &:disabled {
-          color: var(--neutral-500);
+          opacity: .6;
           cursor: default;
         }
       }

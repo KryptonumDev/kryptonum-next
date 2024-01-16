@@ -1,12 +1,12 @@
 .revealableGrid {
   display: grid;
-  margin: clamp(32px, calc(64vw/7.68), 40px) 0;
+  margin: clamp(32px, calc(64vw / 7.68), 40px) 0;
   gap: 32px;
 
   @media (min-width: 1350px) {
     grid-template-columns: 1fr 1fr;
-    margin-left: clamp(82px, calc(82vw/7.68), 110px);
-    margin-right: clamp(82px, calc(82vw/7.68), 110px);
+    margin-left: clamp(82px, calc(82vw / 7.68), 110px);
+    margin-right: clamp(82px, calc(82vw / 7.68), 110px);
   }
 
   align-items: flex-start;
@@ -18,11 +18,11 @@
     align-self: center;
 
     .heading {
-      font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(26rem/16));
+      font-size: clamp(calc(22rem / 16), calc(26vw / 7.68), calc(26rem / 16));
     }
 
     .description {
-      font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+      font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
     }
 
     .logoShowcase {
@@ -37,10 +37,10 @@
 
         .icon {
           border-radius: 50%;
-          border: 1px solid var(--neutral-700-new);
+          border: 1px solid var(--neutral-700);
           padding: 8px;
-          width: clamp(48px, calc(56vw/7.68), 56px);
-          height: clamp(48px, calc(56vw/7.68), 56px);
+          width: clamp(48px, calc(56vw / 7.68), 56px);
+          height: clamp(48px, calc(56vw / 7.68), 56px);
           display: block;
           align-self: center;
           justify-content: center;
@@ -48,7 +48,7 @@
 
         .iconDescription {
           align-self: center;
-          font-size: clamp(calc(14rem/16), calc(16vw/7.68), calc(16rem/16));
+          font-size: clamp(calc(14rem / 16), calc(16vw / 7.68), calc(16rem / 16));
         }
       }
     }
@@ -60,7 +60,7 @@
     aspect-ratio: 1/1;
 
     .item {
-      margin: -.5px;
+      margin: -0.5px;
 
       .img {
         height: 90%;
@@ -89,18 +89,17 @@
         padding: 20px 28px 20px 28px;
         max-height: 100%;
         overflow: auto;
-        font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+        font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
         z-index: 3;
-        background: linear-gradient(var(--neutral-950), var(--neutral-950)) padding-box,
-          var(--gradient) border-box;
+        background: linear-gradient(var(--neutral-900), var(--neutral-900)) padding-box, var(--gradient) border-box;
         border: 1px solid rgba(255, 255, 255, 0);
         border-radius: inherit;
         margin: -1px;
-        transition: opacity .5s var(--easing);
+        transition: opacity 0.5s var(--easing);
         opacity: 0;
       }
 
-      border: 1px solid var(--neutral-700-new);
+      border: 1px solid var(--neutral-700);
       border-radius: 4px;
       display: grid;
       position: relative;
@@ -126,7 +125,7 @@
 
       .item {
         align-items: flex-start;
-        height:120px;
+        height: 120px;
       }
     }
 
