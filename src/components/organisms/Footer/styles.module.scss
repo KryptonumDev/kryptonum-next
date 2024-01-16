@@ -13,17 +13,15 @@ footer.footer {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-      &:has(a:hover) {
-        a:not(:hover) {
-          opacity: .62;
-        }
-      }
       a {
         display: grid;
         grid-template-columns: auto 1fr;
         gap: 8px;
         align-items: center;
         transition: opacity .5s var(--easing);
+        &:hover {
+          opacity: .62;
+        }
       }
     }
   }
@@ -32,13 +30,11 @@ footer.footer {
       list-style-type: none;
       display: grid;
       gap: 12px;
-      &:has(a:hover) {
-        a:not(:hover) {
-          opacity: .62;
-        }
-      }
       a {
         transition: opacity .5s var(--easing);
+        &:hover {
+          opacity: .62;
+        }
       }
     }
   }
@@ -47,13 +43,6 @@ footer.footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: clamp(16px, calc(24vw/7.68), 32px);
-    > div:not(:last-child) {
-      &:has(a:not(:first-child):hover) {
-        a:not(:first-child):not(:hover) {
-          opacity: .62;
-        }
-      }
-    }
     a {
       &[data-desktop='false'] {
         display: none;
@@ -64,6 +53,9 @@ footer.footer {
         margin-bottom: 12px;
       }
       transition: opacity .5s var(--easing);
+      &:hover {
+        opacity: .62;
+      }
     }
   }
   .knowledge {
@@ -76,14 +68,14 @@ footer.footer {
     &:not(:last-child){
       margin-bottom: 16px;
     }
-    transition: opacity .5s var(--easing);
+    display: block;
     width: fit-content;
-    &:has(a):hover {
-      opacity: .62;
-    }
   }
-  a.heading:hover {
-    opacity: .62;
+  a.heading {
+    transition: opacity .5s var(--easing);
+    &:hover {
+      opacity: .62;
+    }  
   }
   
   .contact {
@@ -174,16 +166,14 @@ footer.footer {
           margin-top: 3px;
         }
       }
-      &:has(a:hover) {
-        a:not(:hover) {
-          opacity: .62;
-        }
-      }
       a {
-        transition: opacity .5s var(--easing);
         display: block;
         &:not(:last-child) {
           margin-bottom: 8px;
+        }
+        transition: opacity .5s var(--easing);
+        &:hover {
+          opacity: .62;
         }
       }
     }
@@ -211,9 +201,7 @@ footer.footer {
         border-radius: 50%;
         border: 1px solid var(--neutral-700);
         transition: .5s var(--easing);
-      }
-      &:has(a:hover) {
-        a:not(:hover) {
+        &:hover {
           opacity: .62;
         }
       }

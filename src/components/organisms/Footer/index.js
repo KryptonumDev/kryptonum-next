@@ -24,9 +24,7 @@ const Footer = async () => {
     <footer className={`${styles.footer} max-width`}>
       <div className={styles.columns}>
         <div className={styles.team}>
-          <p className={styles.heading}>
-            <Link href='/pl/zespol'>Zespół</Link>
-          </p>
+					<Link href='/pl/zespol' className={styles.heading}>Zespół</Link>
           <ul>
             {team.map(({ name, slug: { current: slug }, img }, i) => (
               <li key={i}>
@@ -45,9 +43,7 @@ const Footer = async () => {
           </ul>
         </div>
         <div className={styles.projects}>
-          <p className={styles.heading}>
-            <Link href='/pl/portfolio'>Projekty</Link>
-          </p>
+					<Link href='/pl/portfolio' className={styles.heading}>Projekty</Link>
           <ul>
             {projects.map(({ name, slug: { current: slug } }, i) => (
               <li key={i}>
