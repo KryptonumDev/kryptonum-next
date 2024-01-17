@@ -90,6 +90,7 @@
     img {
       margin-bottom: clamp(48px, calc(64vw / 7.68), 82px);
       width: 200%;
+      max-width: unset;
       will-change: transform;
       &:nth-child(odd) {
         transform: rotate(-2deg);
