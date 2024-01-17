@@ -1,38 +1,18 @@
-"use client";
-
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
 import Img from "@/components/atoms/Img";
 import Markdown from "@/components/atoms/Markdown";
 import { removeMarkdown } from "@/utils/functions";
-import { motion, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
 import styles from "./styles.module.scss";
-
-const options = {
-  damping: 50,
-  swiftness: 300,
-};
+import Item from "./item";
 
 const GridFloatingImg = ({ data: { heading, list } }) => {
-  const wrapper = useRef(null);
-
-  const mouse = {
-    x: useSpring(useMotionValue(0), options),
-    y: useSpring(useMotionValue(0), options),
-  };
-
-  const handleMouseMove = (e) => {
-    const x = e.offsetX;
-    const y = e.offsetY;
-    mouse.x.set(x);
-    mouse.y.set(y);
-  };
-
-  useEffect(() => {
-    wrapper?.current?.addEventListener("mousemove", handleMouseMove);
-    return () => wrapper?.current?.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  list = list.map(({ title, description, img, href }) => ({
+    title,
+    description: <Markdown className={styles.description}>{description}</Markdown>,
+    img: <Img data={img} className={styles.cover} sizes="320px" />,
+    href: <Link href={href} aria-label={removeMarkdown(title)} className={styles.link} />,
+  }));
 
   return (
     <section className={styles.section}>
@@ -41,25 +21,13 @@ const GridFloatingImg = ({ data: { heading, list } }) => {
           {heading}
         </DecorativeHeading>
       </header>
-      <div className={styles.wrapper} ref={wrapper}>
-        {list.map(({ title, description, img, href }, i) => (
-          <div className={styles.item} key={i}>
-            {href && <Link href={href} aria-label={removeMarkdown(title)} className={styles.link} />}
-            <motion.div
-              style={{
-                left: mouse.x,
-                top: mouse.y,
-              }}
-              className={styles.img}
-            >
-              <Img data={img} className={styles.cover} sizes="320px" quality={100}/>
-            </motion.div>
-            <h2>
-              <span>{title}</span>
-              <Arrow />
-            </h2>
-            <Markdown className={styles.description}>{description}</Markdown>
-          </div>
+      <div className={styles.wrapper}>
+        {list.map((item, i) => (
+          <Item
+            {...item}
+            Arrow={Arrow}
+            key={i}
+          />
         ))}
       </div>
     </section>
@@ -68,7 +36,7 @@ const GridFloatingImg = ({ data: { heading, list } }) => {
 
 export default GridFloatingImg;
 
-const Arrow = () => (
+const Arrow = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="48"
