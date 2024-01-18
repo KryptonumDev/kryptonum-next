@@ -21,7 +21,7 @@ const breadcrumbs = [
   },
   {
     name: 'Projektowanie UI',
-    link: '/projektowanie-ui',
+    link: '/pl/grafika-design/projektowanie-ui',
   },
 ];
 
@@ -101,14 +101,12 @@ export async function generateMetadata() {
   return SEO({
     title: seo?.title,
     description: seo?.description,
-    url: '/pl/projektowanie-ui',
+    url: '/pl/grafika-design/projektowanie-ui',
   });
 }
 
 const query = async () => {
-  const {
-    body: { data },
-  } = await fetchData(/* GraphQL */ `
+  const { body: { data } } = await fetchData(/* GraphQL */ `
     query {
       page: UiDesignPage(id: "uiDesignPage") {
         #Hero

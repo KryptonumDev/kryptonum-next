@@ -10,6 +10,13 @@ import Breadcrumbs from '@/global/Breadcrumbs';
 import SEO from '@/global/Seo';
 import fetchData from '@/utils/fetchData';
 
+const breadcrumbs = [
+  {
+    name: 'Grafika & design',
+    link: '/pl/grafika-design',
+  },
+];
+
 export default async function graphicsAndDesignPage() {
   const {
     page: {
@@ -42,13 +49,6 @@ export default async function graphicsAndDesignPage() {
     },
     blogEntries,
   } = await query();
-
-  const breadcrumbs = [
-    {
-      name: 'Grafika & design',
-      link: '/pl/grafika-design',
-    },
-  ];
 
   return (
     <>

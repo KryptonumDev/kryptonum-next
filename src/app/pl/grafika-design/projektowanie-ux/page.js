@@ -23,8 +23,8 @@ const breadcrumbs = [
     link: '/pl/grafika-design',
   },
   {
-    name: "Projektowanie UX",
-    link: "/projektowanie-ux",
+    name: 'Projektowanie UX',
+    link: '/pl/grafika-design/projektowanie-ux',
   },
 ];
 
@@ -96,20 +96,16 @@ export default async function UxDesignPage() {
 }
 
 export async function generateMetadata() {
-  const {
-    page: { seo },
-  } = await query();
+  const { page: { seo } } = await query();
   return SEO({
     title: seo?.title,
     description: seo?.description,
-    url: '/pl/projektowanie-ux',
+    url: '/pl/grafika-design/projektowanie-ux',
   });
 }
 
 const query = async () => {
-  const {
-    body: { data },
-  } = await fetchData(/* GraphQL */ `
+  const { body: { data } } = await fetchData(/* GraphQL */ `
     query {
       page: UxDesignPage(id: "uxDesignPage") {
         #Hero
