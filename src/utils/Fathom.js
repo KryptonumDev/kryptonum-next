@@ -6,11 +6,13 @@ import { usePathname } from 'next/navigation'
 export default function Fathom() {
   const pathname = usePathname();
   useEffect(() => {
-    load('PUUZZITA', {
-      includedDomains: ['kryptonum.eu'],
-      spa: 'auto',
-    })
-    trackPageview()
-  }, [pathname])
+    if (process.env.NODE_ENV === 'production') {
+      load('PUUZZITA', {
+        includedDomains: ['kryptonum.eu'],
+        spa: 'auto',
+      });
+      trackPageview();
+    }
+  }, [pathname]);
   return null;
 }
