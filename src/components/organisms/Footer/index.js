@@ -178,6 +178,7 @@ const Footer = async () => {
               href={instagram}
               target='_blank'
               rel='noopener'
+              aria-label='Instagram'
             >
               <Instagram />
             </a>
@@ -187,6 +188,7 @@ const Footer = async () => {
               href={facebook}
               target='_blank'
               rel='noopener'
+              aria-label='Facebook'
             >
               <Facebook />
             </a>
@@ -196,6 +198,7 @@ const Footer = async () => {
               href={tiktok}
               target='_blank'
               rel='noopener'
+              aria-label='TikTok'
             >
               <Tiktok />
             </a>
@@ -205,6 +208,7 @@ const Footer = async () => {
               href={linkedin}
               target='_blank'
               rel='noopener'
+              aria-label='LinkedIn'
             >
               <Linkedin />
             </a>
