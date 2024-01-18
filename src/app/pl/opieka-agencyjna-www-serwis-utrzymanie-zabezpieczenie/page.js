@@ -139,9 +139,7 @@ export async function generateMetadata() {
 }
 
 const query = async () => {
-  const {
-    body: { data },
-  } = await fetchData(/* GraphQL */ `
+  const { body: { data } } = await fetchData(/* GraphQL */`
     query {
       page: Agency(id: "agency") {
         # Hero

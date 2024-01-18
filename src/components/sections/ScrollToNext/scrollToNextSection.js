@@ -38,7 +38,7 @@ const ScrollToNextSection = ({
 		return () => {
 			window.removeEventListener("scroll", handleScroll);
 		};
-	}, []);
+	});
 	
 	return (
 		<section
