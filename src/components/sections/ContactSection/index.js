@@ -3,7 +3,7 @@ import Markdown from '@/components/atoms/Markdown';
 import fetchData from '@/utils/fetchData';
 import styles from './styles.module.scss';
 import ContactForm from '@/components/organisms/forms/Contact';
-import Snackbar from '@/components/atoms/CopyToClipboard';
+import Snackbar from '@/components/atoms/Snackbar';
 
 const Contact = async ({ data: { heading, subheading, cta } }) => {
   const {

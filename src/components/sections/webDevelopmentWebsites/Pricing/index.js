@@ -1,6 +1,6 @@
 import Button from "@/components/atoms/Button";
 import DecorativeHeading from "@/components/atoms/DecorativeHeading";
-import { Desktop, Star, Tick } from "@/components/atoms/Icons";
+import { Desktop, Star } from "@/components/atoms/Icons";
 import styles from './styles.module.scss';
 
 const Pricing = ({
@@ -54,4 +54,39 @@ const Pricing = ({
     </section>
   );
 }
+
 export default Pricing;
+
+const Tick = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="none"
+    viewBox="0 0 17 17"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M13.71 4.995L6.376 12.33 3.043 8.995"
+    ></path>
+    <defs>
+      <linearGradient
+        id="tick"
+        x1="13.51"
+        x2="2.458"
+        y1="4.995"
+        y2="6.019"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#2DD282"></stop>
+        <stop
+          offset="1"
+          stopColor="#90F4E8"
+        ></stop>
+      </linearGradient>
+    </defs>
+  </svg>
+);

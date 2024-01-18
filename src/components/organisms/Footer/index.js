@@ -2,29 +2,26 @@ import Img from '@/components/atoms/Img';
 import styles from './styles.module.scss';
 import Link from 'next/link';
 import fetchData from '@/utils/fetchData';
-import CopyToClipboard from '@/components/atoms/CopyToClipboard';
+import CopyToClipboard from '@/components/atoms/Snackbar';
 import Map from './map';
 
 const Footer = async () => {
   const {
     team,
-    global: {
-			address,
-			projects,
-			contactPerson,
-			instagram,
-			facebook,
-			tiktok,
-			linkedin,
-		},
-		locationPages
+    global: { address, projects, contactPerson, instagram, facebook, tiktok, linkedin },
+    locationPages,
   } = await query();
 
   return (
     <footer className={`${styles.footer} max-width`}>
       <div className={styles.columns}>
         <div className={styles.team}>
-					<Link href='/pl/zespol' className={styles.heading}>Zespół</Link>
+          <Link
+            href='/pl/zespol'
+            className={styles.heading}
+          >
+            Zespół
+          </Link>
           <ul>
             {team.map(({ name, slug: { current: slug }, img }, i) => (
               <li key={i}>
@@ -43,7 +40,12 @@ const Footer = async () => {
           </ul>
         </div>
         <div className={styles.projects}>
-					<Link href='/pl/portfolio' className={styles.heading}>Projekty</Link>
+          <Link
+            href='/pl/portfolio'
+            className={styles.heading}
+          >
+            Projekty
+          </Link>
           <ul>
             {projects.map(({ name, slug: { current: slug } }, i) => (
               <li key={i}>
@@ -66,11 +68,26 @@ const Footer = async () => {
             <Link href='/pl/web-development-aplikacje-internetowe'>Aplikacje internetowe</Link>
             <Link href='/pl/web-development-sklepy-internetowe'>Sklepy internetowe</Link>
 
-						<Link href='/pl/marketing-360' className={styles.heading} data-desktop='false' data-first='true'>Marketing 360°</Link>
-            <Link href='/pl/opieka-agencyjna-www-serwis-utrzymanie-zabezpieczenie' className={styles.heading} data-desktop='false'>
+            <Link
+              href='/pl/marketing-360'
+              className={styles.heading}
+              data-desktop='false'
+              data-first='true'
+            >
+              Marketing 360°
+            </Link>
+            <Link
+              href='/pl/opieka-agencyjna-www-serwis-utrzymanie-zabezpieczenie'
+              className={styles.heading}
+              data-desktop='false'
+            >
               Opieka Agencyjna
             </Link>
-            <Link href='/pl/warsztaty-discovery' className={styles.heading} data-desktop='false'>
+            <Link
+              href='/pl/warsztaty-discovery'
+              className={styles.heading}
+              data-desktop='false'
+            >
               Warsztaty strategiczne
             </Link>
           </div>
@@ -161,6 +178,7 @@ const Footer = async () => {
               href={instagram}
               target='_blank'
               rel='noopener'
+              aria-label='Instagram'
             >
               <Instagram />
             </a>
@@ -170,6 +188,7 @@ const Footer = async () => {
               href={facebook}
               target='_blank'
               rel='noopener'
+              aria-label='Facebook'
             >
               <Facebook />
             </a>
@@ -179,6 +198,7 @@ const Footer = async () => {
               href={tiktok}
               target='_blank'
               rel='noopener'
+              aria-label='TikTok'
             >
               <Tiktok />
             </a>
@@ -188,6 +208,7 @@ const Footer = async () => {
               href={linkedin}
               target='_blank'
               rel='noopener'
+              aria-label='LinkedIn'
             >
               <Linkedin />
             </a>
@@ -227,12 +248,12 @@ const query = async () => {
           }
         }
       }
-			locationPages: allLocationPage {
-				name
-				slug {
-					current
-				}
-			}
+      locationPages: allLocationPage {
+        name
+        slug {
+          current
+        }
+      }
       global: Global(id: "global") {
         address
         contactPerson: footer_ContactPerson {

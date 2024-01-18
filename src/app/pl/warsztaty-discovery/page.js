@@ -96,97 +96,95 @@ export async function generateMetadata() {
 }
 
 const query = async () => {
-	const {
-		body: { data },
-	} = await fetchData(/* GraphQL */ `
-  query {
-  page: Workshop(id: "workshop") {
-    # Hero
-    hero_Heading
-    hero_Annotation
-    hero_Paragraph
-    hero_SecondParagraph
-    hero_Img {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
+	const { body: { data } } = await fetchData(/* GraphQL */`
+    query {
+      page: Workshop(id: "workshop") {
+        # Hero
+        hero_Heading
+        hero_Annotation
+        hero_Paragraph
+        hero_SecondParagraph
+        hero_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
           }
+        }
+        # Simple CTA Section
+        simpleCtaSection {
+          heading
+          cta {
+            theme
+            href
+            text
+          }
+        }
+        # Process
+        process_Heading
+        process_List {
+          title
+          description
+        }
+        # Why
+        why_Heading
+        why_Paragraph
+        why_SecondParagraph
+        why_ThirdParagraph
+        why_FourthParagraph
+        why_Cta {
+          theme
+          text
+          href
+        }
+        # Document
+        document_Heading
+        document_Paragraph
+        document_Paragraph2
+        document_Images {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+        document_SimpleCtaSection {
+          heading
+          cta {
+            theme
+            text
+            href
+          }
+        }
+        # Scroll To Next
+        scrollToNext {
+          heading
+          paragraph
+          title
+          link {
+            text
+            href
+          }
+        }
+        # SEO
+        seo {
+          title
+          description
         }
       }
     }
-    # Simple CTA Section
-    simpleCtaSection {
-      heading
-      cta {
-        theme
-        href
-        text
-      }
-    }
-    # Process
-    process_Heading
-    process_List {
-      title
-      description
-    }
-    # Why
-    why_Heading
-    why_Paragraph
-    why_SecondParagraph
-    why_ThirdParagraph
-    why_FourthParagraph
-    why_Cta {
-      theme
-      text
-      href
-    }
-    # Document
-    document_Heading
-    document_Paragraph
-    document_Paragraph2
-    document_Images {
-      asset {
-        altText
-        url
-        metadata {
-          lqip
-          dimensions {
-            height
-            width
-          }
-        }
-      }
-    }
-    document_SimpleCtaSection {
-      heading
-      cta {
-        theme
-        text
-        href
-      }
-    }
-    # Scroll To Next
-    scrollToNext {
-      heading
-      paragraph
-      title
-      link {
-        text
-        href
-      }
-    }
-    # SEO
-    seo {
-      title
-      description
-    }
-  }
-}
   `);
 	return data;
 };

@@ -1,7 +1,6 @@
+import { useState } from 'react'
 import CalendarDateDropdown from '@/components/atoms/CalendarDateDropdown'
 import CalendarTimeDropdown from '@/components/atoms/CalendarTimeDropdown'
-import { CalendarIcon } from '@/components/atoms/Icons'
-import { useState } from 'react'
 import styles from './styles.module.scss'
 
 export const Calendar = ({ chosenDate, setChosenDate, chosenTime, setChosenTime, inputValue }) => {
@@ -39,3 +38,21 @@ export const Calendar = ({ chosenDate, setChosenDate, chosenTime, setChosenTime,
     </div>
   )
 }
+
+const CalendarIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="33"
+    height="32"
+    fill="none"
+    viewBox="0 0 33 32"
+  >
+    <path
+      stroke="#EFF0F3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M4.725 13.333h24M22.058 2.667V8M11.39 2.667V8m-4-2.667h18.667A2.667 2.667 0 0128.725 8v18.667a2.667 2.667 0 01-2.667 2.666H7.39a2.667 2.667 0 01-2.666-2.666V8A2.667 2.667 0 017.39 5.333z"
+    ></path>
+  </svg>
+);

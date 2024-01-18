@@ -1,3 +1,6 @@
+const isDevelopment = process.env.NODE_ENV === 'development';
+const cacheOption = isDevelopment ? 'force-cache' : 'default';
+
 const fetchData = async (query, variables) => {
 	try {
 		const response = await fetch(process.env.GRAPHQL_ENDPOINT, {
@@ -9,9 +12,13 @@ const fetchData = async (query, variables) => {
 				...{ query },
 				...(variables && { variables }),
 			}),
-			next: {
-				revalidate: 900,
-			},
+			...isDevelopment ? ({
+				cache: cacheOption,
+			}) : ({
+				next: {
+					revalidate: 900,
+				},
+			})
 		});
 
 		const body = await response.json();

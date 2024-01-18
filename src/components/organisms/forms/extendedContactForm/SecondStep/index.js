@@ -1,5 +1,5 @@
 import Button from "@/components/atoms/Button";
-import { Plus, SmallError } from "@/components/atoms/Icons";
+import { SmallError } from "@/components/atoms/Icons";
 import { Label } from "@/components/atoms/Label";
 import Radio from "@/components/atoms/Radio";
 import { AnimatePresence, motion } from "framer-motion";
@@ -121,4 +121,20 @@ const SecondStep = ({ prevData, setData, setStep }) => {
     </form>
   );
 };
+
 export default SecondStep;
+
+const Plus = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="41"
+    height="40"
+    fill="none"
+    viewBox="0 0 41 40"
+  >
+    <path
+      stroke="#EFF0F3"
+      d="M20.725 8.333v23.334M9.06 20h23.333"
+    ></path>
+  </svg>
+);
