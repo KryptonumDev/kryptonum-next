@@ -18,7 +18,7 @@ const breadcrumbs = [
   },
   {
     name: 'Branding',
-    link: '/pl/branding',
+    link: '/pl/grafika-design/branding',
   },
 ];
 
@@ -82,14 +82,12 @@ export async function generateMetadata() {
   return SEO({
     title: seo?.title,
     description: seo?.description,
-    url: '/pl/branding',
+    url: '/pl/grafika-design/branding',
   });
 }
 
 const query = async () => {
-  const {
-    body: { data },
-  } = await fetchData(/* GraphQL */ `
+  const { body: { data } } = await fetchData(/* GraphQL */ `
     query {
       page: BrandingPage(id: "brandingPage") {
         #Hero
