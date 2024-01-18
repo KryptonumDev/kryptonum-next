@@ -25,7 +25,7 @@ const HeaderWrapper = ({
   const handleEscapeKey = (e) => {
     if (e.key === "Escape") {
       setNavOpened(false);
-      setTab(false);
+      setTab(null);
     }
   };
   const handleNavLinks = (handleTab) => {
