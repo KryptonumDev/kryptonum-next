@@ -12,9 +12,9 @@
   .wrapper {
     display: grid;
     gap: clamp(16px, calc(24vw/7.68), 32px);
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     @media (min-width: 1200px){
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
     }
     .item {
       .img {
