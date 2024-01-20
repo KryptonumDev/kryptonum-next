@@ -6,54 +6,45 @@ import styles from './styles.module.scss';
 import Markdown from '@/components/atoms/Markdown';
 import Link from 'next/link';
 
-const CaseStudies = async ({ data, heading, cta, isTeamCaseStudies = false }) => {
+const CaseStudies = async ({ data, heading, isTeamCaseStudies = false }) => {
   const body = await query();
   if (data) {
     body.data.caseStudies = data;
   }
 
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.CaseStudies}>
       {heading && (
         <header>
           <DecorativeHeading type='h3'>{heading}</DecorativeHeading>
         </header>
       )}
-      <div className={isTeamCaseStudies ? `${styles.caseStudies} ${styles.caseStudiesSmall}` : `${styles.caseStudies}`}>
-        {body.data.caseStudies.map((caseStudy, i) => (
+      <div
+        className={styles.wrapper}
+        data-narrow={isTeamCaseStudies}
+      >
+        {body.data.caseStudies.map(({ img, name, slug: { current: slug }}, i) => (
           <Link
             key={i}
-            href={`/pl/portfolio/${caseStudy.slug.current}`}
-            className={styles.link}
+            href={`/pl/portfolio/${slug}`}
+            className={styles.item}
           >
-            <div
-              className={styles.caseStudy}
-              key={i}
-            >
-              <div className={styles.imageWrapper}>
-                <Img
-                  data={caseStudy.img}
-                  key={i}
-                  className={styles.img}
-                  sizes='(max-width: 1200px) 25vw, 50vw'
-                />
-              </div>
-              <Markdown className={styles.imageDescription}>{caseStudy.name}</Markdown>
+            <div className={styles.img}>
+              <Img
+                key={i}
+                data={img}
+                sizes='(max-width: 1200px) 25vw, 50vw'
+              />
             </div>
+            <p className={styles.name}>{name}</p>
           </Link>
         ))}
-        <div className={`${styles.caseStudy} ${styles.lastTile}`}>
-          <div className={styles.buttonWrapper}>
-            <Button
-              theme='secondary'
-              href='/pl/portfolio'
-              className={styles.button}
-              data={cta}
-            >
-              {cta || 'Przejdź do projektów'}
-            </Button>
-          </div>
-          <div></div>
+        <div className={styles.item}>
+          <Button
+            theme='secondary'
+            href='/pl/portfolio'
+            className={styles.button}
+          >Przejdź do projektów</Button>
         </div>
       </div>
     </section>

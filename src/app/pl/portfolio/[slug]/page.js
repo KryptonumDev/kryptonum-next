@@ -360,9 +360,7 @@ const query = async (slug) => {
 };
 
 const paramsQuery = async () => {
-  const {
-    body: { data },
-  } = await fetchData(/* GraphQL */ `
+  const { body: { data } } = await fetchData(/* GraphQL */ `
     query {
       caseStudies: allCaseStudyEntries {
         slug {

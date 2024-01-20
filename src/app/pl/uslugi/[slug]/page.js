@@ -63,7 +63,6 @@ export default async function LandingPage({ params: { slug } }) {
         key={i}
         data={component?.caseStudies}
         heading={component?.heading}
-        cta={component?.cta}
       />
     ),
     ProsAndConsShowcase: (
@@ -299,11 +298,6 @@ const query = async (slug) => {
             ... on CaseStudies {
               _type
               heading
-              cta {
-                theme
-                text
-                href
-              }
               caseStudies {
                 name
                 slug {

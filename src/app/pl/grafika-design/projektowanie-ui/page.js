@@ -286,11 +286,6 @@ const query = async () => {
         #Case studies
         caseStudies {
           heading
-          cta {
-            theme
-            text
-            href
-          }
           caseStudies {
             name
             slug {
