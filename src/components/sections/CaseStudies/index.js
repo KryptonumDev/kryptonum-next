@@ -13,16 +13,16 @@ const CaseStudies = async ({ data, heading, isTeamCaseStudies = false }) => {
   }
 
   return (
-    <section className={styles.CaseStudies}>
+    <section
+      className={styles.CaseStudies}
+      data-narrow={isTeamCaseStudies}
+    >
       {heading && (
         <header>
           <DecorativeHeading type='h3'>{heading}</DecorativeHeading>
         </header>
       )}
-      <div
-        className={styles.wrapper}
-        data-narrow={isTeamCaseStudies}
-      >
+      <div className={styles.wrapper}>
         {body.data.caseStudies.map(({ img, name, slug: { current: slug }}, i) => (
           <Link
             key={i}
