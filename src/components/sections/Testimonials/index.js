@@ -17,14 +17,10 @@ const Testimonials = async ({ heading, data }) => {
         {testimonials.map(({ name, text, img }, i) => (
           <div className={styles.item} key={i}>
             <div className={styles.author}>
-              <Img
-                data={img}
-                sizes='56px'
-
-              />
+              <Img data={img} sizes='56px' />
               <p>{name}</p>
             </div>
-            <Markdown>{text}</Markdown>
+            <Markdown className={styles.text}>{text}</Markdown>
           </div>
         ))}
       </div>

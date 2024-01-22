@@ -1,85 +1,36 @@
-.section {
+.LatestBlogEntries {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: clamp(16px, calc(24vw/7.68), 33px);
+  @media (min-width: 1000px){
+    grid-template-columns: 1fr 2fr;
+  }
   align-items: center;
-
-  .callToAction {
+  gap: 48px 32px;
+  header {
     display: grid;
-    gap: 48px;
-    justify-content: flex-start;
-
-    .heading {
-      margin: unset;
+    gap: 24px 48px;
+    align-items: flex-end;
+    @media (max-width: 999px) and (min-width: 800px){
+      grid-template-columns: auto auto;
     }
-  }
-
-  h2 {
-    font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(26rem/16));
-  }
-
-  .cta {
-    display: flex;
-    width: fit-content;
-    margin-left: 16px;
-    align-self: start;
-  }
-}
-
-.smallEntry {
-  grid-template-columns: 1fr 1fr;
-  align-items: unset;
-
-  .callToAction {
-    grid-column: 1/-1;
-    grid-template-columns: 1.6fr 1fr;
-    row-gap: 12px;
-    margin-bottom: 24px;
-
-    .heading {
-      justify-self: start;
+    h2 {
+      font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(26rem/16));
+      width: fit-content;
     }
-
     .cta {
-      justify-self: flex-end;
-      align-self: center;
+      width: fit-content;
+      margin-left: 28px;
     }
-  }
-}
-
-@media (max-width: 1299px) {
-  .section {
-    grid-template-columns: 1fr 1fr;
-    align-items: unset;
-
-    .callToAction {
-      grid-column: 1/-1;
-      grid-template-columns: 1.6fr 1fr;
-      row-gap: 12px;
-      margin-bottom: 24px;
-
-      .cta {
-        justify-self: flex-end;
-        align-self: center;
+    @media (max-width: 799px) and (min-width: 550px) {
+      h2, .cta {
+        margin: 0 auto;
       }
     }
   }
-}
-
-@media (max-width: 799px) {
-  .section {
-    grid-template-columns: 1fr;
-
-    .callToAction {
-      grid-template-columns: 1fr;
-      justify-self: center;
-      text-align: center;
-      margin-bottom: 6px;
-
-      .cta {
-        justify-self: center;
-      }
+  .wrapper {
+    display: grid;
+    gap: clamp(16px, calc(24vw/7.68), 32px);
+    @media (min-width: 700px){
+      grid-template-columns: 1fr 1fr;
     }
-
   }
 }
