@@ -42,7 +42,6 @@ export default async function webDevelopmentPage() {
       ctaSection,
       scrollToNext,
     },
-    testimonials,
   } = await query();
 
   return (
@@ -79,7 +78,7 @@ export default async function webDevelopmentPage() {
             flexibility_Cta,
           }}
         />
-        <Testimonials testimonials={testimonials} />
+        <Testimonials />
         <CaseStudies
           heading={caseStudies?.heading}
           data={caseStudies?.caseStudies}
@@ -92,9 +91,7 @@ export default async function webDevelopmentPage() {
 }
 
 export async function generateMetadata() {
-  const {
-    page: { seo },
-  } = await query();
+  const { page: { seo } } = await query();
   return SEO({
     title: seo?.title,
     description: seo?.description,
@@ -103,9 +100,7 @@ export async function generateMetadata() {
 }
 
 const query = async () => {
-  const {
-    body: { data },
-  } = await fetchData(/* GraphQL */ `
+  const { body: { data } } = await fetchData(/* GraphQL */ `
     query {
       page: WebDevelopment(id: "webDevelopment") {
         # Hero
@@ -236,28 +231,6 @@ const query = async () => {
         seo {
           title
           description
-        }
-      }
-      testimonials: allTestimonials(limit: 3, sort: { _createdAt: ASC }) {
-        name
-        text
-        cta {
-          theme
-          text
-          href
-        }
-        img {
-          asset {
-            altText
-            url
-            metadata {
-              lqip
-              dimensions {
-                height
-                width
-              }
-            }
-          }
         }
       }
     }

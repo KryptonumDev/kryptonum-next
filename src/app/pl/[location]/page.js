@@ -59,7 +59,6 @@ export default async function LocationPage({ params: { location } }) {
       <Testimonials
         key={i}
         heading={component?.heading}
-        testimonials={testimonials}
       />
     ),
     simpleCtaSection: (
@@ -132,7 +131,6 @@ export default async function LocationPage({ params: { location } }) {
 
   const {
     page: { hero_Heading, hero_Subheading, hero_List, hero_Cta, content, name },
-    testimonials,
   } = await query(location);
 
   const breadcrumbs = [
@@ -161,9 +159,7 @@ export default async function LocationPage({ params: { location } }) {
 }
 
 export async function generateMetadata({ params: { location } }) {
-  const {
-    page: { seo },
-  } = await query(location);
+  const { page: { seo } } = await query(location);
   return SEO({
     title: seo?.title,
     description: seo?.description,
@@ -172,55 +168,29 @@ export async function generateMetadata({ params: { location } }) {
 }
 
 const query = async (location) => {
-  const {
-    body: { data },
-  } = await fetchData(
-    /* GraphQL */ `
-      query ($location: String!) {
-        page: allLocationPage(where: { slug: { current: { eq: $location } } }) {
-          hero_Heading
-          hero_Subheading
-          hero_List
-          name
-          hero_Cta {
-            theme
-            text
-            href
-          }
-          slug {
-            current
-          }
-          content {
-            ... on CaseStudies {
-              _type
-              heading
-              caseStudies {
-                name
-                slug {
-                  current
-                }
-                img {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            ... on CtaSection {
-              _type
-              heading
-              cta {
-                theme
-                text
-                href
+  const { body: { data } } = await fetchData(/* GraphQL */ `
+    query ($location: String!) {
+      page: allLocationPage(where: { slug: { current: { eq: $location } } }) {
+        hero_Heading
+        hero_Subheading
+        hero_List
+        name
+        hero_Cta {
+          theme
+          text
+          href
+        }
+        slug {
+          current
+        }
+        content {
+          ... on CaseStudies {
+            _type
+            heading
+            caseStudies {
+              name
+              slug {
+                current
               }
               img {
                 asset {
@@ -236,257 +206,255 @@ const query = async (location) => {
                 }
               }
             }
-            ... on ImageShowcase {
-              _type
-              images {
-                asset {
-                  altText
-                  url
-                  metadata {
-                    lqip
-                    dimensions {
-                      height
-                      width
-                    }
+          }
+          ... on CtaSection {
+            _type
+            heading
+            cta {
+              theme
+              text
+              href
+            }
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
                   }
                 }
-              }
-              cta {
-                theme
-                href
-                text
-              }
-            }
-            ... on TeamSection {
-              _type
-              heading
-              paragraph
-              cta {
-                theme
-                href
-                text
-              }
-            }
-            ... on LatestTestimonials {
-              _type
-              heading
-            }
-            ... on SimpleCtaSection {
-              _type
-              heading
-              cta {
-                theme
-                href
-                text
-              }
-            }
-            ... on TextComponent {
-              _type
-              heading
-              blocks {
-                icon {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
-                    }
-                  }
-                }
-                title
-                description
-              }
-            }
-            ... on TextColumnComponent {
-              _type
-              heading
-              items: blocks
-            }
-            ... on ImageComponent {
-              _type
-              isMockup
-              img {
-                asset {
-                  altText
-                  url
-                  metadata {
-                    lqip
-                    dimensions {
-                      height
-                      width
-                    }
-                  }
-                }
-              }
-            }
-            ... on TilesComponent {
-              _type
-              heading
-              list {
-                icon {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
-                    }
-                  }
-                }
-                title
-                description
-              }
-            }
-            ... on CenteredHeading {
-              _type
-              heading
-              paragraph
-            }
-            ... on ListWithOverflowIconArray {
-              _type
-              blocks {
-                icon {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
-                    }
-                  }
-                }
-                title
-                description
-                img {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            ... on Process {
-              _type
-              heading
-              blocks {
-                title
-                description
-              }
-            }
-            ... on LargeList {
-              _type
-              heading
-              img {
-                asset {
-                  altText
-                  url
-                  metadata {
-                    lqip
-                    dimensions {
-                      height
-                      width
-                    }
-                  }
-                }
-              }
-              list {
-                title
-                description
-              }
-            }
-            ... on LogoShowcase {
-              _type
-              heading
-              paragraph
-              proposals {
-                title
-                img {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            ... on GridFloatingImg {
-              _type
-              heading
-              list {
-                title
-                description
-                img {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
-                    }
-                  }
-                }
-                href
               }
             }
           }
-          seo {
-            title
-            description
+          ... on ImageShowcase {
+            _type
+            images {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+            cta {
+              theme
+              href
+              text
+            }
+          }
+          ... on TeamSection {
+            _type
+            heading
+            paragraph
+            cta {
+              theme
+              href
+              text
+            }
+          }
+          ... on LatestTestimonials {
+            _type
+            heading
+          }
+          ... on SimpleCtaSection {
+            _type
+            heading
+            cta {
+              theme
+              href
+              text
+            }
+          }
+          ... on TextComponent {
+            _type
+            heading
+            blocks {
+              icon {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+              title
+              description
+            }
+          }
+          ... on TextColumnComponent {
+            _type
+            heading
+            items: blocks
+          }
+          ... on ImageComponent {
+            _type
+            isMockup
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+          }
+          ... on TilesComponent {
+            _type
+            heading
+            list {
+              icon {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+              title
+              description
+            }
+          }
+          ... on CenteredHeading {
+            _type
+            heading
+            paragraph
+          }
+          ... on ListWithOverflowIconArray {
+            _type
+            blocks {
+              icon {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+              title
+              description
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on Process {
+            _type
+            heading
+            blocks {
+              title
+              description
+            }
+          }
+          ... on LargeList {
+            _type
+            heading
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+            list {
+              title
+              description
+            }
+          }
+          ... on LogoShowcase {
+            _type
+            heading
+            paragraph
+            proposals {
+              title
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on GridFloatingImg {
+            _type
+            heading
+            list {
+              title
+              description
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+              href
+            }
           }
         }
-        testimonials: allTestimonials(limit: 3, sort: { _createdAt: ASC }) {
-          name
-          text
-          cta {
-            theme
-            text
-            href
-          }
-          img {
-            asset {
-              altText
-              url
-              metadata {
-                lqip
-                dimensions {
-                  height
-                  width
-                }
-              }
-            }
-          }
+        seo {
+          title
+          description
         }
       }
-    `,
-    {
-      location,
-    }
+    }`,
+    { location }
   );
   data.page ? (data.page = data.page[0]) : notFound();
   location !== data.page?.slug.current && notFound();
@@ -494,9 +462,7 @@ const query = async (location) => {
 };
 
 const paramsQuery = async () => {
-  const {
-    body: { data },
-  } = await fetchData(/* GraphQL */ `
+  const { body: { data } } = await fetchData(/* GraphQL */ `
     query {
       allLocationPage {
         slug {

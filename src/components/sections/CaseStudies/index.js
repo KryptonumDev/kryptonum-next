@@ -3,7 +3,6 @@ import Img from '@/components/atoms/Img';
 import fetchData from '@/utils/fetchData';
 import DecorativeHeading from '../../atoms/DecorativeHeading';
 import styles from './styles.module.scss';
-import Markdown from '@/components/atoms/Markdown';
 import Link from 'next/link';
 
 const CaseStudies = async ({ data, heading, isTeamCaseStudies = false }) => {

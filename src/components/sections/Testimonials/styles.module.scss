@@ -1,155 +1,36 @@
-.wrapper {
-  h3 {
-    font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28rem/16));
-  }
-
-  display: grid;
-  grid-template-columns: 1fr 3.5fr;
-
-  gap: clamp(16px, calc(32vw/7.68), 32px) clamp(64px, calc(64vw/7.68), 82px);
-  align-items: center;
-
-  .slider {
-    width: calc(100% - var(--pageMargin));
-    min-width: 0;
-    border-left: 1px solid var(--neutral-700);
-
-    padding: clamp(32px, calc(72vw/7.68), 72px) 0 clamp(32px, calc(72vw/7.68), 72px) clamp(64px, calc(64vw/7.68), 122px);
-    margin-right: calc(var(--pageMargin) * -1);
-    padding-right: var(--pageMargin);
-
-    .slide {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      align-items: center;
-
-      gap: 16px clamp(24px, calc(64vw/7.68), 142px);
-    }
-
-    .author {
-      .img {
-        width: clamp(96px, calc(156vw/7.68), 156px);
-        height: clamp(96px, calc(156vw/7.68), 156px);
-        border: 1px solid var(--neutral-200);
-        border-radius: 50%;
-        object-fit: contain;
-        padding: 4px;
-      }
-
-      text-align: center;
-
-      h3 {
-        font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
-
-        margin: clamp(16px, calc(24vw/7.68), 24px) auto clamp(4px, calc(12vw/7.68), 12px);
-      }
-
-      a {
-        font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
-
-      }
-    }
-
-    .content {
-      svg {
-        width: clamp(24px, calc(48vw/7.68), 48px);
-
-        height: clamp(24px, calc(48vw/7.68), 48px);
-        margin-bottom: 16px;
-      }
-
-      p {
-        font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
-      }
+.Testimonials {
+  header {
+    max-width: calc(626rem/16);
+    margin: 0 auto clamp(24px, calc(48vw/7.68), 48px);
+    width: fit-content;
+    h2 {
+      font-size: clamp(calc(22rem / 16), calc(26vw / 7.68), calc(26rem / 16));
     }
   }
-
-  @media (max-width: 999px) {
-    grid-template-columns: 1fr;
-
-    h3 {
-      margin: 0 auto;
-    }
-
-    .slider {
-      width: calc(100% + var(--pageMargin) * 2);
-      border-left: unset;
-      position: relative;
-
-      &::before {
-        content: '';
-        display: block;
-        width: calc(100% - var(--pageMargin) * 2);
-        height: 1px;
-        background-color: var(--neutral-700);
-        position: absolute;
-        left: var(--pageMargin);
-        top: 0;
-
-      }
-
-      padding: clamp(32px, calc(72vw/7.68), 72px) var(--pageMargin) 0 var(--pageMargin);
-      margin-left: calc(var(--pageMargin) * -1);
-    }
-  }
-
-  @media (max-width: 499px) {
-    .slider {
-      .slide {
-        grid-template-columns: 1fr;
-      }
-
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: clamp(12px, calc(24vw/7.68), 32px);
+    align-items: flex-end;
+    .item {
+      padding: 24px clamp(16px, calc(24vw/7.68), 32px);
+      border-radius: 4px;
+      border: 1px solid var(--neutral-700);
       .author {
+        img {
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          padding: 4px;
+          border: 1px solid var(--neutral-200);
+          object-fit: cover;
+          object-position: top;
+        }
         display: grid;
+        align-items: center;
         grid-template-columns: auto 1fr;
         gap: 16px;
-        text-align: left;
-        align-items: center;
-
-        h3 {
-          margin: 0 0 4px 0;
-        }
-      }
-    }
-  }
-
-  .controls {
-    @media (min-width: 1000px) {
-      grid-column: 3/1;
-    }
-
-    margin-left: auto;
-    display: grid;
-    grid-template-columns: 48px 48px;
-    gap: 16px;
-
-    button {
-      width: 48px;
-      height: 48px;
-      border: 1px solid var(--neutral-700);
-      border-radius: 50%;
-      transition: background-color .4s, opacity .4s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &[disabled] {
-        opacity: .4;
-        pointer-events: none;
-      }
-
-      &:hover {
-        background-color: var(--neutral-900);
-      }
-
-      &:active {
-        svg {
-          transform: scale(.95);
-        }
-      }
-
-      svg {
-        transition: transform .4s var(--easing);
+        margin-bottom: clamp(16px, calc(16vw/7.68), 24px);
       }
     }
   }

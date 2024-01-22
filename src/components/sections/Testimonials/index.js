@@ -1,54 +1,60 @@
-import DecorativeHeading from "../../atoms/DecorativeHeading";
-import { Quote } from "../../atoms/Icons";
-import TestimonialsSection from "./testimonialsSection";
+import fetchData from '@/utils/fetchData';
+import DecorativeHeading from '../../atoms/DecorativeHeading';
+import styles from './styles.module.scss';
+import Img from '@/components/atoms/Img';
+import Markdown from '@/components/atoms/Markdown';
 
-const Testimonials = ({ heading, testimonials }) => {
-	const quote = <Quote />;
+const Testimonials = async ({ heading, data }) => {
+  let { testimonials } = await query();
+  testimonials = data || testimonials;
 
-	return (
-		<TestimonialsSection
-			testimonials={testimonials}
-			quote={quote}
-			arrowLeft={ArrowLeft}
-			arrowRight={ArrowRight}
-		>
-			<DecorativeHeading type="h3">{heading || "Zobacz, co mówią o&nbsp;nas **klienci**:"}</DecorativeHeading>
-		</TestimonialsSection>
-	);
+  return (
+    <section className={styles.Testimonials}>
+      <header>
+        <DecorativeHeading type='h2'>{heading || 'Sprawdź opinie **zadowolonych klientów**'}</DecorativeHeading>
+      </header>
+      <div className={styles.wrapper}>
+        {testimonials.map(({ name, text, img }, i) => (
+          <div className={styles.item} key={i}>
+            <div className={styles.author}>
+              <Img
+                data={img}
+                sizes='56px'
+
+              />
+              <p>{name}</p>
+            </div>
+            <Markdown>{text}</Markdown>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 };
 
 export default Testimonials;
 
-const ArrowLeft = (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		width="24"
-		height="24"
-		fill="none"
-	>
-		<path
-			stroke="#EFF0F3"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-			strokeWidth="2"
-			d="M19 12H5m0 0l7 7m-7-7l7-7"
-		></path>
-	</svg>
-);
-
-const ArrowRight = (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		width="24"
-		height="24"
-		fill="none"
-	>
-		<path
-			stroke="#EFF0F3"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-			strokeWidth="2"
-			d="M5 12h14m0 0l-7-7m7 7l-7 7"
-		></path>
-	</svg>
-);
+const query = async () => {
+  const { body: { data } } = await fetchData(/* GraphQL */`
+    query {
+      testimonials: allTestimonials(limit: 3, sort: { _createdAt: ASC }) {
+        name
+        text
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+  return data;
+};

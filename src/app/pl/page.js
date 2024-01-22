@@ -9,17 +9,6 @@ import Roadmap from '@/components/sections/homepage/Roadmap';
 import SEO from '@/global/Seo';
 import fetchData from '@/utils/fetchData';
 
-export async function generateMetadata() {
-  const {
-    page: { seo },
-  } = await query();
-  return SEO({
-    title: seo?.title,
-    description: seo?.description,
-    url: '/pl',
-  });
-}
-
 const PolishIndexPage = async () => {
   const {
     page: {
@@ -48,7 +37,6 @@ const PolishIndexPage = async () => {
       team_Cta,
       caseStudies,
     },
-    testimonials,
     blogEntries,
   } = await query();
 
@@ -95,16 +83,23 @@ const PolishIndexPage = async () => {
         paragraph={team_Text}
         cta={team_Cta}
       />
-      <Testimonials testimonials={testimonials} />
+      <Testimonials />
       <LatestBlogEntries data={blogEntries} />
     </main>
   );
 };
 
+export async function generateMetadata() {
+  const { page: { seo } } = await query();
+  return SEO({
+    title: seo?.title,
+    description: seo?.description,
+    url: '/pl',
+  });
+}
+
 const query = async () => {
-  const {
-    body: { data },
-  } = await fetchData(/* GraphQL */ `
+  const { body: { data } } = await fetchData(/* GraphQL */ `
     query {
       page: Homepage(id: "homepage") {
         # Hero

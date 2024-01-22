@@ -41,7 +41,6 @@ export default async function BrandingPage() {
       headerTitleDescriptionList,
       ctaSection2,
     },
-    testimonials,
   } = await query();
 
   return (
@@ -70,7 +69,7 @@ export default async function BrandingPage() {
         paragraph={team_Text}
         cta={team_Cta}
       />
-      <Testimonials testimonials={testimonials} />
+      <Testimonials />
     </main>
   );
 }
@@ -263,28 +262,6 @@ const query = async () => {
         seo {
           title
           description
-        }
-      }
-      testimonials: allTestimonials(limit: 3, sort: { _createdAt: ASC }) {
-        name
-        text
-        cta {
-          theme
-          text
-          href
-        }
-        img {
-          asset {
-            altText
-            url
-            metadata {
-              lqip
-              dimensions {
-                height
-                width
-              }
-            }
-          }
         }
       }
     }

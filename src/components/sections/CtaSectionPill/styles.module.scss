@@ -9,18 +9,11 @@
   }
   .copy {
     position: relative;
-    gap: 16px 48px;
+    gap: 24px;
     display: grid;
     align-items: center;
     justify-content: center;
     border-radius: 1000px;
-    @media (max-width: 599px) {
-      border-radius: 4px;
-      a {
-        justify-content: flex-start;
-        margin-left: 27px;
-      }
-    }
     h2 {
       max-width: calc(420rem / 16);
       font-size: clamp(calc(22rem / 16), calc(26vw / 7.68), calc(26rem / 16));
@@ -28,8 +21,8 @@
     border: 1px solid var(--neutral-700);
     padding: clamp(32px, calc(32vw / 7.68), 48px) clamp(16px, calc(32vw / 7.68), 64px);
     background-color: var(--neutral-900);
-    width: 100%;
-    max-width: calc(868rem / 16);
+    width: fit-content;
+    max-width: calc(868rem/16);
     margin: 0 auto;
     .glow {
       pointer-events: none;
@@ -73,23 +66,29 @@
       }
     }
   }
-  @media (min-width: 1000px) {
+  @media (min-width: 1100px) {
     grid-template-rows: 1fr;
     grid-template-areas: 'row';
+    padding-bottom: 48px;
     .img {
       grid-area: row;
     }
     .copy {
-      align-self: flex-end;
       grid-area: row;
-      margin-bottom: 32px;
-      grid-template-columns: auto auto;
-      justify-content: space-between;
+      align-self: flex-end;
+      margin-bottom: -48px;
     }
   }
-  @media (max-width: 999px) {
+  @media (max-width: 1099px) {
     .copy {
-      margin-top: -12px;
+      margin-top: -28px;
+      width: 100%;
+    }
+  }
+  @media (max-width: 599px) {
+    .copy {
+      border-radius: 4px;
+      margin-top: -8px;
     }
   }
 }

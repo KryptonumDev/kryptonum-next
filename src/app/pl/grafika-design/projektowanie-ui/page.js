@@ -49,7 +49,6 @@ export default async function UiDesignPage() {
       caseStudies,
       ctaSection3,
     },
-    testimonials,
   } = await query();
 
   return (
@@ -89,15 +88,13 @@ export default async function UiDesignPage() {
         paragraph={team_Text}
         cta={team_Cta}
       />
-      <Testimonials testimonials={testimonials} />
+      <Testimonials />
     </main>
   );
 }
 
 export async function generateMetadata() {
-  const {
-    page: { seo },
-  } = await query();
+  const { page: { seo }} = await query();
   return SEO({
     title: seo?.title,
     description: seo?.description,
@@ -340,28 +337,6 @@ const query = async () => {
         seo {
           title
           description
-        }
-      }
-      testimonials: allTestimonials(limit: 3, sort: { _createdAt: ASC }) {
-        name
-        text
-        cta {
-          theme
-          text
-          href
-        }
-        img {
-          asset {
-            altText
-            url
-            metadata {
-              lqip
-              dimensions {
-                height
-                width
-              }
-            }
-          }
         }
       }
     }

@@ -5,9 +5,7 @@ import Button from '@/components/atoms/Button';
 
 const CtaSectionPill = ({ data: { img, heading, cta, icon }, className }) => {
   return (
-    <section
-      className={ className ? `${styles.CtaSectionPill} ${className}` : styles.CtaSectionPill}
-    >
+    <section className={`${styles.CtaSectionPill} ${className || ''}`}>
       <Img
         data={img}
         className={styles.img}
