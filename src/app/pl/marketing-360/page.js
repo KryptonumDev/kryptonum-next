@@ -10,6 +10,7 @@ import HeadingBlocksSideImg from '@/components/sections/HeadingBlocksSideImg';
 import ProcessList from '@/components/sections/ProcessList';
 import SEO from '@/global/Seo';
 import ScrollToNext from '@/components/sections/ScrollToNext';
+import PeopleShowcase from '@/components/sections/PeopleShowcase';
 
 const breadcrumbs = [
   {
@@ -27,17 +28,17 @@ export default async function MarketingPage() {
         heading={component?.heading}
       />
     ),
-    ctaSection: (
-      <CtaSection
-        key={i}
-        data={component}
-      />
-    ),
     LatestBlogEntries: (
       <LatestBlogEntries
         key={i}
         data={blogEntries}
         heading={component?.heading}
+      />
+    ),
+    ctaSection: (
+      <CtaSection
+        key={i}
+        data={component}
       />
     ),
     ctaSectionPill: (
@@ -64,6 +65,9 @@ export default async function MarketingPage() {
         data={component}
       />
     ),
+    PeopleShowcase: (
+      <PeopleShowcase key={i} {...component} />
+    ),
   });
 
   const {
@@ -86,9 +90,7 @@ export default async function MarketingPage() {
 }
 
 export async function generateMetadata() {
-  const {
-    page: { seo },
-  } = await query();
+  const { page: { seo } } = await query();
   return SEO({
     title: seo?.title,
     description: seo?.description,
@@ -97,9 +99,7 @@ export async function generateMetadata() {
 }
 
 const query = async () => {
-  const {
-    body: { data },
-  } = await fetchData(/* GraphQL */ `
+  const { body: { data } } = await fetchData(/* GraphQL */ `
     query {
       page: Marketing360Page(id: "marketing360Page") {
         hero {
@@ -235,28 +235,71 @@ const query = async () => {
           ... on ProcessList {
             _type
             ProcessList {
-              heading
-              subheading
-              img {
-                asset {
-                  altText
-                  url
-                  metadata {
-                    lqip
-                    dimensions {
-                      height
-                      width
+              ... on ProcessListArray {
+                _type
+                heading
+                subheading
+                paragraph
+                img {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
                     }
                   }
                 }
               }
-              paragraph
-              callToAction {
-                theme
-                text
-                href
+              ... on ProcessListShowcase {
+                _type
+                paragraph
+                ctas {
+                  theme
+                  text
+                  href
+                }
+                img {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
               }
-              callToActionSectionPill {
+              ... on CtaSection {
+                _type
+                heading
+                cta {
+                  theme
+                  text
+                  href
+                }
+                img {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
+              }
+              ... on CtaSectionPill {
+                _type
                 heading
                 cta {
                   theme
@@ -290,6 +333,27 @@ const query = async () => {
                   }
                 }
               }
+              ... on TestimonialsSection {
+                _type
+                heading
+                list {
+                  img {
+                    asset {
+                      altText
+                      url
+                      metadata {
+                        lqip
+                        dimensions {
+                          height
+                          width
+                        }
+                      }
+                    }
+                  }
+                  name
+                  text
+                }
+              }
             }
           }
           ... on SimpleCtaSection {
@@ -304,6 +368,28 @@ const query = async () => {
           ... on LatestBlogEntries {
             _type
             heading
+          }
+          ... on PeopleShowcase {
+            _type
+            heading
+            list {
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+              name
+              cryptonym
+              description
+            }
           }
         }
         seo {

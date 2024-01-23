@@ -1,0 +1,34 @@
+.PeopleShowcase {
+  padding: clamp(32px, calc(64vw/7.68), 80px);
+  display: grid;
+  gap: 48px 32px;
+  @media (min-width: 1050px){
+    grid-template-columns: 1fr 2fr;
+  }
+  header {
+    h2 {
+      font-size: clamp(calc(22rem/16), calc(26vw/7.68), calc(26rem/16));
+    }
+  }
+  .list {
+    display: grid;
+    gap: clamp(32px, calc(32vw/7.68), 64px) clamp(24px, calc(24vw/7.68), 32px);
+    @media (min-width: 800px){
+      grid-template-columns: 1fr 1fr;
+    }
+    .item {
+      .info {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 12px;
+        align-items: center;
+      }
+      .description {
+        margin-top: clamp(24px, calc(32vw/7.68), 32px);
+        > *:not(:last-child) {
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+}

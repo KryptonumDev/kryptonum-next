@@ -1,94 +1,95 @@
-.processList {
+.ProcessList {
   display: grid;
-  gap: clamp(80px, calc(128vw / 7.68), 96px);
+  gap: clamp(80px, calc(96vw/7.68), 128px);
+  counter-reset: counter;
+}
 
-  .process {
+.ProcessList_Item {
+  counter-increment: counter;
+  display: grid;
+  column-gap: 32px;
+  align-items: center;
+  h2 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 32px;
-    row-gap: 48px;
+    grid-template-columns: auto 1fr;
     align-items: center;
-    font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
-
-    .heading {
-      display: grid;
-      gap: clamp(6px, calc(16vw / 7.68), 16px);
-      grid-template-columns: auto 1fr;
+    gap: clamp(8px, calc(16vw/7.68), 16px);
+    font-size: clamp(calc(18rem/16), calc(28vw/7.68), calc(28rem/16));
+    &::before {
+      content: counter(counter);
+      width: clamp(40px, calc(64vw/7.68), 64px);
+      height: clamp(40px, calc(64vw/7.68), 64px);
+      display: flex;
       align-items: center;
-
-      h2 {
-        font-size: clamp(calc(18rem / 16), calc(28vw / 7.68), calc(28rem / 16));
-      }
-
-      .numerator {
-        display: grid;
-        font-size: clamp(calc(16rem / 16), calc(28vw / 7.68), calc(28rem / 16));
-        height: 64px;
-        width: 64px;
-        align-items: center;
-        justify-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: linear-gradient(var(--neutral-900), var(--neutral-900)) padding-box, var(--gradient) border-box;
+      border: 1px solid transparent;
+    }
+  }
+  img {
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    border-radius: 2px;
+    border: 1px solid var(--neutral-700);
+    align-self: flex-end;
+  }
+  .subheading,
+  .paragraph {
+    font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+  }
+  .paragraph {
+    align-self: flex-end;
+    > *:not(:last-child){
+      margin-bottom: 16px;
+    }
+  }
+  @media (min-width: 1050px){
+    row-gap: 48px;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 1049px){
+    h2 {
+      margin-bottom: clamp(12px, calc(16vw/7.68), 16px);
+      span {
+        margin-top: .4em;
       }
     }
-    .ctaSectionPill {
-      grid-column: 1 / -1;
+    img {
+      margin: clamp(16px, calc(32vw/7.68), 32px) auto 24px;
     }
+  }
+}
 
-    .blocks {
-      align-self: end;
-
-      p:not(:first-child) {
-        margin-top: 32px;
-      }
-
-      .button {
-        margin-top: clamp(16px, 6.25vw, 48px);
-      }
-    }
-
-    .img {
+.ProcessList_Showcase {
+  padding: clamp(32px, calc(48vw/7.68), 48px) 0;
+  border-top: 1px solid var(--neutral-700);
+  border-bottom: 1px solid var(--neutral-700);
+  display: grid;
+  align-items: center;
+  gap: 32px;
+  @media (min-width: 1050px){
+    grid-template-columns: 1.4fr 1fr;
+  }
+  .img {
+    margin: 0 clamp(24px, calc(48vw/7.68), 80px);
+    position: relative;
+    svg {
       width: 100%;
-      height: auto;
-      object-fit: cover;
-      border: 1px solid var(--neutral-700, #4f4f52);
-      border-radius: 2px;
+      height: 100%;
+      position: absolute;
+      pointer-events: none;
     }
-
-    @media (max-width: 1199px) {
-      grid-template-columns: 1fr;
-      grid-row-gap: 16px;
-
-      .subheading {
-        padding-bottom: 16px;
-      }
-
-      .blocks {
-        padding-top: 8px;
-
-        p:not(:first-child) {
-          margin-top: 16px;
-        }
-      }
+    img {
+      padding: 12px;
     }
-
-    @media (max-width: 499px) {
-      grid-row-gap: 12px;
-
-      .heading {
-        margin-bottom: 4px;
-
-        .numerator {
-          height: 40px;
-          width: 40px;
-        }
-      }
-
-      .subheading {
-        padding-top: unset;
-      }
-
-      .blocks {
-        padding-top: 8px;
-      }
+  }
+  .paragraph {
+    font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+    margin-bottom: 32px;
+    > *:not(:last-child){
+      margin-bottom: 16px;
     }
   }
 }

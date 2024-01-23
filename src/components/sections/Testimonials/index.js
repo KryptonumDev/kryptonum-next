@@ -4,9 +4,9 @@ import styles from './styles.module.scss';
 import Img from '@/components/atoms/Img';
 import Markdown from '@/components/atoms/Markdown';
 
-const Testimonials = async ({ heading, data }) => {
+const Testimonials = async ({ heading, list }) => {
   let { testimonials } = await query();
-  testimonials = data || testimonials;
+  list?.length > 0 && (testimonials = list);
 
   return (
     <section className={styles.Testimonials}>
