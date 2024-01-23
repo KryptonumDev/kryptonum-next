@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./styles.module.scss";
+import { domain } from "@/global/Seo";
 
 const Button = ({ data, theme = "secondary", href, className, svg, children, ...props }) => {
   if (data) {
@@ -8,34 +9,31 @@ const Button = ({ data, theme = "secondary", href, className, svg, children, ...
     href = data.href;
     children = data.text;
   }
-
-  const isExternal = href && href.startsWith("https://");
+  const isExternal = href && (
+    (href.startsWith("https://") && !href.startsWith(domain)) ||
+    href.startsWith("mailto:") ||
+    href.startsWith("tel:")
+  );
+  const Element = href ? (isExternal ? "a" : Link) : "button";
 
   const linkClassName = `${styles.wrapper} ${isExternal ? "" : "cta"} ${
     theme === "secondary" ? styles.secondary : styles.primary
   } ${className || ""} `;
 
   return (
-    <>
-      {href ? (
-        isExternal ? (
-          <a className={linkClassName} href={href} target="_blank" rel="noreferrer" {...props}>
-            <span data-text={theme === "secondary" ? children : undefined}>{children}</span>
-            {svg ? svg : <ArrowRight />}
-          </a>
-        ) : (
-          <Link className={linkClassName} href={href} {...props}>
-            <span data-text={theme === "secondary" ? children : undefined}>{children}</span>
-            {svg ? svg : <ArrowRight />}
-          </Link>
-        )
-      ) : (
-        <button className={linkClassName} type="submit" {...props}>
-          <span data-text={theme === "secondary" ? children : undefined}>{children}</span>
-          {svg ? svg : <ArrowRight />}
-        </button>
-      )}
-    </>
+    <Element
+      className={linkClassName}
+      {...(href ? {
+        href,
+        ...(isExternal && { target: "_blank", rel: "noopener" }),
+      } : {
+        type: 'submit'
+      })}
+      {...props}
+    >
+      <span data-text={theme === "secondary" ? children : undefined}>{children}</span>
+      {svg ? svg : <ArrowRight />}
+    </Element>
   );
 };
 
