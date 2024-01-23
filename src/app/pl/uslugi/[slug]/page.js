@@ -473,20 +473,123 @@ const query = async (slug) => {
             ... on ProcessList {
               _type
               ProcessList {
-                heading
-                subheading
-                paragraph
-                img {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
+                ... on ProcessListArray {
+                  _type
+                  heading
+                  subheading
+                  paragraph
+                  img {
+                    asset {
+                      altText
+                      url
+                      metadata {
+                        lqip
+                        dimensions {
+                          height
+                          width
+                        }
                       }
                     }
+                  }
+                }
+                ... on ProcessListShowcase {
+                  _type
+                  paragraph
+                  ctas {
+                    theme
+                    text
+                    href
+                  }
+                  img {
+                    asset {
+                      altText
+                      url
+                      metadata {
+                        lqip
+                        dimensions {
+                          height
+                          width
+                        }
+                      }
+                    }
+                  }
+                }
+                ... on CtaSection {
+                  _type
+                  heading
+                  cta {
+                    theme
+                    text
+                    href
+                  }
+                  img {
+                    asset {
+                      altText
+                      url
+                      metadata {
+                        lqip
+                        dimensions {
+                          height
+                          width
+                        }
+                      }
+                    }
+                  }
+                }
+                ... on CtaSectionPill {
+                  _type
+                  heading
+                  cta {
+                    theme
+                    text
+                    href
+                  }
+                  img {
+                    asset {
+                      altText
+                      url
+                      metadata {
+                        lqip
+                        dimensions {
+                          height
+                          width
+                        }
+                      }
+                    }
+                  }
+                  icon {
+                    asset {
+                      altText
+                      url
+                      metadata {
+                        lqip
+                        dimensions {
+                          height
+                          width
+                        }
+                      }
+                    }
+                  }
+                }
+                ... on TestimonialsSection {
+                  _type
+                  heading
+                  list {
+                    img {
+                      asset {
+                        altText
+                        url
+                        metadata {
+                          lqip
+                          dimensions {
+                            height
+                            width
+                          }
+                        }
+                      }
+                    }
+                    name
+                    text
                   }
                 }
               }

@@ -1,89 +1,110 @@
-.processList {
+.ProcessList {
   display: grid;
-  row-gap: clamp(48px, calc(48vw / 7.68), 64px);
+  gap: clamp(80px, calc(96vw/7.68), 128px);
+  counter-reset: counter;
+}
 
-  .card {
-    border: 1px solid var(--neutral-700);
-    row-gap: 48px;
+.ProcessList_Item {
+  border: 1px solid var(--neutral-700);
+  row-gap: 48px;
+  display: grid;
+  padding: 0px 64px 80px;
+  counter-increment: counter;
+  &::before {
+    content: counter(counter);
     display: grid;
-    padding: 0px 64px 80px;
-
-    .number {
-      display: grid;
-      align-items: center;
-      justify-items: center;
-      justify-self: center;
-      width: 64px;
-      height: 64px;
-      margin-top: -32px;
-      font-size: clamp(calc(16rem / 16), calc(28vw / 7.68), calc(28rem / 16));
+    align-items: center;
+    justify-items: center;
+    justify-self: center;
+    width: 64px;
+    height: 64px;
+    margin-top: -32px;
+    font-size: clamp(calc(16rem / 16), calc(28vw / 7.68), calc(28rem / 16));
+    background: linear-gradient(var(--neutral-900), var(--neutral-900)) padding-box, var(--gradient) border-box;
+    border: 1px solid transparent;
+    border-radius: 50%;
+  }
+  .headingWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    .img {
+      height: auto;
+      width: 100%;
     }
-
-    .headingWrapper {
+    .heading {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-
-      .img {
-        height: auto;
-        width: 100%;
-      }
-
-      .heading {
-        display: grid;
-        font-size: clamp(calc(22rem / 16), calc(26vw / 7.68), calc(36rem / 16));
-        align-self: center;
-      }
-    }
-
-    .descriptionWrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 32px;
-      font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
+      font-size: clamp(calc(22rem / 16), calc(26vw / 7.68), calc(36rem / 16));
+      align-self: center;
     }
   }
-
+  .descriptionWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 32px;
+    font-size: clamp(calc(16rem / 16), calc(18vw / 7.68), calc(18rem / 16));
+  }
   @media (max-width: 1199px) {
-    .card {
-      row-gap: 16px;
-      padding: 0px 48px 48px 48px;
-
-      .img {
-        margin-top: 16px;
-      }
-
-      .headingWrapper {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .descriptionWrapper {
-        grid-template-columns: 1fr;
-      }
+    row-gap: 16px;
+    padding: 0px 48px 48px 48px;
+    .img {
+      margin-top: 16px;
+    }
+    .headingWrapper {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .descriptionWrapper {
+      grid-template-columns: 1fr;
     }
   }
-
   @media (max-width: 599px) {
-    .card {
-      padding: 0px 16px 24px 16px;
+    padding: 0px 16px 24px 16px;
+    .img {
+      margin-top: 6px;
+    }
+    &::before {
+      width: 40px;
+      height: 40px;
+      margin-top: -20px;
+    }
+    .headingWrapper {
+      gap: 16px;
+    }
+    .descriptionWrapper {
+      gap: 16px;
+    }
+  }
+}
 
-      .img {
-        margin-top: 6px;
-      }
-
-      .number {
-        width: 40px;
-        height: 40px;
-        margin-top: -20px;
-      }
-
-      .headingWrapper {
-        gap: 16px;
-      }
-      .descriptionWrapper {
-        gap: 16px;
-      }
+.ProcessList_Showcase {
+  padding: clamp(32px, calc(48vw/7.68), 48px) 0;
+  border-top: 1px solid var(--neutral-700);
+  border-bottom: 1px solid var(--neutral-700);
+  display: grid;
+  align-items: center;
+  gap: 32px;
+  @media (min-width: 1050px){
+    grid-template-columns: 1.4fr 1fr;
+  }
+  .img {
+    margin: 0 clamp(24px, calc(48vw/7.68), 80px);
+    position: relative;
+    svg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      pointer-events: none;
+    }
+    img {
+      padding: 12px;
+    }
+  }
+  .paragraph {
+    font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));
+    margin-bottom: 32px;
+    > *:not(:last-child){
+      margin-bottom: 16px;
     }
   }
 }
