@@ -18,7 +18,7 @@ const CaseStudies = async ({ data, heading, isTeamCaseStudies = false }) => {
     >
       {heading && (
         <header>
-          <DecorativeHeading type='h3'>{heading}</DecorativeHeading>
+          <DecorativeHeading type='h2'>{heading}</DecorativeHeading>
         </header>
       )}
       <div className={styles.wrapper}>
