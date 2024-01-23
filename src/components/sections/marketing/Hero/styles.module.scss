@@ -12,12 +12,11 @@
     }
 
     .subheading {
+      align-self: flex-end;
       grid-area: subheading;
-      padding-top: 48px;
       font-size: 18px;
       flex-direction: row-reverse;
       display: inline-flex;
-      align-self: stretch;
     }
 
     .img {

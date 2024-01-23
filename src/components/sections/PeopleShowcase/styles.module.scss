@@ -23,6 +23,12 @@
         column-gap: 12px;
         align-items: center;
       }
+      .name {
+        font-size: clamp(calc(16rem/16), calc(18vw/7.68), calc(18rem/16));;
+      }
+      .cryptonym {
+        font-size: clamp(calc(14rem/16), calc(16vw/7.68), calc(16rem/16));
+      }
       .description {
         margin-top: clamp(24px, calc(32vw/7.68), 32px);
         > *:not(:last-child) {

@@ -19,7 +19,7 @@
       font-size: clamp(calc(22rem / 16), calc(26vw / 7.68), calc(26rem / 16));
     }
     border: 1px solid var(--neutral-700);
-    padding: clamp(32px, calc(32vw / 7.68), 48px) clamp(16px, calc(32vw / 7.68), 64px);
+    padding: clamp(32px, calc(32vw/7.68), 48px) clamp(16px, calc(32vw/7.68), 64px) clamp(16px, calc(24vw/7.68), 48px);
     background-color: var(--neutral-900);
     width: fit-content;
     max-width: calc(868rem/16);
@@ -37,7 +37,7 @@
         position: absolute;
         top: 100%;
         left: 50%;
-        transform: translate(-50%, -25%);
+        transform: translate(-50%, -50%);
         border-radius: 50%;
         width: clamp(192px, calc(256vw / 7.68), 358px);
         height: clamp(192px, calc(256vw / 7.68), 358px);
