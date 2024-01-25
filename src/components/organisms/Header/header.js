@@ -4,6 +4,88 @@ import Link from 'next/link';
 import styles from './styles.module.scss';
 import Button from '@/components/atoms/Button';
 
+const servicesLinks = [
+  [
+    {
+      name: 'Web Development',
+      href: '/pl/web-development',
+      heading: true,
+    },
+    {
+      name: 'Strony internetowe',
+      href: '/pl/web-development-strony-internetowe',
+      heading: false,
+    },
+    {
+      name: 'Aplikacje internetowe',
+      href: '/pl/web-development-aplikacje-internetowe',
+      heading: false,
+    },
+    {
+      name: 'Sklepy internetowe',
+      href: '/pl/web-development-sklepy-internetowe',
+      heading: false,
+    },
+    {
+      name: 'Marketing 360°',
+      href: '/pl/marketing-360',
+      heading: true,
+    },
+    {
+      name: 'Marketing dla administracji',
+      href: '/pl/uslugi/marketing-dla-administracji-publicznej',
+      heading: true,
+    },
+    {
+      name: 'Opieka Agencyjna',
+      href: '/pl/opieka-agencyjna-www-serwis-utrzymanie-zabezpieczenie',
+      heading: true,
+    },
+    {
+      name: 'Warsztaty strategiczne',
+      href: '/pl/warsztaty-discovery',
+      heading: true,
+    },
+  ],
+  [
+    {
+      name: 'Grafika & design',
+      href: '/pl/grafika-design',
+      heading: true,
+    },
+    {
+      name: 'Logo',
+      href: '/pl/grafika-design-projektowanie-logo',
+      heading: false,
+    },
+    {
+      name: 'Audyty',
+      href: '/pl/grafika-design-audyt-ux-ui',
+      heading: false,
+    },
+    {
+      name: 'Identyfikacja wizualna',
+      href: '/pl/grafika-design-identyfikacja-wizualna-marki',
+      heading: false,
+    },
+    {
+      name: 'Branding',
+      href: '/pl/grafika-design/branding',
+      heading: false,
+    },
+    {
+      name: 'Projektowanie UI',
+      href: '/pl/grafika-design/projektowanie-ui',
+      heading: false,
+    },
+    {
+      name: 'Projektowanie UX',
+      href: '/pl/grafika-design/projektowanie-ux',
+      heading: false,
+    },
+  ]
+];
+
 const HeaderWrapper = ({
   KryptonumLogo,
   ChevronDown,
@@ -80,111 +162,34 @@ const HeaderWrapper = ({
                 </div>
                 <div className={styles.linksColumn}>
                   <div>
-                    <DecorationLink
-                      href='/pl/web-development'
-                      className={styles.heading}
-                      data-hover={1}
-                      onClick={() => handleCloseHeader()}
-                    >
-                      Web Development
-                    </DecorationLink>
-                    <DecorationLink
-                      href='/pl/web-development-strony-internetowe'
-                      data-hover={2}
-                      onClick={() => handleCloseHeader()}
-                    >
-                      Strony internetowe
-                    </DecorationLink>
-                    <DecorationLink
-                      href='/pl/web-development-aplikacje-internetowe'
-                      data-hover={3}
-                      onClick={() => handleCloseHeader()}
-                    >
-                      Aplikacje internetowe
-                    </DecorationLink>
-                    <DecorationLink
-                      href='/pl/web-development-sklepy-internetowe'
-                      data-hover={4}
-                      onClick={() => handleCloseHeader()}
-                    >
-                      Sklepy internetowe
-                    </DecorationLink>
-                    <DecorationLink
-                      href='/pl/marketing-360'
-                      className={styles.heading}
-                      data-hover={5}
-                      onClick={() => handleCloseHeader()}
-                    >
-                      Marketing 360°
-                    </DecorationLink>
-                    <DecorationLink
-                      href='/pl/opieka-agencyjna-www-serwis-utrzymanie-zabezpieczenie'
-                      className={styles.heading}
-                      data-hover={6}
-                      onClick={() => handleCloseHeader()}
-                    >
-                      Opieka Agencyjna
-                    </DecorationLink>
-                    <DecorationLink
-                      href='/pl/warsztaty-discovery'
-                      className={styles.heading}
-                      data-hover={7}
-                      onClick={() => handleCloseHeader()}
-                    >
-                      Warsztaty strategiczne
-                    </DecorationLink>
+                    {servicesLinks[0].map(({ href, name, heading }, i) => (
+                      <DecorationLink
+                        key={i}
+                        href={href}
+                        {...heading && {
+                          className: styles.heading
+                        }}
+                        data-hover={i+1}
+                        onClick={() => handleCloseHeader()}
+                      >
+                        {name}
+                      </DecorationLink>
+                    ))}
                   </div>
                   <div>
-                    <DecorationLink
-                      href='/pl/grafika-design'
-                      className={styles.heading}
-                      data-hover={8}
-                      onClick={() => handleCloseHeader()}
-                    >
-                      Grafika & design
-                    </DecorationLink>
-                    <DecorationLink
-                      href='/pl/grafika-design-projektowanie-logo'
-                      data-hover={9}
-                      onClick={() => handleCloseHeader()}
-                    >
-                      Logo
-                    </DecorationLink>
-                    <DecorationLink
-                      href='/pl/grafika-design-audyt-ux-ui'
-                      data-hover={10}
-                      onClick={() => handleCloseHeader()}
-                    >
-                      Audyty
-                    </DecorationLink>
-                    <DecorationLink
-                      href='/pl/grafika-design-identyfikacja-wizualna-marki'
-                      data-hover={11}
-                      onClick={() => handleCloseHeader()}
-                    >
-                      Identyfikacja wizualna
-                    </DecorationLink>
-                    <DecorationLink
-                      href='/pl/grafika-design/branding'
-                      data-hover={12}
-                      onClick={() => handleCloseHeader()}
-                    >
-                      Branding
-                    </DecorationLink>
-                    <DecorationLink
-                      href='/pl/grafika-design/projektowanie-ui'
-                      data-hover={13}
-                      onClick={() => handleCloseHeader()}
-                    >
-                      Projektowanie UI
-                    </DecorationLink>
-                    <DecorationLink
-                      href='/pl/grafika-design/projektowanie-ux'
-                      data-hover={14}
-                      onClick={() => handleCloseHeader()}
-                    >
-                      Projektowanie UX
-                    </DecorationLink>
+                    {servicesLinks[1].map(({ href, name, heading }, i) => (
+                      <DecorationLink
+                        key={i}
+                        href={href}
+                        {...heading && {
+                          className: styles.heading
+                        }}
+                        data-hover={servicesLinks[0].length + i+1}
+                        onClick={() => handleCloseHeader()}
+                      >
+                        {name}
+                      </DecorationLink>
+                    ))}
                   </div>
                 </div>
               </div>

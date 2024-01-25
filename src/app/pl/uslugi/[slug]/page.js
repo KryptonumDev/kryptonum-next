@@ -167,211 +167,55 @@ export async function generateMetadata({ params: { slug } }) {
 }
 
 const query = async (slug) => {
-  const {
-    body: { data },
-  } = await fetchData(
-    /* GraphQL */ `
-      query ($slug: String!) {
-        page: allLandingPage(where: { slug: { current: { eq: $slug } } }) {
-          name
-          slug {
-            current
-          }
-          #Hero
-          hero_Img {
-            asset {
-              altText
-              url
-              metadata {
-                lqip
-                dimensions {
-                  height
-                  width
-                }
+  const { body: { data } } = await fetchData(/* GraphQL */ `
+    query ($slug: String!) {
+      page: allLandingPage(where: { slug: { current: { eq: $slug } } }) {
+        name
+        slug {
+          current
+        }
+        #Hero
+        hero_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
               }
             }
           }
-          hero_Heading
-          hero_Paragraph
-          #Slider
-          content {
-            ... on Slider {
-              _type
-              heading
-              slides {
-                title
-                description
-              }
-            }
-            ... on CenteredHeading {
-              _type
-              heading
-              paragraph
-              cta {
-                theme
-                text
-                href
-              }
-            }
-            ... on RevealableGrid {
-              _type
-              heading
+        }
+        hero_Heading
+        hero_Paragraph
+        #Slider
+        content {
+          ... on Slider {
+            _type
+            heading
+            slides {
+              title
               description
-              icons {
-                icon {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
-                    }
-                  }
-                }
-                description
-              }
-              grid {
-                title
-                description
-                img {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
-                    }
-                  }
-                }
-              }
             }
-            ... on CooperationGrid {
-              _type
-              heading
-              description
-              icons {
-                icon {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
-                    }
-                  }
-                }
-                description
-              }
-              grid {
-                title
-                img {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
-                    }
-                  }
-                }
-              }
+          }
+          ... on CenteredHeading {
+            _type
+            heading
+            paragraph
+            cta {
+              theme
+              text
+              href
             }
-            ... on TextComponent {
-              _type
-              heading
-              blocks {
-                description
-              }
-            }
-            ... on CaseStudies {
-              _type
-              heading
-              caseStudies {
-                name
-                slug {
-                  current
-                }
-                img {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            ... on ProsAndConsShowcase {
-              _type
-              heading
-              ProsAndConsList {
-                title
-                ProsAndCons {
-                  isPros
-                  content
-                }
-              }
-            }
-            ... on HeadingWithTitleAndImgList {
-              _type
-              heading
-              TitleAndImage {
-                title
-                img {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            ... on HeadingWithIconDescriptionList {
-              _type
-              heading
-              IconDescriptionList {
-                description
-                icon {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            ... on ImageShowcase {
-              _type
-              images {
+          }
+          ... on RevealableGrid {
+            _type
+            heading
+            description
+            icons {
+              icon {
                 asset {
                   altText
                   url
@@ -384,57 +228,11 @@ const query = async (slug) => {
                   }
                 }
               }
-              cta {
-                theme
-                text
-                href
-              }
-            }
-            ... on HeadingDescriptionWithBlocksList {
-              _type
-              heading
               description
-              blocks {
-                title
-                description
-                img {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
-                    }
-                  }
-                }
-              }
             }
-            ... on HeadingWithIconTitleGrid {
-              _type
-              heading
-              titleAndImageGrid {
-                title
-                img {
-                  asset {
-                    altText
-                    url
-                    metadata {
-                      lqip
-                      dimensions {
-                        height
-                        width
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            ... on ImageComponent {
-              _type
-              isMockup
+            grid {
+              title
+              description
               img {
                 asset {
                   altText
@@ -449,12 +247,234 @@ const query = async (slug) => {
                 }
               }
             }
-            ... on BlocksShowcase {
-              _type
-              heading
+          }
+          ... on CooperationGrid {
+            _type
+            heading
+            description
+            icons {
+              icon {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
               description
-              blocks {
-                title
+            }
+            grid {
+              title
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on TextComponent {
+            _type
+            heading
+            blocks {
+              description
+            }
+          }
+          ... on CaseStudies {
+            _type
+            heading
+            caseStudies {
+              name
+              slug {
+                current
+              }
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on ProsAndConsShowcase {
+            _type
+            heading
+            ProsAndConsList {
+              title
+              ProsAndCons {
+                isPros
+                content
+              }
+            }
+          }
+          ... on HeadingWithTitleAndImgList {
+            _type
+            heading
+            TitleAndImage {
+              title
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on HeadingWithIconDescriptionList {
+            _type
+            heading
+            IconDescriptionList {
+              description
+              icon {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on ImageShowcase {
+            _type
+            images {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+            cta {
+              theme
+              text
+              href
+            }
+          }
+          ... on HeadingDescriptionWithBlocksList {
+            _type
+            heading
+            description
+            blocks {
+              title
+              description
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on HeadingWithIconTitleGrid {
+            _type
+            heading
+            titleAndImageGrid {
+              title
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on ImageComponent {
+            _type
+            isMockup
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    height
+                    width
+                  }
+                }
+              }
+            }
+          }
+          ... on BlocksShowcase {
+            _type
+            heading
+            description
+            blocks {
+              title
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on ProcessList {
+            _type
+            ProcessList {
+              ... on ProcessListArray {
+                _type
+                heading
+                subheading
+                paragraph
                 img {
                   asset {
                     altText
@@ -469,170 +489,144 @@ const query = async (slug) => {
                   }
                 }
               }
-            }
-            ... on ProcessList {
-              _type
-              ProcessList {
-                ... on ProcessListArray {
-                  _type
-                  heading
-                  subheading
-                  paragraph
-                  img {
-                    asset {
-                      altText
-                      url
-                      metadata {
-                        lqip
-                        dimensions {
-                          height
-                          width
-                        }
-                      }
-                    }
-                  }
+              ... on ProcessListShowcase {
+                _type
+                paragraph
+                ctas {
+                  theme
+                  text
+                  href
                 }
-                ... on ProcessListShowcase {
-                  _type
-                  paragraph
-                  ctas {
-                    theme
-                    text
-                    href
-                  }
-                  img {
-                    asset {
-                      altText
-                      url
-                      metadata {
-                        lqip
-                        dimensions {
-                          height
-                          width
-                        }
+                img {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
                       }
                     }
-                  }
-                }
-                ... on CtaSection {
-                  _type
-                  heading
-                  cta {
-                    theme
-                    text
-                    href
-                  }
-                  img {
-                    asset {
-                      altText
-                      url
-                      metadata {
-                        lqip
-                        dimensions {
-                          height
-                          width
-                        }
-                      }
-                    }
-                  }
-                }
-                ... on CtaSectionPill {
-                  _type
-                  heading
-                  cta {
-                    theme
-                    text
-                    href
-                  }
-                  img {
-                    asset {
-                      altText
-                      url
-                      metadata {
-                        lqip
-                        dimensions {
-                          height
-                          width
-                        }
-                      }
-                    }
-                  }
-                  icon {
-                    asset {
-                      altText
-                      url
-                      metadata {
-                        lqip
-                        dimensions {
-                          height
-                          width
-                        }
-                      }
-                    }
-                  }
-                }
-                ... on TestimonialsSection {
-                  _type
-                  heading
-                  list {
-                    img {
-                      asset {
-                        altText
-                        url
-                        metadata {
-                          lqip
-                          dimensions {
-                            height
-                            width
-                          }
-                        }
-                      }
-                    }
-                    name
-                    text
                   }
                 }
               }
-            }
-            ... on ConsultationForm {
-              _type
-              heading
-              subheading
-              buttonContents
+              ... on CtaSection {
+                _type
+                heading
+                cta {
+                  theme
+                  text
+                  href
+                }
+                img {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
+              }
+              ... on CtaSectionPill {
+                _type
+                heading
+                cta {
+                  theme
+                  text
+                  href
+                }
+                img {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
+                icon {
+                  asset {
+                    altText
+                    url
+                    metadata {
+                      lqip
+                      dimensions {
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
+              }
+              ... on TestimonialsSection {
+                _type
+                heading
+                list {
+                  img {
+                    asset {
+                      altText
+                      url
+                      metadata {
+                        lqip
+                        dimensions {
+                          height
+                          width
+                        }
+                      }
+                    }
+                  }
+                  name
+                  text
+                }
+              }
             }
           }
-          #SEO
-          seo {
-            title
-            description
+          ... on ConsultationForm {
+            _type
+            heading
+            subheading
+            buttonContents
           }
         }
-        blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+        #SEO
+        seo {
           title
-          subtitle
-          slug {
-            current
-          }
-          contentRaw
-          img {
-            asset {
-              altText
-              url
-              metadata {
-                lqip
-                dimensions {
-                  height
-                  width
-                }
+          description
+        }
+      }
+      blogEntries: allBlogEntries(limit: 4, sort: { _createdAt: DESC }) {
+        title
+        subtitle
+        slug {
+          current
+        }
+        contentRaw
+        img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
               }
             }
           }
         }
       }
-    `,
-    {
-      slug,
     }
+  `, { slug }
   );
   if (slug) {
     data.page ? (data.page = data.page[0]) : notFound();
@@ -642,9 +636,7 @@ const query = async (slug) => {
 };
 
 const paramsQuery = async () => {
-  const {
-    body: { data },
-  } = await fetchData(/* GraphQL */ `
+  const { body: { data } } = await fetchData(/* GraphQL */ `
     query {
       allLandingPage {
         slug {

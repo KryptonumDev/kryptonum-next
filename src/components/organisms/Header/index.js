@@ -11,6 +11,7 @@ const Header = async () => {
     WebDevelopment_Apps,
     WebDevelopment_Ecom,
     Marketing,
+    GovernmentsMarketing,
     Workshops,
     AgencyCare,
     GraphicsDesign,
@@ -57,6 +58,7 @@ const Header = async () => {
     WebDevelopment_Apps.img,
     WebDevelopment_Ecom.img,
     Marketing.hero.img,
+    GovernmentsMarketing.hero_Img,
     Workshops.img,
     AgencyCare.img,
     GraphicsDesign.img,
@@ -128,6 +130,21 @@ const query = async () => {
           img: image { ${assetFragment} }
 				}
 			}
+      GovernmentsMarketing: LandingPage(id: "b5279f73-dea7-42a7-90b7-26e0a7e90c83"){
+        hero_Img {
+          asset {
+            altText
+            url
+            metadata {
+              lqip
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+      }
 			Workshops: Workshop(id: "workshop") {
         img: hero_Img { ${assetFragment} }
 			}
