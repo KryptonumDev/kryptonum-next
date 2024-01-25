@@ -34,7 +34,7 @@ const servicesLinks = [
     {
       name: 'Marketing dla administracji',
       href: '/pl/uslugi/marketing-dla-administracji-publicznej',
-      heading: true,
+      heading: false,
     },
     {
       name: 'Opieka Agencyjna',
