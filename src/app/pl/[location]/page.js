@@ -135,7 +135,7 @@ export default async function LocationPage({ params: { location } }) {
 
   const breadcrumbs = [
     {
-      name: `Strony internetowe ${name}`,
+      name: `${name}`,
       link: `/pl/${location}`,
     },
   ];
