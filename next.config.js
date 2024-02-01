@@ -392,6 +392,131 @@ const nextConfig = {
         destination: '/pl//grafika-design/projektowanie-ui',
         permanent: true,
       },
+      {
+        source: 'https://kryptonum.eu/czym-jest-q-commerce-m-commerce-re-commerce-rodzaje-e-commerce',
+        destination: 'https://kryptonum.eu/pl/blog',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/o-czym-pamietac-podczas-implementacji-strony-www',
+        destination: 'https://kryptonum.eu/pl/blog',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/najwazniejsze-trendy-technologiczne',
+        destination: 'https://kryptonum.eu/pl/blog',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/ile-kosztuje-identyfikacja-wizualna-firmy',
+        destination: 'https://kryptonum.eu/pl/blog',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/jakie-sa-etapy-tworzenia-strony-internetowej',
+        destination: 'https://kryptonum.eu/pl/blog',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/czym-jest-system-zarzadzania-trescia-strony-www',
+        destination: 'https://kryptonum.eu/pl/blog',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/cyberataki-przyklady-i-rodzaje-atakow-hakerskich-cyberbezpieczenstwo',
+        destination: 'https://kryptonum.eu/pl/blog',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/jak-wybrac-agencje',
+        destination: 'https://kryptonum.eu/pl/blog',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/bogdan',
+        destination: 'https://kryptonum.eu/pl/zespol/bogdan',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/bogumil',
+        destination: 'https://kryptonum.eu/pl/zespol/bogumil',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/user-flow-design',
+        destination: 'https://kryptonum.eu/pl/blog',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/przemek',
+        destination: 'https://kryptonum.eu/pl/zespol/przemek',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/kontakt',
+        destination: 'https://kryptonum.eu/pl/kontakt',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/o-czym-pamietac-podczas-tworzenia-stron-internetowych',
+        destination: 'https://kryptonum.eu/pl/blog',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/jak-wyglada-wspolpraca-z-agencja-interaktywna',
+        destination: 'https://kryptonum.eu/pl/blog',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/wymiary-zdjec-i-grafik-na-social-media-w-2023-roku',
+        destination: 'https://kryptonum.eu/pl/blog',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/bartek',
+        destination: 'https://kryptonum.eu/pl/zespol/bartek',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/agencja-interaktywna-kreatywna-reklamowa-marketingowa-czym-sie-roznia',
+        destination: 'https://kryptonum.eu/pl/blog',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/rozwoj-technologii-blockchain-nft-i-kryptowalut',
+        destination: 'https://kryptonum.eu/pl/blog',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/maciek',
+        destination: 'https://kryptonum.eu/pl/zespol/maciek',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/kuba',
+        destination: 'https://kryptonum.eu/pl/zespol/kuba',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/oliwia',
+        destination: 'https://kryptonum.eu/pl/zespol/oliwia',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/michal',
+        destination: 'https://kryptonum.eu/pl/zespol/michal',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/patrycja',
+        destination: 'https://kryptonum.eu/pl/zespol/patrycja',
+        permanent: true,
+      },
+      {
+        source: 'https://kryptonum.eu/damian',
+        destination: 'https://kryptonum.eu/pl/zespol/damian',
+        permanent: true,
+      },
     ];
   },
 };
