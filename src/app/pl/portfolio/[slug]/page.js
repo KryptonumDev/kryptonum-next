@@ -1,16 +1,17 @@
-import TextComponent from "@/components/molecules/TextComponent";
-import CtaSection from "@/components/sections/CtaSection";
-import ImageComponent from "@/components/sections/ImageComponent";
-import ImageShowcase from "@/components/sections/ImageShowcase";
-import LogoShowcase from "@/components/sections/LogoShowcase";
-import Features from "@/components/sections/portfolioCase/Features";
-import Hero from "@/components/sections/portfolioCase/Hero";
-import Participated from "@/components/sections/portfolioCase/Participated";
-import Slider from "@/components/sections/portfolioCase/Slider";
-import Stylescape from "@/components/sections/portfolioCase/Stylescape";
-import Testimonial from "@/components/sections/portfolioCase/Testimonial";
-import SEO from "@/global/Seo";
-import fetchData from "@/utils/fetchData";
+import TextComponent from '@/components/molecules/TextComponent';
+import CtaSection from '@/components/sections/CtaSection';
+import ImageComponent from '@/components/sections/ImageComponent';
+import ImageShowcase from '@/components/sections/ImageShowcase';
+import LogoShowcase from '@/components/sections/LogoShowcase';
+import Features from '@/components/sections/portfolioCase/Features';
+import Hero from '@/components/sections/portfolioCase/Hero';
+import Participated from '@/components/sections/portfolioCase/Participated';
+import Slider from '@/components/sections/portfolioCase/Slider';
+import Stylescape from '@/components/sections/portfolioCase/Stylescape';
+import Testimonial from '@/components/sections/portfolioCase/Testimonial';
+import SEO from '@/global/Seo';
+import fetchData from '@/utils/fetchData';
+import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
   const { caseStudies } = await paramsQuery();
@@ -32,20 +33,13 @@ export default async function PortfolioSlugPage({ params: { slug } }) {
   };
 
   const {
-    caseStudy: {
-      heading,
-      categories_Paragraph,
-      categories,
-      img,
-      content,
-      name,
-    },
+    caseStudy: { heading, categories_Paragraph, categories, img, content, name },
   } = await query(slug);
 
   const breadcrumbs = [
     {
-      name: "Portfolio",
-      link: "/pl/portfolio",
+      name: 'Portfolio',
+      link: '/pl/portfolio',
     },
     {
       name: name,
@@ -54,7 +48,10 @@ export default async function PortfolioSlugPage({ params: { slug } }) {
   ];
 
   return (
-    <main id="main" className={"portfolio"}>
+    <main
+      id='main'
+      className={'portfolio'}
+    >
       <Hero
         data={{
           heading,
@@ -66,7 +63,12 @@ export default async function PortfolioSlugPage({ params: { slug } }) {
       />
       {content.map((component, i) => {
         const Component = mappedComponents[component._type];
-        return <Component key={i} data={component} />;
+        return (
+          <Component
+            key={i}
+            data={component}
+          />
+        );
       })}
     </main>
   );
@@ -95,9 +97,7 @@ const query = async (slug) => {
   } = await fetchData(
     /* GraphQL */ `
       query ($slug: String!) {
-        caseStudy: allCaseStudyEntries(
-          where: { slug: { current: { eq: $slug } } }
-        ) {
+        caseStudy: allCaseStudyEntries(where: { slug: { current: { eq: $slug } } }) {
           name
           slug {
             current
@@ -356,11 +356,14 @@ const query = async (slug) => {
     { slug }
   );
   data.caseStudy = data.caseStudy[0];
+  data.caseStudy ? null : notFound();
   return data;
 };
 
 const paramsQuery = async () => {
-  const { body: { data } } = await fetchData(/* GraphQL */ `
+  const {
+    body: { data },
+  } = await fetchData(/* GraphQL */ `
     query {
       caseStudies: allCaseStudyEntries {
         slug {
