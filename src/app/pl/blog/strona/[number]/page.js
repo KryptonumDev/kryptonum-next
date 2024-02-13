@@ -1,40 +1,39 @@
-import BlogEntries from "@/components/sections/BlogEntries";
-import Categories from "@/components/sections/Categories";
-import CtaSection from "@/components/sections/CtaSection";
-import Faq from "@/components/sections/Faq";
-import Hero from "@/components/sections/Hero";
-import LatestCuriosityEntries from "@/components/sections/LatestCuriosityEntries";
-import Breadcrumbs from "@/global/Breadcrumbs";
-import SEO from "@/global/Seo";
-import fetchData from "@/utils/fetchData";
-import { notFound, redirect } from "next/navigation";
-import { blogItemsPerPage } from "../../page";
+import BlogEntries from '@/components/sections/BlogEntries';
+import Categories from '@/components/sections/Categories';
+import CtaSection from '@/components/sections/CtaSection';
+import Faq from '@/components/sections/Faq';
+import Hero from '@/components/sections/Hero';
+import LatestCuriosityEntries from '@/components/sections/LatestCuriosityEntries';
+import Breadcrumbs from '@/global/Breadcrumbs';
+import SEO from '@/global/Seo';
+import fetchData from '@/utils/fetchData';
+import { notFound, redirect } from 'next/navigation';
+import { blogItemsPerPage } from '../../page';
 
 const breadcrumbs = [
   {
-    name: "Blog",
-    link: "/pl/blog",
+    name: 'Blog',
+    link: '/pl/blog',
   },
 ];
 
 export async function generateStaticParams() {
-	const { allBlogEntries } = await paramsQuery();
-	return Array.from(
-		{ length: Math.ceil(allBlogEntries.length / blogItemsPerPage) },
-		(value, index) => ({ number: (index + 1).toString() }),
-	).filter(({ number }) => number !== "1");
+  const { allBlogEntries } = await paramsQuery();
+  return Array.from({ length: Math.ceil(allBlogEntries.length / blogItemsPerPage) }, (value, index) => ({
+    number: (index + 1).toString(),
+  })).filter(({ number }) => number !== '1');
 }
 
 export default async function BlogPaginationPage({ params: { number } }) {
-	const {
-		page: { hero_Paragraph, hero_Img, ctaSection },
-		blogEntries,
-		blogCategories,
-		allBlogEntries,
-	} = await query(number);
+  const {
+    page: { hero_Paragraph, hero_Img, ctaSection },
+    blogEntries,
+    blogCategories,
+    allBlogEntries,
+  } = await query(number);
 
-	return (
-    <main id="main">
+  return (
+    <main id='main'>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
       <Hero
         data={{
@@ -44,11 +43,11 @@ export default async function BlogPaginationPage({ params: { number } }) {
         }}
       />
       <Categories
-        categorySlug="/pl/blog/"
+        categorySlug='/pl/blog/'
         categories={blogCategories}
       />
       <BlogEntries
-        urlBasis={"/pl/blog"}
+        urlBasis={'/pl/blog'}
         totalCount={allBlogEntries.length}
         blogEntries={blogEntries}
         page={parseInt(number)}
@@ -58,18 +57,18 @@ export default async function BlogPaginationPage({ params: { number } }) {
       <LatestCuriosityEntries />
       <Faq />
     </main>
-	);
+  );
 }
 
 export async function generateMetadata({ params: { number } }) {
-	const {
-		page: { seo },
-	} = await query(number);
-	return SEO({
-		title: seo?.title,
-		description: seo?.description,
-		url: `/pl/blog/strona/${number}`,
-	});
+  const {
+    page: { seo },
+  } = await query(number);
+  return SEO({
+    title: `${seo?.title} | strona ${number}`,
+    description: `${seo?.description} To ${number} strona bloga`,
+    url: `/pl/blog/strona/${number}`,
+  });
 }
 
 const query = async (number) => {
@@ -83,11 +82,7 @@ const query = async (number) => {
   } = await fetchData(
     /* GraphQL */ `
       query ($limit: Int!, $offset: Int!) {
-        blogEntries: allBlogEntries(
-          limit: $limit
-          offset: $offset
-          sort: { _createdAt: DESC }
-        ) {
+        blogEntries: allBlogEntries(limit: $limit, offset: $offset, sort: { _createdAt: DESC }) {
           title
           subtitle
           slug {
