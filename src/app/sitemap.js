@@ -22,9 +22,9 @@ let staticPages = [
   '/pl/brief-z-kryptonum',
   '/pl/mapa-strony',
   '/pl/polityka-prywatnosci',
-  '/pl/branding',
-  '/pl/projektowanie-ui',
-  '/pl/projektowanie-ux',
+  '/pl/grafika-design/branding',
+  '/pl/grafika-design/projektowanie-ui',
+  '/pl/grafika-design/projektowanie-ux',
   '/pl/marketing-360',
 ];
 

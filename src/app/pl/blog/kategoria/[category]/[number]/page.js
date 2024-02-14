@@ -57,7 +57,7 @@ export default async function BlogCategoryPaginationPage({ params: { category, n
     <main id="main">
       <Breadcrumbs breadcrumbs={breadcrumbs} />
       <Hero
-        data={{ heading: hero_Heading, paragraph: hero_Paragraph, sideImage: hero_Img }}
+        data={{ heading: `${hero_Heading} - strona ${number}`, paragraph: hero_Paragraph, sideImage: hero_Img }}
       />
       <Categories
         categorySlug="/pl/blog/"
@@ -84,8 +84,8 @@ export async function generateMetadata({ params: { category, number } }) {
 		blogCategory: { seo },
 	} = await query(category, number);
 	return SEO({
-		title: seo?.title,
-		description: seo?.description,
+    title: `${seo?.title} | strona ${number}`,
+    description: `${seo?.description} To ${number} strona bloga`,
 		url: `/pl/blog/kategoria/${category}/${number}`,
 	});
 }

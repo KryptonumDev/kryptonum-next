@@ -8,7 +8,7 @@ const Hero = ({ hero_Img, hero_Heading, hero_Paragraph }) => {
     <section className={`${styles.hero} hero`}>
       <header>
         <DecorativeHeading
-          type='h2'
+          type='h1'
           className={styles.heading}
         >
           {hero_Heading}
