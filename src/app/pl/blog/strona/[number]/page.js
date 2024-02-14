@@ -66,7 +66,7 @@ export async function generateMetadata({ params: { number } }) {
   } = await query(number);
   return SEO({
     title: `${seo?.title} | strona ${number}`,
-    description: `${seo?.description} To ${number} strona bloga`,
+    description: `${seo?.description} To ${number} strona bloga.`,
     url: `/pl/blog/strona/${number}`,
   });
 }
