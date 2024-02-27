@@ -220,7 +220,7 @@ footer.footer {
 
   .info {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr auto 1fr;
     justify-content: space-between;
     gap: 24px;
     align-items: center;
@@ -252,9 +252,10 @@ footer.footer {
     .links {
       display: flex;
       gap: 24px;
+      justify-content: flex-end;
     }
 
-    @media (max-width: 859px) {
+    @media (max-width: 919px) {
       grid-template-columns: 1fr auto;
 
       .links {
@@ -276,11 +277,16 @@ footer.footer {
         grid-column: 2;
         max-width: calc(96px + clamp(8px, calc(8vw/7.68), 12px));
       }
+
       .links {
         grid-column: 1/2;
         flex-direction: column;
-        gap:16px;
+        gap: 16px;
+        a:first-child {
+          order: 1;
+        }
       }
+
       .copy {
         grid-row: 3/3;
       }
