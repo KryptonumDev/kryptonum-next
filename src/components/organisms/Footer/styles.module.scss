@@ -253,6 +253,10 @@ footer.footer {
       display: flex;
       gap: 24px;
       justify-content: flex-end;
+      flex-wrap: wrap;
+      >a {
+        text-wrap: nowrap;
+      }
     }
 
     @media (max-width: 919px) {
