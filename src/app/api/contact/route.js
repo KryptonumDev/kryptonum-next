@@ -9,6 +9,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const emailData = {
   from: 'Michał z Kryptonum <michal@kryptonum.eu>',
   to: 'Michał <michal@kryptonum.eu>',
+  bcc: ['aneta@kryptonum.eu', 'wiktoria@kryptonum.eu', 'bogumil@kryptonum.eu'],
 };
 
 const headers = {
@@ -38,6 +39,7 @@ export async function POST(request) {
       from: emailData.from,
       reply_to: email,
       to: emailData.to,
+      bcc: emailData.bcc,
       subject: `Wiadomość z Kryptonum.eu marketing dla administracji publicznej`,
       html: body,
       text: removeHtmlTags(body),

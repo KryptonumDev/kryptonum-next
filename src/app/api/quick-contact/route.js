@@ -9,6 +9,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const emailData = {
   from: "Michał z Kryptonum <michal@kryptonum.eu>",
   to: "Michał <michal@kryptonum.eu>",
+  bcc: ['aneta@kryptonum.eu', 'wiktoria@kryptonum.eu', 'bogumil@kryptonum.eu'],
 };
 
 const headers = {
@@ -19,17 +20,17 @@ const headers = {
 
 export async function POST(request) {
   const req = await request.json();
-  const { phone = "", email = "", message = "", legal = false, name="" } = req;
+  const { phone = "", email = "", message = "", legal = false, name = "" } = req;
 
   if (
-		!regex.email.test(email.toLowerCase()) ||
+    !regex.email.test(email.toLowerCase()) ||
     (phone && !regex.phone.test(phone)) ||
     !legal
-		) {
-			return NextResponse.json({ success: false }, { status: 422, headers });
-		}
-		
-	const body = `${name && `<p>Imię: <b>${name}</b></p>`}
+  ) {
+    return NextResponse.json({ success: false }, { status: 422, headers });
+  }
+
+  const body = `${name && `<p>Imię: <b>${name}</b></p>`}
     <p>E-mail: <b>${email}</b></p>
     ${phone && `<p>Numer telefonu: <b>${phone}</b></p>`}
     ${message.trim() && `<p>${message.trim()}</p>`}
@@ -37,12 +38,13 @@ export async function POST(request) {
     <br />
     <p><em>Wyrażono zgodę na politykę prywatności</em></p>
 	`;
-		
+
   try {
     await resend.emails.send({
       from: emailData.from,
       reply_to: email,
       to: emailData.to,
+      bcc: emailData.bcc,
       subject: `Wiadomość z szybkiego kontaktu kryptonum.eu`,
       html: body,
       text: removeHtmlTags(body),
