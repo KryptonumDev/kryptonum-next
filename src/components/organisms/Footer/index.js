@@ -214,7 +214,8 @@ const Footer = async () => {
             </a>
           )}
         </div>
-        <p>
+        <p className={styles.links}>
+          <Link href='/pl/mapa-strony'>Mapa strony</Link>
           <Link href='/pl/polityka-prywatnosci'>Polityka prywatności</Link>
         </p>
       </div>
