@@ -1,9 +1,9 @@
 import TextComponent from "../../molecules/TextComponent";
 
-const TextSection = ({data, breakLine} ) => {
+const TextSection = ({ data, breakLine }) => {
   return (
     <section>
-      <TextComponent data={data} breakLine={breakLine}/>
+      <TextComponent data={data} breakLine={breakLine} />
     </section>
   )
 }

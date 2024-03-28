@@ -9,13 +9,13 @@ const TextComponent = ({ data: { heading, blocks }, breakLine }) => {
     <div className={breakLine ? `${styles.wrapper} ${styles.breakLine}` : styles.wrapper}>
       <DecorativeHeading type="h2">{heading}</DecorativeHeading>
       <div className={styles.divWrapper}>
-        {blocks.map((item, i) => {
+        {blocks?.map((item, i) => {
           item.description;
           return (
             <div className={styles.item} key={i}>
               {item.icon ? (
                 <div className={styles.imageWrapper}>
-                  <Img data={item.icon} className={`${styles.icon} personBorder`} sizes="200px" quality={100}/>
+                  <Img data={item.icon} className={`${styles.icon} personBorder`} sizes="200px" quality={100} />
                 </div>
               ) : (
                 <Markdown className={styles.title}>{item.title}</Markdown>
