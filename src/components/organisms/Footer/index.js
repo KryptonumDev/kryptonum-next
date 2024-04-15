@@ -64,9 +64,9 @@ const Footer = async () => {
             >
               Web Development
             </Link>
-            <Link href='/pl/web-development-strony-internetowe'>Strony internetowe</Link>
-            <Link href='/pl/web-development-aplikacje-internetowe'>Aplikacje internetowe</Link>
-            <Link href='/pl/web-development-sklepy-internetowe'>Sklepy internetowe</Link>
+            <Link href='/pl/web-development/strony-internetowe'>Strony internetowe</Link>
+            <Link href='/pl/web-development/aplikacje-internetowe'>Aplikacje internetowe</Link>
+            <Link href='/pl/web-development/sklepy-internetowe'>Sklepy internetowe</Link>
 
             <Link
               href='/pl/marketing-360'
@@ -98,9 +98,9 @@ const Footer = async () => {
             >
               Grafika & design
             </Link>
-            <Link href='/pl/grafika-design-projektowanie-logo'>Logo</Link>
-            <Link href='/pl/grafika-design-audyt-ux-ui'>Audyty</Link>
-            <Link href='/pl/grafika-design-identyfikacja-wizualna-marki'>Identyfikacja wizualna</Link>
+            <Link href='/pl/grafika-design/projektowanie-logo'>Logo</Link>
+            <Link href='/pl/grafika-design/audyt-ux-ui'>Audyty</Link>
+            <Link href='/pl/grafika-design/identyfikacja-wizualna-marki'>Identyfikacja wizualna</Link>
             <Link href='/pl/grafika-design/branding'>Branding</Link>
             <Link href='/pl/grafika-design/projektowanie-ui'>Projektowanie UI</Link>
             <Link href='/pl/grafika-design/projektowanie-ux'>Projektowanie UX</Link>
