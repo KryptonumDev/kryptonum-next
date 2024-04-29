@@ -517,6 +517,11 @@ const nextConfig = {
         destination: '/pl/zespol/damian',
         permanent: true,
       },
+      {
+        source: '/pl/blog/idealny-brief-dla-agencji',
+        destination: '/pl/blog/jak-napisac-dobry-brief',
+        permanent: true,
+      },
     ];
   },
 };
