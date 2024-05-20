@@ -522,6 +522,11 @@ const nextConfig = {
         destination: '/pl/blog/jak-napisac-dobry-brief',
         permanent: true,
       },
+      {
+        source: '/pl/blog/agencja-interaktywna-kreatywna-reklamowa-marketingowa-czym-sie-roznia',
+        destination: '/pl/blog/jakie-sa-typy-i-rodzaje-agencji-reklamowych-i-innych',
+        permanent: true,
+      },
     ];
   },
 };
