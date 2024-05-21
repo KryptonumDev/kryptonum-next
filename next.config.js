@@ -527,6 +527,46 @@ const nextConfig = {
         destination: '/pl/blog/jakie-sa-typy-i-rodzaje-agencji-reklamowych-i-innych',
         permanent: true,
       },
+      {
+        source: '/kto-powinien-zlecic-prace-agencji-interaktywnej',
+        destination: '/pl/blog/jakie-sa-typy-i-rodzaje-agencji-reklamowych-i-innych',
+        permanent: true,
+      },
+      {
+        source: '/02',
+        destination: '/pl',
+        permanent: true,
+      },
+      {
+        source: '/03',
+        destination: '/pl',
+        permanent: true,
+      },
+      {
+        source: '/co-to-jest-rebranding',
+        destination: '/pl/blog/co-to-jest-rebranding',
+        permanent: true,
+      },
+      {
+        source: '/pl/blog/cyberataki-',
+        destination: '/pl/blog/cyberataki-przyklady-i-rodzaje-atakow-hakerskich-cyberbezpieczenstwo',
+        permanent: true,
+      },
+      {
+        source: '/jak-zadbac-o-wizerunek-firmy-w-internecie',
+        destination: '/pl/blog/jak-zadbac-o-wizerunek-firmy-w-internecie',
+        permanent: true,
+      },
+      {
+        source: '/04',
+        destination: '/pl',
+        permanent: true,
+      },
+      {
+        source: '/pl/portfolio/baza-vintage-wzrost-fraz-kluczowych-i-zwiekszenie-przychodow',
+        destination: '/pl/marketing-360',
+        permanent: true,
+      },
     ];
   },
 };
