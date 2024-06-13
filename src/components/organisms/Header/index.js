@@ -3,8 +3,10 @@ import styles from './styles.module.scss';
 import Img from '@/components/atoms/Img';
 import HeaderWrapper from './header';
 import { removeMarkdown } from '@/utils/functions';
+import Markdown from '@/components/atoms/Markdown';
+import Annotation from './_Annotation';
 
-const Header = async () => {
+export default async function Header() {
   const {
     WebDevelopment,
     WebDevelopment_Websites,
@@ -21,37 +23,37 @@ const Header = async () => {
     GraphicsDesign_Branding,
     GraphicsDesign_Ui,
     GraphicsDesign_Ux,
-		global: { nav_BlogPost, nav_Curiousities },
+    global: { nav_Annotation, nav_BlogPost, nav_Curiousities },
     latestBlogEntry: [latestBlogEntry],
     latestCuriositiesEntries,
   } = await query();
-	let {
-		teamMembers,
-		global: { nav_Projects },
-	} = await query();
+  let {
+    teamMembers,
+    global: { nav_Projects },
+  } = await query();
 
   let blogPost = nav_BlogPost || latestBlogEntry;
-	blogPost = {
-		...blogPost,
-		title: removeMarkdown(blogPost.title),
-		img: <Img data={blogPost.img} sizes='300px' />,
-	}
-	nav_Projects = nav_Projects.map(({ name, slug: { current: slug }, img }) => ({
-		img: <Img data={img} sizes='300px' />,
-		name,
-		slug
-	}));
-	teamMembers = teamMembers.map(({ name, slug: { current: slug }, img }) => ({
-		img: <Img data={img} width={78} height={78} sizes='78px' className='personBorder' />,
-		name,
-		slug
-	}));
+  blogPost = {
+    ...blogPost,
+    title: removeMarkdown(blogPost.title),
+    img: <Img data={blogPost.img} sizes='300px' />,
+  }
+  nav_Projects = nav_Projects.map(({ name, slug: { current: slug }, img }) => ({
+    img: <Img data={img} sizes='300px' />,
+    name,
+    slug
+  }));
+  teamMembers = teamMembers.map(({ name, slug: { current: slug }, img }) => ({
+    img: <Img data={img} width={78} height={78} sizes='78px' className='personBorder' />,
+    name,
+    slug
+  }));
   let curiositiesEntries = nav_Curiousities || latestCuriositiesEntries;
-	curiositiesEntries =  curiositiesEntries.map(({ title, slug: { current: slug }, img }) => ({
-		img: <Img data={img} sizes='112px' />,
-		title: removeMarkdown(title),
-		slug
-	}));
+  curiositiesEntries = curiositiesEntries.map(({ title, slug: { current: slug }, img }) => ({
+    img: <Img data={img} sizes='112px' />,
+    title: removeMarkdown(title),
+    slug
+  }));
   const servicesImages = [
     WebDevelopment.img,
     WebDevelopment_Websites.img,
@@ -78,21 +80,41 @@ const Header = async () => {
       >
         Przejdź do głównej treści
       </a>
+      <Annotation
+        rawContent={nav_Annotation}
+        CloseIcon={CloseIcon}
+      >
+        <Markdown>{nav_Annotation}</Markdown>
+      </Annotation>
       <HeaderWrapper
-				KryptonumLogo={KryptonumLogo}
-				ChevronDown={ChevronDown}
-				servicesImages={servicesImages}
-				blogPost={blogPost}
-				nav_Projects={nav_Projects}
-				teamMembers={teamMembers}
-				curiositiesEntries={curiositiesEntries}
-				BackBtnIcon={BackBtnIcon}
-			/>
+        KryptonumLogo={KryptonumLogo}
+        ChevronDown={ChevronDown}
+        servicesImages={servicesImages}
+        blogPost={blogPost}
+        nav_Projects={nav_Projects}
+        teamMembers={teamMembers}
+        curiositiesEntries={curiositiesEntries}
+        BackBtnIcon={BackBtnIcon}
+      />
     </>
   );
-};
+}
 
-export default Header;
+const CloseIcon = (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    width={20}
+    height={20}
+    viewBox='0 0 20 20'
+    fill='none'
+  >
+    <path
+      d='M15.833 4.167 4.166 15.833m0-11.667 11.667 11.667'
+      stroke='#EFF0F3'
+      strokeLinecap='round'
+    />
+  </svg>
+)
 
 const assetFragment = `
   asset {
@@ -179,6 +201,7 @@ const query = async () => {
         }
 			}
       global: Global(id: "global") {
+        nav_Annotation
 				nav_Projects {
 					name
 					slug {
@@ -303,13 +326,13 @@ const ChevronDown = (
   </svg>
 );
 const BackBtnIcon = (
-	<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none'>
-		<path
-			stroke='currentColor'
-			strokeLinecap='round'
-			strokeLinejoin='round'
-			strokeWidth='1.5'
-			d='M12.5 4.167L7.5 10l5 5.833'
-		></path>
-	</svg>
+  <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none'>
+    <path
+      stroke='currentColor'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      strokeWidth='1.5'
+      d='M12.5 4.167L7.5 10l5 5.833'
+    ></path>
+  </svg>
 )
