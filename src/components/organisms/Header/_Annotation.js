@@ -1,33 +1,34 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import styles from './styles.module.scss';
 
 export default function Annotation({ CloseIcon, children, rawContent }) {
   const ref = useRef(null);
-  const close = (ref) => {
+
+  const close = () => {
     if (ref.current) {
       ref.current.style.display = 'none';
     }
   };
-  const handleClose = () => {
-    if (ref.current) {
-      close(ref);
-      localStorage.setItem('annotation', JSON.stringify({
-        rawContent,
-        timestamp: new Date().getTime(),
-      }));
-    }
-  };
+
+  const handleClose = useCallback(() => {
+    close();
+    localStorage.setItem('annotation', JSON.stringify({
+      rawContent,
+      timestamp: new Date().getTime(),
+    }));
+  }, [rawContent]);
+
   useEffect(() => {
     const storedAnnotation = localStorage.getItem('annotation');
     if (storedAnnotation) {
       const parsedAnnotation = JSON.parse(storedAnnotation);
       const currentTime = new Date().getTime();
-      const oneWeekInMillis = 7 * 24 * 60 * 60 * 1000;
-      if (parsedAnnotation.rawContent !== rawContent || (currentTime - parsedAnnotation.timestamp >= oneWeekInMillis)) {
+      const expiration = 24 * 60 * 60 * 1000 * 1 // One day
+      if (parsedAnnotation.rawContent !== rawContent || (currentTime - parsedAnnotation.timestamp >= expiration)) {
         localStorage.removeItem('annotation');
       } else {
-        close(ref);
+        close();
       }
     }
   }, [rawContent]);
