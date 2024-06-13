@@ -1,5 +1,5 @@
 .skipToMainContent {
-  background-color: rgba(1,1,4,.8);
+  background-color: rgba(1, 1, 4, 0.8);
   backdrop-filter: blur(10px);
   opacity: 0;
   pointer-events: none;
@@ -11,6 +11,58 @@
   &:focus-visible {
     opacity: 1;
     pointer-events: auto;
+  }
+}
+
+.Annotation {
+  position: relative;
+  margin-bottom: 1px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+      266deg,
+      rgba(5, 67, 45, 0.4),
+      rgba(5, 80, 53, 0.4) 33%,
+      #1f6644 67%,
+      rgba(17, 53, 49, 0.4)
+    );
+    z-index: -1;
+  }
+  background: linear-gradient(266deg, #0b0f0d 1.76%, #011310 53.44%, #001f1b 100%);
+  padding: 8px 0;
+  a {
+    text-decoration: underline;
+    transition: opacity 0.5s var(--easing);
+    &:hover {
+      opacity: 0.62;
+    }
+  }
+  font-size: clamp(calc(14rem / 16), calc(16vw / 7.68), 1rem);
+  > div {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    @media (min-width: 649px) {
+      text-align: center;
+      &::before {
+        content: '';
+      }
+      grid-template-columns: auto 1fr auto;
+    }
+  }
+  button {
+    margin: -8px;
+    padding: 12px;
+    transition: opacity 0.5s var(--easing);
+    &:hover {
+      opacity: 0.62;
+    }
   }
 }
 
@@ -27,7 +79,7 @@
   &[data-tab],
   &[aria-expanded='true'] {
     &::before {
-      background-color: rgba(1,1,4,.95);
+      background-color: rgba(1, 1, 4, 0.95);
     }
   }
   &::before {
@@ -39,16 +91,16 @@
     bottom: 0;
     z-index: -1;
     backdrop-filter: blur(10px);
-    background-color: rgba(1,1,4,.8);
+    background-color: rgba(1, 1, 4, 0.8);
   }
   nav {
     display: flex;
     align-items: center;
     gap: 48px;
-    margin-left: clamp(48px, calc(64vw/7.68), 72px);
-    &:has(.navItem > button:hover){
-      .navItem > button:not(:hover){
-        opacity: .62;
+    margin-left: clamp(48px, calc(64vw / 7.68), 72px);
+    &:has(.navItem > button:hover) {
+      .navItem > button:not(:hover) {
+        opacity: 0.62;
       }
     }
     .navItem {
@@ -56,7 +108,7 @@
         display: flex;
         gap: 4px;
         align-items: center;
-        transition: opacity .5s var(--easing);
+        transition: opacity 0.5s var(--easing);
         &:hover {
           svg {
             transform: scaleY(1.2);
@@ -64,10 +116,11 @@
         }
         svg {
           stroke: currentColor;
-          transition: transform .3s var(--easing);
+          transition: transform 0.3s var(--easing);
         }
       }
-      .back-btn, .tab-title {
+      .back-btn,
+      .tab-title {
         display: none;
       }
       .expand {
@@ -79,17 +132,17 @@
         overflow-y: auto;
         overscroll-behavior: contain;
         border-bottom: 1px solid var(--neutral-700);
-        background-color: rgba(1,1,4,.95);
+        background-color: rgba(1, 1, 4, 0.95);
         backdrop-filter: blur(10px);
         padding: 64px var(--pageMargin);
         z-index: 1;
-        @media (min-width: 1360px){
+        @media (min-width: 1360px) {
           padding-left: calc((100% - 1280px) / 2);
           padding-right: calc((100% - 1280px) / 2);
         }
         transform: translateY(-8px);
         visibility: hidden;
-        transition: transform .5s var(--easing);
+        transition: transform 0.5s var(--easing);
       }
       &.services {
         &:has(a[data-hover='1']:hover) .thumbnail img:nth-child(1),
@@ -112,7 +165,7 @@
           display: grid;
           grid-template-columns: 1fr 1.2fr;
           align-items: flex-start;
-          gap: clamp(64px, calc(72vw/7.68), 144px);
+          gap: clamp(64px, calc(72vw / 7.68), 144px);
           .thumbnail {
             position: relative;
             img {
@@ -152,7 +205,7 @@
           display: grid;
           grid-template-columns: 1fr 1.2fr;
           align-items: flex-start;
-          gap: clamp(64px, calc(72vw/7.68), 144px);
+          gap: clamp(64px, calc(72vw / 7.68), 144px);
           .thumbnail {
             position: relative;
             img {
@@ -204,16 +257,16 @@
                 width: 78px;
                 a {
                   display: block;
-                  transition: opacity .5s var(--easing);
+                  transition: opacity 0.5s var(--easing);
                 }
                 p {
                   overflow: hidden;
                   text-overflow: elipsis;
                 }
               }
-              &:has(a:hover){
-                a:not(:hover){
-                  opacity: .62;
+              &:has(a:hover) {
+                a:not(:hover) {
+                  opacity: 0.62;
                 }
               }
             }
@@ -224,11 +277,11 @@
         .expand {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
-          gap: clamp(64px, calc(72vw/7.68), 144px);
+          gap: clamp(64px, calc(72vw / 7.68), 144px);
           .block {
             > div {
-              padding-top: clamp(20px, calc(20vw/7.68), 32px);
-              margin-top: clamp(24px, calc(24vw/7.68), 32px);
+              padding-top: clamp(20px, calc(20vw / 7.68), 32px);
+              margin-top: clamp(24px, calc(24vw / 7.68), 32px);
               border-top: 1px solid var(--neutral-700);
             }
           }
@@ -245,7 +298,7 @@
               .img {
                 overflow: hidden;
                 img {
-                  transition: transform .5s var(--easing);
+                  transition: transform 0.5s var(--easing);
                   display: block;
                 }
               }
@@ -259,14 +312,14 @@
           .curiosities {
             .item {
               display: block;
-              &:not(:last-child){
+              &:not(:last-child) {
                 margin-bottom: 12px;
               }
               border-radius: 4px;
               border: 1px solid var(--neutral-700);
               overflow: hidden;
               display: grid;
-              grid-template-columns: clamp(70px, calc(70vw/7.68), 112px) 1fr;
+              grid-template-columns: clamp(70px, calc(70vw / 7.68), 112px) 1fr;
               align-items: center;
               gap: 8px;
               .img {
@@ -275,7 +328,7 @@
                   width: 100%;
                   object-fit: cover;
                   display: block;
-                  transition: transform .5s var(--easing);
+                  transition: transform 0.5s var(--easing);
                 }
               }
               p {
@@ -298,8 +351,8 @@
       }
     }
     .heading {
-      font-size: calc(18rem/16) !important;
-      &:not(:last-child){
+      font-size: calc(18rem / 16) !important;
+      &:not(:last-child) {
         margin-bottom: 16px;
       }
     }
@@ -335,7 +388,7 @@
       }
       svg {
         stroke: url(#ChevronDown);
-        @media (min-width: 1080px){
+        @media (min-width: 1080px) {
           transform: rotateX(180deg);
         }
       }
@@ -366,14 +419,14 @@
   }
   .nav-cta {
     font-size: 1rem;
-    @media (min-width: 1080px){
+    @media (min-width: 1080px) {
       margin-left: auto;
     }
-    @media (max-width: 549px){
+    @media (max-width: 549px) {
       display: none;
     }
   }
-  @media (max-width: 1079px){
+  @media (max-width: 1079px) {
     > div {
       justify-content: space-between;
     }
@@ -381,7 +434,7 @@
       position: absolute;
       visibility: hidden;
       transform: translateX(100%);
-      transition: transform .5s var(--easing), visibility .5s;
+      transition: transform 0.5s var(--easing), visibility 0.5s;
       z-index: 2;
       border-left: 1px solid var(--neutral-700);
       right: 0;
@@ -390,16 +443,16 @@
       max-width: 372px;
       height: 100vh;
       align-items: unset;
-      padding: 96px clamp(32px, calc(78vw/7.68), 78px);
+      padding: 96px clamp(32px, calc(78vw / 7.68), 78px);
       flex-direction: column;
       gap: 40px;
       margin-left: unset;
-      background-color: rgba(1,1,4,.95);
+      background-color: rgba(1, 1, 4, 0.95);
       backdrop-filter: blur(10px);
       .navItem {
         > button {
           width: 100%;
-          font-size: calc(18rem/16);
+          font-size: calc(18rem / 16);
           gap: 12px;
           &:hover {
             svg {
@@ -414,7 +467,7 @@
           position: sticky;
           z-index: 1;
           top: -76px;
-          background-color: rgba(1,1,4,.8);
+          background-color: rgba(1, 1, 4, 0.8);
           backdrop-filter: blur(4px);
           border-radius: 32px;
           padding: 8px 16px;
@@ -439,9 +492,9 @@
           height: 100%;
           max-height: unset;
           border-bottom: unset;
-          background-color: rgba(1,1,4,1);
+          background-color: rgba(1, 1, 4, 1);
           backdrop-filter: unset;
-          padding: 96px clamp(16px, calc(32vw/7.68), 39px) 96px clamp(32px, calc(64vw/7.68), 78px);
+          padding: 96px clamp(16px, calc(32vw / 7.68), 39px) 96px clamp(32px, calc(64vw / 7.68), 78px);
           transform: translateX(8px);
         }
         &.services {
@@ -454,12 +507,12 @@
               grid-template-columns: 1fr;
               gap: 24px;
               a {
-                &:not(:last-child){
+                &:not(:last-child) {
                   margin-bottom: 12px;
                   padding-bottom: 0;
                 }
                 &.heading {
-                  &:not(:first-child){
+                  &:not(:first-child) {
                     margin-top: 24px;
                     padding-top: 0;
                   }
@@ -520,7 +573,7 @@
                     align-items: center;
                     gap: 8px;
                     img {
-                      width: clamp(48px, calc(48vw/7.68), 78px);
+                      width: clamp(48px, calc(48vw / 7.68), 78px);
                     }
                   }
                 }
@@ -547,7 +600,7 @@
       nav {
         transform: translateX(0);
         visibility: visible;
-        transition: transform .5s var(--easing);
+        transition: transform 0.5s var(--easing);
       }
     }
   }
@@ -560,29 +613,29 @@
   overflow: hidden;
   svg {
     flex-shrink: 0;
-    transition: transform .45s 0s var(--easing);
+    transition: transform 0.45s 0s var(--easing);
     transform: translateX(-100%);
   }
   span {
-    transition: transform .45s .05s var(--easing);
+    transition: transform 0.45s 0.05s var(--easing);
     transform: translateX(-20px);
   }
   &:hover {
     svg {
       transform: translateX(0);
-      transition-delay: .05s;
+      transition-delay: 0.05s;
     }
     span {
       transform: translateX(0);
       transition-delay: 0s;
     }
-  }  
-  &:not(:last-child){
+  }
+  &:not(:last-child) {
     margin: 0;
     padding-bottom: 12px;
   }
   &.heading {
-    &:not(:first-child){
+    &:not(:first-child) {
       padding-top: 24px;
     }
   }
@@ -590,16 +643,16 @@
 
 .overlay {
   z-index: 1;
-  @media (min-width: 1080px){
+  @media (min-width: 1080px) {
     z-index: -2;
   }
   position: fixed;
   top: 0;
   height: 100vh;
   width: 100%;
-  background-color: rgba(0,0,0,.4);
+  background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   opacity: 0;
-  transition: opacity .5s var(--easing);
+  transition: opacity 0.5s var(--easing);
   pointer-events: none;
 }
